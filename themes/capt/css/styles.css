@@ -43,7 +43,8 @@ body {
 
 ul.menu a,
 ul.menu a:visited,
-input[type="submit"] {
+input[type="submit"],
+a.button {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
   border-radius: 5px;
@@ -51,10 +52,14 @@ input[type="submit"] {
   background: #292929;
   padding: 8px 20px 8px 20px;
   text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
 }
 
 ul.menu a:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+a.button:hover {
   background: #595959;
   text-decoration: none;
 }
@@ -164,8 +169,8 @@ table thead th {
     padding-left: 0;
 }
 
-#block-block-4,
-#block-block-5 {
+#block-block-1,
+#block-block-2 {
     background: #c8dbe6;
     text-align: center;
     padding: 20px;
@@ -188,3 +193,18 @@ body {
     background: #FFF;
     padding-bottom: 2em;
 }
+
+
+.group-dates,
+.group-event,
+.group-presenter,
+.group-materials {
+    clear: both;
+}
+
+.field-name-add-a-date + .field,
+.field-name-add-a-presenter + .field {
+    clear: both;
+}
+
+
