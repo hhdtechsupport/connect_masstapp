@@ -18,54 +18,54 @@
 /* @import "theme-B.css"; */
 /* variables */
 /*variables, yo!*/
-/* line 43, ../sass/styles.scss */
+/* mixins */
+/* from Hemali's primary styles */
+/* line 52, ../sass/styles.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.85em;
+  font-size: 13px;
+  color: #333333;
 }
 
-/* line 50, ../sass/styles.scss */
+/* line 59, ../sass/styles.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 56, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 .ds-2col-stacked-fluid > .group-left {
   margin-right: 1%;
   width: 49%;
 }
 
-/* line 61, ../sass/styles.scss */
-ul.main-menu a {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  color: #ffffff;
-  background: #292929;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
-}
-/* line 72, ../sass/styles.scss */
-ul.main-menu a:visited {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  color: #ffffff;
-  background: #292929;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
+/* from the Hemali's first and second style sheets */
+/* these are the top nav form buttons. */
+/* to do: dropdown menu */
+/* line 74, ../sass/styles.scss */
+ul.main-menu {
+  margin-top: 40px;
 }
 
-/* line 86, ../sass/styles.scss */
+/* line 77, ../sass/styles.scss */
+ul.main-menu a {
+  color: #333333;
+  /* correct shade of grey? */
+  background: #eef1f3;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+}
+/* line 87, ../sass/styles.scss */
+ul.main-menu a:active {
+  color: #8c1d18;
+}
+
+/* line 93, ../sass/styles.scss */
 input[type="submit"] {
   -webkit-border-radius: 5;
   -moz-border-radius: 5;
@@ -79,23 +79,11 @@ input[type="submit"] {
   appearance: normal;
 }
 
-/* line 99, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 a.button {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  color: #ffffff;
-  background: #292929;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
-}
-/* line 110, ../sass/styles.scss */
-a.button:visited {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   color: #ffffff;
   background: #292929;
@@ -106,23 +94,24 @@ a.button:visited {
   appearance: normal;
 }
 
-/* line 124, ../sass/styles.scss */
-ul.main-menu a:hover, input[type="submit"]:hover, a.button:hover {
+/*ul.main-menu a:hover, */
+/* line 119, ../sass/styles.scss */
+input[type="submit"]:hover, a.button:hover {
   background: #595959;
   text-decoration: none;
 }
 
-/* line 129, ../sass/styles.scss */
+/* line 124, ../sass/styles.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 131, ../sass/styles.scss */
+/* line 126, ../sass/styles.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 137, ../sass/styles.scss */
+/* line 132, ../sass/styles.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -130,13 +119,13 @@ input[type="submit"] {
   margin-top: 1em;
 }
 
-/* line 144, ../sass/styles.scss */
+/* line 139, ../sass/styles.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 149, ../sass/styles.scss */
+/* line 144, ../sass/styles.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -144,36 +133,38 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 156, ../sass/styles.scss */
+/* line 151, ../sass/styles.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 161, ../sass/styles.scss */
+/* line 156, ../sass/styles.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 166, ../sass/styles.scss */
+/* line 161, ../sass/styles.scss */
 h5 {
   font-size: 1em;
   margin-bottom: .5em;
 }
 
-/* line 172, ../sass/styles.scss */
+/* the main panels */
+/* line 167, ../sass/styles.scss */
 .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds {
-  background: #efeef5;
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
-  padding: 10px;
+  background-color: #eef1f3;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-width: 0px;
+  /* the rule */
+  border-top: 5px solid #577785;
   margin-bottom: 10px;
-  border: 3px solid #cdcdcd;
 }
 
-/* line 183, ../sass/styles.scss */
+/* line 180, ../sass/styles.scss */
 .node-event .group-right .group-materials {
   background: #efeef5;
   -webkit-border-radius: 5;
@@ -181,71 +172,77 @@ h5 {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  border: 3px solid #cdcdcd;
+  /*border: 3px solid #cdcdcd;*/
 }
 
+/* adopting h4:black for this one */
 /* line 193, ../sass/styles.scss */
 .node-dashboard h2.block-title {
+  /* artifacts */
   margin-top: 0;
   margin-bottom: 0.5em;
+  /* new */
+  font-size: 24px;
+  color: #333333;
+  /* new stuff */
 }
 
-/* line 198, ../sass/styles.scss */
+/* line 205, ../sass/styles.scss */
 li.views-row {
   margin-bottom: 1em;
 }
 
-/* line 203, ../sass/styles.scss */
+/* line 210, ../sass/styles.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 207, ../sass/styles.scss */
+/* line 214, ../sass/styles.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 212, ../sass/styles.scss */
+/* line 219, ../sass/styles.scss */
 .field-group-fieldset, .view-presenters .views-row {
   clear: both;
 }
 
-/* line 216, ../sass/styles.scss */
+/* line 223, ../sass/styles.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 220, ../sass/styles.scss */
+/* line 227, ../sass/styles.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 225, ../sass/styles.scss */
+/* line 232, ../sass/styles.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 230, ../sass/styles.scss */
+/* line 237, ../sass/styles.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 232, ../sass/styles.scss */
+/* line 239, ../sass/styles.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 237, ../sass/styles.scss */
+/* line 244, ../sass/styles.scss */
 table {
   width: 100%;
 }
-/* line 239, ../sass/styles.scss */
+/* line 246, ../sass/styles.scss */
 table thead th {
   text-align: left;
 }
 
-/* line 244, ../sass/styles.scss */
+/* line 251, ../sass/styles.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -255,110 +252,121 @@ table thead th {
   padding-left: 0;
 }
 
-/* line 253, ../sass/styles.scss */
+/* line 260, ../sass/styles.scss */
 .view-registrations table {
   margin-bottom: 50px;
 }
-/* line 255, ../sass/styles.scss */
+/* line 262, ../sass/styles.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: .2em 0;
 }
 
-/* line 261, ../sass/styles.scss */
+/* line 268, ../sass/styles.scss */
 body {
   background: #c8d3e6;
 }
 
-/* line 265, ../sass/styles.scss */
+/*
+ * to do: add background-image to top and bottom headers. 
+ */
+/* line 275, ../sass/styles.scss */
 .top-header {
   width: 100%;
-  border-bottom: 5px solid black;
+  /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 271, ../sass/styles.scss */
+/* line 281, ../sass/styles.scss */
 .bottom-footer {
   width: 100%;
-  border-top: 5px solid black;
+  /*border-top: 5px solid black;*/
   height: 100px;
 }
 
-/* line 277, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 .top-header-container, .bottom-footer-container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
 }
 
-/* line 283, ../sass/styles.scss */
+/* line 293, ../sass/styles.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 287, ../sass/styles.scss */
+/* line 297, ../sass/styles.scss */
 .samhsa-logo {
   float: right;
 }
 
-/* line 291, ../sass/styles.scss */
+/* line 301, ../sass/styles.scss */
 .disclaimer {
   width: 600px;
 }
 
-/* line 295, ../sass/styles.scss */
+/* treating this as the container for now */
+/* line 306, ../sass/styles.scss */
+#main {
+  width: 1000px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* line 311, ../sass/styles.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
   clear: both;
 }
 
-/* line 301, ../sass/styles.scss */
+/* line 317, ../sass/styles.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 306, ../sass/styles.scss */
+/* line 322, ../sass/styles.scss */
 .region-header {
   float: right;
 }
-/* line 308, ../sass/styles.scss */
+/* line 324, ../sass/styles.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 313, ../sass/styles.scss */
+/* line 329, ../sass/styles.scss */
 .group-dates, .group-event, .group-presenter, .group-materials, .field-name-add-a-date + .field, .field-name-add-a-presenter + .field {
   clear: both;
 }
 
-/* line 317, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 322, ../sass/styles.scss */
+/* line 338, ../sass/styles.scss */
 .ds-2col > .group-left {
   float: left;
   width: auto;
   margin-right: 280px;
 }
-/* line 327, ../sass/styles.scss */
+/* line 343, ../sass/styles.scss */
 .ds-2col > .group-right {
   float: left;
   width: 240px;
   margin-left: -260px;
 }
 
-/* line 334, ../sass/styles.scss */
+/* line 350, ../sass/styles.scss */
 .node-type-event #title-section {
   width: auto;
   margin-right: 280px;
   float: left;
 }
 
-/* line 340, ../sass/styles.scss */
+/* line 356, ../sass/styles.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -368,30 +376,31 @@ body {
   margin-top: 1em;
 }
 
-/* line 349, ../sass/styles.scss */
+/* line 365, ../sass/styles.scss */
 .view-event-banner .views-row {
   font-size: 3em;
   font-weight: bold;
 }
 
-/* line 354, ../sass/styles.scss */
+/* line 370, ../sass/styles.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 359, ../sass/styles.scss */
+/* form stuff */
+/* line 377, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single {
   float: left;
   width: 56%;
   padding-right: 1%;
   clear: both;
 }
-/* line 365, ../sass/styles.scss */
+/* line 383, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup {
   float: left;
   width: 43%;
 }
-/* line 368, ../sass/styles.scss */
+/* line 386, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup .views-field-field-email-body > div > div > table {
   margin: 0 1.5% !important;
   transform: scale(0.75);
@@ -399,17 +408,72 @@ body {
   -moz-transform: scale(0.75);
   -moz-transform-origin: top left;
 }
-/* line 376, ../sass/styles.scss */
+/* line 394, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 381, ../sass/styles.scss */
+/* line 399, ../sass/styles.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 385, ../sass/styles.scss */
+/* line 403, ../sass/styles.scss */
 .rules-debug-log, .tabs-primary {
   clear: both;
+}
+
+/* new styles */
+/* not used yet */
+/* line 409, ../sass/styles.scss */
+.back-to-top {
+  color: #333333;
+}
+
+/* line 412, ../sass/styles.scss */
+.content-container {
+  width: 970px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* not used yet */
+/* line 419, ../sass/styles.scss */
+h4.black {
+  color: #333333;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 9px;
+}
+
+/* front page classes */
+/* line 429, ../sass/styles.scss */
+.field-name-my-registered-events {
+  height: 245px;
+}
+/* line 431, ../sass/styles.scss */
+.field-name-my-registered-events .view-dashboard {
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+  /*estimated*/
+  height: 170px;
+}
+
+/* line 440, ../sass/styles.scss */
+.field-name-my-archived-events {
+  padding-bottom: 20px;
+}
+/* line 442, ../sass/styles.scss */
+.field-name-my-archived-events h2 {
+  font-weight: normal;
+}
+/* line 445, ../sass/styles.scss */
+.field-name-my-archived-events .view-dashboard {
+  border-top: 1px solid #d7d7d7;
+}
+
+/* line 450, ../sass/styles.scss */
+ul#main-menu.main-menu {
+  margin-top: 20px;
 }
