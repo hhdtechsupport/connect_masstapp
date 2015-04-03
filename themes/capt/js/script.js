@@ -17,11 +17,15 @@
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
+  
+    // Print to console log
     function cl(thing){
       if(typeof(console) !== 'undefined' && console != null){
         console.log(thing);
       }
     }
+    
+    
     
     // Remove later on... this is just for theme dev
     if(!(($('body').hasClass('role-administrator')) || ($('body').hasClass('role-event-creator')))) {
@@ -32,17 +36,58 @@ Drupal.behaviors.my_custom_behavior = {
     
     
     
-    // (1) Hide notification fields if "Do not send this type of notification" selected; (2) limit default template options
+    
+    // Reduce height of the surrounding divs for scaled notification previews
+    $('.form-field-type-markup .views-field-field-email-body > div > div > table').each(function(){
+      var height = $(this).height();
+      cl(height); // Becomes 0 because of the collapsed fieldsets... need to fix
+      $(this).parent().css('height', height*.75);
+    });
+    
+    
+    
+    // Add user registration using exposed entityform in the event-specific registrations view
+    $entityform = $('.view-registrations #add-user-registration-entityform-edit-form');
+    $entityformInstance = $entityform.find('#edit-field-entityform-instance');
+    $entityformUser = $entityform.find('#edit-field-entityform-user');
+    
+    $entityformUser.hide();
+    
+    $entityformInstance.find('select').on('change', function(){
+      
+      var instanceNID;
+      var userUID;
+      
+      $entityformUser.find('option[value="_none"]').prop('selected',true);
+
+      if ($(this).find('option:selected').val() != '_none') {
+        instanceNID = $(this).val();
+        $entityformUser.show();
+      }
+      else {
+        $entityformUser.hide();
+      }
+        
+      
+    });
+    
+    
+    
+    
+    // Limit default template options and hide notification fields if "Do not send this type of notification" selected
     
     var subject = '';
     var body = '';
     
-    $('.group-notifications .form-field-type-entityreference').each(function(){
+    $('#event-notifications-node-form .form-field-type-entityreference').each(function(){
       
+      // Store the contents of the fieldset in a variable
       var $notificationForm = $(this).children('div').children('fieldset');
       
+      // Get the "do not send this type of notification" checkbox
       var $preventCheckbox = $notificationForm.find('.field-name-field-prevent-notification');
       
+      // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
       if ($preventCheckbox.find('input').prop('checked')) {
         $notificationForm.children('.fieldset-wrapper').children('.form-wrapper').children('div').each(function(){
           $(this).css('display','none');
@@ -50,7 +95,9 @@ Drupal.behaviors.my_custom_behavior = {
         $preventCheckbox.css('display','block');
       }
       
+      // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
       $preventCheckbox.find('input').change(function(){
+        
         if (this.checked) {
           $notificationForm.children('.fieldset-wrapper').children('.form-wrapper').children('div').each(function(){
             $(this).css('display','none');
@@ -65,7 +112,9 @@ Drupal.behaviors.my_custom_behavior = {
         
       });
       
+      // Limit the available default templates to those that fit the type of notification, based on taxonomy
       $notificationForm.find('.field-name-field-use-a-default-template select option').each(function(){
+        
         var optionValue = $(this).text().trim();
         var optionCategory = optionValue.split('|');
         var notificationLabel = $notificationForm.children('legend').text().trim();
@@ -78,8 +127,6 @@ Drupal.behaviors.my_custom_behavior = {
         }
         
       });
-      
-      
       
     });
     
@@ -131,7 +178,7 @@ Drupal.behaviors.my_custom_behavior = {
       
     });
     
-    
+
     
     
 
