@@ -6,20 +6,379 @@
  * of these @include files will be combined into a single file.
  */
 
-/* Import Sass mixins, variables, Compass modules, etc. */
-@import "init";
 
 /* HTML element (SMACSS base) rules */
-@import "normalize";
+@import "normalize.css";
 
 /* Layout rules */
-@import "layouts/responsive";
+@import "layouts/responsive.css";
 
 /* Component (SMACSS module) rules */
-@import "components/misc";
-// Optionally, add your own components here.
-@import "print";
+@import "components/misc.css";
+
+/* Optionally, add your own components here. */
+@import "print.css";
 
 /* SMACSS theme rules */
-/* @import "theme-A"; */
-/* @import "theme-B"; */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+
+/* variables */
+
+/*variables, yo!*/
+$default-stack: Arial, Helvetica, sans-serif;
+$capt-orange: #c3791f; 
+$capt-maroon: #8c1d18;
+$capt-green: #888a55;
+$capt-aqua: #577785;
+$capt-darkblue: #334b56;
+$capt-black: #333333;
+$capt-darkgrey: #959595;
+$capt-midgrey: #d7d7d7;
+$capt-lightgrey: #eef1f3;
+
+body {
+  /* changed font per the spec */
+  font-family: $default-stack;
+  font-size: 0.85em;
+
+}
+
+#page > header {
+  position: relative;
+  padding-bottom: 20px;
+  background: #86a9b5;
+}
+
+.ds-2col-stacked-fluid > .group-left {
+  margin-right: 1%;
+  width: 49%;
+}
+
+ul.main-menu a {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #292929;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+  &:visited {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    color: #ffffff;
+    background: #292929;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: normal;
+  }
+}
+
+input[type="submit"] {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #292929;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+}
+
+a.button {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #292929;
+  padding: 8px 20px 8px 20px;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
+  &:visited {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    color: #ffffff;
+    background: #292929;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: normal;
+  }
+}
+
+ul.main-menu a:hover, input[type="submit"]:hover, a.button:hover {
+  background: #595959;
+  text-decoration: none;
+}
+
+ul.sub-menu {
+  background: #292929;
+  li {
+    white-space: nowrap;
+    margin: 6px 0;
+  }
+}
+
+input[type="submit"] {
+  margin-right: 1em;
+  border: none;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+h1 {
+  font-size: 3.25em;
+  line-height: 1.25em;
+}
+
+h2 {
+  font-size: 2.25em;
+  line-height: 1.25em;
+  margin-top: .5em;
+  margin-bottom: .5em;
+}
+
+h3 {
+  font-size: 1.75em;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 1.25em;
+  margin-bottom: .5em;
+}
+
+h5 {
+  font-size: 1em;
+  margin-bottom: .5em;
+}
+
+.node-dashboard {
+  .group-left .field-type-ds, .group-right .field-type-ds {
+    background: #efeef5;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 3px solid #cdcdcd;
+  }
+}
+
+.node-event .group-right .group-materials {
+  background: #efeef5;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 3px solid #cdcdcd;
+}
+
+.node-dashboard h2.block-title {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+li.views-row {
+  margin-bottom: 1em;
+}
+
+.view-presenters {
+  .views-field-field-presenter-image {
+    float: left;
+    margin: 0 1em 0.5em 0;
+  }
+  .views-row:not(last-child) {
+    margin-bottom: 2em;
+  }
+}
+
+.field-group-fieldset, .view-presenters .views-row {
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3884e1;
+  &:visited {
+    text-decoration: none;
+    font-weight: bold;
+    color: #3884e1;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.tabs-primary__tab a {
+  color: #333;
+  &:visited {
+    color: #333;
+  }
+}
+
+table {
+  width: 100%;
+  thead th {
+    text-align: left;
+  }
+}
+
+.admin-only {
+  background: #c7ff86;
+  float: right;
+  width: 150px;
+  list-style-type: none;
+  text-align: center;
+  padding-left: 0;
+}
+
+.view-registrations table {
+  margin-bottom: 50px;
+  caption {
+    font-size: 1.5em;
+    margin: .2em 0;
+  }
+}
+
+body {
+  background: #c8d3e6;
+}
+
+.top-header {
+  width: 100%;
+  border-bottom: 5px solid black;
+  height: 30px;
+}
+
+.bottom-footer {
+  width: 100%;
+  border-top: 5px solid black;
+  height: 100px;
+}
+
+.top-header-container, .bottom-footer-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+}
+
+.capt-logo {
+  float: left;
+}
+
+.samhsa-logo {
+  float: right;
+}
+
+.disclaimer {
+  width: 600px;
+}
+
+#page {
+  background: #FFF;
+  padding-bottom: 2em;
+  clear: both;
+}
+
+.header__name-and-slogan {
+  float: none;
+  clear: both;
+}
+
+.region-header {
+  float: right;
+  div, form {
+    display: inline;
+  }
+}
+
+.group-dates, .group-event, .group-presenter, .group-materials, .field-name-add-a-date + .field, .field-name-add-a-presenter + .field {
+  clear: both;
+}
+
+.view-instances.view-display-id-registration > .view-content > .views-row div {
+  display: inline;
+}
+
+.ds-2col > {
+  .group-left {
+    float: left;
+    width: auto;
+    margin-right: 280px;
+  }
+  .group-right {
+    float: left;
+    width: 240px;
+    margin-left: -260px;
+  }
+}
+
+.node-type-event #title-section {
+  width: auto;
+  margin-right: 280px;
+  float: left;
+}
+
+.region-help #block-block-1 {
+  text-align: center;
+  float: right;
+  margin-left: -260px;
+  width: 240px;
+  padding-right: 10px;
+  margin-top: 1em;
+}
+
+.view-event-banner .views-row {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.vertical-tabs {
+  clear: both;
+}
+
+#event-notifications-node-form {
+  .form-field-type-entityreference.field-widget-inline-entity-form-single {
+    float: left;
+    width: 56%;
+    padding-right: 1%;
+    clear: both;
+  }
+  .form-field-type-markup {
+    float: left;
+    width: 43%;
+    .views-field-field-email-body > div > div > table {
+      margin: 0 1.5% !important;
+      transform: scale(0.75);
+      transform-origin: 0 0;
+      -moz-transform: scale(0.75);
+      -moz-transform-origin: top left;
+    }
+  }
+  .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
+    display: none;
+  }
+}
+
+.role-event-creator .text-format-wrapper .filter-wrapper {
+  display: none;
+}
+
+.rules-debug-log, .tabs-primary {
+  clear: both;
+}
