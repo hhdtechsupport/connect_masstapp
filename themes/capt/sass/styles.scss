@@ -40,6 +40,7 @@ $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
 
 
+
 /* mixins */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -438,33 +439,39 @@ h4.black {
   }
 }
 
-.field-name-my-archived-events,
-.field-name-my-registered-events 
- {
-  padding-bottom: 20px;
-  h2 {
-    font-weight: normal;
-  }
-  .view-dashboard {
-    border-top: 1px solid $capt-midgrey;
-  }
-}
-/* needing to be super-specific here. hopefully we can be less specific.*/
+/* file path logic: */ 
 
-/* also annoyed about the repetition.*/
+/* title of events page */
+/* font size and position may need to be fine-tuned */
+h1#page-title {
+
+   background: url('../images/icons/create-event.png') 0px 0px no-repeat;
+   padding-left: 70px; /* variable? deviate from spec and reduce? */
+   padding-top: 7px;
+   font-weight: normal;
+   color: $capt-maroon;
+   min-height: 44px;
+   font-size: 26pt;
+       /* from h2 in the specs */
+   margin-top: 55px;
+   margin-bottom: 35px;
+}
+
 body.logged-in {
 
-  .field-name-upcoming-events {
+  .field-name-upcoming-events.field-type-ds {
+        background-color: white;
+   /* from specs */
    h2 {
     font-weight: normal;
-    color: $capt-maroon;
+
+ 
    } 
   }
 
-  .field-name-upcoming-events.field-type-ds {
-     background-color: white;
-     border-top: 0px;
-  }
+}
+h2#page-title {
+
 }
 
 
