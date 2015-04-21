@@ -439,7 +439,8 @@ h4.black {
 }
 
 .field-name-my-archived-events,
-.field-name-my-registered-events {
+.field-name-my-registered-events 
+ {
   padding-bottom: 20px;
   h2 {
     font-weight: normal;
@@ -448,6 +449,24 @@ h4.black {
     border-top: 1px solid $capt-midgrey;
   }
 }
+/* needing to be super-specific here. hopefully we can be less specific.*/
+
+/* also annoyed about the repetition.*/
+body.logged-in {
+
+  .field-name-upcoming-events {
+   h2 {
+    font-weight: normal;
+    color: $capt-maroon;
+   } 
+  }
+
+  .field-name-upcoming-events.field-type-ds {
+     background-color: white;
+     border-top: 0px;
+  }
+}
+
 
 ul#main-menu.main-menu {
 
