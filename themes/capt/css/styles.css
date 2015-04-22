@@ -20,7 +20,7 @@
 /*variables, yo!*/
 /* mixins */
 /* from Hemali's primary styles */
-/* line 53, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -28,14 +28,14 @@ body {
   color: #333333;
 }
 
-/* line 60, ../sass/styles.scss */
+/* line 72, ../sass/styles.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 66, ../sass/styles.scss */
+/* line 78, ../sass/styles.scss */
 .ds-2col-stacked-fluid > .group-left {
   margin-right: 1%;
   width: 49%;
@@ -44,12 +44,12 @@ body {
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
 /* to do: dropdown menu */
-/* line 75, ../sass/styles.scss */
+/* line 87, ../sass/styles.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
-/* line 78, ../sass/styles.scss */
+/* line 90, ../sass/styles.scss */
 ul.main-menu a {
   color: #333333;
   /* correct shade of grey? */
@@ -60,16 +60,17 @@ ul.main-menu a {
   -moz-appearance: none;
   appearance: normal;
 }
-/* line 88, ../sass/styles.scss */
+/* line 100, ../sass/styles.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit */
-/* line 95, ../sass/styles.scss */
+/* line 107, ../sass/styles.scss */
 input[type="submit"] {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   color: #ffffff;
   background: #292929;
@@ -80,7 +81,7 @@ input[type="submit"] {
   appearance: normal;
 }
 
-/* line 109, ../sass/styles.scss */
+/* line 119, ../sass/styles.scss */
 a.button {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -96,37 +97,37 @@ a.button {
 }
 
 /*ul.main-menu a:hover, */
-/* line 121, ../sass/styles.scss */
+/* line 131, ../sass/styles.scss */
 input[type="submit"]:hover, a.button:hover {
   background: #595959;
   text-decoration: none;
 }
 
-/* line 126, ../sass/styles.scss */
+/* line 136, ../sass/styles.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 128, ../sass/styles.scss */
+/* line 138, ../sass/styles.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 134, ../sass/styles.scss */
+/* line 144, ../sass/styles.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
-  font-weight: bold;
+  /*font-weight: bold;*/
   margin-top: 1em;
 }
 
-/* line 141, ../sass/styles.scss */
+/* line 151, ../sass/styles.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 146, ../sass/styles.scss */
+/* line 156, ../sass/styles.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -134,26 +135,26 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 153, ../sass/styles.scss */
+/* line 163, ../sass/styles.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 158, ../sass/styles.scss */
+/* line 168, ../sass/styles.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 163, ../sass/styles.scss */
+/* line 173, ../sass/styles.scss */
 h5 {
   font-size: 1em;
   margin-bottom: .5em;
 }
 
 /* the main panels */
-/* line 169, ../sass/styles.scss */
+/* line 179, ../sass/styles.scss */
 .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds {
   background-color: #eef1f3;
   padding-top: 20px;
@@ -165,11 +166,12 @@ h5 {
   margin-bottom: 10px;
 }
 
-/* line 182, ../sass/styles.scss */
+/* line 192, ../sass/styles.scss */
 .node-event .group-right .group-materials {
   background: #efeef5;
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
@@ -177,7 +179,7 @@ h5 {
 }
 
 /* adopting h4:black for this one */
-/* line 195, ../sass/styles.scss */
+/* line 203, ../sass/styles.scss */
 .node-dashboard h2.block-title {
   /* artifacts */
   margin-top: 0;
@@ -188,62 +190,62 @@ h5 {
   /* new stuff */
 }
 
-/* line 207, ../sass/styles.scss */
+/* line 215, ../sass/styles.scss */
 li.views-row {
   margin-bottom: 1em;
 }
 
-/* line 212, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 216, ../sass/styles.scss */
+/* line 224, ../sass/styles.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 221, ../sass/styles.scss */
+/* line 229, ../sass/styles.scss */
 .field-group-fieldset, .view-presenters .views-row {
   clear: both;
 }
 
-/* line 225, ../sass/styles.scss */
+/* line 233, ../sass/styles.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 229, ../sass/styles.scss */
+/* line 237, ../sass/styles.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 234, ../sass/styles.scss */
+/* line 242, ../sass/styles.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 239, ../sass/styles.scss */
+/* line 247, ../sass/styles.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 241, ../sass/styles.scss */
+/* line 249, ../sass/styles.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 246, ../sass/styles.scss */
+/* line 254, ../sass/styles.scss */
 table {
   width: 100%;
 }
-/* line 248, ../sass/styles.scss */
+/* line 256, ../sass/styles.scss */
 table thead th {
   text-align: left;
 }
 
-/* line 253, ../sass/styles.scss */
+/* line 261, ../sass/styles.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -253,121 +255,124 @@ table thead th {
   padding-left: 0;
 }
 
-/* line 262, ../sass/styles.scss */
+/* line 270, ../sass/styles.scss */
 .view-registrations table {
   margin-bottom: 50px;
 }
-/* line 264, ../sass/styles.scss */
+/* line 272, ../sass/styles.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: .2em 0;
 }
 
-/* line 270, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 body {
-  background: #c8d3e6;
+  background: url("../images/design-elements/wrapper-background.png");
 }
 
 /*
  * to do: add background-image to top and bottom headers. 
  */
-/* line 277, ../sass/styles.scss */
+/* line 285, ../sass/styles.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 283, ../sass/styles.scss */
+/* line 291, ../sass/styles.scss */
 .bottom-footer {
   width: 100%;
   /*border-top: 5px solid black;*/
   height: 100px;
 }
 
-/* line 289, ../sass/styles.scss */
+/* line 297, ../sass/styles.scss */
 .top-header-container, .bottom-footer-container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
 }
 
-/* line 295, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 299, ../sass/styles.scss */
+/* line 307, ../sass/styles.scss */
 .samhsa-logo {
   float: right;
 }
 
-/* line 303, ../sass/styles.scss */
+/* line 311, ../sass/styles.scss */
 .disclaimer {
   width: 600px;
 }
 
 /* treating this as the container for now */
-/* line 308, ../sass/styles.scss */
+/* line 316, ../sass/styles.scss */
 #main {
   width: 1000px;
   margin-left: 12px;
-  margin-right: 12px;
+  margin-right: 14px;
 }
 
-/* line 313, ../sass/styles.scss */
+/* page */
+/* line 322, ../sass/styles.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
   clear: both;
+  /* from the spec */
+  width: 1000px;
 }
 
-/* line 319, ../sass/styles.scss */
+/* line 330, ../sass/styles.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 324, ../sass/styles.scss */
+/* line 335, ../sass/styles.scss */
 .region-header {
   float: right;
 }
-/* line 326, ../sass/styles.scss */
+/* line 337, ../sass/styles.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 331, ../sass/styles.scss */
+/* line 342, ../sass/styles.scss */
 .group-dates, .group-event, .group-presenter, .group-materials, .field-name-add-a-date + .field, .field-name-add-a-presenter + .field {
   clear: both;
 }
 
-/* line 335, ../sass/styles.scss */
+/* line 346, ../sass/styles.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 340, ../sass/styles.scss */
+/* line 351, ../sass/styles.scss */
 .ds-2col > .group-left {
   float: left;
   width: auto;
   margin-right: 280px;
 }
-/* line 345, ../sass/styles.scss */
+/* line 356, ../sass/styles.scss */
 .ds-2col > .group-right {
   float: left;
   width: 240px;
   margin-left: -260px;
 }
 
-/* line 352, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 .node-type-event #title-section {
   width: auto;
   margin-right: 280px;
   float: left;
 }
 
-/* line 358, ../sass/styles.scss */
+/* line 369, ../sass/styles.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -377,31 +382,31 @@ body {
   margin-top: 1em;
 }
 
-/* line 367, ../sass/styles.scss */
+/* line 378, ../sass/styles.scss */
 .view-event-banner .views-row {
   font-size: 3em;
   font-weight: bold;
 }
 
-/* line 372, ../sass/styles.scss */
+/* line 383, ../sass/styles.scss */
 .vertical-tabs {
   clear: both;
 }
 
 /* form stuff */
-/* line 379, ../sass/styles.scss */
+/* line 390, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single {
   float: left;
   width: 56%;
   padding-right: 1%;
   clear: both;
 }
-/* line 385, ../sass/styles.scss */
+/* line 396, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup {
   float: left;
   width: 43%;
 }
-/* line 388, ../sass/styles.scss */
+/* line 399, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup .views-field-field-email-body > div > div > table {
   margin: 0 1.5% !important;
   transform: scale(0.75);
@@ -409,29 +414,29 @@ body {
   -moz-transform: scale(0.75);
   -moz-transform-origin: top left;
 }
-/* line 396, ../sass/styles.scss */
+/* line 407, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 401, ../sass/styles.scss */
+/* line 412, ../sass/styles.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 405, ../sass/styles.scss */
+/* line 416, ../sass/styles.scss */
 .rules-debug-log, .tabs-primary {
   clear: both;
 }
 
 /* new styles */
 /* not used yet */
-/* line 411, ../sass/styles.scss */
+/* line 422, ../sass/styles.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 414, ../sass/styles.scss */
+/* line 425, ../sass/styles.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -439,7 +444,7 @@ body {
 }
 
 /* not used yet */
-/* line 421, ../sass/styles.scss */
+/* line 432, ../sass/styles.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -449,24 +454,58 @@ h4.black {
 }
 
 /* front page classes */
-/* line 431, ../sass/styles.scss */
+/* line 442, ../sass/styles.scss */
 .field-name-my-registered-events {
+  /* fixed height? */
   height: 245px;
+  background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
 }
-/* line 433, ../sass/styles.scss */
+/* line 447, ../sass/styles.scss */
 .field-name-my-registered-events .view-dashboard {
-  border-top: 1px solid #d7d7d7;
-  border-bottom: 1px solid #d7d7d7;
   /*estimated*/
   height: 170px;
+  border-bottom: 1px solid #d7d7d7;
 }
 
-/* file path logic: */
-/* title of events page */
-/* font size and position may need to be fine-tuned */
-/* line 446, ../sass/styles.scss */
+/* line 454, ../sass/styles.scss */
+.field-name-my-archived-events {
+  padding-bottom: 20px;
+  background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
+}
+
+/* line 461, ../sass/styles.scss */
+.field-name-my-archived-events .view-dashboard,
+.field-name-my-registered-events .view-dashboard {
+  border-top: 1px solid #d7d7d7;
+}
+
+/* upcoming events panel  */
+/* line 468, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds {
+  background-color: white;
+  /* from specs */
+}
+/* line 471, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds h2 {
+  font-weight: normal;
+}
+/* line 474, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds h3 {
+  font-style: normal;
+  font-size: 16px;
+}
+/* line 477, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds h3 a {
+  color: black;
+}
+
+/* 
+ *  Events Page
+ */
+/* title of events page; font size & position may need to be fine-tuned */
+/* line 487, ../sass/styles.scss */
 h1#page-title {
-  background: url("../images/icons/create-event.png") 0px 0px no-repeat;
+  background: url("../images/icons/create-event.png") 0 0 no-repeat;
   padding-left: 70px;
   /* variable? deviate from spec and reduce? */
   padding-top: 7px;
@@ -479,17 +518,196 @@ h1#page-title {
   margin-bottom: 35px;
 }
 
-/* line 462, ../sass/styles.scss */
-body.logged-in .field-name-upcoming-events.field-type-ds {
-  background-color: white;
-  /* from specs */
+/*logos above header - move up to general area? */
+/* line 502, ../sass/styles.scss */
+div.top-header {
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px 90px;
+  background-repeat: repeat-x;
+  /*background-image: url('../images/design-elements/rainbow-divider.png');
+  background-position: -124px $header-height - $rainbow-height;
+  background-repeat: repeat-x;*/
+  height: 100px;
 }
-/* line 465, ../sass/styles.scss */
-body.logged-in .field-name-upcoming-events.field-type-ds h2 {
+
+/* line 511, ../sass/styles.scss */
+div.top-header-container {
+  height: 100px;
+  width: 1000px;
+  /* logos */
+}
+/* line 517, ../sass/styles.scss */
+div.top-header-container div.capt-logo {
+  background: url("../images/logos/CAPT-logo.png") 0 0 no-repeat;
+  width: 340px;
+  margin-left: 16px;
+  margin-bottom: 0px;
+  top: 32px;
+}
+/* line 525, ../sass/styles.scss */
+div.top-header-container div.samhsa-logo {
+  background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
+  width: 295px;
+  background-size: 295px 73px;
+  margin-right: 16px;
+  top: 6px;
+}
+/* line 534, ../sass/styles.scss */
+div.top-header-container div.capt-logo, div.top-header-container div.samhsa-logo {
+  height: 100px;
+  position: relative;
+}
+
+/* Welcome Info */
+/* line 541, ../sass/styles.scss */
+div#block-block-7 {
+  color: white;
+}
+/* line 543, ../sass/styles.scss */
+div#block-block-7 a {
+  color: white;
+  font-weight: normal;
+  text-decoration: underline;
+}
+
+/* search */
+/* line 550, ../sass/styles.scss */
+input#edit-search-block-form--2 {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  border: 0px;
+  margin-left: 16px;
+  height: 22px;
+  width: 170px;
   font-weight: normal;
 }
 
-/* line 478, ../sass/styles.scss */
+/* line 559, ../sass/styles.scss */
+input#edit-submit {
+  border: 1px solid white;
+  background-color: transparent;
+  height: 24px;
+  padding: 4px;
+  width: 70px;
+  margin-left: 8px;
+}
+
+/* 
+ *  Banners
+ */
+/* Event Dashboard banner */
+/* line 573, ../sass/styles.scss */
+header#header {
+  height: 191px;
+  background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
+}
+
+/* 
+ *  Navigation
+ */
+/* line 585, ../sass/styles.scss */
+#block-responsive-dropdown-menus-main-menu {
+  margin-left: -10px;
+  /*border-bottom: 1px solid $capt-midgrey;*/
+  height: 27px;
+  width: 970px;
+  padding-left: 0px;
+}
+
+/* line 592, ../sass/styles.scss */
+ul#main-menu.main-menu {
+  border-bottom: 1px solid #d7d7d7;
+  width: 970px;
+  margin-left: 2px;
+  height: 27px;
+}
+/* line 600, ../sass/styles.scss */
+ul#main-menu.main-menu li.menu-item a {
+  text-transform: uppercase;
+  background-color: #d7d7d7;
+}
+/* line 605, ../sass/styles.scss */
+ul#main-menu.main-menu li.menu-item a.active {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-bottom: 1px solid white;
+  color: #8c1d18;
+}
+
+/* dropdown */
+/* line 617, ../sass/styles.scss */
+li.menu-parent ul.sub-menu {
+  width: 194px;
+  padding: 0px;
+}
+/* line 620, ../sass/styles.scss */
+li.menu-parent ul.sub-menu li {
+  width: 194px;
+  padding: 0px;
+  margin: 0px;
+  height: 32px;
+  background-color: #959595;
+  display: block;
+}
+/* line 628, ../sass/styles.scss */
+li.menu-parent ul.sub-menu li a {
+  width: 184px;
+  border: 1px solid #959595;
+  display: block;
+  margin: 0px;
+  height: 28px;
+  padding: 4px 0 0 0;
+  padding-left: 20px;
+}
+/* line 638, ../sass/styles.scss */
+li.menu-parent ul.sub-menu li li#menu-item-1187.menu-item.last a {
+  height: 34px;
+  background-color: orange;
+}
+
+/* site name */
+/* line 647, ../sass/styles.scss */
+h1#site-name, div.samhsa-logo, div.capt-logo {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* line 654, ../sass/styles.scss */
 ul#main-menu.main-menu {
   margin-top: 20px;
+}
+
+/* footer */
+/* line 658, ../sass/styles.scss */
+div.bottom-footer {
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px 0px;
+  background-repeat: repeat-x;
+}
+/* line 660, ../sass/styles.scss */
+div.bottom-footer div.disclaimer {
+  margin-left: 36px;
+  position: relative;
+  top: 40px;
+  font-size: 10px;
+  line-height: 12px;
+  width: 390px;
+}
+
+/* event dashboard content */
+/* line 671, ../sass/styles.scss */
+div#content {
+  border: 1px solid #d7d7d7;
+  width: 970px;
+  height: 817px;
+  padding-right: 15px;
+  margin-left: 2px;
+  margin-right: 5px;
+  z-index: 10px;
+  top: 8px;
+  position: relative;
+  border-top: 1px solid white;
 }

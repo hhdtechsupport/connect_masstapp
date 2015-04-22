@@ -7,46 +7,58 @@
  */
 
 
-/* HTML element (SMACSS base) rules */
-@import "normalize.css";
+ /* HTML element (SMACSS base) rules */
+ @import "normalize.css";
 
-/* Layout rules */
-@import "layouts/responsive.css";
+ /* Layout rules */
+ @import "layouts/responsive.css";
 
-/* Component (SMACSS module) rules */
-@import "components/misc.css";
+ /* Component (SMACSS module) rules */
+ @import "components/misc.css";
 
-/* Optionally, add your own components here. */
-@import "print.css";
+ /* Optionally, add your own components here. */
+ @import "print.css";
 
-/* SMACSS theme rules */
-/* @import "theme-A.css"; */
-/* @import "theme-B.css"; */
+ /* SMACSS theme rules */
+ /* @import "theme-A.css"; */
+ /* @import "theme-B.css"; */
 
-/* variables */
+ /* variables */
 
-/*variables, yo!*/
-$default-stack: Arial, Helvetica, sans-serif;
+ /*variables, yo!*/
+ $default-stack: Arial, Helvetica, sans-serif;
 
-$capt-orange: #c3791f; 
-$capt-maroon: #8c1d18;
-$capt-green: #888a55;
-$capt-aqua: #577785;
-$capt-darkblue: #334b56;
+ $capt-orange: #c3791f; 
+ $capt-maroon: #8c1d18;
+ $capt-green: #888a55;
+ $capt-aqua: #577785;
+ $capt-darkblue: #334b56;
 
-$capt-black: #333333;
-$capt-darkgrey: #959595;
-$capt-midgrey: #d7d7d7;
-$capt-lightgrey: #eef1f3;
+ $capt-black: #333333;
+ $capt-darkgrey: #959595;
+ $capt-midgrey: #d7d7d7;
+ $capt-lightgrey: #eef1f3;
 
+ $header-height: 100px;
+ $rainbow-height: 10px;
+ $page-width: 1000px;
+ $logo-margin: 16px;
+ $dash-nudge: 2px;
 
+ /* mixins */
 
-/* mixins */
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
   border-radius: $radius;
+}
+
+@mixin rainbow-bar ($y_pos)
+{
+  background-image: url('../images/design-elements/rainbow-divider.png');
+  background-position: -124px $y_pos;
+  background-repeat: repeat-x;
 }
 
 /* from Hemali's primary styles */
@@ -76,7 +88,7 @@ ul.main-menu {
   margin-top: 40px;
 }
 ul.main-menu a {
-  
+
   color: $capt-black;
   /* correct shade of grey? */
   background: $capt-lightgrey;
@@ -88,14 +100,12 @@ ul.main-menu a {
   &:active {
     color: $capt-maroon;
   }
- 
+
 }
 
 /* submit */
 input[type="submit"] {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+  @include border-radius(5px);
   color: #ffffff;
   background: #292929;
   padding: 8px 20px 8px 20px;
@@ -134,7 +144,7 @@ ul.sub-menu {
 input[type="submit"] {
   margin-right: 1em;
   border: none;
-  font-weight: bold;
+  /*font-weight: bold;*/
   margin-top: 1em;
 }
 
@@ -183,9 +193,7 @@ h5 {
   background: #efeef5;
 
   
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
-  border-radius: 5px;
+  @include border-radius(5px);
   padding: 10px;
   margin-bottom: 10px;
   /*border: 3px solid #cdcdcd;*/
@@ -268,13 +276,13 @@ table {
 }
 
 body {
-  background: #c8d3e6;
+  background: url('../images/design-elements/wrapper-background.png');
 }
 
 /*
  * to do: add background-image to top and bottom headers. 
  */
-.top-header {
+ .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
@@ -306,14 +314,17 @@ body {
 
 /* treating this as the container for now */
 #main {
-  width: 1000px;
+  width: $page-width;
   margin-left: 12px;
-  margin-right: 12px;
+  margin-right: 14px;
 }
+/* page */
 #page {
   background: #FFF;
   padding-bottom: 2em;
   clear: both;
+  /* from the spec */
+  width: $page-width;
 }
 
 .header__name-and-slogan {
@@ -429,53 +440,243 @@ h4.black {
 
 /* front page classes */
 .field-name-my-registered-events {
+
+  /* fixed height? */
   height: 245px;
-   .view-dashboard {
-    border-top: 1px solid $capt-midgrey;
-    border-bottom: 1px solid $capt-midgrey;
+  background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
+  .view-dashboard {
 
     /*estimated*/
     height: 170px;
+    border-bottom: 1px solid $capt-midgrey;
   }
 }
+.field-name-my-archived-events {
+  padding-bottom: 20px;
+  background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
 
-/* file path logic: */ 
+}
+.field-name-my-archived-events,
+.field-name-my-registered-events {
+  .view-dashboard {
+    border-top: 1px solid $capt-midgrey;
+  }
+}
+/* upcoming events panel  */
+body.logged-in {
 
-/* title of events page */
-/* font size and position may need to be fine-tuned */
-h1#page-title {
+  .field-name-upcoming-events.field-type-ds {
+   background-color: white;
+   /* from specs */
+   h2 {
+    font-weight: normal;
+  } 
+   h3 {
+     font-style: normal;
+     font-size: 16px;
+     a {
+        color: black;
+     }
+   }
+}
+}
+/* 
+ *  Events Page
+ */ 
+ /* title of events page; font size & position may need to be fine-tuned */
+ h1#page-title {
 
-   background: url('../images/icons/create-event.png') 0px 0px no-repeat;
+   background: url('../images/icons/create-event.png') 0 0 no-repeat;
    padding-left: 70px; /* variable? deviate from spec and reduce? */
    padding-top: 7px;
    font-weight: normal;
    color: $capt-maroon;
    min-height: 44px;
    font-size: 26pt;
-       /* from h2 in the specs */
+   /* from h2 in the specs */
    margin-top: 55px;
    margin-bottom: 35px;
+ }
+ /*logos above header - move up to general area? */
+
+ div.top-header {
+
+  @include rainbow-bar($header-height - $rainbow-height);
+  /*background-image: url('../images/design-elements/rainbow-divider.png');
+  background-position: -124px $header-height - $rainbow-height;
+  background-repeat: repeat-x;*/
+  height: $header-height;
+
+}
+div.top-header-container {
+
+  height: 100px;
+  width: $page-width;
+
+  /* logos */
+  div.capt-logo {
+    background: url('../images/logos/CAPT-logo.png') 0 0 no-repeat;
+    width: 340px;
+    margin-left: $logo-margin;
+    margin-bottom: 0px;
+    top: 32px;
+
+  }
+  div.samhsa-logo {
+    background: url('../images/logos/SAMHSA-logo.png') 0 0 no-repeat;
+    width: 295px;
+    background-size: 295px 73px;
+    margin-right: $logo-margin;
+    top: 6px;
+
+  }
+
+  div.capt-logo, div.samhsa-logo {
+    height: $header-height;
+    position: relative;
+
+  }
+}
+/* Welcome Info */
+div#block-block-7 {
+  color: white;
+  a {
+    color: white;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+}
+/* search */
+input#edit-search-block-form--2 {
+  @include border-radius(5px);
+  border: 0px;
+  margin-left: 16px;
+  height: 22px;
+  width: 170px;
+  font-weight: normal;
+
+}
+input#edit-submit {
+  border: 1px solid white;
+  background-color: transparent;
+  height: 24px;
+  padding: 4px;
+  width: 70px;
+  margin-left: 8px;
 }
 
-body.logged-in {
+/* 
+ *  Banners
+ */ 
 
-  .field-name-upcoming-events.field-type-ds {
-        background-color: white;
-   /* from specs */
-   h2 {
-    font-weight: normal;
+/* Event Dashboard banner */
+header#header {
+  height: 191px;
+  background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
+}
 
- 
-   } 
+
+
+
+/* 
+ *  Navigation
+ */
+
+#block-responsive-dropdown-menus-main-menu {
+  margin-left: -10px;
+  /*border-bottom: 1px solid $capt-midgrey;*/
+  height: 27px;
+  width: 970px;
+  padding-left: 0px;
+}
+ul#main-menu.main-menu {
+
+ border-bottom: 1px solid $capt-midgrey;
+ width: 970px;
+ margin-left: $dash-nudge;
+ height: 27px;
+
+  li.menu-item {
+    a {
+      text-transform: uppercase;
+      background-color: $capt-midgrey;
+      
+    }
+    a.active {
+      background-color: white;
+      border: 1px solid $capt-midgrey;
+      border-bottom: 1px solid white;
+      color: $capt-maroon;
+    }
   }
 
 }
-h2#page-title {
 
+/* dropdown */
+li.menu-parent {
+  ul.sub-menu {
+    width: 194px;
+    padding: 0px;
+    li {
+      width: 194px;
+      
+      padding: 0px;
+      margin: 0px;
+      height: 32px;
+      background-color: $capt-darkgrey;
+      display: block;
+      a {
+        width: 184px;
+        border: 1px solid $capt-darkgrey;
+        display: block;
+        margin: 0px;
+        height: 28px;
+        padding: 4px 0 0 0;
+        padding-left: 20px
+
+      }
+      li#menu-item-1187.menu-item.last a {
+        height: 34px;
+        background-color: orange;
+      }
+    }
+  }
+}
+
+/* site name */
+h1#site-name, div.samhsa-logo,div.capt-logo {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 
 ul#main-menu.main-menu {
-
   margin-top: 20px;
+}
+/* footer */
+div.bottom-footer {
+   @include rainbow-bar(0px);
+   div.disclaimer {
+       margin-left: 36px;
+       position: relative;
+       top: 40px;
+       font-size: 10px;
+       line-height: 12px;
+       width: 390px;
+   }
+}
+
+/* event dashboard content */
+div#content {
+  border: 1px solid $capt-midgrey;
+  width: 970px;
+  height: 817px;
+  padding-right: 15px;
+  margin-left: $dash-nudge;
+  margin-right: 5px;
+  z-index: 10px;
+  top: 8px;
+  position: relative;
+  border-top: 1px solid white;
 }
