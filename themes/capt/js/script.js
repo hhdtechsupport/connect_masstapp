@@ -140,7 +140,7 @@ Drupal.behaviors.my_custom_behavior = {
     var saveButton = $('#user-profile-form input[value="Save"]').parent().html();
     $('#user-profile-form input[value="Save"]').addClass('real').css('display','none');
     
-    $('#user-profile-form .group-account, #user-profile-form .group-profile').each(function(){
+    $('#user-profile-form .group-account, #user-profile-form .group-contact-information, #user-profile-form .group-demographic-information').each(function(){
       
       var formData = '';
       var $section = $(this);
