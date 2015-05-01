@@ -60,6 +60,13 @@
   background-position: -124px $y_pos;
   background-repeat: repeat-x;
 }
+@mixin main-active-link ()
+{
+  background-color: white;
+  border: 1px solid $capt-midgrey;
+  border-bottom: 1px solid white;
+  color: $capt-maroon;
+}
 
 /* from Hemali's primary styles */
 body {
@@ -438,7 +445,7 @@ h4.black {
 }
 
 
-/* front page classes */
+/* panels */
 .field-name-my-registered-events {
 
   /* fixed height? */
@@ -508,6 +515,9 @@ body.logged-in {
   height: $header-height;
 
 }
+/*
+ *  Logos
+ */
 div.top-header-container {
 
   height: 100px;
@@ -537,7 +547,7 @@ div.top-header-container {
 
   }
 }
-/* Welcome Info */
+/* Welcome line near search box on dashboard*/
 div#block-block-7 {
   color: white;
   a {
@@ -554,6 +564,8 @@ input#edit-search-block-form--2 {
   height: 22px;
   width: 170px;
   font-weight: normal;
+  background: url('../images/icons/hand-lens.png') 150px 4px no-repeat;
+  background-color: white;
 
 }
 input#edit-submit {
@@ -589,6 +601,9 @@ header#header {
   width: 970px;
   padding-left: 0px;
 }
+ul#main-menu.main-menu > li.menu-item > a.active {
+         @include main-active-link();
+}
 ul#main-menu.main-menu {
 
  border-bottom: 1px solid $capt-midgrey;
@@ -596,27 +611,25 @@ ul#main-menu.main-menu {
  margin-left: $dash-nudge;
  height: 27px;
 
-  li.menu-item {
-    a {
+  li.menu-item > a {
+  
       text-transform: uppercase;
-      background-color: $capt-midgrey;
-      
-    }
-    a.active {
+      background-color: $capt-midgrey;  
+   }
+   /* submenu active */
+   li.menu-item > a.active {
       background-color: white;
-      border: 1px solid $capt-midgrey;
-      border-bottom: 1px solid white;
       color: $capt-maroon;
-    }
-  }
-
+   }
 }
+
 
 /* dropdown */
 li.menu-parent {
-  ul.sub-menu {
+  ul.sub-menu.tier-two {
     width: 194px;
     padding: 0px;
+    margin-top: 3px;
     li {
       width: 194px;
       
@@ -635,6 +648,9 @@ li.menu-parent {
         padding-left: 20px
 
       }
+      a.active {
+        background-color: white;
+      }
       li#menu-item-1187.menu-item.last a {
         height: 34px;
         background-color: orange;
@@ -642,6 +658,7 @@ li.menu-parent {
     }
   }
 }
+
 
 /* site name */
 h1#site-name, div.samhsa-logo,div.capt-logo {
@@ -658,9 +675,9 @@ ul#main-menu.main-menu {
 div.bottom-footer {
    @include rainbow-bar(0px);
    div.disclaimer {
-       margin-left: 36px;
+       margin-left: 100px;
        position: relative;
-       top: 40px;
+       top: 30px;
        font-size: 10px;
        line-height: 12px;
        width: 390px;
@@ -668,6 +685,7 @@ div.bottom-footer {
 }
 
 /* event dashboard content */
+/* which styles will be specific to dashboard? */
 div#content {
   border: 1px solid $capt-midgrey;
   width: 970px;
@@ -680,3 +698,38 @@ div#content {
   position: relative;
   border-top: 1px solid white;
 }
+
+/* my profile page; we need the "you are here" style too" */
+
+body.admin-menu {
+  div#content {
+    height: 1750px;
+    input#edit-submit {
+      background-color: $capt-orange;
+    }
+  }
+}
+body.page-user-edit {
+
+  div#content {
+    height: 2200px;
+  }
+  ul#main-menu.main-menu {
+    li#menu-item-591 {
+      a {
+      @include main-active-link();
+    }
+  }
+}
+}
+
+
+// admin tab is always white in an admin section.
+body.admin-menu.section-administration {
+ 
+    li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+        @include main-active-link();
+        
+    }
+}
+
