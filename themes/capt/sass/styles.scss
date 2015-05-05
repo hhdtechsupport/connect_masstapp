@@ -68,6 +68,24 @@
   color: $capt-maroon;
 }
 
+/* inherited classes */
+
+.panel {
+    background-color: $capt-lightgrey;   
+    padding-left: 15px;
+    padding-right: 15px;
+    border-width: 0px;
+}
+.panel-rule {
+    @extend .panel;
+    padding-top: 20px;
+    border-top: 5px solid $capt-aqua;
+ 
+}
+.panel-rule-single {
+     @extend .panel-rule;
+     margin-bottom: 20px; /* needs to be larger for dashboard panels */
+}
 /* from Hemali's primary styles */
 body {
   /* changed font per the spec */
@@ -181,18 +199,25 @@ h5 {
   font-size: 1em;
   margin-bottom: .5em;
 }
+
+
+
+
+
+
+
+/* FORMS */
+
+
+
+
+
+/* dashboard */
+
 /* the main panels */
 .node-dashboard {
   .group-left .field-type-ds, .group-right .field-type-ds {
-    background-color: $capt-lightgrey;
-    padding-top: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-width: 0px;
-    /* the rule */
-    border-top: 5px solid $capt-aqua;
-    margin-bottom: 10px;
-
+      @extend .panel-rule-single;
   }
 }
 
@@ -281,6 +306,9 @@ table {
     margin: .2em 0;
   }
 }
+
+
+/* end forms */
 
 body {
   background: url('../images/design-elements/wrapper-background.png');
@@ -423,6 +451,22 @@ body {
 .rules-debug-log, .tabs-primary {
   clear: both;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* new styles */
 
 /* not used yet */
@@ -475,8 +519,10 @@ body.logged-in {
   .field-name-upcoming-events.field-type-ds {
    background-color: white;
    /* from specs */
-   h2 {
+   h2.block-title {
     font-weight: normal;
+    /* best way to do it?*/
+    display:none; 
   } 
    h3 {
      font-style: normal;
@@ -732,4 +778,81 @@ body.admin-menu.section-administration {
         
     }
 }
+
+/* form elements for create event */
+form#event-node-form 
+{ 
+  div.fieldset-wrapper,
+  div#field-subtitle-add-more-wrapper {
+   /* @extend .panel;*/
+   
+  }
+ 
+ /* div div.form-item {
+    margin: 0 0;
+  }*/
+
+  div#edit-field-subtitle .form-item {
+
+  }
+
+  div#edit-field-subtitle.form-field-type-text {
+    margin-top: 0px;
+
+  }
+  div#field-subtitle-add-more-wrapper {
+    margin-top: 0px;
+ 
+     .form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+      margin-top: 0px;
+     
+     }
+  }
+  /* form panels */
+  div.form-item.form-item-title,
+  div.form-field-name-field-date-instance /*.fieldset-wrapper*/ {
+        @extend .panel-rule;
+        margin-bottom: 0px;
+  
+  }
+   div#edit-field-subtitle,
+   {
+    @extend .panel;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  div#edit-field-type-event.form-wrapper {
+    @extend .panel-rule;
+    margin-top: 0px;
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+   div#edit-field-category {
+    @extend .panel;
+    margin-top: -20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  div#field-banner-text-add-more-wrapper {
+    @extend .panel;
+    margin-top: -20px;
+   
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+ 
+ 
+
+  div.form-field-name-field-date-instance {
+    fieldset {
+      border: 0px;
+    }
+  }
+
+ input.form-submit {
+       background-color: $capt-orange;
+   }
+}
+
 
