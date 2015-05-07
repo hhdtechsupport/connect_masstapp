@@ -229,6 +229,10 @@ a.button, a.button:hover {
 
 /* dashboard */
 
+body.node-type-dashboard #page {
+  height: 1000px;
+}
+
 /* the main panels */
 .node-dashboard {
   .group-left .field-type-ds, .group-right .field-type-ds {
@@ -295,7 +299,7 @@ ul.pager {
     background: url('../images/icons/right-arrow.png') 39px 9px no-repeat;
     /*border: 1px solid blue;*/
     padding-left: 0px;
-   
+
     padding-top: 8px;
     padding-bottom: 8px;
     overflow: visible;
@@ -309,7 +313,7 @@ ul.pager {
       width: 16px;
       height: 30px;
       border: 1px solid white;
-     
+
 
       /* this is due to the ">" after the next and last links */
       overflow: hidden;
@@ -328,6 +332,10 @@ ul.pager {
    a {
     width: 28px;
   }
+
+}
+li.pager-item, li.pager-current {
+  margin-right: 6px;
 }
 li.pager-current {
  background-color: $capt-orange;
@@ -338,7 +346,7 @@ li.pager-current {
  @include border-radius (2px);
 
  color: $capt-lightgrey;
- margin-right: 10px;
+
 
 }
 }
@@ -1028,9 +1036,6 @@ body.page-node-add-event.page-node-add.section-node-add {
 
   }
 
-}
-body.node-type-dashboard #page {
-  height: 1000px;
 }
 
 
