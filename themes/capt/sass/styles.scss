@@ -5,1038 +5,986 @@
 * When you turn on CSS aggregation at admin/config/development/performance, all
 * of these @include files will be combined into a single file.
 */
-
-
 /* HTML element (SMACSS base) rules */
+
 @import "normalize.css";
-
 /* Layout rules */
+
 @import "layouts/responsive.css";
-
 /* Component (SMACSS module) rules */
+
 @import "components/misc.css";
-
 /* Optionally, add your own components here. */
-@import "print.css";
 
+@import "print.css";
 /* SMACSS theme rules */
 /* @import "theme-A.css"; */
 /* @import "theme-B.css"; */
-
 /* variables */
-
 /*variables, yo!*/
-$default-stack: Arial, Helvetica, sans-serif;
 
-$capt-orange: #c3791f; 
+$default-stack: Arial,
+Helvetica,
+sans-serif;
+$capt-orange: #c3791f;
 $capt-maroon: #8c1d18;
 $capt-green: #888a55;
 $capt-aqua: #577785;
 $capt-darkblue: #334b56;
-
 $capt-black: #333333;
 $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
-
 $header-height: 100px;
 $rainbow-height: 10px;
 $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
-
 /* mixins */
 
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
-  border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
 }
-
-@mixin rainbow-bar ($y_pos)
-{
-  background-image: url('../images/design-elements/rainbow-divider.png');
-  background-position: -124px $y_pos;
-  background-repeat: repeat-x;
+@mixin rainbow-bar ($y_pos) {
+    background-image: url('../images/design-elements/rainbow-divider.png');
+    background-position: -124px $y_pos;
+    background-repeat: repeat-x;
 }
-@mixin main-active-link ()
-{
-  background-color: white;
-  border: 1px solid $capt-midgrey;
-  border-bottom: 1px solid white;
-  color: $capt-maroon;
+@mixin main-active-link () {
+    background-color: white;
+    border: 1px solid $capt-midgrey;
+    border-bottom: 1px solid white;
+    color: $capt-maroon;
 }
-
+@mixin horiz_scale ($val) {
+    -moz-transform: scaleX($val);
+    -o-transform: scaleX($val);
+    -webkit-transform: scaleX($val);
+    transform: scaleX($val);
+}
 /* inherited classes */
 
+/* panels */
 .panel {
-  background-color: $capt-lightgrey;   
-  padding-left: 15px;
-  padding-right: 15px;
-  border-width: 0px;
+    background-color: $capt-lightgrey;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-width: 0px;
 }
 .panel-rule {
-  @extend .panel;
-  padding-top: 20px;
-  border-top: 5px solid $capt-aqua;
-
+    @extend .panel;
+    padding-top: 20px;
+    border-top: 5px solid $capt-aqua;
 }
 .panel-rule-single {
-  @extend .panel-rule;
-  margin-bottom: 20px; /* needs to be larger for dashboard panels */
+    @extend .panel-rule;
+    margin-bottom: 20px;
+    /* needs to be larger for dashboard panels */
 }
 .field-container {
-  fieldset {
-    border: 0px;
-    padding-left: 0px;
-  }
-  legend, span.fieldset-legend {
-    font-weight: bold;
-  }
-  input.form-submit {
-    margin-top: 0px; 
-  }
-
+    fieldset {
+        border: 0px;
+        padding-left: 0px;
+    }
+    legend,
+    span.fieldset-legend {
+        font-weight: bold;
+    }
+    input.form-submit {
+        margin-top: 0px;
+    }
+}
+/* pager */
+.pager-nav {
+    background-image: url('../images/icons/right-arrow.png');
+    background-repeat: no-repeat;
+    overflow: visible;
+}
+.pager-link {
+    color: $capt-orange;
+    border: 1px solid white; 
+}
+.pager-clip {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    top: 6px;
+    display: inline-block;
+    width: 30px;
+    height: 20px;
 }
 /* from Hemali's primary styles */
+
 body {
-  /* changed font per the spec */
-  font-family: $default-stack;
-  font-size: 13px;
-  color: $capt-black;
+    /* changed font per the spec */
+    
+    font-family: $default-stack;
+    font-size: 13px;
+    color: $capt-black;
 }
-
 #page > header {
-  position: relative;
-  padding-bottom: 20px;
-  background: #86a9b5;
+    position: relative;
+    padding-bottom: 20px;
+    background: #86a9b5;
 }
-
 .ds-2col-stacked-fluid > .group-left {
-  margin-right: 1%;
-  width: 49%;
+    margin-right: 1%;
+    width: 49%;
 }
-
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
 /* to do: dropdown menu */
 
 ul.main-menu {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 ul.main-menu a {
-
-  color: $capt-black;
-  /* correct shade of grey? */
-  background: $capt-lightgrey;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
-  &:active {
-    color: $capt-maroon;
-  }
-
+    color: $capt-black;
+    /* correct shade of grey? */
+    
+    background: $capt-lightgrey;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: normal;
+    &:active {
+        color: $capt-maroon;
+    }
 }
-
 /* submit */
+
 input[type="submit"] {
-  @include border-radius(5px);
-  color: #ffffff;
-  background: #292929;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
+    @include border-radius(5px);
+    color: #ffffff;
+    background: #292929;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: normal;
 }
-
-
 a.button {
-  @include border-radius(5px);
-  color: #ffffff;
-  background: #292929;
-  padding: 8px 20px 8px 20px;
-  text-decoration: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: normal;
-
+    @include border-radius(5px);
+    color: #ffffff;
+    background: #292929;
+    padding: 8px 20px 8px 20px;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: normal;
 }
+/*ul.main-menu a:hover, */
 
-/*ul.main-menu a:hover, */input[type="submit"]:hover, a.button:hover {
-  background: #595959;
-  text-decoration: none;
+input[type="submit"]:hover,
+a.button:hover {
+    background: #595959;
+    text-decoration: none;
 }
-
 ul.sub-menu {
-  background: #292929;
-  li {
-    white-space: nowrap;
-    margin: 6px 0;
-  }
+    background: #292929;
+    li {
+        white-space: nowrap;
+        margin: 6px 0;
+    }
 }
-
 input[type="submit"] {
-  margin-right: 1em;
-  border: none;
-  /*font-weight: bold;*/
-  margin-top: 1em;
+    margin-right: 1em;
+    border: none;
+    /*font-weight: bold;*/
+    
+    margin-top: 1em;
 }
-
 h1 {
-  font-size: 3.25em;
-  line-height: 1.25em;
+    font-size: 3.25em;
+    line-height: 1.25em;
 }
-
 h2 {
-  font-size: 2.25em;
-  line-height: 1.25em;
-  margin-top: .5em;
-  margin-bottom: .5em;
+    font-size: 2.25em;
+    line-height: 1.25em;
+    margin-top: .5em;
+    margin-bottom: .5em;
 }
-
 h3 {
-  font-size: 1.75em;
-  font-style: italic;
+    font-size: 1.75em;
+    font-style: italic;
 }
-
 h4 {
-  font-size: 1.25em;
-  margin-bottom: .5em;
+    font-size: 1.25em;
+    margin-bottom: .5em;
 }
-
 h5 {
-  font-size: 1em;
-  margin-bottom: .5em;
+    font-size: 1em;
+    margin-bottom: .5em;
 }
-
-
-
-
-
-
-
 /* FORMS */
-
 /* general styles */
-a.button, a.button:hover {
-  background-color: $capt-orange;
+
+a.button,
+a.button:hover {
+    background-color: $capt-orange;
 }
-
-
 /* dashboard */
 
 body.node-type-dashboard #page {
-  height: 1000px;
+    height: 1000px;
 }
-
 /* the main panels */
+
 .node-dashboard {
-  .group-left .field-type-ds, .group-right .field-type-ds {
-    @extend .panel-rule-single;
-  }
+    .group-left .field-type-ds, .group-right .field-type-ds {
+        @extend .panel-rule-single;
+    }
 }
-
 .node-event .group-right .group-materials {
-  background: #efeef5;
-
-
-  @include border-radius(5px);
-  padding: 10px;
-  margin-bottom: 10px;
-  /*border: 3px solid #cdcdcd;*/
+    background: #efeef5;
+    @include border-radius(5px);
+    padding: 10px;
+    margin-bottom: 10px;
+    /*border: 3px solid #cdcdcd;*/
 }
-
 /* adopting h4:black for this one */
+
 .node-dashboard h2.block-title {
-  /* artifacts */
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  /* new */
-  font-size: 24px;
-  color: $capt-black;
-
+    /* artifacts */
+    
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    /* new */
+    
+    font-size: 24px;
+    color: $capt-black;
 }
-
 /* dashboard lists */
 
 li.views-row {
-  margin-bottom: 1em;
-  list-style-image: url('../images/icons/arrow-icons.png');
-  margin-top: 0px;
+    margin-bottom: 1em;
+    list-style-image: url('../images/icons/arrow-icons.png');
+    margin-top: 0px;
 }
 div.view-content div.item-list {
-  border-bottom: 1px solid $capt-midgrey;
-  h3 {
-    margin-bottom: 0px;
-  }
-  ul {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+    border-bottom: 1px solid $capt-midgrey;
+    h3 {
+        margin-bottom: 0px;
+    }
+    ul {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }
 /* pager */
 
 ul.pager {
-  /*border: 1px solid green;*/
-  padding-top: 5px;
-  height: 30px;
-  li.pager-item {
-    background-color: $capt-lightgrey;
-    color: $capt-orange;
+    /*border: 1px solid green;*/
+   
+    padding-top: 5px;
     height: 30px;
-    padding: 8px 10px 8px 10px;
-    width: 50px;
-    @include border-radius (2px);
-    a {
-      color: $capt-orange;
+    text-align: right;
+    text-overflow: visible;
+   /* width: 106%;*/
+    li.pager-ellipsis {
+        padding: 0px;
+       /* display: none;*/  /* show? */
     }
-  }
-  li.pager-next, li.pager-last {
-    background: url('../images/icons/right-arrow.png') 39px 9px no-repeat;
-    /*border: 1px solid blue;*/
-    padding-left: 0px;
-
-    padding-top: 8px;
-    padding-bottom: 8px;
-    overflow: visible;
-    padding-right: 24px;
-    margin-left: 10px;
-    margin-right: 10px;
-
-    a {
-      text-transform: capitalize;
-      color: $capt-orange;
-      width: 16px;
-      height: 30px;
-      border: 1px solid white;
-
-
-      /* this is due to the ">" after the next and last links */
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      top: 6px;
-      display: inline-block;
-      width: 30px;
-      height: 20px;
+    li.pager-item {
+        @include border-radius (2px);
+        background-color: $capt-lightgrey;
+        color: $capt-orange;
+        height: 30px;
+        padding: 8px 0px 8px 0px;
+        width: 50px;
+        a {
+            color: $capt-orange;
+            padding: 8px 10px;
+        } 
+        a:hover {
+            text-decoration: none;
+        }
     }
-  }
-  li.pager-last {
-   padding-right: 30px;
-   /* border: 1px solid red;*/
-   background-position: 38px 9px;
-   a {
-    width: 28px;
-  }
+   
+    li.pager-next,
+    li.pager-last {
+        @extend .pager-nav;
+        background-position: 39px 8px;
+        padding: 8px 26px 8px 0px;
+        a {
+            @extend .pager-link;
+     
+    
+        }
 
+    }
+    li.pager-last {
+        background-position: 38px 8px;
+        a {
+            width: 28px;
+
+        }
+    }
+    li.pager-item,
+    li.pager-current {
+        margin-left: 3px;
+        margin-right: 3px;
+        
+    }
+   
+    /* no link within pager-current */
+    li.pager-current {
+        background-color: $capt-orange;
+        height: 30px;
+        padding: 8px 10px 8px 10px;
+        width: 50px;
+        @include border-radius (2px);
+        color: $capt-lightgrey;
+    }
+     li.pager-first,
+    li.pager-previous {
+        margin: 0px 6px 0px 0px;
+    }
+    li.pager-next,
+    li.pager-last {
+        margin: 0px 0px 0px 6px
+    }
+   
+    li.pager-previous,
+     li.pager-first {
+       @extend .pager-nav;
+       background-image: url('../images/icons/left-arrow.png');
+       padding: 8px 0px 8px 24px;
+       background-position: 0 8px;
+      /* margin: 0px 6px;*/
+       /*border: 1px dotted orange;*/
+       a {
+          @extend .pager-link;
+    
+       }
+    }
 }
-li.pager-item, li.pager-current {
-  margin-right: 6px;
-}
-li.pager-current {
- background-color: $capt-orange;
-
- height: 30px;
- padding: 8px 10px 8px 10px;
- width: 50px;
- @include border-radius (2px);
-
- color: $capt-lightgrey;
-
-
-}
-}
-
-
+/* end pager styles */
 .view-presenters {
-  .views-field-field-presenter-image {
-    float: left;
-    margin: 0 1em 0.5em 0;
-  }
-  .views-row:not(last-child) {
-    margin-bottom: 2em;
-  }
+    .views-field-field-presenter-image {
+        float: left;
+        margin: 0 1em 0.5em 0;
+    }
+    .views-row:not(last-child) {
+        margin-bottom: 2em;
+    }
 }
-
-.field-group-fieldset, .view-presenters .views-row {
-  clear: both;
+.field-group-fieldset,
+.view-presenters .views-row {
+    clear: both;
 }
-
 a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #3884e1;
-  &:visited {
     text-decoration: none;
     font-weight: bold;
     color: #3884e1;
-  }
-  &:hover {
-    text-decoration: underline;
-  }
+    &:visited {
+        text-decoration: none;
+        font-weight: bold;
+        color: #3884e1;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
 }
-
 .tabs-primary__tab a {
-  color: #333;
-  &:visited {
     color: #333;
-  }
+    &:visited {
+        color: #333;
+    }
 }
-
 table {
-  width: 100%;
-  thead th {
-    text-align: left;
-  }
+    width: 100%;
+    thead th {
+        text-align: left;
+    }
 }
-
 .admin-only {
-  background: #c7ff86;
-  float: right;
-  width: 150px;
-  list-style-type: none;
-  text-align: center;
-  padding-left: 0;
+    background: #c7ff86;
+    float: right;
+    width: 150px;
+    list-style-type: none;
+    text-align: center;
+    padding-left: 0;
 }
-
 .view-registrations table {
-  margin-bottom: 50px;
-  caption {
-    font-size: 1.5em;
-    margin: .2em 0;
-  }
+    margin-bottom: 50px;
+    caption {
+        font-size: 1.5em;
+        margin: .2em 0;
+    }
 }
-
-
 /* end forms */
 
 body {
-  background: url('../images/design-elements/wrapper-background.png');
+    background: url('../images/design-elements/wrapper-background.png');
 }
-
 /*
 * to do: add background-image to top and bottom headers. 
 */
+
 .top-header {
-  width: 100%;
-  /*border-bottom: 5px solid black;*/
-  height: 30px;
+    width: 100%;
+    /*border-bottom: 5px solid black;*/
+    
+    height: 30px;
 }
-
 .bottom-footer {
-  width: 100%;
-  /*border-top: 5px solid black;*/
-  height: 100px;
+    width: 100%;
+    /*border-top: 5px solid black;*/
+    
+    height: 100px;
 }
-
-.top-header-container, .bottom-footer-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
+.top-header-container,
+.bottom-footer-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
 }
-
 .capt-logo {
-  float: left;
+    float: left;
 }
-
 .samhsa-logo {
-  float: right;
+    float: right;
 }
-
 .disclaimer {
-  width: 600px;
+    width: 600px;
 }
-
 /* treating this as the container for now */
+
 #main {
-  width: $page-width;
-  margin-left: 12px;
-  margin-right: 14px;
+    width: $page-width;
+    margin-left: 12px;
+    margin-right: 14px;
 }
 /* page */
+
 #page {
-  background: #FFF;
-  padding-bottom: 2em;
-  clear: both;
-  /* from the spec */
-  width: $page-width;
+    background: #FFF;
+    padding-bottom: 2em;
+    clear: both;
+    /* from the spec */
+    
+    width: $page-width;
 }
-
 .header__name-and-slogan {
-  float: none;
-  clear: both;
+    float: none;
+    clear: both;
 }
-
 .region-header {
-  float: right;
-  div, form {
-    display: inline;
-  }
+    float: right;
+    div, form {
+        display: inline;
+    }
 }
-
-.group-dates, .group-event, .group-presenter, .group-materials, .field-name-add-a-date + .field, .field-name-add-a-presenter + .field {
-  clear: both;
+.group-dates,
+.group-event,
+.group-presenter,
+.group-materials,
+.field-name-add-a-date + .field,
+.field-name-add-a-presenter + .field {
+    clear: both;
 }
-
 .view-instances.view-display-id-registration > .view-content > .views-row div {
-  display: inline;
+    display: inline;
 }
-
 .ds-2col > {
-  .group-left {
-    float: left;
+    .group-left {
+        float: left;
+        width: auto;
+        margin-right: 280px;
+    }
+    .group-right {
+        float: left;
+        width: 240px;
+        margin-left: -260px;
+    }
+}
+.node-type-event #title-section {
     width: auto;
     margin-right: 280px;
-  }
-  .group-right {
     float: left;
-    width: 240px;
-    margin-left: -260px;
-  }
 }
-
-.node-type-event #title-section {
-  width: auto;
-  margin-right: 280px;
-  float: left;
-}
-
 .region-help #block-block-1 {
-  text-align: center;
-  float: right;
-  margin-left: -260px;
-  width: 240px;
-  padding-right: 10px;
-  margin-top: 1em;
+    text-align: center;
+    float: right;
+    margin-left: -260px;
+    width: 240px;
+    padding-right: 10px;
+    margin-top: 1em;
 }
-
 .view-event-banner .views-row {
-  font-size: 3em;
-  font-weight: bold;
+    font-size: 3em;
+    font-weight: bold;
 }
-
 .vertical-tabs {
-  clear: both;
+    clear: both;
 }
-
 /* form stuff */
 
 #event-notifications-node-form {
-  .form-field-type-entityreference.field-widget-inline-entity-form-single {
-    float: left;
-    width: 56%;
-    padding-right: 1%;
-    clear: both;
-  }
-  .form-field-type-markup {
-    float: left;
-    width: 43%;
-    .views-field-field-email-body > div > div > table {
-      margin: 0 1.5% !important;
-      transform: scale(0.75);
-      transform-origin: 0 0;
-      -moz-transform: scale(0.75);
-      -moz-transform-origin: top left;
+    .form-field-type-entityreference.field-widget-inline-entity-form-single {
+        float: left;
+        width: 56%;
+        padding-right: 1%;
+        clear: both;
     }
-  }
-  .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
-    display: none;
-  }
+    .form-field-type-markup {
+        float: left;
+        width: 43%;
+        .views-field-field-email-body > div > div > table {
+            margin: 0 1.5% !important;
+            transform: scale(0.75);
+            transform-origin: 0 0;
+            -moz-transform: scale(0.75);
+            -moz-transform-origin: top left;
+        }
+    }
+    .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
+        display: none;
+    }
 }
-
 .role-event-creator .text-format-wrapper .filter-wrapper {
-  display: none;
+    display: none;
 }
-
-.rules-debug-log, .tabs-primary {
-  clear: both;
+.rules-debug-log,
+.tabs-primary {
+    clear: both;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* new styles */
-
 /* not used yet */
+
 .back-to-top {
-  color: $capt-black;
+    color: $capt-black;
 }
 .content-container {
-  width: 970px;
-  margin-left: 15px;
-  margin-right: 15px;
+    width: 970px;
+    margin-left: 15px;
+    margin-right: 15px;
 }
-
 /* not used yet */
+
 h4.black {
-  color: $capt-black;
-  font-weight: bold;
-  font-size: 14px;
-  margin-top: 20px;
-  margin-bottom: 9px;
+    color: $capt-black;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 9px;
 }
-
-
 /* panels */
+
 .field-name-my-registered-events {
-
-  /* fixed height? */
-  height: 245px;
-  background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
-  .view-dashboard {
-
-    /*estimated*/
-    height: 170px;
-    border-bottom: 1px solid $capt-midgrey;
-  }
+    /* fixed height? */
+    
+    height: 245px;
+    background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
+    .view-dashboard {
+        /*estimated*/
+        
+        height: 170px;
+        border-bottom: 1px solid $capt-midgrey;
+    }
 }
 .field-name-my-archived-events {
-  padding-bottom: 20px;
-  background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
-
+    padding-bottom: 20px;
+    background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
 }
 .field-name-my-archived-events,
 .field-name-my-registered-events {
-  .view-dashboard {
-    border-top: 1px solid $capt-midgrey;
-  }
+    .view-dashboard {
+        border-top: 1px solid $capt-midgrey;
+    }
 }
 /* upcoming events panel  */
-body.logged-in {
 
-  .field-name-upcoming-events.field-type-ds {
-   background-color: white;
-   /* from specs */
-   h2.block-title {
-    font-weight: normal;
-    /* best way to do it?*/
-    display:none; 
-  } 
-  h3 {
-   font-style: normal;
-   font-size: 16px;
-   a {
-    color: black;
-  }
-}
-}
+body.logged-in {
+    .field-name-upcoming-events.field-type-ds {
+        background-color: white;
+        /* from specs */
+        
+        h2.block-title {
+            font-weight: normal;
+            /* best way to do it?*/
+            
+            display: none;
+        }
+        h3 {
+            font-style: normal;
+            font-size: 16px;
+            a {
+                color: black;
+            }
+        }
+    }
 }
 /* 
 *  Events Page
-*/ 
+*/
 /* title of events page; font size & position may need to be fine-tuned */
-h1#page-title {
 
- background: url('../images/icons/create-event.png') 0 0 no-repeat;
- padding-left: 70px; /* variable? deviate from spec and reduce? */
- padding-top: 7px;
- font-weight: normal;
- color: $capt-maroon;
- min-height: 44px;
- font-size: 26pt;
- /* from h2 in the specs */
- margin-top: 55px;
- margin-bottom: 35px;
+h1#page-title {
+    background: url('../images/icons/create-event.png') 0 0 no-repeat;
+    padding-left: 70px;
+    /* variable? deviate from spec and reduce? */
+    
+    padding-top: 7px;
+    font-weight: normal;
+    color: $capt-maroon;
+    min-height: 44px;
+    font-size: 26pt;
+    /* from h2 in the specs */
+    
+    margin-top: 55px;
+    margin-bottom: 35px;
 }
 /*logos above header - move up to general area? */
 
 div.top-header {
-
-  @include rainbow-bar($header-height - $rainbow-height);
-/*background-image: url('../images/design-elements/rainbow-divider.png');
+    @include rainbow-bar($header-height - $rainbow-height);
+    /*background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
-height: $header-height;
-
+    
+    height: $header-height;
 }
 /*
 *  Logos
 */
+
 div.top-header-container {
-
-  height: 100px;
-  width: $page-width;
-
-  /* logos */
-  div.capt-logo {
-    background: url('../images/logos/CAPT-logo.png') 0 0 no-repeat;
-    width: 340px;
-    margin-left: $logo-margin;
-    margin-bottom: 0px;
-    top: 32px;
-
-  }
-  div.samhsa-logo {
-    background: url('../images/logos/SAMHSA-logo.png') 0 0 no-repeat;
-    width: 295px;
-    background-size: 295px 73px;
-    margin-right: $logo-margin;
-    top: 6px;
-
-  }
-
-  div.capt-logo, div.samhsa-logo {
-    height: $header-height;
-    position: relative;
-
-  }
+    height: 100px;
+    width: $page-width;
+    /* logos */
+    
+    div.capt-logo {
+        background: url('../images/logos/CAPT-logo.png') 0 0 no-repeat;
+        width: 340px;
+        margin-left: $logo-margin;
+        margin-bottom: 0px;
+        top: 32px;
+    }
+    div.samhsa-logo {
+        background: url('../images/logos/SAMHSA-logo.png') 0 0 no-repeat;
+        width: 295px;
+        background-size: 295px 73px;
+        margin-right: $logo-margin;
+        top: 6px;
+    }
+    div.capt-logo,
+    div.samhsa-logo {
+        height: $header-height;
+        position: relative;
+    }
 }
 /* Welcome line near search box on dashboard*/
+
 div#block-block-7 {
-  color: white;
-  a {
     color: white;
-    font-weight: normal;
-    text-decoration: underline;
-  }
+    a {
+        color: white;
+        font-weight: normal;
+        text-decoration: underline;
+    }
 }
 /* search */
-input#edit-search-block-form--2 {
-  @include border-radius(5px);
-  border: 0px;
-  margin-left: 16px;
-  height: 22px;
-  width: 170px;
-  font-weight: normal;
-  background: url('../images/icons/hand-lens.png') 150px 4px no-repeat;
-  background-color: white;
 
+input#edit-search-block-form--2 {
+    @include border-radius(5px);
+    border: 0px;
+    margin-left: 16px;
+    height: 22px;
+    width: 170px;
+    font-weight: normal;
+    background: url('../images/icons/hand-lens.png') 150px 4px no-repeat;
+    background-color: white;
 }
 input#edit-submit {
-  border: 1px solid white;
-  background-color: transparent;
-  height: 24px;
-  padding: 4px;
-  width: 70px;
-  margin-left: 8px;
+    border: 1px solid white;
+    background-color: transparent;
+    height: 24px;
+    padding: 4px;
+    width: 70px;
+    margin-left: 8px;
 }
-
 /* 
 *  Banners
-*/ 
-
+*/
 /* Event Dashboard banner */
+
 header#header {
-  height: 191px;
-  background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
+    height: 191px;
+    background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
 }
-
-
-
-
 /* 
 *  Navigation
 */
 
 #block-responsive-dropdown-menus-main-menu {
-  margin-left: -10px;
-  /*border-bottom: 1px solid $capt-midgrey;*/
-  height: 27px;
-  width: 970px;
-  padding-left: 0px;
+    margin-left: -10px;
+    /*border-bottom: 1px solid $capt-midgrey;*/
+    
+    height: 27px;
+    width: 970px;
+    padding-left: 0px;
 }
 ul#main-menu.main-menu > li.menu-item > a.active {
-  @include main-active-link();
+    @include main-active-link();
 }
 ul#main-menu.main-menu {
-
-  border-bottom: 1px solid $capt-midgrey;
-  width: 970px;
-  margin-left: $dash-nudge;
-  height: 27px;
-
-  li.menu-item > a {
-
-    text-transform: uppercase;
-    background-color: $capt-midgrey;  
-  }
-  /* submenu active */
-  li.menu-item > a.active {
-    background-color: white;
-    color: $capt-maroon;
-  }
-}
-
-
-/* dropdown */
-li.menu-parent {
-  ul.sub-menu.tier-two {
-    width: 194px;
-    padding: 0px;
-    margin-top: 3px;
-    li {
-      width: 194px;
-
-      padding: 0px;
-      margin: 0px;
-      height: 32px;
-      background-color: $capt-darkgrey;
-      display: block;
-      a {
-        width: 184px;
-        border: 1px solid $capt-darkgrey;
-        display: block;
-        margin: 0px;
-        height: 28px;
-        padding: 4px 0 0 0;
-        padding-left: 20px
-
-      }
-      a.active {
-        background-color: white;
-      }
-      li#menu-item-1187.menu-item.last a {
-        height: 34px;
-        background-color: orange;
-      }
+    border-bottom: 1px solid $capt-midgrey;
+    width: 970px;
+    margin-left: $dash-nudge;
+    height: 27px;
+    li.menu-item > a {
+        text-transform: uppercase;
+        background-color: $capt-midgrey;
     }
-  }
+    /* submenu active */
+    
+    li.menu-item > a.active {
+        background-color: white;
+        color: $capt-maroon;
+    }
 }
+/* dropdown */
 
-
+li.menu-parent {
+    ul.sub-menu.tier-two {
+        width: 194px;
+        padding: 0px;
+        margin-top: 3px;
+        li {
+            width: 194px;
+            padding: 0px;
+            margin: 0px;
+            height: 32px;
+            background-color: $capt-darkgrey;
+            display: block;
+            a {
+                width: 184px;
+                border: 1px solid $capt-darkgrey;
+                display: block;
+                margin: 0px;
+                height: 28px;
+                padding: 4px 0 0 0;
+                padding-left: 20px
+            }
+            a.active {
+                background-color: white;
+            }
+            li#menu-item-1187.menu-item.last a {
+                height: 34px;
+                background-color: orange;
+            }
+        }
+    }
+}
 /* site name */
-h1#site-name, div.samhsa-logo,div.capt-logo {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+
+h1#site-name,
+div.samhsa-logo,
+div.capt-logo {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
-
-
 ul#main-menu.main-menu {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 /* footer */
-div.bottom-footer {
-  @include rainbow-bar(0px);
-  div.disclaimer {
-   margin-left: 100px;
-   position: relative;
-   top: 30px;
-   font-size: 10px;
-   line-height: 12px;
-   width: 390px;
- }
-}
 
+div.bottom-footer {
+    @include rainbow-bar(0px);
+    div.disclaimer {
+        margin-left: 100px;
+        position: relative;
+        top: 30px;
+        font-size: 10px;
+        line-height: 12px;
+        width: 390px;
+    }
+}
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
-div#content {
-  border: 1px solid $capt-midgrey;
-  width: 970px;
-  height: 817px;
-  padding-right: 15px;
-  margin-left: $dash-nudge;
-  margin-right: 5px;
-  z-index: 10px;
-  top: 8px;
-  position: relative;
-  border-top: 1px solid white;
-}
 
+div#content {
+    border: 1px solid $capt-midgrey;
+    width: 970px;
+    height: 817px;
+    padding-right: 15px;
+    margin-left: $dash-nudge;
+    margin-right: 5px;
+    z-index: 10px;
+    top: 8px;
+    position: relative;
+    border-top: 1px solid white;
+}
 /* my profile page; we need the "you are here" style too" */
 
 body.admin-menu {
-  div#content {
-    height: 1750px;
-    input#edit-submit {
-      background-color: $capt-orange;
+    div#content {
+        height: 1750px;
+        input#edit-submit {
+            background-color: $capt-orange;
+        }
     }
-  }
 }
 body.page-user-edit {
-
-  div#content {
-    height: 2200px;
-  }
-  ul#main-menu.main-menu {
-    li#menu-item-591 {
-      a {
-        @include main-active-link();
-      }
+    div#content {
+        height: 2200px;
     }
-  }
+    ul#main-menu.main-menu {
+        li#menu-item-591 {
+            a {
+                @include main-active-link();
+            }
+        }
+    }
 }
-
-
 // admin tab is always white in an admin section.
 body.admin-menu.section-administration {
-
-  li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
-    @include main-active-link();
-
-  }
+    li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+        @include main-active-link();
+    }
 }
-
 /* form elements for create event */
-form#event-node-form 
-{ 
-  div.fieldset-wrapper,
-  div#field-subtitle-add-more-wrapper {
-   /* @extend .panel;*/
 
- }
-
- /* form panels */
- /* title */
- div.form-item.form-item-title {
-  @extend .panel-rule;
-  margin-bottom: 0px;
-}
-div#edit-field-subtitle.form-field-type-text {
-  margin-top: 0px;
-
-}
-div#field-subtitle-add-more-wrapper {
-  margin-top: 0px;
-    /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+form#event-node-form {
+    div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
+        /* @extend .panel;*/
+    }
+    /* form panels */
+    /* title */
+    
+    div.form-item.form-item-title {
+        @extend .panel-rule;
+        margin-bottom: 0px;
+    }
+    div#edit-field-subtitle.form-field-type-text {
+        margin-top: 0px;
+    }
+    div#field-subtitle-add-more-wrapper {
+        margin-top: 0px;
+        /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
       margin-top: 0px; // remove to add more space betw title and subtitle
       }*/
     }
-  //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
-  div#edit-field-date-instance {
-    @extend .field-container;
+    //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
+    div#edit-field-date-instance {
+        @extend .field-container;
+        @extend .panel-rule;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        div#edit-field-date-instance-und-actions {
+            padding-top: 0px;
+        }
+        fieldset#edit-field-date-instance-und {
+            padding-left: 0px;
+        }
+    }
+    div#edit-field-subtitle,
+    {
+        @extend .panel;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    div#edit-field-type-event.form-wrapper {
+        @extend .panel-rule-single;
+        margin-top: 0px;
+        padding-top: 0px;
+        margin-bottom: 0px;
+    }
+    div#edit-field-category {
+        @extend .panel;
+        margin-top: -20px;
+        padding-bottom: 10px; // inheritance? 
+        padding-top: 10px;
+    }
+    div#field-banner-text-add-more-wrapper {
+        @extend .panel;
+        margin-top: -20px;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+    div.form-field-name-field-date-instance {
+        margin-bottom: 20px;
+    }
+    /* audience */
+    
+    div#edit-field-audience,
+    div#edit-field-body {
+        @extend .panel-rule-single;
+        padding-top: 0px;
+        padding-bottom: 10px;
+        label {
+            margin-top: -10px;
+        }
+        div.form-textarea-wrapper {
+            margin-bottom: 20px;
+        }
+        div.grippie {
+            background-color: $capt-midgrey;
+        }
+    }
+    input.form-submit {
+        background-color: $capt-orange;
+    }
+}
+div#edit-field-presenter {
     @extend .panel-rule;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    div#edit-field-date-instance-und-actions {
-      padding-top: 0px;
+    @extend .field-container;
+    span.fieldset-legend {
+        margin-top: -30px;
+        text-transform: uppercase;
+        color: $capt-aqua;
     }
-    fieldset#edit-field-date-instance-und {
-      padding-left: 0px;
-    }
-
-
-  }
-  div#edit-field-subtitle,
-  {
+}
+div#edit-field-related-material {
     @extend .panel;
+    @extend .field-container;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-  }
-  div#edit-field-type-event.form-wrapper {
-    @extend .panel-rule-single;
-    margin-top: 0px;
-    padding-top: 0px;
-    margin-bottom: 0px;
-
-  }
-  div#edit-field-category {
-    @extend .panel;
-    margin-top: -20px;
-      padding-bottom: 10px; // inheritance? 
-
-      padding-top: 10px; 
-    }
-    div#field-banner-text-add-more-wrapper {
-      @extend .panel;
-      margin-top: -20px;
-      padding-bottom: 10px;
-
-      margin-bottom: 20px;
-    }
-
-
-
-    div.form-field-name-field-date-instance {
-
-      margin-bottom: 20px;
-    }
-    /* audience */
-    div#edit-field-audience, div#edit-field-body {
-      @extend .panel-rule-single;
-      padding-top: 0px;
-      padding-bottom: 10px;
-
-      label {
-        margin-top: -10px;
-      }
-      div.form-textarea-wrapper {
-        margin-bottom: 20px;
-      }
-      div.grippie {
-        background-color: $capt-midgrey;
-
-      }
-    }
-    input.form-submit {
-     background-color: $capt-orange;
-   }
- }
- div#edit-field-presenter {
-  @extend .panel-rule;
-  @extend .field-container;
-  span.fieldset-legend {
-    margin-top: -30px;
-    text-transform: uppercase;
-    color: $capt-aqua;
-  }
-}
-div#edit-field-related-material {
-  @extend .panel;
-  @extend .field-container;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-
 }
 div#edit-field-contact-name {
-  @extend .panel-rule;
-  padding-top: 0px;
-  margin-bottom: 0px;
+    @extend .panel-rule;
+    padding-top: 0px;
+    margin-bottom: 0px;
 }
 div#edit-field-contact-email {
-  @extend .panel;
-  margin-top: -20px;
-  padding-top: 5px;
-
+    @extend .panel;
+    margin-top: -20px;
+    padding-top: 5px;
 }
 div#edit-field-related-notifications {
-  @extend .panel;
-  margin-top: -20px;
-  padding-top: 5px;
-  padding-bottom: 10px;
+    @extend .panel;
+    margin-top: -20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 /* save */
-form#event-node-form { 
-  input.form-submit {
-    padding: 6px;
-    height: 36px;
-  }
+
+form#event-node-form {
+    input.form-submit {
+        padding: 6px;
+        height: 36px;
+    }
 }
 /* end create event form */
-
 /* overall page heights */
+
 body.page-node-add-event.page-node-add.section-node-add {
-
-  #page {
-    height: 95%;
-  }
-
-  /* needed so that save button has space above border */
-  div#content {
-    height: 100%;
-    padding-bottom: 20px;
-
-  }
-
+    #page {
+        height: 95%;
+    }
+    /* needed so that save button has space above border */
+    
+    div#content {
+        height: 100%;
+        padding-bottom: 20px;
+    }
 }
-
-
-
