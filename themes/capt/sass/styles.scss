@@ -292,40 +292,41 @@ ul.pager {
     }
   }
   li.pager-next, li.pager-last {
-    background: url('../images/icons/right-arrow.png') 36px 8px no-repeat;
+    background: url('../images/icons/right-arrow.png') 39px 9px no-repeat;
     /*border: 1px solid blue;*/
     padding-left: 0px;
-    width: 68px;
+   
     padding-top: 8px;
     padding-bottom: 8px;
     overflow: visible;
-    padding-right: 20px;
+    padding-right: 24px;
     margin-left: 10px;
     margin-right: 10px;
 
     a {
+      text-transform: capitalize;
       color: $capt-orange;
       width: 16px;
       height: 30px;
       border: 1px solid white;
+     
+
+      /* this is due to the ">" after the next and last links */
       overflow: hidden;
       white-space: nowrap;
-
       position: relative;
       top: 6px;
       display: inline-block;
       width: 30px;
       height: 20px;
-
-
     }
   }
   li.pager-last {
-   padding-right: 24px;
+   padding-right: 30px;
    /* border: 1px solid red;*/
-   background-position: 32px 8px;
+   background-position: 38px 9px;
    a {
-    width: 26px;
+    width: 28px;
   }
 }
 li.pager-current {
@@ -336,8 +337,8 @@ li.pager-current {
  width: 50px;
  @include border-radius (2px);
 
-  color: $capt-lightgrey;
-  margin-right: 10px;
+ color: $capt-lightgrey;
+ margin-right: 10px;
 
 }
 }
