@@ -1,53 +1,53 @@
 /**
- * @file
- * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
- *
- * When you turn on CSS aggregation at admin/config/development/performance, all
- * of these @include files will be combined into a single file.
- */
+* @file
+* Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+*
+* When you turn on CSS aggregation at admin/config/development/performance, all
+* of these @include files will be combined into a single file.
+*/
 
 
- /* HTML element (SMACSS base) rules */
- @import "normalize.css";
+/* HTML element (SMACSS base) rules */
+@import "normalize.css";
 
- /* Layout rules */
- @import "layouts/responsive.css";
+/* Layout rules */
+@import "layouts/responsive.css";
 
- /* Component (SMACSS module) rules */
- @import "components/misc.css";
+/* Component (SMACSS module) rules */
+@import "components/misc.css";
 
- /* Optionally, add your own components here. */
- @import "print.css";
+/* Optionally, add your own components here. */
+@import "print.css";
 
- /* SMACSS theme rules */
- /* @import "theme-A.css"; */
- /* @import "theme-B.css"; */
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
 
- /* variables */
+/* variables */
 
- /*variables, yo!*/
- $default-stack: Arial, Helvetica, sans-serif;
+/*variables, yo!*/
+$default-stack: Arial, Helvetica, sans-serif;
 
- $capt-orange: #c3791f; 
- $capt-maroon: #8c1d18;
- $capt-green: #888a55;
- $capt-aqua: #577785;
- $capt-darkblue: #334b56;
+$capt-orange: #c3791f; 
+$capt-maroon: #8c1d18;
+$capt-green: #888a55;
+$capt-aqua: #577785;
+$capt-darkblue: #334b56;
 
- $capt-black: #333333;
- $capt-darkgrey: #959595;
- $capt-midgrey: #d7d7d7;
- $capt-lightgrey: #eef1f3;
+$capt-black: #333333;
+$capt-darkgrey: #959595;
+$capt-midgrey: #d7d7d7;
+$capt-lightgrey: #eef1f3;
 
- $header-height: 100px;
- $rainbow-height: 10px;
- $page-width: 1000px;
- $logo-margin: 16px;
- $dash-nudge: 2px;
+$header-height: 100px;
+$rainbow-height: 10px;
+$page-width: 1000px;
+$logo-margin: 16px;
+$dash-nudge: 2px;
 
- /* mixins */
+/* mixins */
 
- @mixin border-radius($radius) {
+@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
@@ -83,14 +83,14 @@
 
 }
 .panel-rule-single {
- @extend .panel-rule;
- margin-bottom: 20px; /* needs to be larger for dashboard panels */
+  @extend .panel-rule;
+  margin-bottom: 20px; /* needs to be larger for dashboard panels */
 }
 .field-container {
   fieldset {
     border: 0px;
     padding-left: 0px;
-   }
+  }
   legend, span.fieldset-legend {
     font-weight: bold;
   }
@@ -221,8 +221,10 @@ h5 {
 
 /* FORMS */
 
-
-
+/* general styles */
+a.button, a.button:hover {
+  background-color: $capt-orange;
+}
 
 
 /* dashboard */
@@ -237,7 +239,7 @@ h5 {
 .node-event .group-right .group-materials {
   background: #efeef5;
 
-  
+
   @include border-radius(5px);
   padding: 10px;
   margin-bottom: 10px;
@@ -252,14 +254,94 @@ h5 {
   /* new */
   font-size: 24px;
   color: $capt-black;
-  
-  /* new stuff */
 
 }
+
+/* dashboard lists */
 
 li.views-row {
   margin-bottom: 1em;
+  list-style-image: url('../images/icons/arrow-icons.png');
+  margin-top: 0px;
 }
+div.view-content div.item-list {
+  border-bottom: 1px solid $capt-midgrey;
+  h3 {
+    margin-bottom: 0px;
+  }
+  ul {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* pager */
+
+ul.pager {
+  /*border: 1px solid green;*/
+  padding-top: 5px;
+  height: 30px;
+  li.pager-item {
+    background-color: $capt-lightgrey;
+    color: $capt-orange;
+    height: 30px;
+    padding: 8px 10px 8px 10px;
+    width: 50px;
+    @include border-radius (2px);
+    a {
+      color: $capt-orange;
+    }
+  }
+  li.pager-next, li.pager-last {
+    background: url('../images/icons/right-arrow.png') 36px 8px no-repeat;
+    /*border: 1px solid blue;*/
+    padding-left: 0px;
+    width: 68px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    overflow: visible;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    a {
+      color: $capt-orange;
+      width: 16px;
+      height: 30px;
+      border: 1px solid white;
+      overflow: hidden;
+      white-space: nowrap;
+
+      position: relative;
+      top: 6px;
+      display: inline-block;
+      width: 30px;
+      height: 20px;
+
+
+    }
+  }
+  li.pager-last {
+   padding-right: 24px;
+   /* border: 1px solid red;*/
+   background-position: 32px 8px;
+   a {
+    width: 26px;
+  }
+}
+li.pager-current {
+ background-color: $capt-orange;
+
+ height: 30px;
+ padding: 8px 10px 8px 10px;
+ width: 50px;
+ @include border-radius (2px);
+
+  color: $capt-lightgrey;
+  margin-right: 10px;
+
+}
+}
+
 
 .view-presenters {
   .views-field-field-presenter-image {
@@ -328,9 +410,9 @@ body {
 }
 
 /*
- * to do: add background-image to top and bottom headers. 
- */
- .top-header {
+* to do: add background-image to top and bottom headers. 
+*/
+.top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
@@ -547,37 +629,37 @@ body.logged-in {
 }
 }
 /* 
- *  Events Page
- */ 
- /* title of events page; font size & position may need to be fine-tuned */
- h1#page-title {
+*  Events Page
+*/ 
+/* title of events page; font size & position may need to be fine-tuned */
+h1#page-title {
 
-   background: url('../images/icons/create-event.png') 0 0 no-repeat;
-   padding-left: 70px; /* variable? deviate from spec and reduce? */
-   padding-top: 7px;
-   font-weight: normal;
-   color: $capt-maroon;
-   min-height: 44px;
-   font-size: 26pt;
-   /* from h2 in the specs */
-   margin-top: 55px;
-   margin-bottom: 35px;
- }
- /*logos above header - move up to general area? */
+ background: url('../images/icons/create-event.png') 0 0 no-repeat;
+ padding-left: 70px; /* variable? deviate from spec and reduce? */
+ padding-top: 7px;
+ font-weight: normal;
+ color: $capt-maroon;
+ min-height: 44px;
+ font-size: 26pt;
+ /* from h2 in the specs */
+ margin-top: 55px;
+ margin-bottom: 35px;
+}
+/*logos above header - move up to general area? */
 
- div.top-header {
+div.top-header {
 
   @include rainbow-bar($header-height - $rainbow-height);
-  /*background-image: url('../images/design-elements/rainbow-divider.png');
-  background-position: -124px $header-height - $rainbow-height;
-  background-repeat: repeat-x;*/
-  height: $header-height;
+/*background-image: url('../images/design-elements/rainbow-divider.png');
+background-position: -124px $header-height - $rainbow-height;
+background-repeat: repeat-x;*/
+height: $header-height;
 
 }
 /*
- *  Logos
- */
- div.top-header-container {
+*  Logos
+*/
+div.top-header-container {
 
   height: 100px;
   width: $page-width;
@@ -637,11 +719,11 @@ input#edit-submit {
 }
 
 /* 
- *  Banners
- */ 
+*  Banners
+*/ 
 
- /* Event Dashboard banner */
- header#header {
+/* Event Dashboard banner */
+header#header {
   height: 191px;
   background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
 }
@@ -650,10 +732,10 @@ input#edit-submit {
 
 
 /* 
- *  Navigation
- */
+*  Navigation
+*/
 
- #block-responsive-dropdown-menus-main-menu {
+#block-responsive-dropdown-menus-main-menu {
   margin-left: -10px;
   /*border-bottom: 1px solid $capt-midgrey;*/
   height: 27px;
@@ -661,25 +743,25 @@ input#edit-submit {
   padding-left: 0px;
 }
 ul#main-menu.main-menu > li.menu-item > a.active {
- @include main-active-link();
+  @include main-active-link();
 }
 ul#main-menu.main-menu {
 
- border-bottom: 1px solid $capt-midgrey;
- width: 970px;
- margin-left: $dash-nudge;
- height: 27px;
+  border-bottom: 1px solid $capt-midgrey;
+  width: 970px;
+  margin-left: $dash-nudge;
+  height: 27px;
 
- li.menu-item > a {
+  li.menu-item > a {
 
-  text-transform: uppercase;
-  background-color: $capt-midgrey;  
-}
-/* submenu active */
-li.menu-item > a.active {
-  background-color: white;
-  color: $capt-maroon;
-}
+    text-transform: uppercase;
+    background-color: $capt-midgrey;  
+  }
+  /* submenu active */
+  li.menu-item > a.active {
+    background-color: white;
+    color: $capt-maroon;
+  }
 }
 
 
@@ -691,7 +773,7 @@ li.menu-parent {
     margin-top: 3px;
     li {
       width: 194px;
-      
+
       padding: 0px;
       margin: 0px;
       height: 32px;
@@ -732,8 +814,8 @@ ul#main-menu.main-menu {
 }
 /* footer */
 div.bottom-footer {
- @include rainbow-bar(0px);
- div.disclaimer {
+  @include rainbow-bar(0px);
+  div.disclaimer {
    margin-left: 100px;
    position: relative;
    top: 30px;
@@ -798,7 +880,7 @@ form#event-node-form
   div.fieldset-wrapper,
   div#field-subtitle-add-more-wrapper {
    /* @extend .panel;*/
-   
+
  }
 
  /* form panels */
@@ -813,12 +895,12 @@ div#edit-field-subtitle.form-field-type-text {
 }
 div#field-subtitle-add-more-wrapper {
   margin-top: 0px;
-      /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-        margin-top: 0px; // remove to add more space betw title and subtitle
-        }*/
-}
-    //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
-div#edit-field-date-instance {
+    /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+      margin-top: 0px; // remove to add more space betw title and subtitle
+      }*/
+    }
+  //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
+  div#edit-field-date-instance {
     @extend .field-container;
     @extend .panel-rule;
     margin-bottom: 20px;
@@ -849,84 +931,94 @@ div#edit-field-date-instance {
   div#edit-field-category {
     @extend .panel;
     margin-top: -20px;
-        padding-bottom: 10px; // inheritance? 
+      padding-bottom: 10px; // inheritance? 
 
-        padding-top: 10px; 
+      padding-top: 10px; 
+    }
+    div#field-banner-text-add-more-wrapper {
+      @extend .panel;
+      margin-top: -20px;
+      padding-bottom: 10px;
+
+      margin-bottom: 20px;
+    }
+
+
+
+    div.form-field-name-field-date-instance {
+
+      margin-bottom: 20px;
+    }
+    /* audience */
+    div#edit-field-audience, div#edit-field-body {
+      @extend .panel-rule-single;
+      padding-top: 0px;
+      padding-bottom: 10px;
+
+      label {
+        margin-top: -10px;
       }
-      div#field-banner-text-add-more-wrapper {
-        @extend .panel;
-        margin-top: -20px;
-        padding-bottom: 10px;
-
+      div.form-textarea-wrapper {
         margin-bottom: 20px;
       }
+      div.grippie {
+        background-color: $capt-midgrey;
 
-
-
-      div.form-field-name-field-date-instance {
-
-        margin-bottom: 20px;
       }
-      /* audience */
-      div#edit-field-audience, div#edit-field-body {
-        @extend .panel-rule-single;
-        padding-top: 0px;
-        padding-bottom: 10px;
-
-        label {
-          margin-top: -10px;
-        }
-        div.form-textarea-wrapper {
-          margin-bottom: 20px;
-        }
-        div.grippie {
-          background-color: $capt-midgrey;
-
-        }
-      }
-      input.form-submit {
-       background-color: $capt-orange;
-     }
+    }
+    input.form-submit {
+     background-color: $capt-orange;
    }
-   div#edit-field-presenter {
-    @extend .panel-rule;
-    @extend .field-container;
-    span.fieldset-legend {
+ }
+ div#edit-field-presenter {
+  @extend .panel-rule;
+  @extend .field-container;
+  span.fieldset-legend {
     margin-top: -30px;
     text-transform: uppercase;
     color: $capt-aqua;
+  }
 }
-  }
-  div#edit-field-related-material {
-    @extend .panel;
-    @extend .field-container;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+div#edit-field-related-material {
+  @extend .panel;
+  @extend .field-container;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
 
-  }
-  div#edit-field-contact-name {
-    @extend .panel-rule;
-    padding-top: 0px;
-    margin-bottom: 0px;
-  }
-  div#edit-field-contact-email {
-    @extend .panel;
-    margin-top: -20px;
-    padding-top: 5px;
+}
+div#edit-field-contact-name {
+  @extend .panel-rule;
+  padding-top: 0px;
+  margin-bottom: 0px;
+}
+div#edit-field-contact-email {
+  @extend .panel;
+  margin-top: -20px;
+  padding-top: 5px;
 
+}
+div#edit-field-related-notifications {
+  @extend .panel;
+  margin-top: -20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+/* save */
+form#event-node-form { 
+  input.form-submit {
+    padding: 6px;
+    height: 36px;
   }
-  div#edit-field-related-notifications {
-    @extend .panel;
-    margin-top: -20px;
-    padding-top: 5px;
-    padding-bottom: 10px;
-  }
-body.page-node-add-event {
+}
+/* end create event form */
+
+/* overall page heights */
+body.page-node-add-event.page-node-add.section-node-add {
 
   #page {
-  height: 95%;
-}
+    height: 95%;
+  }
 
   /* needed so that save button has space above border */
   div#content {
@@ -934,7 +1026,11 @@ body.page-node-add-event {
     padding-bottom: 20px;
 
   }
- 
+
 }
-  
+body.node-type-dashboard #page {
+  height: 1000px;
+}
+
+
 
