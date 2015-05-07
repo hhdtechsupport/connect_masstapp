@@ -47,7 +47,7 @@
 
  /* mixins */
 
-@mixin border-radius($radius) {
+ @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
@@ -71,20 +71,33 @@
 /* inherited classes */
 
 .panel {
-    background-color: $capt-lightgrey;   
-    padding-left: 15px;
-    padding-right: 15px;
-    border-width: 0px;
+  background-color: $capt-lightgrey;   
+  padding-left: 15px;
+  padding-right: 15px;
+  border-width: 0px;
 }
 .panel-rule {
-    @extend .panel;
-    padding-top: 20px;
-    border-top: 5px solid $capt-aqua;
- 
+  @extend .panel;
+  padding-top: 20px;
+  border-top: 5px solid $capt-aqua;
+
 }
 .panel-rule-single {
-     @extend .panel-rule;
-     margin-bottom: 20px; /* needs to be larger for dashboard panels */
+ @extend .panel-rule;
+ margin-bottom: 20px; /* needs to be larger for dashboard panels */
+}
+.field-container {
+  fieldset {
+    border: 0px;
+    padding-left: 0px;
+   }
+  legend, span.fieldset-legend {
+    font-weight: bold;
+  }
+  input.form-submit {
+    margin-top: 0px; 
+  }
+
 }
 /* from Hemali's primary styles */
 body {
@@ -217,7 +230,7 @@ h5 {
 /* the main panels */
 .node-dashboard {
   .group-left .field-type-ds, .group-right .field-type-ds {
-      @extend .panel-rule-single;
+    @extend .panel-rule-single;
   }
 }
 
@@ -524,13 +537,13 @@ body.logged-in {
     /* best way to do it?*/
     display:none; 
   } 
-   h3 {
-     font-style: normal;
-     font-size: 16px;
-     a {
-        color: black;
-     }
-   }
+  h3 {
+   font-style: normal;
+   font-size: 16px;
+   a {
+    color: black;
+  }
+}
 }
 }
 /* 
@@ -564,7 +577,7 @@ body.logged-in {
 /*
  *  Logos
  */
-div.top-header-container {
+ div.top-header-container {
 
   height: 100px;
   width: $page-width;
@@ -627,8 +640,8 @@ input#edit-submit {
  *  Banners
  */ 
 
-/* Event Dashboard banner */
-header#header {
+ /* Event Dashboard banner */
+ header#header {
   height: 191px;
   background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
 }
@@ -640,7 +653,7 @@ header#header {
  *  Navigation
  */
 
-#block-responsive-dropdown-menus-main-menu {
+ #block-responsive-dropdown-menus-main-menu {
   margin-left: -10px;
   /*border-bottom: 1px solid $capt-midgrey;*/
   height: 27px;
@@ -648,7 +661,7 @@ header#header {
   padding-left: 0px;
 }
 ul#main-menu.main-menu > li.menu-item > a.active {
-         @include main-active-link();
+ @include main-active-link();
 }
 ul#main-menu.main-menu {
 
@@ -657,16 +670,16 @@ ul#main-menu.main-menu {
  margin-left: $dash-nudge;
  height: 27px;
 
-  li.menu-item > a {
-  
-      text-transform: uppercase;
-      background-color: $capt-midgrey;  
-   }
-   /* submenu active */
-   li.menu-item > a.active {
-      background-color: white;
-      color: $capt-maroon;
-   }
+ li.menu-item > a {
+
+  text-transform: uppercase;
+  background-color: $capt-midgrey;  
+}
+/* submenu active */
+li.menu-item > a.active {
+  background-color: white;
+  color: $capt-maroon;
+}
 }
 
 
@@ -719,15 +732,15 @@ ul#main-menu.main-menu {
 }
 /* footer */
 div.bottom-footer {
-   @include rainbow-bar(0px);
-   div.disclaimer {
-       margin-left: 100px;
-       position: relative;
-       top: 30px;
-       font-size: 10px;
-       line-height: 12px;
-       width: 390px;
-   }
+ @include rainbow-bar(0px);
+ div.disclaimer {
+   margin-left: 100px;
+   position: relative;
+   top: 30px;
+   font-size: 10px;
+   line-height: 12px;
+   width: 390px;
+ }
 }
 
 /* event dashboard content */
@@ -763,20 +776,20 @@ body.page-user-edit {
   ul#main-menu.main-menu {
     li#menu-item-591 {
       a {
-      @include main-active-link();
+        @include main-active-link();
+      }
     }
   }
-}
 }
 
 
 // admin tab is always white in an admin section.
 body.admin-menu.section-administration {
- 
-    li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
-        @include main-active-link();
-        
-    }
+
+  li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+    @include main-active-link();
+
+  }
 }
 
 /* form elements for create event */
@@ -786,73 +799,142 @@ form#event-node-form
   div#field-subtitle-add-more-wrapper {
    /* @extend .panel;*/
    
-  }
- 
- /* div div.form-item {
-    margin: 0 0;
-  }*/
+ }
 
-  div#edit-field-subtitle .form-item {
+ /* form panels */
+ /* title */
+ div.form-item.form-item-title {
+  @extend .panel-rule;
+  margin-bottom: 0px;
+}
+div#edit-field-subtitle.form-field-type-text {
+  margin-top: 0px;
+
+}
+div#field-subtitle-add-more-wrapper {
+  margin-top: 0px;
+      /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+        margin-top: 0px; // remove to add more space betw title and subtitle
+        }*/
+}
+    //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
+div#edit-field-date-instance {
+    @extend .field-container;
+    @extend .panel-rule;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    div#edit-field-date-instance-und-actions {
+      padding-top: 0px;
+    }
+    fieldset#edit-field-date-instance-und {
+      padding-left: 0px;
+    }
+
 
   }
-
-  div#edit-field-subtitle.form-field-type-text {
-    margin-top: 0px;
-
-  }
-  div#field-subtitle-add-more-wrapper {
-    margin-top: 0px;
- 
-     .form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-      margin-top: 0px;
-     
-     }
-  }
-  /* form panels */
-  div.form-item.form-item-title,
-  div.form-field-name-field-date-instance /*.fieldset-wrapper*/ {
-        @extend .panel-rule;
-        margin-bottom: 0px;
-  
-  }
-   div#edit-field-subtitle,
-   {
+  div#edit-field-subtitle,
+  {
     @extend .panel;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
   }
   div#edit-field-type-event.form-wrapper {
-    @extend .panel-rule;
+    @extend .panel-rule-single;
     margin-top: 0px;
     padding-top: 0px;
     margin-bottom: 0px;
+
   }
-   div#edit-field-category {
+  div#edit-field-category {
     @extend .panel;
     margin-top: -20px;
+        padding-bottom: 10px; // inheritance? 
+
+        padding-top: 10px; 
+      }
+      div#field-banner-text-add-more-wrapper {
+        @extend .panel;
+        margin-top: -20px;
+        padding-bottom: 10px;
+
+        margin-bottom: 20px;
+      }
+
+
+
+      div.form-field-name-field-date-instance {
+
+        margin-bottom: 20px;
+      }
+      /* audience */
+      div#edit-field-audience, div#edit-field-body {
+        @extend .panel-rule-single;
+        padding-top: 0px;
+        padding-bottom: 10px;
+
+        label {
+          margin-top: -10px;
+        }
+        div.form-textarea-wrapper {
+          margin-bottom: 20px;
+        }
+        div.grippie {
+          background-color: $capt-midgrey;
+
+        }
+      }
+      input.form-submit {
+       background-color: $capt-orange;
+     }
+   }
+   div#edit-field-presenter {
+    @extend .panel-rule;
+    @extend .field-container;
+    span.fieldset-legend {
+    margin-top: -30px;
+    text-transform: uppercase;
+    color: $capt-aqua;
+}
+  }
+  div#edit-field-related-material {
+    @extend .panel;
+    @extend .field-container;
     padding-top: 10px;
     padding-bottom: 10px;
+    margin-bottom: 20px;
+
   }
-  div#field-banner-text-add-more-wrapper {
+  div#edit-field-contact-name {
+    @extend .panel-rule;
+    padding-top: 0px;
+    margin-bottom: 0px;
+  }
+  div#edit-field-contact-email {
     @extend .panel;
     margin-top: -20px;
-   
+    padding-top: 5px;
+
+  }
+  div#edit-field-related-notifications {
+    @extend .panel;
+    margin-top: -20px;
+    padding-top: 5px;
     padding-bottom: 10px;
-    margin-bottom: 20px;
   }
- 
- 
+body.page-node-add-event {
 
-  div.form-field-name-field-date-instance {
-    fieldset {
-      border: 0px;
-    }
-  }
-
- input.form-submit {
-       background-color: $capt-orange;
-   }
+  #page {
+  height: 95%;
 }
 
+  /* needed so that save button has space above border */
+  div#content {
+    height: 100%;
+    padding-bottom: 20px;
+
+  }
+ 
+}
+  
 

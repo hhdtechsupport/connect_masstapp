@@ -21,8 +21,7 @@
 /* mixins */
 /* inherited classes */
 /* line 73, ../sass/styles.scss */
-.panel, .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div.form-item.form-item-title,
-form#event-node-form div.form-field-name-field-date-instance, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper {
+.panel, .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience, form#event-node-form div#edit-field-body, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications {
   background-color: #eef1f3;
   padding-left: 15px;
   padding-right: 15px;
@@ -30,20 +29,33 @@ form#event-node-form div.form-field-name-field-date-instance, form#event-node-fo
 }
 
 /* line 79, ../sass/styles.scss */
-.panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div.form-item.form-item-title,
-form#event-node-form div.form-field-name-field-date-instance, form#event-node-form div#edit-field-type-event.form-wrapper {
+.panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience, form#event-node-form div#edit-field-body, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name {
   padding-top: 20px;
   border-top: 5px solid #577785;
 }
 
 /* line 85, ../sass/styles.scss */
-.panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds {
+.panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience, form#event-node-form div#edit-field-body {
   margin-bottom: 20px;
   /* needs to be larger for dashboard panels */
 }
 
-/* from Hemali's primary styles */
 /* line 90, ../sass/styles.scss */
+.field-container fieldset, form#event-node-form div#edit-field-date-instance fieldset, div#edit-field-presenter fieldset, div#edit-field-related-material fieldset {
+  border: 0px;
+  padding-left: 0px;
+}
+/* line 94, ../sass/styles.scss */
+.field-container legend, form#event-node-form div#edit-field-date-instance legend, div#edit-field-presenter legend, div#edit-field-related-material legend, .field-container span.fieldset-legend, form#event-node-form div#edit-field-date-instance span.fieldset-legend, div#edit-field-presenter span.fieldset-legend, div#edit-field-related-material span.fieldset-legend {
+  font-weight: bold;
+}
+/* line 97, ../sass/styles.scss */
+.field-container input.form-submit, form#event-node-form div#edit-field-date-instance input.form-submit, div#edit-field-presenter input.form-submit, div#edit-field-related-material input.form-submit {
+  margin-top: 0px;
+}
+
+/* from Hemali's primary styles */
+/* line 103, ../sass/styles.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -51,14 +63,14 @@ body {
   color: #333333;
 }
 
-/* line 97, ../sass/styles.scss */
+/* line 110, ../sass/styles.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 103, ../sass/styles.scss */
+/* line 116, ../sass/styles.scss */
 .ds-2col-stacked-fluid > .group-left {
   margin-right: 1%;
   width: 49%;
@@ -67,12 +79,12 @@ body {
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
 /* to do: dropdown menu */
-/* line 112, ../sass/styles.scss */
+/* line 125, ../sass/styles.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
-/* line 115, ../sass/styles.scss */
+/* line 128, ../sass/styles.scss */
 ul.main-menu a {
   color: #333333;
   /* correct shade of grey? */
@@ -83,13 +95,13 @@ ul.main-menu a {
   -moz-appearance: none;
   appearance: normal;
 }
-/* line 125, ../sass/styles.scss */
+/* line 138, ../sass/styles.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit */
-/* line 132, ../sass/styles.scss */
+/* line 145, ../sass/styles.scss */
 input[type="submit"] {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -104,7 +116,7 @@ input[type="submit"] {
   appearance: normal;
 }
 
-/* line 144, ../sass/styles.scss */
+/* line 157, ../sass/styles.scss */
 a.button {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -120,23 +132,23 @@ a.button {
 }
 
 /*ul.main-menu a:hover, */
-/* line 156, ../sass/styles.scss */
+/* line 169, ../sass/styles.scss */
 input[type="submit"]:hover, a.button:hover {
   background: #595959;
   text-decoration: none;
 }
 
-/* line 161, ../sass/styles.scss */
+/* line 174, ../sass/styles.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 163, ../sass/styles.scss */
+/* line 176, ../sass/styles.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 169, ../sass/styles.scss */
+/* line 182, ../sass/styles.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -144,13 +156,13 @@ input[type="submit"] {
   margin-top: 1em;
 }
 
-/* line 176, ../sass/styles.scss */
+/* line 189, ../sass/styles.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 181, ../sass/styles.scss */
+/* line 194, ../sass/styles.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -158,19 +170,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 188, ../sass/styles.scss */
+/* line 201, ../sass/styles.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 193, ../sass/styles.scss */
+/* line 206, ../sass/styles.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 198, ../sass/styles.scss */
+/* line 211, ../sass/styles.scss */
 h5 {
   font-size: 1em;
   margin-bottom: .5em;
@@ -179,7 +191,7 @@ h5 {
 /* FORMS */
 /* dashboard */
 /* the main panels */
-/* line 224, ../sass/styles.scss */
+/* line 237, ../sass/styles.scss */
 .node-event .group-right .group-materials {
   background: #efeef5;
   -webkit-border-radius: 5px;
@@ -192,7 +204,7 @@ h5 {
 }
 
 /* adopting h4:black for this one */
-/* line 235, ../sass/styles.scss */
+/* line 248, ../sass/styles.scss */
 .node-dashboard h2.block-title {
   /* artifacts */
   margin-top: 0;
@@ -203,62 +215,62 @@ h5 {
   /* new stuff */
 }
 
-/* line 247, ../sass/styles.scss */
+/* line 260, ../sass/styles.scss */
 li.views-row {
   margin-bottom: 1em;
 }
 
-/* line 252, ../sass/styles.scss */
+/* line 265, ../sass/styles.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 256, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 261, ../sass/styles.scss */
+/* line 274, ../sass/styles.scss */
 .field-group-fieldset, .view-presenters .views-row {
   clear: both;
 }
 
-/* line 265, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 269, ../sass/styles.scss */
+/* line 282, ../sass/styles.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 274, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 279, ../sass/styles.scss */
+/* line 292, ../sass/styles.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 281, ../sass/styles.scss */
+/* line 294, ../sass/styles.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 286, ../sass/styles.scss */
+/* line 299, ../sass/styles.scss */
 table {
   width: 100%;
 }
-/* line 288, ../sass/styles.scss */
+/* line 301, ../sass/styles.scss */
 table thead th {
   text-align: left;
 }
 
-/* line 293, ../sass/styles.scss */
+/* line 306, ../sass/styles.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -268,18 +280,18 @@ table thead th {
   padding-left: 0;
 }
 
-/* line 302, ../sass/styles.scss */
+/* line 315, ../sass/styles.scss */
 .view-registrations table {
   margin-bottom: 50px;
 }
-/* line 304, ../sass/styles.scss */
+/* line 317, ../sass/styles.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: .2em 0;
 }
 
 /* end forms */
-/* line 313, ../sass/styles.scss */
+/* line 326, ../sass/styles.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
@@ -287,44 +299,44 @@ body {
 /*
  * to do: add background-image to top and bottom headers. 
  */
-/* line 320, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 326, ../sass/styles.scss */
+/* line 339, ../sass/styles.scss */
 .bottom-footer {
   width: 100%;
   /*border-top: 5px solid black;*/
   height: 100px;
 }
 
-/* line 332, ../sass/styles.scss */
+/* line 345, ../sass/styles.scss */
 .top-header-container, .bottom-footer-container {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
 }
 
-/* line 338, ../sass/styles.scss */
+/* line 351, ../sass/styles.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 342, ../sass/styles.scss */
+/* line 355, ../sass/styles.scss */
 .samhsa-logo {
   float: right;
 }
 
-/* line 346, ../sass/styles.scss */
+/* line 359, ../sass/styles.scss */
 .disclaimer {
   width: 600px;
 }
 
 /* treating this as the container for now */
-/* line 351, ../sass/styles.scss */
+/* line 364, ../sass/styles.scss */
 #main {
   width: 1000px;
   margin-left: 12px;
@@ -332,7 +344,7 @@ body {
 }
 
 /* page */
-/* line 357, ../sass/styles.scss */
+/* line 370, ../sass/styles.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -341,52 +353,52 @@ body {
   width: 1000px;
 }
 
-/* line 365, ../sass/styles.scss */
+/* line 378, ../sass/styles.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 370, ../sass/styles.scss */
+/* line 383, ../sass/styles.scss */
 .region-header {
   float: right;
 }
-/* line 372, ../sass/styles.scss */
+/* line 385, ../sass/styles.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 377, ../sass/styles.scss */
+/* line 390, ../sass/styles.scss */
 .group-dates, .group-event, .group-presenter, .group-materials, .field-name-add-a-date + .field, .field-name-add-a-presenter + .field {
   clear: both;
 }
 
-/* line 381, ../sass/styles.scss */
+/* line 394, ../sass/styles.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 386, ../sass/styles.scss */
+/* line 399, ../sass/styles.scss */
 .ds-2col > .group-left {
   float: left;
   width: auto;
   margin-right: 280px;
 }
-/* line 391, ../sass/styles.scss */
+/* line 404, ../sass/styles.scss */
 .ds-2col > .group-right {
   float: left;
   width: 240px;
   margin-left: -260px;
 }
 
-/* line 398, ../sass/styles.scss */
+/* line 411, ../sass/styles.scss */
 .node-type-event #title-section {
   width: auto;
   margin-right: 280px;
   float: left;
 }
 
-/* line 404, ../sass/styles.scss */
+/* line 417, ../sass/styles.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -396,31 +408,31 @@ body {
   margin-top: 1em;
 }
 
-/* line 413, ../sass/styles.scss */
+/* line 426, ../sass/styles.scss */
 .view-event-banner .views-row {
   font-size: 3em;
   font-weight: bold;
 }
 
-/* line 418, ../sass/styles.scss */
+/* line 431, ../sass/styles.scss */
 .vertical-tabs {
   clear: both;
 }
 
 /* form stuff */
-/* line 425, ../sass/styles.scss */
+/* line 438, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single {
   float: left;
   width: 56%;
   padding-right: 1%;
   clear: both;
 }
-/* line 431, ../sass/styles.scss */
+/* line 444, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup {
   float: left;
   width: 43%;
 }
-/* line 434, ../sass/styles.scss */
+/* line 447, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup .views-field-field-email-body > div > div > table {
   margin: 0 1.5% !important;
   transform: scale(0.75);
@@ -428,29 +440,29 @@ body {
   -moz-transform: scale(0.75);
   -moz-transform-origin: top left;
 }
-/* line 442, ../sass/styles.scss */
+/* line 455, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 447, ../sass/styles.scss */
+/* line 460, ../sass/styles.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 451, ../sass/styles.scss */
+/* line 464, ../sass/styles.scss */
 .rules-debug-log, .tabs-primary {
   clear: both;
 }
 
 /* new styles */
 /* not used yet */
-/* line 473, ../sass/styles.scss */
+/* line 486, ../sass/styles.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 476, ../sass/styles.scss */
+/* line 489, ../sass/styles.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -458,7 +470,7 @@ body {
 }
 
 /* not used yet */
-/* line 483, ../sass/styles.scss */
+/* line 496, ../sass/styles.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -468,49 +480,49 @@ h4.black {
 }
 
 /* panels */
-/* line 493, ../sass/styles.scss */
+/* line 506, ../sass/styles.scss */
 .field-name-my-registered-events {
   /* fixed height? */
   height: 245px;
   background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
 }
-/* line 498, ../sass/styles.scss */
+/* line 511, ../sass/styles.scss */
 .field-name-my-registered-events .view-dashboard {
   /*estimated*/
   height: 170px;
   border-bottom: 1px solid #d7d7d7;
 }
 
-/* line 505, ../sass/styles.scss */
+/* line 518, ../sass/styles.scss */
 .field-name-my-archived-events {
   padding-bottom: 20px;
   background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
 }
 
-/* line 512, ../sass/styles.scss */
+/* line 525, ../sass/styles.scss */
 .field-name-my-archived-events .view-dashboard,
 .field-name-my-registered-events .view-dashboard {
   border-top: 1px solid #d7d7d7;
 }
 
 /* upcoming events panel  */
-/* line 519, ../sass/styles.scss */
+/* line 532, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds {
   background-color: white;
   /* from specs */
 }
-/* line 522, ../sass/styles.scss */
+/* line 535, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h2.block-title {
   font-weight: normal;
   /* best way to do it?*/
   display: none;
 }
-/* line 527, ../sass/styles.scss */
+/* line 540, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h3 {
   font-style: normal;
   font-size: 16px;
 }
-/* line 530, ../sass/styles.scss */
+/* line 543, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h3 a {
   color: black;
 }
@@ -519,7 +531,7 @@ body.logged-in .field-name-upcoming-events.field-type-ds h3 a {
  *  Events Page
  */
 /* title of events page; font size & position may need to be fine-tuned */
-/* line 540, ../sass/styles.scss */
+/* line 553, ../sass/styles.scss */
 h1#page-title {
   background: url("../images/icons/create-event.png") 0 0 no-repeat;
   padding-left: 70px;
@@ -535,7 +547,7 @@ h1#page-title {
 }
 
 /*logos above header - move up to general area? */
-/* line 555, ../sass/styles.scss */
+/* line 568, ../sass/styles.scss */
 div.top-header {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 90px;
@@ -549,13 +561,13 @@ div.top-header {
 /*
  *  Logos
  */
-/* line 567, ../sass/styles.scss */
+/* line 580, ../sass/styles.scss */
 div.top-header-container {
   height: 100px;
   width: 1000px;
   /* logos */
 }
-/* line 573, ../sass/styles.scss */
+/* line 586, ../sass/styles.scss */
 div.top-header-container div.capt-logo {
   background: url("../images/logos/CAPT-logo.png") 0 0 no-repeat;
   width: 340px;
@@ -563,7 +575,7 @@ div.top-header-container div.capt-logo {
   margin-bottom: 0px;
   top: 32px;
 }
-/* line 581, ../sass/styles.scss */
+/* line 594, ../sass/styles.scss */
 div.top-header-container div.samhsa-logo {
   background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
   width: 295px;
@@ -571,18 +583,18 @@ div.top-header-container div.samhsa-logo {
   margin-right: 16px;
   top: 6px;
 }
-/* line 590, ../sass/styles.scss */
+/* line 603, ../sass/styles.scss */
 div.top-header-container div.capt-logo, div.top-header-container div.samhsa-logo {
   height: 100px;
   position: relative;
 }
 
 /* Welcome line near search box on dashboard*/
-/* line 597, ../sass/styles.scss */
+/* line 610, ../sass/styles.scss */
 div#block-block-7 {
   color: white;
 }
-/* line 599, ../sass/styles.scss */
+/* line 612, ../sass/styles.scss */
 div#block-block-7 a {
   color: white;
   font-weight: normal;
@@ -590,7 +602,7 @@ div#block-block-7 a {
 }
 
 /* search */
-/* line 606, ../sass/styles.scss */
+/* line 619, ../sass/styles.scss */
 input#edit-search-block-form--2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -605,7 +617,7 @@ input#edit-search-block-form--2 {
   background-color: white;
 }
 
-/* line 617, ../sass/styles.scss */
+/* line 630, ../sass/styles.scss */
 input#edit-submit {
   border: 1px solid white;
   background-color: transparent;
@@ -619,7 +631,7 @@ input#edit-submit {
  *  Banners
  */
 /* Event Dashboard banner */
-/* line 631, ../sass/styles.scss */
+/* line 644, ../sass/styles.scss */
 header#header {
   height: 191px;
   background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
@@ -628,7 +640,7 @@ header#header {
 /* 
  *  Navigation
  */
-/* line 643, ../sass/styles.scss */
+/* line 656, ../sass/styles.scss */
 #block-responsive-dropdown-menus-main-menu {
   margin-left: -10px;
   /*border-bottom: 1px solid $capt-midgrey;*/
@@ -637,7 +649,7 @@ header#header {
   padding-left: 0px;
 }
 
-/* line 650, ../sass/styles.scss */
+/* line 663, ../sass/styles.scss */
 ul#main-menu.main-menu > li.menu-item > a.active {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -645,7 +657,7 @@ ul#main-menu.main-menu > li.menu-item > a.active {
   color: #8c1d18;
 }
 
-/* line 653, ../sass/styles.scss */
+/* line 666, ../sass/styles.scss */
 ul#main-menu.main-menu {
   border-bottom: 1px solid #d7d7d7;
   width: 970px;
@@ -653,25 +665,25 @@ ul#main-menu.main-menu {
   height: 27px;
   /* submenu active */
 }
-/* line 660, ../sass/styles.scss */
+/* line 673, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a {
   text-transform: uppercase;
   background-color: #d7d7d7;
 }
-/* line 666, ../sass/styles.scss */
+/* line 679, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a.active {
   background-color: white;
   color: #8c1d18;
 }
 
 /* dropdown */
-/* line 675, ../sass/styles.scss */
+/* line 688, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two {
   width: 194px;
   padding: 0px;
   margin-top: 3px;
 }
-/* line 679, ../sass/styles.scss */
+/* line 692, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li {
   width: 194px;
   padding: 0px;
@@ -680,7 +692,7 @@ li.menu-parent ul.sub-menu.tier-two li {
   background-color: #959595;
   display: block;
 }
-/* line 687, ../sass/styles.scss */
+/* line 700, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a {
   width: 184px;
   border: 1px solid #959595;
@@ -690,37 +702,37 @@ li.menu-parent ul.sub-menu.tier-two li a {
   padding: 4px 0 0 0;
   padding-left: 20px;
 }
-/* line 697, ../sass/styles.scss */
+/* line 710, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
 }
-/* line 700, ../sass/styles.scss */
+/* line 713, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li li#menu-item-1187.menu-item.last a {
   height: 34px;
   background-color: orange;
 }
 
 /* site name */
-/* line 710, ../sass/styles.scss */
+/* line 723, ../sass/styles.scss */
 h1#site-name, div.samhsa-logo, div.capt-logo {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
 
-/* line 717, ../sass/styles.scss */
+/* line 730, ../sass/styles.scss */
 ul#main-menu.main-menu {
   margin-top: 20px;
 }
 
 /* footer */
-/* line 721, ../sass/styles.scss */
+/* line 734, ../sass/styles.scss */
 div.bottom-footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
 }
-/* line 723, ../sass/styles.scss */
+/* line 736, ../sass/styles.scss */
 div.bottom-footer div.disclaimer {
   margin-left: 100px;
   position: relative;
@@ -732,7 +744,7 @@ div.bottom-footer div.disclaimer {
 
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
-/* line 735, ../sass/styles.scss */
+/* line 748, ../sass/styles.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -747,20 +759,20 @@ div#content {
 }
 
 /* my profile page; we need the "you are here" style too" */
-/* line 751, ../sass/styles.scss */
+/* line 764, ../sass/styles.scss */
 body.admin-menu div#content {
   height: 1750px;
 }
-/* line 753, ../sass/styles.scss */
+/* line 766, ../sass/styles.scss */
 body.admin-menu div#content input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 760, ../sass/styles.scss */
+/* line 773, ../sass/styles.scss */
 body.page-user-edit div#content {
   height: 2200px;
 }
-/* line 765, ../sass/styles.scss */
+/* line 778, ../sass/styles.scss */
 body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -768,7 +780,7 @@ body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a {
   color: #8c1d18;
 }
 
-/* line 776, ../sass/styles.scss */
+/* line 789, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -777,64 +789,138 @@ body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.
 }
 
 /* form elements for create event */
-/* line 783, ../sass/styles.scss */
+/* line 796, ../sass/styles.scss */
 form#event-node-form {
-  /* div div.form-item {
-     margin: 0 0;
-   }*/
   /* form panels */
+  /* title */
+  /* audience */
 }
-/* line 785, ../sass/styles.scss */
+/* line 798, ../sass/styles.scss */
 form#event-node-form div.fieldset-wrapper,
 form#event-node-form div#field-subtitle-add-more-wrapper {
   /* @extend .panel;*/
 }
-/* line 799, ../sass/styles.scss */
+/* line 806, ../sass/styles.scss */
+form#event-node-form div.form-item.form-item-title {
+  margin-bottom: 0px;
+}
+/* line 810, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle.form-field-type-text {
   margin-top: 0px;
 }
-/* line 803, ../sass/styles.scss */
+/* line 814, ../sass/styles.scss */
 form#event-node-form div#field-subtitle-add-more-wrapper {
   margin-top: 0px;
+  /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+    margin-top: 0px; // remove to add more space betw title and subtitle
+    }*/
 }
-/* line 806, ../sass/styles.scss */
-form#event-node-form div#field-subtitle-add-more-wrapper .form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-  margin-top: 0px;
+/* line 821, ../sass/styles.scss */
+form#event-node-form div#edit-field-date-instance {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
-/* line 812, ../sass/styles.scss */
-form#event-node-form div.form-item.form-item-title,
-form#event-node-form div.form-field-name-field-date-instance {
-  margin-bottom: 0px;
+/* line 826, ../sass/styles.scss */
+form#event-node-form div#edit-field-date-instance div#edit-field-date-instance-und-actions {
+  padding-top: 0px;
 }
-/* line 818, ../sass/styles.scss */
+/* line 829, ../sass/styles.scss */
+form#event-node-form div#edit-field-date-instance fieldset#edit-field-date-instance-und {
+  padding-left: 0px;
+}
+/* line 835, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 825, ../sass/styles.scss */
+/* line 842, ../sass/styles.scss */
 form#event-node-form div#edit-field-type-event.form-wrapper {
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 0px;
 }
-/* line 831, ../sass/styles.scss */
+/* line 849, ../sass/styles.scss */
 form#event-node-form div#edit-field-category {
   margin-top: -20px;
-  padding-top: 10px;
   padding-bottom: 10px;
+  padding-top: 10px;
 }
-/* line 837, ../sass/styles.scss */
+/* line 856, ../sass/styles.scss */
 form#event-node-form div#field-banner-text-add-more-wrapper {
   margin-top: -20px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 848, ../sass/styles.scss */
-form#event-node-form div.form-field-name-field-date-instance fieldset {
-  border: 0px;
+/* line 866, ../sass/styles.scss */
+form#event-node-form div.form-field-name-field-date-instance {
+  margin-bottom: 20px;
 }
-/* line 853, ../sass/styles.scss */
+/* line 871, ../sass/styles.scss */
+form#event-node-form div#edit-field-audience, form#event-node-form div#edit-field-body {
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+/* line 876, ../sass/styles.scss */
+form#event-node-form div#edit-field-audience label, form#event-node-form div#edit-field-body label {
+  margin-top: -10px;
+}
+/* line 879, ../sass/styles.scss */
+form#event-node-form div#edit-field-audience div.form-textarea-wrapper, form#event-node-form div#edit-field-body div.form-textarea-wrapper {
+  margin-bottom: 20px;
+}
+/* line 882, ../sass/styles.scss */
+form#event-node-form div#edit-field-audience div.grippie, form#event-node-form div#edit-field-body div.grippie {
+  background-color: #d7d7d7;
+}
+/* line 887, ../sass/styles.scss */
 form#event-node-form input.form-submit {
   background-color: #c3791f;
+}
+
+/* line 894, ../sass/styles.scss */
+div#edit-field-presenter span.fieldset-legend {
+  margin-top: -30px;
+  text-transform: uppercase;
+  color: #577785;
+}
+
+/* line 900, ../sass/styles.scss */
+div#edit-field-related-material {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 908, ../sass/styles.scss */
+div#edit-field-contact-name {
+  padding-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* line 913, ../sass/styles.scss */
+div#edit-field-contact-email {
+  margin-top: -20px;
+  padding-top: 5px;
+}
+
+/* line 919, ../sass/styles.scss */
+div#edit-field-related-notifications {
+  margin-top: -20px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+/* line 925, ../sass/styles.scss */
+body.page-node-add-event {
+  /* needed so that save button has space above border */
+}
+/* line 927, ../sass/styles.scss */
+body.page-node-add-event #page {
+  height: 95%;
+}
+/* line 932, ../sass/styles.scss */
+body.page-node-add-event div#content {
+  height: 100%;
+  padding-bottom: 20px;
 }
