@@ -98,14 +98,11 @@ $dash-nudge: 2px;
     }
 }
 /* pager */
-.pager-nav {
-    background-image: url('../images/icons/right-arrow.png');
-    background-repeat: no-repeat;
-    overflow: visible;
-}
+
 .pager-link {
+    background-repeat: no-repeat;
     color: $capt-orange;
-    border: 1px solid white; 
+  
 }
 .pager-clip {
     overflow: hidden;
@@ -136,47 +133,38 @@ body {
 }
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
-/* to do: dropdown menu */
 
 ul.main-menu {
     margin-top: 40px;
 }
-ul.main-menu a {
-    color: $capt-black;
-    /* correct shade of grey? */
-    
-    background: $capt-lightgrey;
-    padding: 8px 20px 8px 20px;
+/* inherited class */
+.button-reset {
     text-decoration: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: normal;
+}
+ul.main-menu a {
+    color: $capt-black;
+    background: $capt-lightgrey;
+    padding: 8px 20px 8px 20px;
+    @extend .button-reset;
     &:active {
         color: $capt-maroon;
     }
 }
-/* submit */
+/* submit & other buttons*/
 
-input[type="submit"] {
-    @include border-radius(5px);
-    color: #ffffff;
-    background: #292929;
-    padding: 8px 20px 8px 20px;
-    text-decoration: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: normal;
-}
+input[type="submit"],
 a.button {
     @include border-radius(5px);
     color: #ffffff;
     background: #292929;
     padding: 8px 20px 8px 20px;
-    text-decoration: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: normal;
+    @extend .button-reset;
 }
+
+
 /*ul.main-menu a:hover, */
 
 input[type="submit"]:hover,
@@ -230,7 +218,7 @@ a.button:hover {
 /* dashboard */
 
 body.node-type-dashboard #page {
-    height: 1000px;
+    height: 100%; /* changed from 1000px*/
 }
 /* the main panels */
 
@@ -266,20 +254,29 @@ li.views-row {
     margin-top: 0px;
 }
 div.view-content div.item-list {
-    border-bottom: 1px solid $capt-midgrey;
     h3 {
         margin-bottom: 0px;
     }
+    /* TODO: add variant for registered events */
     ul {
         margin-top: 10px;
         margin-bottom: 10px;
     }
 }
+div.field-name-upcoming-events { 
+    div.view-content {
+             height: 450px;
+       div.item-list {
+          border-bottom: 1px solid $capt-midgrey;
+   
+      }
+}
+}
 /* pager */
 
 /* keeps pager in the same position */
 div.view-dashboard div.view-content {
-    height: 450px;
+  
 
 }
 ul.pager {
@@ -288,10 +285,12 @@ ul.pager {
     height: 30px;
     text-align: right;
     text-overflow: visible;
+     a:hover {
+        text-decoration: none;
+       }
    /* width: 106%;*/
     li.pager-ellipsis {
         padding: 0px;
-       /* display: none;*/  /* show? */
     }
     li.pager-item {
         @include border-radius (2px);
@@ -303,39 +302,51 @@ ul.pager {
         a {
             color: $capt-orange;
             padding: 8px 10px;
-        } 
-        a:hover {
-            text-decoration: none;
-        }
+        }  
     }
    
+
+    li.pager-last a {
+        background-position: 33px 8px;
+    }
+    /* first & previous on left */
+    li.pager-first,
+    li.pager-previous {
+        padding: 0px;
+        margin: 0px 4px 0px 0px;
+        a {
+          @extend .pager-link;
+          background-image: url('../images/icons/left-arrow.png');
+          background-position: 0 8px;
+          padding: 8px 0px 8px 20px;
+        }
+    }
+    /* next & last on right */
     li.pager-next,
     li.pager-last {
-        @extend .pager-nav;
-        background-position: 39px 8px;
-        padding: 8px 26px 8px 0px;
-        a {
+        padding: 0px;
+        margin: 0px 0px 0px 4px;
+         a {
             @extend .pager-link;
-     
-    
+            background-image: url('../images/icons/right-arrow.png');
+            background-position: 35px 8px;
+            padding: 8px 24px 8px 0px;
         }
-
+        
     }
-    li.pager-last {
-        background-position: 38px 8px;
-        a {
-            width: 28px;
-
-        }
+    li.pager-last a {
+        background-position: 34px 8px;
     }
+
     li.pager-item,
     li.pager-current {
         margin-left: 3px;
         margin-right: 3px;
         
     }
+    // throbber needs to be on its own line 
+    // so as not to affect the pager
     div.ajax-progress {
-        
         float: right;
         display: inline;
         top: 20px;
@@ -353,28 +364,7 @@ ul.pager {
         @include border-radius (2px);
         color: $capt-lightgrey;
     }
-     li.pager-first,
-    li.pager-previous {
-        margin: 0px 6px 0px 0px;
-    }
-    li.pager-next,
-    li.pager-last {
-        margin: 0px 0px 0px 6px
-    }
-   
-    li.pager-previous,
-     li.pager-first {
-       @extend .pager-nav;
-       background-image: url('../images/icons/left-arrow.png');
-       padding: 8px 0px 8px 24px;
-       background-position: 0 8px;
-      /* margin: 0px 6px;*/
-       /*border: 1px dotted orange;*/
-       a {
-          @extend .pager-link;
     
-       }
-    }
 }
 /* end pager styles */
 .view-presenters {
@@ -528,10 +518,27 @@ body {
     width: 240px;
     padding-right: 10px;
     margin-top: 1em;
+
 }
-.view-event-banner .views-row {
+/* view registration and edit notification buttons */
+div#block-block-1.contextual-links-region {
+    a.button {
+        width: 116px;
+        display: block;
+        float: right;
+        margin-bottom: 14px;
+    }
+}
+a.unflag-action {
+    color: $capt-orange;
+}
+
+/* banners */
+.view-event-banner {
+    .views-row {
     font-size: 3em;
     font-weight: bold;
+    }
 }
 .vertical-tabs {
     clear: both;
@@ -591,24 +598,61 @@ h4.black {
 
 .field-name-my-registered-events {
     /* fixed height? */
-    
+    /*overflow: hidden; /* needed? */
+    overflow: none;
     height: 245px;
     background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
     .view-dashboard {
         /*estimated*/
         
         height: 170px;
+        /* keep */
         border-bottom: 1px solid $capt-midgrey;
+    }
+    li.views-row {
+        height: 20px;
+    }
+    h2.block-title {
+        font-weight: normal;
+        margin-bottom: -10px;
+    }
+    h3 a {
+        font-style: normal;
+        font-size: 14px;
+        color: black;
+    }
+    .view-content .item-list ul {
+        padding-left: 16px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    a.unflag-action {
+        font-weight: normal;
+        color: black;
+        text-decoration: underline;
+    }
+    div.item-list {
+        border-width: 0px
+    }
+    li.pager-item {
+        border: 1px solid $capt-orange;
     }
 }
 .field-name-my-archived-events {
     padding-bottom: 20px;
     background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
+    .view-dashboard {
+        height: 170px;
+    }
+    h2.block-title {
+        font-weight: normal;
+    }
+
 }
 .field-name-my-archived-events,
 .field-name-my-registered-events {
     .view-dashboard {
-        border-top: 1px solid $capt-midgrey;
+        /*border-top: 1px solid $capt-midgrey;*/
     }
 }
 /* upcoming events panel  */
@@ -747,7 +791,7 @@ ul#main-menu.main-menu > li.menu-item > a.active {
     @include main-active-link();
 }
 ul#main-menu.main-menu {
-    border-bottom: 1px solid $capt-midgrey;
+   border-bottom: 1px solid $capt-midgrey;
     width: 970px;
     margin-left: $dash-nudge;
     height: 27px;
@@ -795,8 +839,8 @@ li.menu-parent {
         }
     }
 }
-/* site name */
-
+/* hiding text in key areas! */
+div.view-event-banner div.field-content,
 h1#site-name,
 div.samhsa-logo,
 div.capt-logo {
