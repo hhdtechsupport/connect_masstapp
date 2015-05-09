@@ -265,7 +265,9 @@ div.view-content div.item-list {
 }
 div.field-name-upcoming-events { 
     div.view-content {
-             height: 450px;
+            /* set to min-height to avoid breaking layout */
+             min-height: 450px;
+
        div.item-list {
           border-bottom: 1px solid $capt-midgrey;
    
@@ -520,6 +522,12 @@ body {
     margin-top: 1em;
 
 }
+
+
+/*
+ *  Viewing a Registered Event
+ */
+
 /* view registration and edit notification buttons */
 div#block-block-1.contextual-links-region {
     a.button {
@@ -529,6 +537,9 @@ div#block-block-1.contextual-links-region {
         margin-bottom: 14px;
     }
 }
+/* make links orange */
+a.flag-action,
+div.view-materials a,
 a.unflag-action {
     color: $capt-orange;
 }
@@ -597,46 +608,88 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
+        background: url('../images/icons/registered-events.png') 396px 10px no-repeat
+}
+.field-name-my-archived-events,
+.field-name-my-registered-events {
     /* fixed height? */
     /*overflow: hidden; /* needed? */
     overflow: none;
-    height: 245px;
-    background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
+    min-height: 245px;
+
+    div.field-items {
+        margin-left: 20px;
+    }
     .view-dashboard {
-        /*estimated*/
-        
-        height: 170px;
-        /* keep */
         border-bottom: 1px solid $capt-midgrey;
     }
     li.views-row {
-        height: 20px;
+       /* height: 20px;*/
     }
+    /* debold the title */
     h2.block-title {
         font-weight: normal;
         margin-bottom: -10px;
     }
+    /* blacken the links */
     h3 a {
         font-style: normal;
         font-size: 14px;
         color: black;
     }
+    /* format list of events */
     .view-content .item-list ul {
         padding-left: 16px;
         margin-top: 0px;
         margin-bottom: 0px;
     }
+    /* cancel registration link */
     a.unflag-action {
         font-weight: normal;
         color: black;
         text-decoration: underline;
+        display: block;
+        margin-bottom: -12px;
     }
     div.item-list {
         border-width: 0px
     }
+    /* pager logic */
+    ul.pager {
+       margin-bottom: 10px;
     li.pager-item {
-        border: 1px solid $capt-orange;
+        border: 1px solid $capt-aqua;
     }
+    li.pager-current {
+        background-color: $capt-aqua;
+    }
+    li.pager-next,
+    li.pager-last {
+        a {
+            background-image: url('../images/icons/right-arrow-aqua.png');
+        }
+        
+    }
+    li.pager-previous,
+    li.pager-first {
+        a {
+            background-image: url('../images/icons/left-arrow-aqua.png');
+        }
+        
+    }
+    li.pager-item,
+    li.pager-current,
+    li.pager-previous,
+    li.pager-last,
+    li.pager-first,
+    li.pager-next {
+        a {
+            color: $capt-aqua;
+        }
+    }
+
+    }
+  
 }
 .field-name-my-archived-events {
     padding-bottom: 20px;
@@ -646,6 +699,9 @@ h4.black {
     }
     h2.block-title {
         font-weight: normal;
+    }
+    div.view-empty {
+        margin-top: 30px;
     }
 
 }
@@ -681,14 +737,16 @@ body.logged-in {
 *  Events Page
 */
 /* title of events page; font size & position may need to be fine-tuned */
-
+h1#page-title {
+    font-weight: normal;
+}
+body.logged-in {
 h1#page-title {
     background: url('../images/icons/create-event.png') 0 0 no-repeat;
     padding-left: 70px;
     /* variable? deviate from spec and reduce? */
     
     padding-top: 7px;
-    font-weight: normal;
     color: $capt-maroon;
     min-height: 44px;
     font-size: 26pt;
@@ -696,6 +754,7 @@ h1#page-title {
     
     margin-top: 55px;
     margin-bottom: 35px;
+}
 }
 /*logos above header - move up to general area? */
 
@@ -746,6 +805,9 @@ div#block-block-7 {
         text-decoration: underline;
     }
 }
+/*
+ *  Sitewide styles 
+ */
 /* search */
 
 input#edit-search-block-form--2 {
@@ -864,13 +926,24 @@ div.bottom-footer {
         width: 390px;
     }
 }
+
+/* 
+ *  End Sitewide Styles
+ */
+
+
+
+ /*
+  *  Start Event Dashboard 
+  */
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
 
 div#content {
     border: 1px solid $capt-midgrey;
     width: 970px;
-    height: 817px;
+    /* set to min height to avoid breaking layout */
+    min-height: 817px;
     padding-right: 15px;
     margin-left: $dash-nudge;
     margin-right: 5px;
@@ -883,7 +956,8 @@ div#content {
 
 body.admin-menu {
     div#content {
-        height: 1750px;
+        /*height: 1750px;*/
+        /* currently too general. if height is needed, make it specific to profile page. */
         input#edit-submit {
             background-color: $capt-orange;
         }
@@ -1045,3 +1119,156 @@ body.page-node-add-event.page-node-add.section-node-add {
         padding-bottom: 20px;
     }
 }
+
+/* 
+ *  Editing an event
+ */
+
+form#event-node-form {
+   div#edit-field-date-instance, 
+   div#edit-field-presenter,
+   div#edit-field-related-material {
+   
+    input.form-submit {
+          padding: 0px 10px;
+          margin: 5px 13px 5px 0px;
+          height: 30px;
+          margin-top: 5px;
+     }
+     a {
+        color: $capt-orange;
+     }
+  }
+}
+
+/* 
+ *  Start Login Page
+ */
+
+
+body.not-logged-in {
+    #page {
+        height: 960px;
+    }
+    header#header {
+       height: 417px;
+       background: url('../images/banners/login.png') 0 0 no-repeat;
+       margin-top: -2px;
+    }   
+    h1#page-title {
+        background-image: none;
+        font-size: 24pt;
+        color: $capt-aqua;
+        margin-left: 16px;
+    }
+    div#content {
+        border: 0px solid white;
+    }
+    div#title-section {
+        @extend .panel-rule;
+      
+        margin-bottom: 0px;
+     
+    }
+    form#user-login, div#title-section {
+        margin-left: 50px;
+        width: 350px;
+    }
+    form#user-login {
+        @extend .panel;
+        height: 322px;
+       
+        margin-top: -20px;
+        padding-top: 10px;
+        float: left;
+        padding-bottom: 0px;
+        input#edit-submit {
+            background-color: $capt-orange;
+            padding: 10px 10px;
+            height: 40px;
+            border: 0px solid transparent;
+            margin-left: 16px;
+            position: relative;
+            top: 70px;
+        }
+        div.description {
+            display: none;
+        }
+        div.form-item-name {
+            margin-bottom: 10px;
+        }
+        input#edit-name {
+            margin-bottom: 0px;
+        }
+        input#edit-name, input#edit-pass {
+            font-size: 1.6em;
+            margin: 5px 16px;
+            width: 90%;
+            margin-top: 0px;
+        }
+        div.form-item-pass {
+            margin-top: 0px;
+        }
+        label {
+            font-weight: normal;
+            color: $capt-aqua;
+            margin-left: 16px;
+            margin-bottom: 0px;
+        }
+        div.description {
+            margin-left: 16px;
+        }
+    }
+    /* RIGHT */
+    #block-block-8 {
+        @extend .panel-rule-single;
+        margin-top: -64px;
+   
+        a {
+            color: $capt-orange;
+            font-size: 20px;
+            background: url('../images/icons/right-arrow.png') 106px 5px no-repeat;
+            font-weight: normal;
+            width: 150px;
+            display: block;
+            margin-left: 26px;
+        }
+
+
+    }
+    #block-block-9 {
+        @extend .panel-rule-single;
+        height: 210px;
+        ul {
+            margin-left: 14px;
+            li {
+              list-style-image: url('../images/icons/arrow-icons.png');
+              font-size: 16px;
+              font-weight: normal;
+            }
+        }
+        a {
+            color: black;
+            font-weight: normal;
+
+        }
+    }
+    #block-block-9, #block-block-8 {
+        @extend .panel-rule-single;
+        margin-right: 50px;
+        width: 390px;
+        float: right;
+        h2 {
+            font-weight: normal;
+            color: $capt-aqua;
+            margin-left: 28px;
+        }
+      
+
+    }
+    
+  
+}
+/*
+ *  End Login Page
+ */
