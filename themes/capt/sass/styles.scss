@@ -211,9 +211,13 @@ h5 {
 /* FORMS */
 /* general styles */
 
+a {
+    color: $capt-orange;
+}
 a.button,
 a.button:hover {
     background-color: $capt-orange;
+    color: white;
 }
 /* dashboard */
 
@@ -496,6 +500,7 @@ body {
 .view-instances.view-display-id-registration > .view-content > .views-row div {
     display: inline;
 }
+
 .ds-2col > {
     .group-left {
         float: left;
@@ -508,7 +513,9 @@ body {
         margin-left: -260px;
     }
 }
-.node-type-event #title-section {
+
+
+body.logged-in .node-type-event #title-section {
     width: auto;
     margin-right: 280px;
     float: left;
@@ -1145,8 +1152,8 @@ form#event-node-form {
  *  Start Login Page
  */
 
-
-body.not-logged-in {
+/* anonymous user / login screen */
+body.not-logged-in.page-user {
     #page {
         height: 1010px;
     }
@@ -1269,6 +1276,95 @@ body.not-logged-in {
     
   
 }
-/*
- *  End Login Page
- */
+/* anonymous user pages */
+body.not-logged-in.node-type-event {
+    h1, h2 {
+        color: $capt-aqua;
+        font-weight: normal;
+    }
+    h3 {
+        color: $capt-black;
+        margin-bottom: 10px;
+    }
+    h1,h2,h3 {
+        margin-left: 10px;
+    }
+    div#content {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 20px;
+    }
+    div.group-left {
+        display: block;
+    }
+   
+   
+    a {
+        color: $capt-orange;
+    }
+    /* panels */
+    div.group-left, div.group-right {
+        overflow: hidden;
+    }
+    div.group-dates,
+    div.group-presenter,
+    div.group-materials
+    {
+        @extend .panel-rule-single;
+        @include border-radius(0px);
+        padding: 10px 16px 16px 16px;
+        width: 900px;
+        margin-left: 10px;
+        h4 {
+            margin-top: 0px;
+        }
+
+
+    }
+   
+    
+    .ds-2col > .group-right {
+       float: left;
+       width: 300px;
+       margin: 0px;
+       overflow: visible;
+       display: block;
+       clear: both;
+
+    }
+    /* may be a stopgap measure */
+    div#block-menu-menu-anonymous-home-link {
+        position: relative;
+        top: -242px;
+        height: 0px;
+        margin: 0px 0px 0px -40px;
+
+        ul.menu {
+            li.menu__item.is-leaf {
+              list-style-type: none;
+              list-style-image: none;
+              margin-left: 0px;
+              
+              a {
+                background-color: $capt-orange;
+                font-size: 16px;
+                 color: white;
+                 width: 100px;
+                 padding: 3px;
+                 display: block;
+                 text-align: center;
+                 margin-bottom: 10px;
+                 height: 24px;
+                 @include border-radius(5px);
+              /*  color: $capt-aqua;*/
+              }
+              a:hover {
+                text-decoration: none;
+              }
+          }
+        } 
+        z-index: 20;
+    }
+
+
+
+}
