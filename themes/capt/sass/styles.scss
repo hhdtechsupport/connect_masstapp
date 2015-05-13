@@ -1336,19 +1336,19 @@ body.not-logged-in.node-type-event {
 
     }
     /* may be a stopgap measure */
-    div#block-menu-menu-anonymous-home-link {
+    div#block-block-11 {
         position: relative;
         top: -242px;
         height: 0px;
-        margin: 0px 0px 0px -40px;
+        margin: 0px 0px 0px -10px;
 
-        ul.menu {
-            li.menu__item.is-leaf {
+        
+            p {
               list-style-type: none;
               list-style-image: none;
               margin-left: 0px;
               
-              a {
+              a.anonymous_home {
                 background-color: $capt-orange;
                 font-size: 16px;
                  color: white;
@@ -1361,11 +1361,11 @@ body.not-logged-in.node-type-event {
                  @include border-radius(5px);
               /*  color: $capt-aqua;*/
               }
-              a:hover {
+              a.anonymous-home:hover {
                 text-decoration: none;
               }
           }
-        } 
+        
         z-index: 20;
     }
 
