@@ -102,7 +102,7 @@ $dash-nudge: 2px;
 .pager-link {
     background-repeat: no-repeat;
     color: $capt-orange;
-  
+
 }
 .pager-clip {
     overflow: hidden;
@@ -121,6 +121,16 @@ body {
     font-family: $default-stack;
     font-size: 13px;
     color: $capt-black;
+}
+/* eliminate blue links */
+#page {
+    div.view-content {
+        a {
+            color: $capt-orange;
+        }
+
+    }
+
 }
 #page > header {
     position: relative;
@@ -269,32 +279,32 @@ div.view-content div.item-list {
 }
 div.field-name-upcoming-events { 
     div.view-content {
-            /* set to min-height to avoid breaking layout */
-             min-height: 450px;
+        /* set to min-height to avoid breaking layout */
+        min-height: 450px;
 
-       div.item-list {
+        div.item-list {
           border-bottom: 1px solid $capt-midgrey;
-   
+
       }
-}
+  }
 }
 /* pager */
 
 /* keeps pager in the same position */
 div.view-dashboard div.view-content {
-  
+
 
 }
 ul.pager {
- 
+
     padding-top: 5px;
     height: 30px;
     text-align: right;
     text-overflow: visible;
-     a:hover {
+    a:hover {
         text-decoration: none;
-       }
-   /* width: 106%;*/
+    }
+    /* width: 106%;*/
     li.pager-ellipsis {
         padding: 0px;
     }
@@ -310,7 +320,7 @@ ul.pager {
             padding: 8px 10px;
         }  
     }
-   
+
 
     li.pager-last a {
         background-position: 33px 8px;
@@ -325,31 +335,31 @@ ul.pager {
           background-image: url('../images/icons/left-arrow.png');
           background-position: 0 8px;
           padding: 8px 0px 8px 20px;
-        }
-    }
-    /* next & last on right */
-    li.pager-next,
-    li.pager-last {
-        padding: 0px;
-        margin: 0px 0px 0px 4px;
-         a {
-            @extend .pager-link;
-            background-image: url('../images/icons/right-arrow.png');
-            background-position: 35px 8px;
-            padding: 8px 24px 8px 0px;
-        }
-        
-    }
-    li.pager-last a {
-        background-position: 34px 8px;
+      }
+  }
+  /* next & last on right */
+  li.pager-next,
+  li.pager-last {
+    padding: 0px;
+    margin: 0px 0px 0px 4px;
+    a {
+        @extend .pager-link;
+        background-image: url('../images/icons/right-arrow.png');
+        background-position: 35px 8px;
+        padding: 8px 24px 8px 0px;
     }
 
-    li.pager-item,
-    li.pager-current {
-        margin-left: 3px;
-        margin-right: 3px;
-        
-    }
+}
+li.pager-last a {
+    background-position: 34px 8px;
+}
+
+li.pager-item,
+li.pager-current {
+    margin-left: 3px;
+    margin-right: 3px;
+
+}
     // throbber needs to be on its own line 
     // so as not to affect the pager
     div.ajax-progress {
@@ -360,7 +370,7 @@ ul.pager {
         position: relative;
         margin-left: -20px;
     }
-   
+
     /* no link within pager-current */
     li.pager-current {
         background-color: $capt-orange;
@@ -535,8 +545,8 @@ body.logged-in .node-type-event #title-section {
  *  Viewing a Registered Event
  */
 
-/* view registration and edit notification buttons */
-div#block-block-1.contextual-links-region {
+ /* view registration and edit notification buttons */
+ div#block-block-1.contextual-links-region {
     a.button {
         width: 116px;
         display: block;
@@ -554,8 +564,8 @@ a.unflag-action {
 /* banners */
 .view-event-banner {
     .views-row {
-    font-size: 3em;
-    font-weight: bold;
+        font-size: 3em;
+        font-weight: bold;
     }
 }
 .vertical-tabs {
@@ -615,7 +625,7 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
-        background: url('../images/icons/registered-events.png') 396px 10px no-repeat
+    background: url('../images/icons/registered-events.png') 396px 10px no-repeat
 }
 .field-name-my-archived-events,
 .field-name-my-registered-events {
@@ -632,71 +642,71 @@ h4.black {
     }
     li.views-row {
        /* height: 20px;*/
-    }
-    /* debold the title */
-    h2.block-title {
-        font-weight: normal;
-        margin-bottom: -10px;
-    }
-    /* blacken the links */
-    h3 a {
-        font-style: normal;
-        font-size: 14px;
-        color: black;
-    }
-    /* format list of events */
-    .view-content .item-list ul {
-        padding-left: 16px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-    /* cancel registration link */
-    a.unflag-action {
-        font-weight: normal;
-        color: black;
-        text-decoration: underline;
-        display: block;
-        margin-bottom: -12px;
-    }
-    div.item-list {
-        border-width: 0px
-    }
-    /* pager logic */
-    ul.pager {
-       margin-bottom: 10px;
-    li.pager-item {
-        border: 1px solid $capt-aqua;
-    }
-    li.pager-current {
-        background-color: $capt-aqua;
-    }
-    li.pager-next,
-    li.pager-last {
-        a {
-            background-image: url('../images/icons/right-arrow-aqua.png');
-        }
-        
-    }
-    li.pager-previous,
-    li.pager-first {
-        a {
-            background-image: url('../images/icons/left-arrow-aqua.png');
-        }
-        
-    }
-    li.pager-item,
-    li.pager-current,
-    li.pager-previous,
-    li.pager-last,
-    li.pager-first,
-    li.pager-next {
-        a {
-            color: $capt-aqua;
-        }
+   }
+   /* debold the title */
+   h2.block-title {
+    font-weight: normal;
+    margin-bottom: -10px;
+}
+/* blacken the links */
+h3 a {
+    font-style: normal;
+    font-size: 14px;
+    color: black;
+}
+/* format list of events */
+.view-content .item-list ul {
+    padding-left: 16px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/* cancel registration link */
+a.unflag-action {
+    font-weight: normal;
+    color: black;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: -12px;
+}
+div.item-list {
+    border-width: 0px
+}
+/* pager logic */
+ul.pager {
+   margin-bottom: 10px;
+   li.pager-item {
+    border: 1px solid $capt-aqua;
+}
+li.pager-current {
+    background-color: $capt-aqua;
+}
+li.pager-next,
+li.pager-last {
+    a {
+        background-image: url('../images/icons/right-arrow-aqua.png');
     }
 
+}
+li.pager-previous,
+li.pager-first {
+    a {
+        background-image: url('../images/icons/left-arrow-aqua.png');
     }
-  
+
+}
+li.pager-item,
+li.pager-current,
+li.pager-previous,
+li.pager-last,
+li.pager-first,
+li.pager-next {
+    a {
+        color: $capt-aqua;
+    }
+}
+
+}
+
 }
 .field-name-my-archived-events {
     padding-bottom: 20px;
@@ -748,20 +758,20 @@ h1#page-title {
     font-weight: normal;
 }
 body.logged-in {
-h1#page-title {
-    background: url('../images/icons/create-event.png') 0 0 no-repeat;
-    padding-left: 70px;
-    /* variable? deviate from spec and reduce? */
-    
-    padding-top: 7px;
-    color: $capt-maroon;
-    min-height: 44px;
-    font-size: 26pt;
-    /* from h2 in the specs */
-    
-    margin-top: 55px;
-    margin-bottom: 35px;
-}
+    h1#page-title {
+        background: url('../images/icons/create-event.png') 0 0 no-repeat;
+        padding-left: 70px;
+        /* variable? deviate from spec and reduce? */
+
+        padding-top: 7px;
+        color: $capt-maroon;
+        min-height: 44px;
+        font-size: 26pt;
+        /* from h2 in the specs */
+
+        margin-top: 55px;
+        margin-bottom: 35px;
+    }
 }
 /*logos above header - move up to general area? */
 
@@ -770,8 +780,8 @@ div.top-header {
     /*background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
-    
-    height: $header-height;
+
+height: $header-height;
 }
 /*
 *  Logos
@@ -815,9 +825,9 @@ div#block-block-7 {
 /*
  *  Sitewide styles 
  */
-/* search */
+ /* search */
 
-input#edit-search-block-form--2 {
+ input#edit-search-block-form--2 {
     @include border-radius(5px);
     border: 0px;
     margin-left: 16px;
@@ -861,19 +871,19 @@ ul#main-menu.main-menu > li.menu-item > a.active {
 }
 ul#main-menu.main-menu {
    border-bottom: 1px solid $capt-midgrey;
-    width: 970px;
-    margin-left: $dash-nudge;
-    height: 27px;
-    li.menu-item > a {
-        text-transform: uppercase;
-        background-color: $capt-midgrey;
-    }
-    /* submenu active */
-    
-    li.menu-item > a.active {
-        background-color: white;
-        color: $capt-maroon;
-    }
+   width: 970px;
+   margin-left: $dash-nudge;
+   height: 27px;
+   li.menu-item > a {
+    text-transform: uppercase;
+    background-color: $capt-midgrey;
+}
+/* submenu active */
+
+li.menu-item > a.active {
+    background-color: white;
+    color: $capt-maroon;
+}
 }
 /* dropdown */
 
@@ -943,10 +953,10 @@ div.bottom-footer {
  /*
   *  Start Event Dashboard 
   */
-/* event dashboard content */
-/* which styles will be specific to dashboard? */
+  /* event dashboard content */
+  /* which styles will be specific to dashboard? */
 
-div#content {
+  div#content {
     border: 1px solid $capt-midgrey;
     width: 970px;
     /* set to min height to avoid breaking layout */
@@ -1009,7 +1019,7 @@ form#event-node-form {
         /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
       margin-top: 0px; // remove to add more space betw title and subtitle
       }*/
-    }
+  }
     //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
     div#edit-field-date-instance {
         @extend .field-container;
@@ -1131,29 +1141,29 @@ body.page-node-add-event.page-node-add.section-node-add {
  *  Editing an event
  */
 
-form#event-node-form {
+ form#event-node-form {
    div#edit-field-date-instance, 
    div#edit-field-presenter,
    div#edit-field-related-material {
-   
+
     input.form-submit {
-          padding: 0px 10px;
-          margin: 5px 13px 5px 0px;
-          height: 30px;
-          margin-top: 5px;
-     }
-     a {
-        color: $capt-orange;
-     }
+      padding: 0px 10px;
+      margin: 5px 13px 5px 0px;
+      height: 30px;
+      margin-top: 5px;
   }
+  a {
+    color: $capt-orange;
+}
+}
 }
 
 /* 
  *  Start Login Page
  */
 
-/* anonymous user / login screen */
-body.not-logged-in.page-user {
+ /* anonymous user / login screen */
+ body.not-logged-in.page-user {
     #page {
         height: 1010px;
     }
@@ -1161,120 +1171,120 @@ body.not-logged-in.page-user {
        height: 417px;
        background: url('../images/banners/login.png') 0 0 no-repeat;
        margin-top: -2px;
-    }   
-    h1#page-title {
-        background-image: none;
-        font-size: 24pt;
+   }   
+   h1#page-title {
+    background-image: none;
+    font-size: 24pt;
+    color: $capt-aqua;
+    margin-left: 16px;
+}
+div#content {
+    border: 0px solid white;
+}
+div#title-section {
+    @extend .panel-rule;
+
+    margin-bottom: 0px;
+
+}
+form#user-login, div#title-section {
+    margin-left: 50px;
+    width: 350px;
+}
+form#user-login {
+    @extend .panel;
+    height: 322px;
+
+    margin-top: -20px;
+    padding-top: 10px;
+    float: left;
+    padding-bottom: 0px;
+    input#edit-submit {
+        background-color: $capt-orange;
+        padding: 10px 10px;
+        height: 40px;
+        border: 0px solid transparent;
+        margin-left: 16px;
+        position: relative;
+        top: 60px;
+    }
+    div.description {
+        display: none;
+    }
+    div.form-item-name {
+        margin-bottom: 10px;
+    }
+    input#edit-name {
+        margin-bottom: 0px;
+    }
+    input#edit-name, input#edit-pass {
+        font-size: 1.6em;
+        margin: 5px 16px;
+        width: 90%;
+        margin-top: 0px;
+    }
+    div.form-item-pass {
+        margin-top: 0px;
+    }
+    label {
+        font-weight: normal;
         color: $capt-aqua;
         margin-left: 16px;
-    }
-    div#content {
-        border: 0px solid white;
-    }
-    div#title-section {
-        @extend .panel-rule;
-      
         margin-bottom: 0px;
-     
     }
-    form#user-login, div#title-section {
-        margin-left: 50px;
-        width: 350px;
+    div.description {
+        margin-left: 16px;
     }
-    form#user-login {
-        @extend .panel;
-        height: 322px;
-       
-        margin-top: -20px;
-        padding-top: 10px;
-        float: left;
-        padding-bottom: 0px;
-        input#edit-submit {
-            background-color: $capt-orange;
-            padding: 10px 10px;
-            height: 40px;
-            border: 0px solid transparent;
-            margin-left: 16px;
-            position: relative;
-            top: 60px;
-        }
-        div.description {
-            display: none;
-        }
-        div.form-item-name {
-            margin-bottom: 10px;
-        }
-        input#edit-name {
-            margin-bottom: 0px;
-        }
-        input#edit-name, input#edit-pass {
-            font-size: 1.6em;
-            margin: 5px 16px;
-            width: 90%;
-            margin-top: 0px;
-        }
-        div.form-item-pass {
-            margin-top: 0px;
-        }
-        label {
-            font-weight: normal;
-            color: $capt-aqua;
-            margin-left: 16px;
-            margin-bottom: 0px;
-        }
-        div.description {
-            margin-left: 16px;
-        }
+}
+/* RIGHT */
+#block-block-8 {
+    @extend .panel-rule-single;
+    margin-top: -64px;
+
+    a {
+        color: $capt-orange;
+        font-size: 20px;
+        background: url('../images/icons/right-arrow.png') 106px 5px no-repeat;
+        font-weight: normal;
+        width: 150px;
+        display: block;
+        margin-left: 26px;
     }
-    /* RIGHT */
-    #block-block-8 {
-        @extend .panel-rule-single;
-        margin-top: -64px;
-   
-        a {
-            color: $capt-orange;
-            font-size: 20px;
-            background: url('../images/icons/right-arrow.png') 106px 5px no-repeat;
-            font-weight: normal;
-            width: 150px;
-            display: block;
-            margin-left: 26px;
-        }
 
 
-    }
-    #block-block-9 {
-        @extend .panel-rule-single;
-        height: 207px;
-        ul {
-            margin-left: 14px;
-            li {
-              list-style-image: url('../images/icons/arrow-icons.png');
-              font-size: 16px;
-              font-weight: normal;
-            }
-        }
-        a {
-            color: black;
-            font-weight: normal;
+}
+#block-block-9 {
+    @extend .panel-rule-single;
+    height: 207px;
+    ul {
+        margin-left: 14px;
+        li {
+          list-style-image: url('../images/icons/arrow-icons.png');
+          font-size: 16px;
+          font-weight: normal;
+      }
+  }
+  a {
+    color: black;
+    font-weight: normal;
 
-        }
+}
+}
+#block-block-9, #block-block-8 {
+    @extend .panel-rule-single;
+    margin-right: 50px;
+    width: 390px;
+    float: right;
+    h2 {
+        font-weight: normal;
+        color: $capt-aqua;
+        margin-left: 28px;
     }
-    #block-block-9, #block-block-8 {
-        @extend .panel-rule-single;
-        margin-right: 50px;
-        width: 390px;
-        float: right;
-        h2 {
-            font-weight: normal;
-            color: $capt-aqua;
-            margin-left: 28px;
-        }
-      
 
-    }
-    
-  
+
+}
+
+
 }
 body.logged-in.node-type-event {
     div#title-section h3 {
@@ -1304,10 +1314,10 @@ body.node-type-event {
     div.group-left {
         display: block;
     }
-   
+
     // block with two buttons (edit notif, view reg)
     .region-help #block-block-1 {
-  
+
         top: -140px;
         margin-top: 0px;
         padding-right: 0px;
@@ -1348,41 +1358,221 @@ body.node-type-event {
        display: block;
        clear: both;
 
-    }
-    /* may be a stopgap measure */
-    div#block-block-11 {
-        position: relative;
-        top: -242px;
-        height: 0px;
-        margin: 0px 0px 0px -10px;
+   }
+   /* may be a stopgap measure */
+   div#block-block-11 {
+    position: relative;
+    top: -242px;
+    height: 0px;
+    margin: 0px 0px 0px -10px;
 
-        
-            p {
-              list-style-type: none;
-              list-style-image: none;
-              margin-left: 0px;
-              
-              a.anonymous_home {
-                background-color: $capt-orange;
-                font-size: 16px;
-                 color: white;
-                 width: 100px;
-                 padding: 3px;
-                 display: block;
-                 text-align: center;
-                 margin-bottom: 10px;
-                 height: 24px;
-                 @include border-radius(5px);
-              /*  color: $capt-aqua;*/
-              }
-              a.anonymous_home:hover {
-                text-decoration: none;
-              }
-          }
-        
-        z-index: 20;
+
+    p {
+      list-style-type: none;
+      list-style-image: none;
+      margin-left: 0px;
+
+      a.anonymous_home {
+        background-color: $capt-orange;
+        font-size: 16px;
+        color: white;
+        width: 100px;
+        padding: 3px;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        height: 24px;
+        @include border-radius(5px);
+        /*  color: $capt-aqua;*/
     }
+    a.anonymous_home:hover {
+        text-decoration: none;
+    }
+}
+z-index: 20;
+}
 
 
 
 }
+
+/* 
+ *  Event Report
+ */
+ body.page-administration-event-report {
+
+    table.views-table {
+
+        tbody  {
+            border: 1px solid $capt-midgrey;
+        }
+        tr {
+
+            th {
+                padding-right: 10px;
+            }
+            td:first-child {
+                padding-left: 10px;
+                width: 230px;
+            }
+            td {
+                padding-right: 10px;
+            }
+            td:nth-child(n+5)
+            {
+                text-align: center;
+            }
+        }
+    }
+}
+/* 
+ *  Responsive theming!
+ */
+
+/* to do: 
+swap in new banner 
+add in show/ hide icons
+
+*/
+@media screen and (min-width: 0px)
+and (max-width: 667px)   {
+
+
+
+    /* prototype class */
+    .reset-layout {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    @mixin side-borders ($color){
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+    }
+
+    html, body {
+     width: 100%;
+     overflow-x: hidden;
+     height: 100%;
+ }
+ body.not-logged-in.page-user {
+    height: 100%;
+     div#page {
+        height: 720px;
+        @extend .reset-layout;
+        display: inline-block;
+        margin-bottom: 0px;
+    }
+}
+
+
+#main {
+    @extend .reset-layout;
+
+}
+body.not-logged-in.page-user {
+
+    header#header {
+       height: 89px;
+       background: url('../images/banners/login-phone.png') 0 0 no-repeat;
+   }
+
+   form#user-login, 
+   div#title-section,
+   div#block-block-8, 
+   div#block-block-9, {
+
+    @include side-borders($capt-midgrey);
+    margin: 0px auto;
+    float: none;
+    margin: 0px auto;
+    width: 85%;
+    display: block;
+    h2 {
+        margin-left: 0px;
+
+
+    }
+    h1 {
+        margin-left: -4px;
+    }
+    h1, h2 {
+        font-size: 22px;
+        padding-left: 20px;
+        cursor: pointer;
+        background: url('../images/icons/hide.png') 0px 8px no-repeat;
+    }
+
+
+}
+    // why register
+    div#block-block-9 {
+        height: 140px;
+    }
+
+
+    div#block-block-8,
+    div#block-block-9 {
+        border: 1px solid $capt-midgrey;
+    }
+    form#user-login {
+        height: 230px;
+        input#edit-submit {
+            margin-top: 0px;
+            top: 0px;
+        }
+    }
+
+
+}
+
+div#content {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0px;
+    height: 300px;
+    border: 1px solid red;
+    /* border: 1px dotted orange;*/
+
+}
+body {
+    width: 100%;
+    /* border: 1px solid black;*/
+    height: 100%;
+
+}
+
+div.bottom-footer {
+
+    /*border: 1px solid green;*/
+    width: 100%;
+
+
+
+    div.bottom-footer-container {
+     /* border: 1px solid blue;*/
+     width: 100%;
+     
+     div.disclaimer {
+        width: 80%;
+        margin: 0px auto;
+    }
+}
+
+}
+
+div.bottom-footer,
+div.bottom-footer-container,
+div.disclaimer {
+
+    @extend .reset-layout;
+    max-width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0px;
+}
+
+
+}
+
