@@ -1276,8 +1276,13 @@ body.not-logged-in.page-user {
     
   
 }
+body.logged-in.node-type-event {
+    div#title-section h3 {
+        margin-bottom: -40px;
+    }
+}
 /* anonymous user pages */
-body.not-logged-in.node-type-event {
+body.node-type-event {
     h1, h2 {
         color: $capt-aqua;
         font-weight: normal;
@@ -1300,9 +1305,16 @@ body.not-logged-in.node-type-event {
         display: block;
     }
    
-   
-    a {
-        color: $capt-orange;
+    // block with two buttons (edit notif, view reg)
+    .region-help #block-block-1 {
+        width: 500px;
+        top: -200px;
+        margin-top: 0px;
+        padding-right: 0px;
+        a.button {
+            margin-left: 20px;
+            margin-right: 0px;
+        }
     }
     /* panels */
     div.group-left, div.group-right {
@@ -1324,7 +1336,10 @@ body.not-logged-in.node-type-event {
 
 
     }
-   
+    
+    h2.element-invisible {
+        display: none;
+    }
     
     .ds-2col > .group-right {
        float: left;
@@ -1361,7 +1376,7 @@ body.not-logged-in.node-type-event {
                  @include border-radius(5px);
               /*  color: $capt-aqua;*/
               }
-              a.anonymous-home:hover {
+              a.anonymous_home:hover {
                 text-decoration: none;
               }
           }

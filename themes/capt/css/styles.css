@@ -23,9 +23,9 @@
 /* panels */
 /* line 71, ../sass/styles.scss */
 .panel, .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.not-logged-in.node-type-event div.group-dates,
-body.not-logged-in.node-type-event div.group-presenter,
-body.not-logged-in.node-type-event div.group-materials, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-dates,
+body.node-type-event div.group-presenter,
+body.node-type-event div.group-materials, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login {
   background-color: #eef1f3;
   padding-left: 15px;
   padding-right: 15px;
@@ -34,18 +34,18 @@ body.not-logged-in.node-type-event div.group-materials, form#event-node-form div
 
 /* line 77, ../sass/styles.scss */
 .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.not-logged-in.node-type-event div.group-dates,
-body.not-logged-in.node-type-event div.group-presenter,
-body.not-logged-in.node-type-event div.group-materials, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-dates,
+body.node-type-event div.group-presenter,
+body.node-type-event div.group-materials, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section {
   padding-top: 20px;
   border-top: 5px solid #577785;
 }
 
 /* line 82, ../sass/styles.scss */
 .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.not-logged-in.node-type-event div.group-dates,
-body.not-logged-in.node-type-event div.group-presenter,
-body.not-logged-in.node-type-event div.group-materials {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-dates,
+body.node-type-event div.group-presenter,
+body.node-type-event div.group-materials {
   margin-bottom: 20px;
   /* needs to be larger for dashboard panels */
 }
@@ -1418,51 +1418,64 @@ body.not-logged-in.page-user #block-block-9 h2, body.not-logged-in.page-user #bl
   margin-left: 28px;
 }
 
-/* anonymous user pages */
 /* line 1280, ../sass/styles.scss */
-body.not-logged-in.node-type-event {
+body.logged-in.node-type-event div#title-section h3 {
+  margin-bottom: -40px;
+}
+
+/* anonymous user pages */
+/* line 1285, ../sass/styles.scss */
+body.node-type-event {
   /* panels */
   /* may be a stopgap measure */
 }
-/* line 1281, ../sass/styles.scss */
-body.not-logged-in.node-type-event h1, body.not-logged-in.node-type-event h2 {
+/* line 1286, ../sass/styles.scss */
+body.node-type-event h1, body.node-type-event h2 {
   color: #577785;
   font-weight: normal;
 }
-/* line 1285, ../sass/styles.scss */
-body.not-logged-in.node-type-event h3 {
+/* line 1290, ../sass/styles.scss */
+body.node-type-event h3 {
   color: #333333;
   margin-bottom: 10px;
 }
-/* line 1289, ../sass/styles.scss */
-body.not-logged-in.node-type-event h5 {
+/* line 1294, ../sass/styles.scss */
+body.node-type-event h5 {
   margin-top: 4px;
 }
-/* line 1292, ../sass/styles.scss */
-body.not-logged-in.node-type-event h1, body.not-logged-in.node-type-event h2, body.not-logged-in.node-type-event h3 {
+/* line 1297, ../sass/styles.scss */
+body.node-type-event h1, body.node-type-event h2, body.node-type-event h3 {
   margin-left: 10px;
 }
-/* line 1295, ../sass/styles.scss */
-body.not-logged-in.node-type-event div#content {
+/* line 1300, ../sass/styles.scss */
+body.node-type-event div#content {
   border-top: 1px solid #d7d7d7;
   padding-top: 20px;
 }
-/* line 1299, ../sass/styles.scss */
-body.not-logged-in.node-type-event div.group-left {
+/* line 1304, ../sass/styles.scss */
+body.node-type-event div.group-left {
   display: block;
 }
-/* line 1304, ../sass/styles.scss */
-body.not-logged-in.node-type-event a {
-  color: #c3791f;
+/* line 1309, ../sass/styles.scss */
+body.node-type-event .region-help #block-block-1 {
+  width: 500px;
+  top: -200px;
+  margin-top: 0px;
+  padding-right: 0px;
 }
-/* line 1308, ../sass/styles.scss */
-body.not-logged-in.node-type-event div.group-left, body.not-logged-in.node-type-event div.group-right {
+/* line 1314, ../sass/styles.scss */
+body.node-type-event .region-help #block-block-1 a.button {
+  margin-left: 20px;
+  margin-right: 0px;
+}
+/* line 1320, ../sass/styles.scss */
+body.node-type-event div.group-left, body.node-type-event div.group-right {
   overflow: hidden;
 }
-/* line 1311, ../sass/styles.scss */
-body.not-logged-in.node-type-event div.group-dates,
-body.not-logged-in.node-type-event div.group-presenter,
-body.not-logged-in.node-type-event div.group-materials {
+/* line 1323, ../sass/styles.scss */
+body.node-type-event div.group-dates,
+body.node-type-event div.group-presenter,
+body.node-type-event div.group-materials {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   -ms-border-radius: 0px;
@@ -1472,14 +1485,18 @@ body.not-logged-in.node-type-event div.group-materials {
   width: 900px;
   margin-left: 10px;
 }
-/* line 1321, ../sass/styles.scss */
-body.not-logged-in.node-type-event div.group-dates h4,
-body.not-logged-in.node-type-event div.group-presenter h4,
-body.not-logged-in.node-type-event div.group-materials h4 {
+/* line 1333, ../sass/styles.scss */
+body.node-type-event div.group-dates h4,
+body.node-type-event div.group-presenter h4,
+body.node-type-event div.group-materials h4 {
   margin-top: 0px;
 }
-/* line 1329, ../sass/styles.scss */
-body.not-logged-in.node-type-event .ds-2col > .group-right {
+/* line 1340, ../sass/styles.scss */
+body.node-type-event h2.element-invisible {
+  display: none;
+}
+/* line 1344, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right {
   float: left;
   width: 300px;
   margin: 0px;
@@ -1487,22 +1504,22 @@ body.not-logged-in.node-type-event .ds-2col > .group-right {
   display: block;
   clear: both;
 }
-/* line 1339, ../sass/styles.scss */
-body.not-logged-in.node-type-event div#block-block-11 {
+/* line 1354, ../sass/styles.scss */
+body.node-type-event div#block-block-11 {
   position: relative;
   top: -242px;
   height: 0px;
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 1346, ../sass/styles.scss */
-body.not-logged-in.node-type-event div#block-block-11 p {
+/* line 1361, ../sass/styles.scss */
+body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 1351, ../sass/styles.scss */
-body.not-logged-in.node-type-event div#block-block-11 p a.anonymous_home {
+/* line 1366, ../sass/styles.scss */
+body.node-type-event div#block-block-11 p a.anonymous_home {
   background-color: #c3791f;
   font-size: 16px;
   color: white;
@@ -1518,7 +1535,7 @@ body.not-logged-in.node-type-event div#block-block-11 p a.anonymous_home {
   border-radius: 5px;
   /*  color: $capt-aqua;*/
 }
-/* line 1364, ../sass/styles.scss */
-body.not-logged-in.node-type-event div#block-block-11 p a.anonymous-home:hover {
+/* line 1379, ../sass/styles.scss */
+body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
