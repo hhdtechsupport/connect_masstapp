@@ -1278,7 +1278,7 @@ body.not-logged-in.page-user {
 }
 body.logged-in.node-type-event {
     div#title-section h3 {
-        margin-bottom: -40px;
+        margin-bottom: -100px;
     }
 }
 /* anonymous user pages */
@@ -1307,8 +1307,8 @@ body.node-type-event {
    
     // block with two buttons (edit notif, view reg)
     .region-help #block-block-1 {
-        width: 500px;
-        top: -200px;
+  
+        top: -140px;
         margin-top: 0px;
         padding-right: 0px;
         a.button {
@@ -1322,8 +1322,7 @@ body.node-type-event {
     }
     div.group-dates,
     div.group-presenter,
-    div.group-materials
-    {
+    div.group-materials {
         @extend .panel-rule-single;
         @include border-radius(0px);
         display: inline-block;
