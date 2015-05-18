@@ -1165,7 +1165,7 @@ body.page-node-add-event.page-node-add.section-node-add {
  /* anonymous user / login screen */
  body.not-logged-in.page-user {
     #page {
-        height: 1010px;
+        height: 1010px; // problematic for mobiles? 
     }
     header#header {
        height: 417px;
@@ -1458,7 +1458,7 @@ and (max-width: 667px)   {
  body.not-logged-in.page-user {
     height: 100%;
      div#page {
-        height: 720px;
+        height: 100%;
         @extend .reset-layout;
         display: inline-block;
         margin-bottom: 0px;
@@ -1531,8 +1531,6 @@ div#content {
     margin: 0px;
     padding: 0px;
     padding-left: 0px;
-    height: 300px;
-    border: 1px solid red;
     /* border: 1px dotted orange;*/
 
 }
