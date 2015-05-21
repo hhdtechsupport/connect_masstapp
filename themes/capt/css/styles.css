@@ -1574,17 +1574,29 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
   text-align: center;
 }
 
+/*
+ *  styles from Nancy on 5/21/2015
+ */
+/* line 1436, ../sass/styles.scss */
+#account-pass-restrictions {
+  border: 1px solid #ff9933;
+  font-family: Georgia, Palatino, serif;
+  padding: 0 6px;
+}
+
+/* line 1442, ../sass/styles.scss */
+#account-pass-restrictions li {
+  font-size: 120%;
+  line-height: 1.25em;
+  list-style-image: url("/misc/menu-collapsed.png");
+}
+
 /* 
  *  Responsive theming!
  */
-/* to do: 
-swap in new banner 
-add in show/ hide icons
-
-*/
 @media screen and (min-width: 0px) and (max-width: 375px) {
   /* prototype class */
-  /* line 1445, ../sass/styles.scss */
+  /* line 1456, ../sass/styles.scss */
   .reset-layout, body.not-logged-in.page-user div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -1593,30 +1605,30 @@ add in show/ hide icons
     padding: 0px;
   }
 
-  /* line 1455, ../sass/styles.scss */
+  /* line 1466, ../sass/styles.scss */
   html, body {
     width: 100%;
     overflow-x: hidden;
     height: 100%;
   }
 
-  /* line 1460, ../sass/styles.scss */
+  /* line 1471, ../sass/styles.scss */
   body.not-logged-in.page-user {
     height: 100%;
   }
-  /* line 1462, ../sass/styles.scss */
+  /* line 1473, ../sass/styles.scss */
   body.not-logged-in.page-user div#page {
     height: 700px;
     display: inline-block;
     margin-bottom: 0px;
   }
 
-  /* line 1477, ../sass/styles.scss */
+  /* line 1488, ../sass/styles.scss */
   body.not-logged-in.page-user header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 1482, ../sass/styles.scss */
+  /* line 1493, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login,
   body.not-logged-in.page-user div#title-section,
   body.not-logged-in.page-user div#block-block-8,
@@ -1629,21 +1641,21 @@ add in show/ hide icons
     width: 85%;
     display: block;
   }
-  /* line 1493, ../sass/styles.scss */
+  /* line 1504, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h2,
   body.not-logged-in.page-user div#block-block-8 h2,
   body.not-logged-in.page-user div#block-block-9 h2 {
     margin-left: 0px;
   }
-  /* line 1498, ../sass/styles.scss */
+  /* line 1509, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h1,
   body.not-logged-in.page-user div#title-section h1,
   body.not-logged-in.page-user div#block-block-8 h1,
   body.not-logged-in.page-user div#block-block-9 h1 {
     margin-left: -4px;
   }
-  /* line 1501, ../sass/styles.scss */
+  /* line 1512, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h1, body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h1,
   body.not-logged-in.page-user div#title-section h2,
@@ -1656,26 +1668,27 @@ add in show/ hide icons
     cursor: pointer;
     background: url("../images/icons/hide.png") 0px 8px no-repeat;
   }
-  /* line 1511, ../sass/styles.scss */
+  /* line 1522, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-9 {
     height: 140px;
+    background-image: none;
   }
-  /* line 1516, ../sass/styles.scss */
+  /* line 1528, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-8,
   body.not-logged-in.page-user div#block-block-9 {
     border: 1px solid #d7d7d7;
   }
-  /* line 1520, ../sass/styles.scss */
+  /* line 1532, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login {
     height: 230px;
   }
-  /* line 1522, ../sass/styles.scss */
+  /* line 1534, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 1531, ../sass/styles.scss */
+  /* line 1543, ../sass/styles.scss */
   div#content {
     width: 100%;
     margin: 0px;
@@ -1684,30 +1697,30 @@ add in show/ hide icons
     /* border: 1px dotted orange;*/
   }
 
-  /* line 1539, ../sass/styles.scss */
+  /* line 1551, ../sass/styles.scss */
   body {
     width: 100%;
     /* border: 1px solid black;*/
     height: 100%;
   }
 
-  /* line 1546, ../sass/styles.scss */
+  /* line 1558, ../sass/styles.scss */
   div.bottom-footer {
     /*border: 1px solid green;*/
     width: 100%;
   }
-  /* line 1553, ../sass/styles.scss */
+  /* line 1565, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 1557, ../sass/styles.scss */
+  /* line 1569, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 1565, ../sass/styles.scss */
+  /* line 1577, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {

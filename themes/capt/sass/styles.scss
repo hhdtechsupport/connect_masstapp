@@ -1429,15 +1429,26 @@ z-index: 20;
         }
     }
 }
+
+/*
+ *  styles from Nancy on 5/21/2015
+ */
+#account-pass-restrictions {
+  border: 1px solid #ff9933;
+  font-family: Georgia, Palatino, serif;
+  padding: 0 6px;
+}
+ 
+#account-pass-restrictions li {
+  font-size: 120%;
+  line-height: 1.25em;
+  list-style-image: url("/misc/menu-collapsed.png");
+}
 /* 
  *  Responsive theming!
  */
 
-/* to do: 
-swap in new banner 
-add in show/ hide icons
 
-*/
 @media screen and (min-width: 0px)
 and (max-width: 375px)   {
 
@@ -1510,6 +1521,7 @@ body.not-logged-in.page-user {
     // why register
     div#block-block-9 {
         height: 140px;
+        background-image: none;
     }
 
 
