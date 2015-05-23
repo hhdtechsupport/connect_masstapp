@@ -1177,6 +1177,7 @@ body.page-node-add-event.page-node-add.section-node-add {
     font-size: 24pt;
     color: $capt-aqua;
     margin-left: 16px;
+    background-repeat:no-repeat;
 }
 div#content {
     border: 0px solid white;
@@ -1279,6 +1280,8 @@ form#user-login {
     margin-right: 50px;
     width: 390px;
     float: right;
+    background-image: none;
+    background-repeat: no-repeat;
     h2 {
         font-weight: normal;
         color: $capt-aqua;
@@ -1455,9 +1458,10 @@ z-index: 20;
  *  Responsive theming!
  */
 
-
+$iPh6W: 667px;
+$iPh6H: 375px;
 @media screen and (min-width: 0px)
-and (max-width: 375px)   {
+and (max-width: $iPh6W)   {
 
     /* prototype class */
     .reset-layout {
@@ -1491,50 +1495,60 @@ and (max-width: 375px)   {
 
 }
 body.not-logged-in.page-user {
-
+    div#title-section {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
     header#header {
        height: 89px;
        background: url('../images/banners/login-phone.png') 0 0 no-repeat;
    }
-
+ 
    form#user-login, 
    div#title-section,
    div#block-block-8, 
    div#block-block-9, {
 
     @include side-borders($capt-midgrey);
+    padding-top: 10px;
     margin: 0px auto;
     float: none;
     margin: 0px auto;
     width: 85%;
     display: block;
-    h2 {
-        margin-left: 0px;
-
-
-    }
-    h1 {
-        margin-left: -4px;
-    }
+   
+ 
+    // headers for form and blocks.
     h1, h2 {
         font-size: 22px;
         padding-left: 20px;
         cursor: pointer;
-        background: url('../images/icons/hide.png') 0px 8px no-repeat;
+        background-image: url('../images/icons/hide.png');
+        background-position: 0px 8px;
+        background-repeat: no-repeat;
+        margin-left: 0px;
+        margin-top: 0px;
     }
+    h2 {
+        margin-bottom: 6px;
+    }
+    
 
 
 }
     // why register
     div#block-block-9 {
         height: 140px;
-        background-image: none;
+      
+
     }
 
 
     div#block-block-8,
     div#block-block-9 {
         border: 1px solid $capt-midgrey;
+        background-image: none;
+        background-repeat: no-repeat;
     }
     form#user-login {
         height: 230px;

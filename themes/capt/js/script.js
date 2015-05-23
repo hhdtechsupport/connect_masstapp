@@ -12,10 +12,103 @@
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 (function ($, Drupal, window, document, undefined) {
 
-
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
+    /**
+     *  Responsive Show - Hides
+     */
+    var iPh6H = 375;
+    var iPh6W = 667;
+    var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
+    var why_reg_heights = ['207','140','34'] 
+    // laptop, mobile-expanded, mobile-compact
+
+    // function for toggling a panel on click of header
+    function togglePanel(header, body, panel, compact, expanded)
+    {
+      var mql = window.matchMedia("screen and (max-width:"+iPh6W+"px");
+       if (mql.matches)
+       {
+          switch($(body).css('display')) {
+          case 'none':
+          $(body).show();
+          $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+          if (arguments.length == 5) $(panel).css('height',expanded);
+
+          break;
+
+          default: 
+          $(body).hide();
+          $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+          if (arguments.length == 5) $(panel).css('height',compact);
+
+          break;
+        }
+      }
+    }
+    /**
+     * Click Listeners
+     */
+    $('#page-title').click(function () {
+         togglePanel('#page-title','#user-login');
+    });
+    $('#block-block-8 h2.block-title').click(function () {
+          togglePanel('#block-block-8 h2.block-title', '#block-block-8 div.panel-body')
+    });
+      $('#block-block-9 h2.block-title').click(function () {
+          togglePanel('#block-block-9 h2.block-title', 
+                      '#block-block-9 div.panel-body',
+                      '#block-block-9',
+                       why_reg_heights[2],
+                       why_reg_heights[1])
+        
+    });
+    // reset if resizing browser 
+      $(window).resize(function(){
+          panel_respond('#page-title','#user-login');
+
+          panel_respond('#block-block-8 h2.block-title',
+                        '#block-block-8 div.panel-body');
+
+          panel_respond('#block-block-9 h2.block-title',
+                        '#block-block-9 div.panel-body',
+                        '#block-block-9',
+                        '207px',
+                        why_reg_heights[1]);
+
+      });
+
+    // reset panel 
+    function panel_respond(header, body, panel, laptop_height, mobile_height)
+    {
+
+          var min = iPh6W+1;
+          var mql = window.matchMedia("screen and (min-width:"+min+"px");
+          if (mql.matches)
+          {  
+            // laptop
+            if ($(body).css('display') == 'none') $(body).show();
+              $(header).css('backgroundImage','none');
+  
+              if (arguments.length == 5)
+                 $(panel).css('height',laptop_height)
+          }
+          else
+          {
+            // mobile
+            if ($(body).css('backgroundImage') == 'none') {
+              $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+           
+                if (arguments.length == 5)
+                $(panel).css('height',mobile_height)
+
+            }
+
+          }
+    }
+
+    
 
   
     // Print to console log
@@ -177,6 +270,8 @@ Drupal.behaviors.my_custom_behavior = {
       
       
     });
+
+
     
 
     
