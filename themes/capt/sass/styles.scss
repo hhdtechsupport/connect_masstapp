@@ -998,7 +998,14 @@ body.admin-menu.section-administration {
     li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
         @include main-active-link();
     }
+    li#menu-item-1185:hover {
+         ul.sub-menu.tier-two {
+            display: block;
+         }
+
+    }
 }
+
 /* form elements for create event */
 
 form#event-node-form {
