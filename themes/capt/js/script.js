@@ -15,9 +15,11 @@
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
+
     /**
      *  Responsive Show - Hides
      */
+     
     var iPh6H = 375;
     var iPh6W = 667;
     var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
@@ -47,39 +49,41 @@ Drupal.behaviors.my_custom_behavior = {
         }
       }
     }
-    /**
-     * Click Listeners
-     */
-    $('#page-title').click(function () {
+    if ($('body').hasClass('role-anonymous-user'))
+    {
+      $('#page-title').click(function () {
          togglePanel('#page-title','#user-login');
-    });
-    $('#block-block-8 h2.block-title').click(function () {
+      });
+      $('#block-block-8 h2.block-title').click(function () {
           togglePanel('#block-block-8 h2.block-title', '#block-block-8 div.panel-body')
-    });
+      });
       $('#block-block-9 h2.block-title').click(function () {
           togglePanel('#block-block-9 h2.block-title', 
                       '#block-block-9 div.panel-body',
                       '#block-block-9',
                        why_reg_heights[2],
                        why_reg_heights[1])
+
         
-    });
+      });
+    }
     // reset if resizing browser 
       $(window).resize(function(){
-          panel_respond('#page-title','#user-login');
+          var bclass = '.role-anonymous-user ';
+          panel_respond(bclass + '#page-title','#user-login');
 
-          panel_respond('#block-block-8 h2.block-title',
-                        '#block-block-8 div.panel-body');
+          panel_respond(bclass + '#block-block-8 h2.block-title',
+                        bclass + '#block-block-8 div.panel-body');
 
-          panel_respond('#block-block-9 h2.block-title',
-                        '#block-block-9 div.panel-body',
-                        '#block-block-9',
+          panel_respond(bclass + '#block-block-9 h2.block-title',
+                        bclass + '#block-block-9 div.panel-body',
+                        bclass + '#block-block-9',
                         '207px',
                         why_reg_heights[1]);
 
       });
 
-    // reset panel 
+    // correct styles when browser is resized
     function panel_respond(header, body, panel, laptop_height, mobile_height)
     {
 
@@ -107,7 +111,9 @@ Drupal.behaviors.my_custom_behavior = {
 
           }
     }
-
+    /* 
+     *  End responsive show-hide functinality
+     */
     
 
   

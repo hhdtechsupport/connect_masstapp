@@ -980,7 +980,8 @@ body.admin-menu {
         }
     }
 }
-body.page-user-edit {
+
+body.page-user-edit,body.page-user {
     div#content {
         height: 2200px;
     }
@@ -1293,13 +1294,37 @@ form#user-login {
 
 
 }
+/*
+ *  Logged in Event Page
+ */
 body.logged-in.node-type-event {
     div#title-section h3 {
         margin-bottom: -100px;
     }
 }
-/* anonymous user pages */
+/*
+ * event pages - both anonymous and logged in 
+ */
 body.node-type-event {
+     
+    ul#main-menu.main-menu li#menu-item-588 {
+        a {
+             @include main-active-link();
+        }
+       
+
+    }
+    .view-content > .views-row div {
+        margin-left: 5px;
+    }
+    /* header */
+    div#title-section h2 {
+        margin-left: 10px;
+    }
+    /*div.group-audience,
+    div.group-description {
+        margin-left: 12px;
+    }*/
     h1, h2 {
         color: $capt-aqua;
         font-weight: normal;
@@ -1311,8 +1336,18 @@ body.node-type-event {
     h5 {
         margin-top: 4px;
     }
-    h1,h2,h3 {
+    h1,h3 {
         margin-left: 10px;
+    }
+    h2 {
+        margin-left: 0px;
+    }
+    h2 a {
+        font-size: 20px;
+        color: $capt-orange;
+    }
+    div.field-items ul a {
+        color: $capt-orange;
     }
     div#content {
         border-top: 1px solid $capt-midgrey;
@@ -1339,7 +1374,9 @@ body.node-type-event {
     }
     div.group-dates,
     div.group-presenter,
-    div.group-materials {
+    div.group-materials,
+    div.group-audience,
+    div.group-description {
         @extend .panel-rule-single;
         @include border-radius(0px);
         display: inline-block;
@@ -1395,8 +1432,8 @@ body.node-type-event {
     a.anonymous_home:hover {
         text-decoration: none;
     }
-}
-z-index: 20;
+  }
+  z-index: 20;
 }
 
 
