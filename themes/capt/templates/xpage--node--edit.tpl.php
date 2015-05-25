@@ -8,16 +8,20 @@
  */
 ?>
 
-<div class="top-header">
+<!--div class="top-header">
   <div class="top-header-container">
     <div class="capt-logo">CAPT</div>
     <div class="samhsa-logo">SAMHSA</div>
   </div>
-</div>
+</div-->
 
 <div id="page">
+  <!-- 
+  <?php print arg(0) . '/' . arg(1) . '/' . arg(2); ?>
+  <?php print "\n<pre>" . print_r($_SESSION, true) . '</pre>'; ?>
+  -->
 
-  <header class="header" id="header" role="banner">
+  <!--header class="header" id="header" role="banner">
 
     <?php print render($page['header']); ?>
 
@@ -53,7 +57,7 @@
 
     <?php print render($page['highlighted']); ?>
 
-  </header>
+  </header-->
 
   <div id="main">
 
@@ -118,11 +122,12 @@
 
   </div>
 
+  <?php print render($page['footer']); ?>
+
 </div>
 
-<div class="bottom-footer">
+<!--div class="bottom-footer">
   <div class="bottom-footer-container">
-    <?php print render($page['footer']); ?>
     <?php print render($page['bottom']); ?>
   </div>
-</div>
+</div-->
