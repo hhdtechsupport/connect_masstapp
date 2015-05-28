@@ -247,16 +247,33 @@ Drupal.behaviors.my_custom_behavior = {
       var $formFields = $section.children('.fieldset-wrapper');
       var $editButton = $('<div class="edit-button" style="font-weight:bold; float: right;">EDIT</div>');
             
-      $section.find('.form-item').each(function(){
+      $section.find('.form-item').each(function(){ // Something about .form-wrapper > .form-item
         
-        if ($(this).hasClass('form-type-textfield')) {
-          var $label = $(this).find('label');
+        if ($(this).hasClass('form-type-textfield')){
+          var label = $(this).find('label').clone().children().remove().end().text().trim();
           var $input = $(this).find('input');
-          formData = formData + '<div class="item"><span class="label">' + $label.text() + ': </span><span class="value">' + $input.val() + '</span></div>';
+          formData = formData + '<div class="item"><span class="label">' + label + ': </span><span class="value">' + $input.val() + '</span></div>';
         }
-
+        
+        if ($(this).hasClass('password-parent')) {
+          formData = formData + '<div class="item"><span class="label">Password: </span><span class="value">********</span></div>';
+        }
+        
+        if ($(this).hasClass('form-type-select')) {
+          var label = $(this).find('label').clone().children().remove().end().text().trim();
+          var $input = $(this).find('option:selected');
+          formData = formData + '<div class="item"><span class="label">' + label + ': </span><span class="value">' + $input.text() + '</span></div>';
+        }
+        
+        if ($(this).hasClass('form-type-radio')) {
+          cl($(this).children('input:checked').val());
+          
+        
+        }
         
       });
+
+
       
       $(formData).appendTo($dataView);      
       $section.children('legend').after($dataView).after($editButton);
@@ -276,10 +293,14 @@ Drupal.behaviors.my_custom_behavior = {
       
       
     });
-
-
     
+    
+    
+    function getTextFieldData($selection) {
 
+    }
+    
+    
     
     
 
