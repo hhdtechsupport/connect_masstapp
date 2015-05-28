@@ -118,14 +118,11 @@
 
   </div>
 
-  <?php print render($page['footer']); ?>
-
 </div>
-
-<?php print render($page['bottom']); ?>
 
 <div class="bottom-footer">
   <div class="bottom-footer-container">
-    <div class="disclaimer">CAPT <em>Connect</em> was developed under the Substance Abuse and Mental Health Services Administration's Center for the Application of Prevention Technologies task order. Reference #HHSS283201200024I/HHSS28342002. For training and technical assistance purposes only.</div>
+    <?php print render($page['footer']); ?>
+    <?php print render($page['bottom']); ?>
   </div>
 </div>
