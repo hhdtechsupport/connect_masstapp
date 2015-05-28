@@ -24,7 +24,7 @@ function captconnect_custom_permission() {
 function captconnect_custom_menu() {
   $items = array();
 
-  $items ['node/%node/notifications'] = array(
+  $items['node/%node/notifications'] = array(
     'title' => 'Notifications',
     'page callback' => 'captconnect_custom_view_notifications',
     'page arguments' => array(1),
@@ -34,7 +34,25 @@ function captconnect_custom_menu() {
     'type' => MENU_LOCAL_TASK,
     );
 
+  $items['admin/config/administration/captconnect'] = array(
+    'title' => 'CAPT Connect',
+    'description' => 'Various settings to control CAPT Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'captconnect_custom.admin.inc',
+    'weight' => 2,
+    'type' => MENU_NORMAL_ITEM,
+    );
+
   return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function captconnect_custom_menu_alter(&$items) {
+  $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 }
 
 /**
@@ -50,6 +68,20 @@ function captconnect_custom_access_notifications($node) {
     }
   }
   return FALSE;
+}
+
+/**
+ * Menu title callback.
+ */
+function captconnect_custom_user_page_title() {
+  global $user;
+  if (user_is_logged_in()) {
+    $title = t('My account');
+  }
+  else {
+    $title = variable_get('login_page_title', 'Log in');
+  }
+  return $title;
 }
 
 /**
@@ -95,7 +127,20 @@ function captconnect_custom_admin_paths() {
 function captconnect_custom_admin_paths_alter(&$paths) {
   $paths['user/*'] = FALSE;
   $paths['admin'] = FALSE;
+  $paths['admin/modules'] = FALSE;
   $paths['admin/*'] = FALSE;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['request'] = array(
+    '#type' => 'markup',
+    '#markup' => l(t(variable_get('request_password_text', 'Request a new password')),
+      '/user/password', 
+      array('attributes' => array('class' => array('request-password')))),
+    );
 }
 
 /**
@@ -191,9 +236,3 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       );
   }
 }
-
-
-
-
-
-
