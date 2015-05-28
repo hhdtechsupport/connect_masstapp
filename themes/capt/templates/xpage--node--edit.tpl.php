@@ -8,16 +8,20 @@
  */
 ?>
 
-<div class="top-header">
+<!--div class="top-header">
   <div class="top-header-container">
     <div class="capt-logo">CAPT</div>
     <div class="samhsa-logo">SAMHSA</div>
   </div>
-</div>
+</div-->
 
 <div id="page">
+  <!-- 
+  <?php print arg(0) . '/' . arg(1) . '/' . arg(2); ?>
+  <?php print "\n<pre>" . print_r($_SESSION, true) . '</pre>'; ?>
+  -->
 
-  <header class="header" id="header" role="banner">
+  <!--header class="header" id="header" role="banner">
 
     <?php print render($page['header']); ?>
 
@@ -53,7 +57,7 @@
 
     <?php print render($page['highlighted']); ?>
 
-  </header>
+  </header-->
 
   <div id="main">
 
@@ -65,8 +69,6 @@
       <?php if ($title): ?>
         <h1 class="page__title title" id="page-title"><?php print $title; ?></h1>
       <?php endif; ?>
-        <h2><?php print render($node->field_subtitle['und'][0]['value']); ?></h2>
-        <h3><?php print render($node->field_type_event['und'][0]['value']); ?></h3>
       </div>
       <?php print render($title_suffix); ?>
       <?php print render($page['help']); ?>
@@ -124,8 +126,8 @@
 
 </div>
 
-<div class="bottom-footer">
+<!--div class="bottom-footer">
   <div class="bottom-footer-container">
     <?php print render($page['bottom']); ?>
   </div>
-</div>
+</div-->
