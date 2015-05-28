@@ -21,7 +21,7 @@
 /* @import "theme-A.css"; */
 /* @import "theme-B.css"; */
 /* variables */
-/*variables, yo!*/
+
 
 $default-stack: Arial,
 Helvetica,
@@ -839,7 +839,7 @@ div#block-block-7 {
 }
 input#edit-submit {
     border: 1px solid white;
-    background-color: transparent;
+    /*background-color: transparent;*/
     height: 24px;
     padding: 4px;
     width: 70px;
@@ -982,9 +982,7 @@ body.admin-menu {
 }
 
 body.page-user-edit,body.page-user {
-    div#content {
-        height: 2200px;
-    }
+   
     ul#main-menu.main-menu {
         li#menu-item-591 {
             a {
@@ -1172,9 +1170,6 @@ body.page-node-add-event.page-node-add.section-node-add {
 
  /* anonymous user / login screen */
  body.not-logged-in.page-user {
-    #page {
-        height: 1010px; // problematic for mobiles? 
-    }
     header#header {
        height: 417px;
        background: url('../images/banners/login.png') 0 0 no-repeat;
