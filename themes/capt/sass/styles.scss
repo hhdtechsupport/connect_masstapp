@@ -1174,6 +1174,10 @@ body.page-node-add-event.page-node-add.section-node-add {
 
  /* anonymous user / login screen */
  body.not-logged-in.page-user {
+
+    #page {
+        height: 971px;
+    }
     header#header {
        height: 417px;
        background: url('../images/banners/login.png') 0 0 no-repeat;
@@ -1532,15 +1536,15 @@ and (max-width: $iPh6W)   {
      width: 100%;
      overflow-x: hidden;
      height: 100%;
- }
- body.not-logged-in.page-user {
-    height: 100%;
-     div#page {
-        height: 700px;
-        @extend .reset-layout;
-        display: inline-block;
-        margin-bottom: 0px;
     }
+    body.not-logged-in.page-user {
+       height: 100%;
+         div#page {
+            height: 750px;
+            @extend .reset-layout;
+            display: inline-block;
+            margin-bottom: 0px;
+        }
 }
 
 
@@ -1605,7 +1609,7 @@ body.not-logged-in.page-user {
         background-repeat: no-repeat;
     }
     form#user-login {
-        height: 230px;
+        height: 250px;
         input#edit-submit {
             margin-top: 0px;
             top: 0px;
