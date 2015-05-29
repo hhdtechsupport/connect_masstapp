@@ -1200,6 +1200,11 @@ div#title-section {
 
 }
 
+form#user-login, div#title-section {
+    margin-left: 50px;
+    width: 350px;
+    
+}
 form#user-login {
     @extend .panel;
     height: 322px;
@@ -1208,6 +1213,7 @@ form#user-login {
     padding-top: 10px;
     float: left;
     padding-bottom: 0px;
+  
     input#edit-submit {
         background-color: $capt-orange;
         padding: 10px 10px;
@@ -1238,7 +1244,7 @@ form#user-login {
     }
     label {
         font-weight: normal;
-        color: $capt-aqua;
+        color: $capt-black;
         margin-left: 16px;
         margin-bottom: 0px;
     }
@@ -1667,14 +1673,11 @@ div.disclaimer {
 
 }
 
+
+
 /*
  *  Request password page
  */
-form#user-login, div#title-section {
-    margin-left: 50px;
-    width: 350px;
-}
-
 body.page-user-password {
       
        div#title-section {
