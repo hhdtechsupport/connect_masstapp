@@ -372,25 +372,19 @@ Drupal.behaviors.my_custom_behavior = {
     
     
 
-    
+ /* MATT IS WORKING ON THIS STUFF   
     
     
     // If switching from "other" to something else in a form field, then clear text entry field
     
     // First deal with the select boxes...
     $('.field-widget-options-select').each(function(){      
-
-      var $that = $(this);
-      var $nextField = $that.next();
+      $that = $(this);
+      var $nextField = $(this).next();
       
       $(this).find('select').change(function(){
         
         toggleSelectOther($(this),$nextField);
-        
-        // Check the "N/A" option in case "CAPT Staff or Consultant" had been selected previously
-        if ($(this).find('option:selected').text() != 'CAPT Staff or Consultant') {
-          $nextField = $that.next().next().find('input[value="_none"]').attr('checked','checked');    
-        }
         
       });
       
@@ -400,8 +394,7 @@ Drupal.behaviors.my_custom_behavior = {
     // Now deal with the checkboxes...
     $('.field-widget-options-buttons').each(function(){
 
-      var $that = $(this);
-      var $nextField = $that.next();
+      var $nextField = $(this).next();
 
       // Clear out the "please specify" text in case "other" had been selected previously
       $(this).find('input').change(function(){      
@@ -448,13 +441,21 @@ Drupal.behaviors.my_custom_behavior = {
     
     
     function toggleSelectOther($selection,$nextField) {
-      if ($selection.find('option:selected').text() != 'Other') {
-        if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
+      if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
+        if ($selection.find('option:selected').text() != 'Other') {
           var $nextFieldValue = $nextField.find('input');
           $nextFieldValue.val('');
         }
+        $nextField.toggle();
       }
-      $nextField.toggle();
+      
+      // Check the "N/A" option in case "CAPT Staff or Consultant" had been selected previously
+      else if ($nextField.next().find('label').clone().children().remove().end().text().trim() == 'Select your CAPT team') {
+        if ($selection.find('option:selected').text() != 'CAPT Staff or Consultant') {
+          $nextField = $nextField.next().find('input[value="_none"]').attr('checked','checked');
+        }
+        $nextField.toggle();
+      }
     }
     
     function toggleCheckboxOther ($selection,$nextField) {
@@ -468,7 +469,7 @@ Drupal.behaviors.my_custom_behavior = {
     }
         
     
-    
+   */ 
     
     
     
