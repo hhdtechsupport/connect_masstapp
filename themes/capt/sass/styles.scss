@@ -878,13 +878,16 @@ ul#main-menu.main-menu {
    li.menu-item > a {
     text-transform: uppercase;
     background-color: $capt-midgrey;
-}
+   }
 /* submenu active */
 
-li.menu-item > a.active {
+    li.menu-item > a:hover {
+        background-color: $capt-lightgrey;
+    }
+  li.menu-item > a.active {
     background-color: white;
     color: $capt-maroon;
-}
+  }
 }
 /* dropdown */
 
