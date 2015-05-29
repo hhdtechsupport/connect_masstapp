@@ -22,10 +22,11 @@
 /* @import "theme-B.css"; */
 /* variables */
 
-
+/*fonts*/
 $default-stack: Arial,
 Helvetica,
 sans-serif;
+/* colors*/
 $capt-orange: #c3791f;
 $capt-maroon: #8c1d18;
 $capt-green: #888a55;
@@ -35,11 +36,14 @@ $capt-black: #333333;
 $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
+
+/*measurements */
 $header-height: 100px;
 $rainbow-height: 10px;
 $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
+$login-margin-left: 19px;
 /* mixins */
 
 @mixin border-radius($radius) {
@@ -1187,7 +1191,7 @@ body.page-node-add-event.page-node-add.section-node-add {
     background-image: none;
     font-size: 24pt;
     color: $capt-aqua;
-    margin-left: 16px;
+    margin-left: $login-margin-left;
     background-repeat:no-repeat;
 }
 div#content {
@@ -1195,7 +1199,6 @@ div#content {
 }
 div#title-section {
     @extend .panel-rule;
-
     margin-bottom: 0px;
 
 }
@@ -1212,14 +1215,14 @@ form#user-login {
     margin-top: -20px;
     padding-top: 10px;
     float: left;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
   
     input#edit-submit {
         background-color: $capt-orange;
         padding: 10px 10px;
         height: 40px;
         border: 0px solid transparent;
-        margin-left: 16px;
+        margin-left: $login-margin-left;
         position: relative;
         top: 60px;
     }
@@ -1235,8 +1238,8 @@ form#user-login {
     }
     input#edit-name, input#edit-pass {
         font-size: 1.6em;
-        margin: 5px 16px;
-        width: 90%;
+        margin: 5px $login-margin-left;
+        width: 89%;
         margin-top: 0px;
     }
     div.form-item-pass {
@@ -1245,14 +1248,14 @@ form#user-login {
     label {
         font-weight: normal;
         color: $capt-black;
-        margin-left: 16px;
+        margin-left: $login-margin-left;
         margin-bottom: 0px;
     }
     div.description {
         margin-left: 16px;
     }
     a.request-password {
-        margin-left: 20px;
+        margin-left: $login-margin-left + 4px;
         font-weight: normal;
         text-decoration: underline;
         position: relative;
