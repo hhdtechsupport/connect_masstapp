@@ -26,7 +26,7 @@ form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-bl
 body.node-type-event div.group-presenter,
 body.node-type-event div.group-materials,
 body.node-type-event div.group-audience,
-body.node-type-event div.group-description, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login {
+body.node-type-event div.group-description, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login, form#user-pass {
   background-color: #eef1f3;
   padding-left: 15px;
   padding-right: 15px;
@@ -1324,12 +1324,7 @@ body.not-logged-in.page-user div#content {
 body.not-logged-in.page-user div#title-section {
   margin-bottom: 0px;
 }
-/* line 1195, ../sass/styles.scss */
-body.not-logged-in.page-user form#user-login, body.not-logged-in.page-user div#title-section {
-  margin-left: 50px;
-  width: 350px;
-}
-/* line 1199, ../sass/styles.scss */
+/* line 1196, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login {
   height: 322px;
   margin-top: -20px;
@@ -1337,7 +1332,7 @@ body.not-logged-in.page-user form#user-login {
   float: left;
   padding-bottom: 0px;
 }
-/* line 1207, ../sass/styles.scss */
+/* line 1204, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-submit {
   background-color: #c3791f;
   padding: 10px 10px;
@@ -1347,41 +1342,41 @@ body.not-logged-in.page-user form#user-login input#edit-submit {
   position: relative;
   top: 60px;
 }
-/* line 1216, ../sass/styles.scss */
+/* line 1214, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   display: none;
 }
-/* line 1219, ../sass/styles.scss */
+/* line 1217, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-name {
   margin-bottom: 10px;
 }
-/* line 1222, ../sass/styles.scss */
+/* line 1220, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-name {
   margin-bottom: 0px;
 }
-/* line 1225, ../sass/styles.scss */
+/* line 1223, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-name, body.not-logged-in.page-user form#user-login input#edit-pass {
   font-size: 1.6em;
   margin: 5px 16px;
   width: 90%;
   margin-top: 0px;
 }
-/* line 1231, ../sass/styles.scss */
+/* line 1229, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-pass {
   margin-top: 0px;
 }
-/* line 1234, ../sass/styles.scss */
+/* line 1232, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login label {
   font-weight: normal;
   color: #577785;
   margin-left: 16px;
   margin-bottom: 0px;
 }
-/* line 1240, ../sass/styles.scss */
+/* line 1238, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   margin-left: 16px;
 }
-/* line 1243, ../sass/styles.scss */
+/* line 1241, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password {
   margin-left: 20px;
   font-weight: normal;
@@ -1390,7 +1385,7 @@ body.not-logged-in.page-user form#user-login a.request-password {
   top: -22px;
   color: #8c1d18;
 }
-/* line 1251, ../sass/styles.scss */
+/* line 1249, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password:hover {
   text-decoration: none;
 }
@@ -1799,4 +1794,31 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     display: block;
     margin: 0px;
   }
+}
+/*
+ *  Request password page
+ */
+/* line 1666, ../sass/styles.scss */
+form#user-login, div#title-section {
+  margin-left: 50px;
+  width: 350px;
+}
+
+/* line 1673, ../sass/styles.scss */
+body.page-user-password div#title-section {
+  width: 800px;
+}
+/* line 1676, ../sass/styles.scss */
+body.page-user-password input#edit-submit {
+  background-color: #c3791f;
+}
+
+/* line 1682, ../sass/styles.scss */
+form#user-pass {
+  width: 780px;
+  margin-top: -20px;
+  margin-left: 48px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 35px;
 }

@@ -1192,10 +1192,7 @@ div#title-section {
     margin-bottom: 0px;
 
 }
-form#user-login, div#title-section {
-    margin-left: 50px;
-    width: 350px;
-}
+
 form#user-login {
     @extend .panel;
     height: 322px;
@@ -1213,6 +1210,7 @@ form#user-login {
         position: relative;
         top: 60px;
     }
+  
     div.description {
         display: none;
     }
@@ -1252,6 +1250,8 @@ form#user-login {
         text-decoration: none;
     }
 }
+
+
 /* RIGHT */
 #block-block-8 {
     @extend .panel-rule-single;
@@ -1658,5 +1658,34 @@ div.disclaimer {
 }
 
 
+}
+
+/*
+ *  Request password page
+ */
+form#user-login, div#title-section {
+    margin-left: 50px;
+    width: 350px;
+}
+
+body.page-user-password {
+
+       div#title-section {
+        width: 800px;
+       }
+    input#edit-submit {
+        background-color: $capt-orange;
+    }
+  
+}
+
+form#user-pass {
+        @extend .panel;
+        width: 780px;
+        margin-top: -20px;
+        margin-left: 48px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 35px;
 }
 
