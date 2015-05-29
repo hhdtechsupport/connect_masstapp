@@ -236,69 +236,240 @@ Drupal.behaviors.my_custom_behavior = {
     
     // Click to edit sections of the profile
     
-    var saveButton = $('#user-profile-form input[value="Save"]').parent().html();
-    $('#user-profile-form input[value="Save"]').addClass('real').css('display','none');
+    var saveButton = '<div class="button save-button">Save</div>';
+    var cancelButton = '<div class="button cancel-button">Cancel</div>';
+    var editButton = '<div class="button edit-button">Edit</div>';
     
-    $('#user-profile-form .group-account, #user-profile-form .group-contact-information, #user-profile-form .group-demographic-information').each(function(){
+    $('#user-profile-form input[value="Save"]').css('display','none');
+    
+    $('#user-profile-form > div > fieldset').each(function(){
       
       var formData = '';
       var $section = $(this);
       var $dataView = $('<div class="data-view">');
       var $formFields = $section.children('.fieldset-wrapper');
-      var $editButton = $('<div class="edit-button" style="font-weight:bold; float: right;">EDIT</div>');
-            
-      $section.find('.form-item').each(function(){ // Something about .form-wrapper > .form-item
+      
+      // Add the cancel and save buttons to the form edit version of each section
+      $formFields.css('display','none').prepend(cancelButton).prepend(saveButton);
+      $formFields.append(saveButton).append(cancelButton);
+      
+      // Add the edit buttons to the data view version of the each section
+      $dataView.prepend(editButton);
+      
+      // Move the temporarily empty data view div into the section below the legend
+      $section.children('legend').after($dataView);
+
+      $section.find('.form-item').each(function(){
         
+        // Grab labels and values from text fields
         if ($(this).hasClass('form-type-textfield')){
           var label = $(this).find('label').clone().children().remove().end().text().trim();
-          var $input = $(this).find('input');
-          formData = formData + '<div class="item"><span class="label">' + label + ': </span><span class="value">' + $input.val() + '</span></div>';
+          var input = $(this).find('input').val();
+          // Only add colon if the label doesn't end with a question mark
+          if (label.substr(label.length-1) != '?') {
+            label = label + ':';
+          }
+          // Remove the empty "please specify" fields
+          if (!((label == 'Please specify:') && (input == ''))) {
+            formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
+          }
         }
         
+        // Create a generic password line
         if ($(this).hasClass('password-parent')) {
           formData = formData + '<div class="item"><span class="label">Password: </span><span class="value">********</span></div>';
         }
         
+        // Grab labels and values from the select fields
         if ($(this).hasClass('form-type-select')) {
           var label = $(this).find('label').clone().children().remove().end().text().trim();
-          var $input = $(this).find('option:selected');
-          formData = formData + '<div class="item"><span class="label">' + label + ': </span><span class="value">' + $input.text() + '</span></div>';
+          var input = $(this).find('option:selected').text().trim();
+          // Only add colon if the label doesn't end with a question mark
+          if (label.substr(label.length-1) != '?') {
+            label = label + ':';
+          }
+          formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
         }
         
-        if ($(this).hasClass('form-type-radio')) {
-          cl($(this).children('input:checked').val());
+        // Grab labels and selected values from the radio buttons
+        if ($(this).hasClass('form-type-radios')) {
+          var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim();
+          var input = $(this).find('input:checked').next().text().trim();
+          // Only add colon if the label doesn't end with a question mark          
+          if (label.substr(label.length-1) != '?') {
+            label = label + ':';
+          }
+          formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
+        }
+        
+        // Grab labels and selected values from the checkboxes
+        if ($(this).hasClass('form-type-checkboxes')) {
+          var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim().split(' (choose all that apply)').join('');
+          var input = '';
+          // Only add colon if the label doesn't end with a question mark          
+          if (label.substr(label.length-1) != '?') {
+            label = label + ':';
+          }
+          // If multiple selections, add commas between them
+          $(this).find('input:checked').each(function(){
+            input = input + ', ' + $(this).next().text().trim();
+          });
           
+          formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input.substr(2) + '</span></div>';
+        }        
         
+      });
+      
+      
+      // Move the form data into the awaiting data view div
+      $(formData).appendTo($dataView);
+      
+      // Remove parts of the form data that we don't want to show
+      $dataView.find('.item').each(function(){
+        
+        var labelText = $(this).children('.label').text().slice(0, -2);
+         
+        if (labelText == 'Status' ||
+            labelText == 'Roles' ||
+            labelText == 'Default state' ||
+            labelText == 'Show the disable/enable rich text editor toggle' ||
+            labelText == 'Editor width' ||
+            labelText == 'Language' ||
+            labelText == 'Auto-detect language') {
+          
+          $(this).remove();
         }
         
-      });
-
-
-      
-      $(formData).appendTo($dataView);      
-      $section.children('legend').after($dataView).after($editButton);
-      $formFields.css('display','none').append(saveButton);
-      
-      $formFields.children('input[value="Save"]').on('click', function(){
-        $('.real').trigger('click');
-      });
-      
-      $section.find('.edit-button').on('click',function(){
         
+      });
+      
+      // Action to take when edit button is clicked
+      $section.find('.button.edit-button').on('click',function(){
+        $section.siblings('fieldset').each(function(){
+          if ($(this).children('.fieldset-wrapper').is(':visible')) {
+            $(this).children('.fieldset-wrapper').toggle();
+            $(this).find('.data-view').toggle();
+          }
+        });
         $formFields.toggle();
         $section.find('.data-view').toggle();
-        
       });
-
+      
+      // Action to take when save button is clicked    
+      $section.find('.button.save-button').on('click', function(){
+        $('#user-profile-form input[value="Save"]').trigger('click');
+      });
+      
+      // Action to take when cancel button is clicked
+      $section.find('.button.cancel-button').on('click', function(){
+        location.reload();
+      });
       
       
     });
     
     
     
-    function getTextFieldData($selection) {
+    
 
+    
+    
+    
+    // If switching from "other" to something else in a form field, then clear text entry field
+    
+    // First deal with the select boxes...
+    $('.field-widget-options-select').each(function(){      
+
+      var $that = $(this);
+      var $nextField = $that.next();
+      
+      $(this).find('select').change(function(){
+        
+        toggleSelectOther($(this),$nextField);
+        
+        // Check the "N/A" option in case "CAPT Staff or Consultant" had been selected previously
+        if ($(this).find('option:selected').text() != 'CAPT Staff or Consultant') {
+          $nextField = $that.next().next().find('input[value="_none"]').attr('checked','checked');    
+        }
+        
+      });
+      
+      
+    });
+    
+    // Now deal with the checkboxes...
+    $('.field-widget-options-buttons').each(function(){
+
+      var $that = $(this);
+      var $nextField = $that.next();
+
+      // Clear out the "please specify" text in case "other" had been selected previously
+      $(this).find('input').change(function(){      
+        toggleCheckboxOther($(this),$nextField);
+      });
+      
+    });
+    
+    
+    // If "I prefer not to answer" or "No, I am not affiliated" selected then uncheck everything else in checkboxes
+    $('.field-widget-options-buttons').each(function(){
+      
+      var $that = $(this);
+      var $nextField = $that.next();
+      
+      $(this).find('input').change(function(){
+        
+        // Uncheck all other options if first or last checkbox selected
+        if ((($(this).next().text().trim() == 'I prefer not to answer') ||
+            ($(this).next().text().trim() == 'No, I am not affiliated with Federally-funded prevention initiatives for any of these Tribes'))
+            && ($(this).is(':checked'))) {
+          
+          $(this).parent().siblings().find('input').attr('checked',false);
+          
+       
+          
+        }
+        
+        // Uncheck the first and last checkboxes if any of the other checkboxes are selected
+        if (($(this).next().text().trim() != 'I prefer not to answer') &&
+            ($(this).next().text().trim() != 'No, I am not affiliated with Federally-funded prevention initiatives for any of these Tribes') &&
+            ($(this).is(':checked'))) {
+          $that.find('.form-type-checkbox:first-child input').attr('checked',false);
+          $that.find('.form-type-checkbox:last-child input').attr('checked',false);
+        }
+        
+
+
+        
+      });
+      
+    });
+    
+    
+    
+    function toggleSelectOther($selection,$nextField) {
+      if ($selection.find('option:selected').text() != 'Other') {
+        if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
+          var $nextFieldValue = $nextField.find('input');
+          $nextFieldValue.val('');
+        }
+      }
+      $nextField.toggle();
     }
+    
+    function toggleCheckboxOther ($selection,$nextField) {
+      if (($selection.next().text().trim() == 'Other') && ($selection.is(':not(:checked)'))) {          
+        if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
+          var $nextFieldValue = $nextField.find('input');
+          $nextFieldValue.val('');
+        }
+      }
+      $nextField.toggle();
+    }
+        
+    
+    
+    
     
     
     
