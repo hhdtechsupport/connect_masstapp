@@ -234,33 +234,34 @@ Drupal.behaviors.my_custom_behavior = {
   
     
     
-    // Click to edit sections of the profile
+    /*
+     * "MY PROFILE" EDIT/VIEW FUNCTIONALITY
+     */
     
+    // Grabbing form data, printing those data, and showing/hiding individual form fieldsets
+    
+    // Create pseudo Save, Cancel, and Edit buttons
     var saveButton = '<div class="button save-button">Save</div>';
     var cancelButton = '<div class="button cancel-button">Cancel</div>';
     var editButton = '<div class="button edit-button">Edit</div>';
-    
+    // And hide the "real" Save button
     $('#user-profile-form input[value="Save"]').css('display','none');
-    
+    // We are going to allow editing of each fieldset's form fields separately, so iterate over each fieldset grouping
     $('#user-profile-form > div > fieldset').each(function(){
-      
       var formData = '';
       var $section = $(this);
+      // Create the variable that will collect the form data in a structured html string
       var $dataView = $('<div class="data-view">');
       var $formFields = $section.children('.fieldset-wrapper');
-      
       // Add the cancel and save buttons to the form edit version of each section
       $formFields.css('display','none').prepend(cancelButton).prepend(saveButton);
       $formFields.append(saveButton).append(cancelButton);
-      
       // Add the edit buttons to the data view version of the each section
       $dataView.prepend(editButton);
-      
       // Move the temporarily empty data view div into the section below the legend
       $section.children('legend').after($dataView);
-
+      // Start grabbing the labels and values of each form element
       $section.find('.form-item').each(function(){
-        
         // Grab labels and values from text fields
         if ($(this).hasClass('form-type-textfield')){
           var label = $(this).find('label').clone().children().remove().end().text().trim();
@@ -274,12 +275,11 @@ Drupal.behaviors.my_custom_behavior = {
             formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
           }
         }
-        
         // Create a generic password line
         if ($(this).hasClass('password-parent')) {
           formData = formData + '<div class="item"><span class="label">Password: </span><span class="value">********</span></div>';
+          $(this).find('input').val();
         }
-        
         // Grab labels and values from the select fields
         if ($(this).hasClass('form-type-select')) {
           var label = $(this).find('label').clone().children().remove().end().text().trim();
@@ -290,7 +290,6 @@ Drupal.behaviors.my_custom_behavior = {
           }
           formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
         }
-        
         // Grab labels and selected values from the radio buttons
         if ($(this).hasClass('form-type-radios')) {
           var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim();
@@ -299,9 +298,11 @@ Drupal.behaviors.my_custom_behavior = {
           if (label.substr(label.length-1) != '?') {
             label = label + ':';
           }
-          formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
+          // Special case (see below as well) for when CAPT Staff or Consultant is "N/A"
+          if (input != '') {
+            formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
+          }
         }
-        
         // Grab labels and selected values from the checkboxes
         if ($(this).hasClass('form-type-checkboxes')) {
           var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim().split(' (choose all that apply)').join('');
@@ -314,21 +315,16 @@ Drupal.behaviors.my_custom_behavior = {
           $(this).find('input:checked').each(function(){
             input = input + ', ' + $(this).next().text().trim();
           });
-          
           formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input.substr(2) + '</span></div>';
         }        
-        
       });
-      
-      
       // Move the form data into the awaiting data view div
       $(formData).appendTo($dataView);
-      
       // Remove parts of the form data that we don't want to show
       $dataView.find('.item').each(function(){
-        
+        // Make sure to remove the colon/question mark and space
         var labelText = $(this).children('.label').text().slice(0, -2);
-         
+        // Check whether the label matches any of the "bad" fields we don't want to display
         if (labelText == 'Status' ||
             labelText == 'Roles' ||
             labelText == 'Default state' ||
@@ -336,13 +332,10 @@ Drupal.behaviors.my_custom_behavior = {
             labelText == 'Editor width' ||
             labelText == 'Language' ||
             labelText == 'Auto-detect language') {
-          
+          // And remove them from the dataView if they do
           $(this).remove();
         }
-        
-        
       });
-      
       // Action to take when edit button is clicked
       $section.find('.button.edit-button').on('click',function(){
         $section.siblings('fieldset').each(function(){
@@ -354,125 +347,131 @@ Drupal.behaviors.my_custom_behavior = {
         $formFields.toggle();
         $section.find('.data-view').toggle();
       });
-      
-      // Action to take when save button is clicked    
+      // Action to take when save button is clicked
       $section.find('.button.save-button').on('click', function(){
         $('#user-profile-form input[value="Save"]').trigger('click');
       });
-      
       // Action to take when cancel button is clicked
       $section.find('.button.cancel-button').on('click', function(){
         location.reload();
       });
-      
-      
     });
-    
-    
-    
-    
 
- /* MATT IS WORKING ON THIS STUFF   
+    // Controlling the special selections, like "Other" and "I prefer not to answer"
     
-    
-    // If switching from "other" to something else in a form field, then clear text entry field
-    
-    // First deal with the select boxes...
-    $('.field-widget-options-select').each(function(){      
-      $that = $(this);
-      var $nextField = $(this).next();
-      
-      $(this).find('select').change(function(){
-        
-        toggleSelectOther($(this),$nextField);
-        
-      });
-      
-      
-    });
-    
-    // Now deal with the checkboxes...
-    $('.field-widget-options-buttons').each(function(){
-
-      var $nextField = $(this).next();
-
-      // Clear out the "please specify" text in case "other" had been selected previously
-      $(this).find('input').change(function(){      
-        toggleCheckboxOther($(this),$nextField);
-      });
-      
-    });
-    
-    
-    // If "I prefer not to answer" or "No, I am not affiliated" selected then uncheck everything else in checkboxes
-    $('.field-widget-options-buttons').each(function(){
-      
-      var $that = $(this);
-      var $nextField = $that.next();
-      
-      $(this).find('input').change(function(){
-        
-        // Uncheck all other options if first or last checkbox selected
-        if ((($(this).next().text().trim() == 'I prefer not to answer') ||
-            ($(this).next().text().trim() == 'No, I am not affiliated with Federally-funded prevention initiatives for any of these Tribes'))
-            && ($(this).is(':checked'))) {
-          
-          $(this).parent().siblings().find('input').attr('checked',false);
-          
-       
-          
+    // When a "Please specify" textfield is detected
+    $('.field-type-text').each(function(){
+      var $field = $(this);
+      var fieldLabel = $field.find('label').clone().children().remove().end().text().trim();
+      if (fieldLabel == 'Please specify') {
+        var $fieldPrev = $field.prev();
+        // Action to take when form element is a selecbox
+        if ($fieldPrev.is('.field-widget-options-select')) {
+          var $fieldPrevSelectbox = $fieldPrev.find('select');
+          // On page load
+          otherSelectbox ($field, $fieldPrev);
+          // On selectbox change
+          $fieldPrevSelectbox.change(function(){
+            otherSelectbox ($field, $fieldPrev);
+          });
         }
-        
-        // Uncheck the first and last checkboxes if any of the other checkboxes are selected
-        if (($(this).next().text().trim() != 'I prefer not to answer') &&
-            ($(this).next().text().trim() != 'No, I am not affiliated with Federally-funded prevention initiatives for any of these Tribes') &&
-            ($(this).is(':checked'))) {
-          $that.find('.form-type-checkbox:first-child input').attr('checked',false);
-          $that.find('.form-type-checkbox:last-child input').attr('checked',false);
+        // Action to take when form element is checkboxes or radios
+        else if ($fieldPrev.is('.field-widget-options-buttons')) {
+          $fieldPrev.find('input').each(function(){
+            var $selection = $(this);
+            // On page load
+            otherCheckbox ($selection, $field, $fieldPrev);
+            // On checkbox or radio button change
+            $selection.change(function(){
+              otherCheckbox ($selection, $field, $fieldPrev);            
+            });
+          });
         }
-        
-
-
-        
-      });
-      
-    });
-    
-    
-    
-    function toggleSelectOther($selection,$nextField) {
-      if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
-        if ($selection.find('option:selected').text() != 'Other') {
-          var $nextFieldValue = $nextField.find('input');
-          $nextFieldValue.val('');
-        }
-        $nextField.toggle();
       }
-      
-      // Check the "N/A" option in case "CAPT Staff or Consultant" had been selected previously
-      else if ($nextField.next().find('label').clone().children().remove().end().text().trim() == 'Select your CAPT team') {
-        if ($selection.find('option:selected').text() != 'CAPT Staff or Consultant') {
-          $nextField = $nextField.next().find('input[value="_none"]').attr('checked','checked');
+    });
+    
+    function otherSelectbox ($field, $fieldPrev) {
+      var selection = $fieldPrev.find('option:selected').text();
+      // Empty and hide the "other" field if any option except for "Other" is selected
+      if (selection != 'Other') {
+        $field.find('input').val('');
+        $field.css('display','none');
+        // Special case: when "CAPT Staff or Consultant" is selected for the "Role" question
+        if ($field.is('#edit-field-other-role') && selection != 'CAPT Staff or Consultant') {
+          $field.next().css('display','none');
+          $field.next().find('label:contains("N/A ")').prev().attr('checked',true);
         }
-        $nextField.toggle();
+        else {
+          $field.next().css('display','block');
+        }
+      }
+      // Otherwise, show the "other" field
+      else {
+        $field.css('display','block');
       }
     }
     
-    function toggleCheckboxOther ($selection,$nextField) {
-      if (($selection.next().text().trim() == 'Other') && ($selection.is(':not(:checked)'))) {          
-        if ($nextField.find('label').clone().children().remove().end().text().trim() == 'Please specify') {
-          var $nextFieldValue = $nextField.find('input');
-          $nextFieldValue.val('');
+    function otherCheckbox ($selection, $field, $fieldPrev) {
+      var selection = $selection.next().text().trim();
+      // Because this will be run for each checkbox, make sure we're looking at the "other" checkbox
+      if (selection == 'Other') {
+        // Empty and hide the "other" field if the "other" checkbox is unchecked
+        if ($selection.is(':not(:checked)')) {
+          $field.find('input').val('');
+          $field.css('display','none');
+        }
+        // Otherwise, show the "other" field
+        else {
+          $field.css('display','block');
         }
       }
-      $nextField.toggle();
+    }    
+    
+    // What to do when a particular selection implies exclusivity and all other options should be unchecked
+    $('.field-widget-options-buttons').each(function(){
+      var $field = $(this);
+      $field.find('.form-type-checkbox').each(function(){
+        var $checkbox = $(this);
+        $checkbox.change(function(){
+          var $input = $(this).find('input');
+          noAnswer ($input, $field);
+        });
+      });
+    });
+    
+    function noAnswer ($input, $field) {
+      var inputLabel = $input.next().text().trim();
+      // Define the particular selections that require all others to be unchecked
+      var preferText = 'I prefer not to answer';
+      var noAffiliationText = 'No, I am not affiliated with Federally-funded prevention initiatives for any of these Tribes';
+      // Check whether the checkbox's label matches one of the selections defined above...
+      if (inputLabel == preferText || inputLabel == noAffiliationText) {
+        // ...if it does and is checked, then uncheck all other options...
+        if ($input.is(':checked')) {
+          $field.find('input').each(function(){
+            $(this).attr('checked',false);
+            // ...(making sure to empty and hide the "other" field because the "other" checkbox was unchecked)...
+            otherCheckbox ($(this), $field.next(), $field);
+          });
+          // ...and re-checking the current checkbox
+          $input.attr('checked',true);
+        }
+      }
+      // Otherwise, uncheck the "particular selections" from above (as they can only be exclusively checked off)
+      else {
+        if ($input.is(':checked')) {
+          $field.find('label:contains("' + preferText + '")').prev().attr('checked',false);
+          $field.find('label:contains("' + noAffiliationText + '")').prev().attr('checked',false);
+        }
+      }
     }
-        
+  
+
+
     
-   */ 
-    
-    
-    
+    /*
+     * END OF "MY PROFILE" EDIT/VIEW FUNCTIONALITY
+     */
     
     
 
