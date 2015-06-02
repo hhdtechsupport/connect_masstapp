@@ -69,7 +69,7 @@ $login-margin-left: 19px;
     -webkit-transform: scaleX($val);
     transform: scaleX($val);
 }
-/* inherited classes */
+/* inherited prototype classes */
 
 /* panels */
 .panel {
@@ -77,6 +77,15 @@ $login-margin-left: 19px;
     padding-left: 15px;
     padding-right: 15px;
     border-width: 0px;
+}
+.proto-disclaimer {
+        margin-left: 60px;
+        position: relative;
+        top: 30px;
+        font-size: 10px;
+        line-height: 12px;
+        width: 390px;
+
 }
 .panel-rule {
     @extend .panel;
@@ -924,19 +933,37 @@ div.capt-logo {
 ul#main-menu.main-menu {
     margin-top: 20px;
 }
+
 /* footer */
 
 div.bottom-footer {
     @include rainbow-bar(0px);
     div.disclaimer {
-        margin-left: 10px;
-        position: relative;
-        top: 30px;
-        font-size: 10px;
-        line-height: 12px;
-        width: 390px;
+       @extend .proto-disclaimer;
     }
 }
+
+
+
+body.node-type-event.section-event {
+    div#block-block-12 {
+        position: relative;
+        top: 90px;
+        div.disclaimer {
+         @extend .proto-disclaimer;
+         margin-left: 0px;
+    }
+ 
+
+    }
+    
+}
+div.disclaimer {
+        margin-left: 60px;
+    
+    }
+
+
 
 /* 
  *  End Sitewide Styles
@@ -1321,7 +1348,8 @@ form#user-login {
 h1#page-title {
     font-weight: normal;
 }
-body.logged-in.node-type-event {
+/*recently removed node-type event on 6/2; keep an eye out for issues */
+body.logged-in {
     h1#page-title {
         background: url('../images/icons/create-event.png') 0 0 no-repeat;
         padding-left: 70px;
