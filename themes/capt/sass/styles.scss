@@ -36,6 +36,7 @@ $capt-black: #333333;
 $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
+$capt-hovergrey: #e4e4e4;
 
 /*measurements */
 $header-height: 100px;
@@ -881,7 +882,7 @@ ul#main-menu.main-menu {
 /* submenu active */
 
     li.menu-item > a:hover {
-        background-color: $capt-lightgrey;
+        background-color: $capt-hovergrey;
     }
   li.menu-item > a.active {
     background-color: white;
@@ -1738,6 +1739,7 @@ body.page-user-password {
       
      div#content div#title-section {
         width: 370px;
+        margin: 0px auto;
        }
     input#edit-submit {
         background-color: $capt-orange;
@@ -1745,14 +1747,15 @@ body.page-user-password {
   
 }
 
+
+
 form#user-pass {
-        @extend .panel;
-        width: 330px;
-        margin-top: -20px;
-        margin-left: 50px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        padding-left: 35px;
-        padding-right: 35px;
+ @extend .panel;
+ width: 330px;
+ padding-top: 20px;
+ padding-bottom: 20px;
+ padding-left: 35px;
+ padding-right: 35px;
+ margin: -20px auto 0;
 }
 
