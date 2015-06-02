@@ -78,9 +78,14 @@ function captconnect_custom_user_page_title() {
   if (user_is_logged_in()) {
     $title = t('My account');
   }
+   /* new logic for setting password title*/
+  else if (drupal_get_path_alias($_GET['q']) == 'user/password') {
+    $title = variable_get('login_page_title','Request new password');
+  }
   else {
     $title = variable_get('login_page_title', 'Log in');
   }
+
   return $title;
 }
 
