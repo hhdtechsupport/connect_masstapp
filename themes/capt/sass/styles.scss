@@ -246,10 +246,10 @@ body.node-type-dashboard #page {
     }
 }
 .node-event .group-right .group-materials {
-    background: #efeef5;
-    @include border-radius(5px);
-    padding: 10px;
-    margin-bottom: 10px;
+   /* background: #efeef5;
+    @include border-radius(5px);*/
+   /* padding: 10px;
+    margin-bottom: 10px;*/
     /*border: 3px solid #cdcdcd;*/
 }
 /* adopting h4:black for this one */
@@ -540,7 +540,7 @@ body.logged-in .node-type-event #title-section {
     margin-left: -260px;
     width: 240px;
     padding-right: 10px;
-    margin-top: 1em;
+    /*margin-top: 1em;*/
 
 }
 
@@ -716,7 +716,7 @@ li.pager-next {
     padding-bottom: 20px;
     background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
     .view-dashboard {
-        height: 170px;
+        min-height: 170px;
     }
     h2.block-title {
         font-weight: normal;
@@ -1389,8 +1389,8 @@ body.node-type-event {
 
     // block with two buttons (edit notif, view reg)
     .region-help #block-block-1 {
-
-        top: -140px;
+        // needed so it doesn't run into  the text
+        top: -280px;
         margin-top: 0px;
         padding-right: 0px;
         a.button {
@@ -1398,6 +1398,7 @@ body.node-type-event {
             margin-right: 0px;
         }
     }
+ 
     /* panels */
     div.group-left, div.group-right {
         overflow: hidden;
@@ -1419,6 +1420,7 @@ body.node-type-event {
 
 
     }
+
     
     h2.element-invisible {
         display: none;
