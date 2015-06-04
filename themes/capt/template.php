@@ -148,7 +148,6 @@ function capt_preprocess_page(&$variables) {
     if (!empty($variables['node']) && !empty($variables['node']->type) && (arg(2) != 'edit')) {
         $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
     }
-    drupal_set_message('hello','status');
     // prevent green message from showing up on login page
     if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');
  
