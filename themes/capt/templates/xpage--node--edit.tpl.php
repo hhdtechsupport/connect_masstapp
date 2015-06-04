@@ -123,8 +123,6 @@
   </div>
 
   <!-- commented this out as it was causing problems -->
-  <!--<?php print render($page['footer']); ?>-->
-
 </div>
 <div class="bottom-footer">
   <div class="bottom-footer-container">
