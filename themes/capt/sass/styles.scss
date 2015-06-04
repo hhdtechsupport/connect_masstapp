@@ -44,7 +44,7 @@ $rainbow-height: 10px;
 $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
-$login-margin-left: 19px;
+$login-margin-left: 18px;
 
 /*fonts*/
 $login-font: 16px;
@@ -84,7 +84,7 @@ $login-font: 16px;
     border-top: 0px;
 }
 .proto-disclaimer {
-        margin-left: 50px;
+        margin-left: 90px; /* this keeps having to change */
         position: relative;
         top: 30px;
         font-size: 10px;
@@ -1267,6 +1267,7 @@ form#user-login {
         margin-left: $login-margin-left;
         position: relative;
         top: 60px;
+        width: 75px;
     }
   
     div.description {
@@ -1280,8 +1281,8 @@ form#user-login {
     }
     input#edit-name, input#edit-pass {
         font-size: 1.6em;
-        margin: 5px $login-margin-left;
-        width: 89%;
+        margin: 5px 0px 5px $login-margin-left;
+        width: 90%;
         margin-top: 0px;
     }
     div.form-item-pass {
@@ -1320,6 +1321,7 @@ form#user-login {
     }
     h2.custom_block_title {
         margin-top: 0px;
+        margin-left: $login-margin-left;
     }
     margin-top: -64px;
 
@@ -1330,7 +1332,7 @@ form#user-login {
         font-weight: normal;
         width: 150px;
         display: block;
-        margin-left: 26px;
+        margin-left: $login-margin-left;
     }
 
 
@@ -1339,11 +1341,14 @@ form#user-login {
 #block-block-9 {
     @extend .panel-rule-single;
     background-image: url('../images/icons/register.png');
-    background-position: 280px 30px;
+    background-position: 294px 30px;
     background-repeat: no-repeat;
     height: 217px;
+    h2.block-title {
+        margin-left: $login-margin-left;
+    }
     ul {
-        margin-left: 14px;
+        margin-left: 4px;
         li {
           list-style-image: url('../images/icons/arrow-icons-aqua.png');
           font-size: 16px;
