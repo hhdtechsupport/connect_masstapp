@@ -61,6 +61,7 @@ $login-font: 16px;
     background-position: -124px $y_pos;
     background-repeat: repeat-x;
 }
+
 @mixin main-active-link () {
     background-color: white;
     border: 1px solid $capt-midgrey;
@@ -86,7 +87,8 @@ $login-font: 16px;
 .proto-disclaimer {
         margin-left: 90px;
         position: relative;
-        top: 30px;
+        top: 10px;
+        padding-top: 10px;
         font-size: 10px;
         line-height: 12px;
         width: 390px;
@@ -473,12 +475,21 @@ body {
     
     height: 30px;
 }
-.bottom-footer {
-    width: 100%;
-    /*border-top: 5px solid black;*/
+div.bottom-footer {
+    @include rainbow-bar(0px);
     
-    height: 100px;
+    div.disclaimer {
+       @extend .proto-disclaimer;
+        background: url('../images/design-elements/wrapper-background.png');
+    }
+    /* needed for eliminating space */
+    position: fixed;
+    bottom: 0px;
+
+    display: block;
+    width: 100%;
 }
+
 .top-header-container,
 .bottom-footer-container {
     margin-left: auto;
@@ -559,7 +570,6 @@ body.logged-in .node-type-event #title-section {
     margin-left: -260px;
     width: 240px;
     padding-right: 10px;
-    /*margin-top: 1em;*/
 
 }
 
@@ -946,18 +956,20 @@ ul#main-menu.main-menu {
 
 /* footer */
 
-div.bottom-footer {
-    @include rainbow-bar(0px);
-    div.disclaimer {
-       @extend .proto-disclaimer;
-    }
+
+
+/**
+ * Disclaimer area
+ */
+
+div#block-block-12 {
+       height: 100px;
+       margin-bottom: 0px;
 }
-
-
-
 body.node-type-event.section-event {
     div#block-block-12 {
         position: relative;
+      
         top: 90px;
         div.disclaimer {
          @extend .proto-disclaimer;
@@ -1201,9 +1213,11 @@ body.page-node-add-event.page-node-add.section-node-add {
 
  /* anonymous user / login screen */
  body.not-logged-in.page-user {
-
+    
     #page {
         height: 1022px;
+        margin-bottom: -200px;
+
     }
     header#header {
        height: 417px;
