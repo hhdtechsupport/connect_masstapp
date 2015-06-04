@@ -122,12 +122,12 @@
 
   </div>
 
-  <?php print render($page['footer']); ?>
+  <!-- commented this out as it was causing problems -->
+  <!--<?php print render($page['footer']); ?>-->
 
 </div>
-
-<!--div class="bottom-footer">
+<div class="bottom-footer">
   <div class="bottom-footer-container">
-    <?php print render($page['bottom']); ?>
+    <?php print render($page['footer']); ?> <!-- changed from bottom -->
   </div>
-</div-->
+</div>
