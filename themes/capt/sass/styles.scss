@@ -45,6 +45,9 @@ $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
 $login-margin-left: 19px;
+
+/*fonts*/
+$login-font: 16px;
 /* mixins */
 
 @mixin border-radius($radius) {
@@ -80,7 +83,7 @@ $login-margin-left: 19px;
     border-width: 0px;
 }
 .proto-disclaimer {
-        margin-left: 60px;
+        margin-left: 90px;
         position: relative;
         top: 30px;
         font-size: 10px;
@@ -960,9 +963,9 @@ body.node-type-event.section-event {
     
 }
 div.disclaimer {
-        margin-left: 60px;
+        margin-left: 50px;
     
-    }
+}
 
 
 
@@ -1264,6 +1267,7 @@ form#user-login {
         color: $capt-black;
         margin-left: $login-margin-left;
         margin-bottom: 0px;
+        font-size: $login-font;
     }
     div.description {
         margin-left: 16px;
@@ -1275,6 +1279,7 @@ form#user-login {
         position: relative;
         top: -22px;
         color: $capt-maroon;
+        font-size: $login-font;
     }
     a.request-password:hover {
         text-decoration: none;
