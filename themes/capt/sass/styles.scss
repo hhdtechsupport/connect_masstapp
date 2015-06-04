@@ -44,7 +44,7 @@ $rainbow-height: 10px;
 $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
-$login-margin-left: 18px;
+$login-margin-left: 17px;
 
 /*fonts*/
 $login-font: 16px;
@@ -1213,11 +1213,6 @@ body.page-node-add-event.page-node-add.section-node-add {
 /* 
  *  Start Login Page
  */
-
-html {
-    height: 100%;
-}
-
  body.not-logged-in.page-user {
     height: 100%;
    
@@ -1239,16 +1234,16 @@ div#content {
     border: 0px solid white;
 
 }
+
+form#user-login, div#title-section {
+    margin-left: 85px;
+    width: 315px;
+    
+}
 div#title-section {
     @extend .panel-rule;
     margin-bottom: 0px;
 
-}
-
-form#user-login, div#title-section {
-    margin-left: 50px;
-    width: 350px;
-    
 }
 form#user-login {
     @extend .panel;
@@ -1282,7 +1277,7 @@ form#user-login {
     input#edit-name, input#edit-pass {
         font-size: 1.6em;
         margin: 5px 0px 5px $login-margin-left;
-        width: 90%;
+        width: 89%;
         margin-top: 0px;
     }
     div.form-item-pass {
@@ -1341,7 +1336,7 @@ form#user-login {
 #block-block-9 {
     @extend .panel-rule-single;
     background-image: url('../images/icons/register.png');
-    background-position: 294px 30px;
+    background-position: 270px 30px;
     background-repeat: no-repeat;
     height: 217px;
     h2.block-title {
@@ -1364,8 +1359,8 @@ form#user-login {
 }
 #block-block-9, #block-block-8 {
     @extend .panel-rule-single;
-    margin-right: 50px;
-    width: 390px;
+    margin-right: 75px;
+    width: 365px;
     float: right;
     background-repeat: no-repeat;
     h2 {
