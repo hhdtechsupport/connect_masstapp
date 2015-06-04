@@ -1533,10 +1533,11 @@ body.node-type-event {
        clear: both;
 
    }
-   /* may be a stopgap measure */
+   /* home button on event page */
    div#block-block-11 {
-    position: relative;
-    top: -242px;
+    /* the absolute positioning keeps its position constant across pages*/
+    position: absolute;
+    top: -60px;
     height: 0px;
     margin: 0px 0px 0px -10px;
 
@@ -1556,6 +1557,9 @@ body.node-type-event {
         text-align: center;
         margin-bottom: 10px;
         height: 24px;
+        position:relative;
+        top: 0px;
+        float: left;
         @include border-radius(5px);
         /*  color: $capt-aqua;*/
     }
