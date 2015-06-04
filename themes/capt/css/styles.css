@@ -39,7 +39,8 @@ body.node-type-event div.group-description, form#event-node-form div.form-item.f
 }
 
 /* line 86, ../sass/styles.scss */
-.proto-disclaimer, div.bottom-footer div.disclaimer, body.node-type-event.section-event div#block-block-12 div.disclaimer {
+.proto-disclaimer, div.bottom-footer div.disclaimer,
+body.node-type-event #footer div.disclaimer {
   margin-left: 90px;
   /* this keeps having to change */
   position: relative;
@@ -257,14 +258,18 @@ a.button:hover {
 }
 
 /* dashboard */
-/* line 256, ../sass/styles.scss */
+/* line 258, ../sass/styles.scss */
 body.node-type-dashboard #page {
   height: 100%;
   /* changed from 1000px*/
 }
+/* line 261, ../sass/styles.scss */
+body.node-type-dashboard div.disclaimer {
+  margin-left: 20px;
+}
 
 /* the main panels */
-/* line 266, ../sass/styles.scss */
+/* line 272, ../sass/styles.scss */
 .node-event .group-right .group-materials {
   /* background: #efeef5;
    @include border-radius(5px);*/
@@ -274,7 +279,7 @@ body.node-type-dashboard #page {
 }
 
 /* adopting h4:black for this one */
-/* line 275, ../sass/styles.scss */
+/* line 281, ../sass/styles.scss */
 .node-dashboard h2.block-title {
   /* artifacts */
   margin-top: 0;
@@ -285,40 +290,40 @@ body.node-type-dashboard #page {
 }
 
 /* dashboard lists */
-/* line 287, ../sass/styles.scss */
+/* line 293, ../sass/styles.scss */
 li.views-row {
   margin-bottom: 1em;
   list-style-image: url("../images/icons/arrow-icons.png");
   margin-top: 0px;
 }
 
-/* line 292, ../sass/styles.scss */
+/* line 298, ../sass/styles.scss */
 div.view-content div.item-list {
   /* TODO: add variant for registered events */
 }
-/* line 293, ../sass/styles.scss */
+/* line 299, ../sass/styles.scss */
 div.view-content div.item-list h3 {
   margin-bottom: 0px;
 }
-/* line 297, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 div.view-content div.item-list ul {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 304, ../sass/styles.scss */
+/* line 310, ../sass/styles.scss */
 div.field-name-upcoming-events div.view-content {
   /* set to min-height to avoid breaking layout */
   min-height: 450px;
 }
-/* line 308, ../sass/styles.scss */
+/* line 314, ../sass/styles.scss */
 div.field-name-upcoming-events div.view-content div.item-list {
   border-bottom: 1px solid #d7d7d7;
 }
 
 /* pager */
 /* keeps pager in the same position */
-/* line 321, ../sass/styles.scss */
+/* line 327, ../sass/styles.scss */
 ul.pager {
   padding-top: 5px;
   height: 30px;
@@ -329,15 +334,15 @@ ul.pager {
   /* next & last on right */
   /* no link within pager-current */
 }
-/* line 327, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 ul.pager a:hover {
   text-decoration: none;
 }
-/* line 331, ../sass/styles.scss */
+/* line 337, ../sass/styles.scss */
 ul.pager li.pager-ellipsis {
   padding: 0px;
 }
-/* line 334, ../sass/styles.scss */
+/* line 340, ../sass/styles.scss */
 ul.pager li.pager-item {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -349,52 +354,52 @@ ul.pager li.pager-item {
   padding: 8px 0px 8px 0px;
   width: 50px;
 }
-/* line 341, ../sass/styles.scss */
+/* line 347, ../sass/styles.scss */
 ul.pager li.pager-item a {
   color: #c3791f;
   padding: 8px 10px;
 }
-/* line 348, ../sass/styles.scss */
+/* line 354, ../sass/styles.scss */
 ul.pager li.pager-last a {
   background-position: 33px 8px;
 }
-/* line 352, ../sass/styles.scss */
+/* line 358, ../sass/styles.scss */
 ul.pager li.pager-first,
 ul.pager li.pager-previous {
   padding: 0px;
   margin: 0px 4px 0px 0px;
 }
-/* line 356, ../sass/styles.scss */
+/* line 362, ../sass/styles.scss */
 ul.pager li.pager-first a,
 ul.pager li.pager-previous a {
   background-image: url("../images/icons/left-arrow.png");
   background-position: 0 8px;
   padding: 8px 0px 8px 20px;
 }
-/* line 364, ../sass/styles.scss */
+/* line 370, ../sass/styles.scss */
 ul.pager li.pager-next,
 ul.pager li.pager-last {
   padding: 0px;
   margin: 0px 0px 0px 4px;
 }
-/* line 368, ../sass/styles.scss */
+/* line 374, ../sass/styles.scss */
 ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow.png");
   background-position: 35px 8px;
   padding: 8px 24px 8px 0px;
 }
-/* line 376, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 ul.pager li.pager-last a {
   background-position: 34px 8px;
 }
-/* line 380, ../sass/styles.scss */
+/* line 386, ../sass/styles.scss */
 ul.pager li.pager-item,
 ul.pager li.pager-current {
   margin-left: 3px;
   margin-right: 3px;
 }
-/* line 388, ../sass/styles.scss */
+/* line 394, ../sass/styles.scss */
 ul.pager div.ajax-progress {
   float: right;
   display: inline;
@@ -403,7 +408,7 @@ ul.pager div.ajax-progress {
   position: relative;
   margin-left: -20px;
 }
-/* line 398, ../sass/styles.scss */
+/* line 404, ../sass/styles.scss */
 ul.pager li.pager-current {
   background-color: #c3791f;
   height: 30px;
@@ -417,58 +422,58 @@ ul.pager li.pager-current {
 }
 
 /* end pager styles */
-/* line 410, ../sass/styles.scss */
+/* line 416, ../sass/styles.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 414, ../sass/styles.scss */
+/* line 420, ../sass/styles.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 418, ../sass/styles.scss */
+/* line 424, ../sass/styles.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 422, ../sass/styles.scss */
+/* line 428, ../sass/styles.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 426, ../sass/styles.scss */
+/* line 432, ../sass/styles.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 431, ../sass/styles.scss */
+/* line 437, ../sass/styles.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 435, ../sass/styles.scss */
+/* line 441, ../sass/styles.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 437, ../sass/styles.scss */
+/* line 443, ../sass/styles.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 441, ../sass/styles.scss */
+/* line 447, ../sass/styles.scss */
 table {
   width: 100%;
 }
-/* line 443, ../sass/styles.scss */
+/* line 449, ../sass/styles.scss */
 table thead th {
   text-align: left;
 }
 
-/* line 447, ../sass/styles.scss */
+/* line 453, ../sass/styles.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -478,18 +483,18 @@ table thead th {
   padding-left: 0;
 }
 
-/* line 455, ../sass/styles.scss */
+/* line 461, ../sass/styles.scss */
 .view-registrations table {
   margin-bottom: 50px;
 }
-/* line 457, ../sass/styles.scss */
+/* line 463, ../sass/styles.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: .2em 0;
 }
 
 /* end forms */
-/* line 464, ../sass/styles.scss */
+/* line 470, ../sass/styles.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
@@ -497,24 +502,37 @@ body {
 /*
 * to do: add background-image to top and bottom headers. 
 */
-/* line 471, ../sass/styles.scss */
+/* line 477, ../sass/styles.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 477, ../sass/styles.scss */
-.bottom-footer {
+/* line 483, ../sass/styles.scss */
+.bottom-footer, body.node-type-event #footer {
   width: 100%;
   display: block;
-  /*background-color: red;*/
-  /* added to keep it from being too tall */
   top: 100px;
   position: relative;
 }
 
-/* line 485, ../sass/styles.scss */
+/*
+ *  Specific event page styling for the footer. 
+ */
+/* line 492, ../sass/styles.scss */
+body.node-type-event #footer {
+  margin-top: 0px;
+  padding: 0px;
+  top: 120px;
+}
+/* line 496, ../sass/styles.scss */
+body.node-type-event #footer div.disclaimer {
+  position: relative;
+  margin-left: 20px;
+}
+
+/* line 501, ../sass/styles.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -522,7 +540,7 @@ body {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 490, ../sass/styles.scss */
+/* line 506, ../sass/styles.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -530,23 +548,23 @@ body {
   max-width: 1200px;
 }
 
-/* line 496, ../sass/styles.scss */
+/* line 512, ../sass/styles.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 499, ../sass/styles.scss */
+/* line 515, ../sass/styles.scss */
 .samhsa-logo {
   float: right;
 }
 
-/* line 502, ../sass/styles.scss */
+/* line 518, ../sass/styles.scss */
 .disclaimer {
   width: 600px;
 }
 
 /* treating this as the container for now */
-/* line 507, ../sass/styles.scss */
+/* line 523, ../sass/styles.scss */
 #main {
   width: 1000px;
   margin-left: 12px;
@@ -554,7 +572,7 @@ body {
 }
 
 /* page */
-/* line 514, ../sass/styles.scss */
+/* line 530, ../sass/styles.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -563,22 +581,22 @@ body {
   width: 1000px;
 }
 
-/* line 522, ../sass/styles.scss */
+/* line 538, ../sass/styles.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 526, ../sass/styles.scss */
+/* line 542, ../sass/styles.scss */
 .region-header {
   float: right;
 }
-/* line 528, ../sass/styles.scss */
+/* line 544, ../sass/styles.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 532, ../sass/styles.scss */
+/* line 548, ../sass/styles.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -588,32 +606,32 @@ body {
   clear: both;
 }
 
-/* line 540, ../sass/styles.scss */
+/* line 556, ../sass/styles.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 545, ../sass/styles.scss */
+/* line 561, ../sass/styles.scss */
 .ds-2col > .group-left {
   float: left;
   width: auto;
   margin-right: 280px;
 }
-/* line 550, ../sass/styles.scss */
+/* line 566, ../sass/styles.scss */
 .ds-2col > .group-right {
   float: left;
   width: 240px;
   margin-left: -260px;
 }
 
-/* line 558, ../sass/styles.scss */
+/* line 574, ../sass/styles.scss */
 body.logged-in .node-type-event #title-section {
   width: auto;
   margin-right: 280px;
   float: left;
 }
 
-/* line 564, ../sass/styles.scss */
+/* line 580, ../sass/styles.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -627,7 +645,7 @@ body.logged-in .node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 581, ../sass/styles.scss */
+/* line 597, ../sass/styles.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -636,7 +654,7 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 589, ../sass/styles.scss */
+/* line 605, ../sass/styles.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
@@ -644,31 +662,31 @@ a.unflag-action {
 }
 
 /* banners */
-/* line 597, ../sass/styles.scss */
+/* line 613, ../sass/styles.scss */
 .view-event-banner .views-row {
   font-size: 3em;
   font-weight: bold;
 }
 
-/* line 602, ../sass/styles.scss */
+/* line 618, ../sass/styles.scss */
 .vertical-tabs {
   clear: both;
 }
 
 /* form stuff */
-/* line 608, ../sass/styles.scss */
+/* line 624, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single {
   float: left;
   width: 56%;
   padding-right: 1%;
   clear: both;
 }
-/* line 614, ../sass/styles.scss */
+/* line 630, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup {
   float: left;
   width: 43%;
 }
-/* line 617, ../sass/styles.scss */
+/* line 633, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup .views-field-field-email-body > div > div > table {
   margin: 0 1.5% !important;
   transform: scale(0.75);
@@ -676,17 +694,17 @@ a.unflag-action {
   -moz-transform: scale(0.75);
   -moz-transform-origin: top left;
 }
-/* line 625, ../sass/styles.scss */
+/* line 641, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 629, ../sass/styles.scss */
+/* line 645, ../sass/styles.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 632, ../sass/styles.scss */
+/* line 648, ../sass/styles.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -694,12 +712,12 @@ a.unflag-action {
 
 /* new styles */
 /* not used yet */
-/* line 639, ../sass/styles.scss */
+/* line 655, ../sass/styles.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 642, ../sass/styles.scss */
+/* line 658, ../sass/styles.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -707,7 +725,7 @@ a.unflag-action {
 }
 
 /* not used yet */
-/* line 649, ../sass/styles.scss */
+/* line 665, ../sass/styles.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -717,12 +735,12 @@ h4.black {
 }
 
 /* panels */
-/* line 658, ../sass/styles.scss */
+/* line 674, ../sass/styles.scss */
 .field-name-my-registered-events {
   background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
 }
 
-/* line 661, ../sass/styles.scss */
+/* line 677, ../sass/styles.scss */
 .field-name-my-archived-events,
 .field-name-my-registered-events {
   /* fixed height? */
@@ -735,43 +753,43 @@ h4.black {
   /* cancel registration link */
   /* pager logic */
 }
-/* line 668, ../sass/styles.scss */
+/* line 684, ../sass/styles.scss */
 .field-name-my-archived-events div.field-items,
 .field-name-my-registered-events div.field-items {
   margin-left: 20px;
 }
-/* line 671, ../sass/styles.scss */
+/* line 687, ../sass/styles.scss */
 .field-name-my-archived-events .view-dashboard,
 .field-name-my-registered-events .view-dashboard {
   border-bottom: 1px solid #d7d7d7;
 }
-/* line 674, ../sass/styles.scss */
+/* line 690, ../sass/styles.scss */
 .field-name-my-archived-events li.views-row,
 .field-name-my-registered-events li.views-row {
   /* height: 20px;*/
 }
-/* line 678, ../sass/styles.scss */
+/* line 694, ../sass/styles.scss */
 .field-name-my-archived-events h2.block-title,
 .field-name-my-registered-events h2.block-title {
   font-weight: normal;
   margin-bottom: -10px;
   color: #334b56;
 }
-/* line 684, ../sass/styles.scss */
+/* line 700, ../sass/styles.scss */
 .field-name-my-archived-events h3 a,
 .field-name-my-registered-events h3 a {
   font-style: normal;
   font-size: 14px;
   color: black;
 }
-/* line 690, ../sass/styles.scss */
+/* line 706, ../sass/styles.scss */
 .field-name-my-archived-events .view-content .item-list ul,
 .field-name-my-registered-events .view-content .item-list ul {
   padding-left: 16px;
   margin-top: 0px;
   margin-bottom: 0px;
 }
-/* line 696, ../sass/styles.scss */
+/* line 712, ../sass/styles.scss */
 .field-name-my-archived-events a.unflag-action,
 .field-name-my-registered-events a.unflag-action {
   font-weight: normal;
@@ -780,41 +798,41 @@ h4.black {
   display: block;
   margin-bottom: -12px;
 }
-/* line 703, ../sass/styles.scss */
+/* line 719, ../sass/styles.scss */
 .field-name-my-archived-events div.item-list,
 .field-name-my-registered-events div.item-list {
   border-width: 0px;
 }
-/* line 707, ../sass/styles.scss */
+/* line 723, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager,
 .field-name-my-registered-events ul.pager {
   margin-bottom: 10px;
 }
-/* line 709, ../sass/styles.scss */
+/* line 725, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager li.pager-item,
 .field-name-my-registered-events ul.pager li.pager-item {
   border: 1px solid #577785;
 }
-/* line 712, ../sass/styles.scss */
+/* line 728, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager li.pager-current,
 .field-name-my-registered-events ul.pager li.pager-current {
   background-color: #577785;
 }
-/* line 717, ../sass/styles.scss */
+/* line 733, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager li.pager-next a,
 .field-name-my-archived-events ul.pager li.pager-last a,
 .field-name-my-registered-events ul.pager li.pager-next a,
 .field-name-my-registered-events ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow-aqua.png");
 }
-/* line 724, ../sass/styles.scss */
+/* line 740, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager li.pager-previous a,
 .field-name-my-archived-events ul.pager li.pager-first a,
 .field-name-my-registered-events ul.pager li.pager-previous a,
 .field-name-my-registered-events ul.pager li.pager-first a {
   background-image: url("../images/icons/left-arrow-aqua.png");
 }
-/* line 735, ../sass/styles.scss */
+/* line 751, ../sass/styles.scss */
 .field-name-my-archived-events ul.pager li.pager-item a,
 .field-name-my-archived-events ul.pager li.pager-current a,
 .field-name-my-archived-events ul.pager li.pager-previous a,
@@ -830,54 +848,54 @@ h4.black {
   color: #577785;
 }
 
-/* line 743, ../sass/styles.scss */
+/* line 759, ../sass/styles.scss */
 .field-name-my-archived-events {
   padding-bottom: 20px;
   background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
 }
-/* line 746, ../sass/styles.scss */
+/* line 762, ../sass/styles.scss */
 .field-name-my-archived-events .view-dashboard {
   min-height: 170px;
 }
-/* line 749, ../sass/styles.scss */
+/* line 765, ../sass/styles.scss */
 .field-name-my-archived-events h2.block-title {
   font-weight: normal;
 }
-/* line 752, ../sass/styles.scss */
+/* line 768, ../sass/styles.scss */
 .field-name-my-archived-events div.view-empty {
   margin-top: 30px;
 }
 
-/* line 759, ../sass/styles.scss */
+/* line 775, ../sass/styles.scss */
 .field-name-my-archived-events .view-dashboard,
 .field-name-my-registered-events .view-dashboard {
   /*border-top: 1px solid $capt-midgrey;*/
 }
 
 /* upcoming events panel  */
-/* line 766, ../sass/styles.scss */
+/* line 782, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds {
   background-color: white;
   border-width: 5px 0px 0px 0px;
 }
-/* line 769, ../sass/styles.scss */
+/* line 785, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h2.block-title {
   font-weight: normal;
   /* best way to do it?*/
   display: none;
 }
-/* line 774, ../sass/styles.scss */
+/* line 790, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h3 {
   font-style: normal;
   font-size: 16px;
 }
-/* line 777, ../sass/styles.scss */
+/* line 793, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h3 a {
   color: black;
 }
 
 /*logos above header - move up to general area? */
-/* line 786, ../sass/styles.scss */
+/* line 802, ../sass/styles.scss */
 div.top-header {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 90px;
@@ -891,13 +909,13 @@ background-repeat: repeat-x;*/
 /*
 *  Logos
 */
-/* line 798, ../sass/styles.scss */
+/* line 814, ../sass/styles.scss */
 div.top-header-container {
   height: 100px;
   width: 1000px;
   /* logos */
 }
-/* line 803, ../sass/styles.scss */
+/* line 819, ../sass/styles.scss */
 div.top-header-container div.capt-logo {
   background: url("../images/logos/CAPT-logo.png") 0 0 no-repeat;
   width: 340px;
@@ -905,7 +923,7 @@ div.top-header-container div.capt-logo {
   margin-bottom: 0px;
   top: 32px;
 }
-/* line 810, ../sass/styles.scss */
+/* line 826, ../sass/styles.scss */
 div.top-header-container div.samhsa-logo {
   background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
   width: 295px;
@@ -913,7 +931,7 @@ div.top-header-container div.samhsa-logo {
   margin-right: 16px;
   top: 6px;
 }
-/* line 817, ../sass/styles.scss */
+/* line 833, ../sass/styles.scss */
 div.top-header-container div.capt-logo,
 div.top-header-container div.samhsa-logo {
   height: 100px;
@@ -921,11 +939,11 @@ div.top-header-container div.samhsa-logo {
 }
 
 /* Welcome line near search box on dashboard*/
-/* line 825, ../sass/styles.scss */
+/* line 841, ../sass/styles.scss */
 div#block-block-7 {
   color: white;
 }
-/* line 827, ../sass/styles.scss */
+/* line 843, ../sass/styles.scss */
 div#block-block-7 a {
   color: white;
   font-weight: normal;
@@ -936,7 +954,7 @@ div#block-block-7 a {
  *  Sitewide styles 
  */
 /* search */
-/* line 838, ../sass/styles.scss */
+/* line 854, ../sass/styles.scss */
 input#edit-search-block-form--2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -951,7 +969,7 @@ input#edit-search-block-form--2 {
   background-color: white;
 }
 
-/* line 849, ../sass/styles.scss */
+/* line 865, ../sass/styles.scss */
 form#search-block-form div#edit-actions input#edit-submit {
   border: 1px solid white;
   background-color: transparent;
@@ -961,7 +979,7 @@ form#search-block-form div#edit-actions input#edit-submit {
   margin-left: 8px;
 }
 
-/* line 859, ../sass/styles.scss */
+/* line 875, ../sass/styles.scss */
 div#edit-actions {
   padding-bottom: 10px;
 }
@@ -970,7 +988,7 @@ div#edit-actions {
 *  Banners
 */
 /* Event Dashboard banner */
-/* line 869, ../sass/styles.scss */
+/* line 885, ../sass/styles.scss */
 header#header {
   height: 191px;
   background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
@@ -979,7 +997,7 @@ header#header {
 /* 
 *  Navigation
 */
-/* line 877, ../sass/styles.scss */
+/* line 893, ../sass/styles.scss */
 #block-responsive-dropdown-menus-main-menu {
   margin-left: -10px;
   /*border-bottom: 1px solid $capt-midgrey;*/
@@ -988,7 +1006,7 @@ header#header {
   padding-left: 0px;
 }
 
-/* line 885, ../sass/styles.scss */
+/* line 901, ../sass/styles.scss */
 ul#main-menu.main-menu > li.menu-item > a.active {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -996,7 +1014,7 @@ ul#main-menu.main-menu > li.menu-item > a.active {
   color: #8c1d18;
 }
 
-/* line 888, ../sass/styles.scss */
+/* line 904, ../sass/styles.scss */
 ul#main-menu.main-menu {
   border-bottom: 1px solid #d7d7d7;
   width: 970px;
@@ -1004,29 +1022,29 @@ ul#main-menu.main-menu {
   height: 27px;
   /* submenu active */
 }
-/* line 893, ../sass/styles.scss */
+/* line 909, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a {
   text-transform: uppercase;
   background-color: #d7d7d7;
 }
-/* line 899, ../sass/styles.scss */
+/* line 915, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a:hover {
   background-color: #e4e4e4;
 }
-/* line 902, ../sass/styles.scss */
+/* line 918, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a.active {
   background-color: white;
   color: #8c1d18;
 }
 
 /* dropdown */
-/* line 910, ../sass/styles.scss */
+/* line 926, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two {
   width: 194px;
   padding: 0px;
   margin-top: 3px;
 }
-/* line 914, ../sass/styles.scss */
+/* line 930, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li {
   width: 194px;
   padding: 0px;
@@ -1035,7 +1053,7 @@ li.menu-parent ul.sub-menu.tier-two li {
   background-color: #959595;
   display: block;
 }
-/* line 921, ../sass/styles.scss */
+/* line 937, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a {
   width: 184px;
   border: 1px solid #959595;
@@ -1045,18 +1063,18 @@ li.menu-parent ul.sub-menu.tier-two li a {
   padding: 4px 0 0 0;
   padding-left: 20px;
 }
-/* line 930, ../sass/styles.scss */
+/* line 946, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
 }
-/* line 933, ../sass/styles.scss */
+/* line 949, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li li#menu-item-1187.menu-item.last a {
   height: 34px;
   background-color: orange;
 }
 
 /* hiding text in key areas! */
-/* line 941, ../sass/styles.scss */
+/* line 957, ../sass/styles.scss */
 div.view-event-banner div.field-content,
 h1#site-name,
 div.samhsa-logo,
@@ -1066,14 +1084,16 @@ div.capt-logo {
   overflow: hidden;
 }
 
-/* line 949, ../sass/styles.scss */
+/* line 965, ../sass/styles.scss */
 ul#main-menu.main-menu {
   margin-top: 20px;
 }
 
-/* footer */
-/* line 955, ../sass/styles.scss */
-div.bottom-footer {
+/* footer. we need .bottom-footer for login page and #footer for events page. */
+/* two types of footers being used one with class and one with ID; probably should fix */
+/* line 971, ../sass/styles.scss */
+div.bottom-footer,
+body.node-type-event #footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
@@ -1082,24 +1102,14 @@ div.bottom-footer {
 /**
  * Disclaimer area
  */
-/* line 967, ../sass/styles.scss */
+/* line 984, ../sass/styles.scss */
 div#block-block-12 {
   height: 100px;
   margin-bottom: 0px;
 }
 
-/* line 972, ../sass/styles.scss */
-body.node-type-event.section-event div#block-block-12 {
-  position: relative;
-  top: 90px;
-}
-/* line 976, ../sass/styles.scss */
-body.node-type-event.section-event div#block-block-12 div.disclaimer {
-  margin-left: 0px;
-}
-
-/* line 985, ../sass/styles.scss */
-div.disclaimer {
+/* line 990, ../sass/styles.scss */
+body.node-type-event.section-event div.disclaimer {
   margin-left: 50px;
 }
 
@@ -1112,7 +1122,7 @@ div.disclaimer {
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
 /* this has a large role in determining page height */
-/* line 1005, ../sass/styles.scss */
+/* line 1012, ../sass/styles.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -1128,17 +1138,17 @@ div#content {
 }
 
 /* my profile page; we need the "you are here" style too" */
-/* line 1021, ../sass/styles.scss */
+/* line 1028, ../sass/styles.scss */
 body.admin-menu div#content {
   /*height: 1750px;*/
   /* currently too general. if height is needed, make it specific to profile page. */
 }
-/* line 1024, ../sass/styles.scss */
+/* line 1031, ../sass/styles.scss */
 body.admin-menu div#content input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 1034, ../sass/styles.scss */
+/* line 1041, ../sass/styles.scss */
 body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a, body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1146,138 +1156,138 @@ body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a, body.page-user ul
   color: #8c1d18;
 }
 
-/* line 1042, ../sass/styles.scss */
+/* line 1049, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
   border-bottom: 1px solid white;
   color: #8c1d18;
 }
-/* line 1046, ../sass/styles.scss */
+/* line 1053, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
   display: block;
 }
 
 /* form elements for create event */
-/* line 1055, ../sass/styles.scss */
+/* line 1062, ../sass/styles.scss */
 form#event-node-form {
   /* form panels */
   /* title */
   /* audience */
 }
-/* line 1056, ../sass/styles.scss */
+/* line 1063, ../sass/styles.scss */
 form#event-node-form div.fieldset-wrapper, form#event-node-form div#field-subtitle-add-more-wrapper {
   /* @extend .panel;*/
 }
-/* line 1062, ../sass/styles.scss */
+/* line 1069, ../sass/styles.scss */
 form#event-node-form div.form-item.form-item-title {
   margin-bottom: 0px;
 }
-/* line 1066, ../sass/styles.scss */
+/* line 1073, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle.form-field-type-text {
   margin-top: 0px;
 }
-/* line 1069, ../sass/styles.scss */
+/* line 1076, ../sass/styles.scss */
 form#event-node-form div#field-subtitle-add-more-wrapper {
   margin-top: 0px;
   /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
 margin-top: 0px; // remove to add more space betw title and subtitle
 }*/
 }
-/* line 1076, ../sass/styles.scss */
+/* line 1083, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance {
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-/* line 1081, ../sass/styles.scss */
+/* line 1088, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance div#edit-field-date-instance-und-actions {
   padding-top: 0px;
 }
-/* line 1084, ../sass/styles.scss */
+/* line 1091, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance fieldset#edit-field-date-instance-und {
   padding-left: 0px;
 }
-/* line 1088, ../sass/styles.scss */
+/* line 1095, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 1095, ../sass/styles.scss */
+/* line 1102, ../sass/styles.scss */
 form#event-node-form div#edit-field-type-event.form-wrapper {
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 0px;
 }
-/* line 1101, ../sass/styles.scss */
+/* line 1108, ../sass/styles.scss */
 form#event-node-form div#edit-field-category {
   margin-top: -20px;
   padding-bottom: 10px;
   padding-top: 10px;
 }
-/* line 1107, ../sass/styles.scss */
+/* line 1114, ../sass/styles.scss */
 form#event-node-form div#field-banner-text-add-more-wrapper {
   margin-top: -20px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 1113, ../sass/styles.scss */
+/* line 1120, ../sass/styles.scss */
 form#event-node-form div.form-field-name-field-date-instance {
   margin-bottom: 20px;
 }
-/* line 1118, ../sass/styles.scss */
+/* line 1125, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience,
 form#event-node-form div#edit-field-body {
   padding-top: 0px;
   padding-bottom: 10px;
 }
-/* line 1123, ../sass/styles.scss */
+/* line 1130, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience label,
 form#event-node-form div#edit-field-body label {
   margin-top: -10px;
 }
-/* line 1126, ../sass/styles.scss */
+/* line 1133, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience div.form-textarea-wrapper,
 form#event-node-form div#edit-field-body div.form-textarea-wrapper {
   margin-bottom: 20px;
 }
-/* line 1129, ../sass/styles.scss */
+/* line 1136, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience div.grippie,
 form#event-node-form div#edit-field-body div.grippie {
   background-color: #d7d7d7;
 }
-/* line 1133, ../sass/styles.scss */
+/* line 1140, ../sass/styles.scss */
 form#event-node-form input.form-submit {
   background-color: #c3791f;
 }
 
-/* line 1140, ../sass/styles.scss */
+/* line 1147, ../sass/styles.scss */
 div#edit-field-presenter span.fieldset-legend {
   margin-top: -30px;
   text-transform: uppercase;
   color: #577785;
 }
 
-/* line 1146, ../sass/styles.scss */
+/* line 1153, ../sass/styles.scss */
 div#edit-field-related-material {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-/* line 1153, ../sass/styles.scss */
+/* line 1160, ../sass/styles.scss */
 div#edit-field-contact-name {
   padding-top: 0px;
   margin-bottom: 0px;
 }
 
-/* line 1158, ../sass/styles.scss */
+/* line 1165, ../sass/styles.scss */
 div#edit-field-contact-email {
   margin-top: -20px;
   padding-top: 5px;
 }
 
-/* line 1163, ../sass/styles.scss */
+/* line 1170, ../sass/styles.scss */
 div#edit-field-related-notifications {
   margin-top: -20px;
   padding-top: 5px;
@@ -1285,7 +1295,7 @@ div#edit-field-related-notifications {
 }
 
 /* save */
-/* line 1172, ../sass/styles.scss */
+/* line 1179, ../sass/styles.scss */
 form#event-node-form input.form-submit {
   padding: 6px;
   height: 36px;
@@ -1293,15 +1303,15 @@ form#event-node-form input.form-submit {
 
 /* end create event form */
 /* overall page heights */
-/* line 1180, ../sass/styles.scss */
+/* line 1187, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add {
   /* needed so that save button has space above border */
 }
-/* line 1181, ../sass/styles.scss */
+/* line 1188, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add #page {
   height: 95%;
 }
-/* line 1186, ../sass/styles.scss */
+/* line 1193, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add div#content {
   height: 100%;
   padding-bottom: 20px;
@@ -1310,7 +1320,7 @@ body.page-node-add-event.page-node-add.section-node-add div#content {
 /* 
  *  Editing an event
  */
-/* line 1201, ../sass/styles.scss */
+/* line 1208, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance input.form-submit,
 form#event-node-form div#edit-field-presenter input.form-submit,
 form#event-node-form div#edit-field-related-material input.form-submit {
@@ -1319,7 +1329,7 @@ form#event-node-form div#edit-field-related-material input.form-submit {
   height: 30px;
   margin-top: 5px;
 }
-/* line 1207, ../sass/styles.scss */
+/* line 1214, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance a,
 form#event-node-form div#edit-field-presenter a,
 form#event-node-form div#edit-field-related-material a {
@@ -1329,13 +1339,13 @@ form#event-node-form div#edit-field-related-material a {
 /* 
  *  Start Login Page
  */
-/* line 1216, ../sass/styles.scss */
+/* line 1223, ../sass/styles.scss */
 body.not-logged-in.page-user {
   height: 100%;
   /* RIGHT */
   /* why register */
 }
-/* line 1219, ../sass/styles.scss */
+/* line 1226, ../sass/styles.scss */
 body.not-logged-in.page-user header#header {
   height: 417px;
   background: url("../images/banners/login.png") 0 0 no-repeat;
@@ -1343,7 +1353,7 @@ body.not-logged-in.page-user header#header {
   display: block;
   margin-bottom: 51px;
 }
-/* line 1226, ../sass/styles.scss */
+/* line 1233, ../sass/styles.scss */
 body.not-logged-in.page-user h1#page-title {
   background-image: none;
   font-size: 24pt;
@@ -1351,20 +1361,20 @@ body.not-logged-in.page-user h1#page-title {
   margin-left: 17px;
   background-repeat: no-repeat;
 }
-/* line 1233, ../sass/styles.scss */
+/* line 1240, ../sass/styles.scss */
 body.not-logged-in.page-user div#content {
   border: 0px solid white;
 }
-/* line 1238, ../sass/styles.scss */
+/* line 1245, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login, body.not-logged-in.page-user div#title-section {
   margin-left: 85px;
   width: 315px;
 }
-/* line 1243, ../sass/styles.scss */
+/* line 1250, ../sass/styles.scss */
 body.not-logged-in.page-user div#title-section {
   margin-bottom: 0px;
 }
-/* line 1248, ../sass/styles.scss */
+/* line 1255, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login {
   height: 322px;
   margin-top: -20px;
@@ -1372,7 +1382,7 @@ body.not-logged-in.page-user form#user-login {
   float: left;
   padding-bottom: 10px;
 }
-/* line 1257, ../sass/styles.scss */
+/* line 1264, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-submit {
   background-color: #c3791f;
   padding: 10px 10px;
@@ -1383,30 +1393,30 @@ body.not-logged-in.page-user form#user-login input#edit-submit {
   top: 60px;
   width: 75px;
 }
-/* line 1268, ../sass/styles.scss */
+/* line 1275, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   display: none;
 }
-/* line 1271, ../sass/styles.scss */
+/* line 1278, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-name {
   margin-bottom: 10px;
 }
-/* line 1274, ../sass/styles.scss */
+/* line 1281, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-name {
   margin-bottom: 0px;
 }
-/* line 1277, ../sass/styles.scss */
+/* line 1284, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-name, body.not-logged-in.page-user form#user-login input#edit-pass {
   font-size: 1.6em;
   margin: 5px 0px 5px 17px;
   width: 89%;
   margin-top: 0px;
 }
-/* line 1283, ../sass/styles.scss */
+/* line 1290, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-pass {
   margin-top: 0px;
 }
-/* line 1286, ../sass/styles.scss */
+/* line 1293, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login label {
   font-weight: normal;
   color: #333333;
@@ -1414,11 +1424,11 @@ body.not-logged-in.page-user form#user-login label {
   margin-bottom: 0px;
   font-size: 16px;
 }
-/* line 1293, ../sass/styles.scss */
+/* line 1300, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   margin-left: 16px;
 }
-/* line 1296, ../sass/styles.scss */
+/* line 1303, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password {
   margin-left: 21px;
   font-weight: normal;
@@ -1428,24 +1438,24 @@ body.not-logged-in.page-user form#user-login a.request-password {
   color: #8c1d18;
   font-size: 16px;
 }
-/* line 1305, ../sass/styles.scss */
+/* line 1312, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password:hover {
   text-decoration: none;
 }
-/* line 1312, ../sass/styles.scss */
+/* line 1319, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 {
   margin-top: -64px;
 }
-/* line 1314, ../sass/styles.scss */
+/* line 1321, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 h2.block-title {
   display: none;
 }
-/* line 1317, ../sass/styles.scss */
+/* line 1324, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 h2.custom_block_title {
   margin-top: 0px;
   margin-left: 17px;
 }
-/* line 1323, ../sass/styles.scss */
+/* line 1330, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 a {
   color: #c3791f;
   font-size: 20px;
@@ -1455,41 +1465,41 @@ body.not-logged-in.page-user #block-block-8 a {
   display: block;
   margin-left: 17px;
 }
-/* line 1336, ../sass/styles.scss */
+/* line 1343, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 {
   background-image: url("../images/icons/register.png");
   background-position: 270px 30px;
   background-repeat: no-repeat;
   height: 217px;
 }
-/* line 1342, ../sass/styles.scss */
+/* line 1349, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 h2.block-title {
   margin-left: 17px;
 }
-/* line 1345, ../sass/styles.scss */
+/* line 1352, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 ul {
   margin-left: 4px;
 }
-/* line 1347, ../sass/styles.scss */
+/* line 1354, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 ul li {
   list-style-image: url("../images/icons/arrow-icons-aqua.png");
   font-size: 16px;
   font-weight: normal;
 }
-/* line 1353, ../sass/styles.scss */
+/* line 1360, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 a {
   /* color needed? */
   color: #333333;
   font-weight: normal;
 }
-/* line 1360, ../sass/styles.scss */
+/* line 1367, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9, body.not-logged-in.page-user #block-block-8 {
   margin-right: 75px;
   width: 365px;
   float: right;
   background-repeat: no-repeat;
 }
-/* line 1366, ../sass/styles.scss */
+/* line 1373, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 h2, body.not-logged-in.page-user #block-block-8 h2 {
   font-weight: normal;
   color: #334b56;
@@ -1503,13 +1513,13 @@ body.not-logged-in.page-user #block-block-9 h2, body.not-logged-in.page-user #bl
 *  Events Page
 */
 /* title of events page; font size & position may need to be fine-tuned */
-/* line 1385, ../sass/styles.scss */
+/* line 1392, ../sass/styles.scss */
 h1#page-title {
   font-weight: normal;
 }
 
 /*recently removed node-type event on 6/2; keep an eye out for issues */
-/* line 1390, ../sass/styles.scss */
+/* line 1397, ../sass/styles.scss */
 body.logged-in h1#page-title {
   background: url("../images/icons/create-event.png") 0 0 no-repeat;
   padding-left: 70px;
@@ -1522,11 +1532,11 @@ body.logged-in h1#page-title {
   margin-top: 55px;
   margin-bottom: 35px;
 }
-/* line 1404, ../sass/styles.scss */
+/* line 1411, ../sass/styles.scss */
 body.logged-in h2 {
   margin-bottom: 0px;
 }
-/* line 1407, ../sass/styles.scss */
+/* line 1414, ../sass/styles.scss */
 body.logged-in div#title-section h3 {
   margin-bottom: 0px;
   font-weight: normal;
@@ -1537,7 +1547,7 @@ body.logged-in div#title-section h3 {
 /*
  * event pages - both anonymous and logged in 
  */
-/* line 1418, ../sass/styles.scss */
+/* line 1425, ../sass/styles.scss */
 body.node-type-event {
   /* header */
   /*div.group-audience,
@@ -1548,62 +1558,62 @@ body.node-type-event {
   /* panels */
   /* may be a stopgap measure */
 }
-/* line 1421, ../sass/styles.scss */
+/* line 1428, ../sass/styles.scss */
 body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
   background-color: white;
   border: 1px solid #d7d7d7;
   border-bottom: 1px solid white;
   color: #8c1d18;
 }
-/* line 1427, ../sass/styles.scss */
+/* line 1434, ../sass/styles.scss */
 body.node-type-event .view-content > .views-row div {
   margin-left: 5px;
 }
-/* line 1431, ../sass/styles.scss */
+/* line 1438, ../sass/styles.scss */
 body.node-type-event div#title-section h2 {
   margin-left: 10px;
 }
-/* line 1438, ../sass/styles.scss */
+/* line 1445, ../sass/styles.scss */
 body.node-type-event h1, body.node-type-event h2 {
   color: #577785;
   font-weight: normal;
 }
-/* line 1442, ../sass/styles.scss */
+/* line 1449, ../sass/styles.scss */
 body.node-type-event h3 {
   color: #333333;
   margin-bottom: 10px;
 }
-/* line 1446, ../sass/styles.scss */
+/* line 1453, ../sass/styles.scss */
 body.node-type-event h5 {
   margin-top: 4px;
 }
-/* line 1449, ../sass/styles.scss */
+/* line 1456, ../sass/styles.scss */
 body.node-type-event h1, body.node-type-event h3 {
   margin-left: 10px;
 }
-/* line 1452, ../sass/styles.scss */
+/* line 1459, ../sass/styles.scss */
 body.node-type-event h2 {
   margin-left: 0px;
 }
-/* line 1455, ../sass/styles.scss */
+/* line 1462, ../sass/styles.scss */
 body.node-type-event h2 a {
   font-size: 20px;
   color: #c3791f;
 }
-/* line 1459, ../sass/styles.scss */
+/* line 1466, ../sass/styles.scss */
 body.node-type-event div.field-items ul a {
   color: #c3791f;
 }
-/* line 1462, ../sass/styles.scss */
+/* line 1469, ../sass/styles.scss */
 body.node-type-event div#content {
   border-top: 1px solid #d7d7d7;
   padding-top: 20px;
 }
-/* line 1466, ../sass/styles.scss */
+/* line 1473, ../sass/styles.scss */
 body.node-type-event div.group-left {
   display: block;
 }
-/* line 1471, ../sass/styles.scss */
+/* line 1478, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 {
   position: absolute;
   top: 10px;
@@ -1611,20 +1621,20 @@ body.node-type-event .region-help #block-block-1 {
   margin-top: 0px;
   padding-right: 0px;
 }
-/* line 1479, ../sass/styles.scss */
+/* line 1486, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 a.button {
   margin-left: 20px;
   margin-right: 0px;
 }
-/* line 1485, ../sass/styles.scss */
+/* line 1492, ../sass/styles.scss */
 body.node-type-event .messages--error {
   display: none;
 }
-/* line 1490, ../sass/styles.scss */
+/* line 1497, ../sass/styles.scss */
 body.node-type-event div.group-left, body.node-type-event div.group-right {
   overflow: hidden;
 }
-/* line 1493, ../sass/styles.scss */
+/* line 1500, ../sass/styles.scss */
 body.node-type-event div.group-dates,
 body.node-type-event div.group-presenter,
 body.node-type-event div.group-materials,
@@ -1639,7 +1649,7 @@ body.node-type-event div.group-description {
   width: 900px;
   margin-left: 10px;
 }
-/* line 1504, ../sass/styles.scss */
+/* line 1511, ../sass/styles.scss */
 body.node-type-event div.group-dates h4,
 body.node-type-event div.group-presenter h4,
 body.node-type-event div.group-materials h4,
@@ -1647,11 +1657,11 @@ body.node-type-event div.group-audience h4,
 body.node-type-event div.group-description h4 {
   margin-top: 0px;
 }
-/* line 1512, ../sass/styles.scss */
+/* line 1519, ../sass/styles.scss */
 body.node-type-event h2.element-invisible {
   display: none;
 }
-/* line 1516, ../sass/styles.scss */
+/* line 1523, ../sass/styles.scss */
 body.node-type-event .ds-2col > .group-right {
   float: left;
   width: 300px;
@@ -1660,7 +1670,7 @@ body.node-type-event .ds-2col > .group-right {
   display: block;
   clear: both;
 }
-/* line 1526, ../sass/styles.scss */
+/* line 1533, ../sass/styles.scss */
 body.node-type-event div#block-block-11 {
   position: relative;
   top: -242px;
@@ -1668,13 +1678,13 @@ body.node-type-event div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 1533, ../sass/styles.scss */
+/* line 1540, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 1538, ../sass/styles.scss */
+/* line 1545, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home {
   background-color: #c3791f;
   font-size: 16px;
@@ -1691,7 +1701,7 @@ body.node-type-event div#block-block-11 p a.anonymous_home {
   border-radius: 5px;
   /*  color: $capt-aqua;*/
 }
-/* line 1551, ../sass/styles.scss */
+/* line 1558, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
@@ -1699,24 +1709,24 @@ body.node-type-event div#block-block-11 p a.anonymous_home:hover {
 /* 
  *  Event Report
  */
-/* line 1569, ../sass/styles.scss */
+/* line 1576, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 1574, ../sass/styles.scss */
+/* line 1581, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr th {
   padding-right: 10px;
 }
-/* line 1577, ../sass/styles.scss */
+/* line 1584, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:first-child {
   padding-left: 10px;
   width: 230px;
 }
-/* line 1581, ../sass/styles.scss */
+/* line 1588, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td {
   padding-right: 10px;
 }
-/* line 1584, ../sass/styles.scss */
+/* line 1591, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
   text-align: center;
 }
@@ -1724,14 +1734,14 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 1595, ../sass/styles.scss */
+/* line 1602, ../sass/styles.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 1601, ../sass/styles.scss */
+/* line 1608, ../sass/styles.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
@@ -1739,7 +1749,7 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 1608, ../sass/styles.scss */
+/* line 1615, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
   margin-right: 1em;
@@ -1750,8 +1760,9 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
  */
 @media screen and (min-width: 0px) and (max-width: 667px) {
   /* prototype class */
-  /* line 1623, ../sass/styles.scss */
-  .reset-layout, body.not-logged-in.page-user div#page, #main, div.bottom-footer,
+  /* line 1630, ../sass/styles.scss */
+  .reset-layout, body.not-logged-in.page-user div#page, #main, body.node-type-event #footer,
+  div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
     width: 100%;
@@ -1759,39 +1770,39 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     padding: 0px;
   }
 
-  /* line 1633, ../sass/styles.scss */
+  /* line 1640, ../sass/styles.scss */
   html, body {
     width: 100%;
     overflow-x: hidden;
     height: 100%;
   }
 
-  /* line 1638, ../sass/styles.scss */
+  /* line 1645, ../sass/styles.scss */
   body.not-logged-in.page-user {
     height: 100%;
   }
-  /* line 1640, ../sass/styles.scss */
+  /* line 1647, ../sass/styles.scss */
   body.not-logged-in.page-user div#page {
     height: 750px;
     display: inline-block;
     margin-bottom: 0px;
   }
 
-  /* line 1653, ../sass/styles.scss */
+  /* line 1660, ../sass/styles.scss */
   body.not-logged-in.page-user {
     /* mobile styles, cont'd s*/
   }
-  /* line 1654, ../sass/styles.scss */
+  /* line 1661, ../sass/styles.scss */
   body.not-logged-in.page-user div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  /* line 1659, ../sass/styles.scss */
+  /* line 1666, ../sass/styles.scss */
   body.not-logged-in.page-user header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 1664, ../sass/styles.scss */
+  /* line 1671, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login,
   body.not-logged-in.page-user div#title-section,
   body.not-logged-in.page-user div#block-block-8,
@@ -1805,7 +1816,7 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     width: 85%;
     display: block;
   }
-  /* line 1679, ../sass/styles.scss */
+  /* line 1686, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h1, body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h1,
   body.not-logged-in.page-user div#title-section h2,
@@ -1822,35 +1833,35 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     margin-left: 0px;
     margin-top: 0px;
   }
-  /* line 1689, ../sass/styles.scss */
+  /* line 1696, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h2,
   body.not-logged-in.page-user div#block-block-8 h2,
   body.not-logged-in.page-user div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 1697, ../sass/styles.scss */
+  /* line 1704, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-9 {
     height: 140px;
   }
-  /* line 1704, ../sass/styles.scss */
+  /* line 1711, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-8,
   body.not-logged-in.page-user div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 1710, ../sass/styles.scss */
+  /* line 1717, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login {
     height: 250px;
   }
-  /* line 1712, ../sass/styles.scss */
+  /* line 1719, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 1722, ../sass/styles.scss */
+  /* line 1729, ../sass/styles.scss */
   div#content {
     width: 100%;
     margin: 0px;
@@ -1859,30 +1870,30 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     /* border: 1px dotted orange;*/
   }
 
-  /* line 1730, ../sass/styles.scss */
+  /* line 1737, ../sass/styles.scss */
   body {
     width: 100%;
     /* border: 1px solid black;*/
     height: 100%;
   }
 
-  /* line 1737, ../sass/styles.scss */
-  div.bottom-footer {
-    border: 1px solid green;
+  /* line 1744, ../sass/styles.scss */
+  div.bottom-footer, body.node-type-event #footer {
     width: 100%;
   }
-  /* line 1744, ../sass/styles.scss */
-  div.bottom-footer div.bottom-footer-container {
+  /* line 1747, ../sass/styles.scss */
+  div.bottom-footer div.bottom-footer-container, body.node-type-event #footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 1748, ../sass/styles.scss */
-  div.bottom-footer div.bottom-footer-container div.disclaimer {
+  /* line 1751, ../sass/styles.scss */
+  div.bottom-footer div.bottom-footer-container div.disclaimer, body.node-type-event #footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 1756, ../sass/styles.scss */
+  /* line 1759, ../sass/styles.scss */
+  body.node-type-event #footer,
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -1895,17 +1906,17 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 /*
  *  Request password page
  */
-/* line 1777, ../sass/styles.scss */
+/* line 1781, ../sass/styles.scss */
 body.page-user-password div#content div#title-section {
   width: 370px;
   margin: 0px auto;
 }
-/* line 1781, ../sass/styles.scss */
+/* line 1785, ../sass/styles.scss */
 body.page-user-password input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 1789, ../sass/styles.scss */
+/* line 1793, ../sass/styles.scss */
 form#user-pass {
   width: 330px;
   padding-top: 20px;

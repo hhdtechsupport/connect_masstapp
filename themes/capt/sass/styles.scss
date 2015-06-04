@@ -253,8 +253,14 @@ a.button:hover {
 }
 /* dashboard */
 
-body.node-type-dashboard #page {
+body.node-type-dashboard  {
+
+    #page {
     height: 100%; /* changed from 1000px*/
+   }
+   div.disclaimer {
+    margin-left: 20px;
+   }
 }
 /* the main panels */
 
@@ -474,13 +480,23 @@ body {
     
     height: 30px;
 }
-.bottom-footer {
+.bottom-footer, body.node-type-event #footer {
     width: 100%;
     display: block;
-    /*background-color: red;*/
-    /* added to keep it from being too tall */
     top: 100px;
     position: relative;
+}
+/*
+ *  Specific event page styling for the footer. 
+ */
+body.node-type-event #footer {
+    margin-top: 0px;
+    padding: 0px;
+    top: 120px;
+    div.disclaimer {
+        position: relative;
+        margin-left: 20px;
+    }
 }
 #page {
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
@@ -950,9 +966,10 @@ ul#main-menu.main-menu {
     margin-top: 20px;
 }
 
-/* footer */
-
-div.bottom-footer {
+/* footer. we need .bottom-footer for login page and #footer for events page. */
+/* two types of footers being used one with class and one with ID; probably should fix */
+div.bottom-footer, 
+body.node-type-event #footer {
     @include rainbow-bar(0px);
     div.disclaimer {
        @extend .proto-disclaimer;
@@ -969,22 +986,12 @@ div#block-block-12 {
        margin-bottom: 0px;
 }
 body.node-type-event.section-event {
-    div#block-block-12 {
-        position: relative;
-      
-        top: 90px;
-        div.disclaimer {
-         @extend .proto-disclaimer;
-         margin-left: 0px;
-    }
- 
-
-    }
-    
-}
-div.disclaimer {
+   
+    div.disclaimer {
         margin-left: 50px;
     
+}
+
 }
 
 
@@ -1027,7 +1034,7 @@ body.admin-menu {
     }
 }
 
-body.page-user-edit,body.page-user {
+body.page-user-edit, body.page-user {
    
     ul#main-menu.main-menu {
         li#menu-item-591 {
@@ -1734,13 +1741,9 @@ body {
 
 }
 
-div.bottom-footer {
+div.bottom-footer, body.node-type-event #footer {
     
-    border: 1px solid green;
     width: 100%;
-
-
-
     div.bottom-footer-container {
      /* border: 1px solid blue;*/
      width: 100%;
@@ -1753,6 +1756,7 @@ div.bottom-footer {
 
 }
 
+body.node-type-event #footer,
 div.bottom-footer,
 div.bottom-footer-container,
 div.disclaimer {
