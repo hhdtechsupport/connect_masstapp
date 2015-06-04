@@ -89,7 +89,7 @@ $login-font: 16px;
         top: 30px;
         font-size: 10px;
         line-height: 12px;
-        width: 390px;
+        width: 400px;
 
 }
 .panel-rule {
@@ -475,28 +475,26 @@ body {
     
     height: 30px;
 }
-.bottom-footer, body.node-type-event #footer {
+.bottom-footer {
     width: 100%;
     display: block;
     top: 100px;
     position: relative;
 }
-body.node-type-event #footer {
-    width: 150%;
-    margin-left: -25%;
+/* part of the rainbow solution */
+
+/* disclaimer positioning logic -- keep all this in one section */ 
+body.node-type-event .disclaimer {
+    display: inline-block;
+    left: -350px;
+}
+body.node-type-event.page-node-edit .disclaimer {
+    left: -70px;
 }
 /*
  *  Specific event page styling for the footer. 
  */
-body.node-type-event #footer {
-    margin-top: 0px;
-    padding: 0px;
-    top: 120px;
-    div.disclaimer {
-        position: relative;
-        margin-left: 250px;
-    }
-}
+
 #page {
     height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
  
@@ -974,8 +972,7 @@ ul#main-menu.main-menu {
 
 /* footer. we need .bottom-footer for login page and #footer for events page. */
 /* two types of footers being used one with class and one with ID; probably should fix */
-div.bottom-footer, 
-body.node-type-event #footer {
+div.bottom-footer {
     @include rainbow-bar(0px);
     div.disclaimer {
        @extend .proto-disclaimer;
@@ -1495,10 +1492,7 @@ body.node-type-event {
             margin-right: 0px;
         }
     }
-    /* temp*/
-    .messages--error {
-        display: none;
-    }
+  
  
     /* panels */
     div.group-left, div.group-right {
@@ -1752,7 +1746,7 @@ body {
 
 }
 
-div.bottom-footer, body.node-type-event #footer {
+div.bottom-footer  {
     
     width: 100%;
     div.bottom-footer-container {
@@ -1767,7 +1761,6 @@ div.bottom-footer, body.node-type-event #footer {
 
 }
 
-body.node-type-event #footer,
 div.bottom-footer,
 div.bottom-footer-container,
 div.disclaimer {

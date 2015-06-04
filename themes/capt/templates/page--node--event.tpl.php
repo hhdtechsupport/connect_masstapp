@@ -120,12 +120,14 @@
 
   </div>
 
-  <?php print render($page['footer']); ?>
+ <!-- <?php print render($page['footer']); ?>-->
 
 </div>
 
 <div class="bottom-footer">
   <div class="bottom-footer-container">
-    <?php print render($page['bottom']); ?>
+    <!-- new -->
+    <?php print render($page['footer']); ?>
+    <!--<?php print render($page['bottom']); ?>-->
   </div>
 </div>
