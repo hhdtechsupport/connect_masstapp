@@ -295,24 +295,44 @@ li.views-row {
     list-style-image: url('../images/icons/arrow-icons.png');
     margin-top: 0px;
 }
+
 div.view-content div.item-list {
+    padding-left: 0px;
+    margin-bottom: -21px;
     h3 {
-        margin-bottom: 0px;
+        margin-bottom: 10px;
+        padding-top: 0px;
+        line-height: 16px;
+        /*margin-left: -16px;*/
+
+        /*background-color: blue;*/
     }
     /* TODO: add variant for registered events */
     ul {
-        margin-top: 10px;
-        margin-bottom: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+       /* padding-left: 0px;*/
     }
 }
 div.field-name-upcoming-events { 
 
     div.view-content {
         /* set to min-height to avoid breaking layout */
+        margin-top: -30px;
         min-height: 450px;
 
+        ul {
+            padding-left: 14px;
+            border-bottom: 1px solid $capt-midgrey;
+            width: 394px;
+        }
+        h3 {
+            
+        }
+
         div.item-list {
-          border-bottom: 1px solid $capt-midgrey;
+          
+          margin-left: -16px;
 
       }
   }
@@ -676,30 +696,45 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
-    background: url('../images/icons/registered-events.png') 396px 10px no-repeat
+    background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
 }
-.field-name-my-archived-events,
-.field-name-my-registered-events {
-    /* fixed height? */
-    /*overflow: hidden; /* needed? */
+.field-name-my-archived-events.field-type-ds,
+.field-name-my-registered-events.field-type-ds {
     overflow: none;
     min-height: 245px;
     margin-right: 14px;
+    padding-right: 30px;
+    padding-left: 0px;
+    padding-bottom: 30px;
 
     div.field-items {
         margin-left: 20px;
     }
+
     .view-dashboard {
-        border-bottom: 1px solid $capt-midgrey;
+      
+        /*border-bottom: 1px solid $capt-midgrey;*/
+        padding-top: 0px;
+
     }
     li.views-row {
-       /* height: 20px;*/
+       
+   }
+   div.item-list {
+    /*background-color: red;*/
+    margin-right: 12px;
+    margin-left: -6px;
+
+  
    }
    /* debold the title */
    h2.block-title {
     font-weight: normal;
     margin-bottom: -10px;
+    margin-top: 3px;
     color: $capt-darkblue;
+    margin-left: -10px;
+
 }
 /* blacken the links */
 h3 a {
@@ -708,10 +743,16 @@ h3 a {
     color: black;
 }
 /* format list of events */
-.view-content .item-list ul {
+div.view-content div.item-list ul {
     padding-left: 16px;
     margin-top: 0px;
     margin-bottom: 0px;
+    border-bottom: 1px solid $capt-midgrey;
+    padding-bottom: 0px;
+    li {
+        margin-bottom: 0px;
+        padding-left: 0px;
+    }
 }
 /* cancel registration link */
 a.unflag-action {
@@ -789,6 +830,10 @@ body.logged-in {
         border-width: 5px 0px 0px 0px;
         margin-right: 40px;
         margin-left: 14px;
+        div.item-list {
+            margin-top: 34px;
+            /*border: 1px solid red;*/
+        }
         h2.block-title {
             font-weight: normal;
             /* best way to do it?*/
