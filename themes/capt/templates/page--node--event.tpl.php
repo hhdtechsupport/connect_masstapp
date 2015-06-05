@@ -126,7 +126,6 @@
 
 <div class="bottom-footer">
   <div class="bottom-footer-container">
-    <!-- new -->
     <?php print render($page['footer']); ?>
     <?php print render($page['bottom']); ?>
   </div>

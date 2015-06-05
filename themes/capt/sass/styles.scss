@@ -98,6 +98,7 @@ $login-font: 16px;
         padding-right: 590px;
         margin: 0px auto;
         padding-bottom: 5px;
+        left: 0px;
 
 }
 .panel-rule {
@@ -320,9 +321,9 @@ div.field-name-upcoming-events {
     div.view-content {
         /* set to min-height to avoid breaking layout */
         margin-top: -30px;
-        min-height: 450px;
+        /*min-height: 450px;*/
         margin-left: -16px;
-        border-bottom: 5px solid $capt-aqua;
+        /*border-bottom: 5px solid $capt-aqua;*/
         width: 410px;
         padding-bottom: 0px;
         margin-bottom: 0px;
@@ -340,8 +341,7 @@ div.field-name-upcoming-events {
 
   }
   ul.pager {
-    margin-top: -10px;
-    
+    margin-top: 45px;
     padding-left: 0px;
     width: 390px;
     margin-left: -7px;
@@ -541,9 +541,10 @@ body.node-type-dashboard  {
 .samhsa-logo {
     float: right;
 }
+/*
 .disclaimer {
     width: 600px;
-}
+}*/
 /* treating this as the container for now */
 
 #main {
@@ -1058,8 +1059,7 @@ ul#main-menu.main-menu {
     margin-top: 20px;
 }
 
-/* footer. we need .bottom-footer for login page and #footer for events page. */
-/* two types of footers being used one with class and one with ID; probably should fix */
+
 div.bottom-footer {
     @include rainbow-bar(0px);
     div.disclaimer {
@@ -1071,17 +1071,10 @@ div.bottom-footer {
 
 
 div#block-block-12 {
-       height: 100px;
+       /*height: 100px;*/
        margin-bottom: 0px;
 }
-body.node-type-event.section-event {
-   
-    div.disclaimer {
-        margin-left: 50px;
-    
-}
 
-}
 
 
 
@@ -1850,7 +1843,6 @@ div.bottom-footer  {
 div.bottom-footer,
 div.bottom-footer-container,
 div.disclaimer {
-
     @extend .reset-layout;
     max-width: 100%;
     text-align: center;
@@ -1888,5 +1880,17 @@ form#user-pass {
  padding-left: 35px;
  padding-right: 35px;
  margin: -20px auto 0;
+}
+/**
+ * Disclaimer Placement Section
+ */
+body.node-type-event #block-block-12 .disclaimer {
+    padding: 0px 0px 5px 0px;
+    left: -300px;
+}
+body.node-type-event.page-node-edit {
+  .disclaimer {    
+    left: 20px;
+   }
 }
 
