@@ -83,13 +83,21 @@ $login-font: 16px;
     border: 1px solid $capt-midgrey;
     border-top: 0px;
 }
+#block-block-12 .contextual-links-wrapper {
+    width: 970px;
+    margin: 0px auto;
+  
+}
 .proto-disclaimer {
-        margin-left: 90px; /* this keeps having to change */
+        
         position: relative;
         top: 30px;
         font-size: 10px;
         line-height: 12px;
-        width: 400px;
+        width: 380px;
+        padding-right: 590px;
+        margin: 0px auto;
+        padding-bottom: 5px;
 
 }
 .panel-rule {
@@ -253,15 +261,7 @@ a.button:hover {
 }
 /* dashboard */
 
-body.node-type-dashboard  {
 
-    #page {
-    height: 100%; /* changed from 1000px*/
-   }
-   div.disclaimer {
-    margin-left: 20px;
-   }
-}
 /* the main panels */
 
 .node-dashboard {
@@ -315,26 +315,36 @@ div.view-content div.item-list {
     }
 }
 div.field-name-upcoming-events { 
-
+     
+       padding-bottom: 0px;
     div.view-content {
         /* set to min-height to avoid breaking layout */
         margin-top: -30px;
         min-height: 450px;
-
+        margin-left: -16px;
+        border-bottom: 5px solid $capt-aqua;
+        width: 410px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
         ul {
             padding-left: 14px;
             border-bottom: 1px solid $capt-midgrey;
             width: 394px;
         }
-        h3 {
-            
-        }
 
         div.item-list {
           
-          margin-left: -16px;
+          margin-left: 0px;
 
-      }
+        }
+
+  }
+  ul.pager {
+    margin-top: -10px;
+    
+    padding-left: 0px;
+    width: 390px;
+    margin-left: -7px;
   }
 }
 /* pager */
@@ -342,7 +352,7 @@ div.field-name-upcoming-events {
 ul.pager {
 
     padding-top: 5px;
-    height: 30px;
+    height: 40px;
     text-align: center;
     text-overflow: visible;
     a:hover {
@@ -353,7 +363,6 @@ ul.pager {
         padding: 0px;
     }
     li.pager-item {
-        @include border-radius (2px);
         background-color: $capt-lightgrey;
         color: $capt-orange;
         height: 30px;
@@ -361,8 +370,17 @@ ul.pager {
         width: 50px;
         a {
             color: $capt-orange;
-            padding: 8px 10px;
+            padding: 4px 7px;
+            
         }  
+    }
+     /* no link within pager-current */
+    li.pager-current {
+        background-color: $capt-orange;
+     
+        padding: 8px 7px;
+        width: 60px;
+        color: $capt-lightgrey;
     }
 
 
@@ -415,15 +433,7 @@ li.pager-current {
         margin-left: -20px;
     }
 
-    /* no link within pager-current */
-    li.pager-current {
-        background-color: $capt-orange;
-        height: 30px;
-        padding: 8px 10px 8px 10px;
-        width: 50px;
-        @include border-radius (2px);
-        color: $capt-lightgrey;
-    }
+   
     
 }
 /* end pager styles */
@@ -495,29 +505,21 @@ body {
     
     height: 30px;
 }
+body.node-type-dashboard  {
+
+    #page {
+    height: 100%; /* changed from 1000px*/
+   }
+  
+}
 .bottom-footer {
     width: 100%;
     display: block;
     top: 100px;
     position: relative;
 }
-/* part of the rainbow solution */
 
-/* disclaimer positioning logic -- keep all this in one section */ 
-body.node-type-event .disclaimer {
-    display: inline-block;
-    left: -350px;
-}
-/* stopgap measure - the real problem is either in the database block config or a template */
-body.node-type-event.page-node-edit {
-   /* #block-block-12 {
-        display: none;
-    }*/
-    .disclaimer {
-    left: -70px;
-     }
 
-}
 /*
  *  Specific event page styling for the footer. 
  */
@@ -770,9 +772,13 @@ ul.pager {
    margin-bottom: 10px;
    li.pager-item {
     border: 1px solid $capt-aqua;
+    a {
+        padding: 4px 7px;
+    }
 }
 li.pager-current {
     background-color: $capt-aqua;
+    border: 1px solid $capt-aqua;
 }
 li.pager-next,
 li.pager-last {
@@ -802,24 +808,40 @@ li.pager-next {
 }
 
 }
-.field-name-my-archived-events {
-    padding-bottom: 20px;
+.field-name-my-archived-events.field-type-ds {
+    padding-bottom: 30px;
     background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
     .view-dashboard {
         min-height: 170px;
     }
+    div.view-content {
+        margin-left: -8px;
+          div.item-list {
+        margin-left: 0px;
+        ul {
+            padding-bottom: 5px;
+        }
+   
+    }
+    }
+  
     h2.block-title {
         font-weight: normal;
     }
     div.view-empty {
         margin-top: 30px;
     }
+    ul.pager {
+        margin-top: 48px;
+        margin-bottom: -30px;
+        padding-bottom: 0px;
+    }
 
 }
 .field-name-my-archived-events,
 .field-name-my-registered-events {
     .view-dashboard {
-        /*border-top: 1px solid $capt-midgrey;*/
+       
     }
 }
 /* upcoming events panel  */
@@ -947,7 +969,7 @@ header#header {
     /*border-bottom: 1px solid $capt-midgrey;*/
     
     height: 27px;
-    width: 970px;
+    width: 870px;
     padding-left: 0px;
 }
 ul#main-menu.main-menu > li.menu-item > a.active {
@@ -962,8 +984,10 @@ ul#main-menu.main-menu {
     text-transform: uppercase;
     display: block;
     height: 27px;
-    padding-left: 67px;
-    padding-right: 67px;
+    width: 200px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
     background-color: $capt-midgrey;
    }
 /* submenu active */
@@ -976,28 +1000,40 @@ ul#main-menu.main-menu {
     color: $capt-maroon;
   }
 }
-/* dropdown */
-
+/**
+ * Dropdown Logic
+ */
+/*
+#navigation .links li {
+    padding: 0px 3px
+}*/
+/* needed to eliminate a grey border on right side of dropdown */
+#navigation .links li.menu-parent li {
+    padding: 0px;
+}
 li.menu-parent {
     ul.sub-menu.tier-two {
         width: 194px;
         padding: 0px;
-        margin-top: 3px;
+        margin-top: 0px;
+ 
+        padding-right: 0px;
         li {
             width: 194px;
             padding: 0px;
             margin: 0px;
-            height: 32px;
+            height: 48px;
             background-color: $capt-darkgrey;
             display: block;
             a {
-                width: 184px;
+                width: 110px;
                 border: 1px solid $capt-darkgrey;
                 display: block;
                 margin: 0px;
                 height: 28px;
-                padding: 4px 0 0 0;
-                padding-left: 20px
+                padding: 10px 0;
+              
+                text-align: center;
             }
             a.active {
                 background-color: white;
@@ -1032,9 +1068,7 @@ div.bottom-footer {
 }
 
 
-/**
- * Disclaimer area
- */
+
 
 div#block-block-12 {
        height: 100px;
