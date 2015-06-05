@@ -488,8 +488,15 @@ body.node-type-event .disclaimer {
     display: inline-block;
     left: -350px;
 }
-body.node-type-event.page-node-edit .disclaimer {
+/* stopgap measure - the real problem is either in the database block config or a template */
+body.node-type-event.page-node-edit {
+   /* #block-block-12 {
+        display: none;
+    }*/
+    .disclaimer {
     left: -70px;
+     }
+
 }
 /*
  *  Specific event page styling for the footer. 
