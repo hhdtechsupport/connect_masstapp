@@ -936,17 +936,22 @@ div#block-block-7 {
     background: url('../images/icons/hand-lens.png') 150px 4px no-repeat;
     background-color: white;
 }
-form#search-block-form div#edit-actions  { 
-    input#edit-submit {
-      border: 1px solid white;
-      background-color: transparent;
-      height: 24px;
-      padding: 4px;
-      width: 70px;
-      margin-left: 8px;
+
+
+form#search-block-form { 
+    div#edit-actions, div#edit-actions--2  { 
+      input#edit-submit, input#edit-submit--2 {
+        border: 1px solid white;
+        background-color: transparent;
+        height: 24px;
+        padding: 4px;
+        width: 70px;
+        margin-left: 8px;
     }
+  }
 
 }
+
 div#edit-actions {
     padding-bottom: 10px;
 }
@@ -977,10 +982,13 @@ ul#main-menu.main-menu > li.menu-item > a.active {
     @include main-active-link();
 }
 ul#main-menu.main-menu {
+   margin-top: 28px;
    border-bottom: 1px solid $capt-midgrey;
    width: 970px;
    margin-left: $dash-nudge;
    height: 43px;
+   
+
    li.menu-item > a {
     text-transform: uppercase;
     display: block;
@@ -1004,10 +1012,11 @@ ul#main-menu.main-menu {
 /**
  * Dropdown Logic
  */
-/*
+
 #navigation .links li {
-    padding: 0px 3px
-}*/
+    padding: 0px 5px 0px 0px;
+}
+
 /* needed to eliminate a grey border on right side of dropdown */
 #navigation .links li.menu-parent li {
     padding: 0px;
@@ -1055,9 +1064,7 @@ div.capt-logo {
     white-space: nowrap;
     overflow: hidden;
 }
-ul#main-menu.main-menu {
-    margin-top: 20px;
-}
+
 
 
 div.bottom-footer {
@@ -1099,7 +1106,7 @@ div#block-block-12 {
     padding-right: 15px;
     margin-left: $dash-nudge;
     margin-right: 5px;
-    margin-top: 16px;
+    margin-top: 24px;
     z-index: 10px;
     top: 8px;
     position: relative;
@@ -1892,5 +1899,8 @@ body.node-type-event.page-node-edit {
   .disclaimer {    
     left: 20px;
    }
+}
+body.page-user-edit div.disclaimer {
+    margin-bottom: 40px;
 }
 
