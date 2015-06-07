@@ -36,7 +36,8 @@ $capt-black: #333333;
 $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
-$capt-hovergrey: #e4e4e4;
+$capt-hovergrey: #efefef; /*#e4e4e4;*/
+$capt-tabsgrey: #e4e3e0;
 
 /*measurements */
 $header-height: 100px;
@@ -63,7 +64,7 @@ $login-font: 16px;
 }
 @mixin main-active-link () {
     background-color: white;
-    border: 1px solid $capt-midgrey;
+    border: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
     border-bottom: 1px solid white;
     color: $capt-maroon;
 }
@@ -329,7 +330,7 @@ div.field-name-upcoming-events {
         margin-bottom: 0px;
         ul {
             padding-left: 14px;
-            border-bottom: 1px solid $capt-midgrey;
+            border-bottom: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
             width: 394px;
         }
 
@@ -750,7 +751,7 @@ div.view-content div.item-list ul {
     padding-left: 16px;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-bottom: 1px solid $capt-midgrey;
+    border-bottom: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
     padding-bottom: 0px;
     li {
         margin-bottom: 0px;
@@ -983,7 +984,7 @@ ul#main-menu.main-menu > li.menu-item > a.active {
 }
 ul#main-menu.main-menu {
    margin-top: 28px;
-   border-bottom: 1px solid $capt-midgrey;
+   border-bottom: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
    width: 970px;
    margin-left: $dash-nudge;
    height: 43px;
@@ -997,7 +998,7 @@ ul#main-menu.main-menu {
     text-align: center;
     padding-left: 0px;
     padding-right: 0px;
-    background-color: $capt-midgrey;
+    background-color: $capt-tabsgrey; /*$capt-midgrey;*/
    }
 /* submenu active */
 
@@ -1099,7 +1100,7 @@ div#block-block-12 {
 
 /* this has a large role in determining page height */
   div#content {
-    border: 1px solid $capt-midgrey;
+    border: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
     width: 970px;
     /* set to min height to avoid breaking layout */
     min-height: 466px;
@@ -1495,8 +1496,8 @@ body.logged-in {
         font-size: 26pt;
         /* from h2 in the specs */
 
-        margin-top: 55px;
-        margin-bottom: 35px;
+        margin-top: 36px;
+        margin-bottom: 21px;
     }
     h2 {
         margin-bottom: 0px;
@@ -1557,7 +1558,7 @@ body.node-type-event {
         color: $capt-orange;
     }
     div#content {
-        border-top: 1px solid $capt-midgrey;
+        border-top: 1px solid $capt-tabsgrey; /*$capt-midgrey;*/
         padding-top: 20px;
     }
     div.group-left {
