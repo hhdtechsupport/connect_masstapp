@@ -160,6 +160,7 @@ body {
     div.view-content {
         a {
             color: $capt-orange;
+            font-size: 13px;
         }
 
     }
@@ -296,7 +297,10 @@ a.button:hover {
 li.views-row {
     margin-bottom: 1em;
     list-style-image: url('../images/icons/arrow-icons.png');
-    margin-top: 0px;
+     margin-bottom: -2px;
+}
+li.views-row:last-child {
+    margin-bottom: -3px;
 }
 
 div.view-content div.item-list {
@@ -333,14 +337,11 @@ div.field-name-upcoming-events {
             padding-left: 14px;
             border-bottom: 1px solid $capt-midgrey;
             width: 394px;
+            padding-bottom: 13px;
         }
-
-        div.item-list {
-          
+        div.item-list { 
           margin-left: 0px;
-
         }
-
   }
   ul.pager {
     margin-top: 45px;
