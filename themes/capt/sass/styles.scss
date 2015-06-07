@@ -67,6 +67,7 @@ $login-font: 16px;
     border: 1px solid $capt-midgrey;
     border-bottom: 1px solid white;
     color: $capt-maroon;
+    height: 26px;
 }
 @mixin horiz_scale ($val) {
     -moz-transform: scaleX($val);
@@ -979,8 +980,10 @@ header#header {
     width: 870px;
     padding-left: 0px;
 }
+
 ul#main-menu.main-menu > li.menu-item > a.active {
     @include main-active-link();
+
 }
 ul#main-menu.main-menu {
    margin-top: 28px;
