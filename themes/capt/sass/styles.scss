@@ -51,12 +51,22 @@ $login-margin-left: 17px;
 $login-font: 16px;
 /* mixins */
 
+/* for tabs! */
+@mixin bottom-line ($thickness) {
+    background-image: -o-linear-gradient(bottom, black $thickness, transparent $thickness);
+    background-image: -moz-linear-gradient(center bottom , black, $thickness, transparent $thickness/2);
+    background-image: -webkit-linear-gradient(bottom, black $thickness, transparent $thickness);
+    background-image: linear-gradient(center bottom , black, $thickness, transparent $thickness);
+    
+}
+/* for rounded elements */
 @mixin border-radius($radius) {
     -webkit-border-radius: $radius;
     -moz-border-radius: $radius;
     -ms-border-radius: $radius;
     border-radius: $radius;
 }
+/* for header & footer */
 @mixin rainbow-bar ($y_pos) {
     background-image: url('../images/design-elements/rainbow-divider.png');
     background-position: -124px $y_pos;
@@ -1155,7 +1165,46 @@ body.admin-menu.section-administration {
     }
 }
 
-/* form elements for create event */
+
+/* View | Edit | Manage Display | etc. tabs */
+
+ul.tabs-primary, ul.tabs-secondary {
+    @include bottom-line (1px);
+
+
+    li:first-child {
+        margin-left: 10px;
+    }
+    li {
+        border: 0px;
+        a,a.is-active {
+        background-image: none;
+        background-color: white;
+        font-family: ArialMT, Arial;
+        font-weight: 500;
+        padding: 3px 20px;
+        }
+
+        a:not(.is-active) {
+            border: 0px;
+          
+            
+        }
+        a:hover {
+            background-color: white;
+        }
+    }
+    li.tabs-primary__tab.is-active {
+        border-color: black;
+        border-bottom-color: white;
+    }
+
+}
+  
+
+
+/* form elements for Edit & Create Event */
+
 
 form#event-node-form {
     div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
@@ -1529,6 +1578,10 @@ body.node-type-event {
        
 
     }
+    div#content.column {
+        border-top-color: black;
+
+    }
     .view-content > .views-row div {
         margin-left: 5px;
     }
@@ -1592,7 +1645,7 @@ body.node-type-event {
     div.group-left, div.group-right {
         overflow: hidden;
     }
-    div.group-dates,
+    /*div.group-dates,*/
     div.group-presenter,
     div.group-materials,
     div.group-audience,
