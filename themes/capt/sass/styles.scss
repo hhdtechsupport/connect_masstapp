@@ -252,7 +252,11 @@ h5 {
     font-size: 1em;
     margin-bottom: .5em;
 }
+
+
+
 /* FORMS */
+
 /* general styles */
 
 a {
@@ -318,7 +322,6 @@ div.view-content div.item-list {
     ul {
         margin-top: 0px;
         margin-bottom: 0px;
-       /* padding-left: 0px;*/
     }
 }
 div.field-name-upcoming-events { 
@@ -1907,5 +1910,14 @@ body.node-type-event.page-node-edit {
 }
 body.page-user-edit div.disclaimer {
     margin-bottom: 40px;
+}
+
+/* page administration */
+body.page-administration {
+    div#content div#title-section {
+        h2 {
+        display: none;
+    }
+  }
 }
 
