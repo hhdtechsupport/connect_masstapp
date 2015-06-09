@@ -1628,9 +1628,7 @@ body.node-type-event {
         border-top: 1px solid $capt-midgrey;
         padding-top: 20px;
     }
-    div.group-left {
-       /* display: block;*/
-    }
+
 
     // block with two buttons (edit notif, view reg)
     .region-help #block-block-1 {
@@ -1668,7 +1666,15 @@ body.node-type-event {
     }
     
     .ds-2col > .group-right {
-       float: left;
+        /*float: left;*/
+       @extend .panel-rule-single;
+       width: 220px;
+        @include border-radius(0px);
+        /*padding: 10px 16px 36px 16px;*/
+        /*margin-left: 10px;
+        h4 {
+            margin-top: 0px;
+        }*/
 
        /*width: 300px;*/
        /*margin: 0px;*/
