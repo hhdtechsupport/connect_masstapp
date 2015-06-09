@@ -178,35 +178,39 @@ Drupal.behaviors.my_custom_behavior = {
     var subject = '';
     var body = '';
     
-    $('#event-notifications-node-form .form-field-type-entityreference').each(function(){
+    $('#event-notifications-node-form > div > fieldset > .fieldset-wrapper').each(function(){
       
       // Store the contents of the fieldset in a variable
-      var $notificationForm = $(this).children('div').children('fieldset');
+      var $notificationFieldsetWrapper = $(this);
+      var $notificationForm = $notificationFieldsetWrapper.find('.form-field-type-entityreference > div > fieldset > .fieldset-wrapper > .form-wrapper');
+      cl($notificationForm.html());
       
       // Get the "do not send this type of notification" checkbox
       var $preventCheckbox = $notificationForm.find('.field-name-field-prevent-notification');
       
       // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
       if ($preventCheckbox.find('input').prop('checked')) {
-        $notificationForm.children('.fieldset-wrapper').children('.form-wrapper').children('div').each(function(){
+        $notificationForm.children('div').each(function(){
           $(this).css('display','none');
         });
+        $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','none');
         $preventCheckbox.css('display','block');
       }
       
       // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
       $preventCheckbox.find('input').change(function(){
-        
         if (this.checked) {
-          $notificationForm.children('.fieldset-wrapper').children('.form-wrapper').children('div').each(function(){
+          $notificationForm.children('div').each(function(){
             $(this).css('display','none');
           });
+          $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','none');
           $preventCheckbox.css('display','block');
         }
         else {
-          $notificationForm.children('.fieldset-wrapper').children('.form-wrapper').children('div').each(function(){
+          $notificationForm.children('div').each(function(){
             $(this).css('display','block');
           });
+          $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','block');
         }
         
       });
@@ -346,6 +350,7 @@ Drupal.behaviors.my_custom_behavior = {
         });
         $formFields.toggle();
         $section.find('.data-view').toggle();
+        $('html, body').scrollTop($section.offset().top - 50);
       });
       // Action to take when save button is clicked
       $section.find('.button.save-button').on('click', function(){
