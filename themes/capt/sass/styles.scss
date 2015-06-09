@@ -728,6 +728,7 @@ h4.black {
 
 .field-name-my-registered-events {
     background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
+
 }
 .field-name-my-archived-events.field-type-ds,
 .field-name-my-registered-events.field-type-ds {
@@ -768,7 +769,9 @@ h4.black {
     }
     /* format list of events */
     
-    div.view-content div.item-list ul {
+    div.view-content  {
+        margin-bottom: 25px;
+        div.item-list ul {
         padding-left: 16px;
         margin-top: 0px;
         margin-bottom: 0px;
@@ -778,6 +781,7 @@ h4.black {
             margin-bottom: 0px;
             padding-left: 0px;
         }
+      }
     }
     /* cancel registration link */
     
