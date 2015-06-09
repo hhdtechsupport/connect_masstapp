@@ -410,9 +410,6 @@ ul.pager {
     
     li.pager-current {
         background-color: $capt-orange;
-        padding: 6px 9px 6px 9px;
-        /*8px 7px;*/
-        
         width: 60px;
         color: $capt-lightgrey;
     }
@@ -448,11 +445,20 @@ ul.pager {
     li.pager-last a {
         background-position: 34px 8px;
     }
-    li.pager-item,
+ 
     li.pager-current {
         margin-left: 3px;
         margin-right: 3px;
         padding: 6px 9px;
+    }
+    li.pager-item {
+        /* not sure why we need vert padding but not horiz padding.*/
+        padding: 6px 0px;
+        margin-right: 3px;
+        margin-left: 3px;
+        a {
+            padding: 6px 9px;
+        }
     }
     // throbber needs to be on its own line 
     // so as not to affect the pager
@@ -1604,8 +1610,8 @@ body.node-type-event {
     }
     .ds-2col > .group-left {
         width: 590px;
-        .views-row div {
-            margin-right: -6px;
+        .views-row div.views-field-field-date {
+            margin-right: -12px;
         }
         div.group-dates {
             span.date-display-single {
