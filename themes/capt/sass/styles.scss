@@ -201,7 +201,8 @@ ul.main-menu {
 ul.main-menu a {
     color: $capt-black;
     background: $capt-lightgrey;
-    padding: 8px 20px 8px 20px;
+    padding: 12px 20px 4px 20px;
+    font-size: 15px;
     @extend .button-reset;
     &:active {
         color: $capt-maroon;
@@ -324,9 +325,9 @@ div.view-content div.item-list {
         margin-bottom: 10px;
         padding-top: 0px;
         line-height: 16px;
-        /*margin-left: -16px;*/
-
-        /*background-color: blue;*/
+        a:hover {
+            text-decoration: none;
+        }
     }
     /* TODO: add variant for registered events */
     ul {
@@ -382,11 +383,11 @@ ul.pager {
         background-color: $capt-lightgrey;
         color: $capt-orange;
         height: 30px;
-        padding: 8px 0px 8px 0px;
+        /*padding: 8px 0px 8px 0px;*/
         width: 50px;
         a {
             color: $capt-orange;
-            padding: 4px 7px;
+            /*padding: 4px 7px;*/
             
         }  
     }
@@ -394,7 +395,7 @@ ul.pager {
     li.pager-current {
         background-color: $capt-orange;
      
-        padding: 8px 7px;
+        padding: 6px 9px 6px 9px; /*8px 7px;*/
         width: 60px;
         color: $capt-lightgrey;
     }
@@ -436,6 +437,7 @@ li.pager-item,
 li.pager-current {
     margin-left: 3px;
     margin-right: 3px;
+    padding: 6px 9px;
 
 }
     // throbber needs to be on its own line 
@@ -522,11 +524,12 @@ body {
     height: 30px;
 }
 body.node-type-dashboard  {
-
-    #page {
-    height: 100%; /* changed from 1000px*/
+     #page {
+       height: 100%; /* changed from 1000px*/
+       div.view-content span.flag-registration a.unflag-action {
+       font-size: 12px;
+     }
    }
-  
 }
 .bottom-footer {
     width: 100%;
@@ -720,7 +723,7 @@ h4.black {
 .field-name-my-archived-events.field-type-ds,
 .field-name-my-registered-events.field-type-ds {
     overflow: none;
-    min-height: 245px;
+    /*min-height: 245px;*/
     margin-right: 14px;
     padding-right: 30px;
     padding-left: 0px;
@@ -789,9 +792,10 @@ ul.pager {
    margin-bottom: 10px;
    li.pager-item {
     border: 1px solid $capt-aqua;
-    a {
+    /*padding: 6px 9px;*/
+   /* a {
         padding: 4px 7px;
-    }
+    }*/
 }
 li.pager-current {
     background-color: $capt-aqua;
@@ -829,15 +833,15 @@ li.pager-next {
     padding-bottom: 30px;
     background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
     .view-dashboard {
-        min-height: 170px;
+       /* min-height: 170px;*/
     }
     div.view-content {
         margin-left: -8px;
           div.item-list {
-        margin-left: 0px;
-        ul {
+          margin-left: 0px;
+          ul {
             padding-bottom: 5px;
-        }
+          }
    
     }
     }
