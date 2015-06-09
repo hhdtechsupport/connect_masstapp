@@ -28,23 +28,37 @@
 /* for header & footer */
 /* inherited prototype classes */
 /* panels */
-/* line 91, ../sass/styles.scss */
+/* line 95, ../sass/styles.scss */
 .panel, .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login, form#user-pass {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right .field-type-ds, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section, form#event-node-form div#edit-field-subtitle, form#event-node-form div#edit-field-category, form#event-node-form div#field-banner-text-add-more-wrapper, div#edit-field-related-material, div#edit-field-contact-email, div#edit-field-related-notifications, body.not-logged-in.page-user form#user-login, form#user-pass {
   background-color: #eef1f3;
   padding-left: 15px;
   padding-right: 15px;
   border: 1px solid #d7d7d7;
   border-top: 0px;
+    /*div.item-list {
+        a {
+
+            color: $capt-black;
+        }
+        a:hover {
+            color: $capt-maroon;
+        }
+        }*/
+}
+/* line 111, ../sass/styles.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, .node-dashboard .group-left .field-type-ds h3 a:hover, .node-dashboard .group-right .field-type-ds h3 a:hover, form#event-node-form div#edit-field-type-event.form-wrapper h3 a:hover, form#event-node-form div#edit-field-audience h3 a:hover,
+form#event-node-form div#edit-field-body h3 a:hover, body.not-logged-in.page-user #block-block-8 h3 a:hover, body.not-logged-in.page-user #block-block-9 h3 a:hover, body.node-type-event div.group-materials h3 a:hover, body.node-type-event .ds-2col > .group-right .field-type-ds h3 a:hover, form#event-node-form div.form-item.form-item-title h3 a:hover, form#event-node-form div#edit-field-date-instance h3 a:hover, div#edit-field-presenter h3 a:hover, div#edit-field-contact-name h3 a:hover, body.not-logged-in.page-user div#title-section h3 a:hover, form#event-node-form div#edit-field-subtitle h3 a:hover, form#event-node-form div#edit-field-category h3 a:hover, form#event-node-form div#field-banner-text-add-more-wrapper h3 a:hover, div#edit-field-related-material h3 a:hover, div#edit-field-contact-email h3 a:hover, div#edit-field-related-notifications h3 a:hover, body.not-logged-in.page-user form#user-login h3 a:hover, form#user-pass h3 a:hover {
+  color: #8c1d18;
 }
 
-/* line 98, ../sass/styles.scss */
+/* line 115, ../sass/styles.scss */
 #block-block-12 .contextual-links-wrapper {
   width: 970px;
   margin: 0px auto;
 }
 
-/* line 103, ../sass/styles.scss */
+/* line 119, ../sass/styles.scss */
 .proto-disclaimer, div.bottom-footer div.disclaimer {
   position: relative;
   top: 30px;
@@ -57,32 +71,33 @@ form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-bl
   left: 0px;
 }
 
-/* line 116, ../sass/styles.scss */
+/* line 130, ../sass/styles.scss */
 .panel-rule, .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right .field-type-ds, form#event-node-form div.form-item.form-item-title, form#event-node-form div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-contact-name, body.not-logged-in.page-user div#title-section {
   padding-top: 20px;
   border-top: 5px solid #577785;
   border-bottom: 0px;
+  font-size: 14px;
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   -ms-border-radius: 1px;
   border-radius: 1px;
 }
 
-/* line 123, ../sass/styles.scss */
+/* line 138, ../sass/styles.scss */
 .panel-rule-single, .node-dashboard .group-left .field-type-ds, .node-dashboard .group-right .field-type-ds, form#event-node-form div#edit-field-type-event.form-wrapper, form#event-node-form div#edit-field-audience,
-form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right {
+form#event-node-form div#edit-field-body, body.not-logged-in.page-user #block-block-8, body.not-logged-in.page-user #block-block-9, body.node-type-event div.group-materials, body.node-type-event .ds-2col > .group-right .field-type-ds {
   margin-bottom: 20px;
   border-bottom: 1px solid #d7d7d7;
   /* needs to be larger for dashboard panels */
 }
 
-/* line 131, ../sass/styles.scss */
+/* line 145, ../sass/styles.scss */
 .field-container fieldset, form#event-node-form div#edit-field-date-instance fieldset, div#edit-field-presenter fieldset, div#edit-field-related-material fieldset {
   border: 0px;
   padding-left: 0px;
 }
-/* line 135, ../sass/styles.scss */
+/* line 149, ../sass/styles.scss */
 .field-container legend, form#event-node-form div#edit-field-date-instance legend, div#edit-field-presenter legend, div#edit-field-related-material legend,
 .field-container span.fieldset-legend,
 form#event-node-form div#edit-field-date-instance span.fieldset-legend,
@@ -90,21 +105,23 @@ div#edit-field-presenter span.fieldset-legend,
 div#edit-field-related-material span.fieldset-legend {
   font-weight: bold;
 }
-/* line 139, ../sass/styles.scss */
+/* line 153, ../sass/styles.scss */
 .field-container input.form-submit, form#event-node-form div#edit-field-date-instance input.form-submit, div#edit-field-presenter input.form-submit, div#edit-field-related-material input.form-submit {
   margin-top: 0px;
 }
 
 /* pager */
-/* line 145, ../sass/styles.scss */
+/* line 159, ../sass/styles.scss */
 .pager-link, ul.pager li.pager-first a,
 ul.pager li.pager-previous a, ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-repeat: no-repeat;
   color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
 }
 
-/* line 150, ../sass/styles.scss */
+/* line 165, ../sass/styles.scss */
 .pager-clip {
   overflow: hidden;
   white-space: nowrap;
@@ -116,7 +133,7 @@ ul.pager li.pager-last a {
 }
 
 /* from Hemali's primary styles */
-/* line 161, ../sass/styles.scss */
+/* line 176, ../sass/styles.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -125,24 +142,35 @@ body {
 }
 
 /* eliminate blue links */
-/* line 171, ../sass/styles.scss */
-#page div.view-content a {
-  color: #333333;
-  font-size: 15px;
+/* line 187, ../sass/styles.scss */
+#page div.view-content .panel a, #page div.view-content .panel-rule a, #page div.view-content .panel-rule-single a, #page div.view-content .node-dashboard .group-left .field-type-ds a, .node-dashboard .group-left #page div.view-content .field-type-ds a, #page div.view-content .node-dashboard .group-right .field-type-ds a, .node-dashboard .group-right #page div.view-content .field-type-ds a, #page div.view-content form#event-node-form div#edit-field-type-event.form-wrapper a, form#event-node-form #page div.view-content div#edit-field-type-event.form-wrapper a, #page div.view-content form#event-node-form div#edit-field-audience a, form#event-node-form #page div.view-content div#edit-field-audience a,
+#page div.view-content form#event-node-form div#edit-field-body a,
+form#event-node-form #page div.view-content div#edit-field-body a, #page div.view-content body.not-logged-in.page-user #block-block-8 a, body.not-logged-in.page-user #page div.view-content #block-block-8 a, #page div.view-content body.not-logged-in.page-user #block-block-9 a, body.not-logged-in.page-user #page div.view-content #block-block-9 a, #page div.view-content body.node-type-event div.group-materials a, body.node-type-event #page div.view-content div.group-materials a, #page div.view-content body.node-type-event .ds-2col > .group-right .field-type-ds a, body.node-type-event .ds-2col > .group-right #page div.view-content .field-type-ds a, #page div.view-content form#event-node-form div.form-item.form-item-title a, form#event-node-form #page div.view-content div.form-item.form-item-title a, #page div.view-content form#event-node-form div#edit-field-date-instance a, form#event-node-form #page div.view-content div#edit-field-date-instance a, #page div.view-content div#edit-field-presenter a, #page div.view-content div#edit-field-contact-name a, #page div.view-content body.not-logged-in.page-user div#title-section a, body.not-logged-in.page-user #page div.view-content div#title-section a, #page div.view-content form#event-node-form div#edit-field-subtitle a, form#event-node-form #page div.view-content div#edit-field-subtitle a, #page div.view-content form#event-node-form div#edit-field-category a, form#event-node-form #page div.view-content div#edit-field-category a, #page div.view-content form#event-node-form div#field-banner-text-add-more-wrapper a, form#event-node-form #page div.view-content div#field-banner-text-add-more-wrapper a, #page div.view-content div#edit-field-related-material a, #page div.view-content div#edit-field-contact-email a, #page div.view-content div#edit-field-related-notifications a, #page div.view-content body.not-logged-in.page-user form#user-login a, body.not-logged-in.page-user #page div.view-content form#user-login a, #page div.view-content form#user-pass a, #page div.view-content .panel a.flag-action, #page div.view-content .panel-rule a.flag-action, #page div.view-content .panel-rule-single a.flag-action, #page div.view-content .node-dashboard .group-left .field-type-ds a.flag-action, .node-dashboard .group-left #page div.view-content .field-type-ds a.flag-action, #page div.view-content .node-dashboard .group-right .field-type-ds a.flag-action, .node-dashboard .group-right #page div.view-content .field-type-ds a.flag-action, #page div.view-content form#event-node-form div#edit-field-type-event.form-wrapper a.flag-action, form#event-node-form #page div.view-content div#edit-field-type-event.form-wrapper a.flag-action, #page div.view-content form#event-node-form div#edit-field-audience a.flag-action, form#event-node-form #page div.view-content div#edit-field-audience a.flag-action,
+#page div.view-content form#event-node-form div#edit-field-body a.flag-action,
+form#event-node-form #page div.view-content div#edit-field-body a.flag-action, #page div.view-content body.not-logged-in.page-user #block-block-8 a.flag-action, body.not-logged-in.page-user #page div.view-content #block-block-8 a.flag-action, #page div.view-content body.not-logged-in.page-user #block-block-9 a.flag-action, body.not-logged-in.page-user #page div.view-content #block-block-9 a.flag-action, #page div.view-content body.node-type-event div.group-materials a.flag-action, body.node-type-event #page div.view-content div.group-materials a.flag-action, #page div.view-content body.node-type-event .ds-2col > .group-right .field-type-ds a.flag-action, body.node-type-event .ds-2col > .group-right #page div.view-content .field-type-ds a.flag-action, #page div.view-content form#event-node-form div.form-item.form-item-title a.flag-action, form#event-node-form #page div.view-content div.form-item.form-item-title a.flag-action, #page div.view-content form#event-node-form div#edit-field-date-instance a.flag-action, form#event-node-form #page div.view-content div#edit-field-date-instance a.flag-action, #page div.view-content div#edit-field-presenter a.flag-action, #page div.view-content div#edit-field-contact-name a.flag-action, #page div.view-content body.not-logged-in.page-user div#title-section a.flag-action, body.not-logged-in.page-user #page div.view-content div#title-section a.flag-action, #page div.view-content form#event-node-form div#edit-field-subtitle a.flag-action, form#event-node-form #page div.view-content div#edit-field-subtitle a.flag-action, #page div.view-content form#event-node-form div#edit-field-category a.flag-action, form#event-node-form #page div.view-content div#edit-field-category a.flag-action, #page div.view-content form#event-node-form div#field-banner-text-add-more-wrapper a.flag-action, form#event-node-form #page div.view-content div#field-banner-text-add-more-wrapper a.flag-action, #page div.view-content div#edit-field-related-material a.flag-action, #page div.view-content div#edit-field-contact-email a.flag-action, #page div.view-content div#edit-field-related-notifications a.flag-action, #page div.view-content body.not-logged-in.page-user form#user-login a.flag-action, body.not-logged-in.page-user #page div.view-content form#user-login a.flag-action, #page div.view-content form#user-pass a.flag-action {
+  /* color: $capt-black;*/
 }
-/* line 175, ../sass/styles.scss */
-#page div.view-content a:hover {
+/* line 190, ../sass/styles.scss */
+#page div.view-content .panel .item-list h3, #page div.view-content .panel-rule .item-list h3, #page div.view-content .panel-rule-single .item-list h3, #page div.view-content .node-dashboard .group-left .field-type-ds .item-list h3, .node-dashboard .group-left #page div.view-content .field-type-ds .item-list h3, #page div.view-content .node-dashboard .group-right .field-type-ds .item-list h3, .node-dashboard .group-right #page div.view-content .field-type-ds .item-list h3, #page div.view-content form#event-node-form div#edit-field-type-event.form-wrapper .item-list h3, form#event-node-form #page div.view-content div#edit-field-type-event.form-wrapper .item-list h3, #page div.view-content form#event-node-form div#edit-field-audience .item-list h3, form#event-node-form #page div.view-content div#edit-field-audience .item-list h3,
+#page div.view-content form#event-node-form div#edit-field-body .item-list h3,
+form#event-node-form #page div.view-content div#edit-field-body .item-list h3, #page div.view-content body.not-logged-in.page-user #block-block-8 .item-list h3, body.not-logged-in.page-user #page div.view-content #block-block-8 .item-list h3, #page div.view-content body.not-logged-in.page-user #block-block-9 .item-list h3, body.not-logged-in.page-user #page div.view-content #block-block-9 .item-list h3, #page div.view-content body.node-type-event div.group-materials .item-list h3, body.node-type-event #page div.view-content div.group-materials .item-list h3, #page div.view-content body.node-type-event .ds-2col > .group-right .field-type-ds .item-list h3, body.node-type-event .ds-2col > .group-right #page div.view-content .field-type-ds .item-list h3, #page div.view-content form#event-node-form div.form-item.form-item-title .item-list h3, form#event-node-form #page div.view-content div.form-item.form-item-title .item-list h3, #page div.view-content form#event-node-form div#edit-field-date-instance .item-list h3, form#event-node-form #page div.view-content div#edit-field-date-instance .item-list h3, #page div.view-content div#edit-field-presenter .item-list h3, #page div.view-content div#edit-field-contact-name .item-list h3, #page div.view-content body.not-logged-in.page-user div#title-section .item-list h3, body.not-logged-in.page-user #page div.view-content div#title-section .item-list h3, #page div.view-content form#event-node-form div#edit-field-subtitle .item-list h3, form#event-node-form #page div.view-content div#edit-field-subtitle .item-list h3, #page div.view-content form#event-node-form div#edit-field-category .item-list h3, form#event-node-form #page div.view-content div#edit-field-category .item-list h3, #page div.view-content form#event-node-form div#field-banner-text-add-more-wrapper .item-list h3, form#event-node-form #page div.view-content div#field-banner-text-add-more-wrapper .item-list h3, #page div.view-content div#edit-field-related-material .item-list h3, #page div.view-content div#edit-field-contact-email .item-list h3, #page div.view-content div#edit-field-related-notifications .item-list h3, #page div.view-content body.not-logged-in.page-user form#user-login .item-list h3, body.not-logged-in.page-user #page div.view-content form#user-login .item-list h3, #page div.view-content form#user-pass .item-list h3 {
+  font-size: 16px;
+}
+/* line 193, ../sass/styles.scss */
+#page div.view-content .panel a:hover, #page div.view-content .panel-rule a:hover, #page div.view-content .panel-rule-single a:hover, #page div.view-content .node-dashboard .group-left .field-type-ds a:hover, .node-dashboard .group-left #page div.view-content .field-type-ds a:hover, #page div.view-content .node-dashboard .group-right .field-type-ds a:hover, .node-dashboard .group-right #page div.view-content .field-type-ds a:hover, #page div.view-content form#event-node-form div#edit-field-type-event.form-wrapper a:hover, form#event-node-form #page div.view-content div#edit-field-type-event.form-wrapper a:hover, #page div.view-content form#event-node-form div#edit-field-audience a:hover, form#event-node-form #page div.view-content div#edit-field-audience a:hover,
+#page div.view-content form#event-node-form div#edit-field-body a:hover,
+form#event-node-form #page div.view-content div#edit-field-body a:hover, #page div.view-content body.not-logged-in.page-user #block-block-8 a:hover, body.not-logged-in.page-user #page div.view-content #block-block-8 a:hover, #page div.view-content body.not-logged-in.page-user #block-block-9 a:hover, body.not-logged-in.page-user #page div.view-content #block-block-9 a:hover, #page div.view-content body.node-type-event div.group-materials a:hover, body.node-type-event #page div.view-content div.group-materials a:hover, #page div.view-content body.node-type-event .ds-2col > .group-right .field-type-ds a:hover, body.node-type-event .ds-2col > .group-right #page div.view-content .field-type-ds a:hover, #page div.view-content form#event-node-form div.form-item.form-item-title a:hover, form#event-node-form #page div.view-content div.form-item.form-item-title a:hover, #page div.view-content form#event-node-form div#edit-field-date-instance a:hover, form#event-node-form #page div.view-content div#edit-field-date-instance a:hover, #page div.view-content div#edit-field-presenter a:hover, #page div.view-content div#edit-field-contact-name a:hover, #page div.view-content body.not-logged-in.page-user div#title-section a:hover, body.not-logged-in.page-user #page div.view-content div#title-section a:hover, #page div.view-content form#event-node-form div#edit-field-subtitle a:hover, form#event-node-form #page div.view-content div#edit-field-subtitle a:hover, #page div.view-content form#event-node-form div#edit-field-category a:hover, form#event-node-form #page div.view-content div#edit-field-category a:hover, #page div.view-content form#event-node-form div#field-banner-text-add-more-wrapper a:hover, form#event-node-form #page div.view-content div#field-banner-text-add-more-wrapper a:hover, #page div.view-content div#edit-field-related-material a:hover, #page div.view-content div#edit-field-contact-email a:hover, #page div.view-content div#edit-field-related-notifications a:hover, #page div.view-content body.not-logged-in.page-user form#user-login a:hover, body.not-logged-in.page-user #page div.view-content form#user-login a:hover, #page div.view-content form#user-pass a:hover {
   color: #8c1d18;
 }
 
-/* line 182, ../sass/styles.scss */
+/* line 198, ../sass/styles.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 187, ../sass/styles.scss */
+/* line 203, ../sass/styles.scss */
 .ds-2col-stacked-fluid > .group-left {
   margin-right: 1%;
   width: 49%;
@@ -150,13 +178,13 @@ body {
 
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
-/* line 194, ../sass/styles.scss */
+/* line 210, ../sass/styles.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
 /* inherited class */
-/* line 198, ../sass/styles.scss */
+/* line 215, ../sass/styles.scss */
 .button-reset, ul.main-menu a, input[type="submit"],
 a.button {
   text-decoration: none;
@@ -165,20 +193,20 @@ a.button {
   appearance: normal;
 }
 
-/* line 204, ../sass/styles.scss */
+/* line 221, ../sass/styles.scss */
 ul.main-menu a {
   color: #333333;
   background: #eef1f3;
   padding: 12px 20px 4px 20px;
   font-size: 15px;
 }
-/* line 210, ../sass/styles.scss */
+/* line 227, ../sass/styles.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit & other buttons*/
-/* line 216, ../sass/styles.scss */
+/* line 233, ../sass/styles.scss */
 input[type="submit"],
 a.button {
   -webkit-border-radius: 5px;
@@ -191,24 +219,24 @@ a.button {
 }
 
 /*ul.main-menu a:hover, */
-/* line 228, ../sass/styles.scss */
+/* line 243, ../sass/styles.scss */
 input[type="submit"]:hover,
 a.button:hover {
   background: #595959;
   text-decoration: none;
 }
 
-/* line 233, ../sass/styles.scss */
+/* line 248, ../sass/styles.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 235, ../sass/styles.scss */
+/* line 250, ../sass/styles.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 240, ../sass/styles.scss */
+/* line 255, ../sass/styles.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -216,13 +244,13 @@ input[type="submit"] {
   margin-top: 1em;
 }
 
-/* line 247, ../sass/styles.scss */
+/* line 262, ../sass/styles.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 251, ../sass/styles.scss */
+/* line 266, ../sass/styles.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -230,19 +258,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 257, ../sass/styles.scss */
+/* line 272, ../sass/styles.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 261, ../sass/styles.scss */
+/* line 276, ../sass/styles.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 265, ../sass/styles.scss */
+/* line 280, ../sass/styles.scss */
 h5 {
   font-size: 1em;
   margin-bottom: .5em;
@@ -250,12 +278,12 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 276, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 a {
   color: #c3791f;
 }
 
-/* line 279, ../sass/styles.scss */
+/* line 290, ../sass/styles.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
@@ -264,17 +292,17 @@ a.button:hover {
 
 /* dashboard */
 /* the main panels */
-/* line 294, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 .node-event .group-right .group-materials {
-  /* background: #efeef5;
-   @include border-radius(5px);*/
-  /* padding: 10px;
-   margin-bottom: 10px;*/
+ /* background: #efeef5;
+@include border-radius(5px);*/
+ /* padding: 10px;
+margin-bottom: 10px;*/
   /*border: 3px solid #cdcdcd;*/
 }
 
 /* adopting h4:black for this one */
-/* line 303, ../sass/styles.scss */
+/* line 312, ../sass/styles.scss */
 .node-dashboard h2.block-title {
   /* artifacts */
   margin-top: 0;
@@ -285,45 +313,44 @@ a.button:hover {
 }
 
 /* dashboard lists */
-/* line 315, ../sass/styles.scss */
+/* line 324, ../sass/styles.scss */
 li.views-row {
-  margin-bottom: 1em;
   list-style-image: url("../images/icons/arrow-icons.png");
   margin-bottom: -2px;
 }
 
-/* line 320, ../sass/styles.scss */
+/* line 328, ../sass/styles.scss */
 li.views-row:last-child {
   margin-bottom: -3px;
 }
 
-/* line 324, ../sass/styles.scss */
+/* line 331, ../sass/styles.scss */
 div.view-content div.item-list {
   padding-left: 0px;
   margin-bottom: -21px;
   /* TODO: add variant for registered events */
 }
-/* line 327, ../sass/styles.scss */
+/* line 334, ../sass/styles.scss */
 div.view-content div.item-list h3 {
   margin-bottom: 10px;
   padding-top: 0px;
   line-height: 16px;
 }
-/* line 331, ../sass/styles.scss */
+/* line 338, ../sass/styles.scss */
 div.view-content div.item-list h3 a:hover {
   text-decoration: none;
 }
-/* line 336, ../sass/styles.scss */
+/* line 344, ../sass/styles.scss */
 div.view-content div.item-list ul {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-/* line 341, ../sass/styles.scss */
+/* line 349, ../sass/styles.scss */
 div.field-name-upcoming-events {
   padding-bottom: 0px;
 }
-/* line 344, ../sass/styles.scss */
+/* line 351, ../sass/styles.scss */
 div.field-name-upcoming-events div.view-content {
   /* set to min-height to avoid breaking layout */
   margin-top: -30px;
@@ -334,18 +361,18 @@ div.field-name-upcoming-events div.view-content {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
-/* line 353, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 div.field-name-upcoming-events div.view-content ul {
   padding-left: 14px;
   border-bottom: 1px solid #d7d7d7;
   width: 394px;
   padding-bottom: 13px;
 }
-/* line 359, ../sass/styles.scss */
+/* line 369, ../sass/styles.scss */
 div.field-name-upcoming-events div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 363, ../sass/styles.scss */
+/* line 373, ../sass/styles.scss */
 div.field-name-upcoming-events ul.pager {
   margin-top: 45px;
   padding-left: 0px;
@@ -353,8 +380,10 @@ div.field-name-upcoming-events ul.pager {
   margin-left: -7px;
 }
 
-/* pager */
-/* line 372, ../sass/styles.scss */
+/* *
+ * Pager styles
+ */
+/* line 384, ../sass/styles.scss */
 ul.pager {
   padding-top: 5px;
   height: 40px;
@@ -365,15 +394,15 @@ ul.pager {
   /* first & previous on left */
   /* next & last on right */
 }
-/* line 378, ../sass/styles.scss */
+/* line 389, ../sass/styles.scss */
 ul.pager a:hover {
   text-decoration: none;
 }
-/* line 382, ../sass/styles.scss */
+/* line 394, ../sass/styles.scss */
 ul.pager li.pager-ellipsis {
   padding: 0px;
 }
-/* line 385, ../sass/styles.scss */
+/* line 397, ../sass/styles.scss */
 ul.pager li.pager-item {
   background-color: #eef1f3;
   color: #c3791f;
@@ -381,12 +410,12 @@ ul.pager li.pager-item {
   /*padding: 8px 0px 8px 0px;*/
   width: 50px;
 }
-/* line 391, ../sass/styles.scss */
+/* line 404, ../sass/styles.scss */
 ul.pager li.pager-item a {
   color: #c3791f;
   /*padding: 4px 7px;*/
 }
-/* line 398, ../sass/styles.scss */
+/* line 411, ../sass/styles.scss */
 ul.pager li.pager-current {
   background-color: #c3791f;
   padding: 6px 9px 6px 9px;
@@ -394,48 +423,48 @@ ul.pager li.pager-current {
   width: 60px;
   color: #eef1f3;
 }
-/* line 407, ../sass/styles.scss */
+/* line 419, ../sass/styles.scss */
 ul.pager li.pager-last a {
   background-position: 33px 8px;
 }
-/* line 411, ../sass/styles.scss */
+/* line 424, ../sass/styles.scss */
 ul.pager li.pager-first,
 ul.pager li.pager-previous {
   padding: 0px;
   margin: 0px 4px 0px 0px;
 }
-/* line 415, ../sass/styles.scss */
+/* line 428, ../sass/styles.scss */
 ul.pager li.pager-first a,
 ul.pager li.pager-previous a {
   background-image: url("../images/icons/left-arrow.png");
   background-position: 0 8px;
   padding: 8px 0px 8px 20px;
 }
-/* line 423, ../sass/styles.scss */
+/* line 437, ../sass/styles.scss */
 ul.pager li.pager-next,
 ul.pager li.pager-last {
   padding: 0px;
   margin: 0px 0px 0px 4px;
 }
-/* line 427, ../sass/styles.scss */
+/* line 441, ../sass/styles.scss */
 ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow.png");
   background-position: 35px 8px;
   padding: 8px 24px 8px 0px;
 }
-/* line 435, ../sass/styles.scss */
+/* line 448, ../sass/styles.scss */
 ul.pager li.pager-last a {
   background-position: 34px 8px;
 }
-/* line 439, ../sass/styles.scss */
+/* line 451, ../sass/styles.scss */
 ul.pager li.pager-item,
 ul.pager li.pager-current {
   margin-left: 3px;
   margin-right: 3px;
   padding: 6px 9px;
 }
-/* line 448, ../sass/styles.scss */
+/* line 459, ../sass/styles.scss */
 ul.pager div.ajax-progress {
   float: right;
   display: inline;
@@ -446,58 +475,58 @@ ul.pager div.ajax-progress {
 }
 
 /* end pager styles */
-/* line 462, ../sass/styles.scss */
+/* line 471, ../sass/styles.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 466, ../sass/styles.scss */
+/* line 475, ../sass/styles.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 470, ../sass/styles.scss */
+/* line 479, ../sass/styles.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 474, ../sass/styles.scss */
+/* line 483, ../sass/styles.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 478, ../sass/styles.scss */
+/* line 487, ../sass/styles.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 483, ../sass/styles.scss */
+/* line 492, ../sass/styles.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 487, ../sass/styles.scss */
+/* line 496, ../sass/styles.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 489, ../sass/styles.scss */
+/* line 498, ../sass/styles.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 493, ../sass/styles.scss */
+/* line 502, ../sass/styles.scss */
 table {
   width: 100%;
 }
-/* line 495, ../sass/styles.scss */
+/* line 504, ../sass/styles.scss */
 table thead th {
   text-align: left;
 }
 
-/* line 499, ../sass/styles.scss */
+/* line 508, ../sass/styles.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -507,43 +536,44 @@ table thead th {
   padding-left: 0;
 }
 
-/* line 507, ../sass/styles.scss */
+/* line 516, ../sass/styles.scss */
 .view-registrations table {
   margin-bottom: 50px;
 }
-/* line 509, ../sass/styles.scss */
+/* line 518, ../sass/styles.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: .2em 0;
 }
 
 /* end forms */
-/* line 516, ../sass/styles.scss */
+/* line 525, ../sass/styles.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/*
-* to do: add background-image to top and bottom headers. 
-*/
-/* line 523, ../sass/styles.scss */
+/* line 528, ../sass/styles.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 530, ../sass/styles.scss */
+/*
+ *  Cancelling a registered event
+ */
+/* line 539, ../sass/styles.scss */
 body.node-type-dashboard #page {
   height: 100%;
   /* changed from 1000px*/
 }
-/* line 532, ../sass/styles.scss */
+/* line 543, ../sass/styles.scss */
 body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-action {
   font-size: 12px;
+  margin-left: -14px;
 }
 
-/* line 537, ../sass/styles.scss */
+/* line 549, ../sass/styles.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -554,7 +584,7 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
 /*
  *  Specific event page styling for the footer. 
  */
-/* line 549, ../sass/styles.scss */
+/* line 559, ../sass/styles.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -562,7 +592,7 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 554, ../sass/styles.scss */
+/* line 566, ../sass/styles.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -570,12 +600,12 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
   max-width: 1200px;
 }
 
-/* line 560, ../sass/styles.scss */
+/* line 572, ../sass/styles.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 563, ../sass/styles.scss */
+/* line 575, ../sass/styles.scss */
 .samhsa-logo {
   float: right;
 }
@@ -583,9 +613,9 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
 /*
 .disclaimer {
     width: 600px;
-}*/
+    }*/
 /* treating this as the container for now */
-/* line 572, ../sass/styles.scss */
+/* line 584, ../sass/styles.scss */
 #main {
   width: 1000px;
   margin-left: 12px;
@@ -593,7 +623,7 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
 }
 
 /* page */
-/* line 579, ../sass/styles.scss */
+/* line 591, ../sass/styles.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -602,22 +632,22 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
   width: 1000px;
 }
 
-/* line 587, ../sass/styles.scss */
+/* line 599, ../sass/styles.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 591, ../sass/styles.scss */
+/* line 603, ../sass/styles.scss */
 .region-header {
   float: right;
 }
-/* line 593, ../sass/styles.scss */
+/* line 605, ../sass/styles.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 597, ../sass/styles.scss */
+/* line 609, ../sass/styles.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -627,32 +657,32 @@ body.node-type-dashboard #page div.view-content span.flag-registration a.unflag-
   clear: both;
 }
 
-/* line 605, ../sass/styles.scss */
+/* line 617, ../sass/styles.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 610, ../sass/styles.scss */
+/* line 621, ../sass/styles.scss */
 .ds-2col > .group-left {
   float: left;
   width: auto;
   margin-right: 280px;
 }
-/* line 615, ../sass/styles.scss */
+/* line 626, ../sass/styles.scss */
 .ds-2col > .group-right {
   float: left;
   width: 240px;
   margin-left: -260px;
 }
 
-/* line 623, ../sass/styles.scss */
+/* line 632, ../sass/styles.scss */
 body.logged-in .node-type-event #title-section {
   width: auto;
   margin-right: 280px;
   float: left;
 }
 
-/* line 629, ../sass/styles.scss */
+/* line 637, ../sass/styles.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -666,7 +696,7 @@ body.logged-in .node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 646, ../sass/styles.scss */
+/* line 651, ../sass/styles.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -675,7 +705,7 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 654, ../sass/styles.scss */
+/* line 660, ../sass/styles.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
@@ -683,31 +713,31 @@ a.unflag-action {
 }
 
 /* banners */
-/* line 662, ../sass/styles.scss */
+/* line 668, ../sass/styles.scss */
 .view-event-banner .views-row {
   font-size: 3em;
   font-weight: bold;
 }
 
-/* line 667, ../sass/styles.scss */
+/* line 673, ../sass/styles.scss */
 .vertical-tabs {
   clear: both;
 }
 
 /* form stuff */
-/* line 673, ../sass/styles.scss */
+/* line 679, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single {
   float: left;
   width: 56%;
   padding-right: 1%;
   clear: both;
 }
-/* line 679, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup {
   float: left;
   width: 43%;
 }
-/* line 682, ../sass/styles.scss */
+/* line 688, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-markup .views-field-field-email-body > div > div > table {
   margin: 0 1.5% !important;
   transform: scale(0.75);
@@ -715,17 +745,17 @@ a.unflag-action {
   -moz-transform: scale(0.75);
   -moz-transform-origin: top left;
 }
-/* line 690, ../sass/styles.scss */
+/* line 696, ../sass/styles.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 694, ../sass/styles.scss */
+/* line 700, ../sass/styles.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 697, ../sass/styles.scss */
+/* line 703, ../sass/styles.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -733,12 +763,12 @@ a.unflag-action {
 
 /* new styles */
 /* not used yet */
-/* line 704, ../sass/styles.scss */
+/* line 710, ../sass/styles.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 707, ../sass/styles.scss */
+/* line 713, ../sass/styles.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -746,7 +776,7 @@ a.unflag-action {
 }
 
 /* not used yet */
-/* line 714, ../sass/styles.scss */
+/* line 720, ../sass/styles.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -756,12 +786,12 @@ h4.black {
 }
 
 /* panels */
-/* line 723, ../sass/styles.scss */
+/* line 729, ../sass/styles.scss */
 .field-name-my-registered-events {
   background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
 }
 
-/* line 726, ../sass/styles.scss */
+/* line 732, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds,
 .field-name-my-registered-events.field-type-ds {
   overflow: none;
@@ -769,32 +799,31 @@ h4.black {
   margin-right: 14px;
   padding-right: 30px;
   padding-left: 0px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   /* debold the title */
   /* blacken the links */
   /* format list of events */
   /* cancel registration link */
   /* pager logic */
 }
-/* line 735, ../sass/styles.scss */
+/* line 741, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.field-items,
 .field-name-my-registered-events.field-type-ds div.field-items {
   margin-left: 20px;
 }
-/* line 739, ../sass/styles.scss */
+/* line 744, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds .view-dashboard,
 .field-name-my-registered-events.field-type-ds .view-dashboard {
   /*border-bottom: 1px solid $capt-midgrey;*/
   padding-top: 0px;
 }
-/* line 748, ../sass/styles.scss */
+/* line 749, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.item-list,
 .field-name-my-registered-events.field-type-ds div.item-list {
-  /*background-color: red;*/
   margin-right: 12px;
   margin-left: -6px;
 }
-/* line 756, ../sass/styles.scss */
+/* line 755, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds h2.block-title,
 .field-name-my-registered-events.field-type-ds h2.block-title {
   font-weight: normal;
@@ -803,7 +832,7 @@ h4.black {
   color: #334b56;
   margin-left: -10px;
 }
-/* line 765, ../sass/styles.scss */
+/* line 764, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds h3 a,
 .field-name-my-registered-events.field-type-ds h3 a {
   font-style: normal;
@@ -825,7 +854,7 @@ h4.black {
   margin-bottom: 0px;
   padding-left: 0px;
 }
-/* line 783, ../sass/styles.scss */
+/* line 784, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds a.unflag-action,
 .field-name-my-registered-events.field-type-ds a.unflag-action {
   font-weight: normal;
@@ -834,46 +863,47 @@ h4.black {
   display: block;
   margin-bottom: -12px;
 }
-/* line 790, ../sass/styles.scss */
+/* line 792, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.item-list,
 .field-name-my-registered-events.field-type-ds div.item-list {
   border-width: 0px;
 }
-/* line 794, ../sass/styles.scss */
+/* line 797, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager,
 .field-name-my-registered-events.field-type-ds ul.pager {
   margin-bottom: 10px;
+  margin-top: 40px;
 }
-/* line 796, ../sass/styles.scss */
+/* line 800, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-item,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-item {
   border: 1px solid #577785;
   /*padding: 6px 9px;*/
-  /* a {
-       padding: 4px 7px;
-   }*/
+    /* a {
+padding: 4px 7px;
+}*/
 }
-/* line 803, ../sass/styles.scss */
+/* line 807, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-current,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-current {
   background-color: #577785;
   border: 1px solid #577785;
 }
-/* line 809, ../sass/styles.scss */
+/* line 813, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-next a,
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-last a,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-next a,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow-aqua.png");
 }
-/* line 816, ../sass/styles.scss */
+/* line 819, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-previous a,
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-first a,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-previous a,
 .field-name-my-registered-events.field-type-ds ul.pager li.pager-first a {
   background-image: url("../images/icons/left-arrow-aqua.png");
 }
-/* line 827, ../sass/styles.scss */
+/* line 829, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-item a,
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-current a,
 .field-name-my-archived-events.field-type-ds ul.pager li.pager-previous a,
@@ -891,71 +921,71 @@ h4.black {
 
 /* line 835, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds {
-  padding-bottom: 30px;
   background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
 }
-/* line 838, ../sass/styles.scss */
+/* line 837, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds .view-dashboard {
   /* min-height: 170px;*/
 }
-/* line 841, ../sass/styles.scss */
+/* line 840, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.view-content {
   margin-left: -8px;
 }
-/* line 843, ../sass/styles.scss */
+/* line 842, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 845, ../sass/styles.scss */
+/* line 844, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.view-content div.item-list ul {
   padding-bottom: 5px;
 }
-/* line 852, ../sass/styles.scss */
+/* line 849, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds h2.block-title {
   font-weight: normal;
 }
-/* line 855, ../sass/styles.scss */
+/* line 852, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds div.view-empty {
   margin-top: 30px;
 }
-/* line 858, ../sass/styles.scss */
+/* line 855, ../sass/styles.scss */
 .field-name-my-archived-events.field-type-ds ul.pager {
   margin-top: 48px;
-  margin-bottom: -30px;
+  /*margin-bottom: -30px;*/
   padding-bottom: 0px;
 }
 
 /* upcoming events panel  */
-/* line 874, ../sass/styles.scss */
+/* line 865, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds {
   background-color: white;
   border-width: 5px 0px 0px 0px;
   margin-right: 40px;
   margin-left: 14px;
 }
-/* line 879, ../sass/styles.scss */
+/* line 870, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds div.item-list {
   margin-top: 34px;
-  /*border: 1px solid red;*/
 }
-/* line 883, ../sass/styles.scss */
+/* line 873, ../sass/styles.scss */
 body.logged-in .field-name-upcoming-events.field-type-ds h2.block-title {
   font-weight: normal;
   /* best way to do it?*/
   display: none;
 }
-/* line 888, ../sass/styles.scss */
-body.logged-in .field-name-upcoming-events.field-type-ds h3 {
+/* line 879, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds h3,
+body.logged-in .field-name-upcoming-events.field-type-ds span.date-display-single {
   font-style: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
-/* line 891, ../sass/styles.scss */
-body.logged-in .field-name-upcoming-events.field-type-ds h3 a {
+/* line 883, ../sass/styles.scss */
+body.logged-in .field-name-upcoming-events.field-type-ds h3 a,
+body.logged-in .field-name-upcoming-events.field-type-ds span.date-display-single a {
   color: black;
 }
 
 /*logos above header - move up to general area? */
-/* line 900, ../sass/styles.scss */
+/* line 891, ../sass/styles.scss */
 div.top-header {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 90px;
@@ -969,13 +999,13 @@ background-repeat: repeat-x;*/
 /*
 *  Logos
 */
-/* line 912, ../sass/styles.scss */
+/* line 903, ../sass/styles.scss */
 div.top-header-container {
   height: 100px;
   width: 1000px;
   /* logos */
 }
-/* line 917, ../sass/styles.scss */
+/* line 908, ../sass/styles.scss */
 div.top-header-container div.capt-logo {
   background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
   width: 340px;
@@ -983,7 +1013,7 @@ div.top-header-container div.capt-logo {
   margin-bottom: 0px;
   top: 32px;
 }
-/* line 924, ../sass/styles.scss */
+/* line 915, ../sass/styles.scss */
 div.top-header-container div.samhsa-logo {
   background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
   width: 295px;
@@ -991,7 +1021,7 @@ div.top-header-container div.samhsa-logo {
   margin-right: 16px;
   top: 6px;
 }
-/* line 931, ../sass/styles.scss */
+/* line 922, ../sass/styles.scss */
 div.top-header-container div.capt-logo,
 div.top-header-container div.samhsa-logo {
   height: 100px;
@@ -999,11 +1029,11 @@ div.top-header-container div.samhsa-logo {
 }
 
 /* Welcome line near search box on dashboard*/
-/* line 939, ../sass/styles.scss */
+/* line 930, ../sass/styles.scss */
 div#block-block-7 {
   color: white;
 }
-/* line 941, ../sass/styles.scss */
+/* line 932, ../sass/styles.scss */
 div#block-block-7 a {
   color: white;
   font-weight: normal;
@@ -1014,7 +1044,7 @@ div#block-block-7 a {
  *  Sitewide styles 
  */
 /* search */
-/* line 952, ../sass/styles.scss */
+/* line 943, ../sass/styles.scss */
 input#edit-search-block-form--2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1029,7 +1059,7 @@ input#edit-search-block-form--2 {
   background-color: white;
 }
 
-/* line 966, ../sass/styles.scss */
+/* line 955, ../sass/styles.scss */
 form#search-block-form div#edit-actions input#edit-submit, form#search-block-form div#edit-actions input#edit-submit--2, form#search-block-form div#edit-actions--2 input#edit-submit, form#search-block-form div#edit-actions--2 input#edit-submit--2 {
   border: 1px solid white;
   background-color: transparent;
@@ -1039,7 +1069,7 @@ form#search-block-form div#edit-actions input#edit-submit, form#search-block-for
   margin-left: 8px;
 }
 
-/* line 978, ../sass/styles.scss */
+/* line 965, ../sass/styles.scss */
 div#edit-actions {
   padding-bottom: 10px;
 }
@@ -1048,7 +1078,7 @@ div#edit-actions {
 *  Banners
 */
 /* Event Dashboard banner */
-/* line 988, ../sass/styles.scss */
+/* line 973, ../sass/styles.scss */
 header#header {
   height: 191px;
   background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
@@ -1057,7 +1087,7 @@ header#header {
 /* 
 *  Navigation
 */
-/* line 996, ../sass/styles.scss */
+/* line 981, ../sass/styles.scss */
 #block-responsive-dropdown-menus-main-menu {
   margin-left: -10px;
   /*border-bottom: 1px solid $capt-midgrey;*/
@@ -1066,7 +1096,7 @@ header#header {
   padding-left: 0px;
 }
 
-/* line 1005, ../sass/styles.scss */
+/* line 989, ../sass/styles.scss */
 ul#main-menu.main-menu > li.menu-item > a.active {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1075,7 +1105,7 @@ ul#main-menu.main-menu > li.menu-item > a.active {
   height: 26px;
 }
 
-/* line 1009, ../sass/styles.scss */
+/* line 992, ../sass/styles.scss */
 ul#main-menu.main-menu {
   margin-top: 28px;
   border-bottom: 1px solid #d7d7d7;
@@ -1084,7 +1114,7 @@ ul#main-menu.main-menu {
   height: 43px;
   /* submenu active */
 }
-/* line 1017, ../sass/styles.scss */
+/* line 998, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a {
   text-transform: uppercase;
   display: block;
@@ -1096,11 +1126,11 @@ ul#main-menu.main-menu li.menu-item > a {
   background-color: #e4e3e0;
   /*$capt-midgrey;*/
 }
-/* line 1029, ../sass/styles.scss */
+/* line 1011, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a:hover {
   background-color: #efefef;
 }
-/* line 1032, ../sass/styles.scss */
+/* line 1014, ../sass/styles.scss */
 ul#main-menu.main-menu li.menu-item > a.active {
   background-color: white;
   color: #8c1d18;
@@ -1109,25 +1139,25 @@ ul#main-menu.main-menu li.menu-item > a.active {
 /**
  * Dropdown Logic
  */
-/* line 1041, ../sass/styles.scss */
+/* line 1023, ../sass/styles.scss */
 #navigation .links li {
   padding: 0px 5px 0px 0px;
 }
 
 /* needed to eliminate a grey border on right side of dropdown */
-/* line 1046, ../sass/styles.scss */
+/* line 1028, ../sass/styles.scss */
 #navigation .links li.menu-parent li {
   padding: 0px;
 }
 
-/* line 1050, ../sass/styles.scss */
+/* line 1032, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two {
   width: 194px;
   padding: 0px;
   margin-top: 0px;
   padding-right: 0px;
 }
-/* line 1056, ../sass/styles.scss */
+/* line 1037, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li {
   width: 194px;
   padding: 0px;
@@ -1136,7 +1166,7 @@ li.menu-parent ul.sub-menu.tier-two li {
   background-color: #959595;
   display: block;
 }
-/* line 1063, ../sass/styles.scss */
+/* line 1044, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a {
   width: 110px;
   border: 1px solid #959595;
@@ -1146,18 +1176,18 @@ li.menu-parent ul.sub-menu.tier-two li a {
   padding: 10px 0;
   text-align: center;
 }
-/* line 1073, ../sass/styles.scss */
+/* line 1053, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
 }
-/* line 1076, ../sass/styles.scss */
+/* line 1056, ../sass/styles.scss */
 li.menu-parent ul.sub-menu.tier-two li li#menu-item-1187.menu-item.last a {
   height: 34px;
   background-color: orange;
 }
 
 /* hiding text in key areas! */
-/* line 1084, ../sass/styles.scss */
+/* line 1065, ../sass/styles.scss */
 div.view-event-banner div.field-content,
 h1#site-name,
 div.samhsa-logo,
@@ -1167,14 +1197,14 @@ div.capt-logo {
   overflow: hidden;
 }
 
-/* line 1095, ../sass/styles.scss */
+/* line 1073, ../sass/styles.scss */
 div.bottom-footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
 }
 
-/* line 1105, ../sass/styles.scss */
+/* line 1079, ../sass/styles.scss */
 div#block-block-12 {
   /*height: 100px;*/
   margin-bottom: 0px;
@@ -1184,12 +1214,12 @@ div#block-block-12 {
  *  End Sitewide Styles
  */
 /*
- *  Start Event Dashboard 
- */
+  *  Start Event Dashboard 
+  */
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
 /* this has a large role in determining page height */
-/* line 1126, ../sass/styles.scss */
+/* line 1094, ../sass/styles.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -1206,18 +1236,19 @@ div#content {
 }
 
 /* my profile page; we need the "you are here" style too" */
-/* line 1143, ../sass/styles.scss */
+/* line 1112, ../sass/styles.scss */
 body.admin-menu div#content {
   /*height: 1750px;*/
   /* currently too general. if height is needed, make it specific to profile page. */
 }
-/* line 1146, ../sass/styles.scss */
+/* line 1116, ../sass/styles.scss */
 body.admin-menu div#content input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 1156, ../sass/styles.scss */
-body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a, body.page-user ul#main-menu.main-menu li#menu-item-591 a {
+/* line 1125, ../sass/styles.scss */
+body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a,
+body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
   border: 1px solid #d7d7d7;
   border-bottom: 1px solid white;
@@ -1225,7 +1256,7 @@ body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a, body.page-user ul
   height: 26px;
 }
 
-/* line 1164, ../sass/styles.scss */
+/* line 1133, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1233,169 +1264,177 @@ body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.
   color: #8c1d18;
   height: 26px;
 }
-/* line 1168, ../sass/styles.scss */
+/* line 1137, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
   display: block;
 }
 
 /* View | Edit | Manage Display | etc. tabs */
-/* line 1178, ../sass/styles.scss */
-ul.tabs-primary, ul.tabs-secondary {
+/* line 1144, ../sass/styles.scss */
+ul.tabs-primary,
+ul.tabs-secondary {
   background-image: -o-linear-gradient(bottom, black 1px, transparent 1px);
   background-image: -moz-linear-gradient(center bottom, black, 1px, transparent 0.5px);
   background-image: -webkit-linear-gradient(bottom, black 1px, transparent 1px);
   background-image: linear-gradient(center bottom, black, 1px, transparent 1px);
 }
-/* line 1182, ../sass/styles.scss */
-ul.tabs-primary li:first-child, ul.tabs-secondary li:first-child {
+/* line 1147, ../sass/styles.scss */
+ul.tabs-primary li:first-child,
+ul.tabs-secondary li:first-child {
   margin-left: 10px;
 }
-/* line 1185, ../sass/styles.scss */
-ul.tabs-primary li, ul.tabs-secondary li {
+/* line 1150, ../sass/styles.scss */
+ul.tabs-primary li,
+ul.tabs-secondary li {
   border: 0px;
 }
-/* line 1187, ../sass/styles.scss */
-ul.tabs-primary li a, ul.tabs-primary li a.is-active, ul.tabs-secondary li a, ul.tabs-secondary li a.is-active {
+/* line 1152, ../sass/styles.scss */
+ul.tabs-primary li a, ul.tabs-primary li a.is-active,
+ul.tabs-secondary li a,
+ul.tabs-secondary li a.is-active {
   background-image: none;
   background-color: white;
   font-family: ArialMT, Arial;
   font-weight: 500;
   padding: 3px 20px;
 }
-/* line 1195, ../sass/styles.scss */
-ul.tabs-primary li a:not(.is-active), ul.tabs-secondary li a:not(.is-active) {
+/* line 1159, ../sass/styles.scss */
+ul.tabs-primary li a:not(.is-active),
+ul.tabs-secondary li a:not(.is-active) {
   border: 0px;
 }
-/* line 1200, ../sass/styles.scss */
-ul.tabs-primary li a:hover, ul.tabs-secondary li a:hover {
+/* line 1162, ../sass/styles.scss */
+ul.tabs-primary li a:hover,
+ul.tabs-secondary li a:hover {
   background-color: white;
 }
-/* line 1204, ../sass/styles.scss */
-ul.tabs-primary li.tabs-primary__tab.is-active, ul.tabs-secondary li.tabs-primary__tab.is-active {
+/* line 1166, ../sass/styles.scss */
+ul.tabs-primary li.tabs-primary__tab.is-active,
+ul.tabs-secondary li.tabs-primary__tab.is-active {
   border-color: black;
   border-bottom-color: white;
 }
 
 /* form elements for Edit & Create Event */
-/* line 1216, ../sass/styles.scss */
+/* line 1173, ../sass/styles.scss */
 form#event-node-form {
   /* form panels */
   /* title */
   /* audience */
 }
-/* line 1217, ../sass/styles.scss */
+/* line 1174, ../sass/styles.scss */
 form#event-node-form div.fieldset-wrapper, form#event-node-form div#field-subtitle-add-more-wrapper {
   /* @extend .panel;*/
 }
-/* line 1223, ../sass/styles.scss */
+/* line 1180, ../sass/styles.scss */
 form#event-node-form div.form-item.form-item-title {
   margin-bottom: 0px;
 }
-/* line 1227, ../sass/styles.scss */
+/* line 1184, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle.form-field-type-text {
   margin-top: 0px;
 }
-/* line 1230, ../sass/styles.scss */
+/* line 1187, ../sass/styles.scss */
 form#event-node-form div#field-subtitle-add-more-wrapper {
   margin-top: 0px;
   /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
 margin-top: 0px; // remove to add more space betw title and subtitle
 }*/
 }
-/* line 1237, ../sass/styles.scss */
+/* line 1194, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance {
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-/* line 1242, ../sass/styles.scss */
+/* line 1199, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance div#edit-field-date-instance-und-actions {
   padding-top: 0px;
 }
-/* line 1245, ../sass/styles.scss */
+/* line 1202, ../sass/styles.scss */
 form#event-node-form div#edit-field-date-instance fieldset#edit-field-date-instance-und {
   padding-left: 0px;
 }
-/* line 1249, ../sass/styles.scss */
+/* line 1206, ../sass/styles.scss */
 form#event-node-form div#edit-field-subtitle {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 1256, ../sass/styles.scss */
+/* line 1213, ../sass/styles.scss */
 form#event-node-form div#edit-field-type-event.form-wrapper {
   margin-top: 0px;
   padding-top: 0px;
   margin-bottom: 0px;
 }
-/* line 1262, ../sass/styles.scss */
+/* line 1219, ../sass/styles.scss */
 form#event-node-form div#edit-field-category {
   margin-top: -20px;
   padding-bottom: 10px;
   padding-top: 10px;
 }
-/* line 1268, ../sass/styles.scss */
+/* line 1225, ../sass/styles.scss */
 form#event-node-form div#field-banner-text-add-more-wrapper {
   margin-top: -20px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
-/* line 1274, ../sass/styles.scss */
+/* line 1231, ../sass/styles.scss */
 form#event-node-form div.form-field-name-field-date-instance {
   margin-bottom: 20px;
 }
-/* line 1279, ../sass/styles.scss */
+/* line 1236, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience,
 form#event-node-form div#edit-field-body {
   padding-top: 0px;
   padding-bottom: 10px;
 }
-/* line 1284, ../sass/styles.scss */
+/* line 1241, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience label,
 form#event-node-form div#edit-field-body label {
   margin-top: -10px;
 }
-/* line 1287, ../sass/styles.scss */
+/* line 1244, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience div.form-textarea-wrapper,
 form#event-node-form div#edit-field-body div.form-textarea-wrapper {
   margin-bottom: 20px;
 }
-/* line 1290, ../sass/styles.scss */
+/* line 1247, ../sass/styles.scss */
 form#event-node-form div#edit-field-audience div.grippie,
 form#event-node-form div#edit-field-body div.grippie {
   background-color: #d7d7d7;
 }
-/* line 1294, ../sass/styles.scss */
+/* line 1251, ../sass/styles.scss */
 form#event-node-form input.form-submit {
   background-color: #c3791f;
 }
 
-/* line 1301, ../sass/styles.scss */
+/* line 1258, ../sass/styles.scss */
 div#edit-field-presenter span.fieldset-legend {
   margin-top: -30px;
   text-transform: uppercase;
   color: #577785;
 }
 
-/* line 1307, ../sass/styles.scss */
+/* line 1264, ../sass/styles.scss */
 div#edit-field-related-material {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
-/* line 1314, ../sass/styles.scss */
+/* line 1271, ../sass/styles.scss */
 div#edit-field-contact-name {
   padding-top: 0px;
   margin-bottom: 0px;
 }
 
-/* line 1319, ../sass/styles.scss */
+/* line 1276, ../sass/styles.scss */
 div#edit-field-contact-email {
   margin-top: -20px;
   padding-top: 5px;
 }
 
-/* line 1324, ../sass/styles.scss */
+/* line 1281, ../sass/styles.scss */
 div#edit-field-related-notifications {
   margin-top: -20px;
   padding-top: 5px;
@@ -1403,7 +1442,7 @@ div#edit-field-related-notifications {
 }
 
 /* save */
-/* line 1333, ../sass/styles.scss */
+/* line 1290, ../sass/styles.scss */
 form#event-node-form input.form-submit {
   padding: 6px;
   height: 36px;
@@ -1411,15 +1450,15 @@ form#event-node-form input.form-submit {
 
 /* end create event form */
 /* overall page heights */
-/* line 1341, ../sass/styles.scss */
+/* line 1298, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add {
   /* needed so that save button has space above border */
 }
-/* line 1342, ../sass/styles.scss */
+/* line 1299, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add #page {
   height: 95%;
 }
-/* line 1347, ../sass/styles.scss */
+/* line 1304, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add div#content {
   height: 100%;
   padding-bottom: 20px;
@@ -1428,32 +1467,28 @@ body.page-node-add-event.page-node-add.section-node-add div#content {
 /* 
  *  Editing an event
  */
-/* line 1362, ../sass/styles.scss */
-form#event-node-form div#edit-field-date-instance input.form-submit,
-form#event-node-form div#edit-field-presenter input.form-submit,
-form#event-node-form div#edit-field-related-material input.form-submit {
+/* line 1315, ../sass/styles.scss */
+form#event-node-form div#edit-field-date-instance input.form-submit, form#event-node-form div#edit-field-presenter input.form-submit, form#event-node-form div#edit-field-related-material input.form-submit {
   padding: 0px 10px;
   margin: 5px 13px 5px 0px;
   height: 30px;
   margin-top: 5px;
 }
-/* line 1368, ../sass/styles.scss */
-form#event-node-form div#edit-field-date-instance a,
-form#event-node-form div#edit-field-presenter a,
-form#event-node-form div#edit-field-related-material a {
+/* line 1321, ../sass/styles.scss */
+form#event-node-form div#edit-field-date-instance a, form#event-node-form div#edit-field-presenter a, form#event-node-form div#edit-field-related-material a {
   color: #c3791f;
 }
 
 /* 
  *  Start Login Page
  */
-/* line 1377, ../sass/styles.scss */
+/* line 1330, ../sass/styles.scss */
 body.not-logged-in.page-user {
   height: 100%;
   /* RIGHT */
   /* why register */
 }
-/* line 1380, ../sass/styles.scss */
+/* line 1332, ../sass/styles.scss */
 body.not-logged-in.page-user header#header {
   height: 417px;
   background: url("../images/banners/login.png") 0 0 no-repeat;
@@ -1461,7 +1496,7 @@ body.not-logged-in.page-user header#header {
   display: block;
   margin-bottom: 51px;
 }
-/* line 1387, ../sass/styles.scss */
+/* line 1339, ../sass/styles.scss */
 body.not-logged-in.page-user h1#page-title {
   background-image: none;
   font-size: 24pt;
@@ -1469,20 +1504,21 @@ body.not-logged-in.page-user h1#page-title {
   margin-left: 17px;
   background-repeat: no-repeat;
 }
-/* line 1394, ../sass/styles.scss */
+/* line 1346, ../sass/styles.scss */
 body.not-logged-in.page-user div#content {
   border: 0px solid white;
 }
-/* line 1399, ../sass/styles.scss */
-body.not-logged-in.page-user form#user-login, body.not-logged-in.page-user div#title-section {
+/* line 1349, ../sass/styles.scss */
+body.not-logged-in.page-user form#user-login,
+body.not-logged-in.page-user div#title-section {
   margin-left: 85px;
   width: 315px;
 }
-/* line 1404, ../sass/styles.scss */
+/* line 1354, ../sass/styles.scss */
 body.not-logged-in.page-user div#title-section {
   margin-bottom: 0px;
 }
-/* line 1409, ../sass/styles.scss */
+/* line 1358, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login {
   height: 322px;
   margin-top: -20px;
@@ -1490,7 +1526,7 @@ body.not-logged-in.page-user form#user-login {
   float: left;
   padding-bottom: 10px;
 }
-/* line 1418, ../sass/styles.scss */
+/* line 1365, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-submit {
   background-color: #c3791f;
   padding: 10px 10px;
@@ -1501,30 +1537,31 @@ body.not-logged-in.page-user form#user-login input#edit-submit {
   top: 60px;
   width: 75px;
 }
-/* line 1429, ../sass/styles.scss */
+/* line 1375, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   display: none;
 }
-/* line 1432, ../sass/styles.scss */
+/* line 1378, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-name {
   margin-bottom: 10px;
 }
-/* line 1435, ../sass/styles.scss */
+/* line 1381, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login input#edit-name {
   margin-bottom: 0px;
 }
-/* line 1438, ../sass/styles.scss */
-body.not-logged-in.page-user form#user-login input#edit-name, body.not-logged-in.page-user form#user-login input#edit-pass {
+/* line 1384, ../sass/styles.scss */
+body.not-logged-in.page-user form#user-login input#edit-name,
+body.not-logged-in.page-user form#user-login input#edit-pass {
   font-size: 1.6em;
   margin: 5px 0px 5px 17px;
   width: 89%;
   margin-top: 0px;
 }
-/* line 1444, ../sass/styles.scss */
+/* line 1391, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.form-item-pass {
   margin-top: 0px;
 }
-/* line 1447, ../sass/styles.scss */
+/* line 1394, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login label {
   font-weight: normal;
   color: #333333;
@@ -1532,11 +1569,11 @@ body.not-logged-in.page-user form#user-login label {
   margin-bottom: 0px;
   font-size: 16px;
 }
-/* line 1454, ../sass/styles.scss */
+/* line 1401, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login div.description {
   margin-left: 16px;
 }
-/* line 1457, ../sass/styles.scss */
+/* line 1404, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password {
   margin-left: 21px;
   font-weight: normal;
@@ -1546,24 +1583,24 @@ body.not-logged-in.page-user form#user-login a.request-password {
   color: #8c1d18;
   font-size: 16px;
 }
-/* line 1466, ../sass/styles.scss */
+/* line 1413, ../sass/styles.scss */
 body.not-logged-in.page-user form#user-login a.request-password:hover {
   text-decoration: none;
 }
-/* line 1473, ../sass/styles.scss */
+/* line 1419, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 {
   margin-top: -64px;
 }
-/* line 1475, ../sass/styles.scss */
+/* line 1421, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 h2.block-title {
   display: none;
 }
-/* line 1478, ../sass/styles.scss */
+/* line 1424, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 h2.custom_block_title {
   margin-top: 0px;
   margin-left: 17px;
 }
-/* line 1484, ../sass/styles.scss */
+/* line 1429, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-8 a {
   color: #c3791f;
   font-size: 20px;
@@ -1573,42 +1610,44 @@ body.not-logged-in.page-user #block-block-8 a {
   display: block;
   margin-left: 17px;
 }
-/* line 1497, ../sass/styles.scss */
+/* line 1441, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 {
   background-image: url("../images/icons/register.png");
   background-position: 270px 30px;
   background-repeat: no-repeat;
   height: 217px;
 }
-/* line 1503, ../sass/styles.scss */
+/* line 1447, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 h2.block-title {
   margin-left: 17px;
 }
-/* line 1506, ../sass/styles.scss */
+/* line 1450, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 ul {
   margin-left: 4px;
 }
-/* line 1508, ../sass/styles.scss */
+/* line 1452, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 ul li {
   list-style-image: url("../images/icons/arrow-icons-aqua.png");
   font-size: 16px;
   font-weight: normal;
 }
-/* line 1514, ../sass/styles.scss */
+/* line 1458, ../sass/styles.scss */
 body.not-logged-in.page-user #block-block-9 a {
   /* color needed? */
   color: #333333;
   font-weight: normal;
 }
-/* line 1521, ../sass/styles.scss */
-body.not-logged-in.page-user #block-block-9, body.not-logged-in.page-user #block-block-8 {
+/* line 1465, ../sass/styles.scss */
+body.not-logged-in.page-user #block-block-9,
+body.not-logged-in.page-user #block-block-8 {
   margin-right: 75px;
   width: 365px;
   float: right;
   background-repeat: no-repeat;
 }
-/* line 1527, ../sass/styles.scss */
-body.not-logged-in.page-user #block-block-9 h2, body.not-logged-in.page-user #block-block-8 h2 {
+/* line 1472, ../sass/styles.scss */
+body.not-logged-in.page-user #block-block-9 h2,
+body.not-logged-in.page-user #block-block-8 h2 {
   font-weight: normal;
   color: #334b56;
   margin-left: 28px;
@@ -1621,13 +1660,13 @@ body.not-logged-in.page-user #block-block-9 h2, body.not-logged-in.page-user #bl
 *  Events Page
 */
 /* title of events page; font size & position may need to be fine-tuned */
-/* line 1546, ../sass/styles.scss */
+/* line 1487, ../sass/styles.scss */
 h1#page-title {
   font-weight: normal;
 }
 
 /*recently removed node-type event on 6/2; keep an eye out for issues */
-/* line 1551, ../sass/styles.scss */
+/* line 1493, ../sass/styles.scss */
 body.logged-in h1#page-title {
   background: url("../images/icons/create-event.png") 0 0 no-repeat;
   padding-left: 70px;
@@ -1640,11 +1679,11 @@ body.logged-in h1#page-title {
   margin-top: 36px;
   margin-bottom: 21px;
 }
-/* line 1565, ../sass/styles.scss */
+/* line 1507, ../sass/styles.scss */
 body.logged-in h2 {
   margin-bottom: 0px;
 }
-/* line 1568, ../sass/styles.scss */
+/* line 1510, ../sass/styles.scss */
 body.logged-in div#title-section h3 {
   margin-bottom: 0px;
   font-weight: normal;
@@ -1655,16 +1694,16 @@ body.logged-in div#title-section h3 {
 /*
  * event pages - both anonymous and logged in 
  */
-/* line 1579, ../sass/styles.scss */
+/* line 1521, ../sass/styles.scss */
 body.node-type-event {
   /* header */
   /*div.group-audience,
   div.group-description {
       margin-left: 12px;
-  }*/
+      }*/
   /* home button on event page */
 }
-/* line 1582, ../sass/styles.scss */
+/* line 1523, ../sass/styles.scss */
 body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1672,55 +1711,57 @@ body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
   color: #8c1d18;
   height: 26px;
 }
-/* line 1588, ../sass/styles.scss */
+/* line 1527, ../sass/styles.scss */
 body.node-type-event div#content.column {
   border-top-color: black;
 }
-/* line 1592, ../sass/styles.scss */
+/* line 1530, ../sass/styles.scss */
 body.node-type-event .view-content > .views-row div {
   margin-left: 5px;
 }
-/* line 1596, ../sass/styles.scss */
+/* line 1535, ../sass/styles.scss */
 body.node-type-event div#title-section h2 {
   margin-left: 10px;
 }
-/* line 1603, ../sass/styles.scss */
-body.node-type-event h1, body.node-type-event h2 {
+/* line 1543, ../sass/styles.scss */
+body.node-type-event h1,
+body.node-type-event h2 {
   color: #577785;
   font-weight: normal;
 }
-/* line 1607, ../sass/styles.scss */
+/* line 1548, ../sass/styles.scss */
 body.node-type-event h3 {
   color: #333333;
   margin-bottom: 10px;
 }
-/* line 1611, ../sass/styles.scss */
+/* line 1552, ../sass/styles.scss */
 body.node-type-event h5 {
   margin-top: 4px;
 }
-/* line 1614, ../sass/styles.scss */
-body.node-type-event h1, body.node-type-event h3 {
+/* line 1555, ../sass/styles.scss */
+body.node-type-event h1,
+body.node-type-event h3 {
   margin-left: 10px;
 }
-/* line 1617, ../sass/styles.scss */
+/* line 1559, ../sass/styles.scss */
 body.node-type-event h2 {
   margin-left: 0px;
 }
-/* line 1620, ../sass/styles.scss */
+/* line 1562, ../sass/styles.scss */
 body.node-type-event h2 a {
   font-size: 20px;
   color: #c3791f;
 }
-/* line 1624, ../sass/styles.scss */
+/* line 1566, ../sass/styles.scss */
 body.node-type-event div.field-items ul a {
   color: #c3791f;
 }
-/* line 1627, ../sass/styles.scss */
+/* line 1569, ../sass/styles.scss */
 body.node-type-event div#content {
   border-top: 1px solid #d7d7d7;
   padding-top: 20px;
 }
-/* line 1634, ../sass/styles.scss */
+/* line 1574, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 {
   position: absolute;
   top: 10px;
@@ -1728,12 +1769,12 @@ body.node-type-event .region-help #block-block-1 {
   margin-top: 0px;
   padding-right: 0px;
 }
-/* line 1642, ../sass/styles.scss */
+/* line 1581, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 a.button {
   margin-left: 20px;
   margin-right: 0px;
 }
-/* line 1648, ../sass/styles.scss */
+/* line 1586, ../sass/styles.scss */
 body.node-type-event div.group-materials {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -1742,38 +1783,103 @@ body.node-type-event div.group-materials {
   padding: 10px 16px 36px 16px;
   margin-left: 10px;
 }
-/* line 1653, ../sass/styles.scss */
+/* line 1591, ../sass/styles.scss */
 body.node-type-event div.group-materials h4 {
   margin-top: 0px;
 }
-/* line 1659, ../sass/styles.scss */
+/* line 1595, ../sass/styles.scss */
 body.node-type-event h4 span {
   color: #8c1d18;
 }
-/* line 1664, ../sass/styles.scss */
+/* line 1598, ../sass/styles.scss */
 body.node-type-event h2.element-invisible {
   display: none;
 }
-/* line 1668, ../sass/styles.scss */
+/* line 1601, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-left {
+  width: 590px;
+}
+/* line 1603, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-left .views-row div {
+  margin-right: -6px;
+}
+/* line 1607, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-left div.group-dates span.date-display-single {
+  background: url("../images/icons/arrow-icons.png") 0px 5px no-repeat;
+  padding-left: 20px;
+  padding-right: 0px;
+}
+/* line 1613, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-left span.field-content span.flag-registration {
+  padding-left: 10px;
+}
+/* line 1615, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-left span.field-content span.flag-registration a.flag-action, body.node-type-event .ds-2col > .group-left span.field-content span.flag-registration a.unflag-action {
+  font-weight: normal;
+  text-decoration: underline;
+  color: #c3791f;
+  font-size: 13px;
+}
+/* line 1623, ../sass/styles.scss */
 body.node-type-event .ds-2col > .group-right {
-  /*float: left;*/
-  width: 220px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  border-radius: 0px;
-  /*padding: 10px 16px 36px 16px;*/
+  float: right;
+  margin-right: 65px;
   /*margin-left: 10px;
   h4 {
       margin-top: 0px;
-  }*/
+      }*/
   /*width: 300px;*/
   /*margin: 0px;*/
   /*overflow: visible;*/
   /*display: block;*/
   /* clear: both;*/
 }
-/* line 1687, ../sass/styles.scss */
+/* line 1626, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .item-list h3 {
+  font-size: 16px;
+}
+/* line 1629, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds {
+  width: 250px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  padding: 10px 26px 36px 26px;
+}
+/* line 1635, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds h2.block-title {
+  font-weight: normal;
+  margin-top: 12px;
+  color: #334b56;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+/* line 1642, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds ul {
+  padding-left: 26px;
+}
+/* line 1644, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds ul li.views-row {
+  list-style-image: url("../images/icons/down-arrow.png");
+  margin-bottom: 8px;
+}
+/* line 1647, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds ul li.views-row div.field-content {
+  /* general rule?*/
+}
+/* line 1648, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds ul li.views-row div.field-content a {
+  font-weight: normal;
+  padding-bottom: 10px;
+  color: #333333;
+}
+/* line 1655, ../sass/styles.scss */
+body.node-type-event .ds-2col > .group-right .field-type-ds ul li.views-row div.field-content a:hover {
+  text-decoration: none;
+  color: #8c1d18;
+}
+/* line 1675, ../sass/styles.scss */
 body.node-type-event div#block-block-11 {
   /* the absolute positioning keeps its position constant across pages*/
   position: absolute;
@@ -1782,13 +1888,13 @@ body.node-type-event div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 1695, ../sass/styles.scss */
+/* line 1682, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 1700, ../sass/styles.scss */
+/* line 1686, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home {
   background-color: #c3791f;
   font-size: 16px;
@@ -1808,7 +1914,7 @@ body.node-type-event div#block-block-11 p a.anonymous_home {
   border-radius: 5px;
   /*  color: $capt-aqua;*/
 }
-/* line 1716, ../sass/styles.scss */
+/* line 1702, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
@@ -1816,24 +1922,24 @@ body.node-type-event div#block-block-11 p a.anonymous_home:hover {
 /* 
  *  Event Report
  */
-/* line 1734, ../sass/styles.scss */
+/* line 1715, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 1739, ../sass/styles.scss */
+/* line 1719, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr th {
   padding-right: 10px;
 }
-/* line 1742, ../sass/styles.scss */
+/* line 1722, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:first-child {
   padding-left: 10px;
   width: 230px;
 }
-/* line 1746, ../sass/styles.scss */
+/* line 1726, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td {
   padding-right: 10px;
 }
-/* line 1749, ../sass/styles.scss */
+/* line 1729, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
   text-align: center;
 }
@@ -1841,14 +1947,14 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 1760, ../sass/styles.scss */
+/* line 1739, ../sass/styles.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 1766, ../sass/styles.scss */
+/* line 1744, ../sass/styles.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
@@ -1856,7 +1962,7 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 1773, ../sass/styles.scss */
+/* line 1751, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
   margin-right: 1em;
@@ -1867,7 +1973,7 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
  */
 @media screen and (min-width: 0px) and (max-width: 667px) {
   /* prototype class */
-  /* line 1788, ../sass/styles.scss */
+  /* line 1764, ../sass/styles.scss */
   .reset-layout, body.not-logged-in.page-user div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -1876,39 +1982,40 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     padding: 0px;
   }
 
-  /* line 1798, ../sass/styles.scss */
-  html, body {
+  /* line 1773, ../sass/styles.scss */
+  html,
+  body {
     width: 100%;
     overflow-x: hidden;
     height: 100%;
   }
 
-  /* line 1803, ../sass/styles.scss */
+  /* line 1779, ../sass/styles.scss */
   body.not-logged-in.page-user {
     height: 100%;
   }
-  /* line 1805, ../sass/styles.scss */
+  /* line 1781, ../sass/styles.scss */
   body.not-logged-in.page-user div#page {
     height: 750px;
     display: inline-block;
     margin-bottom: 0px;
   }
 
-  /* line 1818, ../sass/styles.scss */
+  /* line 1791, ../sass/styles.scss */
   body.not-logged-in.page-user {
     /* mobile styles, cont'd s*/
   }
-  /* line 1819, ../sass/styles.scss */
+  /* line 1792, ../sass/styles.scss */
   body.not-logged-in.page-user div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  /* line 1824, ../sass/styles.scss */
+  /* line 1796, ../sass/styles.scss */
   body.not-logged-in.page-user header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 1829, ../sass/styles.scss */
+  /* line 1800, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login,
   body.not-logged-in.page-user div#title-section,
   body.not-logged-in.page-user div#block-block-8,
@@ -1922,7 +2029,7 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     width: 85%;
     display: block;
   }
-  /* line 1844, ../sass/styles.scss */
+  /* line 1813, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h1, body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h1,
   body.not-logged-in.page-user div#title-section h2,
@@ -1939,35 +2046,35 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     margin-left: 0px;
     margin-top: 0px;
   }
-  /* line 1854, ../sass/styles.scss */
+  /* line 1823, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h2,
   body.not-logged-in.page-user div#block-block-8 h2,
   body.not-logged-in.page-user div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 1862, ../sass/styles.scss */
+  /* line 1828, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-9 {
     height: 140px;
   }
-  /* line 1869, ../sass/styles.scss */
+  /* line 1833, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-8,
   body.not-logged-in.page-user div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 1875, ../sass/styles.scss */
+  /* line 1839, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login {
     height: 250px;
   }
-  /* line 1877, ../sass/styles.scss */
+  /* line 1841, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 1887, ../sass/styles.scss */
+  /* line 1847, ../sass/styles.scss */
   div#content {
     width: 100%;
     margin: 0px;
@@ -1976,29 +2083,29 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
     /* border: 1px dotted orange;*/
   }
 
-  /* line 1895, ../sass/styles.scss */
+  /* line 1854, ../sass/styles.scss */
   body {
     width: 100%;
     /* border: 1px solid black;*/
     height: 100%;
   }
 
-  /* line 1902, ../sass/styles.scss */
+  /* line 1860, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 1905, ../sass/styles.scss */
+  /* line 1862, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 1909, ../sass/styles.scss */
+  /* line 1866, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 1917, ../sass/styles.scss */
+  /* line 1872, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2011,17 +2118,17 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 /*
  *  Request password page
  */
-/* line 1937, ../sass/styles.scss */
+/* line 1887, ../sass/styles.scss */
 body.page-user-password div#content div#title-section {
   width: 370px;
   margin: 0px auto;
 }
-/* line 1941, ../sass/styles.scss */
+/* line 1891, ../sass/styles.scss */
 body.page-user-password input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 1949, ../sass/styles.scss */
+/* line 1895, ../sass/styles.scss */
 form#user-pass {
   width: 330px;
   padding-top: 20px;
@@ -2034,24 +2141,24 @@ form#user-pass {
 /**
  * Disclaimer Placement Section
  */
-/* line 1961, ../sass/styles.scss */
+/* line 1908, ../sass/styles.scss */
 body.node-type-event #block-block-12 .disclaimer {
   padding: 0px 0px 5px 0px;
   left: -300px;
 }
 
-/* line 1966, ../sass/styles.scss */
+/* line 1913, ../sass/styles.scss */
 body.node-type-event.page-node-edit .disclaimer {
   left: 20px;
 }
 
-/* line 1970, ../sass/styles.scss */
+/* line 1917, ../sass/styles.scss */
 body.page-user-edit div.disclaimer {
   margin-bottom: 40px;
 }
 
 /* page administration */
-/* line 1977, ../sass/styles.scss */
+/* line 1924, ../sass/styles.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
