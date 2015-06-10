@@ -780,7 +780,7 @@ h4.black {
     }
     div.view-content  {
         margin-bottom: 25px;
-        padding-left: 20px;
+        /*padding-left: 20px;*/ /*we may need this to be more specific elsewhere*/
         div.item-list ul {
         padding-left: 16px;
         margin-top: 0px;
@@ -1543,7 +1543,7 @@ body.node-type-event {
     div#content.column {
         border-top-color: black;
     }
-    .view-content > .views-row div {
+    .view-content .field-content .views-row div {
         margin-left: 5px;
     }
     /* header */
@@ -1603,7 +1603,7 @@ body.node-type-event {
         @extend .panel-rule-single;
         @include border-radius(0px);
         padding: 10px 16px 36px 16px;
-        margin-left: 10px;
+        margin-left: 5px;
         h4 {
             margin-top: 0px;
         }
@@ -1617,7 +1617,7 @@ body.node-type-event {
     .ds-2col > .group-left {
         width: 590px;
         .views-row div.views-field-field-date {
-            margin-right: -12px;
+            margin-right: 3px;
         }
         div.group-dates {
             span.date-display-single {
@@ -1644,8 +1644,9 @@ body.node-type-event {
         }
         .field-type-ds {
             @extend .panel-rule-single;
-            width: 250px;
             @include border-radius(0px);
+            width: 250px;
+            margin-left: -14px;
             padding: 10px 26px 36px 26px;
             // could be part of the mixin maybe...
             h2.block-title {
