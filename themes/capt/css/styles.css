@@ -2076,19 +2076,23 @@ div.group-audience h4, div.group-description h4, div.group-dates h4 {
 body.not-logged-in div.group-audience h4, div.group-description h4 {
   margin-bottom: 0px;
 }
+/* line 1848, ../sass/styles.scss */
+body.not-logged-in div.group-audience p, div.group-description p {
+  margin: 0px;
+}
 
 /* Float image on Presenters in Event view. */
-/* line 1851, ../sass/styles.scss */
+/* line 1854, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
 }
-/* line 1853, ../sass/styles.scss */
+/* line 1856, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
   margin-right: 20px;
   border: 1px solid red;
 }
 
-/* line 1858, ../sass/styles.scss */
+/* line 1861, ../sass/styles.scss */
 div.views-field.views-field-field-presenter-image {
   margin: 16px 23px 0px 0px;
 }
@@ -2098,7 +2102,7 @@ div.views-field.views-field-field-presenter-image {
  */
 @media screen and (min-width: 0px) and (max-width: 667px) {
   /* prototype class */
-  /* line 1870, ../sass/styles.scss */
+  /* line 1873, ../sass/styles.scss */
   .reset-layout, body.not-logged-in.page-user div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2107,7 +2111,7 @@ div.views-field.views-field-field-presenter-image {
     padding: 0px;
   }
 
-  /* line 1879, ../sass/styles.scss */
+  /* line 1882, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -2115,32 +2119,32 @@ div.views-field.views-field-field-presenter-image {
     height: 100%;
   }
 
-  /* line 1885, ../sass/styles.scss */
+  /* line 1888, ../sass/styles.scss */
   body.not-logged-in.page-user {
     height: 100%;
   }
-  /* line 1887, ../sass/styles.scss */
+  /* line 1890, ../sass/styles.scss */
   body.not-logged-in.page-user div#page {
     height: 750px;
     display: inline-block;
     margin-bottom: 0px;
   }
 
-  /* line 1897, ../sass/styles.scss */
+  /* line 1900, ../sass/styles.scss */
   body.not-logged-in.page-user {
     /* mobile styles, cont'd s*/
   }
-  /* line 1898, ../sass/styles.scss */
+  /* line 1901, ../sass/styles.scss */
   body.not-logged-in.page-user div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  /* line 1902, ../sass/styles.scss */
+  /* line 1905, ../sass/styles.scss */
   body.not-logged-in.page-user header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 1906, ../sass/styles.scss */
+  /* line 1909, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login,
   body.not-logged-in.page-user div#title-section,
   body.not-logged-in.page-user div#block-block-8,
@@ -2154,7 +2158,7 @@ div.views-field.views-field-field-presenter-image {
     width: 85%;
     display: block;
   }
-  /* line 1919, ../sass/styles.scss */
+  /* line 1922, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h1, body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h1,
   body.not-logged-in.page-user div#title-section h2,
@@ -2171,35 +2175,35 @@ div.views-field.views-field-field-presenter-image {
     margin-left: 0px;
     margin-top: 0px;
   }
-  /* line 1929, ../sass/styles.scss */
+  /* line 1932, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login h2,
   body.not-logged-in.page-user div#title-section h2,
   body.not-logged-in.page-user div#block-block-8 h2,
   body.not-logged-in.page-user div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 1934, ../sass/styles.scss */
+  /* line 1937, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-9 {
     height: 140px;
   }
-  /* line 1939, ../sass/styles.scss */
+  /* line 1942, ../sass/styles.scss */
   body.not-logged-in.page-user div#block-block-8,
   body.not-logged-in.page-user div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 1945, ../sass/styles.scss */
+  /* line 1948, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login {
     height: 250px;
   }
-  /* line 1947, ../sass/styles.scss */
+  /* line 1950, ../sass/styles.scss */
   body.not-logged-in.page-user form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 1953, ../sass/styles.scss */
+  /* line 1956, ../sass/styles.scss */
   div#content {
     width: 100%;
     margin: 0px;
@@ -2208,29 +2212,29 @@ div.views-field.views-field-field-presenter-image {
     /* border: 1px dotted orange;*/
   }
 
-  /* line 1960, ../sass/styles.scss */
+  /* line 1963, ../sass/styles.scss */
   body {
     width: 100%;
     /* border: 1px solid black;*/
     height: 100%;
   }
 
-  /* line 1966, ../sass/styles.scss */
+  /* line 1969, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 1968, ../sass/styles.scss */
+  /* line 1971, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 1972, ../sass/styles.scss */
+  /* line 1975, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 1978, ../sass/styles.scss */
+  /* line 1981, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2243,17 +2247,17 @@ div.views-field.views-field-field-presenter-image {
 /*
  *  Request password page
  */
-/* line 1993, ../sass/styles.scss */
+/* line 1996, ../sass/styles.scss */
 body.page-user-password div#content div#title-section {
   width: 370px;
   margin: 0px auto;
 }
-/* line 1997, ../sass/styles.scss */
+/* line 2000, ../sass/styles.scss */
 body.page-user-password input#edit-submit {
   background-color: #c3791f;
 }
 
-/* line 2001, ../sass/styles.scss */
+/* line 2004, ../sass/styles.scss */
 form#user-pass {
   width: 330px;
   padding-top: 20px;
@@ -2266,19 +2270,19 @@ form#user-pass {
 /**
  * Disclaimer Placement Section
  */
-/* line 2014, ../sass/styles.scss */
+/* line 2017, ../sass/styles.scss */
 body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
 }
 
-/* line 2019, ../sass/styles.scss */
+/* line 2022, ../sass/styles.scss */
 body.node-type-event #block-block-12 {
   /*border: 1px solid blue;*/
   display: block;
 }
-/* line 2022, ../sass/styles.scss */
+/* line 2025, ../sass/styles.scss */
 body.node-type-event #block-block-12 .disclaimer {
   padding: 0px 590px 20px 0px;
   /* border: 1px solid red;*/
@@ -2287,24 +2291,24 @@ body.node-type-event #block-block-12 .disclaimer {
 }
 
 @-moz-document url-prefix() {
-  /* line 2034, ../sass/styles.scss */
+  /* line 2037, ../sass/styles.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: -40px;
   }
 }
-/* line 2043, ../sass/styles.scss */
+/* line 2046, ../sass/styles.scss */
 body.node-type-event
 body.node-type-event.page-node-edit .disclaimer {
   left: 20px;
 }
 
-/* line 2047, ../sass/styles.scss */
+/* line 2050, ../sass/styles.scss */
 body.page-user-edit div.disclaimer {
   margin-bottom: 40px;
 }
 
 /* page administration */
-/* line 2054, ../sass/styles.scss */
+/* line 2057, ../sass/styles.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
