@@ -637,11 +637,12 @@ body.node-type-dashboard {
         margin-left: -260px;
     }
 }
-body.logged-in .node-type-event #title-section {
+body.node-type-event #title-section {
     width: auto;
     margin-right: 280px;
-    float: left;
+
 }
+
 .region-help #block-block-1 {
     text-align: center;
     float: right;
@@ -1578,6 +1579,26 @@ body.node-type-event {
             @include main-active-link();
         }
     }
+    div#title-section {
+        h1.page__title.title {
+        color: $capt-green;
+        font-weight: bold;
+        font-size: 36px;
+        }
+       h2,h3 {
+        color: $capt-black;
+        margin-bottom: 10px;
+       }
+       h3 {
+        font-weight: bold;
+       }
+    
+
+    }
+    div.field-name-registration {
+        padding-bottom: 30px;
+        border-bottom: 1px solid $capt-midgrey;
+    }
     h5.views-field-title {
         margin-left: 0px;
         padding-left: 0px;
@@ -1600,7 +1621,6 @@ body.node-type-event {
     div#title-section {
         padding-left: 0px;
     }
-    h1,
     h2 {
         color: $capt-aqua;
         font-weight: normal;
@@ -1609,20 +1629,14 @@ body.node-type-event {
     div#title-section h2 {
         margin-left: 0px;
     }
-    h3 {
-        color: $capt-black;
-        margin-bottom: 10px;
-    }
+   
     h5 {
         margin-top: 4px;
     }
-    h1,
-    h3 {
+    h1,h2,h3  {
         margin-left: 0px;
     }
-    h2 {
-        margin-left: 0px;
-    }
+  
     h2 a {
         font-size: 20px;
         color: $capt-orange;
@@ -1668,6 +1682,8 @@ body.node-type-event {
             margin-right: 3px;
         }
         div.group-dates {
+            /* may not need to be negative */
+            margin-top: -28px; 
             span.date-display-single {
                 background: url('../images/icons/arrow-icons.png') 0px 5px no-repeat;
                 padding-left: 20px;
@@ -1819,11 +1835,23 @@ body.page-administration-event-report {
     line-height: 1.25em;
     list-style-image: url("/misc/menu-collapsed.png");
 }
+div.group-audience,div.group-description,div.group-dates {
+    h4 {
+        margin-bottom: 0px;
+    }
+
+}
 /* Float image on Presenters in Event view. */
 
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
     float: left;
-    margin-right: 1em;
+    div.field-content img {
+        margin-right: 20px;
+        border: 1px solid red;
+    }
+}
+div.views-field.views-field-field-presenter-image {
+    margin: 16px 23px 0px 0px;
 }
 /* 
  *  Responsive theming!
