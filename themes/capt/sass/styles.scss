@@ -347,6 +347,10 @@ div.view-content div.item-list {
         margin-bottom: 0px;
     }
 }
+p {
+    margin: 0 0 1em 0;
+    line-height: 1.6em;
+}
 div.field-name-upcoming-events {
     padding-bottom: 0px;
     div.view-content {
@@ -560,6 +564,7 @@ body.node-type-dashboard {
     top: 100px;
     position: relative;
 }
+
 /*
  *  Specific event page styling for the footer. 
  */
@@ -639,7 +644,7 @@ body.node-type-dashboard {
 }
 body.node-type-event #title-section {
     width: auto;
-    margin-right: 280px;
+    margin-right: 330px; /*280px;*/
 
 }
 
@@ -1584,6 +1589,8 @@ body.node-type-event {
         color: $capt-green;
         font-weight: bold;
         font-size: 36px;
+        background-image: none;
+        padding-left: 0px;
         }
        h2,h3 {
         color: $capt-black;
@@ -1749,7 +1756,7 @@ body.node-type-event {
         /* the absolute positioning keeps its position constant across pages*/
         
         position: absolute;
-        top: -70px;
+        top: -50px;
         height: 0px;
         margin: 0px 0px 0px -10px;
         p {
@@ -1836,9 +1843,9 @@ body.page-administration-event-report {
     list-style-image: url("/misc/menu-collapsed.png");
 }
 div.group-audience,div.group-description,div.group-dates {
-    h4 {
+   /* h4 {
         margin-bottom: 0px;
-    }
+    }*/
     p {
         margin: 0px;
     }
@@ -1853,7 +1860,7 @@ div.group-audience,div.group-description,div.group-dates {
     }
 }
 div.views-field.views-field-field-presenter-image {
-    margin: 16px 23px 0px 0px;
+    margin: 5px 15px 0px 0px; /*16px 23px 0px 0px;*/
 }
 /* 
  *  Responsive theming!
