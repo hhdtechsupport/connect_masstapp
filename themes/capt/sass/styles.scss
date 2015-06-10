@@ -52,6 +52,7 @@ $login-margin-left: 17px;
 /*fonts*/
 
 $login-font: 16px;
+$edit-margin-right: 15px;
 /* mixins */
 /* for tabs! */
 
@@ -1165,7 +1166,7 @@ ul.tabs-secondary {
     }
     li {
         border: 0px;
-        a, a.is-active {
+        a, a:active, a.is-active {
             background-image: none;
             background-color: white;
             font-family: ArialMT, Arial;
@@ -1196,6 +1197,7 @@ form#event-node-form {
     div.form-item.form-item-title {
         @extend .panel-rule;
         margin-bottom: 0px;
+        margin-right: $edit-margin-right;
     }
     div#edit-field-subtitle.form-field-type-text {
         margin-top: 0px;
@@ -1225,33 +1227,39 @@ form#event-node-form {
         padding-top: 10px;
         padding-bottom: 10px;
         margin-bottom: 20px;
+        margin-right: $edit-margin-right;
     }
     div#edit-field-type-event.form-wrapper {
         @extend .panel-rule-single;
         margin-top: 0px;
         padding-top: 0px;
         margin-bottom: 0px;
+        margin-right: $edit-margin-right; 
     }
     div#edit-field-category {
         @extend .panel;
         margin-top: -20px;
         padding-bottom: 10px; // inheritance? 
         padding-top: 10px;
+        margin-right: $edit-margin-right;
     }
     div#field-banner-text-add-more-wrapper {
         @extend .panel;
         margin-top: -20px;
         padding-bottom: 10px;
         margin-bottom: 20px;
+        margin-right: $edit-margin-right;
     }
     div.form-field-name-field-date-instance {
         margin-bottom: 20px;
+        margin-right: $edit-margin-right;
     }
     /* audience */
     
     div#edit-field-audience,
     div#edit-field-body {
         @extend .panel-rule-single;
+        margin-right: $edit-margin-right;
         padding-top: 0px;
         padding-bottom: 10px;
         label {
@@ -1271,34 +1279,63 @@ form#event-node-form {
 div#edit-field-presenter {
     @extend .panel-rule;
     @extend .field-container;
+    margin-right: $edit-margin-right;
     span.fieldset-legend {
         margin-top: -30px;
         text-transform: uppercase;
         color: $capt-aqua;
+
+    }
+    table {
+        width: 780px;
+        border: 1px solid $capt-darkgrey;
+        td {
+            padding: 4px 10px;
+        }
+        td.inline-entity-form-node-field_body {
+            min-width: 500px;
+        }
+        a.tabledrag-handle {
+            margin-left: 5px;
+        }
+        input {
+            width: 80px;
+        }
     }
 }
 div#edit-field-related-material {
     @extend .panel;
     @extend .field-container;
+    margin-right: $edit-margin-right;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 div#edit-field-contact-name {
+  
     @extend .panel-rule;
     padding-top: 0px;
     margin-bottom: 0px;
+    margin-right: $edit-margin-right;
+
 }
 div#edit-field-contact-email {
     @extend .panel;
-    margin-top: -20px;
+    margin-top: 0px;
+    margin-right: $edit-margin-right;
+    margin-top: -22px;
     padding-top: 5px;
+
 }
 div#edit-field-related-notifications {
     @extend .panel;
     margin-top: -20px;
+    margin-right: $edit-margin-right;
     padding-top: 5px;
     padding-bottom: 10px;
+}
+div.vertical-tabs {
+    margin-right: $edit-margin-right;
 }
 /* save */
 
@@ -1546,7 +1583,7 @@ body.node-type-event {
         padding-left: 0px;
         /* does this need to be negative? */
         span.field-content {
-            margin-left: -13px;
+            /*margin-left: -13px;*/
         }
     }
     div#content.column {
@@ -1951,11 +1988,24 @@ body.node-type-event #block-block-12 {
     .disclaimer {
     padding: 0px 590px 0px 0px;
    /* border: 1px solid red;*/
-    float: left;
-    top: -30px;
+    /*float: left;*/
+    /*top: -30px;*/
 
   }
  }
+
+
+@-moz-document url-prefix() {
+    body.node-type-event #block-block-12 {
+    .disclaimer {
+        top: -40px;
+        float: left;
+     }
+    }
+}
+
+
+body.node-type-event
 body.node-type-event.page-node-edit {
     .disclaimer {
         left: 20px;
