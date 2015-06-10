@@ -124,7 +124,7 @@ $login-font: 16px;
     width: 380px;
     padding-right: 590px;
     margin: 0px auto;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
     left: 0px;
 }
 .panel-rule {
@@ -1175,7 +1175,7 @@ ul.tabs-secondary {
         a:not(.is-active) {
             border: 0px;
         }
-        a:hover {
+        a:hover,a:active {
             background-color: white;
         }
     }
@@ -1523,21 +1523,30 @@ body.logged-in {
     h2 {
         margin-bottom: 0px;
     }
+    /* changed margin top for event view logged-in page in chrome*/
     div#title-section h3 {
         margin-bottom: 0px;
         font-weight: normal;
-        margin-top: 0px;
+        margin-top: 14px;
         color: $capt-aqua;
     }
 }
 /*
- * event pages - both anonymous and logged in 
+ * Event pages - both anonymous and logged in 
  */
 
 body.node-type-event {
     ul#main-menu.main-menu li#menu-item-588 {
         a {
             @include main-active-link();
+        }
+    }
+    h5.views-field-title {
+        margin-left: 0px;
+        padding-left: 0px;
+        /* does this need to be negative? */
+        span.field-content {
+            margin-left: -13px;
         }
     }
     div#content.column {
@@ -1551,15 +1560,17 @@ body.node-type-event {
     div#title-section h2 {
         margin-left: 10px;
     }
-    /*div.group-audience,
-    div.group-description {
-        margin-left: 12px;
-        }*/
-    
+    div#title-section {
+        padding-left: 0px;
+    }
     h1,
     h2 {
         color: $capt-aqua;
         font-weight: normal;
+    }
+    /* added to align title and subtitle on event pages*/
+    div#title-section h2 {
+        margin-left: 0px;
     }
     h3 {
         color: $capt-black;
@@ -1570,7 +1581,7 @@ body.node-type-event {
     }
     h1,
     h3 {
-        margin-left: 10px;
+        margin-left: 0px;
     }
     h2 {
         margin-left: 0px;
@@ -1677,15 +1688,7 @@ body.node-type-event {
                 }
             }
         }
-        /*margin-left: 10px;
-        h4 {
-            margin-top: 0px;
-            }*/
-        /*width: 300px;*/
-        /*margin: 0px;*/
-        /*overflow: visible;*/
-        /*display: block;*/
-        /* clear: both;*/
+
     }
     /* home button on event page */
     
@@ -1693,7 +1696,7 @@ body.node-type-event {
         /* the absolute positioning keeps its position constant across pages*/
         
         position: absolute;
-        top: -60px;
+        top: -70px;
         height: 0px;
         margin: 0px 0px 0px -10px;
         p {
@@ -1723,6 +1726,21 @@ body.node-type-event {
         z-index: 20;
     }
 }
+/**
+ *  Event Page, not logged in
+ */
+
+ body.node-type-event.not-logged-in {
+    h3 {
+        font-weight: normal;
+        color: $capt-aqua;
+        margin-top: 0px;
+        /*margin-bottom: 40px;*/
+    }
+    div#content.column {
+        border-top-color: $capt-midgrey;
+    }
+ }
 /* 
  *  Event Report
  */
@@ -1922,10 +1940,22 @@ form#user-pass {
  * Disclaimer Placement Section
  */
 
-body.node-type-event #block-block-12 .disclaimer {
-    padding: 0px 0px 5px 0px;
-    left: -300px;
+body.node-type-event div.bottom-footer {
+   /* border: 1px solid yellow;*/
+    height: 50px;
+    margin-bottom: 0px;
 }
+body.node-type-event #block-block-12 {
+    /*border: 1px solid blue;*/
+    display: block;
+    .disclaimer {
+    padding: 0px 590px 0px 0px;
+   /* border: 1px solid red;*/
+    float: left;
+    top: -30px;
+
+  }
+ }
 body.node-type-event.page-node-edit {
     .disclaimer {
         left: 20px;
