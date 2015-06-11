@@ -2060,3 +2060,63 @@ body.page-administration {
         }
     }
 }
+/**
+ *  User Registration
+ */
+
+body.not-logged-in.page-user-register {
+    header#header {
+           margin-bottom: 0px;
+    }
+    fieldset {
+           margin-bottom: 15px;
+           width: 885px;
+           padding-left: 40px;
+           display: block;
+           background: transparent;
+           border-bottom: 1px solid $capt-midgrey;
+    }
+     span.fieldset-legend {
+        color: $capt-maroon;
+        margin-top: 20px;
+        position: relative;
+        font-weight: bold;
+        top: 20px;
+        margin-bottom: 10px;
+        bottom: -40px;
+        background: transparent;
+        white-space: nowrap;
+        display: inline-block;
+        border: 0;
+
+    }
+    fieldset:not(.group-account) {
+        @extend .panel-rule-single; 
+        margin-bottom: 0px;
+        span.fieldset-legend {
+            top: 12px;
+            border-top: 5px solid $capt-aqua;
+            padding-top: 20px;
+            margin-bottom: -20px;
+        }
+    }
+    fieldset.group-account {
+        @extend .panel;
+        padding-top: 10px;
+        top: -20px;
+        margin-bottom: 0px;
+    }
+    div#content div#title-section {
+        padding-left: 0px;
+        margin-left: 2px;
+        width: 900px;
+        margin-bottom: -40px;
+    }
+   
+    fieldset.group-demographic-information {
+        margin-bottom: 10px;
+    }
+    input#edit-submit {
+        background-color: $capt-orange;
+    }
+}
