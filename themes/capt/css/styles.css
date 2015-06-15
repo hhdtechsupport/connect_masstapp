@@ -2412,17 +2412,24 @@ body.not-logged-in.page-user-register input#edit-submit {
 /*
  *  note: tabs not looking right. view should have active styling. 
  */
+/* line 2152, ../sass/styles.scss */
+form#user-profile-form {
+  /* .cancel-button {
+       clear: right;
+   }*/
+}
 /* line 2154, ../sass/styles.scss */
 form#user-profile-form fieldset {
   border: 2px solid #dbdbd9;
   border-top: 5px solid #577785;
   margin-bottom: 18px;
+  margin-right: 14px;
 }
-/* line 2158, ../sass/styles.scss */
+/* line 2160, ../sass/styles.scss */
 form#user-profile-form fieldset legend {
   margin-left: 20px;
 }
-/* line 2160, ../sass/styles.scss */
+/* line 2162, ../sass/styles.scss */
 form#user-profile-form fieldset legend span.fieldset-legend {
   color: #577785;
   text-transform: uppercase;
@@ -2431,10 +2438,59 @@ form#user-profile-form fieldset legend span.fieldset-legend {
   left: 20px;
 }
 /* line 2169, ../sass/styles.scss */
+form#user-profile-form fieldset legend a {
+  padding-left: 12px;
+  color: #577785;
+}
+/* line 2175, ../sass/styles.scss */
 form#user-profile-form fieldset span.label {
   font-weight: bold;
 }
-/* line 2173, ../sass/styles.scss */
+/* line 2179, ../sass/styles.scss */
 form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel {
+  background-color: #c3791f;
+}
+/* line 2182, ../sass/styles.scss */
+form#user-profile-form .edit-button,
+form#user-profile-form .save-button,
+form#user-profile-form .cancel-button {
+  text-transform: uppercase;
+  color: #577785;
+  float: right;
+  margin-right: 10px;
+  cursor: pointer;
+  /*text-align: center;
+  min-width: 68px;*/
+}
+/* line 2194, ../sass/styles.scss */
+form#user-profile-form input.form-text {
+  border: 1px solid #d7d7d7;
+}
+/* line 2197, ../sass/styles.scss */
+form#user-profile-form .edit-button:after,
+form#user-profile-form .save-button:after,
+form#user-profile-form .cancel-button:after {
+  content: " ]";
+}
+/* line 2202, ../sass/styles.scss */
+form#user-profile-form .edit-button:before,
+form#user-profile-form .save-button:before,
+form#user-profile-form .cancel-button:before {
+  content: "[ ";
+}
+
+/**
+ * Switch User 
+ */
+/* line 2216, ../sass/styles.scss */
+div.block-devel#block-devel-switch-user {
+  margin-left: 90px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #959595;
+  width: 400px;
+}
+/* line 2222, ../sass/styles.scss */
+div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }

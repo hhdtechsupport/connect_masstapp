@@ -2152,9 +2152,11 @@ body.not-logged-in.page-user-register {
  form#user-profile-form {
 
     fieldset {
+
         border: 2px solid $capt-profgrey;
         border-top: 5px solid $capt-aqua;
         margin-bottom: 18px;
+        margin-right: 14px;
         legend {
             margin-left: 20px;
             span.fieldset-legend {
@@ -2163,6 +2165,10 @@ body.not-logged-in.page-user-register {
             font-weight: bold;
             padding: 0px 5px;
             left: 20px;
+            }
+            a {
+                padding-left: 12px;
+                color: $capt-aqua;
             }
         }
      
@@ -2173,5 +2179,48 @@ body.not-logged-in.page-user-register {
     input#edit-submit,input#edit-cancel {
         background-color: $capt-orange;
     }
+    .edit-button,
+    .save-button,
+    .cancel-button {
+        text-transform: uppercase; 
+        color: $capt-aqua;
+        float: right; 
+        margin-right: 10px;
+        cursor: pointer;
+        /*text-align: center;
+        min-width: 68px;*/
+
+    }
+    input.form-text {
+        border: 1px solid $capt-midgrey;
+    }
+    .edit-button:after,
+    .save-button:after,
+    .cancel-button:after { 
+        content:" ]";
+    }
+    .edit-button:before,
+    .save-button:before,
+    .cancel-button:before{ 
+        content:"[ "; 
+    }
+   /* .cancel-button {
+        clear: right;
+    }*/
 
  }
+
+/**
+ * Switch User 
+ */
+div.block-devel#block-devel-switch-user {
+        margin-left: 90px;
+        background-color: white;
+        padding: 20px;
+        border: 1px solid $capt-darkgrey;
+        width: 400px;
+        input.form-submit {
+            background-color: $capt-orange;
+        }
+ }
+
