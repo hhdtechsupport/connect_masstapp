@@ -40,7 +40,8 @@ $capt-lightgrey: #eef1f3;
 $capt-hovergrey: #efefef;
 /*#e4e4e4;*/
 
-$capt-tabsgrey: #e4e3e0;
+$capt-tabsgrey: #e3e4e0; /*#e4e3e0;*/
+$capt-profgrey: #dbdbd9;
 /*measurements */
 
 $header-height: 100px;
@@ -2012,6 +2013,10 @@ form#user-pass {
     margin: -20px auto 0;
 }
 /**
+ * End responsive theming
+ */
+
+/**
  * Disclaimer Placement Section
  */
 
@@ -2032,7 +2037,9 @@ body.node-type-event #block-block-12 {
   }
  }
 
-
+/*
+ *  Mozilla-specific fix for footer. 
+ */
 @-moz-document url-prefix() {
     body.node-type-event #block-block-12 {
     .disclaimer {
@@ -2051,7 +2058,10 @@ body.node-type-event.page-node-edit {
 body.page-user-edit div.disclaimer {
     margin-bottom: 40px;
 }
-/* page administration */
+
+/*
+ * page administration 
+ */
 
 body.page-administration {
     div#content div#title-section {
@@ -2132,3 +2142,36 @@ body.not-logged-in.page-user-register {
         margin-bottom: 12px;
     }
 }
+/**
+ *  User profile page 
+ */
+ /*
+  *  note: tabs not looking right. view should have active styling. 
+  */
+
+ form#user-profile-form {
+
+    fieldset {
+        border: 2px solid $capt-profgrey;
+        border-top: 5px solid $capt-aqua;
+        margin-bottom: 18px;
+        legend {
+            margin-left: 20px;
+            span.fieldset-legend {
+            color: $capt-aqua;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 0px 5px;
+            left: 20px;
+            }
+        }
+     
+        span.label {
+             font-weight: bold;
+        }
+    }
+    input#edit-submit,input#edit-cancel {
+        background-color: $capt-orange;
+    }
+
+ }
