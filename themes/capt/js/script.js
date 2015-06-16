@@ -145,33 +145,10 @@ Drupal.behaviors.my_custom_behavior = {
     
     
     
-    // Add user registration using exposed entityform in the event-specific registrations view
-    $entityform = $('.view-registrations #add-user-registration-entityform-edit-form');
-    $entityformInstance = $entityform.find('#edit-field-entityform-instance');
-    $entityformUser = $entityform.find('#edit-field-entityform-user');
     
-    $entityformUser.hide();
-    
-    $entityformInstance.find('select').on('change', function(){
-      
-      var instanceNID;
-      var userUID;
-      
-      $entityformUser.find('option[value="_none"]').prop('selected',true);
-
-      if ($(this).find('option:selected').val() != '_none') {
-        instanceNID = $(this).val();
-        $entityformUser.show();
-      }
-      else {
-        $entityformUser.hide();
-      }
-        
-      
-    });
-    
-    
-    
+    /*
+     * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
+     */
     
     // Limit default template options and hide notification fields if "Do not send this type of notification" selected
     
@@ -179,15 +156,11 @@ Drupal.behaviors.my_custom_behavior = {
     var body = '';
     
     $('#event-notifications-node-form > div > fieldset > .fieldset-wrapper').each(function(){
-      
       // Store the contents of the fieldset in a variable
       var $notificationFieldsetWrapper = $(this);
       var $notificationForm = $notificationFieldsetWrapper.find('.form-field-type-entityreference > div > fieldset > .fieldset-wrapper > .form-wrapper');
-      cl($notificationForm.html());
-      
       // Get the "do not send this type of notification" checkbox
       var $preventCheckbox = $notificationForm.find('.field-name-field-prevent-notification');
-      
       // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
       if ($preventCheckbox.find('input').prop('checked')) {
         $notificationForm.children('div').each(function(){
@@ -212,34 +185,36 @@ Drupal.behaviors.my_custom_behavior = {
           });
           $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','block');
         }
-        
       });
       
-      // Limit the available default templates to those that fit the type of notification, based on taxonomy
+      // Limit the available default templates to those that match the category of notification, based on taxonomy
       $notificationForm.find('.field-name-field-use-a-default-template select option').each(function(){
-        
+        // Get this option's value
         var optionValue = $(this).text().trim();
+        // Split the option so that we get the category of the template (we can have many different templates of a particular category)
         var optionCategory = optionValue.split('|');
-        var notificationLabel = $notificationForm.children('legend').text().trim();
-        
+        // Grab this fieldset's label so we can compare
+        var notificationLabel = $notificationFieldsetWrapper.find('.form-field-type-entityreference > div > fieldset > legend').text().trim();
+        // Compare the category of the template with the fieldset's label and only keep if they match
         if ((optionCategory[0] != notificationLabel) && (optionCategory[0] != '- None -')) {
           $(this).remove();
         }
         else {
           $(this).text(optionCategory[0]);
         }
-        
       });
       
     });
     
-    
+    /*
+     * END OF: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
+     */    
 
   
     
     
     /*
-     * "MY PROFILE" EDIT/VIEW FUNCTIONALITY
+     * START: "MY PROFILE" EDIT/VIEW FUNCTIONALITY
      */
     
     // Grabbing form data, printing those data, and showing/hiding individual form fieldsets
@@ -470,12 +445,9 @@ Drupal.behaviors.my_custom_behavior = {
         }
       }
     }
-  
-
-
     
     /*
-     * END OF "MY PROFILE" EDIT/VIEW FUNCTIONALITY
+     * END OF: "MY PROFILE" EDIT/VIEW FUNCTIONALITY
      */
     
     
