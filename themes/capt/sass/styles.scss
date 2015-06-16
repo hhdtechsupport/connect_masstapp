@@ -129,6 +129,13 @@ $edit-margin-right: 15px;
     padding-bottom: 20px;
     left: 0px;
 }
+.basic-button {
+    background-color: $capt-orange;
+    color: white;
+    text-align: center;   
+    @include border-radius(5px);
+
+}
 .panel-rule {
     @extend .panel;
     padding-top: 20px;
@@ -237,7 +244,7 @@ a.button {
     @include border-radius(5px);
     color: #ffffff;
     background: #292929;
-    padding: 8px 20px 8px 20px;
+    padding: 8px 20px;
     @extend .button-reset;
 }
 /*ul.main-menu a:hover, */
@@ -302,13 +309,7 @@ a.button:hover {
         @extend .panel-rule-single;
     }
 }
-.node-event .group-right .group-materials {
-    /* background: #efeef5;
-   @include border-radius(5px);*/
-    /* padding: 10px;
-   margin-bottom: 10px;*/
-    /*border: 3px solid #cdcdcd;*/
-}
+
 /* adopting h4:black for this one */
 
 .node-dashboard h2.block-title {
@@ -1765,9 +1766,8 @@ body.node-type-event {
             list-style-image: none;
             margin-left: 0px;
             a.anonymous_home {
-                background-color: $capt-orange;
+                @extend .basic-button;
                 font-size: 16px;
-                color: white;
                 width: 100px;
                 padding: 3px;
                 display: block;
@@ -1778,8 +1778,6 @@ body.node-type-event {
                 top: 0px;
                 float: left;
                 margin-left: -18px;
-                @include border-radius(5px);
-                /*  color: $capt-aqua;*/
             }
             a.anonymous_home:hover {
                 text-decoration: none;
@@ -2187,9 +2185,17 @@ body.not-logged-in.page-user-register {
         float: right; 
         margin-right: 10px;
         cursor: pointer;
-        /*text-align: center;
-        min-width: 68px;*/
+        text-align: center;
+        min-width: 68px;
 
+    }
+    .save-button {
+       /* @extend .basic-button;
+          text-transform: uppercase;
+          float: right;
+          margin-right: 10px;
+          cursor: pointer;
+          padding: 8px 20px;*/
     }
     input.form-text {
         border: 1px solid $capt-midgrey;
@@ -2204,10 +2210,20 @@ body.not-logged-in.page-user-register {
     .cancel-button:before{ 
         content:"[ "; 
     }
-   /* .cancel-button {
+   .cancel-button {
         clear: right;
-    }*/
+    }
 
+    /* new planbox styles */
+   .item {
+     font-size: 14px;
+     margin: 10px 0 10px 5px;
+     line-height: 1.5em;
+     /*font-style: italic;*/
+     .value {
+        font-style: italic;
+     }
+   }
  }
 
 /**
@@ -2223,4 +2239,20 @@ div.block-devel#block-devel-switch-user {
             background-color: $capt-orange;
         }
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
