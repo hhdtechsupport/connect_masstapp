@@ -163,6 +163,23 @@ $edit-margin-right: 15px;
         margin-top: 0px;
     }
 }
+
+.calendar-title {
+     background: url('../images/icons/create-event-2.png') 0 0 no-repeat;
+     padding-left: 70px;  
+     /* variable? deviate from spec and reduce? */
+     padding-top: 7px;
+     color: $capt-maroon;
+     min-height: 44px;
+     font-size: 26pt;
+     /* from h2 in the specs */   
+     margin-top: 36px;
+     margin-bottom: 21px;
+
+}
+/*
+ *  End inherited primitives
+ */
 /* pager */
 
 .pager-link {
@@ -1388,7 +1405,7 @@ form#event-node-form {
  *  Start Login Page
  */
 
-body.not-logged-in.page-user {
+body.not-logged-in.page-user:not(.page-user-register) {
     height: 100%;
     header#header {
         height: 417px;
@@ -1550,20 +1567,10 @@ h1#page-title {
 }
 /*recently removed node-type event on 6/2; keep an eye out for issues */
 
+
 body.logged-in {
     h1#page-title {
-        background: url('../images/icons/create-event-2.png') 0 0 no-repeat;
-        padding-left: 70px;
-        /* variable? deviate from spec and reduce? */
-        
-        padding-top: 7px;
-        color: $capt-maroon;
-        min-height: 44px;
-        font-size: 26pt;
-        /* from h2 in the specs */
-        
-        margin-top: 36px;
-        margin-bottom: 21px;
+        @extend .calendar-title;
     }
     h2 {
         margin-bottom: 0px;
@@ -2071,7 +2078,7 @@ body.page-administration {
 /**
  *  User Registration
  */
-
+/*
 body.not-logged-in.page-user-register {
     header#header {
            margin-bottom: 0px;
@@ -2105,7 +2112,7 @@ body.not-logged-in.page-user-register {
         margin-bottom: 0px;
         span.fieldset-legend {
             top: 12px;
-            /*creates a complete top border! */
+
             margin-left: -175px;
             left: 175px;
             padding-top: 20px;
@@ -2139,7 +2146,7 @@ body.not-logged-in.page-user-register {
         background-color: $capt-orange;
         margin-bottom: 12px;
     }
-}
+}*/
 /**
  *  User profile page 
  */
@@ -2147,7 +2154,7 @@ body.not-logged-in.page-user-register {
   *  note: tabs not looking right. view should have active styling. 
   */
 
- form#user-profile-form {
+ form#user-profile-form, body.not-logged-in.page-user-register {
 
     fieldset {
 
@@ -2177,6 +2184,35 @@ body.not-logged-in.page-user-register {
     input#edit-submit,input#edit-cancel {
         background-color: $capt-orange;
     }
+}
+/*
+ *  Title and other elements for Registration page
+ */
+
+body.not-logged-in.page-user-register {
+    h1#page-title.page__title {
+        @extend .calendar-title;
+        margin-top: 0px;
+
+    }
+    div#content {
+        border: 0px;
+    }
+    fieldset.field-group-fieldset {
+        padding-left: 20px;
+        padding-right: 20px;
+      legend {
+        left: -20px;
+        position: relative;
+        }
+    }
+
+ 
+}
+/*
+ *  Buttons and form elements for user profile
+ */
+form#user-profile-form {
     .edit-button,
     .save-button,
     .cancel-button {
