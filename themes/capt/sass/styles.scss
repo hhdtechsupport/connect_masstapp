@@ -122,7 +122,7 @@ $edit-margin-right: 15px;
     position: relative;
     top: 30px;
     font-size: 10px;
-    line-height: 12px;
+    line-height: 1.4em;
     width: 420px;
     padding-right: 550px;
     margin: 0px auto;
@@ -1417,6 +1417,9 @@ body.not-logged-in.page-user:not(.page-user-register) {
         display: block;
         margin-bottom: 51px;
     }
+    ul.tabs-primary {
+        display: none;
+    }
     h1#page-title {
         background-image: none;
         font-size: 24pt;
@@ -1757,7 +1760,7 @@ body.node-type-event {
         }
         /* extra padding on dates panel because of floats */
         .field-type-ds.field-name-event-date-s- {
-            padding-bottom: 64px;
+            padding-bottom: 54px;
         }
         .field-type-ds {
             @extend .panel-rule-single;
@@ -1777,7 +1780,8 @@ body.node-type-event {
 
             div.item-list {
                 border-top: 1px solid $capt-midgrey;
-                padding-top: 10px;
+                padding-top: 15px;
+                margin-top: -5px;
               ul {
                 padding-left: 14px;
                 li.views-row {
