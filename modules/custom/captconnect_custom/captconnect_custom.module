@@ -78,20 +78,20 @@ function captconnect_custom_user_page_title() {
   if (user_is_logged_in()) {
     $title = t('My account');
   }
-  else
-  {
+  else {
     $path = drupal_get_path_alias($_GET['q']);
-    switch ($path)
-    {
+    switch ($path) {
       case 'user/password':
-      $title = variable_get('login_page_title','Request new password');
-      break;
+        $title = variable_get('login_page_title','Request new password');
+        break;
+
       case 'user/register':
-      $title = variable_get('login_page_title','User Registration');
-      break;
-      default: 
-      $title = variable_get('login_page_title','Log in');
-      break;
+        $title = variable_get('login_page_title','User Registration');
+        break;
+
+      default:
+        $title = variable_get('login_page_title','Log in');
+        break;
     }
   }
   return $title;
@@ -151,9 +151,24 @@ function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id
   $form['request'] = array(
     '#type' => 'markup',
     '#markup' => l(t(variable_get('request_password_text', 'Request a new password')),
-      '/user/password', 
-      array('attributes' => array('class' => array('request-password')))),
+      '/user/password',
+      array('attributes' => array(
+        'class' => array('request-password'),
+        'title' => t('I forgot my password'),
+        ))),
     );
+
+  if (module_exists('username_reminder')) {
+    $form['reminder'] = array(
+      '#type' => 'markup',
+      '#markup' => '<br />' . l(t('Look up your username'),
+        '/user/username',
+        array('attributes' => array(
+          'class' => array('request-password'),
+          'title' => t('I forgot my user name'),
+          ))),
+      );
+  }
 }
 
 /**
