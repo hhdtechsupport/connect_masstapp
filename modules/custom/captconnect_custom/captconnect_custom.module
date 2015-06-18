@@ -105,7 +105,7 @@ function captconnect_custom_view_notifications($node) {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
       $notification = array_pop(array_pop($notification));
-      return node_page_view(node_load($notification));
+      return node_view(node_load($notification));
     }
   }
 }
