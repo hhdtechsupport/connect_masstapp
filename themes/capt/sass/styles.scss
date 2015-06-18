@@ -123,8 +123,8 @@ $edit-margin-right: 15px;
     top: 30px;
     font-size: 10px;
     line-height: 12px;
-    width: 380px;
-    padding-right: 590px;
+    width: 420px;
+    padding-right: 550px;
     margin: 0px auto;
     padding-bottom: 20px;
     left: 0px;
@@ -923,6 +923,7 @@ body.logged-in {
             a {
                 color: black;
             }
+
         }
     }
 }
@@ -1233,6 +1234,7 @@ form#event-node-form {
       margin-top: 0px; // remove to add more space betw title and subtitle
       }*/
     }
+
     //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
     div#edit-field-date-instance {
         @extend .field-container;
@@ -1398,6 +1400,7 @@ form#event-node-form {
         }
         a {
             color: $capt-orange;
+            font-weight: normal;
         }
     }
 }
@@ -1693,18 +1696,27 @@ body.node-type-event {
         display: none;
     }
     .ds-2col > .group-left {
-        width: 590px;
-        .views-row div.views-field-field-date {
-            margin-right: 3px;
-        }
-        div.group-dates {
-            /* may not need to be negative */
-            margin-top: -28px; 
+        width: 590px; 
+    }
+    /* dates panel */
+    .ds-2col > .group-right {
+        float: right;
+        margin-right: 65px;
+         /*div.group-dates {
+            
+            border: 1px solid red;
+            min-height: 42px;
             span.date-display-single {
+                clear: left;
                 background: url('../images/icons/arrow-icons.png') 0px 5px no-repeat;
                 padding-left: 20px;
                 padding-right: 0px;
+
             }
+        }*/
+        .view-content .field-content .views-row div {
+        margin-left: 0px;
+        display: inline;
         }
         span.field-content span.flag-registration {
             padding-left: 10px;
@@ -1715,19 +1727,44 @@ body.node-type-event {
                 font-size: 13px;
             }
         }
-    }
-    .ds-2col > .group-right {
-        float: right;
-        margin-right: 65px;
+          .views-row { 
+            div.field-content {
+                clear: left;
+            }
+            div.views-field-field-date {
+              margin-right: 3px;
+              /*border: 1px solid red;*/
+              a.unflag-action {
+                font-weight: normal;
+            }
+          }
+          div.views-field-field-date-1 {
+                /*border: 1px solid blue;*/
+                margin-right: 10px;
+                display: inline;
+                float: left;
+            }
+            div.views-field-ops {
+                display: inline;
+              
+                float: left;
+
+             
+            }
+          }
         .item-list h3 {
             font-size: 16px;
+        }
+        /* extra padding on dates panel because of floats */
+        .field-type-ds.field-name-event-date-s- {
+            padding-bottom: 64px;
         }
         .field-type-ds {
             @extend .panel-rule-single;
             @include border-radius(0px);
-            width: 250px;
+            width: 269px; /* changed from 250px so "cancel" link does not start new line */
             margin-left: -14px;
-            padding: 10px 26px 36px 26px;
+            padding: 10px 26px 36px 26px; 
             // could be part of the mixin maybe...
             h2.block-title {
                 font-weight: normal;
@@ -1736,13 +1773,23 @@ body.node-type-event {
                 margin-bottom: 20px;
                 font-size: 24px;
             }
-            ul {
-                padding-left: 26px;
+           
+
+            div.item-list {
+                border-top: 1px solid $capt-midgrey;
+                padding-top: 10px;
+              ul {
+                padding-left: 14px;
                 li.views-row {
-                    list-style-image: url('../images/icons/down-arrow.png');
-                    margin-bottom: 8px;
-                    div.field-content {
+                     list-style-image: url('../images/icons/arrow-icons.png');
+                    /*list-style-image: url('../images/icons/down-arrow.png');*/
+                     margin-bottom: 20px;
+                     min-height: 42px;
+                   
+                     div.field-content {
+
                         a {
+                            display: inline;
                             font-weight: normal;
                             padding-bottom: 10px;
                             color: $capt-black;
@@ -1755,6 +1802,7 @@ body.node-type-event {
                         }
                     }
                 }
+              }
             }
         }
 
@@ -1791,6 +1839,21 @@ body.node-type-event {
             }
         }
         z-index: 20;
+    }
+}
+/**
+ * Materials portion of event page
+ */
+
+div.field-name-materials div#block-views-materials-block {
+    ul {
+        padding-left: 23px;
+        margin-bottom: 0px;
+         li.views-row {
+                list-style-image: url('../images/icons/down-arrow.png');
+                margin-bottom: 0px;
+                margin-top: 0px;
+        }
     }
 }
 /**
@@ -2049,6 +2112,7 @@ body.node-type-event #block-block-12 {
     body.node-type-event #block-block-12 {
     .disclaimer {
         top: -40px;
+        left: 20px;
      }
     }
 }
@@ -2058,6 +2122,7 @@ body.node-type-event
 body.node-type-event.page-node-edit {
     .disclaimer {
         left: 20px;
+        border: 1px solid red;
     }
 }
 body.page-user-edit div.disclaimer {
@@ -2154,7 +2219,7 @@ body.not-logged-in.page-user-register {
   *  note: tabs not looking right. view should have active styling. 
   */
 
- form#user-profile-form, body.not-logged-in.page-user-register {
+ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
 
     fieldset {
 
