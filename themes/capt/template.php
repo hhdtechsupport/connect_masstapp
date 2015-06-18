@@ -135,10 +135,21 @@ function capt_preprocess_block(&$variables, $hook) {
 
 // add roles to body
 function capt_preprocess_html(&$vars, $hook) {
-  if ($vars['user']) {
-    foreach($vars['user']->roles as $key => $role){
-      $role_class = 'role-' . drupal_clean_css_identifier($role);
-      $vars['classes_array'][] = $role_class;
+    if ($vars['user']) {
+        foreach($vars['user']->roles as $key => $role){
+            $role_class = 'role-' . drupal_clean_css_identifier($role);
+            $vars['classes_array'][] = $role_class;
+        }
     }
-  }
 }
+
+// add template suggestions based on node type
+function capt_preprocess_page(&$variables) {
+    if (!empty($variables['node']) && !empty($variables['node']->type) && (arg(2) != 'edit')) {
+        $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
+    }
+    // prevent green message from showing up on login page
+    if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');
+ 
+}
+

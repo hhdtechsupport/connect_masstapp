@@ -2,10 +2,16 @@
 sites/*/*settings*.php
 
 # Ignore paths that contain generated content.
+db/
+dbs/
 files/
+private/
+settings.php
+settings*.php
 sites/*/files
 sites/*/private
 sites/*/settings.php
+sites/*/settings*.php
 
 # Ignore default text files
 robots.txt
@@ -31,7 +37,7 @@ update.php
 xmlrpc.php
 /includes
 /misc
-/modules
+# /modules
 /profiles
 /scripts
-/themes
+# /themes

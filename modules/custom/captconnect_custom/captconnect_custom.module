@@ -1,0 +1,251 @@
+<?php
+/**
+ * @file
+ * Custom Code for CAPTConnect.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function captconnect_custom_permission() {
+  $perms = array(
+    'view registration buttons' => array(
+      'title' => t('View Registration Buttons'),
+      'description' => t('View Registration buttons on Events.'),
+      'restrict access' => FALSE,
+      ),
+    );
+  return $perms;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function captconnect_custom_menu() {
+  $items = array();
+
+  $items['node/%node/notifications'] = array(
+    'title' => 'Notifications',
+    'page callback' => 'captconnect_custom_view_notifications',
+    'page arguments' => array(1),
+    'access callback' => 'captconnect_custom_access_notifications',
+    'access arguments' => array(1),
+    'weight' => 2,
+    'type' => MENU_LOCAL_TASK,
+    );
+
+  $items['admin/config/administration/captconnect'] = array(
+    'title' => 'CAPT Connect',
+    'description' => 'Various settings to control CAPT Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'captconnect_custom.admin.inc',
+    'weight' => 2,
+    'type' => MENU_NORMAL_ITEM,
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function captconnect_custom_menu_alter(&$items) {
+  $items['user']['title callback'] = 'captconnect_custom_user_page_title';
+}
+
+/**
+ * Menu access callback.
+ */
+function captconnect_custom_access_notifications($node) {
+  if ($node->type == 'event') {
+    $notification = field_get_items('node', $node, 'field_related_notifications');
+    if ($notification) {
+      $notification = array_pop(array_pop($notification));
+      return node_access('view', node_load($notification));
+//      return node_access('update', node_load($notification));
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Menu title callback.
+ */
+function captconnect_custom_user_page_title() {
+  global $user;
+  if (user_is_logged_in()) {
+    $title = t('My account');
+  }
+  else
+  {
+    $path = drupal_get_path_alias($_GET['q']);
+    switch ($path)
+    {
+      case 'user/password':
+      $title = variable_get('login_page_title','Request new password');
+      break;
+      case 'user/register':
+      $title = variable_get('login_page_title','User Registration');
+      break;
+      default: 
+      $title = variable_get('login_page_title','Log in');
+      break;
+    }
+  }
+  return $title;
+}
+
+/**
+ * Menu callback.
+ */
+function captconnect_custom_view_notifications($node) {
+  if ($node->type == 'event') {
+    $notification = field_get_items('node', $node, 'field_related_notifications');
+    if ($notification) {
+      $notification = array_pop(array_pop($notification));
+      return node_page_view(node_load($notification));
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function captconnect_custom_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'admin_paths') {
+    $group = $implementations ['captconnect_custom'];
+    unset($implementations ['captconnect_custom']);
+    $implementations ['captconnect_custom'] = $group;
+  }
+}
+
+/**
+ * Implements hook_admin_paths().
+ * Set all event_notifications paths to use Overlay.
+ */
+function captconnect_custom_admin_paths() {
+  // This query should be fairly quick unless theer are lots of notifications.
+  // Note that the list is statically cached by path_get_admin_paths().
+  $paths = db_query("SELECT CONCAT('node/', nid, '/edit'), 1 FROM {node} WHERE type = 'event_notifications'")->fetchAllKeyed();
+  $paths['event/*/registrations'] = TRUE;
+  return $paths;
+}
+
+/**
+ * Implements hook_admin_paths_alter().
+ * Turn off Overlay on some standard pages.
+ */
+function captconnect_custom_admin_paths_alter(&$paths) {
+  $paths['user/*'] = FALSE;
+  $paths['admin'] = FALSE;
+  $paths['admin/modules'] = FALSE;
+  $paths['admin/*'] = FALSE;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id) {
+  $form['request'] = array(
+    '#type' => 'markup',
+    '#markup' => l(t(variable_get('request_password_text', 'Request a new password')),
+      '/user/password', 
+      array('attributes' => array('class' => array('request-password')))),
+    );
+}
+
+/**
+ * Implements hook_inline_entity_form_table_fields_alter().
+ */
+function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $context) {
+  // Make sure there's a stock field on each of the allowed types.
+  $instances = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'instance') {
+      $instances = TRUE;
+    }
+  }
+  $presenters = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'presenter') {
+      $presenters = TRUE;
+    }
+  }
+  $materials = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'material') {
+      $materials = TRUE;
+    }
+  }
+  $notifications = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'notification') {
+      $notifications = TRUE;
+    }
+  }
+
+  // Replace fields shown for date instances
+  if ($instances) {
+    unset($fields['status']);
+    $fields['field_max_registration'] = array(
+      'type' => 'field',
+      'label' => t('Max Registrations'),
+      'weight' => 2
+      );
+  }
+
+  // Replace fields shown for presenters
+  if ($presenters) {
+    unset($fields['status']);
+    $fields['field_body'] = array(
+      'type' => 'field',
+      'label' => t('Presenter description'),
+      'weight' => 2,
+      'settings' => array(
+        'trim_length' => 200
+        )
+      );
+    $fields['field_presenter_image'] = array(
+      'type' => 'field',
+      'label' => t('Presenter image'),
+      'weight' => 3,
+      'settings' => array(
+        'image_style' => 'thumbnail'
+        )
+      );
+  }
+
+  // Replace fields shown for date instances
+  if ($materials) {
+    unset($fields['status']);
+    unset($fields['title']);
+    $fields['field_source'] = array(
+      'type' => 'field',
+      'label' => t('Source'),
+      'weight' => 2
+      );
+    $fields['field_resource'] = array(
+      'type' => 'field',
+      'label' => t('Resource'),
+      'weight' => 3
+      );
+    $fields['field_material'] = array(
+      'type' => 'field',
+      'label' => t('Material'),
+      'weight' => 4
+      );
+  }
+
+  // Replace fields shown for notifications
+  if($notifications) {
+    unset($fields['status']);
+    unset($fields['title']);
+    $fields['field_email_body'] = array(
+      'type' => 'field',
+      'label' => t('Body'),
+      'weight' => 3
+      );
+  }
+}
