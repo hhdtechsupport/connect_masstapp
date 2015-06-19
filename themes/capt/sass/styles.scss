@@ -1971,166 +1971,7 @@ div.group-audience,div.group-description,div.group-dates {
 div.views-field.views-field-field-presenter-image {
     margin: 5px 15px 0px 0px; /*16px 23px 0px 0px;*/
 }
-/* 
- *  Responsive theming!
- */
 
-$iPh6W: 667px;
-$iPh6H: 375px;
-@media screen and (min-width: 0px) and (max-width: $iPh6W) {
-    /* prototype class */
-    
-    .reset-layout {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    @mixin side-borders ($color) {
-        border-left: 1px solid $color;
-        border-right: 1px solid $color;
-    }
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
-        height: 100%;
-    }
-    body.not-logged-in.page-user {
-        height: 100%;
-        div#page {
-            height: 750px;
-            @extend .reset-layout;
-            display: inline-block;
-            margin-bottom: 0px;
-        }
-    }
-    #main {
-        @extend .reset-layout;
-    }
-    body.not-logged-in.page-user {
-        div#title-section {
-            padding-top: 6px;
-            padding-bottom: 6px;
-        }
-        header#header {
-            height: 89px;
-            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
-        }
-        form#user-login,
-        div#title-section,
-        div#block-block-8,
-        div#block-block-9,
-        {
-            @include side-borders($capt-midgrey);
-            padding-top: 10px;
-            margin: 0px auto;
-            float: none;
-            margin: 0px auto;
-            width: 85%;
-            display: block;
-            // headers for form and blocks.
-            h1, h2 {
-                font-size: 22px;
-                padding-left: 20px;
-                cursor: pointer;
-                background-image: url('../images/icons/hide.png');
-                background-position: 0px 8px;
-                background-repeat: no-repeat;
-                margin-left: 0px;
-                margin-top: 0px;
-            }
-            h2 {
-                margin-bottom: 6px;
-            }
-        }
-        // why register
-        div#block-block-9 {
-            height: 140px;
-        }
-        /* mobile styles, cont'd s*/
-        
-        div#block-block-8,
-        div#block-block-9 {
-            border: 1px solid $capt-midgrey;
-            background-image: none;
-            background-repeat: no-repeat;
-        }
-        form#user-login {
-            height: 250px;
-            input#edit-submit {
-                margin-top: 0px;
-                top: 0px;
-            }
-        }
-    }
-    div#content {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0px;
-        /* border: 1px dotted orange;*/
-    }
-    body {
-        width: 100%;
-        /* border: 1px solid black;*/
-        
-        height: 100%;
-    }
-    div.bottom-footer {
-        width: 100%;
-        div.bottom-footer-container {
-            /* border: 1px solid blue;*/
-            
-            width: 100%;
-            div.disclaimer {
-                width: 80%;
-                margin: 0px auto;
-            }
-        }
-    }
-    div.bottom-footer,
-    div.bottom-footer-container,
-    div.disclaimer {
-        @extend .reset-layout;
-        max-width: 100%;
-        text-align: center;
-        display: block;
-        margin: 0px;
-    }
-}
-/*
- *  Request password page
- */
-
-body.page-user-password {
-    div#content div#title-section {
-        width: 370px;
-        margin: 0px auto;
-    }
-    input#edit-submit {
-        background-color: $capt-orange;
-    }
-    input#edit-name {
-        font-size: 18px;
-        &:focus {
-            background-color: $capt-inputfocus;
-            outline: none;
-            border: 2px solid $capt-midgrey;
-        }
-    }
-}
-form#user-pass {
-    @extend .panel;
-    width: 330px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 35px;
-    padding-right: 35px;
-    margin: -20px auto 0;
-}
-/**
- * End responsive theming
- */
 
 /**
  * Disclaimer Placement Section
@@ -2296,6 +2137,7 @@ body.not-logged-in.page-user-register {
              margin-bottom: 4px;
              font-size: 14px;
              margin-left: 1px;
+             font-size: 14px;
     }
    input.form-text {
       font-size: 18px;
@@ -2332,16 +2174,24 @@ body.not-logged-in.page-user-register {
         border-top: 0px;
         padding-left: 10px;
         margin-left: -8px;
+        margin-bottom: -30px;
         width: 100.45%;
         top: -17px;
         position: relative;
         padding-top: 17px;
         padding-bottom: 25px;
-        margin-bottom: -30px;
+      
     }
-    div.fieldset-wrapper {
-        margin-left: -20px;
-        padding: 10px 17px;
+    fieldset fieldset {
+        div.fieldset-wrapper {
+            width: 100.6%; /*97.86%;*/
+            margin-left: -9px;
+        }
+    }
+
+   div.fieldset-wrapper {
+       /* margin-left: -20px;*/
+        /*padding: 10px 17px;*/
     }
    
     input#edit-submit,input#edit-cancel {
@@ -2351,10 +2201,10 @@ body.not-logged-in.page-user-register {
  
 }
 /*
- *  Title and other elements for Registration page
+ *  Title and other elements for Registration page - all specific stuff goes here. 
  */
 
-body.not-logged-in.page-user-register {
+body.not-logged-in.page-user-register:not(.node-type-event)  {
  
     h1#page-title.page__title {
         @extend .calendar-title;
@@ -2367,13 +2217,19 @@ body.not-logged-in.page-user-register {
         padding-left: 20px;
         padding-right: 20px;
       legend {
-        left: -20px;
+        margin-left: 0px;
         position: relative;
         }
     } 
+    /* specific width of fieldset wrapper - very important */
+      div.fieldset-wrapper {
+       margin-left: -20px;
+       padding: 10px 17px;
+  
+    }
 }
 /*
- *  Buttons and form elements for user profile
+ *  USER PROFILE FORM: Buttons and form elements for user profile
  */
 form#user-profile-form {
     .edit-button,
@@ -2388,14 +2244,14 @@ form#user-profile-form {
         min-width: 68px;
 
     }
-    .save-button {
-       /* @extend .basic-button;
+    /*.save-button {
+        @extend .basic-button;
           text-transform: uppercase;
           float: right;
           margin-right: 10px;
           cursor: pointer;
-          padding: 8px 20px;*/
-    }
+          padding: 8px 20px;
+    }*/
     input.form-text {
         border: 1px solid $capt-midgrey;
     }
@@ -2423,7 +2279,20 @@ form#user-profile-form {
         font-style: italic;
      }
    }
+   /* fieldset styles */
+   .fieldset-wrapper {
+    margin-left: 0px;
+    width: 97.9%;
+
+   }
+  
  }
+  /* prevent overlap with bottom save & cancel buttons */
+form#user-profile-form >  div > fieldset > .fieldset-wrapper {
+    padding-bottom: 60px;
+  
+    
+}
 /* OMB Block; we may want to just use a form here */
 body.page-user-edit,body.page-user-register {
     #block-block-3 {
@@ -2445,7 +2314,166 @@ div.block-devel#block-devel-switch-user {
         }
  }
 
+/* 
+ *  Responsive theming!
+ */
 
+$iPh6W: 667px;
+$iPh6H: 375px;
+@media screen and (min-width: 0px) and (max-width: $iPh6W) {
+    /* prototype class */
+    
+    .reset-layout {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    @mixin side-borders ($color) {
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+    }
+    html,
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+    }
+    body.not-logged-in.page-user {
+        height: 100%;
+        div#page {
+            height: 750px;
+            @extend .reset-layout;
+            display: inline-block;
+            margin-bottom: 0px;
+        }
+    }
+    #main {
+        @extend .reset-layout;
+    }
+    body.not-logged-in.page-user {
+        div#title-section {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+        header#header {
+            height: 89px;
+            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
+        }
+        form#user-login,
+        div#title-section,
+        div#block-block-8,
+        div#block-block-9,
+        {
+            @include side-borders($capt-midgrey);
+            padding-top: 10px;
+            margin: 0px auto;
+            float: none;
+            margin: 0px auto;
+            width: 85%;
+            display: block;
+            // headers for form and blocks.
+            h1, h2 {
+                font-size: 22px;
+                padding-left: 20px;
+                cursor: pointer;
+                background-image: url('../images/icons/hide.png');
+                background-position: 0px 8px;
+                background-repeat: no-repeat;
+                margin-left: 0px;
+                margin-top: 0px;
+            }
+            h2 {
+                margin-bottom: 6px;
+            }
+        }
+        // why register
+        div#block-block-9 {
+            height: 140px;
+        }
+        /* mobile styles, cont'd s*/
+        
+        div#block-block-8,
+        div#block-block-9 {
+            border: 1px solid $capt-midgrey;
+            background-image: none;
+            background-repeat: no-repeat;
+        }
+        form#user-login {
+            height: 250px;
+            input#edit-submit {
+                margin-top: 0px;
+                top: 0px;
+            }
+        }
+    }
+    div#content {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 0px;
+        /* border: 1px dotted orange;*/
+    }
+    body {
+        width: 100%;
+        /* border: 1px solid black;*/
+        
+        height: 100%;
+    }
+    div.bottom-footer {
+        width: 100%;
+        div.bottom-footer-container {
+            /* border: 1px solid blue;*/
+            
+            width: 100%;
+            div.disclaimer {
+                width: 80%;
+                margin: 0px auto;
+            }
+        }
+    }
+    div.bottom-footer,
+    div.bottom-footer-container,
+    div.disclaimer {
+        @extend .reset-layout;
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        margin: 0px;
+    }
+}
+/*
+ *  Request password page
+ */
+
+body.page-user-password {
+    div#content div#title-section {
+        width: 370px;
+        margin: 0px auto;
+    }
+    input#edit-submit {
+        background-color: $capt-orange;
+    }
+    input#edit-name {
+        font-size: 18px;
+        &:focus {
+            background-color: $capt-inputfocus;
+            outline: none;
+            border: 2px solid $capt-midgrey;
+        }
+    }
+}
+form#user-pass {
+    @extend .panel;
+    width: 330px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: -20px auto 0;
+}
+/**
+ * End responsive theming
+ */
 
 
 
