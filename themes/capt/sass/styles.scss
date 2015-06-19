@@ -38,6 +38,9 @@ $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
 $capt-hovergrey: #efefef;
+$capt-formgrey: #5c5c5c;
+$capt-inputfocus: #F5FAFC;
+$password-suggest: #F7F7F7;
 /*#e4e4e4;*/
 
 $capt-tabsgrey: #e3e4e0; /*#e4e3e0;*/
@@ -2226,34 +2229,65 @@ body.not-logged-in.page-user-register {
  form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
 
     fieldset {
-
-        /*border: 2px solid $capt-profgrey;*/
         border: 0px;
-
         border-top: 5px solid $capt-aqua;
         margin-bottom: 18px;
         margin-right: 14px;
-        legend {
-            margin-left: 20px;
-            span.fieldset-legend {
-            color: $capt-aqua;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 0px 5px;
-            left: 20px;
-            }
-            a {
+     legend {
+        margin-left: 20px;
+        span.fieldset-legend {
+                color: $capt-aqua;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 0px 5px;
+                left: 20px;
+        }
+        a {
                 padding-left: 12px;
                 color: $capt-aqua;
-            }
-        }
-     
-        span.label {
+        } 
+      } /* end legend */
+
+    } /* end fieldset */
+    span.label {
              font-weight: bold;
-        }
-       
+             margin-bottom: 4px;
+             font-size: 14px;
+             margin-left: 1px;
     }
+   input.form-text {
+      font-size: 18px;
+      padding: 5px;
+      max-width: 400px;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
+      
+   }
+   .form-item {
+       max-width: 580px;
+      .description {
+         font-size: 0.85em;
+         line-height: 1.8em;
+         margin-left: 2px;
+         color: $capt-formgrey;
+       }
+       .confirm-parent, .password-parent {
+        width: 40em !important;
+       }
+       div.password-suggestions {
+          padding: 10px;
+          background: $password-suggest;
+          width: 560px;
+          ul {
+            margin-top: 0.5em;
+          }
+       }
+    }
+   
+
     div.data-view {
         border: 1px solid $capt-profgrey;
         border-top: 0px;
@@ -2266,32 +2300,22 @@ body.not-logged-in.page-user-register {
         padding-bottom: 25px;
         margin-bottom: -30px;
     }
-     /*fieldset:before{
-        position: relative;
-        left: 1px;
-        right: 0px;
-        top: -17px;
-        height: 100px;
-        border: 1px solid $capt-profgrey;
-        border-top: 0px;
-        width: 101.5%;
-        margin-left: -9px;
-        content: "";
-        display: block;
-    }*/
+   
     input#edit-submit,input#edit-cancel {
         background-color: $capt-orange;
     }
+    
+ 
 }
 /*
  *  Title and other elements for Registration page
  */
 
 body.not-logged-in.page-user-register {
+ 
     h1#page-title.page__title {
         @extend .calendar-title;
         margin-top: 0px;
-
     }
     div#content {
         border: 0px;
@@ -2303,9 +2327,7 @@ body.not-logged-in.page-user-register {
         left: -20px;
         position: relative;
         }
-    }
-
- 
+    } 
 }
 /*
  *  Buttons and form elements for user profile
@@ -2359,7 +2381,13 @@ form#user-profile-form {
      }
    }
  }
-
+/* OMB Block */
+body.page-user-edit {
+    #block-block-3 {
+      margin: 0 20px 30px 10px;
+      font-size: 12px;
+    }
+}
 /**
  * Switch User 
  */
