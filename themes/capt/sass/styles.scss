@@ -370,7 +370,7 @@ div.view-content div.item-list {
     }
 }
 p {
-    margin: 0 0 1em 0;
+    margin: 1em 0;
     line-height: 1.6em;
 }
 div.field-name-upcoming-events {
@@ -2077,6 +2077,14 @@ body.page-user-password {
     input#edit-submit {
         background-color: $capt-orange;
     }
+    input#edit-name {
+        font-size: 18px;
+        &:focus {
+            background-color: $capt-inputfocus;
+            outline: none;
+            border: 2px solid $capt-midgrey;
+        }
+    }
 }
 form#user-pass {
     @extend .panel;
@@ -2286,9 +2294,7 @@ body.not-logged-in.page-user-register {
           }
        }
     }
-   
-
-    div.data-view {
+    div.data-view,div.fieldset-wrapper {
         border: 1px solid $capt-profgrey;
         border-top: 0px;
         padding-left: 10px;
@@ -2299,6 +2305,10 @@ body.not-logged-in.page-user-register {
         padding-top: 17px;
         padding-bottom: 25px;
         margin-bottom: -30px;
+    }
+    div.fieldset-wrapper {
+        margin-left: -20px;
+        padding: 10px 17px;
     }
    
     input#edit-submit,input#edit-cancel {
@@ -2381,8 +2391,8 @@ form#user-profile-form {
      }
    }
  }
-/* OMB Block */
-body.page-user-edit {
+/* OMB Block; we may want to just use a form here */
+body.page-user-edit,body.page-user-register {
     #block-block-3 {
       margin: 0 20px 30px 10px;
       font-size: 12px;
