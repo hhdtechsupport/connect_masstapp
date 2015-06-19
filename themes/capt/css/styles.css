@@ -2471,35 +2471,66 @@ body.not-logged-in.page-user-register {
 /*
  *  note: tabs not looking right. view should have active styling. 
  */
+/* line 2226, ../sass/styles.scss */
+form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+ /*fieldset:before{
+    position: relative;
+    left: 1px;
+    right: 0px;
+    top: -17px;
+    height: 100px;
+    border: 1px solid $capt-profgrey;
+    border-top: 0px;
+    width: 101.5%;
+    margin-left: -9px;
+    content: "";
+    display: block;
+}*/
+}
 /* line 2228, ../sass/styles.scss */
 form#user-profile-form fieldset, body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
-  border: 2px solid #dbdbd9;
+  /*border: 2px solid $capt-profgrey;*/
+  border: 0px;
   border-top: 5px solid #577785;
   margin-bottom: 18px;
   margin-right: 14px;
 }
-/* line 2234, ../sass/styles.scss */
+/* line 2236, ../sass/styles.scss */
 form#user-profile-form fieldset legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend {
   margin-left: 20px;
 }
-/* line 2236, ../sass/styles.scss */
+/* line 2238, ../sass/styles.scss */
 form#user-profile-form fieldset legend span.fieldset-legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
   color: #577785;
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 18px;
   padding: 0px 5px;
   left: 20px;
 }
-/* line 2243, ../sass/styles.scss */
+/* line 2246, ../sass/styles.scss */
 form#user-profile-form fieldset legend a, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend a {
   padding-left: 12px;
   color: #577785;
 }
-/* line 2249, ../sass/styles.scss */
+/* line 2252, ../sass/styles.scss */
 form#user-profile-form fieldset span.label, body.not-logged-in.page-user-register:not(.node-type-event) fieldset span.label {
   font-weight: bold;
 }
-/* line 2253, ../sass/styles.scss */
+/* line 2257, ../sass/styles.scss */
+form#user-profile-form div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) div.data-view {
+  border: 1px solid #dbdbd9;
+  border-top: 0px;
+  padding-left: 10px;
+  margin-left: -8px;
+  width: 100.45%;
+  top: -17px;
+  position: relative;
+  padding-top: 17px;
+  padding-bottom: 25px;
+  margin-bottom: -30px;
+}
+/* line 2282, ../sass/styles.scss */
 form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-submit, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-cancel {
   background-color: #c3791f;
 }
@@ -2507,20 +2538,20 @@ form#user-profile-form input#edit-submit, form#user-profile-form input#edit-canc
 /*
  *  Title and other elements for Registration page
  */
-/* line 2262, ../sass/styles.scss */
+/* line 2291, ../sass/styles.scss */
 body.not-logged-in.page-user-register h1#page-title.page__title {
   margin-top: 0px;
 }
-/* line 2267, ../sass/styles.scss */
+/* line 2296, ../sass/styles.scss */
 body.not-logged-in.page-user-register div#content {
   border: 0px;
 }
-/* line 2270, ../sass/styles.scss */
+/* line 2299, ../sass/styles.scss */
 body.not-logged-in.page-user-register fieldset.field-group-fieldset {
   padding-left: 20px;
   padding-right: 20px;
 }
-/* line 2273, ../sass/styles.scss */
+/* line 2302, ../sass/styles.scss */
 body.not-logged-in.page-user-register fieldset.field-group-fieldset legend {
   left: -20px;
   position: relative;
@@ -2529,11 +2560,11 @@ body.not-logged-in.page-user-register fieldset.field-group-fieldset legend {
 /*
  *  Buttons and form elements for user profile
  */
-/* line 2284, ../sass/styles.scss */
+/* line 2313, ../sass/styles.scss */
 form#user-profile-form {
   /* new planbox styles */
 }
-/* line 2285, ../sass/styles.scss */
+/* line 2314, ../sass/styles.scss */
 form#user-profile-form .edit-button,
 form#user-profile-form .save-button,
 form#user-profile-form .cancel-button {
@@ -2545,7 +2576,7 @@ form#user-profile-form .cancel-button {
   text-align: center;
   min-width: 68px;
 }
-/* line 2297, ../sass/styles.scss */
+/* line 2326, ../sass/styles.scss */
 form#user-profile-form .save-button {
   /* @extend .basic-button;
      text-transform: uppercase;
@@ -2554,34 +2585,34 @@ form#user-profile-form .save-button {
      cursor: pointer;
      padding: 8px 20px;*/
 }
-/* line 2305, ../sass/styles.scss */
+/* line 2334, ../sass/styles.scss */
 form#user-profile-form input.form-text {
   border: 1px solid #d7d7d7;
 }
-/* line 2308, ../sass/styles.scss */
+/* line 2337, ../sass/styles.scss */
 form#user-profile-form .edit-button:after,
 form#user-profile-form .save-button:after,
 form#user-profile-form .cancel-button:after {
   content: " ]";
 }
-/* line 2313, ../sass/styles.scss */
+/* line 2342, ../sass/styles.scss */
 form#user-profile-form .edit-button:before,
 form#user-profile-form .save-button:before,
 form#user-profile-form .cancel-button:before {
   content: "[ ";
 }
-/* line 2318, ../sass/styles.scss */
+/* line 2347, ../sass/styles.scss */
 form#user-profile-form .cancel-button {
   clear: right;
 }
-/* line 2323, ../sass/styles.scss */
+/* line 2352, ../sass/styles.scss */
 form#user-profile-form .item {
   font-size: 14px;
   margin: 10px 0 10px 5px;
   line-height: 1.5em;
   /*font-style: italic;*/
 }
-/* line 2328, ../sass/styles.scss */
+/* line 2357, ../sass/styles.scss */
 form#user-profile-form .item .value {
   font-style: italic;
 }
@@ -2589,7 +2620,7 @@ form#user-profile-form .item .value {
 /**
  * Switch User 
  */
-/* line 2337, ../sass/styles.scss */
+/* line 2366, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -2597,7 +2628,7 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 2343, ../sass/styles.scss */
+/* line 2372, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
