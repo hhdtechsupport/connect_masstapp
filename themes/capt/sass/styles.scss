@@ -2140,11 +2140,11 @@ body.not-logged-in.page-user-register {
              margin-left: 1px;
             
     }
-    .fieldset-wrapper div.form-item:not(.form-item-mimemail-textonly) {
-       label {
+    .fieldset-wrapper div.form-item {
+       label:not(.option) {
         font-size: 14px;
       }
-       div label.option {
+       label.option {
         font-size: 13px;
    
       }
@@ -2297,12 +2297,7 @@ form#user-profile-form {
     width: 97.9%;
 
    }
-    div#edit-mimemail {
-       div.form-item-mimemail-textonly label.option {
-        font-size: 13px;
    
-      }
-    } 
   
  }
   /* prevent overlap with bottom save & cancel buttons */
