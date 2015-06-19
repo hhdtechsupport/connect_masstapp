@@ -97,26 +97,7 @@ $edit-margin-right: 15px;
 /* inherited prototype classes */
 /* panels */
 
-.panel {
-    background-color: $capt-lightgrey;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid $capt-midgrey;
-    border-top: 0px;
-    /*div.item-list {
-        a {
 
-            color: $capt-black;
-        }
-        a:hover {
-            color: $capt-maroon;
-        }
-        }*/
-    
-    h3 a:hover {
-        color: $capt-maroon;
-    }
-}
 #block-block-12 .contextual-links-wrapper {
     width: 970px;
     margin: 0px auto;
@@ -139,14 +120,39 @@ $edit-margin-right: 15px;
     @include border-radius(5px);
 
 }
+.panel {
+    background-color: $capt-lightgrey;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid $capt-midgrey;
+    border-top: 0px;
+    h3 a:hover {
+        color: $capt-maroon;
+    }
+    .filter-wrapper {
+        border: 0px;
+    }
+}
 .panel-rule {
     @extend .panel;
     padding-top: 20px;
-    border-top: 5px solid $capt-aqua;
+    border-top: 0px; /*5px solid $capt-aqua;*/
     border-bottom: 0px;
     font-size: 14px;
     @include border-radius(1px);
+    &:before {
+        display: block;
+        background-color: $capt-aqua;
+        height: 5px;
+        width: 100%;
+        content: "";
+        position: relative;
+        top: -25px;
+        margin-left: -16px;
+        padding-left: 32px;
+    }
 }
+
 .panel-rule-single {
     @extend .panel-rule;
     margin-bottom: 20px;
@@ -1258,13 +1264,17 @@ form#event-node-form {
         padding-bottom: 10px;
         margin-bottom: 20px;
         margin-right: $edit-margin-right;
+       
     }
     div#edit-field-type-event.form-wrapper {
         @extend .panel-rule-single;
         margin-top: 0px;
-        padding-top: 0px;
+        /*padding-top: 0px;*/
         margin-bottom: 0px;
         margin-right: $edit-margin-right; 
+         div#field-type-event-add-more-wrapper {
+            margin-top: -26px;
+        }
     }
     div#edit-field-category {
         @extend .panel;
@@ -1290,7 +1300,7 @@ form#event-node-form {
     div#edit-field-body {
         @extend .panel-rule-single;
         margin-right: $edit-margin-right;
-        padding-top: 0px;
+        /*padding-top: 0px;*/
         padding-bottom: 10px;
         label {
             margin-top: -10px;
@@ -1344,9 +1354,12 @@ div#edit-field-related-material {
 div#edit-field-contact-name {
   
     @extend .panel-rule;
-    padding-top: 0px;
+    /*padding-top: 0px;*/
     margin-bottom: 0px;
     margin-right: $edit-margin-right;
+    div#field-contact-name-add-more-wrapper {
+        margin-top: -26px;
+    }
 
 }
 div#edit-field-contact-email {
@@ -1363,6 +1376,7 @@ div#edit-field-related-notifications {
     margin-right: $edit-margin-right;
     padding-top: 5px;
     padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 div.vertical-tabs {
     margin-right: $edit-margin-right;
@@ -1764,7 +1778,39 @@ body.node-type-event {
         /* extra padding on dates panel because of floats */
         .field-type-ds.field-name-event-date-s- {
             padding-bottom: 54px;
+            padding-top: 25px;
+            &:before {
+                margin-left: -27px;
+                padding-left: 54px;
+            }
         }
+        /**
+        * Materials portion of event page
+         */
+
+        div.field-name-materials {
+            padding-top: 25px;
+            &:before {
+                margin-left: -27px;
+                padding-left: 54px;
+            }
+            h2.block-title {
+                margin-top: -5px;
+            }
+            div#block-views-materials-block {
+    
+               ul {
+                padding-left: 23px;
+                margin-bottom: 0px;
+
+               li.views-row {
+                list-style-image: url('../images/icons/down-arrow.png');
+                margin-bottom: 0px;
+                margin-top: 0px;
+              }
+           }
+         }
+     }
         .field-type-ds {
             @extend .panel-rule-single;
             @include border-radius(0px);
@@ -1774,7 +1820,7 @@ body.node-type-event {
             // could be part of the mixin maybe...
             h2.block-title {
                 font-weight: normal;
-                margin-top: 12px;
+                margin-top: 0px;
                 color: $capt-darkblue;
                 margin-bottom: 20px;
                 font-size: 24px;
@@ -1848,21 +1894,7 @@ body.node-type-event {
         z-index: 20;
     }
 }
-/**
- * Materials portion of event page
- */
 
-div.field-name-materials div#block-views-materials-block {
-    ul {
-        padding-left: 23px;
-        margin-bottom: 0px;
-         li.views-row {
-                list-style-image: url('../images/icons/down-arrow.png');
-                margin-bottom: 0px;
-                margin-top: 0px;
-        }
-    }
-}
 /**
  *  Event Page, not logged in
  */
