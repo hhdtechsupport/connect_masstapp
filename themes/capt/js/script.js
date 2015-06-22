@@ -54,8 +54,9 @@ Drupal.behaviors.my_custom_behavior = {
       $('#page-title').click(function () {
          togglePanel('#page-title','#user-login');
       });
-      $('#block-block-8 h2.block-title').click(function () {
-          togglePanel('#block-block-8 h2.block-title', '#block-block-8 div.panel-body')
+      $('#block-block-8 h2.custom_block_title').click(function () {
+          togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
+       
       });
       $('#block-block-9 h2.block-title').click(function () {
           togglePanel('#block-block-9 h2.block-title', 
