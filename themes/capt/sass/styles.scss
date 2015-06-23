@@ -2370,6 +2370,22 @@ form#user-pass {
 $iPh6W: 667px;
 $iPh6H: 375px;
 
+/* Navigation bar */
+@media all and (max-width: 479px) {
+  #main {
+    /* Move all the children of #main down to make room. */
+    padding-top: 3em;
+    position: relative;
+  }
+  #navigation {
+    /* Move the navbar up inside #main's padding. */
+    position: absolute;
+    top: 0;
+    height: 3em;
+    width: 100%;
+  }
+}
+
 /* landscape */
 @media screen and (min-width: 0px) and (max-width: $iPh6W) {
     /* general styles */
@@ -2377,8 +2393,6 @@ $iPh6H: 375px;
             margin: 0px auto;
             text-align: left;
     }
-    
-    
      html,
      body {
         width: 100%;
@@ -2599,10 +2613,11 @@ $iPh6H: 375px;
        div.data-view, div.fieldset-wrapper {
         /* we need a media query for smaller widths too */
         width: 100.7%;
+        margin-top: 0px;
     }
     
    }
-
+    /* edit button */
      div.data-view div.edit-button {
         position: relative;
         top: -24px;
@@ -2651,7 +2666,7 @@ $iPh6H: 375px;
          fieldset.group-account {
             div.fieldset-wrapper,div.data-view {
             padding-top: 70px;
-            margin-top: -3px;
+            margin-top: 8px;
           }
          }
     }
