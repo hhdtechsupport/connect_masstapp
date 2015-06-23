@@ -2389,10 +2389,56 @@ $iPh6H: 375px;
 /* landscape */
 @media screen and (min-width: 0px) and (max-width: $iPh6W) {
     /* general styles */
-     div.block-devel#block-devel-switch-user {
-            margin: 0px auto;
-            text-align: left;
+     
+    /* 
+     * prototype classes
+     */
+    .reset-layout {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
     }
+    /* for mobile panels with no top bars */
+    .top-bar-reset {
+        background-color: none;
+        height: 0px;
+        width: 0px;
+        position: static;
+    }
+    .mobile-panel {
+        padding-top: 10px;
+        margin: 0px auto;
+        float: none;
+        width: 85%;
+        display: block;
+        background: no-repeat;
+        background-color: $capt-lightgrey;
+    }
+    .show-hide {
+         font-size: 22px;
+         padding-left: 20px;
+         cursor: pointer;
+         background-image: url('../images/icons/hide.png');
+         background-position: 0px 8px;
+         background-repeat: no-repeat;
+         margin-left: 0px;
+         margin-top: 0px;
+    }
+    /*
+     *  End Prototypes, Start Mixins
+     */
+    @mixin side-borders ($color) {
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+    }
+    /*
+     *  End Mixins
+     */
+
+     /*
+      *Start General Styles
+     */
+
      html,
      body {
         width: 100%;
@@ -2411,10 +2457,12 @@ $iPh6H: 375px;
         div#block-search-form {
             display: none;
         }
-         header#header {
+        div#page {
+            header#header {
             height: 89px;
             background: url('../images/banners/login-phone.png') 0 0 no-repeat;
-
+            }
+            padding-bottom: 50px;
         }
         div#content {
         width: 100%;
@@ -2424,26 +2472,14 @@ $iPh6H: 375px;
         /* border: 1px dotted orange;*/
        }
      }
-    
-     
-    /* prototype classes */
-    .reset-layout {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
+     /* switch user block */
+       div.block-devel#block-devel-switch-user {
+            margin: 0px auto;
+            text-align: left;
     }
-    /* for mobile panels with no top bars */
-    .top-bar-reset {
-    background-color: none;
-    height: 0px;
-    width: 0px;
-    position: static;
-    }
-    @mixin side-borders ($color) {
-        border-left: 1px solid $color;
-        border-right: 1px solid $color;
-    }
-  
+    /*
+     *  End General Styles
+     */
    
     /*
      *  iPhone Styles -- User Login Page
@@ -2465,22 +2501,10 @@ $iPh6H: 375px;
         div#block-block-9,
         {
             @include side-borders($capt-midgrey);
-            padding-top: 10px;
-            margin: 0px auto;
-            float: none;
-            margin: 0px auto;
-            width: 85%;
-            display: block;
+            @extend .mobile-panel;
             // headers for form and blocks.
             h1, h2 {
-                font-size: 22px;
-                padding-left: 20px;
-                cursor: pointer;
-                background-image: url('../images/icons/hide.png');
-                background-position: 0px 8px;
-                background-repeat: no-repeat;
-                margin-left: 0px;
-                margin-top: 0px;
+               @extend .show-hide;
             }
             h2 {
                 margin-bottom: 6px;
@@ -2495,18 +2519,20 @@ $iPh6H: 375px;
             width: 100%;
 
         }
-        // reposition top bar
+        // reposition top bar above login title
         div#title-section {
             &:before {
-              top: -15px;
+              top: -10px;
             }
         }
         // why register
         div#block-block-9 {
             height: 140px;
+            padding-bottom: 26px;
         }
         /* mobile styles, cont'd s*/
         
+        /* new to captconnect? and reasons to join panels */
         div#block-block-8,
         div#block-block-9 {
             border: 1px solid $capt-midgrey;
@@ -2565,10 +2591,12 @@ $iPh6H: 375px;
  /* merge with styles below? */
  body.admin-menu  {
     div#navigation {
-
       ul#main-menu.main-menu.responsive-menu {
          overflow: visible;
-         li#menu-item-1185 {
+         /* admin*/
+         li#menu-item-1185,
+         /* create */
+         li#menu-item-589 {
             display: none;
          }
          li#menu-item-591 {
@@ -2576,18 +2604,14 @@ $iPh6H: 375px;
             a {
               border-bottom: 1px solid white;
             }
-        }
-        
+        } 
       }
-     
-
    }
-      div#content {
+   div#content {
       margin-top: 50px;
-     }
-  
-      
-   
+   }
+}
+body.node-type-event {
 
 }
  /*
@@ -2614,6 +2638,9 @@ $iPh6H: 375px;
         /* we need a media query for smaller widths too */
         width: 100.7%;
         margin-top: 0px;
+           .item {
+            margin-right: 16px;
+        }
     }
     
    }
@@ -2658,7 +2685,7 @@ $iPh6H: 375px;
          }
     }
     
-
+    /* Chrome and Safari Specific Styles */
     @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6W)  { 
          div {
            /* background-color: #02CDD1;*/
