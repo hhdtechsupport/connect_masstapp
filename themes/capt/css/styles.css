@@ -2611,9 +2611,47 @@ form#user-pass {
  *                                             *
  ***********************************************/
 @media screen and (min-width: 0px) and (max-width: 667px) {
-  /* prototype class */
-  /* line 2374, ../sass/styles.scss */
-  .reset-layout, #main, body.not-logged-in.page-user:not(.page-user-register) div#page, div.bottom-footer,
+  /* general styles */
+  /* line 2373, ../sass/styles.scss */
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+    height: 100%;
+  }
+  /* line 2378, ../sass/styles.scss */
+  html div#page,
+  body div#page {
+    height: 750px;
+    display: inline-block;
+    margin-bottom: -200px;
+    padding-bottom: 80px;
+  }
+  /* line 2386, ../sass/styles.scss */
+  html div#block-search-form,
+  body div#block-search-form {
+    display: none;
+  }
+  /* line 2389, ../sass/styles.scss */
+  html header#header,
+  body header#header {
+    height: 89px;
+    background: url("../images/banners/login-phone.png") 0 0 no-repeat;
+  }
+  /* line 2394, ../sass/styles.scss */
+  html div#content,
+  body div#content {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 0px;
+    /* border: 1px dotted orange;*/
+  }
+
+  /* prototype classes */
+  /* line 2405, ../sass/styles.scss */
+  .reset-layout, html div#page,
+  body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
     width: 100%;
@@ -2622,7 +2660,7 @@ form#user-pass {
   }
 
   /* for mobile panels with no top bars */
-  /* line 2380, ../sass/styles.scss */
+  /* line 2411, ../sass/styles.scss */
   .top-bar-reset, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before {
     background-color: none;
@@ -2631,43 +2669,21 @@ form#user-pass {
     position: static;
   }
 
-  /* line 2390, ../sass/styles.scss */
-  html,
-  body {
-    width: 100%;
-    overflow-x: hidden;
-    height: 100%;
-  }
-
   /*
    *  User Login Page
    */
-  /* line 2402, ../sass/styles.scss */
+  /* line 2429, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) {
-    height: 100%;
-    width: 100%;
     /* reformatting panels for mobile */
     /*specific disclaimer styles; more at the end */
     /* mobile styles, cont'd s*/
   }
-  /* line 2405, ../sass/styles.scss */
-  body.not-logged-in.page-user:not(.page-user-register) div#page {
-    height: 750px;
-    display: inline-block;
-    margin-bottom: -200px;
-    padding-bottom: 80px;
-  }
-  /* line 2414, ../sass/styles.scss */
+  /* line 2431, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  /* line 2418, ../sass/styles.scss */
-  body.not-logged-in.page-user:not(.page-user-register) header#header {
-    height: 89px;
-    background: url("../images/banners/login-phone.png") 0 0 no-repeat;
-  }
-  /* line 2424, ../sass/styles.scss */
+  /* line 2437, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2681,7 +2697,7 @@ form#user-pass {
     width: 85%;
     display: block;
   }
-  /* line 2437, ../sass/styles.scss */
+  /* line 2450, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -2698,81 +2714,65 @@ form#user-pass {
     margin-left: 0px;
     margin-top: 0px;
   }
-  /* line 2447, ../sass/styles.scss */
+  /* line 2460, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 2453, ../sass/styles.scss */
+  /* line 2466, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div.disclaimer {
     margin: 0px auto;
     left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 2462, ../sass/styles.scss */
+  /* line 2475, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section:before {
     top: -15px;
   }
-  /* line 2467, ../sass/styles.scss */
+  /* line 2480, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     height: 140px;
   }
-  /* line 2472, ../sass/styles.scss */
+  /* line 2485, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 2481, ../sass/styles.scss */
+  /* line 2494, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content div#title-section h1#page-title {
     margin-left: 17px;
   }
-  /* line 2484, ../sass/styles.scss */
+  /* line 2497, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     height: 250px;
   }
-  /* line 2486, ../sass/styles.scss */
+  /* line 2499, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 2495, ../sass/styles.scss */
-  div#content {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-    padding-left: 0px;
-    /* border: 1px dotted orange;*/
-  }
-
-  /* line 2502, ../sass/styles.scss */
-  body {
-    width: 100%;
-    /* border: 1px solid black;*/
-    height: 100%;
-  }
-
-  /* line 2508, ../sass/styles.scss */
+  /* line 2509, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 2510, ../sass/styles.scss */
+  /* line 2511, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 2514, ../sass/styles.scss */
+  /* line 2515, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 2520, ../sass/styles.scss */
+  /* line 2521, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2781,7 +2781,153 @@ form#user-pass {
     display: block;
     margin: 0px;
   }
+
+  /* line 2533, ../sass/styles.scss */
+  body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
+    margin-left: 30px;
+  }
+
+  /* line 2539, ../sass/styles.scss */
+  form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+   /* fieldset {
+        border: 0px;
+        border-top: 5px solid $capt-aqua;
+        margin-bottom: 18px;
+        margin-right: 14px;
+     legend {
+        margin-left: 20px;
+        span.fieldset-legend {
+                color: $capt-aqua;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 0px 5px;
+                left: 20px;
+        }
+        a {
+                padding-left: 12px;
+                color: $capt-aqua;
+        } 
+      } 
+
+    }
+    span.label {
+             font-weight: bold;
+             margin-bottom: 4px;
+             font-size: 14px;
+             margin-left: 1px;
+            
+    }
+    .fieldset-wrapper div.form-item {
+       label:not(.option) {
+        font-size: 14px;
+      }
+       label.option {
+        font-size: 13px;
+   
+      }
+    } 
+    
+   input.form-text {
+      font-size: $input-font-size;
+      padding: 5px;
+      max-width: 400px;
+      border: 1px solid $capt-midgrey;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
+      
+   }
+   .form-item {
+       max-width: 580px;
+      .description {
+         font-size: 0.85em;
+         line-height: 1.8em;
+         margin-left: 2px;
+         color: $capt-formgrey;
+       }
+       .confirm-parent, .password-parent {
+        width: 40em !important;
+       }
+       div.password-suggestions {
+          padding: 10px;
+          background: $password-suggest;
+          width: 560px;
+          ul {
+            margin-top: 0.5em;
+          }
+       }
+    }
+    div.data-view,div.fieldset-wrapper {
+        border: 1px solid $capt-profgrey;
+        border-top: 0px;
+        padding-left: 10px;
+        margin-left: -8px;
+        margin-bottom: -30px;
+        width: 100.45%;
+        top: -17px;
+        position: relative;
+        padding-top: 17px;
+        padding-bottom: 25px;
+      
+    }
+    fieldset fieldset {
+        div.fieldset-wrapper {
+            width: 100.6%;
+            margin-left: -9px;
+        }
+    }
+
+ 
+   
+    input#edit-submit,input#edit-cancel {
+        background-color: $capt-orange;
+    }*/
+  }
+  /* line 2540, ../sass/styles.scss */
+  form#user-profile-form fieldset, body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
+    width: 85%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+  }
+  /* line 2545, ../sass/styles.scss */
+  form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper {
+    /* we need a media query for smaller widths too */
+    width: 100.7%;
+  }
+  /* line 2550, ../sass/styles.scss */
+  form#user-profile-form fieldset.group-account, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account {
+    padding-top: 0px;
+    /* padding-bottom: 30px;*/
+  }
+  /* line 2554, ../sass/styles.scss */
+  form#user-profile-form fieldset.group-account legend span.fieldset-legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account legend span.fieldset-legend {
+    margin-left: -110px;
+    margin-bottom: 20px;
+    left: 95px;
+    position: relative;
+    top: 40px;
+    display: block;
+  }
+  /* line 2563, ../sass/styles.scss */
+  form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account div.data-view {
+    padding-top: 40px;
+    margin-top: -3px;
+  }
 }
+@media screen and (min-width: 0px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 0) and (min-width: 0px) and (max-width: 667px) {
+  /* line 2573, ../sass/styles.scss */
+  form#user-profile-form div, body.not-logged-in.page-user-register:not(.node-type-event) div {
+    /* background-color: #02CDD1;*/
+  }
+  /* line 2577, ../sass/styles.scss */
+  form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-account div.data-view {
+    padding-top: 70px;
+    margin-top: -3px;
+  }
+}
+
 /**
- * End responsive theming
+ * End iPhone responsive theming
  */

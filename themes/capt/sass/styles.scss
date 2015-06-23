@@ -2369,8 +2369,39 @@ form#user-pass {
 $iPh6W: 667px;
 $iPh6H: 375px;
 @media screen and (min-width: 0px) and (max-width: $iPh6W) {
+    /* general styles */
+     html,
+     body {
+        width: 100%;
+        overflow-x: hidden;
+        height: 100%;
+        div#page {
+            height: 750px;
+            @extend .reset-layout;
+            display: inline-block;
+
+            margin-bottom: -200px;
+            padding-bottom: 80px;
+        }
+        div#block-search-form {
+            display: none;
+        }
+         header#header {
+            height: 89px;
+            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
+
+        }
+        div#content {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 0px;
+        /* border: 1px dotted orange;*/
+       }
+     }
     
-    /* prototype class */
+     
+    /* prototype classes */
     .reset-layout {
         width: 100%;
         margin: 0px;
@@ -2387,12 +2418,8 @@ $iPh6H: 375px;
         border-left: 1px solid $color;
         border-right: 1px solid $color;
     }
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
-        height: 100%;
-    }
+  
+   
     /*
      *  User Login Page
      */
@@ -2400,26 +2427,12 @@ $iPh6H: 375px;
         @extend .reset-layout;
     }
     body.not-logged-in.page-user:not(.page-user-register) {
-        height: 100%;
-        width: 100%;
-        div#page {
-            height: 750px;
-            @extend .reset-layout;
-            display: inline-block;
-
-            margin-bottom: -200px;
-            padding-bottom: 80px;
-        }
-      
+        
         div#title-section {
             padding-top: 6px;
             padding-bottom: 6px;
         }
-        header#header {
-            height: 89px;
-            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
-
-        }
+       
         /* reformatting panels for mobile */
         form#user-login,
         div#title-section,
@@ -2489,22 +2502,10 @@ $iPh6H: 375px;
             }
            
          
-        }
+        } // end user login
 
-    }
-    div#content {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0px;
-        /* border: 1px dotted orange;*/
-    }
-    body {
-        width: 100%;
-        /* border: 1px solid black;*/
-        
-        height: 100%;
-    }
+    } // end body 
+   
     div.bottom-footer {
         width: 100%;
         div.bottom-footer-container {
@@ -2526,9 +2527,163 @@ $iPh6H: 375px;
         display: block;
         margin: 0px;
     }
+
+ body.logged-in.page-user-edit {
+    div#title-section {
+     h1#page-title.page__title{
+      margin-left: 30px;
+     }
+   }
+
+ }
+ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+   fieldset {
+    width: 85%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    
+       div.data-view,div.fieldset-wrapper {
+        /* we need a media query for smaller widths too */
+        width: 100.7%;
+    }
+   }
+   fieldset.group-account {
+         padding-top: 0px;
+            
+             /* padding-bottom: 30px;*/
+        legend span.fieldset-legend {
+             
+            margin-left: -110px;
+            margin-bottom: 20px;
+            left: 95px;
+            position: relative;
+            top: 40px;
+            display: block; 
+        }
+         div.fieldset-wrapper,div.data-view {
+            padding-top: 40px;
+            margin-top: -3px;
+         }
+         
+       
+      
+      
+    }
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6W)  { 
+         div {
+           /* background-color: #02CDD1;*/
+         }
+         fieldset.group-account {
+            div.fieldset-wrapper,div.data-view {
+            padding-top: 70px;
+            margin-top: -3px;
+          }
+         }
+    }
+
+   
+   /* fieldset {
+        border: 0px;
+        border-top: 5px solid $capt-aqua;
+        margin-bottom: 18px;
+        margin-right: 14px;
+     legend {
+        margin-left: 20px;
+        span.fieldset-legend {
+                color: $capt-aqua;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 0px 5px;
+                left: 20px;
+        }
+        a {
+                padding-left: 12px;
+                color: $capt-aqua;
+        } 
+      } 
+
+    }
+    span.label {
+             font-weight: bold;
+             margin-bottom: 4px;
+             font-size: 14px;
+             margin-left: 1px;
+            
+    }
+    .fieldset-wrapper div.form-item {
+       label:not(.option) {
+        font-size: 14px;
+      }
+       label.option {
+        font-size: 13px;
+   
+      }
+    } 
+    
+   input.form-text {
+      font-size: $input-font-size;
+      padding: 5px;
+      max-width: 400px;
+      border: 1px solid $capt-midgrey;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
+      
+   }
+   .form-item {
+       max-width: 580px;
+      .description {
+         font-size: 0.85em;
+         line-height: 1.8em;
+         margin-left: 2px;
+         color: $capt-formgrey;
+       }
+       .confirm-parent, .password-parent {
+        width: 40em !important;
+       }
+       div.password-suggestions {
+          padding: 10px;
+          background: $password-suggest;
+          width: 560px;
+          ul {
+            margin-top: 0.5em;
+          }
+       }
+    }
+    div.data-view,div.fieldset-wrapper {
+        border: 1px solid $capt-profgrey;
+        border-top: 0px;
+        padding-left: 10px;
+        margin-left: -8px;
+        margin-bottom: -30px;
+        width: 100.45%;
+        top: -17px;
+        position: relative;
+        padding-top: 17px;
+        padding-bottom: 25px;
+      
+    }
+    fieldset fieldset {
+        div.fieldset-wrapper {
+            width: 100.6%;
+            margin-left: -9px;
+        }
+    }
+
+ 
+   
+    input#edit-submit,input#edit-cancel {
+        background-color: $capt-orange;
+    }*/
+    
+ 
+}
+
 }
 /**
- * End responsive theming
+ * End iPhone responsive theming
  */
 
 
