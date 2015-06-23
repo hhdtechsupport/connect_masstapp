@@ -2366,13 +2366,23 @@ form#user-pass {
  *                                             *
  ***********************************************/
 
+
 $iPh6W: 667px;
 $iPh6H: 375px;
+
+/* landscape */
 @media screen and (min-width: 0px) and (max-width: $iPh6W) {
     /* general styles */
+     div.block-devel#block-devel-switch-user {
+            margin: 0px auto;
+            text-align: left;
+    }
+    
+    
      html,
      body {
         width: 100%;
+        min-width: 320px;
         overflow-x: hidden;
         height: 100%;
         div#page {
@@ -2383,6 +2393,7 @@ $iPh6H: 375px;
             margin-bottom: -200px;
             padding-bottom: 80px;
         }
+
         div#block-search-form {
             display: none;
         }
@@ -2421,7 +2432,7 @@ $iPh6H: 375px;
   
    
     /*
-     *  User Login Page
+     *  iPhone Styles -- User Login Page
      */
     #main {
         @extend .reset-layout;
@@ -2528,6 +2539,7 @@ $iPh6H: 375px;
         margin: 0px;
     }
 
+
  body.logged-in.page-user-edit {
     div#title-section {
      h1#page-title.page__title{
@@ -2536,26 +2548,91 @@ $iPh6H: 375px;
    }
 
  }
- form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+ /* merge with styles below? */
+ body.admin-menu  {
+    div#navigation {
+
+      ul#main-menu.main-menu.responsive-menu {
+         overflow: visible;
+         li#menu-item-1185 {
+            display: none;
+         }
+         li#menu-item-591 {
+            overflow: visible;
+            a {
+              border-bottom: 1px solid white;
+            }
+        }
+        
+      }
+     
+
+   }
+      div#content {
+      margin-top: 50px;
+     }
+  
+      
+   
+
+}
+ /*
+  *  iPhone Styles -- Registration & Profile Page
+  */
+ form#user-profile-form, 
+ body.admin-menu,
+ body.not-logged-in.page-user-register:not(.node-type-event) {
+    div#block-block-3.block.block-block {
+      width: 85%;
+      margin: 0px auto;
+
+    }
+     div#edit-actions {
+        text-align: center;
+    }
+
    fieldset {
     width: 85%;
     margin: 0px auto;
     margin-bottom: 20px;
     
-       div.data-view,div.fieldset-wrapper {
+       div.data-view, div.fieldset-wrapper {
         /* we need a media query for smaller widths too */
         width: 100.7%;
     }
+    
    }
-   fieldset.group-account {
+
+     div.data-view div.edit-button {
+        position: relative;
+        top: -24px;
+        font-size: 18px;
+    }
+    div.fieldset-wrapper {
+
+        div.save-button, div.cancel-button {
+            font-size: 18px;
+           
+           
+        }
+        div.save-button:first-child, div.cancel-button:nth-child(2) {
+            top: -30px;
+            position: relative;
+        }
+    }
+
+   
+   
+   
+   
+   fieldset {
          padding-top: 0px;
-            
-             /* padding-bottom: 30px;*/
+  
         legend span.fieldset-legend {
-             
-            margin-left: -110px;
+            /* css trickery to eliminate gaps */
+            margin-left: -300px;
+            left: 283px;
             margin-bottom: 20px;
-            left: 95px;
             position: relative;
             top: 40px;
             display: block; 
@@ -2564,11 +2641,9 @@ $iPh6H: 375px;
             padding-top: 40px;
             margin-top: -3px;
          }
-         
-       
-      
-      
     }
+    
+
     @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6W)  { 
          div {
            /* background-color: #02CDD1;*/

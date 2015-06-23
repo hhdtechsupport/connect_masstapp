@@ -16,6 +16,15 @@
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
+
+    /**
+     *  Menu Logic
+     */
+    function init () {
+      $('span.toggle-help').click();
+      $('a.menu-toggle').hide();
+    }
+    init();
     /**
      *  Responsive Show - Hides
      */
