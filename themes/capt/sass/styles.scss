@@ -2031,84 +2031,10 @@ body.page-administration {
         }
     }
 }
-/**
- *  User Registration
- */
-/*
-body.not-logged-in.page-user-register {
-    header#header {
-           margin-bottom: 0px;
-    }
-    fieldset {
-           margin-bottom: 15px;
-           width: 885px;
-           padding-left: 40px;
-           display: block;
-           background: transparent;
-           border-bottom: 1px solid $capt-midgrey;
-    }
-     span.fieldset-legend {
-        color: $capt-maroon;
-        margin-top: 20px;
-        position: relative;
-        font-weight: bold;
-        top: 20px; 
-        bottom: -40px;
-        background: transparent;
-        white-space: nowrap;
-        display: inline-block;
-        border: 0;
 
-    }
-    div.form-item {
-            margin-top: 0px;
-    }
-    fieldset:not(.group-account) {
-        @extend .panel-rule-single; 
-        margin-bottom: 0px;
-        span.fieldset-legend {
-            top: 12px;
-
-            margin-left: -175px;
-            left: 175px;
-            padding-top: 20px;
-            padding-bottom: 0px;
-            
-        }
-    }
-    fieldset.group-account {
-        @extend .panel;
-        padding-top: 10px;
-        top: -20px;
-        span.fieldset-legend {
-            margin-bottom: 16px;
-        }
-    }
-    div#content div#title-section {
-        padding-left: 0px;
-        margin-left: 2px;
-        width: 900px;
-        margin-bottom: -40px;
-        padding-bottom: 15px;
-        h1#page-title {
-            margin-left: 13px;
-        }
-    }
-   
-    fieldset.group-demographic-information {
-        margin-bottom: 10px;
-    }
-    input#edit-submit {
-        background-color: $capt-orange;
-        margin-bottom: 12px;
-    }
-}*/
 /**
  *  User profile page 
  */
- /*
-  *  note: tabs not looking right. view should have active styling. 
-  */
 
  form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
 
@@ -2359,7 +2285,21 @@ form#user-pass {
     margin: -20px auto 0;
 }
 
-
+/*
+ *  Workflow Styles
+ */
+.node-event.workflow-in-progress .group-left::before {
+  color: #ccbb99;
+  content: "DRAFT";
+  display: block;
+  font-size: 15em;
+  font-weight: bold;
+  opacity: .4;
+  position: absolute;
+  transform: rotate(300deg);
+  -webkit-transform: rotate(300deg);
+  z-index: 1;
+}
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
@@ -2424,12 +2364,18 @@ $iPh6H: 375px;
          margin-left: 0px;
          margin-top: 0px;
     }
+
     /*
      *  End Prototypes, Start Mixins
      */
-    @mixin side-borders ($color) {
+    @mixin side_borders ($color) {
         border-left: 1px solid $color;
         border-right: 1px solid $color;
+    }
+    @mixin top_open ($color) {
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+        border-bottom: 1px solid $color;
     }
     /*
      *  End Mixins
@@ -2500,7 +2446,7 @@ $iPh6H: 375px;
         div#block-block-8,
         div#block-block-9,
         {
-            @include side-borders($capt-midgrey);
+            @include side_borders($capt-midgrey);
             @extend .mobile-panel;
             // headers for form and blocks.
             h1, h2 {
@@ -2628,12 +2574,83 @@ body.node-type-event {
      div#edit-actions {
         text-align: center;
     }
+   fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
+        div.form-type-password-confirm.form-item {
+                    $pass-width: 300px;
+             
+                    /*background-color: blue;*/
+                    width: $pass-width;
+                    margin: 0px;
+                    input.form-text.password-field,
+                    input.form-text.password-confirm {
+                        width: $pass-width;
+                        float: left;
+                        clear: left;
+                        margin-bottom: 10px;
 
+
+                    }
+                    div.description {
+                        clear: left;
+                    }
+                    div.password-suggestions {
+                        width: 112%;
+                    }
+                    input#edit-pass-pass2 {
+                        margin-top: -20px;
+                    }
+                   
+                    div.form-item-pass-pass1,
+                    div.form-item-pass-pass2 {
+                         label {
+                           clear: left;
+                           float: left;
+                       }
+
+
+                   } 
+                   div.password-parent {
+                    width: 85%;
+                   }
+                   div.password-strength {
+                      
+                        width: $pass-width;
+                        float: left;
+                        /*background-color: yellow;*/
+                       
+                        margin-bottom: 20px;
+                      
+                    }
+                
+        }
+        input.form-text {
+                width: 90%;
+                
+
+        }
+        div.description {
+            margin-right: 5px;
+        }
+   }
+   fieldset#edit-ckeditor {
+         
+   }
    fieldset {
     width: 85%;
+    min-width: 0px;
     margin: 0px auto;
     margin-bottom: 20px;
-    
+    // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
+       fieldset  {
+          margin: 0px auto;
+          width: 90%;
+          select {
+            width: 90%;
+          }
+       }
+       fieldset:last-child {
+            margin-bottom: 10px;
+          }
        div.data-view, div.fieldset-wrapper {
         /* we need a media query for smaller widths too */
         width: 100.7%;
@@ -2644,6 +2661,7 @@ body.node-type-event {
     }
     
    }
+  
     /* edit button */
      div.data-view div.edit-button {
         position: relative;
@@ -2667,21 +2685,42 @@ body.node-type-event {
    
    
    
-   fieldset {
+  fieldset {
          padding-top: 0px;
   
         legend span.fieldset-legend {
-            /* css trickery to eliminate gaps */
+          
             margin-left: -300px;
             left: 283px;
             margin-bottom: 20px;
             position: relative;
             top: 40px;
             display: block; 
+            
+
         }
          div.fieldset-wrapper,div.data-view {
             padding-top: 40px;
             margin-top: -3px;
+            margin-bottom: 20px;
+            z-index: 0;
+         }
+         fieldset {
+            z-index: -1000;
+            legend .fieldset-legend {
+            top: -3px;
+            margin-left: 0px;
+            left: 0px;
+            margin-bottom: -3px;
+             a {
+                top: 15px;
+                position: relative;
+                display: block;
+             }
+           }
+           /*div.fieldset-wrapper {
+             margin-top: -32px;
+           }*/
          }
     }
     
@@ -2699,101 +2738,7 @@ body.node-type-event {
     }
 
    
-   /* fieldset {
-        border: 0px;
-        border-top: 5px solid $capt-aqua;
-        margin-bottom: 18px;
-        margin-right: 14px;
-     legend {
-        margin-left: 20px;
-        span.fieldset-legend {
-                color: $capt-aqua;
-                text-transform: uppercase;
-                font-weight: bold;
-                font-size: 18px;
-                padding: 0px 5px;
-                left: 20px;
-        }
-        a {
-                padding-left: 12px;
-                color: $capt-aqua;
-        } 
-      } 
-
-    }
-    span.label {
-             font-weight: bold;
-             margin-bottom: 4px;
-             font-size: 14px;
-             margin-left: 1px;
-            
-    }
-    .fieldset-wrapper div.form-item {
-       label:not(.option) {
-        font-size: 14px;
-      }
-       label.option {
-        font-size: 13px;
-   
-      }
-    } 
-    
-   input.form-text {
-      font-size: $input-font-size;
-      padding: 5px;
-      max-width: 400px;
-      border: 1px solid $capt-midgrey;
-      &:focus {
-        background: $capt-inputfocus;
-        outline: none;
-      }
-      
-   }
-   .form-item {
-       max-width: 580px;
-      .description {
-         font-size: 0.85em;
-         line-height: 1.8em;
-         margin-left: 2px;
-         color: $capt-formgrey;
-       }
-       .confirm-parent, .password-parent {
-        width: 40em !important;
-       }
-       div.password-suggestions {
-          padding: 10px;
-          background: $password-suggest;
-          width: 560px;
-          ul {
-            margin-top: 0.5em;
-          }
-       }
-    }
-    div.data-view,div.fieldset-wrapper {
-        border: 1px solid $capt-profgrey;
-        border-top: 0px;
-        padding-left: 10px;
-        margin-left: -8px;
-        margin-bottom: -30px;
-        width: 100.45%;
-        top: -17px;
-        position: relative;
-        padding-top: 17px;
-        padding-bottom: 25px;
-      
-    }
-    fieldset fieldset {
-        div.fieldset-wrapper {
-            width: 100.6%;
-            margin-left: -9px;
-        }
-    }
-
  
-   
-    input#edit-submit,input#edit-cancel {
-        background-color: $capt-orange;
-    }*/
     
  
 }

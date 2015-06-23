@@ -2259,88 +2259,13 @@ body.page-administration div#content div#title-section h2 {
 }
 
 /**
- *  User Registration
- */
-/*
-body.not-logged-in.page-user-register {
-    header#header {
-           margin-bottom: 0px;
-    }
-    fieldset {
-           margin-bottom: 15px;
-           width: 885px;
-           padding-left: 40px;
-           display: block;
-           background: transparent;
-           border-bottom: 1px solid $capt-midgrey;
-    }
-     span.fieldset-legend {
-        color: $capt-maroon;
-        margin-top: 20px;
-        position: relative;
-        font-weight: bold;
-        top: 20px; 
-        bottom: -40px;
-        background: transparent;
-        white-space: nowrap;
-        display: inline-block;
-        border: 0;
-
-    }
-    div.form-item {
-            margin-top: 0px;
-    }
-    fieldset:not(.group-account) {
-        @extend .panel-rule-single; 
-        margin-bottom: 0px;
-        span.fieldset-legend {
-            top: 12px;
-
-            margin-left: -175px;
-            left: 175px;
-            padding-top: 20px;
-            padding-bottom: 0px;
-            
-        }
-    }
-    fieldset.group-account {
-        @extend .panel;
-        padding-top: 10px;
-        top: -20px;
-        span.fieldset-legend {
-            margin-bottom: 16px;
-        }
-    }
-    div#content div#title-section {
-        padding-left: 0px;
-        margin-left: 2px;
-        width: 900px;
-        margin-bottom: -40px;
-        padding-bottom: 15px;
-        h1#page-title {
-            margin-left: 13px;
-        }
-    }
-   
-    fieldset.group-demographic-information {
-        margin-bottom: 10px;
-    }
-    input#edit-submit {
-        background-color: $capt-orange;
-        margin-bottom: 12px;
-    }
-}*/
-/**
  *  User profile page 
  */
-/*
- *  note: tabs not looking right. view should have active styling. 
- */
-/* line 2113, ../sass/styles.scss */
+/* line 2039, ../sass/styles.scss */
 form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
   /* end fieldset */
 }
-/* line 2115, ../sass/styles.scss */
+/* line 2041, ../sass/styles.scss */
 form#user-profile-form fieldset, body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
   border: 0px;
   border-top: 5px solid #577785;
@@ -2348,11 +2273,11 @@ form#user-profile-form fieldset, body.not-logged-in.page-user-register:not(.node
   margin-right: 14px;
   /* end legend */
 }
-/* line 2120, ../sass/styles.scss */
+/* line 2046, ../sass/styles.scss */
 form#user-profile-form fieldset legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend {
   margin-left: 20px;
 }
-/* line 2122, ../sass/styles.scss */
+/* line 2048, ../sass/styles.scss */
 form#user-profile-form fieldset legend span.fieldset-legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
   color: #577785;
   text-transform: uppercase;
@@ -2361,64 +2286,64 @@ form#user-profile-form fieldset legend span.fieldset-legend, body.not-logged-in.
   padding: 0px 5px;
   left: 20px;
 }
-/* line 2130, ../sass/styles.scss */
+/* line 2056, ../sass/styles.scss */
 form#user-profile-form fieldset legend a, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend a {
   padding-left: 12px;
   color: #577785;
 }
-/* line 2137, ../sass/styles.scss */
+/* line 2063, ../sass/styles.scss */
 form#user-profile-form span.label, body.not-logged-in.page-user-register:not(.node-type-event) span.label {
   font-weight: bold;
   margin-bottom: 4px;
   font-size: 14px;
   margin-left: 1px;
 }
-/* line 2145, ../sass/styles.scss */
+/* line 2071, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label:not(.option), body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option) {
   font-size: 14px;
 }
-/* line 2148, ../sass/styles.scss */
+/* line 2074, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label.option, body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option {
   font-size: 13px;
 }
-/* line 2154, ../sass/styles.scss */
+/* line 2080, ../sass/styles.scss */
 form#user-profile-form input.form-text, body.not-logged-in.page-user-register:not(.node-type-event) input.form-text {
   font-size: 14px;
   padding: 5px;
   max-width: 400px;
   border: 1px solid #d7d7d7;
 }
-/* line 2159, ../sass/styles.scss */
+/* line 2085, ../sass/styles.scss */
 form#user-profile-form input.form-text:focus, body.not-logged-in.page-user-register:not(.node-type-event) input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
-/* line 2165, ../sass/styles.scss */
+/* line 2091, ../sass/styles.scss */
 form#user-profile-form .form-item, body.not-logged-in.page-user-register:not(.node-type-event) .form-item {
   max-width: 580px;
 }
-/* line 2167, ../sass/styles.scss */
+/* line 2093, ../sass/styles.scss */
 form#user-profile-form .form-item .description, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .description {
   font-size: 0.85em;
   line-height: 1.8em;
   margin-left: 2px;
   color: #5c5c5c;
 }
-/* line 2173, ../sass/styles.scss */
+/* line 2099, ../sass/styles.scss */
 form#user-profile-form .form-item .confirm-parent, form#user-profile-form .form-item .password-parent, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .confirm-parent, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .password-parent {
   width: 40em !important;
 }
-/* line 2176, ../sass/styles.scss */
+/* line 2102, ../sass/styles.scss */
 form#user-profile-form .form-item div.password-suggestions, body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions {
   padding: 10px;
   background: #F7F7F7;
   width: 560px;
 }
-/* line 2180, ../sass/styles.scss */
+/* line 2106, ../sass/styles.scss */
 form#user-profile-form .form-item div.password-suggestions ul, body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions ul {
   margin-top: 0.5em;
 }
-/* line 2185, ../sass/styles.scss */
+/* line 2111, ../sass/styles.scss */
 form#user-profile-form div.data-view, form#user-profile-form div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   border: 1px solid #dbdbd9;
   border-top: 0px;
@@ -2431,18 +2356,18 @@ form#user-profile-form div.data-view, form#user-profile-form div.fieldset-wrappe
   padding-top: 17px;
   padding-bottom: 25px;
 }
-/* line 2199, ../sass/styles.scss */
+/* line 2125, ../sass/styles.scss */
 form#user-profile-form fieldset fieldset div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset div.fieldset-wrapper {
   width: 100.6%;
   /*97.86%;*/
   margin-left: -9px;
 }
-/* line 2205, ../sass/styles.scss */
+/* line 2131, ../sass/styles.scss */
 form#user-profile-form div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   /* margin-left: -20px;*/
   /*padding: 10px 17px;*/
 }
-/* line 2210, ../sass/styles.scss */
+/* line 2136, ../sass/styles.scss */
 form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-submit, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-cancel {
   background-color: #c3791f;
 }
@@ -2450,29 +2375,29 @@ form#user-profile-form input#edit-submit, form#user-profile-form input#edit-canc
 /*
  *  Title and other elements for Registration page - all specific stuff goes here. 
  */
-/* line 2220, ../sass/styles.scss */
+/* line 2146, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) {
   /* specific width of fieldset wrapper - very important */
 }
-/* line 2222, ../sass/styles.scss */
+/* line 2148, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title {
   margin-top: 0px;
 }
-/* line 2226, ../sass/styles.scss */
+/* line 2152, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div#content {
   border: 0px;
 }
-/* line 2229, ../sass/styles.scss */
+/* line 2155, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset {
   padding-left: 20px;
   padding-right: 20px;
 }
-/* line 2232, ../sass/styles.scss */
+/* line 2158, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset legend {
   margin-left: 0px;
   position: relative;
 }
-/* line 2238, ../sass/styles.scss */
+/* line 2164, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   margin-left: -20px;
   padding: 10px 17px;
@@ -2481,7 +2406,7 @@ body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
-/* line 2247, ../sass/styles.scss */
+/* line 2173, ../sass/styles.scss */
 form#user-profile-form {
   /*.save-button {
       @extend .basic-button;
@@ -2494,7 +2419,7 @@ form#user-profile-form {
   /* new planbox styles */
   /* fieldset styles */
 }
-/* line 2248, ../sass/styles.scss */
+/* line 2174, ../sass/styles.scss */
 form#user-profile-form .edit-button,
 form#user-profile-form .save-button,
 form#user-profile-form .cancel-button {
@@ -2506,51 +2431,51 @@ form#user-profile-form .cancel-button {
   text-align: center;
   min-width: 68px;
 }
-/* line 2268, ../sass/styles.scss */
+/* line 2194, ../sass/styles.scss */
 form#user-profile-form input.form-text {
   border: 1px solid #d7d7d7;
 }
-/* line 2271, ../sass/styles.scss */
+/* line 2197, ../sass/styles.scss */
 form#user-profile-form .edit-button:after,
 form#user-profile-form .save-button:after,
 form#user-profile-form .cancel-button:after {
   content: " ]";
 }
-/* line 2276, ../sass/styles.scss */
+/* line 2202, ../sass/styles.scss */
 form#user-profile-form .edit-button:before,
 form#user-profile-form .save-button:before,
 form#user-profile-form .cancel-button:before {
   content: "[ ";
 }
-/* line 2281, ../sass/styles.scss */
+/* line 2207, ../sass/styles.scss */
 form#user-profile-form .cancel-button {
   clear: right;
 }
-/* line 2286, ../sass/styles.scss */
+/* line 2212, ../sass/styles.scss */
 form#user-profile-form .item {
   font-size: 14px;
   margin: 10px 0 10px 5px;
   line-height: 1.5em;
   /*font-style: italic;*/
 }
-/* line 2291, ../sass/styles.scss */
+/* line 2217, ../sass/styles.scss */
 form#user-profile-form .item .value {
   font-style: italic;
 }
-/* line 2296, ../sass/styles.scss */
+/* line 2222, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper {
   margin-left: 0px;
   width: 97.9%;
 }
 
 /* prevent overlap with bottom save & cancel buttons */
-/* line 2305, ../sass/styles.scss */
+/* line 2231, ../sass/styles.scss */
 form#user-profile-form > div > fieldset > .fieldset-wrapper {
   padding-bottom: 60px;
 }
 
 /* OMB Block; we may want to just use a form here */
-/* line 2312, ../sass/styles.scss */
+/* line 2238, ../sass/styles.scss */
 body.page-user-edit #block-block-3, body.page-user-register #block-block-3 {
   margin: 0 20px 30px 10px;
   font-size: 12px;
@@ -2559,7 +2484,7 @@ body.page-user-edit #block-block-3, body.page-user-register #block-block-3 {
 /**
  * Switch User 
  */
-/* line 2320, ../sass/styles.scss */
+/* line 2246, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -2567,7 +2492,7 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 2326, ../sass/styles.scss */
+/* line 2252, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
@@ -2575,27 +2500,27 @@ div.block-devel#block-devel-switch-user input.form-submit {
 /*
  *  Request password page
  */
-/* line 2336, ../sass/styles.scss */
+/* line 2262, ../sass/styles.scss */
 body.page-user-password div#content div#title-section {
   width: 370px;
   margin: 0px auto;
 }
-/* line 2340, ../sass/styles.scss */
+/* line 2266, ../sass/styles.scss */
 body.page-user-password input#edit-submit {
   background-color: #c3791f;
 }
-/* line 2343, ../sass/styles.scss */
+/* line 2269, ../sass/styles.scss */
 body.page-user-password input#edit-name {
   font-size: 14px;
 }
-/* line 2345, ../sass/styles.scss */
+/* line 2271, ../sass/styles.scss */
 body.page-user-password input#edit-name:focus {
   background-color: #F5FAFC;
   outline: none;
   border: 2px solid #d7d7d7;
 }
 
-/* line 2352, ../sass/styles.scss */
+/* line 2278, ../sass/styles.scss */
 form#user-pass {
   width: 330px;
   padding-top: 20px;
@@ -2605,6 +2530,23 @@ form#user-pass {
   margin: -20px auto 0;
 }
 
+/*
+ *  Workflow Styles
+ */
+/* line 2291, ../sass/styles.scss */
+.node-event.workflow-in-progress .group-left::before {
+  color: #ccbb99;
+  content: "DRAFT";
+  display: block;
+  font-size: 15em;
+  font-weight: bold;
+  opacity: .4;
+  position: absolute;
+  transform: rotate(300deg);
+  -webkit-transform: rotate(300deg);
+  z-index: 1;
+}
+
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
@@ -2612,14 +2554,14 @@ form#user-pass {
  ***********************************************/
 /* Navigation bar */
 @media all and (max-width: 479px) {
-  /* line 2375, ../sass/styles.scss */
+  /* line 2315, ../sass/styles.scss */
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
     position: relative;
   }
 
-  /* line 2380, ../sass/styles.scss */
+  /* line 2320, ../sass/styles.scss */
   #navigation {
     /* Move the navbar up inside #main's padding. */
     position: absolute;
@@ -2634,7 +2576,7 @@ form#user-pass {
   /* 
    * prototype classes
    */
-  /* line 2396, ../sass/styles.scss */
+  /* line 2336, ../sass/styles.scss */
   .reset-layout, html div#page,
   body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
@@ -2645,7 +2587,7 @@ form#user-pass {
   }
 
   /* for mobile panels with no top bars */
-  /* line 2402, ../sass/styles.scss */
+  /* line 2342, ../sass/styles.scss */
   .top-bar-reset, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before {
     background-color: none;
@@ -2654,7 +2596,7 @@ form#user-pass {
     position: static;
   }
 
-  /* line 2408, ../sass/styles.scss */
+  /* line 2348, ../sass/styles.scss */
   .mobile-panel, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2668,7 +2610,7 @@ form#user-pass {
     background-color: #eef1f3;
   }
 
-  /* line 2417, ../sass/styles.scss */
+  /* line 2357, ../sass/styles.scss */
   .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -2695,7 +2637,7 @@ form#user-pass {
   /*
    *Start General Styles
   */
-  /* line 2442, ../sass/styles.scss */
+  /* line 2388, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -2703,7 +2645,7 @@ form#user-pass {
     overflow-x: hidden;
     height: 100%;
   }
-  /* line 2448, ../sass/styles.scss */
+  /* line 2394, ../sass/styles.scss */
   html div#page,
   body div#page {
     height: 750px;
@@ -2711,23 +2653,23 @@ form#user-pass {
     margin-bottom: -200px;
     padding-bottom: 80px;
   }
-  /* line 2457, ../sass/styles.scss */
+  /* line 2403, ../sass/styles.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 2460, ../sass/styles.scss */
+  /* line 2406, ../sass/styles.scss */
   html div#page,
   body div#page {
     padding-bottom: 50px;
   }
-  /* line 2461, ../sass/styles.scss */
+  /* line 2407, ../sass/styles.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 2467, ../sass/styles.scss */
+  /* line 2413, ../sass/styles.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -2738,7 +2680,7 @@ form#user-pass {
   }
 
   /* switch user block */
-  /* line 2476, ../sass/styles.scss */
+  /* line 2422, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
@@ -2750,19 +2692,19 @@ form#user-pass {
   /*
    *  iPhone Styles -- User Login Page
    */
-  /* line 2490, ../sass/styles.scss */
+  /* line 2436, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) {
     /* reformatting panels for mobile */
     /*specific disclaimer styles; more at the end */
     /* mobile styles, cont'd s*/
     /* new to captconnect? and reasons to join panels */
   }
-  /* line 2492, ../sass/styles.scss */
+  /* line 2438, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
   }
-  /* line 2498, ../sass/styles.scss */
+  /* line 2444, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2770,66 +2712,66 @@ form#user-pass {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2509, ../sass/styles.scss */
+  /* line 2455, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 2515, ../sass/styles.scss */
+  /* line 2461, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div.disclaimer {
     margin: 0px auto;
     left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 2524, ../sass/styles.scss */
+  /* line 2470, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section:before {
     top: -10px;
   }
-  /* line 2529, ../sass/styles.scss */
+  /* line 2475, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     height: 140px;
     padding-bottom: 26px;
   }
-  /* line 2536, ../sass/styles.scss */
+  /* line 2482, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 2545, ../sass/styles.scss */
+  /* line 2491, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content div#title-section h1#page-title {
     margin-left: 17px;
   }
-  /* line 2548, ../sass/styles.scss */
+  /* line 2494, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     height: 250px;
   }
-  /* line 2550, ../sass/styles.scss */
+  /* line 2496, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 2560, ../sass/styles.scss */
+  /* line 2506, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 2562, ../sass/styles.scss */
+  /* line 2508, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 2566, ../sass/styles.scss */
+  /* line 2512, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 2572, ../sass/styles.scss */
+  /* line 2518, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2839,31 +2781,31 @@ form#user-pass {
     margin: 0px;
   }
 
-  /* line 2585, ../sass/styles.scss */
+  /* line 2531, ../sass/styles.scss */
   body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
     margin-left: 30px;
   }
 
   /* merge with styles below? */
-  /* line 2594, ../sass/styles.scss */
+  /* line 2540, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 2597, ../sass/styles.scss */
+  /* line 2543, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 2602, ../sass/styles.scss */
+  /* line 2548, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 2604, ../sass/styles.scss */
+  /* line 2550, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 2610, ../sass/styles.scss */
+  /* line 2556, ../sass/styles.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
@@ -2871,130 +2813,130 @@ form#user-pass {
   /*
    *  iPhone Styles -- Registration & Profile Page
    */
-  /* line 2620, ../sass/styles.scss */
+  /* line 2566, ../sass/styles.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* edit button */
     /* Chrome and Safari Specific Styles */
-   /* fieldset {
-        border: 0px;
-        border-top: 5px solid $capt-aqua;
-        margin-bottom: 18px;
-        margin-right: 14px;
-     legend {
-        margin-left: 20px;
-        span.fieldset-legend {
-                color: $capt-aqua;
-                text-transform: uppercase;
-                font-weight: bold;
-                font-size: 18px;
-                padding: 0px 5px;
-                left: 20px;
-        }
-        a {
-                padding-left: 12px;
-                color: $capt-aqua;
-        } 
-      } 
-
-    }
-    span.label {
-             font-weight: bold;
-             margin-bottom: 4px;
-             font-size: 14px;
-             margin-left: 1px;
-            
-    }
-    .fieldset-wrapper div.form-item {
-       label:not(.option) {
-        font-size: 14px;
-      }
-       label.option {
-        font-size: 13px;
-   
-      }
-    } 
-    
-   input.form-text {
-      font-size: $input-font-size;
-      padding: 5px;
-      max-width: 400px;
-      border: 1px solid $capt-midgrey;
-      &:focus {
-        background: $capt-inputfocus;
-        outline: none;
-      }
-      
-   }
-   .form-item {
-       max-width: 580px;
-      .description {
-         font-size: 0.85em;
-         line-height: 1.8em;
-         margin-left: 2px;
-         color: $capt-formgrey;
-       }
-       .confirm-parent, .password-parent {
-        width: 40em !important;
-       }
-       div.password-suggestions {
-          padding: 10px;
-          background: $password-suggest;
-          width: 560px;
-          ul {
-            margin-top: 0.5em;
-          }
-       }
-    }
-    div.data-view,div.fieldset-wrapper {
-        border: 1px solid $capt-profgrey;
-        border-top: 0px;
-        padding-left: 10px;
-        margin-left: -8px;
-        margin-bottom: -30px;
-        width: 100.45%;
-        top: -17px;
-        position: relative;
-        padding-top: 17px;
-        padding-bottom: 25px;
-      
-    }
-    fieldset fieldset {
-        div.fieldset-wrapper {
-            width: 100.6%;
-            margin-left: -9px;
-        }
-    }
-
- 
-   
-    input#edit-submit,input#edit-cancel {
-        background-color: $capt-orange;
-    }*/
   }
-  /* line 2623, ../sass/styles.scss */
+  /* line 2569, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 2628, ../sass/styles.scss */
+  /* line 2574, ../sass/styles.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 2632, ../sass/styles.scss */
+  /* line 2578, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
+    /*background-color: blue;*/
+    width: 300px;
+    margin: 0px;
+  }
+  /* line 2584, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm {
+    width: 300px;
+    float: left;
+    clear: left;
+    margin-bottom: 10px;
+  }
+  /* line 2593, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
+    clear: left;
+  }
+  /* line 2596, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
+    width: 112%;
+  }
+  /* line 2599, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
+    margin-top: -20px;
+  }
+  /* line 2605, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label {
+    clear: left;
+    float: left;
+  }
+  /* line 2612, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
+    width: 85%;
+  }
+  /* line 2615, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
+    width: 300px;
+    float: left;
+    /*background-color: yellow;*/
+    margin-bottom: 20px;
+  }
+  /* line 2626, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
+    width: 90%;
+  }
+  /* line 2631, ../sass/styles.scss */
+  form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
+  body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
+    margin-right: 5px;
+  }
+  /* line 2638, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
     width: 85%;
+    min-width: 0px;
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 2637, ../sass/styles.scss */
+  /* line 2644, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset,
+  body.admin-menu fieldset fieldset,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
+    margin: 0px auto;
+    width: 90%;
+  }
+  /* line 2647, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset select,
+  body.admin-menu fieldset fieldset select,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset select {
+    width: 90%;
+  }
+  /* line 2651, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset:last-child,
+  body.admin-menu fieldset fieldset:last-child,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset:last-child {
+    margin-bottom: 10px;
+  }
+  /* line 2654, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -3004,7 +2946,7 @@ form#user-pass {
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 2641, ../sass/styles.scss */
+  /* line 2658, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -3012,7 +2954,7 @@ form#user-pass {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 2648, ../sass/styles.scss */
+  /* line 2666, ../sass/styles.scss */
   form#user-profile-form div.data-view div.edit-button,
   body.admin-menu div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) div.data-view div.edit-button {
@@ -3020,7 +2962,7 @@ form#user-pass {
     top: -24px;
     font-size: 18px;
   }
-  /* line 2655, ../sass/styles.scss */
+  /* line 2673, ../sass/styles.scss */
   form#user-profile-form div.fieldset-wrapper div.save-button, form#user-profile-form div.fieldset-wrapper div.cancel-button,
   body.admin-menu div.fieldset-wrapper div.save-button,
   body.admin-menu div.fieldset-wrapper div.cancel-button,
@@ -3028,7 +2970,7 @@ form#user-pass {
   body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 2660, ../sass/styles.scss */
+  /* line 2678, ../sass/styles.scss */
   form#user-profile-form div.fieldset-wrapper div.save-button:first-child, form#user-profile-form div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -3037,17 +2979,16 @@ form#user-pass {
     top: -30px;
     position: relative;
   }
-  /* line 2670, ../sass/styles.scss */
+  /* line 2688, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
     padding-top: 0px;
   }
-  /* line 2673, ../sass/styles.scss */
+  /* line 2691, ../sass/styles.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
-    /* css trickery to eliminate gaps */
     margin-left: -300px;
     left: 283px;
     margin-bottom: 20px;
@@ -3055,7 +2996,7 @@ form#user-pass {
     top: 40px;
     display: block;
   }
-  /* line 2682, ../sass/styles.scss */
+  /* line 2702, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -3063,16 +3004,44 @@ form#user-pass {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view {
     padding-top: 40px;
     margin-top: -3px;
+    margin-bottom: 20px;
+    z-index: 0;
+  }
+  /* line 2708, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset,
+  body.admin-menu fieldset fieldset,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
+    z-index: -1000;
+    /*div.fieldset-wrapper {
+      margin-top: -32px;
+    }*/
+  }
+  /* line 2710, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset legend .fieldset-legend,
+  body.admin-menu fieldset fieldset legend .fieldset-legend,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset legend .fieldset-legend {
+    top: -3px;
+    margin-left: 0px;
+    left: 0px;
+    margin-bottom: -3px;
+  }
+  /* line 2715, ../sass/styles.scss */
+  form#user-profile-form fieldset fieldset legend .fieldset-legend a,
+  body.admin-menu fieldset fieldset legend .fieldset-legend a,
+  body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset legend .fieldset-legend a {
+    top: 15px;
+    position: relative;
+    display: block;
   }
 }
 @media screen and (min-width: 0px) and (max-width: 667px) and (-webkit-min-device-pixel-ratio: 0) and (min-width: 0px) and (max-width: 667px) {
-  /* line 2690, ../sass/styles.scss */
+  /* line 2729, ../sass/styles.scss */
   form#user-profile-form div,
   body.admin-menu div,
   body.not-logged-in.page-user-register:not(.node-type-event) div {
     /* background-color: #02CDD1;*/
   }
-  /* line 2694, ../sass/styles.scss */
+  /* line 2733, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
