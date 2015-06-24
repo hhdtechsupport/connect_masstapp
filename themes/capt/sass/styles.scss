@@ -38,6 +38,9 @@ $capt-darkgrey: #959595;
 $capt-midgrey: #d7d7d7;
 $capt-lightgrey: #eef1f3;
 $capt-hovergrey: #efefef;
+$capt-formgrey: #5c5c5c;
+$capt-inputfocus: #F5FAFC;
+$password-suggest: #F7F7F7;
 /*#e4e4e4;*/
 
 $capt-tabsgrey: #e3e4e0; /*#e4e3e0;*/
@@ -54,6 +57,7 @@ $login-margin-left: 17px;
 
 $login-font: 16px;
 $edit-margin-right: 15px;
+$input-font-size: 14px;
 /* mixins */
 /* for tabs! */
 
@@ -94,26 +98,7 @@ $edit-margin-right: 15px;
 /* inherited prototype classes */
 /* panels */
 
-.panel {
-    background-color: $capt-lightgrey;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid $capt-midgrey;
-    border-top: 0px;
-    /*div.item-list {
-        a {
 
-            color: $capt-black;
-        }
-        a:hover {
-            color: $capt-maroon;
-        }
-        }*/
-    
-    h3 a:hover {
-        color: $capt-maroon;
-    }
-}
 #block-block-12 .contextual-links-wrapper {
     width: 970px;
     margin: 0px auto;
@@ -122,9 +107,9 @@ $edit-margin-right: 15px;
     position: relative;
     top: 30px;
     font-size: 10px;
-    line-height: 12px;
-    width: 380px;
-    padding-right: 590px;
+    line-height: 1.4em;
+    width: 420px;
+    padding-right: 550px;
     margin: 0px auto;
     padding-bottom: 20px;
     left: 0px;
@@ -136,14 +121,40 @@ $edit-margin-right: 15px;
     @include border-radius(5px);
 
 }
+.panel {
+    background-color: $capt-lightgrey;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 1px solid $capt-midgrey;
+    border-top: 0px;
+    h3 a:hover {
+        color: $capt-maroon;
+    }
+    .filter-wrapper {
+        border: 0px;
+    }
+}
 .panel-rule {
     @extend .panel;
     padding-top: 20px;
-    border-top: 5px solid $capt-aqua;
+    border-top: 0px; /*5px solid $capt-aqua;*/
     border-bottom: 0px;
     font-size: 14px;
     @include border-radius(1px);
+    &:before {
+        display: block;
+        background-color: $capt-aqua;
+        height: 5px;
+        width: 100%;
+        content: "";
+        position: relative;
+        top: -25px;
+        margin-left: -16px;
+        padding-left: 32px;
+    }
 }
+
+
 .panel-rule-single {
     @extend .panel-rule;
     margin-bottom: 20px;
@@ -367,7 +378,7 @@ div.view-content div.item-list {
     }
 }
 p {
-    margin: 0 0 1em 0;
+    margin: 1em 0;
     line-height: 1.6em;
 }
 div.field-name-upcoming-events {
@@ -923,6 +934,7 @@ body.logged-in {
             a {
                 color: black;
             }
+
         }
     }
 }
@@ -1233,6 +1245,7 @@ form#event-node-form {
       margin-top: 0px; // remove to add more space betw title and subtitle
       }*/
     }
+
     //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
     div#edit-field-date-instance {
         @extend .field-container;
@@ -1253,13 +1266,17 @@ form#event-node-form {
         padding-bottom: 10px;
         margin-bottom: 20px;
         margin-right: $edit-margin-right;
+       
     }
     div#edit-field-type-event.form-wrapper {
         @extend .panel-rule-single;
         margin-top: 0px;
-        padding-top: 0px;
+        /*padding-top: 0px;*/
         margin-bottom: 0px;
         margin-right: $edit-margin-right; 
+         div#field-type-event-add-more-wrapper {
+            margin-top: -26px;
+        }
     }
     div#edit-field-category {
         @extend .panel;
@@ -1285,7 +1302,7 @@ form#event-node-form {
     div#edit-field-body {
         @extend .panel-rule-single;
         margin-right: $edit-margin-right;
-        padding-top: 0px;
+        /*padding-top: 0px;*/
         padding-bottom: 10px;
         label {
             margin-top: -10px;
@@ -1339,9 +1356,12 @@ div#edit-field-related-material {
 div#edit-field-contact-name {
   
     @extend .panel-rule;
-    padding-top: 0px;
+    /*padding-top: 0px;*/
     margin-bottom: 0px;
     margin-right: $edit-margin-right;
+    div#field-contact-name-add-more-wrapper {
+        margin-top: -26px;
+    }
 
 }
 div#edit-field-contact-email {
@@ -1358,6 +1378,7 @@ div#edit-field-related-notifications {
     margin-right: $edit-margin-right;
     padding-top: 5px;
     padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 div.vertical-tabs {
     margin-right: $edit-margin-right;
@@ -1398,6 +1419,7 @@ form#event-node-form {
         }
         a {
             color: $capt-orange;
+            font-weight: normal;
         }
     }
 }
@@ -1413,6 +1435,9 @@ body.not-logged-in.page-user:not(.page-user-register) {
         margin-top: -2px;
         display: block;
         margin-bottom: 51px;
+    }
+    ul.tabs-primary {
+        display: none;
     }
     h1#page-title {
         background-image: none;
@@ -1521,7 +1546,8 @@ body.not-logged-in.page-user:not(.page-user-register) {
         background-image: url('../images/icons/register.png');
         background-position: 270px 30px;
         background-repeat: no-repeat;
-        height: 217px;
+        height: 220px;
+        margin-top: 9px;
         h2.block-title {
             margin-left: $login-margin-left;
         }
@@ -1693,18 +1719,27 @@ body.node-type-event {
         display: none;
     }
     .ds-2col > .group-left {
-        width: 590px;
-        .views-row div.views-field-field-date {
-            margin-right: 3px;
-        }
-        div.group-dates {
-            /* may not need to be negative */
-            margin-top: -28px; 
+        width: 590px; 
+    }
+    /* dates panel */
+    .ds-2col > .group-right {
+        float: right;
+        margin-right: 65px;
+         /*div.group-dates {
+            
+            border: 1px solid red;
+            min-height: 42px;
             span.date-display-single {
+                clear: left;
                 background: url('../images/icons/arrow-icons.png') 0px 5px no-repeat;
                 padding-left: 20px;
                 padding-right: 0px;
+
             }
+        }*/
+        .view-content .field-content .views-row div {
+        margin-left: 0px;
+        display: inline;
         }
         span.field-content span.flag-registration {
             padding-left: 10px;
@@ -1715,34 +1750,102 @@ body.node-type-event {
                 font-size: 13px;
             }
         }
-    }
-    .ds-2col > .group-right {
-        float: right;
-        margin-right: 65px;
+          .views-row { 
+            div.field-content {
+                clear: left;
+            }
+            div.views-field-field-date {
+              margin-right: 3px;
+              /*border: 1px solid red;*/
+              a.unflag-action {
+                font-weight: normal;
+            }
+          }
+          div.views-field-field-date-1 {
+                /*border: 1px solid blue;*/
+                margin-right: 10px;
+                display: inline;
+                float: left;
+            }
+            div.views-field-ops {
+                display: inline;
+              
+                float: left;
+
+             
+            }
+          }
         .item-list h3 {
             font-size: 16px;
         }
+        /* extra padding on dates panel because of floats */
+        .field-type-ds.field-name-event-date-s- {
+            padding-bottom: 54px;
+            padding-top: 25px;
+            &:before {
+                margin-left: -27px;
+                padding-left: 54px;
+            }
+        }
+        /**
+        * Materials portion of event page
+         */
+
+        div.field-name-materials {
+            padding-top: 25px;
+            &:before {
+                margin-left: -27px;
+                padding-left: 54px;
+            }
+            h2.block-title {
+                margin-top: -5px;
+            }
+            div#block-views-materials-block {
+    
+               ul {
+                padding-left: 23px;
+                margin-bottom: 0px;
+
+               li.views-row {
+                list-style-image: url('../images/icons/down-arrow.png');
+                margin-bottom: 0px;
+                margin-top: 0px;
+              }
+           }
+         }
+     }
         .field-type-ds {
             @extend .panel-rule-single;
             @include border-radius(0px);
-            width: 250px;
+            width: 269px; /* changed from 250px so "cancel" link does not start new line */
             margin-left: -14px;
-            padding: 10px 26px 36px 26px;
+            padding: 10px 26px 36px 26px; 
             // could be part of the mixin maybe...
             h2.block-title {
                 font-weight: normal;
-                margin-top: 12px;
+                margin-top: 0px;
                 color: $capt-darkblue;
                 margin-bottom: 20px;
                 font-size: 24px;
             }
-            ul {
-                padding-left: 26px;
+           
+
+            div.item-list {
+                border-top: 1px solid $capt-midgrey;
+                padding-top: 15px;
+                margin-top: -5px;
+              ul {
+                padding-left: 14px;
                 li.views-row {
-                    list-style-image: url('../images/icons/down-arrow.png');
-                    margin-bottom: 8px;
-                    div.field-content {
+                     list-style-image: url('../images/icons/arrow-icons.png');
+                    /*list-style-image: url('../images/icons/down-arrow.png');*/
+                     margin-bottom: 20px;
+                     min-height: 42px;
+                   
+                     div.field-content {
+
                         a {
+                            display: inline;
                             font-weight: normal;
                             padding-bottom: 10px;
                             color: $capt-black;
@@ -1755,6 +1858,7 @@ body.node-type-event {
                         }
                     }
                 }
+              }
             }
         }
 
@@ -1793,6 +1897,7 @@ body.node-type-event {
         z-index: 20;
     }
 }
+
 /**
  *  Event Page, not logged in
  */
@@ -1868,158 +1973,7 @@ div.group-audience,div.group-description,div.group-dates {
 div.views-field.views-field-field-presenter-image {
     margin: 5px 15px 0px 0px; /*16px 23px 0px 0px;*/
 }
-/* 
- *  Responsive theming!
- */
 
-$iPh6W: 667px;
-$iPh6H: 375px;
-@media screen and (min-width: 0px) and (max-width: $iPh6W) {
-    /* prototype class */
-    
-    .reset-layout {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-    }
-    @mixin side-borders ($color) {
-        border-left: 1px solid $color;
-        border-right: 1px solid $color;
-    }
-    html,
-    body {
-        width: 100%;
-        overflow-x: hidden;
-        height: 100%;
-    }
-    body.not-logged-in.page-user {
-        height: 100%;
-        div#page {
-            height: 750px;
-            @extend .reset-layout;
-            display: inline-block;
-            margin-bottom: 0px;
-        }
-    }
-    #main {
-        @extend .reset-layout;
-    }
-    body.not-logged-in.page-user {
-        div#title-section {
-            padding-top: 6px;
-            padding-bottom: 6px;
-        }
-        header#header {
-            height: 89px;
-            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
-        }
-        form#user-login,
-        div#title-section,
-        div#block-block-8,
-        div#block-block-9,
-        {
-            @include side-borders($capt-midgrey);
-            padding-top: 10px;
-            margin: 0px auto;
-            float: none;
-            margin: 0px auto;
-            width: 85%;
-            display: block;
-            // headers for form and blocks.
-            h1, h2 {
-                font-size: 22px;
-                padding-left: 20px;
-                cursor: pointer;
-                background-image: url('../images/icons/hide.png');
-                background-position: 0px 8px;
-                background-repeat: no-repeat;
-                margin-left: 0px;
-                margin-top: 0px;
-            }
-            h2 {
-                margin-bottom: 6px;
-            }
-        }
-        // why register
-        div#block-block-9 {
-            height: 140px;
-        }
-        /* mobile styles, cont'd s*/
-        
-        div#block-block-8,
-        div#block-block-9 {
-            border: 1px solid $capt-midgrey;
-            background-image: none;
-            background-repeat: no-repeat;
-        }
-        form#user-login {
-            height: 250px;
-            input#edit-submit {
-                margin-top: 0px;
-                top: 0px;
-            }
-        }
-    }
-    div#content {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0px;
-        /* border: 1px dotted orange;*/
-    }
-    body {
-        width: 100%;
-        /* border: 1px solid black;*/
-        
-        height: 100%;
-    }
-    div.bottom-footer {
-        width: 100%;
-        div.bottom-footer-container {
-            /* border: 1px solid blue;*/
-            
-            width: 100%;
-            div.disclaimer {
-                width: 80%;
-                margin: 0px auto;
-            }
-        }
-    }
-    div.bottom-footer,
-    div.bottom-footer-container,
-    div.disclaimer {
-        @extend .reset-layout;
-        max-width: 100%;
-        text-align: center;
-        display: block;
-        margin: 0px;
-    }
-}
-/*
- *  Request password page
- */
-
-body.page-user-password {
-    div#content div#title-section {
-        width: 370px;
-        margin: 0px auto;
-    }
-    input#edit-submit {
-        background-color: $capt-orange;
-    }
-}
-form#user-pass {
-    @extend .panel;
-    width: 330px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 35px;
-    padding-right: 35px;
-    margin: -20px auto 0;
-}
-/**
- * End responsive theming
- */
 
 /**
  * Disclaimer Placement Section
@@ -2049,6 +2003,7 @@ body.node-type-event #block-block-12 {
     body.node-type-event #block-block-12 {
     .disclaimer {
         top: -40px;
+        left: 20px;
      }
     }
 }
@@ -2058,6 +2013,7 @@ body.node-type-event
 body.node-type-event.page-node-edit {
     .disclaimer {
         left: 20px;
+        border: 1px solid red;
     }
 }
 body.page-user-edit div.disclaimer {
@@ -2075,125 +2031,123 @@ body.page-administration {
         }
     }
 }
-/**
- *  User Registration
- */
-/*
-body.not-logged-in.page-user-register {
-    header#header {
-           margin-bottom: 0px;
-    }
-    fieldset {
-           margin-bottom: 15px;
-           width: 885px;
-           padding-left: 40px;
-           display: block;
-           background: transparent;
-           border-bottom: 1px solid $capt-midgrey;
-    }
-     span.fieldset-legend {
-        color: $capt-maroon;
-        margin-top: 20px;
-        position: relative;
-        font-weight: bold;
-        top: 20px; 
-        bottom: -40px;
-        background: transparent;
-        white-space: nowrap;
-        display: inline-block;
-        border: 0;
 
-    }
-    div.form-item {
-            margin-top: 0px;
-    }
-    fieldset:not(.group-account) {
-        @extend .panel-rule-single; 
-        margin-bottom: 0px;
-        span.fieldset-legend {
-            top: 12px;
-
-            margin-left: -175px;
-            left: 175px;
-            padding-top: 20px;
-            padding-bottom: 0px;
-            
-        }
-    }
-    fieldset.group-account {
-        @extend .panel;
-        padding-top: 10px;
-        top: -20px;
-        span.fieldset-legend {
-            margin-bottom: 16px;
-        }
-    }
-    div#content div#title-section {
-        padding-left: 0px;
-        margin-left: 2px;
-        width: 900px;
-        margin-bottom: -40px;
-        padding-bottom: 15px;
-        h1#page-title {
-            margin-left: 13px;
-        }
-    }
-   
-    fieldset.group-demographic-information {
-        margin-bottom: 10px;
-    }
-    input#edit-submit {
-        background-color: $capt-orange;
-        margin-bottom: 12px;
-    }
-}*/
 /**
  *  User profile page 
  */
- /*
-  *  note: tabs not looking right. view should have active styling. 
-  */
 
- form#user-profile-form, body.not-logged-in.page-user-register {
+ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
 
     fieldset {
-
-        border: 2px solid $capt-profgrey;
+        border: 0px;
         border-top: 5px solid $capt-aqua;
         margin-bottom: 18px;
         margin-right: 14px;
-        legend {
-            margin-left: 20px;
-            span.fieldset-legend {
-            color: $capt-aqua;
-            text-transform: uppercase;
-            font-weight: bold;
-            padding: 0px 5px;
-            left: 20px;
-            }
-            a {
+     legend {
+        margin-left: 20px;
+        span.fieldset-legend {
+                color: $capt-aqua;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 18px;
+                padding: 0px 5px;
+                left: 20px;
+        }
+        a {
                 padding-left: 12px;
                 color: $capt-aqua;
-            }
-        }
-     
-        span.label {
+        } 
+      } /* end legend */
+
+    } /* end fieldset */
+    span.label {
              font-weight: bold;
+             margin-bottom: 4px;
+             font-size: 14px;
+             margin-left: 1px;
+            
+    }
+    .fieldset-wrapper div.form-item {
+       label:not(.option) {
+        font-size: 14px;
+      }
+       label.option {
+        font-size: 13px;
+   
+      }
+    } 
+    
+   input.form-text {
+      font-size: $input-font-size;
+      padding: 5px;
+      max-width: 400px;
+      border: 1px solid $capt-midgrey;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
+      
+   }
+   .form-item {
+       max-width: 580px;
+      .description {
+         font-size: 0.85em;
+         line-height: 1.8em;
+         margin-left: 2px;
+         color: $capt-formgrey;
+       }
+       .confirm-parent, .password-parent {
+        width: 40em !important;
+       }
+       div.password-suggestions {
+          padding: 10px;
+          background: $password-suggest;
+          width: 560px;
+          ul {
+            margin-top: 0.5em;
+          }
+       }
+    }
+    div.data-view,div.fieldset-wrapper {
+        border: 1px solid $capt-profgrey;
+        border-top: 0px;
+        padding-left: 10px;
+        margin-left: -8px;
+        margin-bottom: -30px;
+        width: 100.45%;
+        top: -17px;
+        position: relative;
+        padding-top: 17px;
+        padding-bottom: 25px;
+      
+    }
+    fieldset fieldset {
+        div.fieldset-wrapper {
+            width: 100.6%; /*97.86%;*/
+            margin-left: -9px;
         }
     }
+
+   div.fieldset-wrapper {
+       /* margin-left: -20px;*/
+        /*padding: 10px 17px;*/
+    }
+   
     input#edit-submit,input#edit-cancel {
         background-color: $capt-orange;
     }
+    
+ 
 }
 /*
- *  Title and other elements for Registration page
+ *  Title and other elements for Registration page - all specific stuff goes here. 
  */
 
-body.not-logged-in.page-user-register {
+body.not-logged-in.page-user-register:not(.node-type-event)  {
+ 
     h1#page-title.page__title {
         @extend .calendar-title;
         margin-top: 0px;
-
     }
     div#content {
         border: 0px;
@@ -2202,15 +2156,19 @@ body.not-logged-in.page-user-register {
         padding-left: 20px;
         padding-right: 20px;
       legend {
-        left: -20px;
+        margin-left: 0px;
         position: relative;
         }
+    } 
+    /* specific width of fieldset wrapper - very important */
+      div.fieldset-wrapper {
+       margin-left: -20px;
+       padding: 10px 17px;
+  
     }
-
- 
 }
 /*
- *  Buttons and form elements for user profile
+ *  USER PROFILE FORM: Buttons and form elements for user profile
  */
 form#user-profile-form {
     .edit-button,
@@ -2225,14 +2183,14 @@ form#user-profile-form {
         min-width: 68px;
 
     }
-    .save-button {
-       /* @extend .basic-button;
+    /*.save-button {
+        @extend .basic-button;
           text-transform: uppercase;
           float: right;
           margin-right: 10px;
           cursor: pointer;
-          padding: 8px 20px;*/
-    }
+          padding: 8px 20px;
+    }*/
     input.form-text {
         border: 1px solid $capt-midgrey;
     }
@@ -2260,8 +2218,28 @@ form#user-profile-form {
         font-style: italic;
      }
    }
- }
+   /* fieldset styles */
+   .fieldset-wrapper {
+    margin-left: 0px;
+    width: 97.9%;
 
+   }
+   
+  
+ }
+  /* prevent overlap with bottom save & cancel buttons */
+form#user-profile-form >  div > fieldset > .fieldset-wrapper {
+    padding-bottom: 60px;
+  
+    
+}
+/* OMB Block; we may want to just use a form here */
+body.page-user-edit,body.page-user-register {
+    #block-block-3 {
+      margin: 0 20px 30px 10px;
+      font-size: 12px;
+    }
+}
 /**
  * Switch User 
  */
@@ -2276,7 +2254,499 @@ div.block-devel#block-devel-switch-user {
         }
  }
 
+/*
+ *  Request password page
+ */
 
+body.page-user-password {
+    div#content div#title-section {
+        width: 370px;
+        margin: 0px auto;
+    }
+    input#edit-submit {
+        background-color: $capt-orange;
+    }
+    input#edit-name {
+        font-size: $input-font-size; 
+        &:focus {
+            background-color: $capt-inputfocus;
+            outline: none;
+            border: 2px solid $capt-midgrey;
+        }
+    }
+}
+form#user-pass {
+    @extend .panel;
+    width: 330px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: -20px auto 0;
+}
+
+/*
+ *  Workflow Styles
+ */
+.node-event.workflow-in-progress .group-left::before {
+  color: #ccbb99;
+  content: "DRAFT";
+  display: block;
+  font-size: 15em;
+  font-weight: bold;
+  opacity: .4;
+  position: absolute;
+  transform: rotate(300deg);
+  -webkit-transform: rotate(300deg);
+  z-index: 1;
+}
+/***********************************************
+ *                                             *
+ *  Responsive theming!                        *
+ *                                             *
+ ***********************************************/
+
+
+$iPh6W: 667px;
+$iPh6H: 375px;
+
+/* Navigation bar */
+@media all and (max-width: 479px) {
+  #main {
+    /* Move all the children of #main down to make room. */
+    padding-top: 3em;
+    position: relative;
+  }
+  #navigation {
+    /* Move the navbar up inside #main's padding. */
+    position: absolute;
+    top: 0;
+    height: 3em;
+    width: 100%;
+  }
+}
+
+/* landscape */
+@media screen and (min-width: 0px) and (max-width: $iPh6W) {
+    /* general styles */
+     
+    /* 
+     * prototype classes
+     */
+    .reset-layout {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    /* for mobile panels with no top bars */
+    .top-bar-reset {
+        background-color: none;
+        height: 0px;
+        width: 0px;
+        position: static;
+    }
+    .mobile-panel {
+        padding-top: 10px;
+        margin: 0px auto;
+        float: none;
+        width: 85%;
+        display: block;
+        background: no-repeat;
+        background-color: $capt-lightgrey;
+    }
+    .show-hide {
+         font-size: 22px;
+         padding-left: 20px;
+         cursor: pointer;
+         background-image: url('../images/icons/hide.png');
+         background-position: 0px 8px;
+         background-repeat: no-repeat;
+         margin-left: 0px;
+         margin-top: 0px;
+    }
+
+    /*
+     *  End Prototypes, Start Mixins
+     */
+    @mixin side_borders ($color) {
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+    }
+    @mixin top_open ($color) {
+        border-left: 1px solid $color;
+        border-right: 1px solid $color;
+        border-bottom: 1px solid $color;
+    }
+    /*
+     *  End Mixins
+     */
+
+     /*
+      *Start General Styles
+     */
+
+     html,
+     body {
+        width: 100%;
+        min-width: 320px;
+        overflow-x: hidden;
+        height: 100%;
+        div#page {
+            height: 750px;
+            @extend .reset-layout;
+            display: inline-block;
+
+            margin-bottom: -200px;
+            padding-bottom: 80px;
+        }
+
+        div#block-search-form {
+            display: none;
+        }
+        div#page {
+            header#header {
+            height: 89px;
+            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
+            }
+            padding-bottom: 50px;
+        }
+        div#content {
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        padding-left: 0px;
+        /* border: 1px dotted orange;*/
+       }
+     }
+     /* switch user block */
+       div.block-devel#block-devel-switch-user {
+            margin: 0px auto;
+            text-align: left;
+    }
+    /*
+     *  End General Styles
+     */
+   
+    /*
+     *  iPhone Styles -- User Login Page
+     */
+    #main {
+        @extend .reset-layout;
+    }
+    body.not-logged-in.page-user:not(.page-user-register) {
+        
+        div#title-section {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+       
+        /* reformatting panels for mobile */
+        form#user-login,
+        div#title-section,
+        div#block-block-8,
+        div#block-block-9,
+        {
+            @include side_borders($capt-midgrey);
+            @extend .mobile-panel;
+            // headers for form and blocks.
+            h1, h2 {
+               @extend .show-hide;
+            }
+            h2 {
+                margin-bottom: 6px;
+            }
+            
+        }
+        /*specific disclaimer styles; more at the end */
+        div.disclaimer {
+            margin: 0px auto;
+            left: 0px;
+            padding-right: 0px;
+            width: 100%;
+
+        }
+        // reposition top bar above login title
+        div#title-section {
+            &:before {
+              top: -10px;
+            }
+        }
+        // why register
+        div#block-block-9 {
+            height: 140px;
+            padding-bottom: 26px;
+        }
+        /* mobile styles, cont'd s*/
+        
+        /* new to captconnect? and reasons to join panels */
+        div#block-block-8,
+        div#block-block-9 {
+            border: 1px solid $capt-midgrey;
+            background-image: none;
+            background-repeat: no-repeat;
+            &:before {
+                @extend .top-bar-reset;
+            }
+        }
+        div#content div#title-section h1#page-title {
+            margin-left: 17px;
+        }
+        form#user-login {
+            height: 250px;
+            input#edit-submit {
+                margin-top: 0px;
+                top: 0px;
+            }
+           
+         
+        } // end user login
+
+    } // end body 
+   
+    div.bottom-footer {
+        width: 100%;
+        div.bottom-footer-container {
+            /* border: 1px solid blue;*/
+            
+            width: 100%;
+            div.disclaimer {
+                width: 80%;
+                margin: 0px auto;
+            }
+        }
+    }
+    div.bottom-footer,
+    div.bottom-footer-container,
+    div.disclaimer {
+        @extend .reset-layout;
+        max-width: 100%;
+        text-align: center;
+        display: block;
+        margin: 0px;
+    }
+
+
+ body.logged-in.page-user-edit {
+    div#title-section {
+     h1#page-title.page__title{
+      margin-left: 30px;
+     }
+   }
+
+ }
+ /* merge with styles below? */
+ body.admin-menu  {
+    div#navigation {
+      ul#main-menu.main-menu.responsive-menu {
+         overflow: visible;
+         /* admin*/
+         li#menu-item-1185,
+         /* create */
+         li#menu-item-589 {
+            display: none;
+         }
+         li#menu-item-591 {
+            overflow: visible;
+            a {
+              border-bottom: 1px solid white;
+            }
+        } 
+      }
+   }
+   div#content {
+      margin-top: 50px;
+   }
+}
+body.node-type-event {
+
+}
+ /*
+  *  iPhone Styles -- Registration & Profile Page
+  */
+ form#user-profile-form, 
+ body.admin-menu,
+ body.not-logged-in.page-user-register:not(.node-type-event) {
+    div#block-block-3.block.block-block {
+      width: 85%;
+      margin: 0px auto;
+
+    }
+     div#edit-actions {
+        text-align: center;
+    }
+   fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
+        div.form-type-password-confirm.form-item {
+                    $pass-width: 300px;
+             
+                    /*background-color: blue;*/
+                    width: $pass-width;
+                    margin: 0px;
+                    input.form-text.password-field,
+                    input.form-text.password-confirm {
+                        width: $pass-width;
+                        float: left;
+                        clear: left;
+                        margin-bottom: 10px;
+
+
+                    }
+                    div.description {
+                        clear: left;
+                    }
+                    div.password-suggestions {
+                        width: 112%;
+                    }
+                    input#edit-pass-pass2 {
+                        margin-top: -20px;
+                    }
+                   
+                    div.form-item-pass-pass1,
+                    div.form-item-pass-pass2 {
+                         label {
+                           clear: left;
+                           float: left;
+                       }
+
+
+                   } 
+                   div.password-parent {
+                    width: 85%;
+                   }
+                   div.password-strength {
+                      
+                        width: $pass-width;
+                        float: left;
+                        /*background-color: yellow;*/
+                       
+                        margin-bottom: 20px;
+                      
+                    }
+                
+        }
+        input.form-text {
+                width: 90%;
+                
+
+        }
+        div.description {
+            margin-right: 5px;
+        }
+   }
+   fieldset#edit-ckeditor {
+         
+   }
+   fieldset {
+    width: 85%;
+    min-width: 0px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
+       fieldset  {
+          margin: 0px auto;
+          width: 90%;
+          select {
+            width: 90%;
+          }
+       }
+       fieldset:last-child {
+            margin-bottom: 10px;
+          }
+       div.data-view, div.fieldset-wrapper {
+        /* we need a media query for smaller widths too */
+        width: 100.7%;
+        margin-top: 0px;
+           .item {
+            margin-right: 16px;
+        }
+    }
+    
+   }
+  
+    /* edit button */
+     div.data-view div.edit-button {
+        position: relative;
+        top: -24px;
+        font-size: 18px;
+    }
+    div.fieldset-wrapper {
+
+        div.save-button, div.cancel-button {
+            font-size: 18px;
+           
+           
+        }
+        div.save-button:first-child, div.cancel-button:nth-child(2) {
+            top: -30px;
+            position: relative;
+        }
+    }
+
+   
+   
+   
+   
+  fieldset {
+         padding-top: 0px;
+  
+        legend span.fieldset-legend {
+          
+            margin-left: -300px;
+            left: 283px;
+            margin-bottom: 20px;
+            position: relative;
+            top: 40px;
+            display: block; 
+            
+
+        }
+         div.fieldset-wrapper,div.data-view {
+            padding-top: 40px;
+            margin-top: -3px;
+            margin-bottom: 20px;
+            z-index: 0;
+         }
+         fieldset {
+            z-index: -1000;
+            legend .fieldset-legend {
+            top: -3px;
+            margin-left: 0px;
+            left: 0px;
+            margin-bottom: -3px;
+             a {
+                top: 15px;
+                position: relative;
+                display: block;
+             }
+           }
+           /*div.fieldset-wrapper {
+             margin-top: -32px;
+           }*/
+         }
+    }
+    
+    /* Chrome and Safari Specific Styles */
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6W)  { 
+         div {
+           /* background-color: #02CDD1;*/
+         }
+         fieldset.group-account {
+            div.fieldset-wrapper,div.data-view {
+            padding-top: 70px;
+            margin-top: 8px;
+          }
+         }
+    }
+
+   
+ 
+    
+ 
+}
+
+}
+/**
+ * End iPhone responsive theming
+ */
 
 
 
