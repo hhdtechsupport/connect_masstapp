@@ -301,7 +301,12 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 }
 
 /*
+<<<<<<< HEAD
  * Implements hook().
+=======
+ * Implements template_preprocess_node().
+ * Add a class to the node so it can be displayed as published or not.
+>>>>>>> nancy
  */
 function captconnect_custom_preprocess_node(&$variables) {
   $node = $variables ['node'];
@@ -314,6 +319,12 @@ function captconnect_custom_preprocess_node(&$variables) {
 
 function captconnect_custom_nancy() {
   global $user;
+<<<<<<< HEAD
+=======
+  // Flush the schema cache.
+  drupal_get_schema(NULL, TRUE);
+
+>>>>>>> nancy
   /*
   $query = "SELECT n.nid FROM node n "
     . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
