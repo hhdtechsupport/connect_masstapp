@@ -2307,10 +2307,15 @@ form#user-pass {
  ***********************************************/
 
 
-$iPh6W: 667px;
-$iPh6H: 375px;
+$iPh6H: 667px;
+$iPh6W: 375px;
+$iPadH: 1024px;
+$iPadW: 768px;
+$phone-tablet-divide: 736px;
 
-/* Navigation bar */
+/* Navigation bar 
+ * Uses the styles from responsive.css for mobile phone widths 
+ */
 @media all and (max-width: 479px) {
   #main {
     /* Move all the children of #main down to make room. */
@@ -2326,8 +2331,11 @@ $iPh6H: 375px;
   }
 }
 
-/* landscape */
-@media screen and (min-width: 0px) and (max-width: $iPh6W) {
+/**
+ * iPhone 6 landscape 
+ */
+
+@media screen and (max-width: $phone-tablet-divide /*$iPh6H*/) {
     /* general styles */
      
     /* 
@@ -2725,7 +2733,7 @@ body.node-type-event {
     }
     
     /* Chrome and Safari Specific Styles */
-    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6W)  { 
+    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6H)  { 
          div {
            /* background-color: #02CDD1;*/
          }
@@ -2735,12 +2743,7 @@ body.node-type-event {
             margin-top: 8px;
           }
          }
-    }
-
-   
- 
-    
- 
+    }  
 }
 
 }
@@ -2749,8 +2752,119 @@ body.node-type-event {
  */
 
 
+ /**
+  * Start iPad responsive theming
+  */
+
+@media screen and (min-width: $phone-tablet-divide+1px) and (max-width: $iPadH) {
+
+    body.not-logged-in.page-user:not(.page-user-register) {
+        
+         /* login screen */
+         div#page {
+            width: 83.3333%;
+         }
+
+         form#user-login {
+    
+         }
+         div#title-section {
+
+         }
+         /* new to captconnect */
+         div#block-block-8 {
+
+         }
+         /* reasons to register */
+         div#block-block-9 {
+   
+         }
+         div#title-section, 
+         form#user-login {
+            margin-left: 0px;
+            width: 39%; /*41.71%;*/
+            margin-left: 3%;
+            margin-right: 0px;
+         }
+         div#block-block-8,
+         div#block-block-9 {
+            width: 44%; /*46.24%;*/
+            float: right;
+           
+            margin-right: 3%;
+         }
+         div#main,
+         div#content {
+            width: 100%;
+            margin-left: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+         }
+    }
+   
+
+}
+
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
+body.not-logged-in.page-user:not(.page-user-register) {
+        
+         
+         div#title-section h1#page-title {
+            font-size: 22px;
+         }
+         div#title-section, 
+         form#user-login {
+            margin-left: 0px;
+            width: 38%; 
+            margin-left: 3%;
+            margin-right: 0px;
+         }
+         div#block-block-8 {
+            margin-top: -52px;
+         }
+         div#block-block-8,
+         div#block-block-9 {
+            width: 42%; 
+        
+          
+            h2.block-title,h2.custom_block_title {
+                font-size: 22px;
+            }
+         
+         }
+         div#block-block-9 {
+            background-image: none;
+         }
+         div#main,
+         div#content {
+            width: 100%;
+            margin-left: 0px;
+            padding-left: 0px;
+         }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
 
 
+        
+   div#title-section h1#page-title {
+          font-size: 25px;
+   }
+
+   body.not-logged-in.page-user:not(.page-user-register) {
+   div#block-block-8,
+   div#block-block-9  {
+         h2.block-title,h2.custom_block_title {
+          font-size: 25px;
+         
+     }
+   }
+   div#block-block-8 {
+      margin-top: -58px;
+   }
+  }
+}
 
 
 
