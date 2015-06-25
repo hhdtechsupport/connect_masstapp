@@ -449,6 +449,7 @@ function workflow_state_formatter($entity_type, $entity, $field = array(), $inst
       '#markup' => theme('workflow_current_state', $args),
     );
   }
+
   return $list_element;
 }
 
@@ -499,7 +500,7 @@ function _workflow_use_action_buttons($new_value = NULL) {
  *
  * This is only used if the set the 'options widget' to 'action buttons'.
  * Do not use with multiple workflows per entity: confusing UX.
- * ATM this works for: 
+ * ATM this works for:
  * - Workflow Field: create, edit, view, workflow tab, comment;
  * - Workflow Node: view, workflow tab;
  * (For forms with Workflow Node, the form_alter() is AFTER formElement(). )
@@ -897,11 +898,11 @@ function workflow_get_sid_label($sid) {
  *   The entity to check. May be an EntityDrupalWrapper.
  * @param string $entity_type
  *   The entity_type of the entity to check.
- *   May be empty in case of an EntityDrupalWrapper. 
+ *   May be empty in case of an EntityDrupalWrapper.
  * @param string $field_name
  *   The name of the field of the entity to check.
  *   If NULL, the field_name is determined on the spot. This must be avoided,
- *     making multiple workflow per entity unpredictable. 
+ *     making multiple workflow per entity unpredictable.
  *     The found field_name will be returned in the param.
  *   If '', we have a workflow_node mode.
  *

@@ -1,0 +1,12 @@
+diff --git a/workflow.module b/workflow.module
+index 77333d2..83814df 100644
+--- a/workflow.module
++++ b/workflow.module
+@@ -473,6 +473,7 @@ function workflow_transition_wrapper_form(array $form, array &$form_state, $tran
+   // Override the default function 'entity_ui_controller_form_<op>'; we're not ready for that yet.
+   $form['#validate'] = array('workflow_transition_form_validate');
+   $form['#submit'] = array('workflow_transition_form_submit');
++  $form['#attributes'] = array('class' => array('workflow-transition-form'));
+ 
+   // The Workflow transition is provided as such:
+   // $form_state['entity_type'] = 'WorkflowTransition';

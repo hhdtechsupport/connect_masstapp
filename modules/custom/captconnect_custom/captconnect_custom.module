@@ -154,11 +154,58 @@ function xcaptconnect_custom_admin_paths() {
  * Implements hook_admin_paths_alter().
  * Turn off Overlay on some standard pages.
  */
+<<<<<<< HEAD
 function xcaptconnect_custom_admin_paths_alter(&$paths) {
   $paths['user/*'] = FALSE;
   $paths['admin'] = FALSE;
+=======
+function captconnect_custom_admin_paths_alter(&$paths) {
+//  $paths['user/*'] = FALSE;
+//  $paths['admin'] = FALSE;
+>>>>>>> nancy
   $paths['admin/modules'] = FALSE;
-  $paths['admin/*'] = FALSE;
+//  $paths['admin/*'] = FALSE;
+}
+
+/**
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
+function xcaptconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
+  // Remove any transition where the target state is the same as the current state.
+  foreach ($transitions as $key => $transition) {
+    if ($transition->sid == $transition->target_sid) {
+      unset($transitions[$key]);
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_profile_form':
+      // This doesn't actually work.
+      $form['#attributes'] = array('autocomplete' => 'off');
+  /*
+//    case 'event_notifications_node_form':
+    case 'notifications_node_form':
+      $form['field_related_event']['#disabled'] = TRUE;
+      $form['field_related_event'][LANGUAGE_NONE]['#disabled'] = TRUE;
+      break; /* */
+  }
+//  dpm($form, $form_id);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
+  $current_sid = $form['#default_value'];
+  $form['actions']['workflow_' . $current_sid]['#access'] = FALSE;
+  $current_state = workflow_state_load_single($current_sid);
+  $class = drupal_html_class($current_state ? workflow_get_sid_label($current_sid) : 'unknown state');
+  $form['#attributes']['class'] = array('workflow-transition-form', $class);
 }
 
 /**
