@@ -310,6 +310,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 /*
  * Implements template_preprocess_node().
  * Add a class to the node so it can be displayed as published or not.
+ * Implements hook().
  */
 function captconnect_custom_preprocess_node(&$variables) {
   $node = $variables ['node'];
@@ -325,7 +326,7 @@ function captconnect_custom_nancy() {
   // Flush the schema cache.
   drupal_get_schema(NULL, TRUE);
 
-  /*
+  
   $query = "SELECT n.nid FROM node n "
     . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
     . "WHERE n.type = 'event' AND n.status = 1 AND s.field_workflow_state_value IS NULL";
