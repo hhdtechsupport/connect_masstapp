@@ -23,25 +23,14 @@ function captconnect_custom_permission() {
  */
 function captconnect_custom_menu() {
   $items = array();
-/*
-  $items['node/%node/registrations'] = array(
-    'title' => 'Registrations',
-    'page callback' => 'captconnect_custom_view_notifications',
-    'page arguments' => array(1),
-//    'access callback' => 'captconnect_custom_access_notifications',
-//    'access arguments' => array(1),
-    'access arguments' => array('view registration buttons'),
-    'weight' => 2,
-    'type' => MENU_LOCAL_TASK,
-    );
-*/
+
   $items['node/%node/notifications'] = array(
     'title' => 'Notifications',
     'page callback' => 'captconnect_custom_view_notifications',
     'page arguments' => array(1),
     'access callback' => 'captconnect_custom_access_notifications',
     'access arguments' => array(1),
-    'weight' => 2,
+    'weight' => 0,
     'type' => MENU_LOCAL_TASK,
     );
 
@@ -77,31 +66,31 @@ function captconnect_custom_menu_alter(&$items) {
 /**
  * Menu access callback.
  */
-function captconnect_custom_access_registrations($node) {
-  if ($node->type == 'event') {
-//    $notification = field_get_items('node', $node, 'field_related_notifications');
-//    if ($notification) {
-//      $notification = array_pop(array_pop($notification));
-      return node_access('view', node_load($notification));
-//      return node_access('update', node_load($notification));
-//    }
-  }
-  return FALSE;
-}
-
-/**
- * Menu access callback.
- */
 function captconnect_custom_access_notifications($node) {
   if ($node->type == 'event') {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
-      $notification = array_pop(array_pop($notification));
+      $notification = $notification[0]['target_id'];
       return node_access('view', node_load($notification));
 //      return node_access('update', node_load($notification));
     }
   }
   return FALSE;
+}
+
+/**
+ * Menu callback.
+ */
+function captconnect_custom_view_notifications($node) {
+  if ($node->type == 'event') {
+    $notification = field_get_items('node', $node, 'field_related_notifications');
+    if ($notification) {
+      $notification = array_pop(array_pop($notification));
+//      return node_view(node_load($notification));
+      module_load_include('inc', 'node', 'node.pages');
+      return node_page_edit(node_load($notification));
+    }
+  }
 }
 
 /**
@@ -132,34 +121,27 @@ function captconnect_custom_user_page_title() {
 }
 
 /**
- * Menu callback.
- */
-function captconnect_custom_view_notifications($node) {
-  if ($node->type == 'event') {
-    $notification = field_get_items('node', $node, 'field_related_notifications');
-    if ($notification) {
-      $notification = array_pop(array_pop($notification));
-      return node_view(node_load($notification));
-    }
-  }
-}
-
-/**
  * Implements hook_module_implements_alter().
  */
 function captconnect_custom_module_implements_alter(&$implementations, $hook) {
-  if ($hook == 'admin_paths') {
+  if ($hook == 'admin_paths' && isset($implementations ['captconnect_custom'])) {
     $group = $implementations ['captconnect_custom'];
     unset($implementations ['captconnect_custom']);
     $implementations ['captconnect_custom'] = $group;
   }
+
+  if ($hook == 'form_alter' && isset($implementations['captconnect_custom'])) {
+    $group = $implementations ['captconnect_custom'];
+    unset($implementations['captconnect_custom']);
+    $implementations['captconnect_custom'] = $group;
+  } /* */
 }
 
 /**
  * Implements hook_admin_paths().
  * Set all event_notifications paths to use Overlay.
  */
-function captconnect_custom_admin_paths() {
+function xcaptconnect_custom_admin_paths() {
   // This query should be fairly quick unless theer are lots of notifications.
   // Note that the list is statically cached by path_get_admin_paths().
   $paths = db_query("SELECT CONCAT('node/', nid, '/edit'), 1 FROM {node} WHERE type = 'event_notifications'")->fetchAllKeyed();
@@ -172,11 +154,28 @@ function captconnect_custom_admin_paths() {
  * Implements hook_admin_paths_alter().
  * Turn off Overlay on some standard pages.
  */
-function captconnect_custom_admin_paths_alter(&$paths) {
+function xcaptconnect_custom_admin_paths_alter(&$paths) {
   $paths['user/*'] = FALSE;
   $paths['admin'] = FALSE;
   $paths['admin/modules'] = FALSE;
   $paths['admin/*'] = FALSE;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'user_profile_form':
+      $form['#attributes'] = array('autocomplete' => 'off');
+  /*
+//    case 'event_notifications_node_form':
+    case 'notifications_node_form':
+      $form['field_related_event']['#disabled'] = TRUE;
+      $form['field_related_event'][LANGUAGE_NONE]['#disabled'] = TRUE;
+      break; /* */
+  }
+//  dpm($form, $form_id);
 }
 
 /**
@@ -204,6 +203,14 @@ function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id
           ))),
       );
   }
+}
+
+function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  if ($entity_form['#entity_type'] == 'notifications') {
+    $form['field_related_event']['#access'] = FALSE;
+    $form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
+  }
+//  dpm($entity_form, 'captconnect_custom_inline_entity_form_entity_form_alter');
 }
 
 /**
@@ -301,7 +308,8 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 }
 
 /*
- * Implements hook().
+ * Implements template_preprocess_node().
+ * Add a class to the node so it can be displayed as published or not.
  */
 function captconnect_custom_preprocess_node(&$variables) {
   $node = $variables ['node'];
@@ -314,6 +322,9 @@ function captconnect_custom_preprocess_node(&$variables) {
 
 function captconnect_custom_nancy() {
   global $user;
+  // Flush the schema cache.
+  drupal_get_schema(NULL, TRUE);
+
   /*
   $query = "SELECT n.nid FROM node n "
     . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
