@@ -154,11 +154,23 @@ function xcaptconnect_custom_admin_paths() {
  * Implements hook_admin_paths_alter().
  * Turn off Overlay on some standard pages.
  */
-function xcaptconnect_custom_admin_paths_alter(&$paths) {
-  $paths['user/*'] = FALSE;
-  $paths['admin'] = FALSE;
+function captconnect_custom_admin_paths_alter(&$paths) {
+//  $paths['user/*'] = FALSE;
+//  $paths['admin'] = FALSE;
   $paths['admin/modules'] = FALSE;
-  $paths['admin/*'] = FALSE;
+//  $paths['admin/*'] = FALSE;
+}
+
+/**
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
+function xcaptconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
+  // Remove any transition where the target state is the same as the current state.
+  foreach ($transitions as $key => $transition) {
+    if ($transition->sid == $transition->target_sid) {
+      unset($transitions[$key]);
+    }
+  }
 }
 
 /**
@@ -167,6 +179,7 @@ function xcaptconnect_custom_admin_paths_alter(&$paths) {
 function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_profile_form':
+      // This doesn't actually work.
       $form['#attributes'] = array('autocomplete' => 'off');
   /*
 //    case 'event_notifications_node_form':
@@ -176,6 +189,14 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       break; /* */
   }
 //  dpm($form, $form_id);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
+  $current = $form['#default_value'];
+  $form['actions']['workflow_' . $current]['#access'] = FALSE;
 }
 
 /**
@@ -310,7 +331,6 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 /*
  * Implements template_preprocess_node().
  * Add a class to the node so it can be displayed as published or not.
- * Implements hook().
  */
 function captconnect_custom_preprocess_node(&$variables) {
   $node = $variables ['node'];
@@ -326,7 +346,7 @@ function captconnect_custom_nancy() {
   // Flush the schema cache.
   drupal_get_schema(NULL, TRUE);
 
-  
+  /*
   $query = "SELECT n.nid FROM node n "
     . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
     . "WHERE n.type = 'event' AND n.status = 1 AND s.field_workflow_state_value IS NULL";
