@@ -2853,9 +2853,11 @@ $small-phone-width: 342px;
 
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
   // styles for all iPad-ready pages
+  html,
   body.not-logged-in.page-user:not(.page-user-register),
   body.admin-menu,
   body.page-user-register {
+    width: 100%;
     /* login screen */
     div#page {
       width: 83.3333%;
