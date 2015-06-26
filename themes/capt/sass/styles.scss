@@ -2357,7 +2357,7 @@ $iPadW: 768px;
 $phone-tablet-divide: 736px;
 
 /* fine-tuning for Chrome & Safari */
-@media all and (-webkit-min-device-pixel-ratio:0) and (min-width: $phone-tablet-divide + 1px) {
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
   body.not-logged-in.page-user:not(.page-user-register) {
     #block-block-9 {
       height: 199px;
@@ -2370,8 +2370,6 @@ $phone-tablet-divide: 736px;
  *  Responsive theming!                        *
  *                                             *
  ***********************************************/
-
-
 
 /* Navigation bar 
  * Uses the styles from responsive.css for mobile phone widths 
@@ -2391,6 +2389,27 @@ $phone-tablet-divide: 736px;
   }
 }
 
+$capt-iPh6-scale: 0.65;
+$samhsa-iPh6-scale: 0.7;
+
+$capt-iPh4-scale: 0.55;
+$samhsa-iPh4-scale: 0.6;
+
+$small-tablet-scale: 0.85;
+
+$header-height: 61px;
+$capt-phone-logo-width: 290px;
+$capt-logo-width: 342px;
+$capt-logo-height: 46px;
+$samhsa-phone-logo-width: 175px;
+$samhsa-phone-logo-height: 50px;
+$samhsa-logo-width: 300px;
+$samhsa-logo-height: 74px;
+$top-margin: 10px;
+$small-phone-width: 342px;
+
+@media screen and (min-width: 321px) and (max-width: $phone-tablet-divide) {}
+
 /**
  * iPhone 6 landscape 
  */
@@ -2398,7 +2417,7 @@ $phone-tablet-divide: 736px;
 @media screen and (max-width: $phone-tablet-divide) {
   /* general styles */
   /* 
-   * prototype classes
+   * prototype classes´
    */
   .reset-layout {
     width: 100%;
@@ -2455,6 +2474,22 @@ $phone-tablet-divide: 736px;
     min-width: 320px;
     overflow-x: visible;
     height: 100%;
+    div.top-header {
+      height: $header-height;
+      @include rainbow-bar($header-height - $rainbow-height);
+      div.top-header-container {
+        width: 100%;
+        div.capt-logo {
+          background-image: url("../images/logos/CAPT-logo-phone.png");
+          margin-left: 4%;
+          top: $top-margin + 2px;
+        }
+        div.samhsa-logo {
+          margin-right: 4%;
+          margin-bottom: 0px;
+        }
+      }
+    }
     div#page {
       height: 750px;
       @extend .reset-layout;
@@ -2548,7 +2583,7 @@ $phone-tablet-divide: 736px;
     }
     form#user-login {
       div.form-item-name {
-      padding-top: 0px;
+        padding-top: 0px;
       }
       height: 250px;
       input#edit-submit {
@@ -2736,6 +2771,77 @@ $phone-tablet-divide: 736px;
 }
 
 /**
+ *  Logo Styles for iPhone 6 and iPhone 4
+ */
+
+@mixin logo_size($width, $height, $scale) {
+  background-size: $width * $scale $height * $scale;
+  width: $width * $scale;
+  height: $height * $scale;
+}
+
+/* iPhone 6 */
+
+@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div.top-header {
+      div.top-header-container {
+        div.capt-logo {
+          top: $top-margin + 2px;
+          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
+        }
+        div.samhsa-logo {
+          top: $top-margin;
+          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh6-scale);
+        }
+      }
+    }
+  }
+}
+
+/* iPhone 4 */
+@media screen and (max-width: $small-phone-width) {
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div.top-header {
+      div.top-header-container {
+        div.capt-logo {
+          top: $top-margin + 2px;
+          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh4-scale);
+        }
+        div.samhsa-logo {
+          top: $top-margin;
+          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh4-scale);
+        }
+      }
+    }
+  }
+}
+
+/* small tablet */
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div.top-header {
+      div.top-header-container {
+        div.capt-logo {
+          background-image: url("../images/logos/CAPT-logo-portal.png");
+          @include logo_size($capt-logo-width, $capt-logo-height, $small-tablet-scale);
+        }
+        div.samhsa-logo {
+          top: 20px;
+          @include logo_size($samhsa-logo-width, $samhsa-logo-height, $small-tablet-scale);
+        }
+      }
+    }
+  }
+}
+
+/**
  * End iPhone responsive theming
  */
 
@@ -2751,6 +2857,16 @@ $phone-tablet-divide: 736px;
     /* login screen */
     div#page {
       width: 83.3333%;
+      margin-top: -2px;
+    }
+    div.top-header-container {
+      width: 100%;
+      div.capt-logo {
+        margin-left: 8%;
+      }
+      div.samhsa-logo {
+        margin-right: 8%;
+      }
     }
   }
   // login screen, iPad
