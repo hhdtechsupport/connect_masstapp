@@ -2857,6 +2857,13 @@ $small-phone-width: 342px;
   body.not-logged-in.page-user:not(.page-user-register),
   body.admin-menu,
   body.page-user-register {
+    div.bottom-footer div.disclaimer {
+         width: 60%;
+         padding: 0px;
+         margin-left: 7%;
+         padding-bottom: 8px;
+    }
+
     div#main,
     div#content {
       width: 100%;
@@ -2878,6 +2885,7 @@ $small-phone-width: 342px;
         margin-right: 8%;
       }
     }
+
   }
   // login screen, iPad
   body.not-logged-in.page-user:not(.page-user-register) {
