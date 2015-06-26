@@ -8,24 +8,27 @@
 /* HTML element (SMACSS base) rules */
 
 @import "normalize.css";
+
 /* Layout rules */
 
 @import "layouts/responsive.css";
+
 /* Component (SMACSS module) rules */
 
 @import "components/misc.css";
+
 /* Optionally, add your own components here. */
 
 @import "print.css";
+
 /* SMACSS theme rules */
 /* @import "theme-A.css"; */
 /* @import "theme-B.css"; */
 /* variables */
 /*fonts*/
 
-$default-stack: Arial,
-Helvetica,
-sans-serif;
+$default-stack: Arial, Helvetica, sans-serif;
+
 /* colors*/
 
 $capt-orange: #c3791f;
@@ -41,10 +44,14 @@ $capt-hovergrey: #efefef;
 $capt-formgrey: #5c5c5c;
 $capt-inputfocus: #F5FAFC;
 $password-suggest: #F7F7F7;
+
 /*#e4e4e4;*/
 
-$capt-tabsgrey: #e3e4e0; /*#e4e3e0;*/
+$capt-tabsgrey: #e3e4e0;
+
+/*#e4e3e0;*/
 $capt-profgrey: #dbdbd9;
+
 /*measurements */
 
 $header-height: 100px;
@@ -53,547 +60,576 @@ $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
 $login-margin-left: 17px;
+
 /*fonts*/
 
 $login-font: 16px;
 $edit-margin-right: 15px;
 $input-font-size: 14px;
+
 /* mixins */
 /* for tabs! */
 
-@mixin bottom-line ($thickness) {
-    background-image: -o-linear-gradient(bottom, black $thickness, transparent $thickness);
-    background-image: -moz-linear-gradient(center bottom, black, $thickness, transparent $thickness/2);
-    background-image: -webkit-linear-gradient(bottom, black $thickness, transparent $thickness);
-    background-image: linear-gradient(center bottom, black, $thickness, transparent $thickness);
+@mixin bottom-line($thickness) {
+  background-image: -o-linear-gradient(bottom, black $thickness, transparent $thickness);
+  background-image: -moz-linear-gradient(center bottom, black, $thickness, transparent $thickness / 2);
+  background-image: -webkit-linear-gradient(bottom, black $thickness, transparent $thickness);
+  background-image: linear-gradient(center bottom, black, $thickness, transparent $thickness);
 }
+
 /* for rounded elements */
 
 @mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
 }
+
 /* for header & footer */
 
-@mixin rainbow-bar ($y_pos) {
-    background-image: url('../images/design-elements/rainbow-divider.png');
-    background-position: -124px $y_pos;
-    background-repeat: repeat-x;
+@mixin rainbow-bar($y_pos) {
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px $y_pos;
+  background-repeat: repeat-x;
 }
-@mixin main-active-link () {
-    background-color: white;
-    border: 1px solid $capt-midgrey;
-    border-bottom: 1px solid white;
-    color: $capt-maroon;
-    height: 26px;
+
+@mixin main-active-link {
+  background-color: white;
+  border: 1px solid $capt-midgrey;
+  border-bottom: 1px solid white;
+  color: $capt-maroon;
+  height: 26px;
 }
-@mixin horiz_scale ($val) {
-    -moz-transform: scaleX($val);
-    -o-transform: scaleX($val);
-    -webkit-transform: scaleX($val);
-    transform: scaleX($val);
+
+@mixin horiz_scale($val) {
+  -moz-transform: scaleX($val);
+  -o-transform: scaleX($val);
+  -webkit-transform: scaleX($val);
+  transform: scaleX($val);
 }
+
 /* inherited prototype classes */
 /* panels */
 
-
 #block-block-12 .contextual-links-wrapper {
-    width: 970px;
-    margin: 0px auto;
+  width: 970px;
+  margin: 0px auto;
 }
+
 .proto-disclaimer {
-    position: relative;
-    top: 30px;
-    font-size: 10px;
-    line-height: 1.4em;
-    width: 420px;
-    padding-right: 550px;
-    margin: 0px auto;
-    padding-bottom: 20px;
-    left: 0px;
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
 }
+
 .basic-button {
-    background-color: $capt-orange;
-    color: white;
-    text-align: center;   
-    @include border-radius(5px);
-
+  background-color: $capt-orange;
+  color: white;
+  text-align: center;
+  @include border-radius(5px);
 }
+
 .panel {
-    background-color: $capt-lightgrey;
-    padding-left: 15px;
-    padding-right: 15px;
-    border: 1px solid $capt-midgrey;
-    border-top: 0px;
-    h3 a:hover {
-        color: $capt-maroon;
-    }
-    .filter-wrapper {
-        border: 0px;
-    }
-}
-.panel-rule {
-    @extend .panel;
-    padding-top: 20px;
-    border-top: 0px; /*5px solid $capt-aqua;*/
-    border-bottom: 0px;
-    font-size: 14px;
-    @include border-radius(1px);
-    &:before {
-        display: block;
-        background-color: $capt-aqua;
-        height: 5px;
-        width: 100%;
-        content: "";
-        position: relative;
-        top: -25px;
-        margin-left: -16px;
-        padding-left: 32px;
-    }
+  background-color: $capt-lightgrey;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 1px solid $capt-midgrey;
+  border-top: 0px;
+  h3 a:hover {
+    color: $capt-maroon;
+  }
+  .filter-wrapper {
+    border: 0px;
+  }
 }
 
+.panel-rule {
+  @extend .panel;
+  padding-top: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  border-bottom: 0px;
+  font-size: 14px;
+  @include border-radius(1px);
+  &:before {
+    display: block;
+    background-color: $capt-aqua;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: -25px;
+    margin-left: -16px;
+    padding-left: 32px;
+  }
+}
 
 .panel-rule-single {
-    @extend .panel-rule;
-    margin-bottom: 20px;
-    border-bottom: 1px solid $capt-midgrey;
-    /* needs to be larger for dashboard panels */
+  @extend .panel-rule;
+  margin-bottom: 20px;
+  border-bottom: 1px solid $capt-midgrey;
+  /* needs to be larger for dashboard panels */
 }
+
 .field-container {
-    fieldset {
-        border: 0px;
-        padding-left: 0px;
-    }
-    legend,
-    span.fieldset-legend {
-        font-weight: bold;
-    }
-    input.form-submit {
-        margin-top: 0px;
-    }
+  fieldset {
+    border: 0px;
+    padding-left: 0px;
+  }
+  legend,
+  span.fieldset-legend {
+    font-weight: bold;
+  }
+  input.form-submit {
+    margin-top: 0px;
+  }
 }
 
 .calendar-title {
-     background: url('../images/icons/create-event-2.png') 0 0 no-repeat;
-     padding-left: 70px;  
-     /* variable? deviate from spec and reduce? */
-     padding-top: 7px;
-     color: $capt-maroon;
-     min-height: 44px;
-     font-size: 26pt;
-     /* from h2 in the specs */   
-     margin-top: 36px;
-     margin-bottom: 21px;
-
+  background: url("../images/icons/create-event-2.png") 0 0 no-repeat;
+  padding-left: 70px;
+  /* variable? deviate from spec and reduce? */
+  padding-top: 7px;
+  color: $capt-maroon;
+  min-height: 44px;
+  font-size: 26pt;
+  /* from h2 in the specs */
+  margin-top: 36px;
+  margin-bottom: 21px;
 }
+
 /*
  *  End inherited primitives
  */
 /* pager */
 
 .pager-link {
-    background-repeat: no-repeat;
-    color: $capt-orange;
-    font-size: 14px;
-    font-weight: normal;
+  background-repeat: no-repeat;
+  color: $capt-orange;
+  font-size: 14px;
+  font-weight: normal;
 }
+
 .pager-clip {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    top: 6px;
-    display: inline-block;
-    width: 30px;
-    height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  top: 6px;
+  display: inline-block;
+  width: 30px;
+  height: 20px;
 }
+
 /* from Hemali's primary styles */
 
 body {
-    /* changed font per the spec */
-    
-    font-family: $default-stack;
-    font-size: 13px;
-    color: $capt-black;
+  /* changed font per the spec */
+  font-family: $default-stack;
+  font-size: 13px;
+  color: $capt-black;
 }
+
 /* eliminate blue links */
 
 #page {
-    div.view-content .panel {
-        a, a.flag-action {
-            /* color: $capt-black;*/
-        }
-        .item-list h3 {
-            font-size: 16px;
-        }
-        a:hover {
-            color: $capt-maroon;
-        }
+  div.view-content .panel {
+    a, a.flag-action {
+      /* color: $capt-black;*/
     }
+    .item-list h3 {
+      font-size: 16px;
+    }
+    a:hover {
+      color: $capt-maroon;
+    }
+  }
 }
+
 #page > header {
-    position: relative;
-    padding-bottom: 20px;
-    background: #86a9b5;
+  position: relative;
+  padding-bottom: 20px;
+  background: #86a9b5;
 }
+
 .ds-2col-stacked-fluid > .group-left {
-    margin-right: 1%;
-    width: 49%;
+  margin-right: 1%;
+  width: 49%;
 }
+
 /* from the Hemali's first and second style sheets */
 /* these are the top nav form buttons. */
 
 ul.main-menu {
-    margin-top: 40px;
+  margin-top: 40px;
 }
+
 /* inherited class */
 
 .button-reset {
-    text-decoration: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: normal;
+  text-decoration: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: normal;
 }
+
 ul.main-menu a {
-    color: $capt-black;
-    background: $capt-lightgrey;
-    padding: 12px 20px 4px 20px;
-    font-size: 15px;
-    @extend .button-reset;
-    &:active {
-        color: $capt-maroon;
-    }
+  color: $capt-black;
+  background: $capt-lightgrey;
+  padding: 12px 20px 4px 20px;
+  font-size: 15px;
+  @extend .button-reset;
+  &:active {
+    color: $capt-maroon;
+  }
 }
+
 /* submit & other buttons*/
 
 input[type="submit"],
 a.button {
-    @include border-radius(5px);
-    color: #ffffff;
-    background: #292929;
-    padding: 8px 20px;
-    @extend .button-reset;
+  @include border-radius(5px);
+  color: #ffffff;
+  background: #292929;
+  padding: 8px 20px;
+  @extend .button-reset;
 }
+
 /*ul.main-menu a:hover, */
 
 input[type="submit"]:hover,
 a.button:hover {
-    background: #595959;
-    text-decoration: none;
+  background: #595959;
+  text-decoration: none;
 }
+
 ul.sub-menu {
-    background: #292929;
-    li {
-        white-space: nowrap;
-        margin: 6px 0;
-    }
+  background: #292929;
+  li {
+    white-space: nowrap;
+    margin: 6px 0;
+  }
 }
+
 input[type="submit"] {
-    margin-right: 1em;
-    border: none;
-    /*font-weight: bold;*/
-    
-    margin-top: 1em;
+  margin-right: 1em;
+  border: none;
+  /*font-weight: bold;*/
+  margin-top: 1em;
 }
+
 h1 {
-    font-size: 3.25em;
-    line-height: 1.25em;
+  font-size: 3.25em;
+  line-height: 1.25em;
 }
+
 h2 {
-    font-size: 2.25em;
-    line-height: 1.25em;
-    margin-top: .5em;
-    margin-bottom: .5em;
+  font-size: 2.25em;
+  line-height: 1.25em;
+  margin-top: .5em;
+  margin-bottom: .5em;
 }
+
 h3 {
-    font-size: 1.75em;
-    font-style: italic;
+  font-size: 1.75em;
+  font-style: italic;
 }
+
 h4 {
-    font-size: 1.25em;
-    margin-bottom: .5em;
+  font-size: 1.25em;
+  margin-bottom: .5em;
 }
+
 h5 {
-    font-size: 1em;
-    margin-bottom: .5em;
+  font-size: 1em;
+  margin-bottom: .5em;
 }
+
 /* FORMS */
 /* general styles */
 
 a {
-    color: $capt-orange;
+  color: $capt-orange;
 }
+
 a.button,
 a.button:hover {
-    background-color: $capt-orange;
-    color: white;
+  background-color: $capt-orange;
+  color: white;
 }
+
 /* dashboard */
 /* the main panels */
 
 .node-dashboard {
-    .group-left .field-type-ds, .group-right .field-type-ds {
-        @extend .panel-rule-single;
-    }
+  .group-left .field-type-ds, .group-right .field-type-ds {
+    @extend .panel-rule-single;
+  }
 }
 
 /* adopting h4:black for this one */
 
 .node-dashboard h2.block-title {
-    /* artifacts */
-    
-    margin-top: 0;
-    margin-bottom: 0.5em;
-    /* new */
-    
-    font-size: 24px;
-    color: $capt-black;
+  /* artifacts */
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  /* new */
+  font-size: 24px;
+  color: $capt-black;
 }
+
 /* dashboard lists */
 
 li.views-row {
-    list-style-image: url('../images/icons/arrow-icons.png');
-    margin-bottom: -2px;
+  list-style-image: url("../images/icons/arrow-icons.png");
+  margin-bottom: -2px;
 }
+
 li.views-row:last-child {
-    margin-bottom: -3px;
+  margin-bottom: -3px;
 }
+
 div.view-content div.item-list {
-    padding-left: 0px;
-    margin-bottom: -21px;
-    h3 {
-        margin-bottom: 10px;
-        padding-top: 0px;
-        line-height: 16px;
-        a:hover {
-            text-decoration: none;
-        }
+  padding-left: 0px;
+  margin-bottom: -21px;
+  h3 {
+    margin-bottom: 10px;
+    padding-top: 0px;
+    line-height: 16px;
+    a:hover {
+      text-decoration: none;
     }
-    /* TODO: add variant for registered events */
-    
-    ul {
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
+  }
+  /* TODO: add variant for registered events */
+  ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 }
+
 p {
-    margin: 0 0 1em 0;
-    line-height: 1.6em;
+  margin: 0 0 1em 0;
+  line-height: 1.6em;
 }
+
 div.field-name-upcoming-events {
+  padding-bottom: 0px;
+  div.view-content {
+    /* set to min-height to avoid breaking layout */
+    margin-top: -30px;
+    /*min-height: 450px;*/
+    margin-left: -16px;
+    /*border-bottom: 5px solid $capt-aqua;*/
+    width: 410px;
     padding-bottom: 0px;
-    div.view-content {
-        /* set to min-height to avoid breaking layout */
-        
-        margin-top: -30px;
-        /*min-height: 450px;*/
-        
-        margin-left: -16px;
-        /*border-bottom: 5px solid $capt-aqua;*/
-        
-        width: 410px;
-        padding-bottom: 0px;
-        margin-bottom: 0px;
-        ul {
-            padding-left: 14px;
-            border-bottom: 1px solid $capt-midgrey;
-            width: 394px;
-            padding-bottom: 13px;
-        }
-        div.item-list {
-            margin-left: 0px;
-        }
+    margin-bottom: 0px;
+    ul {
+      padding-left: 14px;
+      border-bottom: 1px solid $capt-midgrey;
+      width: 394px;
+      padding-bottom: 13px;
     }
-    ul.pager {
-        margin-top: 45px;
-        padding-left: 0px;
-        width: 390px;
-        margin-left: -7px;
+    div.item-list {
+      margin-left: 0px;
     }
+  }
+  ul.pager {
+    margin-top: 45px;
+    padding-left: 0px;
+    width: 390px;
+    margin-left: -7px;
+  }
 }
+
 /* *
  * Pager styles
  */
 
 ul.pager {
-    padding-top: 5px;
-    height: 40px;
-    text-align: center;
-    text-overflow: visible;
-    a:hover {
-        text-decoration: none;
+  padding-top: 5px;
+  height: 40px;
+  text-align: center;
+  text-overflow: visible;
+  a:hover {
+    text-decoration: none;
+  }
+  /* width: 106%;*/
+  li.pager-ellipsis {
+    padding: 0px;
+  }
+  li.pager-item {
+    background-color: $capt-lightgrey;
+    color: $capt-orange;
+    height: 30px;
+    /*padding: 8px 0px 8px 0px;*/
+    width: 50px;
+    a {
+      color: $capt-orange;
+      /*padding: 4px 7px;*/
     }
-    /* width: 106%;*/
-    
-    li.pager-ellipsis {
-        padding: 0px;
+  }
+  /* no link within pager-current */
+  li.pager-current {
+    background-color: $capt-orange;
+    width: 60px;
+    color: $capt-lightgrey;
+  }
+  li.pager-last a {
+    background-position: 33px 8px;
+  }
+  /* first & previous on left */
+  li.pager-first,
+  li.pager-previous {
+    padding: 0px;
+    margin: 0px 4px 0px 0px;
+    a {
+      @extend .pager-link;
+      background-image: url("../images/icons/left-arrow.png");
+      background-position: 0 8px;
+      padding: 8px 0px 8px 20px;
     }
-    li.pager-item {
-        background-color: $capt-lightgrey;
-        color: $capt-orange;
-        height: 30px;
-        /*padding: 8px 0px 8px 0px;*/
-        
-        width: 50px;
-        a {
-            color: $capt-orange;
-            /*padding: 4px 7px;*/
-        }
+  }
+  /* next & last on right */
+  li.pager-next,
+  li.pager-last {
+    padding: 0px;
+    margin: 0px 0px 0px 4px;
+    a {
+      @extend .pager-link;
+      background-image: url("../images/icons/right-arrow.png");
+      background-position: 35px 8px;
+      padding: 8px 24px 8px 0px;
     }
-    /* no link within pager-current */
-    
-    li.pager-current {
-        background-color: $capt-orange;
-        width: 60px;
-        color: $capt-lightgrey;
+  }
+  li.pager-last a {
+    background-position: 34px 8px;
+  }
+  li.pager-current {
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 6px 9px;
+  }
+  li.pager-item {
+    /* not sure why we need vert padding but not horiz padding.*/
+    padding: 6px 0px;
+    margin-right: 3px;
+    margin-left: 3px;
+    a {
+      padding: 6px 9px;
     }
-    li.pager-last a {
-        background-position: 33px 8px;
-    }
-    /* first & previous on left */
-    
-    li.pager-first,
-    li.pager-previous {
-        padding: 0px;
-        margin: 0px 4px 0px 0px;
-        a {
-            @extend .pager-link;
-            background-image: url('../images/icons/left-arrow.png');
-            background-position: 0 8px;
-            padding: 8px 0px 8px 20px;
-        }
-    }
-    /* next & last on right */
-    
-    li.pager-next,
-    li.pager-last {
-        padding: 0px;
-        margin: 0px 0px 0px 4px;
-        a {
-            @extend .pager-link;
-            background-image: url('../images/icons/right-arrow.png');
-            background-position: 35px 8px;
-            padding: 8px 24px 8px 0px;
-        }
-    }
-    li.pager-last a {
-        background-position: 34px 8px;
-    }
- 
-    li.pager-current {
-        margin-left: 3px;
-        margin-right: 3px;
-        padding: 6px 9px;
-    }
-    li.pager-item {
-        /* not sure why we need vert padding but not horiz padding.*/
-        padding: 6px 0px;
-        margin-right: 3px;
-        margin-left: 3px;
-        a {
-            padding: 6px 9px;
-        }
-    }
-    // throbber needs to be on its own line 
-    // so as not to affect the pager
-    div.ajax-progress {
-        float: right;
-        display: inline;
-        top: 20px;
-        left: center;
-        position: relative;
-        margin-left: -20px;
-    }
+  }
+  // throbber needs to be on its own line 
+  // so as not to affect the pager
+  div.ajax-progress {
+    float: right;
+    display: inline;
+    top: 20px;
+    left: center;
+    position: relative;
+    margin-left: -20px;
+  }
 }
+
 /* end pager styles */
 
 .view-presenters {
-    .views-field-field-presenter-image {
-        float: left;
-
-        margin: 0 1em 0.5em 0;
-    }
-    .views-row:not(last-child) {
-        margin-bottom: 2em;
-    }
+  .views-field-field-presenter-image {
+    float: left;
+    margin: 0 1em 0.5em 0;
+  }
+  .views-row:not(last-child) {
+    margin-bottom: 2em;
+  }
 }
+
 .field-group-fieldset,
 .view-presenters .views-row {
-    clear: both;
+  clear: both;
 }
+
 a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #3884e1;
+  &:visited {
     text-decoration: none;
     font-weight: bold;
     color: #3884e1;
-    &:visited {
-        text-decoration: none;
-        font-weight: bold;
-        color: #3884e1;
-    }
-    &:hover {
-        text-decoration: underline;
-    }
+  }
+  &:hover {
+    text-decoration: underline;
+  }
 }
+
 .tabs-primary__tab a {
+  color: #333;
+  &:visited {
     color: #333;
-    &:visited {
-        color: #333;
-    }
+  }
 }
+
 table {
-    width: 100%;
-    thead th {
-        text-align: left;
-    }
+  width: 100%;
+  thead th {
+    text-align: left;
+  }
 }
+
 .admin-only {
-    background: #c7ff86;
-    float: right;
-    width: 150px;
-    list-style-type: none;
-    text-align: center;
-    padding-left: 0;
+  background: #c7ff86;
+  float: right;
+  width: 150px;
+  list-style-type: none;
+  text-align: center;
+  padding-left: 0;
 }
+
 .view-registrations table {
-    margin-bottom: 50px;
-    caption {
-        font-size: 1.5em;
-        margin: .2em 0;
-    }
+  margin-bottom: 50px;
+  caption {
+    font-size: 1.5em;
+    margin: .2em 0;
+  }
 }
+
 /* end forms */
 
 body {
-    background: url('../images/design-elements/wrapper-background.png');
+  background: url("../images/design-elements/wrapper-background.png");
 }
+
 .top-header {
-    width: 100%;
-    /*border-bottom: 5px solid black;*/
-    
-    height: 30px;
+  width: 100%;
+  /*border-bottom: 5px solid black;*/
+  height: 30px;
 }
+
 /*
  *  Cancelling a registered event
  */
 
 body.node-type-dashboard {
-    #page {
-        height: 100%;
-        /* changed from 1000px*/
-        
-        div.view-content span.flag-registration a.unflag-action {
-            font-size: 12px;
-            margin-left: -14px;
-
-        }
+  #page {
+    height: 100%;
+    /* changed from 1000px*/
+    div.view-content span.flag-registration a.unflag-action {
+      font-size: 12px;
+      margin-left: -14px;
     }
+  }
 }
+
 .bottom-footer {
-    width: 100%;
-    display: block;
-    top: 100px;
-    position: relative;
+  width: 100%;
+  display: block;
+  top: 100px;
+  position: relative;
 }
 
 /*
@@ -601,24 +637,27 @@ body.node-type-dashboard {
  */
 
 #page {
-    height: auto !important;
-    /* This line and the next line are not necessary unless you need IE6 support */
-    
-    margin: 0 auto -100px;
-    /* the bottom margin is the negative value of the footer's height */
+  height: auto !important;
+  /* This line and the next line are not necessary unless you need IE6 support */
+  margin: 0 auto -100px;
+  /* the bottom margin is the negative value of the footer's height */
 }
+
 .top-header-container,
 .bottom-footer-container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
 }
+
 .capt-logo {
-    float: left;
+  float: left;
 }
+
 .samhsa-logo {
-    float: right;
+  float: right;
 }
+
 /*
 .disclaimer {
     width: 600px;
@@ -626,515 +665,536 @@ body.node-type-dashboard {
 /* treating this as the container for now */
 
 #main {
-    width: $page-width;
-    margin-left: 12px;
-    margin-right: 14px;
+  width: $page-width;
+  margin-left: 12px;
+  margin-right: 14px;
 }
+
 /* page */
 
 #page {
-    background: #FFF;
-    padding-bottom: 2em;
-    clear: both;
-    /* from the spec */
-    
-    width: $page-width;
+  background: #FFF;
+  padding-bottom: 2em;
+  clear: both;
+  /* from the spec */
+  width: $page-width;
 }
+
 .header__name-and-slogan {
-    float: none;
-    clear: both;
+  float: none;
+  clear: both;
 }
+
 .region-header {
-    float: right;
-    div, form {
-        display: inline;
-    }
+  float: right;
+  div, form {
+    display: inline;
+  }
 }
+
 .group-dates,
 .group-event,
 .group-presenter,
 .group-materials,
 .field-name-add-a-date + .field,
 .field-name-add-a-presenter + .field {
-    clear: both;
+  clear: both;
 }
+
 .view-instances.view-display-id-registration > .view-content > .views-row div {
-    display: inline;
+  display: inline;
 }
 
 .ds-2col-stacked > {
-    .group-left {
-        float: left;
-        width: auto;
-        margin-right: 280px;
-    }
-    .group-right {
-        float: left;
-        width: 240px;
-        margin-left: -260px;
-    }
-}
-body.node-type-event #title-section {
+  .group-left {
+    float: left;
     width: auto;
-    margin-right: 330px; /*280px;*/
+    margin-right: 280px;
+  }
+  .group-right {
+    float: left;
+    width: 240px;
+    margin-left: -260px;
+  }
+}
 
+body.node-type-event #title-section {
+  width: auto;
+  margin-right: 330px;
+  /*280px;*/
 }
 
 .region-help #block-block-1 {
-    text-align: center;
-    float: right;
-    margin-left: -260px;
-    width: 240px;
-    padding-right: 10px;
-    /*margin-top: 1em;*/
+  text-align: center;
+  float: right;
+  margin-left: -260px;
+  width: 240px;
+  padding-right: 10px;
+  /*margin-top: 1em;*/
 }
+
 /*
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
 
 div#block-block-1.contextual-links-region {
-    a.button {
-        width: 116px;
-        display: block;
-        float: right;
-        margin-bottom: 14px;
-    }
+  a.button {
+    width: 116px;
+    display: block;
+    float: right;
+    margin-bottom: 14px;
+  }
 }
+
 /* make links orange */
 
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
-    color: $capt-orange;
+  color: $capt-orange;
 }
+
 /* banners */
 
 .view-event-banner {
-    .views-row {
-        font-size: 3em;
-        font-weight: bold;
-    }
+  .views-row {
+    font-size: 3em;
+    font-weight: bold;
+  }
 }
+
 .vertical-tabs {
-    clear: both;
+  clear: both;
 }
+
 /* form stuff */
 
 #event-notifications-node-form {
-    .form-field-type-entityreference.field-widget-inline-entity-form-single {
-        float: left;
-        width: 56%;
-        padding-right: 1%;
-        clear: both;
+  .form-field-type-entityreference.field-widget-inline-entity-form-single {
+    float: left;
+    width: 56%;
+    padding-right: 1%;
+    clear: both;
+  }
+  .form-field-type-markup {
+    float: left;
+    width: 43%;
+    .views-field-field-email-body > div > div > table {
+      margin: 0 1.5% !important;
+      transform: scale(0.75);
+      transform-origin: 0 0;
+      -moz-transform: scale(0.75);
+      -moz-transform-origin: top left;
     }
-    .form-field-type-markup {
-        float: left;
-        width: 43%;
-        .views-field-field-email-body > div > div > table {
-            margin: 0 1.5% !important;
-            transform: scale(0.75);
-            transform-origin: 0 0;
-            -moz-transform: scale(0.75);
-            -moz-transform-origin: top left;
-        }
-    }
-    .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
-        display: none;
-    }
-}
-.role-event-creator .text-format-wrapper .filter-wrapper {
+  }
+  .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
     display: none;
+  }
 }
+
+.role-event-creator .text-format-wrapper .filter-wrapper {
+  display: none;
+}
+
 .rules-debug-log,
 .tabs-primary {
-    clear: both;
+  clear: both;
 }
+
 /* new styles */
 /* not used yet */
 
 .back-to-top {
-    color: $capt-black;
+  color: $capt-black;
 }
+
 .content-container {
-    width: 970px;
-    margin-left: 15px;
-    margin-right: 15px;
+  width: 970px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
+
 /* not used yet */
 
 h4.black {
-    color: $capt-black;
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 9px;
+  color: $capt-black;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 9px;
 }
+
 /* panels */
 
 .field-name-my-registered-events {
-    background: url('../images/icons/registered-events.png') 396px 10px no-repeat;
-
+  background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
 }
+
 .field-name-my-archived-events.field-type-ds,
 .field-name-my-registered-events.field-type-ds {
-    overflow: none;
-    /*min-height: 245px;*/
-    padding-bottom: 30px;
-    margin-right: 14px;
-    padding-right: 30px;
-    padding-left: 0px;
-    
-    div.field-items {
-        margin-left: 20px;
-    }
-    .view-dashboard {
-        /*border-bottom: 1px solid $capt-midgrey;*/
-        
-        padding-top: 0px;
-    }
-    div.item-list {
-        margin-right: 12px;
-        margin-left: -6px;
-    }
-    /* debold the title */
-    
-    h2.block-title {
-        font-weight: normal;
-        margin-bottom: -10px;
-        margin-top: 3px;
-        color: $capt-darkblue;
-        margin-left: -10px;
-    }
-    /* blacken the links */
-    
-    h3 a {
-        font-style: normal;
-        font-size: 14px;
-        color: black;
-    }
-    /* format list of events */
-    div#content {
-        padding-left: 30px;
-    }
-    div.view-content  {
-        margin-bottom: 25px;
-        /*padding-left: 20px;*/ /*we may need this to be more specific elsewhere*/
-        div.item-list ul {
-        padding-left: 16px;
-        margin-top: 0px;
+  overflow: none;
+  /*min-height: 245px;*/
+  padding-bottom: 30px;
+  margin-right: 14px;
+  padding-right: 30px;
+  padding-left: 0px;
+  div.field-items {
+    margin-left: 20px;
+  }
+  .view-dashboard {
+    /*border-bottom: 1px solid $capt-midgrey;*/
+    padding-top: 0px;
+  }
+  div.item-list {
+    margin-right: 12px;
+    margin-left: -6px;
+  }
+  /* debold the title */
+  h2.block-title {
+    font-weight: normal;
+    margin-bottom: -10px;
+    margin-top: 3px;
+    color: $capt-darkblue;
+    margin-left: -10px;
+  }
+  /* blacken the links */
+  h3 a {
+    font-style: normal;
+    font-size: 14px;
+    color: black;
+  }
+  /* format list of events */
+  div#content {
+    padding-left: 30px;
+  }
+  div.view-content {
+    margin-bottom: 25px;
+    /*padding-left: 20px;*/
+    /*we may need this to be more specific elsewhere*/
+    div.item-list ul {
+      padding-left: 16px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      border-bottom: 1px solid $capt-midgrey;
+      padding-bottom: 0px;
+      li {
         margin-bottom: 0px;
-        border-bottom: 1px solid $capt-midgrey;
-        padding-bottom: 0px;
-        li {
-            margin-bottom: 0px;
-            padding-left: 0px;
-        }
+        padding-left: 0px;
       }
     }
-    /* cancel registration link */
-    
-    a.unflag-action {
-        font-weight: normal;
-        color: black;
-        text-decoration: underline;
-        display: block;
-        margin-bottom: -12px;
+  }
+  /* cancel registration link */
+  a.unflag-action {
+    font-weight: normal;
+    color: black;
+    text-decoration: underline;
+    display: block;
+    margin-bottom: -12px;
+  }
+  div.item-list {
+    border-width: 0px;
+  }
+  /* pager logic */
+  ul.pager {
+    margin-bottom: -10px;
+    margin-top: 40px;
+    li.pager-item {
+      border: 1px solid $capt-aqua;
+      /*padding: 6px 9px;*/
+    /* a {
+padding: 4px 7px;
+}*/
+    }
+    li.pager-current {
+      background-color: $capt-aqua;
+      border: 1px solid $capt-aqua;
+    }
+    li.pager-next,
+    li.pager-last {
+      a {
+        background-image: url("../images/icons/right-arrow-aqua.png");
+      }
+    }
+    li.pager-previous,
+    li.pager-first {
+      a {
+        background-image: url("../images/icons/left-arrow-aqua.png");
+      }
+    }
+    li.pager-item,
+    li.pager-current,
+    li.pager-previous,
+    li.pager-last,
+    li.pager-first,
+    li.pager-next {
+      a {
+        color: $capt-aqua;
+      }
+    }
+  }
+}
 
-    }
-    div.item-list {
-        border-width: 0px
-    }
-    /* pager logic */
-    
-    ul.pager {
-        margin-bottom: -10px;
-        margin-top: 40px;
-        li.pager-item {
-            border: 1px solid $capt-aqua;
-            /*padding: 6px 9px;*/
-            /* a {
-        padding: 4px 7px;
-        }*/
-        }
-        li.pager-current {
-            background-color: $capt-aqua;
-            border: 1px solid $capt-aqua;
-        }
-        li.pager-next,
-        li.pager-last {
-            a {
-                background-image: url('../images/icons/right-arrow-aqua.png');
-            }
-        }
-        li.pager-previous,
-        li.pager-first {
-            a {
-                background-image: url('../images/icons/left-arrow-aqua.png');
-            }
-        }
-        li.pager-item,
-        li.pager-current,
-        li.pager-previous,
-        li.pager-last,
-        li.pager-first,
-        li.pager-next {
-            a {
-                color: $capt-aqua;
-            }
-        }
-    }
-}
 .field-name-my-archived-events.field-type-ds {
-    background: url('../images/icons/archived-events.png') 396px 10px no-repeat;
-    .view-dashboard {
-        /* min-height: 170px;*/
+  background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
+  .view-dashboard {
+    /* min-height: 170px;*/
+  }
+  div.view-content {
+    margin-left: -8px;
+    div.item-list {
+      margin-left: 0px;
+      ul {
+        padding-bottom: 5px;
+      }
     }
-    div.view-content {
-        margin-left: -8px;
-        div.item-list {
-            margin-left: 0px;
-            ul {
-                padding-bottom: 5px;
-            }
-        }
-    }
-    h2.block-title {
-        font-weight: normal;
-    }
-    div.view-empty {
-        margin-top: 30px;
-    }
-    ul.pager {
-        margin-top: 48px;
-        /*margin-bottom: -30px;*/
-        
-        padding-bottom: 0px;
-    }
+  }
+  h2.block-title {
+    font-weight: normal;
+  }
+  div.view-empty {
+    margin-top: 30px;
+  }
+  ul.pager {
+    margin-top: 48px;
+    /*margin-bottom: -30px;*/
+    padding-bottom: 0px;
+  }
 }
+
 /* upcoming events panel  */
 
 body.logged-in {
-    .field-name-upcoming-events.field-type-ds {
-        background-color: white;
-        border-width: 5px 0px 0px 0px;
-        margin-right: 40px;
-        margin-left: 0px;
-        div.item-list {
-            margin-top: 34px;
-        }
-        h2.block-title {
-            font-weight: normal;
-            /* best way to do it?*/
-            
-            display: none;
-        }
-        h3,
-        span.date-display-single {
-            font-style: normal;
-            font-size: 14px;
-            a {
-                color: black;
-            }
-
-        }
+  .field-name-upcoming-events.field-type-ds {
+    background-color: white;
+    border-width: 5px 0px 0px 0px;
+    margin-right: 40px;
+    margin-left: 0px;
+    div.item-list {
+      margin-top: 34px;
     }
+    h2.block-title {
+      font-weight: normal;
+      /* best way to do it?*/
+      display: none;
+    }
+    h3,
+    span.date-display-single {
+      font-style: normal;
+      font-size: 14px;
+      a {
+        color: black;
+      }
+    }
+  }
 }
+
 /*logos above header - move up to general area? */
 
 div.top-header {
-    @include rainbow-bar($header-height - $rainbow-height);
+  @include rainbow-bar($header-height - $rainbow-height);
     /*background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
-    
-    height: $header-height;
+  height: $header-height;
 }
+
 /*
 *  Logos
 */
 
 div.top-header-container {
-    height: 100px;
-    width: $page-width;
-    /* logos */
-    
-    div.capt-logo {
-        background: url('../images/logos/CAPT-logo-portal.png') 0 0 no-repeat;
-        width: 340px;
-        margin-left: $logo-margin;
-        margin-bottom: 0px;
-        top: 32px;
-    }
-    div.samhsa-logo {
-        background: url('../images/logos/SAMHSA-logo.png') 0 0 no-repeat;
-        width: 295px;
-        background-size: 295px 73px;
-        margin-right: $logo-margin;
-        top: 6px;
-    }
-    div.capt-logo,
-    div.samhsa-logo {
-        height: $header-height;
-        position: relative;
-    }
+  height: 100px;
+  width: $page-width;
+  /* logos */
+  div.capt-logo {
+    background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
+    width: 340px;
+    margin-left: $logo-margin;
+    margin-bottom: 0px;
+    top: 32px;
+  }
+  div.samhsa-logo {
+    background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
+    width: 295px;
+    background-size: 295px 73px;
+    margin-right: $logo-margin;
+    top: 6px;
+  }
+  div.capt-logo,
+  div.samhsa-logo {
+    height: $header-height;
+    position: relative;
+  }
 }
+
 /* Welcome line near search box on dashboard*/
 
 div#block-block-7 {
+  color: white;
+  a {
     color: white;
-    a {
-        color: white;
-        font-weight: normal;
-        text-decoration: underline;
-    }
+    font-weight: normal;
+    text-decoration: underline;
+  }
 }
+
 /*
  *  Sitewide styles 
  */
 /* search */
 
 input#edit-search-block-form--2 {
-    @include border-radius(5px);
-    border: 0px;
-    margin-left: 16px;
-    height: 22px;
-    width: 170px;
-    font-weight: normal;
-    background: url('../images/icons/hand-lens.png') 150px 4px no-repeat;
-    background-color: white;
+  @include border-radius(5px);
+  border: 0px;
+  margin-left: 16px;
+  height: 22px;
+  width: 170px;
+  font-weight: normal;
+  background: url("../images/icons/hand-lens.png") 150px 4px no-repeat;
+  background-color: white;
 }
+
 form#search-block-form {
-    div#edit-actions, div#edit-actions--2 {
-        input#edit-submit, input#edit-submit--2 {
-            border: 1px solid white;
-            background-color: transparent;
-            height: 24px;
-            padding: 4px;
-            width: 70px;
-            margin-left: 8px;
-        }
+  div#edit-actions, div#edit-actions--2 {
+    input#edit-submit, input#edit-submit--2 {
+      border: 1px solid white;
+      background-color: transparent;
+      height: 24px;
+      padding: 4px;
+      width: 70px;
+      margin-left: 8px;
     }
+  }
 }
+
 div#edit-actions {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
+
 /* 
 *  Banners
 */
 /* Event Dashboard banner */
 
 header#header {
-    height: 191px;
-    background: url('../images/banners/event-dashboard.png') 0 0 no-repeat;
+  height: 191px;
+  background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
 }
+
 /* 
 *  Navigation
 */
 
 #block-responsive-dropdown-menus-main-menu {
-    margin-left: -10px;
-    /*border-bottom: 1px solid $capt-midgrey;*/
-    
-    height: 27px;
-    width: 870px;
-    padding-left: 0px;
+  margin-left: -10px;
+  /*border-bottom: 1px solid $capt-midgrey;*/
+  height: 27px;
+  width: 870px;
+  padding-left: 0px;
 }
+
 ul#main-menu.main-menu > li.menu-item > a.active {
-    @include main-active-link();
+  @include main-active-link;
 }
+
 ul#main-menu.main-menu {
-    margin-top: 28px;
-    border-bottom: 1px solid $capt-midgrey;
-    width: 970px;
-    margin-left: $dash-nudge;
-    height: 43px;
-    li.menu-item > a {
-        text-transform: uppercase;
-        display: block;
-        height: 27px;
-        width: 200px;
-        text-align: center;
-        padding-left: 0px;
-        padding-right: 0px;
-        background-color: $capt-tabsgrey;
-        /*$capt-midgrey;*/
-    }
-    /* submenu active */
-    
-    li.menu-item > a:hover {
-        background-color: $capt-hovergrey;
-    }
-    li.menu-item > a.active {
-        background-color: white;
-        color: $capt-maroon;
-    }
+  margin-top: 28px;
+  border-bottom: 1px solid $capt-midgrey;
+  width: 970px;
+  margin-left: $dash-nudge;
+  height: 43px;
+  li.menu-item > a {
+    text-transform: uppercase;
+    display: block;
+    height: 27px;
+    width: 200px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: $capt-tabsgrey;
+    /*$capt-midgrey;*/
+  }
+  /* submenu active */
+  li.menu-item > a:hover {
+    background-color: $capt-hovergrey;
+  }
+  li.menu-item > a.active {
+    background-color: white;
+    color: $capt-maroon;
+  }
 }
+
 /**
  * Dropdown Logic
  */
 
 #navigation .links li {
-    padding: 0px 5px 0px 0px;
+  padding: 0px 5px 0px 0px;
 }
+
 /* needed to eliminate a grey border on right side of dropdown */
 
 #navigation .links li.menu-parent li {
-    padding: 0px;
+  padding: 0px;
 }
+
 li.menu-parent {
-    ul.sub-menu.tier-two {
-        width: 194px;
-        padding: 0px;
-        margin-top: 0px;
-        padding-right: 0px;
-        li {
-            width: 194px;
-            padding: 0px;
-            margin: 0px;
-            height: 48px;
-            background-color: $capt-darkgrey;
-            display: block;
-            a {
-                width: 110px;
-                border: 1px solid $capt-darkgrey;
-                display: block;
-                margin: 0px;
-                height: 28px;
-                padding: 10px 0;
-                text-align: center;
-            }
-            a.active {
-                background-color: white;
-            }
-            li#menu-item-1187.menu-item.last a {
-                height: 34px;
-                background-color: orange;
-            }
-        }
+  ul.sub-menu.tier-two {
+    width: 194px;
+    padding: 0px;
+    margin-top: 0px;
+    padding-right: 0px;
+    li {
+      width: 194px;
+      padding: 0px;
+      margin: 0px;
+      height: 48px;
+      background-color: $capt-darkgrey;
+      display: block;
+      a {
+        width: 110px;
+        border: 1px solid $capt-darkgrey;
+        display: block;
+        margin: 0px;
+        height: 28px;
+        padding: 10px 0;
+        text-align: center;
+      }
+      a.active {
+        background-color: white;
+      }
+      li#menu-item-1187.menu-item.last a {
+        height: 34px;
+        background-color: orange;
+      }
     }
+  }
 }
+
 /* hiding text in key areas! */
 
 div.view-event-banner div.field-content,
 h1#site-name,
 div.samhsa-logo,
 div.capt-logo {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
+
 div.bottom-footer {
-    @include rainbow-bar(0px);
-    div.disclaimer {
-        @extend .proto-disclaimer;
-    }
+  @include rainbow-bar(0px);
+  div.disclaimer {
+    @extend .proto-disclaimer;
+  }
 }
+
 div#block-block-12 {
-    /*height: 100px;*/
-    
-    margin-bottom: 0px;
+  /*height: 100px;*/
+  margin-bottom: 0px;
 }
+
 /* 
  *  End Sitewide Styles
  */
@@ -1146,442 +1206,444 @@ div#block-block-12 {
 /* this has a large role in determining page height */
 
 div#content {
-    border: 1px solid $capt-midgrey;
-    width: 970px;
-    /* set to min height to avoid breaking layout */
-    
-    min-height: 466px;
-    padding-right: 15px;
-    margin-left: $dash-nudge;
-    margin-right: 5px;
-    margin-top: 24px;
-    z-index: 10px;
-    top: 8px;
-    position: relative;
-    border-top: 1px solid white;
-    padding-left: 27px;
+  border: 1px solid $capt-midgrey;
+  width: 970px;
+  /* set to min height to avoid breaking layout */
+  min-height: 466px;
+  padding-right: 15px;
+  margin-left: $dash-nudge;
+  margin-right: 5px;
+  margin-top: 24px;
+  z-index: 10px;
+  top: 8px;
+  position: relative;
+  border-top: 1px solid white;
+  padding-left: 27px;
 }
+
 /* my profile page; we need the "you are here" style too" */
 
 body.admin-menu {
-    div#content {
-        /*height: 1750px;*/
-        /* currently too general. if height is needed, make it specific to profile page. */
-        
-        input#edit-submit {
-            background-color: $capt-orange;
-        }
+  div#content {
+    /*height: 1750px;*/
+    /* currently too general. if height is needed, make it specific to profile page. */
+    input#edit-submit {
+      background-color: $capt-orange;
     }
+  }
 }
+
 body.page-user-edit,
 body.page-user {
-    ul#main-menu.main-menu {
-        li#menu-item-591 {
-            a {
-                @include main-active-link();
-            }
-        }
+  ul#main-menu.main-menu {
+    li#menu-item-591 {
+      a {
+        @include main-active-link;
+      }
     }
+  }
 }
+
 // admin tab is always white in an admin section.
 body.admin-menu.section-administration {
-    li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
-        @include main-active-link();
+  li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+    @include main-active-link;
+  }
+  li#menu-item-1185:hover {
+    ul.sub-menu.tier-two {
+      display: block;
     }
-    li#menu-item-1185:hover {
-        ul.sub-menu.tier-two {
-            display: block;
-        }
-    }
+  }
 }
+
 /* View | Edit | Manage Display | etc. tabs */
 
 ul.tabs-primary,
 ul.tabs-secondary {
-    @include bottom-line (1px);
-    width: 907px;
-    li:first-child {
-        margin-left: 10px;
+  @include bottom-line(1px);
+  width: 907px;
+  li:first-child {
+    margin-left: 10px;
+  }
+  li {
+    border: 0px;
+    a, a:active, a.is-active {
+      background-image: none;
+      background-color: white;
+      font-family: ArialMT, Arial;
+      font-weight: 500;
+      padding: 3px 20px;
     }
-    li {
-        border: 0px;
-        a, a:active, a.is-active {
-            background-image: none;
-            background-color: white;
-            font-family: ArialMT, Arial;
-            font-weight: 500;
-            padding: 3px 20px;
-        }
-        a:not(.is-active) {
-            border: 0px;
-        }
-        a:hover,a:active {
-            background-color: white;
-        }
+    a:not(.is-active) {
+      border: 0px;
     }
-    li.tabs-primary__tab.is-active {
-        border-color: black;
-        border-bottom-color: white;
+    a:hover, a:active {
+      background-color: white;
     }
+  }
+  li.tabs-primary__tab.is-active {
+    border-color: black;
+    border-bottom-color: white;
+  }
 }
+
 /* form elements for Edit & Create Event */
 
 form#event-node-form {
-    div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
-        /* @extend .panel;*/
-    }
-    /* form panels */
-    /* title */
-    
-    div.form-item.form-item-title {
-        @extend .panel-rule;
-        margin-bottom: 0px;
-        margin-right: $edit-margin-right;
-    }
-    div#edit-field-subtitle.form-field-type-text {
-        margin-top: 0px;
-    }
-    div#field-subtitle-add-more-wrapper {
-        margin-top: 0px;
-        /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-      margin-top: 0px; // remove to add more space betw title and subtitle
-      }*/
-    }
-
-    //div.form-field-name-field-date-instance /*.fieldset-wrapper*/ 
-    div#edit-field-date-instance {
-        @extend .field-container;
-        @extend .panel-rule;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        div#edit-field-date-instance-und-actions {
-            padding-top: 0px;
-        }
-        fieldset#edit-field-date-instance-und {
-            padding-left: 0px;
-        }
-    }
-    div#edit-field-subtitle,
-    {
-        @extend .panel;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        margin-right: $edit-margin-right;
-       
-    }
-    div#edit-field-type-event.form-wrapper {
-        @extend .panel-rule-single;
-        margin-top: 0px;
-        /*padding-top: 0px;*/
-        margin-bottom: 0px;
-        margin-right: $edit-margin-right; 
-         div#field-type-event-add-more-wrapper {
-            margin-top: -26px;
-        }
-    }
-    div#edit-field-category {
-        @extend .panel;
-        margin-top: -20px;
-        padding-bottom: 10px; // inheritance? 
-        padding-top: 10px;
-        margin-right: $edit-margin-right;
-    }
-    div#field-banner-text-add-more-wrapper {
-        @extend .panel;
-        margin-top: -20px;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
-        margin-right: $edit-margin-right;
-    }
-    div.form-field-name-field-date-instance {
-        margin-bottom: 20px;
-        margin-right: $edit-margin-right;
-    }
-    /* audience */
-    
-    div#edit-field-audience,
-    div#edit-field-body {
-        @extend .panel-rule-single;
-        margin-right: $edit-margin-right;
-        /*padding-top: 0px;*/
-        padding-bottom: 10px;
-        label {
-            margin-top: -10px;
-        }
-        div.form-textarea-wrapper {
-            margin-bottom: 20px;
-        }
-        div.grippie {
-            background-color: $capt-midgrey;
-        }
-    }
-    input.form-submit {
-        background-color: $capt-orange;
-    }
-}
-div#edit-field-presenter {
+  div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
+    /* @extend .panel;*/
+  }
+  /* form panels */
+  /* title */
+  div.form-item.form-item-title {
     @extend .panel-rule;
-    @extend .field-container;
+    margin-bottom: 0px;
     margin-right: $edit-margin-right;
-    span.fieldset-legend {
-        margin-top: -30px;
-        text-transform: uppercase;
-        color: $capt-aqua;
-
+  }
+  div#edit-field-subtitle.form-field-type-text {
+    margin-top: 0px;
+  }
+  div#field-subtitle-add-more-wrapper {
+    margin-top: 0px;
+  /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
+margin-top: 0px; // remove to add more space betw title and subtitle
+}*/
+  }
+  //div.form-field-name-field-date-instance /*.fieldset-wrapper*/
+  div#edit-field-date-instance {
+    @extend .field-container;
+    @extend .panel-rule;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    div#edit-field-date-instance-und-actions {
+      padding-top: 0px;
     }
-    table {
-        width: 780px;
-        border: 1px solid $capt-darkgrey;
-        td {
-            padding: 4px 10px;
-        }
-        td.inline-entity-form-node-field_body {
-            min-width: 500px;
-        }
-        a.tabledrag-handle {
-            margin-left: 5px;
-        }
-        input {
-            width: 80px;
-        }
+    fieldset#edit-field-date-instance-und {
+      padding-left: 0px;
     }
-}
-div#edit-field-related-material {
+  }
+  div#edit-field-subtitle {
     @extend .panel;
-    @extend .field-container;
-    margin-right: $edit-margin-right;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-}
-div#edit-field-contact-name {
-  
-    @extend .panel-rule;
+    margin-right: $edit-margin-right;
+  }
+  div#edit-field-type-event.form-wrapper {
+    @extend .panel-rule-single;
+    margin-top: 0px;
     /*padding-top: 0px;*/
     margin-bottom: 0px;
     margin-right: $edit-margin-right;
-    div#field-contact-name-add-more-wrapper {
-        margin-top: -26px;
+    div#field-type-event-add-more-wrapper {
+      margin-top: -26px;
     }
-
-}
-div#edit-field-contact-email {
-    @extend .panel;
-    margin-top: 0px;
-    margin-right: $edit-margin-right;
-    margin-top: -22px;
-    padding-top: 5px;
-
-}
-div#edit-field-related-notifications {
+  }
+  div#edit-field-category {
     @extend .panel;
     margin-top: -20px;
+    padding-bottom: 10px;
+    // inheritance?
+    padding-top: 10px;
     margin-right: $edit-margin-right;
-    padding-top: 5px;
+  }
+  div#field-banner-text-add-more-wrapper {
+    @extend .panel;
+    margin-top: -20px;
     padding-bottom: 10px;
     margin-bottom: 20px;
-}
-div.vertical-tabs {
     margin-right: $edit-margin-right;
+  }
+  div.form-field-name-field-date-instance {
+    margin-bottom: 20px;
+    margin-right: $edit-margin-right;
+  }
+  /* audience */
+  div#edit-field-audience,
+  div#edit-field-body {
+    @extend .panel-rule-single;
+    margin-right: $edit-margin-right;
+    /*padding-top: 0px;*/
+    padding-bottom: 10px;
+    label {
+      margin-top: -10px;
+    }
+    div.form-textarea-wrapper {
+      margin-bottom: 20px;
+    }
+    div.grippie {
+      background-color: $capt-midgrey;
+    }
+  }
+  input.form-submit {
+    background-color: $capt-orange;
+  }
 }
+
+div#edit-field-presenter {
+  @extend .panel-rule;
+  @extend .field-container;
+  margin-right: $edit-margin-right;
+  span.fieldset-legend {
+    margin-top: -30px;
+    text-transform: uppercase;
+    color: $capt-aqua;
+  }
+  table {
+    width: 780px;
+    border: 1px solid $capt-darkgrey;
+    td {
+      padding: 4px 10px;
+    }
+    td.inline-entity-form-node-field_body {
+      min-width: 500px;
+    }
+    a.tabledrag-handle {
+      margin-left: 5px;
+    }
+    input {
+      width: 80px;
+    }
+  }
+}
+
+div#edit-field-related-material {
+  @extend .panel;
+  @extend .field-container;
+  margin-right: $edit-margin-right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+div#edit-field-contact-name {
+  @extend .panel-rule;
+  /*padding-top: 0px;*/
+  margin-bottom: 0px;
+  margin-right: $edit-margin-right;
+  div#field-contact-name-add-more-wrapper {
+    margin-top: -26px;
+  }
+}
+
+div#edit-field-contact-email {
+  @extend .panel;
+  margin-top: 0px;
+  margin-right: $edit-margin-right;
+  margin-top: -22px;
+  padding-top: 5px;
+}
+
+div#edit-field-related-notifications {
+  @extend .panel;
+  margin-top: -20px;
+  margin-right: $edit-margin-right;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+div.vertical-tabs {
+  margin-right: $edit-margin-right;
+}
+
 /* save */
 
 form#event-node-form {
-    input.form-submit {
-        padding: 6px;
-        height: 36px;
-    }
+  input.form-submit {
+    padding: 6px;
+    height: 36px;
+  }
 }
+
 /* end create event form */
 /* overall page heights */
 
 body.page-node-add-event.page-node-add.section-node-add {
-    #page {
-        height: 95%;
-    }
-    /* needed so that save button has space above border */
-    
-    div#content {
-        height: 100%;
-        padding-bottom: 20px;
-    }
+  #page {
+    height: 95%;
+  }
+  /* needed so that save button has space above border */
+  div#content {
+    height: 100%;
+    padding-bottom: 20px;
+  }
 }
+
 /* 
  *  Editing an event
  */
 
 form#event-node-form {
-    div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-related-material {
-        input.form-submit {
-            padding: 0px 10px;
-            margin: 5px 13px 5px 0px;
-            height: 30px;
-            margin-top: 5px;
-        }
-        a {
-            color: $capt-orange;
-            font-weight: normal;
-        }
+  div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-related-material {
+    input.form-submit {
+      padding: 0px 10px;
+      margin: 5px 13px 5px 0px;
+      height: 30px;
+      margin-top: 5px;
     }
+    a {
+      color: $capt-orange;
+      font-weight: normal;
+    }
+  }
 }
+
 /* 
  *  Start Login Page
  */
 
 body.not-logged-in.page-user:not(.page-user-register) {
-    height: 100%;
-    header#header {
-        height: 417px;
-        background: url('../images/banners/login.png') 0 0 no-repeat;
-        margin-top: -2px;
-        display: block;
-        margin-bottom: 51px;
+  height: 100%;
+  header#header {
+    height: 417px;
+    background: url("../images/banners/login.png") 0 0 no-repeat;
+    margin-top: -2px;
+    display: block;
+    margin-bottom: 51px;
+  }
+  ul.tabs-primary {
+    display: none;
+  }
+  h1#page-title {
+    background-image: none;
+    font-size: 24pt;
+    color: $capt-darkblue;
+    margin-left: $login-margin-left;
+    background-repeat: no-repeat;
+  }
+  div#content {
+    border: 0px solid white;
+  }
+  form#user-login,
+  div#title-section {
+    margin-left: 85px;
+    width: 315px;
+  }
+  div#title-section {
+    @extend .panel-rule;
+    margin-bottom: 0px;
+  }
+  form#user-login {
+    @extend .panel;
+    height: 322px;
+    margin-top: -20px;
+    padding-top: 10px;
+    float: left;
+    padding-bottom: 10px;
+    input#edit-submit {
+      background-color: $capt-orange;
+      padding: 10px 10px;
+      height: 40px;
+      border: 0px solid transparent;
+      margin-left: $login-margin-left;
+      position: relative;
+      top: 60px;
+      width: 75px;
     }
-    ul.tabs-primary {
-        display: none;
+    div.description {
+      display: none;
     }
-    h1#page-title {
-        background-image: none;
-        font-size: 24pt;
-        color: $capt-darkblue;
-        margin-left: $login-margin-left;
-        background-repeat: no-repeat;
+    div.form-item-name {
+      margin-bottom: 10px;
     }
-    div#content {
-        border: 0px solid white;
+    input#edit-name {
+      margin-bottom: 0px;
     }
-    form#user-login,
-    div#title-section {
-        margin-left: 85px;
-        width: 315px;
+    input#edit-name,
+    input#edit-pass {
+      font-size: 1.6em;
+      margin: 5px 0px 5px $login-margin-left;
+      width: 89%;
+      margin-top: 0px;
     }
-    div#title-section {
-        @extend .panel-rule;
-        margin-bottom: 0px;
+    div.form-item-pass {
+      margin-top: 0px;
     }
-    form#user-login {
-        @extend .panel;
-        height: 322px;
-        margin-top: -20px;
-        padding-top: 10px;
-        float: left;
-        padding-bottom: 10px;
-        input#edit-submit {
-            background-color: $capt-orange;
-            padding: 10px 10px;
-            height: 40px;
-            border: 0px solid transparent;
-            margin-left: $login-margin-left;
-            position: relative;
-            top: 60px;
-            width: 75px;
-        }
-        div.description {
-            display: none;
-        }
-        div.form-item-name {
-            margin-bottom: 10px;
-        }
-        input#edit-name {
-            margin-bottom: 0px;
-        }
-        input#edit-name,
-        input#edit-pass {
-            font-size: 1.6em;
-            margin: 5px 0px 5px $login-margin-left;
-            width: 89%;
-            margin-top: 0px;
-        }
-        div.form-item-pass {
-            margin-top: 0px;
-        }
-        label {
-            font-weight: normal;
-            color: $capt-black;
-            margin-left: $login-margin-left;
-            margin-bottom: 0px;
-            font-size: $login-font;
-        }
-        div.description {
-            margin-left: 16px;
-        }
-        a.request-password {
-            margin-left: $login-margin-left + 4px;
-            font-weight: normal;
-            text-decoration: underline;
-            position: relative;
-            top: -22px;
-            color: $capt-maroon;
-            font-size: $login-font;
-        }
-        a.request-password:hover {
-            text-decoration: none;
-        }
+    label {
+      font-weight: normal;
+      color: $capt-black;
+      margin-left: $login-margin-left;
+      margin-bottom: 0px;
+      font-size: $login-font;
     }
-    /* RIGHT */
-    
-    #block-block-8 {
-        @extend .panel-rule-single;
-        h2.block-title {
-            display: none;
-        }
-        h2.custom_block_title {
-            margin-top: 0px;
-            margin-left: $login-margin-left;
-        }
-        margin-top: -64px;
-        a {
-            color: $capt-orange;
-            font-size: 20px;
-            background: url('../images/icons/right-arrow.png') 106px 5px no-repeat;
-            font-weight: normal;
-            width: 150px;
-            display: block;
-            margin-left: $login-margin-left;
-        }
+    div.description {
+      margin-left: 16px;
     }
-    /* why register */
-    
-    #block-block-9 {
-        @extend .panel-rule-single;
-        background-image: url('../images/icons/register.png');
-        background-position: 270px 30px;
-        background-repeat: no-repeat;
-        height: 220px;
-        margin-top: 9px;
-        h2.block-title {
-            margin-left: $login-margin-left;
-        }
-        ul {
-            margin-left: 4px;
-            li {
-                list-style-image: url('../images/icons/arrow-icons-aqua.png');
-                font-size: 16px;
-                font-weight: normal;
-            }
-        }
-        a {
-            /* color needed? */
-            
-            color: $capt-black;
-            font-weight: normal;
-        }
+    a.request-password {
+      margin-left: $login-margin-left + 4px;
+      font-weight: normal;
+      text-decoration: underline;
+      position: relative;
+      top: -22px;
+      color: $capt-maroon;
+      font-size: $login-font;
     }
-    #block-block-9,
-    #block-block-8 {
-        @extend .panel-rule-single;
-        margin-right: 75px;
-        width: 365px;
-        float: right;
-        background-repeat: no-repeat;
-        h2 {
-            font-weight: normal;
-            color: $capt-darkblue;
-            margin-left: 28px;
-        }
+    a.request-password:hover {
+      text-decoration: none;
     }
+  }
+  /* RIGHT */
+  #block-block-8 {
+    @extend .panel-rule-single;
+    h2.block-title {
+      display: none;
+    }
+    h2.custom_block_title {
+      margin-top: 0px;
+      margin-left: $login-margin-left;
+    }
+    margin-top: -64px;
+    a {
+      color: $capt-orange;
+      font-size: 20px;
+      background: url("../images/icons/right-arrow.png") 106px 5px no-repeat;
+      font-weight: normal;
+      width: 150px;
+      display: block;
+      margin-left: $login-margin-left;
+    }
+  }
+  /* why register */
+  #block-block-9 {
+    @extend .panel-rule-single;
+    background-image: url("../images/icons/register.png");
+    background-position: 270px 30px;
+    background-repeat: no-repeat;
+    height: 220px;
+    margin-top: 9px;
+    h2.block-title {
+      margin-left: $login-margin-left;
+    }
+    ul {
+      margin-left: 4px;
+      li {
+        list-style-image: url("../images/icons/arrow-icons-aqua.png");
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    a {
+      /* color needed? */
+      color: $capt-black;
+      font-weight: normal;
+    }
+  }
+  #block-block-9,
+  #block-block-8 {
+    @extend .panel-rule-single;
+    margin-right: 75px;
+    width: 365px;
+    float: right;
+    background-repeat: no-repeat;
+    h2 {
+      font-weight: normal;
+      color: $capt-darkblue;
+      margin-left: 28px;
+    }
+  }
 }
+
 /*
  *  Logged in Event Page
  */
@@ -1591,144 +1653,139 @@ body.not-logged-in.page-user:not(.page-user-register) {
 /* title of events page; font size & position may need to be fine-tuned */
 
 h1#page-title {
-    font-weight: normal;
+  font-weight: normal;
 }
+
 /*recently removed node-type event on 6/2; keep an eye out for issues */
 
-
 body.logged-in {
-    h1#page-title {
-        @extend .calendar-title;
-    }
-    h2 {
-        margin-bottom: 0px;
-    }
-    /* changed margin top for event view logged-in page in chrome*/
-    div#title-section h3 {
-        margin-bottom: 0px;
-        font-weight: normal;
-        margin-top: 14px;
-        color: $capt-aqua;
-    }
+  h1#page-title {
+    @extend .calendar-title;
+  }
+  h2 {
+    margin-bottom: 0px;
+  }
+  /* changed margin top for event view logged-in page in chrome*/
+  div#title-section h3 {
+    margin-bottom: 0px;
+    font-weight: normal;
+    margin-top: 14px;
+    color: $capt-aqua;
+  }
 }
+
 /*
  * Event pages - both anonymous and logged in 
  */
 
 body.node-type-event {
-    ul#main-menu.main-menu li#menu-item-588 {
-        a {
-            @include main-active-link();
-        }
+  ul#main-menu.main-menu li#menu-item-588 {
+    a {
+      @include main-active-link;
     }
-    div#title-section {
-        h1.page__title.title {
-        color: $capt-green;
-        font-weight: bold;
-        font-size: 36px;
-        background-image: none;
-        padding-left: 0px;
-        }
-       h2,h3 {
-        color: $capt-black;
-        margin-bottom: 10px;
-       }
-       h3 {
-        font-weight: bold;
-       }
-    
-
+  }
+  div#title-section {
+    h1.page__title.title {
+      color: $capt-green;
+      font-weight: bold;
+      font-size: 36px;
+      background-image: none;
+      padding-left: 0px;
     }
-    div.field-name-registration {
-        padding-bottom: 30px;
-        border-bottom: 1px solid $capt-midgrey;
+    h2, h3 {
+      color: $capt-black;
+      margin-bottom: 10px;
     }
-    h5.views-field-title {
-        margin-left: 0px;
-        padding-left: 0px;
-        /* does this need to be negative? */
-        span.field-content {
-            /*margin-left: -13px;*/
-        }
+    h3 {
+      font-weight: bold;
     }
-    div#content.column {
-        border-top-color: black;
+  }
+  div.field-name-registration {
+    padding-bottom: 30px;
+    border-bottom: 1px solid $capt-midgrey;
+  }
+  h5.views-field-title {
+    margin-left: 0px;
+    padding-left: 0px;
+    /* does this need to be negative? */
+    span.field-content {
+      /*margin-left: -13px;*/
     }
-    .view-content .field-content .views-row div {
-        margin-left: 5px;
+  }
+  div#content.column {
+    border-top-color: black;
+  }
+  .view-content .field-content .views-row div {
+    margin-left: 5px;
+  }
+  /* header */
+  div#title-section h2 {
+    margin-left: 10px;
+  }
+  div#title-section {
+    padding-left: 0px;
+  }
+  h2 {
+    color: $capt-aqua;
+    font-weight: normal;
+  }
+  /* added to align title and subtitle on event pages*/
+  div#title-section h2 {
+    margin-left: 0px;
+  }
+  h5 {
+    margin-top: 4px;
+  }
+  h1, h2, h3 {
+    margin-left: 0px;
+  }
+  h2 a {
+    font-size: 20px;
+    color: $capt-orange;
+  }
+  div.field-items ul a {
+    color: $capt-orange;
+  }
+  div#content {
+    border-top: 1px solid $capt-midgrey;
+    padding-top: 20px;
+  }
+  // block with two buttons (edit notif, view reg)
+  .region-help #block-block-1 {
+    // needed so it doesn't run into  the text
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 0px;
+    padding-right: 0px;
+    a.button {
+      margin-left: 20px;
+      margin-right: 0px;
     }
-    /* header */
-    
-    div#title-section h2 {
-        margin-left: 10px;
+  }
+  div.group-materials {
+    @extend .panel-rule-single;
+    @include border-radius(0px);
+    padding: 10px 16px 36px 16px;
+    margin-left: 5px;
+    h4 {
+      margin-top: 0px;
     }
-    div#title-section {
-        padding-left: 0px;
-    }
-    h2 {
-        color: $capt-aqua;
-        font-weight: normal;
-    }
-    /* added to align title and subtitle on event pages*/
-    div#title-section h2 {
-        margin-left: 0px;
-    }
-   
-    h5 {
-        margin-top: 4px;
-    }
-    h1,h2,h3  {
-        margin-left: 0px;
-    }
-  
-    h2 a {
-        font-size: 20px;
-        color: $capt-orange;
-    }
-    div.field-items ul a {
-        color: $capt-orange;
-    }
-    div#content {
-        border-top: 1px solid $capt-midgrey;
-        padding-top: 20px;
-    }
-    // block with two buttons (edit notif, view reg)
-    .region-help #block-block-1 {
-        // needed so it doesn't run into  the text
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        margin-top: 0px;
-        padding-right: 0px;
-        a.button {
-            margin-left: 20px;
-            margin-right: 0px;
-        }
-    }
-    div.group-materials {
-        @extend .panel-rule-single;
-        @include border-radius(0px);
-        padding: 10px 16px 36px 16px;
-        margin-left: 5px;
-        h4 {
-            margin-top: 0px;
-        }
-    }
-    h4 span {
-        color: $capt-maroon;
-    }
-    h2.element-invisible {
-        display: none;
-    }
-    /* delete? */
-    
-    .ds-2col-stacked > .group-left {
-        width: 590px;
-    }
-    /* dates panel */
-    .ds-2col-stacked > .group-right {
-        float: right;
-        margin-right: 65px;
+  }
+  h4 span {
+    color: $capt-maroon;
+  }
+  h2.element-invisible {
+    display: none;
+  }
+  /* delete? */
+  .ds-2col-stacked > .group-left {
+    width: 590px;
+  }
+  /* dates panel */
+  .ds-2col-stacked > .group-right {
+    float: right;
+    margin-right: 65px;
          /*div.group-dates {
             
             border: 1px solid red;
@@ -1741,290 +1798,284 @@ body.node-type-event {
 
             }
         }*/
-        .view-content .field-content .views-row div {
-        margin-left: 0px;
+    .view-content .field-content .views-row div {
+      margin-left: 0px;
+      display: inline;
+    }
+    span.field-content span.flag-registration {
+      padding-left: 1px;
+      /*10px;*/
+      a.flag-action, a.unflag-action {
+        font-weight: normal;
+        text-decoration: underline;
+        color: $capt-orange;
+        font-size: 13px;
+      }
+    }
+    .views-row {
+      div.field-content {
+        clear: left;
+      }
+      div.views-field-field-date {
+        margin-right: 3px;
+        /*border: 1px solid red;*/
+        a.unflag-action {
+          font-weight: normal;
+        }
+      }
+      div.views-field-field-date-1 {
+        /*border: 1px solid blue;*/
+        margin-right: 4px;
+        /*10px;*/
         display: inline;
+        float: left;
+      }
+      div.views-field-ops {
+        display: inline;
+        float: left;
+      }
+    }
+    .item-list h3 {
+      font-size: 16px;
+    }
+    /* extra padding on dates panel because of floats */
+    .field-type-ds.field-name-event-date-s- {
+      padding-bottom: 54px;
+      padding-top: 25px;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+      }
+    }
+    /**
+    * Materials portion of event page
+     */
+    div.field-name-materials {
+      padding-top: 25px;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+      }
+      h2.block-title {
+        margin-top: -5px;
+      }
+      div#block-views-materials-block {
+        ul {
+          padding-left: 23px;
+          margin-bottom: 0px;
+          li.views-row {
+            list-style-image: url("../images/icons/down-arrow.png");
+            margin-bottom: 0px;
+            margin-top: 0px;
+          }
         }
-        span.field-content span.flag-registration {
-            padding-left: 1px; /*10px;*/
-            a.flag-action, a.unflag-action {
-                font-weight: normal;
-                text-decoration: underline;
-                color: $capt-orange;
-                font-size: 13px;
-            }
-        }
-          .views-row { 
+      }
+    }
+    .field-type-ds {
+      @extend .panel-rule-single;
+      @include border-radius(0px);
+      width: 269px;
+      /* changed from 250px so "cancel" link does not start new line */
+      margin-left: -14px;
+      padding: 10px 26px 36px 26px;
+      // could be part of the mixin maybe...
+      h2.block-title {
+        font-weight: normal;
+        margin-top: 0px;
+        color: $capt-darkblue;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+      div.item-list {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 15px;
+        margin-top: -5px;
+        ul {
+          padding-left: 14px;
+          li.views-row {
+            list-style-image: url("../images/icons/arrow-icons.png");
+            /*list-style-image: url('../images/icons/down-arrow.png');*/
+            margin-bottom: 20px;
+            min-height: 42px;
             div.field-content {
-                clear: left;
-            }
-            div.views-field-field-date {
-              margin-right: 3px;
-              /*border: 1px solid red;*/
-              a.unflag-action {
-                font-weight: normal;
-            }
-          }
-          div.views-field-field-date-1 {
-                /*border: 1px solid blue;*/
-                margin-right: 4px; /*10px;*/
+              a {
                 display: inline;
-                float: left;
-            }
-            div.views-field-ops {
-                display: inline;
-              
-                float: left;
-
-             
-            }
-          }
-        .item-list h3 {
-            font-size: 16px;
-        }
-        /* extra padding on dates panel because of floats */
-        .field-type-ds.field-name-event-date-s- {
-            padding-bottom: 54px;
-            padding-top: 25px;
-            &:before {
-                margin-left: -27px;
-                padding-left: 54px;
-            }
-        }
-        /**
-        * Materials portion of event page
-         */
-
-        div.field-name-materials {
-            padding-top: 25px;
-            &:before {
-                margin-left: -27px;
-                padding-left: 54px;
-            }
-            h2.block-title {
-                margin-top: -5px;
-            }
-            div#block-views-materials-block {
-    
-               ul {
-                padding-left: 23px;
-                margin-bottom: 0px;
-
-               li.views-row {
-                list-style-image: url('../images/icons/down-arrow.png');
-                margin-bottom: 0px;
-                margin-top: 0px;
-              }
-           }
-         }
-     }
-        .field-type-ds {
-            @extend .panel-rule-single;
-            @include border-radius(0px);
-            width: 269px; /* changed from 250px so "cancel" link does not start new line */
-            margin-left: -14px;
-            padding: 10px 26px 36px 26px; 
-            // could be part of the mixin maybe...
-            h2.block-title {
                 font-weight: normal;
-                margin-top: 0px;
-                color: $capt-darkblue;
-                margin-bottom: 20px;
-                font-size: 24px;
-            }
-           
-
-            div.item-list {
-                border-top: 1px solid $capt-midgrey;
-                padding-top: 15px;
-                margin-top: -5px;
-              ul {
-                padding-left: 14px;
-                li.views-row {
-                     list-style-image: url('../images/icons/arrow-icons.png');
-                    /*list-style-image: url('../images/icons/down-arrow.png');*/
-                     margin-bottom: 20px;
-                     min-height: 42px;
-                   
-                     div.field-content {
-
-                        a {
-                            display: inline;
-                            font-weight: normal;
-                            padding-bottom: 10px;
-                            color: $capt-black;
-                        }
-                        /* general rule?*/
-                        
-                        a:hover {
-                            text-decoration: none;
-                            color: $capt-maroon;
-                        }
-                    }
-                }
+                padding-bottom: 10px;
+                color: $capt-black;
               }
-            }
-        }
-
-    }
-    /* home button on event page */
-    
-    div#block-block-11 {
-        /* the absolute positioning keeps its position constant across pages*/
-        
-        position: absolute;
-        top: -50px;
-        height: 0px;
-        margin: 0px 0px 0px -10px;
-        p {
-            list-style-type: none;
-            list-style-image: none;
-            margin-left: 0px;
-            a.anonymous_home {
-                @extend .basic-button;
-                font-size: 16px;
-                width: 100px;
-                padding: 3px;
-                display: block;
-                text-align: center;
-                margin-bottom: 10px;
-                height: 24px;
-                position: relative;
-                top: 0px;
-                float: left;
-                margin-left: -18px;
-            }
-            a.anonymous_home:hover {
+              /* general rule?*/
+              a:hover {
                 text-decoration: none;
+                color: $capt-maroon;
+              }
             }
+          }
         }
-        z-index: 20;
+      }
     }
+  }
+  /* home button on event page */
+  div#block-block-11 {
+    /* the absolute positioning keeps its position constant across pages*/
+    position: absolute;
+    top: -50px;
+    height: 0px;
+    margin: 0px 0px 0px -10px;
+    p {
+      list-style-type: none;
+      list-style-image: none;
+      margin-left: 0px;
+      a.anonymous_home {
+        @extend .basic-button;
+        font-size: 16px;
+        width: 100px;
+        padding: 3px;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        height: 24px;
+        position: relative;
+        top: 0px;
+        float: left;
+        margin-left: -18px;
+      }
+      a.anonymous_home:hover {
+        text-decoration: none;
+      }
+    }
+    z-index: 20;
+  }
 }
 
 /**
  *  Event Page, not logged in
  */
 
- body.node-type-event.not-logged-in {
-    h3 {
-        font-weight: normal;
-        color: $capt-aqua;
-        margin-top: 0px;
-        /*margin-bottom: 40px;*/
-    }
-    div#content.column {
-        border-top-color: $capt-midgrey;
-    }
- }
+body.node-type-event.not-logged-in {
+  h3 {
+    font-weight: normal;
+    color: $capt-aqua;
+    margin-top: 0px;
+    /*margin-bottom: 40px;*/
+  }
+  div#content.column {
+    border-top-color: $capt-midgrey;
+  }
+}
+
 /* 
  *  Event Report
  */
 
 body.page-administration-event-report {
-    table.views-table {
-        tbody {
-            border: 1px solid $capt-midgrey;
-        }
-        tr {
-            th {
-                padding-right: 10px;
-            }
-            td:first-child {
-                padding-left: 10px;
-                width: 230px;
-            }
-            td {
-                padding-right: 10px;
-            }
-            td:nth-child(n+5) {
-                text-align: center;
-            }
-        }
+  table.views-table {
+    tbody {
+      border: 1px solid $capt-midgrey;
     }
+    tr {
+      th {
+        padding-right: 10px;
+      }
+      td:first-child {
+        padding-left: 10px;
+        width: 230px;
+      }
+      td {
+        padding-right: 10px;
+      }
+      td:nth-child(n+5) {
+        text-align: center;
+      }
+    }
+  }
 }
+
 /*
  *  styles from Nancy on 5/21-5/22:
  */
 
 #account-pass-restrictions {
-    border: 1px solid #ff9933;
-    font-family: Georgia, Palatino, serif;
-    padding: 0 6px;
+  border: 1px solid #ff9933;
+  font-family: Georgia, Palatino, serif;
+  padding: 0 6px;
 }
+
 #account-pass-restrictions li {
-    font-size: 120%;
-    line-height: 1.25em;
-    list-style-image: url("/misc/menu-collapsed.png");
+  font-size: 120%;
+  line-height: 1.25em;
+  list-style-image: url("/misc/menu-collapsed.png");
 }
-div.group-audience,div.group-description,div.group-dates {
-   /* h4 {
-        margin-bottom: 0px;
-    }*/
-   /* p {
-        margin: 0px;
-    }*/
+
+div.group-audience, div.group-description, div.group-dates {
+  /* h4 {
+       margin-bottom: 0px;
+   }*/
+  /* p {
+       margin: 0px;
+   }*/
 }
+
 /* Float image on Presenters in Event view. */
 
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
-    float: left;
-    div.field-content img {
-        margin-right: 20px;
-        border: 1px solid red;
-    }
-}
-div.views-field.views-field-field-presenter-image {
-    margin: 5px 15px 0px 0px; /*16px 23px 0px 0px;*/
-    line-height: 1em; 
+  float: left;
+  div.field-content img {
+    margin-right: 20px;
+    border: 1px solid red;
+  }
 }
 
+div.views-field.views-field-field-presenter-image {
+  margin: 5px 15px 0px 0px;
+  /*16px 23px 0px 0px;*/
+  line-height: 1em;
+}
 
 /**
  * Disclaimer Placement Section
  */
 
 body.node-type-event div.bottom-footer {
-   /* border: 1px solid yellow;*/
-    height: 50px;
-    margin-bottom: 0px;
+  /* border: 1px solid yellow;*/
+  height: 50px;
+  margin-bottom: 0px;
 }
+
 body.node-type-event #block-block-12 {
-    /*border: 1px solid blue;*/
-    display: block;
-    .disclaimer {
+  /*border: 1px solid blue;*/
+  display: block;
+  .disclaimer {
     padding: 0px 590px 20px 0px;
     left: 20px;
-
-   /* border: 1px solid red;*/
+    /* border: 1px solid red;*/
     /*float: left;*/
     /*top: -30px;*/
-
   }
- }
+}
 
 /*
  *  Mozilla-specific fix for footer. 
  */
 @-moz-document url-prefix() {
-    body.node-type-event #block-block-12 {
+  body.node-type-event #block-block-12 {
     .disclaimer {
-        top: -40px;
-        left: 20px;
-     }
+      top: -40px;
+      left: 20px;
     }
+  }
 }
 
 
-
+/* we are using this for the event edit pages*/
 body.node-type-event.page-node-edit {
-    .disclaimer {
-        left: 0px;
-        border: 1px solid red;
-    }
+  .disclaimer {
+    left: 0px;
+  }
 }
+
 body.page-user-edit div.disclaimer {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 /*
@@ -2032,264 +2083,253 @@ body.page-user-edit div.disclaimer {
  */
 
 body.page-administration {
-    div#content div#title-section {
-        h2 {
-            display: none;
-        }
+  div#content div#title-section {
+    h2 {
+      display: none;
     }
+  }
 }
 
 /**
  *  User profile page 
  */
 
- form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
-
-    fieldset {
-        border: 0px;
-        border-top: 5px solid $capt-aqua;
-        margin-bottom: 18px;
-        margin-right: 14px;
-     legend {
-        margin-left: 20px;
-        span.fieldset-legend {
-                color: $capt-aqua;
-                text-transform: uppercase;
-                font-weight: bold;
-                font-size: 18px;
-                padding: 0px 5px;
-                left: 20px;
-        }
-        a {
-                padding-left: 12px;
-                color: $capt-aqua;
-        } 
-      } /* end legend */
-
-    } /* end fieldset */
-    span.label {
-             font-weight: bold;
-             margin-bottom: 4px;
-             font-size: 14px;
-             margin-left: 1px;
-            
-    }
-    .fieldset-wrapper div.form-item {
-       label:not(.option) {
-        font-size: 14px;
+form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+  fieldset {
+    border: 0px;
+    border-top: 5px solid $capt-aqua;
+    margin-bottom: 18px;
+    margin-right: 14px;
+    legend {
+      margin-left: 20px;
+      span.fieldset-legend {
+        color: $capt-aqua;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 0px 5px;
+        left: 20px;
       }
-       label.option {
-        font-size: 13px;
-   
+      a {
+        padding-left: 12px;
+        color: $capt-aqua;
       }
-    } 
-    
-   input.form-text {
-      font-size: $input-font-size;
-      padding: 5px;
-      max-width: 400px;
-      border: 1px solid $capt-midgrey;
-      &:focus {
-        background: $capt-inputfocus;
-        outline: none;
+    }
+    /* end legend */
+  }
+  /* end fieldset */
+  span.label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 14px;
+    margin-left: 1px;
+  }
+  .fieldset-wrapper div.form-item {
+    label:not(.option) {
+      font-size: 14px;
+    }
+    label.option {
+      font-size: 13px;
+    }
+  }
+  input.form-text {
+    font-size: $input-font-size;
+    padding: 5px;
+    max-width: 400px;
+    border: 1px solid $capt-midgrey;
+    &:focus {
+      background: $capt-inputfocus;
+      outline: none;
+    }
+  }
+  .form-item {
+    max-width: 580px;
+    .description {
+      font-size: 0.85em;
+      line-height: 1.8em;
+      margin-left: 2px;
+      color: $capt-formgrey;
+    }
+    .confirm-parent, .password-parent {
+      width: 40em !important;
+    }
+    div.password-suggestions {
+      padding: 10px;
+      background: $password-suggest;
+      width: 560px;
+      ul {
+        margin-top: 0.5em;
       }
-      
-   }
-   .form-item {
-       max-width: 580px;
-      .description {
-         font-size: 0.85em;
-         line-height: 1.8em;
-         margin-left: 2px;
-         color: $capt-formgrey;
-       }
-       .confirm-parent, .password-parent {
-        width: 40em !important;
-       }
-       div.password-suggestions {
-          padding: 10px;
-          background: $password-suggest;
-          width: 560px;
-          ul {
-            margin-top: 0.5em;
-          }
-       }
     }
-    div.data-view,div.fieldset-wrapper {
-        border: 1px solid $capt-profgrey;
-        border-top: 0px;
-        padding-left: 10px;
-        margin-left: -8px;
-        margin-bottom: -30px;
-        width: 100.45%;
-        top: -17px;
-        position: relative;
-        padding-top: 17px;
-        padding-bottom: 25px;
-      
+  }
+  div.data-view, div.fieldset-wrapper {
+    border: 1px solid $capt-profgrey;
+    border-top: 0px;
+    padding-left: 10px;
+    margin-left: -8px;
+    margin-bottom: -30px;
+    width: 100.45%;
+    top: -17px;
+    position: relative;
+    padding-top: 17px;
+    padding-bottom: 25px;
+  }
+  fieldset fieldset {
+    div.fieldset-wrapper {
+      width: 100.6%;
+      /*97.86%;*/
+      margin-left: -9px;
     }
-    fieldset fieldset {
-        div.fieldset-wrapper {
-            width: 100.6%; /*97.86%;*/
-            margin-left: -9px;
-        }
-    }
-
-   div.fieldset-wrapper {
-       /* margin-left: -20px;*/
-        /*padding: 10px 17px;*/
-    }
-   
-    input#edit-submit,input#edit-cancel {
-        background-color: $capt-orange;
-    }
-    
- 
+  }
+  div.fieldset-wrapper {
+    /* margin-left: -20px;*/
+    /*padding: 10px 17px;*/
+  }
+  input#edit-submit, input#edit-cancel {
+    background-color: $capt-orange;
+  }
 }
+
 /*
  *  Title and other elements for Registration page - all specific stuff goes here. 
  */
 
-body.not-logged-in.page-user-register:not(.node-type-event)  {
- 
-    h1#page-title.page__title {
-        @extend .calendar-title;
-        margin-top: 0px;
+body.not-logged-in.page-user-register:not(.node-type-event) {
+  h1#page-title.page__title {
+    @extend .calendar-title;
+    margin-top: 0px;
+  }
+  div#content {
+    border: 0px;
+  }
+  fieldset.field-group-fieldset {
+    padding-left: 20px;
+    padding-right: 20px;
+    legend {
+      margin-left: 0px;
+      position: relative;
     }
-    div#content {
-        border: 0px;
-    }
-    fieldset.field-group-fieldset {
-        padding-left: 20px;
-        padding-right: 20px;
-      legend {
-        margin-left: 0px;
-        position: relative;
-        }
-    } 
-    /* specific width of fieldset wrapper - very important */
-      div.fieldset-wrapper {
-       margin-left: -20px;
-       padding: 10px 17px;
-  
-    }
+  }
+  /* specific width of fieldset wrapper - very important */
+  div.fieldset-wrapper {
+    margin-left: -20px;
+    padding: 10px 17px;
+  }
 }
+
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
 form#user-profile-form {
-    .edit-button,
-    .save-button,
-    .cancel-button {
-        text-transform: uppercase; 
-        color: $capt-aqua;
-        float: right; 
+  .edit-button,
+  .save-button,
+  .cancel-button {
+    text-transform: uppercase;
+    color: $capt-aqua;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    min-width: 68px;
+  }
+  /*.save-button {
+      @extend .basic-button;
+        text-transform: uppercase;
+        float: right;
         margin-right: 10px;
         cursor: pointer;
-        text-align: center;
-        min-width: 68px;
-
+        padding: 8px 20px;
+  }*/
+  input.form-text {
+    border: 1px solid $capt-midgrey;
+  }
+  .edit-button:after,
+  .save-button:after,
+  .cancel-button:after {
+    content: " ]";
+  }
+  .edit-button:before,
+  .save-button:before,
+  .cancel-button:before {
+    content: "[ ";
+  }
+  .cancel-button {
+    clear: right;
+  }
+  /* new planbox styles */
+  .item {
+    font-size: 14px;
+    margin: 10px 0 10px 5px;
+    line-height: 1.5em;
+    /*font-style: italic;*/
+    .value {
+      font-style: italic;
     }
-    /*.save-button {
-        @extend .basic-button;
-          text-transform: uppercase;
-          float: right;
-          margin-right: 10px;
-          cursor: pointer;
-          padding: 8px 20px;
-    }*/
-    input.form-text {
-        border: 1px solid $capt-midgrey;
-    }
-    .edit-button:after,
-    .save-button:after,
-    .cancel-button:after { 
-        content:" ]";
-    }
-    .edit-button:before,
-    .save-button:before,
-    .cancel-button:before{ 
-        content:"[ "; 
-    }
-   .cancel-button {
-        clear: right;
-    }
-
-    /* new planbox styles */
-   .item {
-     font-size: 14px;
-     margin: 10px 0 10px 5px;
-     line-height: 1.5em;
-     /*font-style: italic;*/
-     .value {
-        font-style: italic;
-     }
-   }
-   /* fieldset styles */
-   .fieldset-wrapper {
+  }
+  /* fieldset styles */
+  .fieldset-wrapper {
     margin-left: 0px;
     width: 97.9%;
+  }
+}
 
-   }
-   
-  
- }
-  /* prevent overlap with bottom save & cancel buttons */
-form#user-profile-form >  div > fieldset > .fieldset-wrapper {
-    padding-bottom: 60px;
-  
-    
+/* prevent overlap with bottom save & cancel buttons */
+form#user-profile-form > div > fieldset > .fieldset-wrapper {
+  padding-bottom: 60px;
 }
+
 /* OMB Block; we may want to just use a form here */
-body.page-user-edit,body.page-user-register {
-    #block-block-3 {
-      margin: 0 20px 30px 10px;
-      font-size: 12px;
-    }
+body.page-user-edit, body.page-user-register {
+  #block-block-3 {
+    margin: 0 20px 30px 10px;
+    font-size: 12px;
+  }
 }
+
 /**
  * Switch User 
  */
 div.block-devel#block-devel-switch-user {
-        margin-left: 90px;
-        background-color: white;
-        padding: 20px;
-        border: 1px solid $capt-darkgrey;
-        width: 400px;
-        input.form-submit {
-            background-color: $capt-orange;
-        }
- }
+  margin-left: 90px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid $capt-darkgrey;
+  width: 400px;
+  input.form-submit {
+    background-color: $capt-orange;
+  }
+}
 
 /*
  *  Request password page
  */
 
 body.page-user-password {
-    div#content div#title-section {
-        width: 370px;
-        margin: 0px auto;
+  div#content div#title-section {
+    width: 370px;
+    margin: 0px auto;
+  }
+  input#edit-submit {
+    background-color: $capt-orange;
+  }
+  input#edit-name {
+    font-size: $input-font-size;
+    &:focus {
+      background-color: $capt-inputfocus;
+      outline: none;
+      border: 2px solid $capt-midgrey;
     }
-    input#edit-submit {
-        background-color: $capt-orange;
-    }
-    input#edit-name {
-        font-size: $input-font-size; 
-        &:focus {
-            background-color: $capt-inputfocus;
-            outline: none;
-            border: 2px solid $capt-midgrey;
-        }
-    }
+  }
 }
+
 form#user-pass {
-    @extend .panel;
-    width: 330px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 35px;
-    padding-right: 35px;
-    margin: -20px auto 0;
+  @extend .panel;
+  width: 330px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
+  margin: -20px auto 0;
 }
 
 /*
@@ -2297,24 +2337,22 @@ form#user-pass {
  */
 
 .node-event.workflow-in-progress .group-left::after {
-    color: #ccbb99;
-    content: "DRAFT";
-    display: block;
-    font-size: 15em;
-    font-weight: bold;
-    opacity: 0.4;
-    position: absolute;
-    top: 360px;
-    pointer-events: none;
-    
+  color: #ccbb99;
+  content: "DRAFT";
+  display: block;
+  font-size: 15em;
+  font-weight: bold;
+  opacity: 0.4;
+  position: absolute;
+  top: 360px;
+  pointer-events: none;
 }
- 
+
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
  *                                             *
  ***********************************************/
-
 
 $iPh6H: 667px;
 $iPh6W: 375px;
@@ -2344,544 +2382,515 @@ $phone-tablet-divide: 736px;
  * iPhone 6 landscape 
  */
 
-@media screen and (max-width: $phone-tablet-divide /*$iPh6H*/) {
-    /* general styles */
-     
-    /* 
-     * prototype classes
-     */
-    .reset-layout {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
+@media screen and (max-width: $phone-tablet-divide) {
+  /* general styles */
+  /* 
+   * prototype classes
+   */
+  .reset-layout {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  /* for mobile panels with no top bars */
+  .top-bar-reset {
+    background-color: none;
+    height: 0px;
+    width: 0px;
+    position: static;
+  }
+  .mobile-panel {
+    padding-top: 10px;
+    margin: 0px auto;
+    float: none;
+    width: 85%;
+    display: block;
+    background: no-repeat;
+    background-color: $capt-lightgrey;
+  }
+  .show-hide {
+    font-size: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    background-image: url("../images/icons/hide.png");
+    background-position: 0px 8px;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  /*
+   *  End Prototypes, Start Mixins
+   */
+  @mixin side_borders($color) {
+    border-left: 1px solid $color;
+    border-right: 1px solid $color;
+  }
+  @mixin top_open($color) {
+    border-left: 1px solid $color;
+    border-right: 1px solid $color;
+    border-bottom: 1px solid $color;
+  }
+  /*
+   *  End Mixins
+   */
+  /*
+   *Start General Styles
+  */
+  html,
+  body {
+    width: 100%;
+    min-width: 320px;
+    overflow-x: hidden;
+    height: 100%;
+    div#page {
+      height: 750px;
+      @extend .reset-layout;
+      display: inline-block;
+      margin-bottom: -200px;
+      padding-bottom: 80px;
     }
-    /* for mobile panels with no top bars */
-    .top-bar-reset {
-        background-color: none;
-        height: 0px;
-        width: 0px;
-        position: static;
+    div#block-search-form {
+      display: none;
     }
-    .mobile-panel {
-        padding-top: 10px;
-        margin: 0px auto;
-        float: none;
-        width: 85%;
-        display: block;
-        background: no-repeat;
-        background-color: $capt-lightgrey;
+    div#page {
+      header#header {
+        height: 89px;
+        background: url("../images/banners/login-phone.png") 0 0 no-repeat;
+      }
+      padding-bottom: 50px;
     }
-    .show-hide {
-         font-size: 22px;
-         padding-left: 20px;
-         cursor: pointer;
-         background-image: url('../images/icons/hide.png');
-         background-position: 0px 8px;
-         background-repeat: no-repeat;
-         margin-left: 0px;
-         margin-top: 0px;
+    div#content {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      padding-left: 0px;
+      /* border: 1px dotted orange;*/
     }
-
-    /*
-     *  End Prototypes, Start Mixins
-     */
-    @mixin side_borders ($color) {
-        border-left: 1px solid $color;
-        border-right: 1px solid $color;
-    }
-    @mixin top_open ($color) {
-        border-left: 1px solid $color;
-        border-right: 1px solid $color;
-        border-bottom: 1px solid $color;
-    }
-    /*
-     *  End Mixins
-     */
-
-     /*
-      *Start General Styles
-     */
-
-     html,
-     body {
-        width: 100%;
-        min-width: 320px;
-        overflow-x: hidden;
-        height: 100%;
-        div#page {
-            height: 750px;
-            @extend .reset-layout;
-            display: inline-block;
-
-            margin-bottom: -200px;
-            padding-bottom: 80px;
-        }
-
-        div#block-search-form {
-            display: none;
-        }
-        div#page {
-            header#header {
-            height: 89px;
-            background: url('../images/banners/login-phone.png') 0 0 no-repeat;
-            }
-            padding-bottom: 50px;
-        }
-        div#content {
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
-        padding-left: 0px;
-        /* border: 1px dotted orange;*/
-       }
-     }
-     /* switch user block */
-       div.block-devel#block-devel-switch-user {
-            margin: 0px auto;
-            text-align: left;
-    }
-    /*
-     *  End General Styles
-     */
-   
-    /*
-     *  iPhone Styles -- User Login Page
-     */
-    #main {
-        @extend .reset-layout;
-    }
-    body.not-logged-in.page-user:not(.page-user-register) {
-        
-        div#title-section {
-            padding-top: 6px;
-            padding-bottom: 6px;
-        }
-       
-        /* reformatting panels for mobile */
-        form#user-login,
-        div#title-section,
-        div#block-block-8,
-        div#block-block-9,
-        {
-            @include side_borders($capt-midgrey);
-            @extend .mobile-panel;
-            // headers for form and blocks.
-            h1, h2 {
-               @extend .show-hide;
-            }
-            h2 {
-                margin-bottom: 6px;
-            }
-            
-        }
-        /*specific disclaimer styles; more at the end */
-        div.disclaimer {
-            margin: 0px auto;
-            left: 0px;
-            padding-right: 0px;
-            width: 100%;
-
-        }
-        // reposition top bar above login title
-        div#title-section {
-            &:before {
-              top: -10px;
-            }
-        }
-        // why register
-        div#block-block-9 {
-            height: 140px;
-            padding-bottom: 26px;
-        }
-        /* mobile styles, cont'd s*/
-        
-        /* new to captconnect? and reasons to join panels */
-        div#block-block-8,
-        div#block-block-9 {
-            border: 1px solid $capt-midgrey;
-            background-image: none;
-            background-repeat: no-repeat;
-            &:before {
-                @extend .top-bar-reset;
-            }
-        }
-        div#content div#title-section h1#page-title {
-            margin-left: 17px;
-        }
-        form#user-login {
-            height: 250px;
-            input#edit-submit {
-                margin-top: 0px;
-                top: 0px;
-            }
-           
-         
-        } // end user login
-
-    } // end body 
-   
-    div.bottom-footer {
-        width: 100%;
-        div.bottom-footer-container {
-            /* border: 1px solid blue;*/
-            
-            width: 100%;
-            div.disclaimer {
-                width: 80%;
-                margin: 0px auto;
-            }
-        }
-    }
-    div.bottom-footer,
-    div.bottom-footer-container,
-    div.disclaimer {
-        @extend .reset-layout;
-        max-width: 100%;
-        text-align: center;
-        display: block;
-        margin: 0px;
-    }
-
-
- body.logged-in.page-user-edit {
+  }
+  /* switch user block */
+  div.block-devel#block-devel-switch-user {
+    margin: 0px auto;
+    text-align: left;
+  }
+  /*
+   *  End General Styles
+   */
+  /*
+   *  iPhone Styles -- User Login Page
+   */
+  #main {
+    @extend .reset-layout;
+  }
+  body.not-logged-in.page-user:not(.page-user-register) {
     div#title-section {
-     h1#page-title.page__title{
-      margin-left: 30px;
-     }
-   }
-
- }
- /* merge with styles below? */
- body.admin-menu  {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+    /* reformatting panels for mobile */
+    form#user-login,
+    div#title-section,
+    div#block-block-8,
+    div#block-block-9 {
+      @include side_borders($capt-midgrey);
+      @extend .mobile-panel;
+      // headers for form and blocks.
+      h1, h2 {
+        @extend .show-hide;
+      }
+      h2 {
+        margin-bottom: 6px;
+      }
+    }
+    /*specific disclaimer styles; more at the end */
+    div.disclaimer {
+      margin: 0px auto;
+      left: 0px;
+      padding-right: 0px;
+      width: 100%;
+    }
+    // reposition top bar above login title
+    div#title-section {
+      &:before {
+        top: -10px;
+      }
+    }
+    // why register
+    div#block-block-9 {
+      height: 140px;
+      padding-bottom: 26px;
+    }
+    /* mobile styles, cont'd s*/
+    /* new to captconnect? and reasons to join panels */
+    div#block-block-8,
+    div#block-block-9 {
+      border: 1px solid $capt-midgrey;
+      background-image: none;
+      background-repeat: no-repeat;
+      &:before {
+        @extend .top-bar-reset;
+      }
+    }
+    div#content div#title-section h1#page-title {
+      margin-left: 17px;
+    }
+    form#user-login {
+      height: 250px;
+      input#edit-submit {
+        margin-top: 0px;
+        top: 0px;
+      }
+    }
+    // end user login
+ 
+  }
+  // end body
+  div.bottom-footer {
+    width: 100%;
+    div.bottom-footer-container {
+      /* border: 1px solid blue;*/
+      width: 100%;
+      div.disclaimer {
+        width: 80%;
+        margin: 0px auto;
+      }
+    }
+  }
+  div.bottom-footer,
+  div.bottom-footer-container,
+  div.disclaimer {
+    @extend .reset-layout;
+    max-width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0px;
+  }
+  body.logged-in.page-user-edit {
+    div#title-section {
+      h1#page-title.page__title {
+        margin-left: 30px;
+      }
+    }
+  }
+  /* merge with styles below? */
+  body.admin-menu {
     div#navigation {
       ul#main-menu.main-menu.responsive-menu {
-         overflow: visible;
-         /* admin*/
-         li#menu-item-1185,
-         /* create */
-         li#menu-item-589 {
-            display: none;
-         }
-         li#menu-item-591 {
-            overflow: visible;
-            a {
-              border-bottom: 1px solid white;
-            }
-        } 
+        overflow: visible;
+        /* admin*/
+        li#menu-item-1185,
+        li#menu-item-589 {
+          display: none;
+        }
+        li#menu-item-591 {
+          overflow: visible;
+          a {
+            border-bottom: 1px solid white;
+          }
+        }
       }
-   }
-   div#content {
+    }
+    div#content {
       margin-top: 50px;
-   }
-}
-body.node-type-event {
-
-}
- /*
-  *  iPhone Styles -- Registration & Profile Page
-  */
- form#user-profile-form, 
- body.admin-menu,
- body.not-logged-in.page-user-register:not(.node-type-event) {
+    }
+  }
+  /*
+   *  iPhone Styles -- Registration & Profile Page
+   */
+  form#user-profile-form,
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event) {
     div#block-block-3.block.block-block {
       width: 85%;
       margin: 0px auto;
-
     }
-     div#edit-actions {
-        text-align: center;
+    div#edit-actions {
+      text-align: center;
     }
-   fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
-        div.form-type-password-confirm.form-item {
-                    $pass-width: 300px;
-             
-                    /*background-color: blue;*/
-                    width: $pass-width;
-                    margin: 0px;
-                    input.form-text.password-field,
-                    input.form-text.password-confirm {
-                        width: $pass-width;
-                        float: left;
-                        clear: left;
-                        margin-bottom: 10px;
-
-
-                    }
-                    div.description {
-                        clear: left;
-                    }
-                    div.password-suggestions {
-                        width: 112%;
-                    }
-                    input#edit-pass-pass2 {
-                        margin-top: -20px;
-                    }
-                   
-                    div.form-item-pass-pass1,
-                    div.form-item-pass-pass2 {
-                         label {
-                           clear: left;
-                           float: left;
-                       }
-
-
-                   } 
-                   div.password-parent {
-                    width: 85%;
-                   }
-                   div.password-strength {
-                      
-                        width: $pass-width;
-                        float: left;
-                        /*background-color: yellow;*/
-                       
-                        margin-bottom: 20px;
-                      
-                    }
-                
-        }
-        input.form-text {
-                width: 90%;
-                
-
+    fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
+      div.form-type-password-confirm.form-item {
+        $pass-width: 300px;
+        width: $pass-width;
+        margin: 0px;
+        input.form-text.password-field,
+        input.form-text.password-confirm {
+          width: $pass-width;
+          float: left;
+          clear: left;
+          margin-bottom: 10px;
         }
         div.description {
-            margin-right: 5px;
+          clear: left;
         }
-   }
-   fieldset#edit-ckeditor {
-         
-   }
-   fieldset {
-    width: 85%;
-    min-width: 0px;
-    margin: 0px auto;
-    margin-bottom: 20px;
-    // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
-       fieldset  {
-          margin: 0px auto;
-          width: 90%;
-          select {
-            width: 90%;
+        div.password-suggestions {
+          width: 112%;
+        }
+        input#edit-pass-pass2 {
+          margin-top: -20px;
+        }
+        div.form-item-pass-pass1,
+        div.form-item-pass-pass2 {
+          label {
+            clear: left;
+            float: left;
           }
-       }
-       fieldset:last-child {
-            margin-bottom: 10px;
-          }
-       div.data-view, div.fieldset-wrapper {
-        /* we need a media query for smaller widths too */
+        }
+        div.password-parent {
+          width: 85%;
+        }
+        div.password-strength {
+          width: $pass-width;
+          float: left;
+          /*background-color: yellow;*/
+          margin-bottom: 20px;
+        }
+      }
+      input.form-text {
+        width: 90%;
+      }
+      div.description {
+        margin-right: 5px;
+      }
+    }
+    fieldset {
+      padding-top: 0px;
+      width: 85%;
+      min-width: 0px;
+      margin: 0px auto;
+      margin-bottom: -20px;
+      // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
+      fieldset {
+        display: none;
+      }
+      div.data-view, div.fieldset-wrapper {
         width: 100.7%;
         margin-top: 0px;
-           .item {
-            margin-right: 16px;
+        .item {
+          margin-right: 16px;
         }
-    }
-    
-   }
-  
-    /* edit button */
-     div.data-view div.edit-button {
+      }
+      /* edit button */
+      div.data-view div.edit-button {
         position: relative;
         top: -24px;
         font-size: 18px;
-    }
-    div.fieldset-wrapper {
-
+      }
+      div.fieldset-wrapper {
         div.save-button, div.cancel-button {
-            font-size: 18px;
-           
-           
+          font-size: 18px;
         }
         div.save-button:first-child, div.cancel-button:nth-child(2) {
-            top: -30px;
-            position: relative;
+          top: -30px;
+          position: relative;
         }
+      }
+      // legends
+      legend span.fieldset-legend {
+        margin-left: -300px;
+        left: 283px;
+        margin-bottom: 20px;
+        position: relative;
+        top: 30px;
+        display: block;
+      }
+      div.fieldset-wrapper, div.data-view {
+        padding-top: 40px;
+        margin-top: -3px;
+        margin-bottom: 0px;
+        z-index: 0;
+      }
     }
-
-   
-   
-   
-   
-  fieldset {
-         padding-top: 0px;
-  
-        legend span.fieldset-legend {
-          
-            margin-left: -300px;
-            left: 283px;
-            margin-bottom: 20px;
-            position: relative;
-            top: 40px;
-            display: block; 
-            
-
-        }
-         div.fieldset-wrapper,div.data-view {
-            padding-top: 40px;
-            margin-top: -3px;
-            margin-bottom: 20px;
-            z-index: 0;
-         }
-         fieldset {
-            z-index: -1000;
-            legend .fieldset-legend {
-            top: -3px;
-            margin-left: 0px;
-            left: 0px;
-            margin-bottom: -3px;
-             a {
-                top: 15px;
-                position: relative;
-                display: block;
-             }
-           }
-           /*div.fieldset-wrapper {
-             margin-top: -32px;
-           }*/
-         }
-    }
-    
     /* Chrome and Safari Specific Styles */
-    @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 0px) and (max-width: $iPh6H)  { 
-         div {
-           /* background-color: #02CDD1;*/
-         }
-         fieldset.group-account {
-            div.fieldset-wrapper,div.data-view {
-            padding-top: 70px;
-            margin-top: 8px;
-          }
-         }
-    }  
+  }
+  @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: $phone-tablet-divide) {
+    form#user-profile-form,
+    body.admin-menu {
+      fieldset.group-account, fieldset {
+        div.fieldset-wrapper, div.data-view {
+          padding-top: 45px;
+          margin-top: 8px;
+        }
+        // end data view and field wrapper
+        margin-bottom: 0px;
+      }
+      fieldset {
+        margin-top: 0px;
+      }
+    }
+  }
 }
 
-}
 /**
  * End iPhone responsive theming
  */
 
+/**
+ * Start iPad responsive theming
+ */
 
- /**
-  * Start iPad responsive theming
-  */
-
-@media screen and (min-width: $phone-tablet-divide+1px) and (max-width: $iPadH) {
-
-    body.not-logged-in.page-user:not(.page-user-register) {
-        
-         /* login screen */
-         div#page {
-            width: 83.3333%;
-         }
-
-         form#user-login {
-    
-         }
-         div#title-section {
-
-         }
-         /* new to captconnect */
-         div#block-block-8 {
-
-         }
-         /* reasons to register */
-         div#block-block-9 {
-   
-         }
-         div#title-section, 
-         form#user-login {
-            margin-left: 0px;
-            width: 39%; /*41.71%;*/
-            margin-left: 3%;
-            margin-right: 0px;
-         }
-         div#block-block-8,
-         div#block-block-9 {
-            width: 44%; /*46.24%;*/
-            float: right;
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
+  // styles for all iPad-ready pages
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.admin-menu,
+  body.page-user-register {
+    /* login screen */
+    div#page {
+      width: 83.3333%;
+    }
+  }
+  // login screen, iPad
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div#main,
+    div#content {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    div#title-section,
+    form#user-login {
+      margin-left: 0px;
+      width: 39%;
+      margin-left: 3%;
+      margin-right: 0px;
+    }
+    div#block-block-8,
+    div#block-block-9 {
+      width: 44%;
+      float: right;
+      margin-right: 3%;
+    }
+  }
+  // profile screen, iPad
+  body.admin-menu,
+  body.page-user-register {
+    div.bottom-footer div.disclaimer {
+      padding: 0px;
+      margin-left: 8.5%;
+      width: 500px;
+    }
+    div#block-block-3 {
+      margin-left: 12px;
+    }
+    div#main {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      div#navigation {
+        width: 100%;
+        padding: 0px;
+        margin: 0px auto;
+        div.region.region-navigation {
+          margin-top: 20px;
+          div.contextual-links-region {
+            margin: 0px auto;
+            width: 100%;
+            ul#main-menu.main-menu.responsive-menu {
+              width: 96.75%;
+              overflow: visible;
+              margin: 0px auto;
+              padding: 0px;
+              /* hide admin*/
+              li#menu-item-1185,
+              li#menu-item-589 {
+                display: none;
+              }
+              // end items
            
-            margin-right: 3%;
-         }
-         div#main,
-         div#content {
-            width: 100%;
-            margin-left: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-         }
-    }
-   
-
-}
-
-@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
-body.not-logged-in.page-user:not(.page-user-register) {
-        
-         
-         div#title-section h1#page-title {
-            font-size: 22px;
-         }
-         div#title-section, 
-         form#user-login {
-            margin-left: 0px;
-            width: 38%; 
-            margin-left: 3%;
-            margin-right: 0px;
-         }
-         div#block-block-8 {
-            margin-top: -52px;
-         }
-         div#block-block-8,
-         div#block-block-9 {
-            width: 42%; 
-        
-          
-            h2.block-title,h2.custom_block_title {
-                font-size: 22px;
             }
+            // end menu
          
-         }
-         div#block-block-9 {
-            background-image: none;
-         }
-         div#main,
-         div#content {
-            width: 100%;
-            margin-left: 0px;
-            padding-left: 0px;
-         }
+          }
+          // end contextual links
+       
+        }
+        // end region nav
+     
+      }
+      // end nav
+      // content, profile screen, iPad
+      div#content {
+        width: 96.8%;
+        margin: 0px auto;
+        margin-top: 16.5px;
+        display: block;
+        padding-left: 0px;
+        padding-right: 0px;
+        ul.tabs-primary {
+          width: 97%;
+          margin: 0px auto;
+          margin-bottom: 20px;
+        }
+        input#edit-cancel.form-submit {
+          margin-left: 10px;
+          text-align: center;
+        }
+        h1#page-title {
+          background-position: 8px 0px;
+          padding-left: 70px;
+          font-size: 34px;
+        }
+        fieldset {
+          width: 95%;
+          margin: 0px auto;
+          display: block;
+        }
+      }
     }
+  }
+  // TO DO: event dashboard, iPad
+  // TO DO: event detail, iPad
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-
-
-        
-   div#title-section h1#page-title {
-          font-size: 25px;
-   }
-
-   body.not-logged-in.page-user:not(.page-user-register) {
-   div#block-block-8,
-   div#block-block-9  {
-         h2.block-title,h2.custom_block_title {
-          font-size: 25px;
-         
-     }
-   }
-   div#block-block-8 {
-      margin-top: -58px;
-   }
+/* large phone, small tablet */
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div#title-section h1#page-title {
+      font-size: 22px;
+    }
+    div#title-section,
+    form#user-login {
+      margin-left: 0px;
+      width: 38%;
+      margin-left: 3%;
+      margin-right: 0px;
+    }
+    div#block-block-8 {
+      margin-top: -52px;
+    }
+    div#block-block-8,
+    div#block-block-9 {
+      width: 42%;
+      h2.block-title, h2.custom_block_title {
+        font-size: 22px;
+      }
+    }
+    div#block-block-9 {
+      background-image: none;
+    }
+    div#main,
+    div#content {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+    }
   }
 }
 
-
-
-
-
-
-
-
-
-
-
+/* iPad theming */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  div#title-section h1#page-title {
+    font-size: 25px;
+  }
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div#block-block-8,
+    div#block-block-9 {
+      h2.block-title, h2.custom_block_title {
+        font-size: 25px;
+      }
+    }
+    div#block-block-8 {
+      margin-top: -58px;
+    }
+  }
+}
