@@ -28,9 +28,12 @@ Drupal.behaviors.my_custom_behavior = {
     /**
      *  Responsive Show - Hides
      */
-     
-    var iPh6H = 375;
-    var iPh6W = 667;
+    
+    // currently not used - replaced with phone_tablet_divide
+    var iPh6H = 667;
+    var iPh6W = 375;
+    // new variable to account for the division between phone and tablet styles
+    var phone_tablet_divide = 736;
     var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
     var why_reg_heights = ['207','140','34'] 
     // laptop, mobile-expanded, mobile-compact
@@ -38,7 +41,7 @@ Drupal.behaviors.my_custom_behavior = {
     // function for toggling a panel on click of header
     function togglePanel(header, body, panel, compact, expanded)
     {
-      var mql = window.matchMedia("screen and (max-width:"+iPh6W+"px");
+      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px");
        if (mql.matches)
        {
           switch($(body).css('display')) {
@@ -96,8 +99,7 @@ Drupal.behaviors.my_custom_behavior = {
     // correct styles when browser is resized
     function panel_respond(header, body, panel, laptop_height, mobile_height)
     {
-
-          var min = iPh6W+1;
+          var min = phone_tablet_divide+1;
           var mql = window.matchMedia("screen and (min-width:"+min+"px");
           if (mql.matches)
           {  
