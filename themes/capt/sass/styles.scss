@@ -1538,7 +1538,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
       border: 0px solid transparent;
       margin-left: $login-margin-left;
       position: relative;
-      top: 60px;
+      top: 40px;
       width: 75px;
     }
     div.description {
@@ -1546,6 +1546,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     }
     div.form-item-name {
       margin-bottom: 10px;
+      padding-top: 20px;
     }
     input#edit-name {
       margin-bottom: 0px;
@@ -1586,6 +1587,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
   /* RIGHT */
   #block-block-8 {
     @extend .panel-rule-single;
+    padding-bottom: 20px;
     h2.block-title {
       display: none;
     }
@@ -1610,7 +1612,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     background-image: url("../images/icons/register.png");
     background-position: 270px 30px;
     background-repeat: no-repeat;
-    height: 220px;
+    height: 204px;
     margin-top: 9px;
     h2.block-title {
       margin-left: $login-margin-left;
@@ -2348,17 +2350,28 @@ form#user-pass {
   pointer-events: none;
 }
 
+$iPh6H: 667px;
+$iPh6W: 375px;
+$iPadH: 1024px;
+$iPadW: 768px;
+$phone-tablet-divide: 736px;
+
+/* fine-tuning for Chrome & Safari */
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-width: $phone-tablet-divide + 1px) {
+  body.not-logged-in.page-user:not(.page-user-register) {
+    #block-block-9 {
+      height: 199px;
+    }
+  }
+}
+
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
  *                                             *
  ***********************************************/
 
-$iPh6H: 667px;
-$iPh6W: 375px;
-$iPadH: 1024px;
-$iPadW: 768px;
-$phone-tablet-divide: 736px;
+
 
 /* Navigation bar 
  * Uses the styles from responsive.css for mobile phone widths 
@@ -2534,6 +2547,9 @@ $phone-tablet-divide: 736px;
       margin-left: 17px;
     }
     form#user-login {
+      div.form-item-name {
+      padding-top: 0px;
+      }
       height: 250px;
       input#edit-submit {
         margin-top: 0px;
@@ -2876,6 +2892,7 @@ $phone-tablet-divide: 736px;
     }
   }
 }
+
 /* Nevin comment */
 /* iPad theming */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -2886,7 +2903,7 @@ $phone-tablet-divide: 736px;
     div#block-block-8,
     div#block-block-9 {
       h2.block-title, h2.custom_block_title {
-        font-size: 25px;
+        font-size: 1.7em;
       }
     }
     div#block-block-8 {
