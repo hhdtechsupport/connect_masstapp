@@ -2295,18 +2295,7 @@ form#user-pass {
 /*
  *  Workflow Styles
  */
-.node-event.workflow-in-progress .group-left::before {
-  color: #ccbb99;
-  content: "DRAFT";
-  display: block;
-  font-size: 15em;
-  font-weight: bold;
-  opacity: .4;
-  position: absolute;
-  transform: rotate(300deg);
-  -webkit-transform: rotate(300deg);
-  z-index: 1;
-}
+
 .node-event.workflow-in-progress .group-left::after {
     color: #ccbb99;
     content: "DRAFT";
@@ -2316,6 +2305,8 @@ form#user-pass {
     opacity: 0.4;
     position: absolute;
     top: 360px;
+    pointer-events: none;
+    
 }
  
 /***********************************************
