@@ -152,4 +152,16 @@ function capt_preprocess_page(&$variables) {
     if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');
  
 }
+function capt_page_alter($page) {
+   $meta_description = array(
+            '#type' => 'html_tag',
+            '#tag' => 'meta',
+            '#attributes' => array(
+                'name' => 'viewport',
+                'content' =>  'width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;'
+            )
+   );
+  
+drupal_add_html_head( $meta_description, 'meta_description' );
 
+}
