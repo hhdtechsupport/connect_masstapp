@@ -2533,14 +2533,16 @@ $small-phone-width: 342px;
     div#title-section {
       padding-top: 6px;
       padding-bottom: 6px;
+      @include side_borders($capt-midgrey);
     }
     /* reformatting panels for mobile */
     form#user-login,
     div#title-section,
     div#block-block-8,
     div#block-block-9 {
-      @include side_borders($capt-midgrey);
+     
       @extend .mobile-panel;
+      @include side_borders($capt-midgrey);
       // headers for form and blocks.
       h1, h2 {
         @extend .show-hide;
