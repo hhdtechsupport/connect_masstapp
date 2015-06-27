@@ -67,6 +67,40 @@ $login-font: 16px;
 $edit-margin-right: 15px;
 $input-font-size: 14px;
 
+/* responsive */
+
+$iPh6H: 667px;
+$iPh6W: 375px;
+$iPadH: 1024px;
+$iPadW: 768px;
+$phone-tablet-divide: 736px;
+
+/* logos */
+
+$capt-iPh6-scale: 0.65;
+$samhsa-iPh6-scale: 0.7;
+
+$capt-iPh4-scale: 0.55;
+$samhsa-iPh4-scale: 0.6;
+
+$small-tablet-scale: 0.85;
+
+$header-height: 61px;
+
+$capt-phone-logo-width: 290px;
+$capt-logo-width: 342px;
+$capt-logo-height: 46px;
+
+$samhsa-phone-logo-width: 175px;
+$samhsa-phone-logo-height: 50px;
+$samhsa-logo-width: 300px;
+$samhsa-logo-height: 74px;
+
+$top-margin: 10px;
+$small-phone-width: 342px;
+
+/* end logos */
+
 /* mixins */
 /* for tabs! */
 
@@ -2349,12 +2383,16 @@ form#user-pass {
   top: 360px;
   pointer-events: none;
 }
+.not-logged-in .field-name-field-workflow-state {
+  display: none;
+}
+ 
+.node-event .group-left h4:first-of-type {
+  margin-top: 0;
+}
 
-$iPh6H: 667px;
-$iPh6W: 375px;
-$iPadH: 1024px;
-$iPadW: 768px;
-$phone-tablet-divide: 736px;
+
+
 
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
@@ -2389,24 +2427,7 @@ $phone-tablet-divide: 736px;
   }
 }
 
-$capt-iPh6-scale: 0.65;
-$samhsa-iPh6-scale: 0.7;
 
-$capt-iPh4-scale: 0.55;
-$samhsa-iPh4-scale: 0.6;
-
-$small-tablet-scale: 0.85;
-
-$header-height: 61px;
-$capt-phone-logo-width: 290px;
-$capt-logo-width: 342px;
-$capt-logo-height: 46px;
-$samhsa-phone-logo-width: 175px;
-$samhsa-phone-logo-height: 50px;
-$samhsa-logo-width: 300px;
-$samhsa-logo-height: 74px;
-$top-margin: 10px;
-$small-phone-width: 342px;
 
 @media screen and (min-width: 321px) and (max-width: $phone-tablet-divide) {}
 
@@ -2542,6 +2563,7 @@ div#main {
       display: none;
     }
     div#page {
+
       header#header {
         height: 89px;
         background: url("../images/banners/login-phone.png") 0 0 no-repeat;
@@ -2561,6 +2583,12 @@ div#main {
     margin: 0px auto;
     text-align: left;
   }
+  div.block-devel#block-devel-switch-user {
+ 
+  width: 50%;
+  margin-top: 40px;
+  
+}
   /*
    *  End General Styles
    */
@@ -2690,7 +2718,7 @@ div#main {
     }
   }
   /*
-   *  iPhone Styles -- Registration & Profile Page
+   *  iPhone 6 Styles -- Registration & Profile Page
    */
   form#user-profile-form,
   body.admin-menu,
@@ -2706,6 +2734,11 @@ div#main {
       li.menu-item > a {
           width: 150px;
       }
+    }
+    div.bottom-footer div.disclaimer {
+      width: 100%;
+      margin: 0px auto;
+      padding: 0px;
     }
     /* iphone 6 */
       div#content {
