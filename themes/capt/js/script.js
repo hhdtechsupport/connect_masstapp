@@ -100,7 +100,7 @@ Drupal.behaviors.my_custom_behavior = {
     function panel_respond(header, body, panel, laptop_height, mobile_height)
     {
           var min = phone_tablet_divide+1;
-          var mql = window.matchMedia("screen and (min-width:"+min+"px");
+          var mql = window.matchMedia("screen and (min-width:"+min+"px)");
           if (mql.matches)
           {  
             // laptop
@@ -110,7 +110,7 @@ Drupal.behaviors.my_custom_behavior = {
               if (arguments.length == 5)
                  $(panel).css('height',laptop_height)
           }
-          else
+          else 
           {
             // mobile
             if ($(body).css('backgroundImage') == 'none') {
