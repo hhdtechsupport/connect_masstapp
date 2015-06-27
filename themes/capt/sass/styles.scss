@@ -2411,6 +2411,47 @@ $small-phone-width: 342px;
 @media screen and (min-width: 321px) and (max-width: $phone-tablet-divide) {}
 
 /**
+ * General Mobile Styles
+ */
+
+@media screen and (max-width: 1024px) {
+
+div#main {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      div#navigation {
+        width: 100%;
+        padding: 0px;
+        margin: 0px auto;
+        div.region.region-navigation {
+          margin-top: 20px;
+          div.contextual-links-region {
+            margin: 0px auto;
+            width: 100%;
+            ul#main-menu.main-menu.responsive-menu {
+              width: 96.75%;
+              overflow: visible;
+              margin: 0px auto;
+              padding: 0px;
+              /* hide admin*/
+              li#menu-item-1185,
+              li#menu-item-589 {
+                display: none;
+              }
+              // end items
+            }
+            // end menu
+          }
+          // end contextual links
+        }
+        // end region nav
+      }
+    }
+
+}
+/**
  * iPhone 6 landscape 
  */
 
@@ -2491,11 +2532,11 @@ $small-phone-width: 342px;
       }
     }
     div#page {
-      min-height: 740px;
+      min-height: 750px;
       @extend .reset-layout;
       display: inline-block;
-      margin-bottom: -200px;
-      padding-bottom: 80px;
+      margin-bottom: -100px; /*-200px;*/
+      padding-bottom: 60px; /*80px;*/
     }
     div#block-search-form {
       display: none;
@@ -2535,6 +2576,8 @@ $small-phone-width: 342px;
       padding-bottom: 6px;
       @include side_borders($capt-midgrey);
     }
+
+
     /* reformatting panels for mobile */
     form#user-login,
     div#title-section,
@@ -2659,6 +2702,26 @@ $small-phone-width: 342px;
     div#edit-actions {
       text-align: center;
     }
+    ul#main-menu.main-menu {
+      li.menu-item > a {
+          width: 150px;
+      }
+    }
+    /* iphone 6 */
+      div#content {
+        width: 96.8%;
+        margin: 0px auto;
+        margin-top: 55px; /* different from iPad */
+        display: block;
+        padding-left: 0px;
+        padding-right: 0px;
+        ul.tabs-primary {
+          width: 97%;
+          margin: 0px auto;
+          margin-bottom: 20px;
+
+        }
+      }
     fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
       div.form-type-password-confirm.form-item {
         $pass-width: 300px;
@@ -2803,11 +2866,27 @@ $small-phone-width: 342px;
   }
 }
 
+/* Devel tabs */
+
+@media screen and (max-width: 425px) {
+   ul.tabs-primary {
+       
+          li:nth-child(3),li:nth-child(4) {
+            display: none;
+          }
+        }
+}
 /* iPhone 4 */
 @media screen and (max-width: $small-phone-width) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
+    ul#main-menu.main-menu {
+      li.menu-item > a {
+          width: 125px;
+      }
+    }
+   
     div.top-header {
       div.top-header-container {
         div.capt-logo {
@@ -2921,41 +3000,23 @@ $small-phone-width: 342px;
     div#block-block-3 {
       margin-left: 12px;
     }
-    div#main {
-      width: 100%;
-      margin-left: 0px;
-      padding-left: 0px;
-      padding-right: 0px;
+    div#main { 
       div#navigation {
-        width: 100%;
-        padding: 0px;
-        margin: 0px auto;
         div.region.region-navigation {
           margin-top: 20px;
           div.contextual-links-region {
-            margin: 0px auto;
-            width: 100%;
             ul#main-menu.main-menu.responsive-menu {
-              width: 96.75%;
-              overflow: visible;
-              margin: 0px auto;
-              padding: 0px;
-              /* hide admin*/
               li#menu-item-1185,
               li#menu-item-589 {
                 display: none;
               }
               // end items
-           
             }
             // end menu
-         
           }
           // end contextual links
-       
         }
         // end region nav
-     
       }
       // end nav
       // content, profile screen, iPad
