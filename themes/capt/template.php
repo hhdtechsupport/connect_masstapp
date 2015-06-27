@@ -158,7 +158,7 @@ function capt_page_alter($page) {
             '#tag' => 'meta',
             '#attributes' => array(
                 'name' => 'viewport',
-                'content' =>  'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0;'
+                'content' =>  'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no;'
             )
    );
   
