@@ -54,7 +54,7 @@ $capt-profgrey: #dbdbd9;
 
 /*measurements */
 
-$header-height: 100px;
+$header-height: 10px;
 $rainbow-height: 10px;
 $page-width: 1000px;
 $logo-margin: 16px;
@@ -85,7 +85,8 @@ $samhsa-iPh4-scale: 0.6;
 
 $small-tablet-scale: 0.85;
 
-$header-height: 61px;
+$header-height: 91px;
+$mobile-header-height: 61px;
 
 $capt-phone-logo-width: 290px;
 $capt-logo-width: 342px;
@@ -2894,6 +2895,8 @@ div#main {
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
     div.top-header {
+      height: $mobile-header-height;
+     @include rainbow-bar($mobile-header-height - $rainbow-height);
       div.top-header-container {
         div.capt-logo {
           top: $top-margin + 2px;
@@ -2930,6 +2933,8 @@ div#main {
     }
    
     div.top-header {
+       height: $mobile-header-height;
+     @include rainbow-bar($mobile-header-height - $rainbow-height);
       div.top-header-container {
         div.capt-logo {
           top: $top-margin + 2px;
@@ -2950,6 +2955,7 @@ div#main {
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
     div.top-header {
+
       div.top-header-container {
         div.capt-logo {
           background-image: url("../images/logos/CAPT-logo-portal.png");
