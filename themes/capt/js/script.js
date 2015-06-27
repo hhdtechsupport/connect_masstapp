@@ -41,7 +41,7 @@ Drupal.behaviors.my_custom_behavior = {
     // function for toggling a panel on click of header
     function togglePanel(header, body, panel, compact, expanded)
     {
-      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px");
+      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
        if (mql.matches)
        {
           switch($(body).css('display')) {
