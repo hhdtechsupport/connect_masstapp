@@ -2735,6 +2735,7 @@ div#main {
           width: 150px;
       }
     }
+  
     div.bottom-footer div.disclaimer {
       width: 100%;
       margin: 0px auto;
@@ -2755,6 +2756,14 @@ div#main {
 
         }
       }
+     fieldset.group-demographic-information {
+      div.data-view div.button.edit-button {
+        top: 130px;
+      }
+      div.save-button:first-child,div.cancel-button:nth-child(2) {
+        display: none;
+      }
+    }
     fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
       div.form-type-password-confirm.form-item {
         $pass-width: 300px;
