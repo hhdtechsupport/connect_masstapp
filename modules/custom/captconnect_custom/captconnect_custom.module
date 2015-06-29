@@ -1,29 +1,29 @@
 <?php
 /**
-* @file
-* Custom Code for CAPTConnect.
-*/
- 
+ * @file
+ * Custom Code for CAPTConnect.
+ */
+
 /**
-* Implements hook_permission().
-*/
+ * Implements hook_permission().
+ */
 function captconnect_custom_permission() {
   $perms = array(
-    'view registration buttons' => array(
-      'title' => t('View Registration Buttons'),
-      'description' => t('View Registration buttons on Events.'),
+    'view registrations' => array(
+      'title' => t('View Registrations'),
+      'description' => t('View Registrations on Events.'),
       'restrict access' => FALSE,
       ),
     );
   return $perms;
 }
- 
+
 /**
-* Implements hook_menu().
-*/
+ * Implements hook_menu().
+ */
 function captconnect_custom_menu() {
   $items = array();
- 
+
   $items['node/%node/notifications'] = array(
     'title' => 'Notifications',
     'page callback' => 'captconnect_custom_view_notifications',
@@ -33,7 +33,7 @@ function captconnect_custom_menu() {
     'weight' => 0,
     'type' => MENU_LOCAL_TASK,
     );
- 
+
   $items['admin/config/administration/captconnect'] = array(
     'title' => 'CAPT Connect',
     'description' => 'Various settings to control CAPT Connect custom functions',
@@ -44,7 +44,7 @@ function captconnect_custom_menu() {
     'weight' => 2,
     'type' => MENU_NORMAL_ITEM,
     );
- 
+
   $items['nancy'] = array(
     'title' => 'Nancy',
     'description' => 'Stuff that needs a menu item',
@@ -52,35 +52,41 @@ function captconnect_custom_menu() {
     'access arguments' => array('administer site configuration'),
     'type' => MENU_CALLBACK,
     );
- 
+
   return $items;
 }
- 
+
 /**
-* Implements hook_menu_alter().
-*/
+ * Implements hook_menu_alter().
+ */
 function captconnect_custom_menu_alter(&$items) {
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
+
+  // Get rid of the User View tab.
+  // Make user.view not a default tab.
+  $items['user/%user/view']['type'] -= MENU_LINKS_TO_PARENT;
+  // Make user.edit the default tab.
+  $items['user/%user/edit']['type'] |= MENU_LINKS_TO_PARENT;
 }
- 
+
 /**
-* Menu access callback.
-*/
+ * Menu access callback.
+ */
 function captconnect_custom_access_notifications($node) {
   if ($node->type == 'event') {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
       $notification = $notification[0]['target_id'];
-      return node_access('view', node_load($notification));
-//      return node_access('update', node_load($notification));
+//      return node_access('view', node_load($notification));
+      return node_access('update', node_load($notification));
     }
   }
   return FALSE;
 }
- 
+
 /**
-* Menu callback.
-*/
+ * Menu callback.
+ */
 function captconnect_custom_view_notifications($node) {
   if ($node->type == 'event') {
     $notification = field_get_items('node', $node, 'field_related_notifications');
@@ -92,10 +98,10 @@ function captconnect_custom_view_notifications($node) {
     }
   }
 }
- 
+
 /**
-* Menu title callback.
-*/
+ * Menu title callback.
+ */
 function captconnect_custom_user_page_title() {
   global $user;
   if (user_is_logged_in()) {
@@ -107,11 +113,11 @@ function captconnect_custom_user_page_title() {
       case 'user/password':
         $title = variable_get('login_page_title','Request new password');
         break;
- 
+
       case 'user/register':
         $title = variable_get('login_page_title','User Registration');
         break;
- 
+
       default:
         $title = variable_get('login_page_title','Log in');
         break;
@@ -119,28 +125,28 @@ function captconnect_custom_user_page_title() {
   }
   return $title;
 }
- 
+
 /**
-* Implements hook_module_implements_alter().
-*/
+ * Implements hook_module_implements_alter().
+ */
 function captconnect_custom_module_implements_alter(&$implementations, $hook) {
   if ($hook == 'admin_paths' && isset($implementations ['captconnect_custom'])) {
     $group = $implementations ['captconnect_custom'];
     unset($implementations ['captconnect_custom']);
     $implementations ['captconnect_custom'] = $group;
   }
- 
+
   if ($hook == 'form_alter' && isset($implementations['captconnect_custom'])) {
     $group = $implementations ['captconnect_custom'];
     unset($implementations['captconnect_custom']);
     $implementations['captconnect_custom'] = $group;
   } /* */
 }
- 
+
 /**
-* Implements hook_admin_paths().
-* Set all event_notifications paths to use Overlay.
-*/
+ * Implements hook_admin_paths().
+ * Set all event_notifications paths to use Overlay.
+ */
 function xcaptconnect_custom_admin_paths() {
   // This query should be fairly quick unless theer are lots of notifications.
   // Note that the list is statically cached by path_get_admin_paths().
@@ -149,21 +155,21 @@ function xcaptconnect_custom_admin_paths() {
   $paths['node/*/registrations'] = TRUE;
   return $paths;
 }
- 
+
 /**
-* Implements hook_admin_paths_alter().
-* Turn off Overlay on some standard pages.
-*/
+ * Implements hook_admin_paths_alter().
+ * Turn off Overlay on some standard pages.
+ */
 function captconnect_custom_admin_paths_alter(&$paths) {
-//  $paths['user/*'] = FALSE;
-//  $paths['admin'] = FALSE;
- $paths['admin/modules'] = FALSE;
-//  $paths['admin/*'] = FALSE;
+  $paths['user/*'] = FALSE;
+  $paths['admin'] = FALSE;
+  $paths['admin/modules'] = FALSE;
+  $paths['admin/*'] = FALSE;
 }
- 
+
 /**
-* Implements hook_workflow_permitted_state_transitions_alter().
-*/
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
 function xcaptconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
   // Remove any transition where the target state is the same as the current state.
   foreach ($transitions as $key => $transition) {
@@ -172,17 +178,24 @@ function xcaptconnect_custom_workflow_permitted_state_transitions_alter(array &$
     }
   }
 }
- 
+
 /**
-* Implements hook_form_alter().
-*/
+ * Implements hook_form_alter().
+ */
 function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_profile_form':
       // This doesn't actually work.
       $form['#attributes'] = array('autocomplete' => 'off');
+      break; /* */
+
+    // Save the current path and grab the submit handler.
+    case 'event_notifications_node_form':
+      $form['#where_to'] = $_GET['q'];
+      $form['actions']['submit']['#submit'][] = 'captconnect_custom_notifications_submit';
+//      dpm($form['actions'], 'actions');
+      break; /* */
   /*
-//    case 'event_notifications_node_form':
     case 'notifications_node_form':
       $form['field_related_event']['#disabled'] = TRUE;
       $form['field_related_event'][LANGUAGE_NONE]['#disabled'] = TRUE;
@@ -190,10 +203,18 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   }
 //  dpm($form, $form_id);
 }
- 
+
 /**
-* Implements hook_form_FORM_ID_alter().
-*/
+ * Submit handler for event_notifications.
+ */
+function captconnect_custom_notifications_submit($form, &$form_state) {
+  dpm($form_state['values'], 'values');
+  $form_state['redirect'] = $form['#where_to'];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
   $current_sid = $form['#default_value'];
   $form['actions']['workflow_' . $current_sid]['#access'] = FALSE;
@@ -201,10 +222,10 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
   $class = drupal_html_class($current_state ? workflow_get_sid_label($current_sid) : 'unknown state');
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
 }
- 
+
 /**
-* Implements hook_form_FORM_ID_alter().
-*/
+ * Implements hook_form_FORM_ID_alter().
+ */
 function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id) {
   $form['request'] = array(
     '#type' => 'markup',
@@ -215,7 +236,7 @@ function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id
         'title' => t('I forgot my password'),
         ))),
     );
- 
+
   if (module_exists('username_reminder')) {
     $form['reminder'] = array(
       '#type' => 'markup',
@@ -224,11 +245,11 @@ function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id
         array('attributes' => array(
           'class' => array('request-password'),
           'title' => t('I forgot my user name'),
-         ))),
+          ))),
       );
   }
 }
- 
+
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   if ($entity_form['#entity_type'] == 'notifications') {
     $form['field_related_event']['#access'] = FALSE;
@@ -236,10 +257,10 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
   }
 //  dpm($entity_form, 'captconnect_custom_inline_entity_form_entity_form_alter');
 }
- 
+
 /**
-* Implements hook_inline_entity_form_table_fields_alter().
-*/
+ * Implements hook_inline_entity_form_table_fields_alter().
+ */
 function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $context) {
   // Make sure there's a stock field on each of the allowed types.
   $instances = FALSE;
@@ -266,7 +287,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       $notifications = TRUE;
     }
   }
- 
+
   // Replace fields shown for date instances
   if ($instances) {
     unset($fields['status']);
@@ -276,7 +297,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'weight' => 2
       );
   }
- 
+
   // Replace fields shown for presenters
   if ($presenters) {
     unset($fields['status']);
@@ -297,7 +318,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
         )
       );
   }
- 
+
   // Replace fields shown for date instances
   if ($materials) {
     unset($fields['status']);
@@ -318,7 +339,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'weight' => 4
       );
   }
- 
+
   // Replace fields shown for notifications
   if($notifications) {
     unset($fields['status']);
@@ -330,11 +351,11 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       );
   }
 }
- 
+
 /*
-* Implements template_preprocess_node().
-* Add a class to the node so it can be displayed as published or not.
-*/
+ * Implements template_preprocess_node().
+ * Add a class to the node so it can be displayed as published or not.
+ */
 function captconnect_custom_preprocess_node(&$variables) {
   $node = $variables ['node'];
   if (isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])) {
@@ -343,12 +364,12 @@ function captconnect_custom_preprocess_node(&$variables) {
     $variables ['classes_array'][] = drupal_html_class('workflow-' . $class);
   }
 }
- 
+
 function captconnect_custom_nancy() {
   global $user;
   // Flush the schema cache.
   drupal_get_schema(NULL, TRUE);
- 
+
   /*
   $query = "SELECT n.nid FROM node n "
     . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
