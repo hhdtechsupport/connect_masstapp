@@ -9,9 +9,9 @@
  */
 function captconnect_custom_permission() {
   $perms = array(
-    'view registration buttons' => array(
-      'title' => t('View Registration Buttons'),
-      'description' => t('View Registration buttons on Events.'),
+    'view registrations' => array(
+      'title' => t('View Registrations'),
+      'description' => t('View Registrations on Events.'),
       'restrict access' => FALSE,
       ),
     );
@@ -61,6 +61,12 @@ function captconnect_custom_menu() {
  */
 function captconnect_custom_menu_alter(&$items) {
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
+
+  // Get rid of the User View tab.
+  // Make user.view not a default tab.
+  $items['user/%user/view']['type'] -= MENU_LINKS_TO_PARENT;
+  // Make user.edit the default tab.
+  $items['user/%user/edit']['type'] |= MENU_LINKS_TO_PARENT;
 }
 
 /**
@@ -71,8 +77,8 @@ function captconnect_custom_access_notifications($node) {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
       $notification = $notification[0]['target_id'];
-      return node_access('view', node_load($notification));
-//      return node_access('update', node_load($notification));
+//      return node_access('view', node_load($notification));
+      return node_access('update', node_load($notification));
     }
   }
   return FALSE;
@@ -155,7 +161,7 @@ function xcaptconnect_custom_admin_paths() {
  * Turn off Overlay on some standard pages.
  */
 function captconnect_custom_admin_paths_alter(&$paths) {
-//  $paths['user/*'] = FALSE;
+  $paths['user/*'] = FALSE;
 //  $paths['admin'] = FALSE;
   $paths['admin/modules'] = FALSE;
 //  $paths['admin/*'] = FALSE;
@@ -181,14 +187,30 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     case 'user_profile_form':
       // This doesn't actually work.
       $form['#attributes'] = array('autocomplete' => 'off');
+      break; /* */
+
+    // Save the current path and grab the submit handler.
+    case 'event_notifications_node_form':
+      $form['#where_to'] = $_GET['q'];
+      $form['actions']['submit']['#submit'][] = 'captconnect_custom_notifications_submit';
+//      array_unshift($form['actions']['submit']['#submit'], 'captconnect_custom_notifications_submit');
+      dpm($form['actions'], 'actions');
+      break; /* */
   /*
-//    case 'event_notifications_node_form':
     case 'notifications_node_form':
       $form['field_related_event']['#disabled'] = TRUE;
       $form['field_related_event'][LANGUAGE_NONE]['#disabled'] = TRUE;
       break; /* */
   }
 //  dpm($form, $form_id);
+}
+
+/**
+ * Submit handler for event_notifications.
+ */
+function captconnect_custom_notifications_submit($form, &$form_state) {
+  dpm($form_state['values'], 'values');
+  $form_state['redirect'] = $form['#where_to'];
 }
 
 /**
