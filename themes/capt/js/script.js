@@ -16,12 +16,24 @@
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
+
+    /**
+     *  Menu Logic
+     */
+    function init () {
+      $('span.toggle-help').click();
+      $('a.menu-toggle').hide();
+    }
+    init();
     /**
      *  Responsive Show - Hides
      */
-     
-    var iPh6H = 375;
-    var iPh6W = 667;
+    
+    // currently not used - replaced with phone_tablet_divide
+    var iPh6H = 667;
+    var iPh6W = 375;
+    // new variable to account for the division between phone and tablet styles
+    var phone_tablet_divide = 736;
     var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
     var why_reg_heights = ['207','140','34'] 
     // laptop, mobile-expanded, mobile-compact
@@ -29,7 +41,7 @@ Drupal.behaviors.my_custom_behavior = {
     // function for toggling a panel on click of header
     function togglePanel(header, body, panel, compact, expanded)
     {
-      var mql = window.matchMedia("screen and (max-width:"+iPh6W+"px");
+      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
        if (mql.matches)
        {
           switch($(body).css('display')) {
@@ -54,8 +66,9 @@ Drupal.behaviors.my_custom_behavior = {
       $('#page-title').click(function () {
          togglePanel('#page-title','#user-login');
       });
-      $('#block-block-8 h2.block-title').click(function () {
-          togglePanel('#block-block-8 h2.block-title', '#block-block-8 div.panel-body')
+      $('#block-block-8 h2.custom_block_title').click(function () {
+          togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
+       
       });
       $('#block-block-9 h2.block-title').click(function () {
           togglePanel('#block-block-9 h2.block-title', 
@@ -86,9 +99,8 @@ Drupal.behaviors.my_custom_behavior = {
     // correct styles when browser is resized
     function panel_respond(header, body, panel, laptop_height, mobile_height)
     {
-
-          var min = iPh6W+1;
-          var mql = window.matchMedia("screen and (min-width:"+min+"px");
+          var min = phone_tablet_divide+1;
+          var mql = window.matchMedia("screen and (min-width:"+min+"px)");
           if (mql.matches)
           {  
             // laptop
@@ -98,7 +110,7 @@ Drupal.behaviors.my_custom_behavior = {
               if (arguments.length == 5)
                  $(panel).css('height',laptop_height)
           }
-          else
+          else 
           {
             // mobile
             if ($(body).css('backgroundImage') == 'none') {
@@ -117,31 +129,12 @@ Drupal.behaviors.my_custom_behavior = {
     
 
   
-    // Print to console log
+    // Print to console log for bug testing
     function cl(thing){
       if(typeof(console) !== 'undefined' && console != null){
         console.log(thing);
       }
     }
-    
-    
-    
-    // Remove later on... this is just for theme dev
-    if(!(($('body').hasClass('role-administrator')) || ($('body').hasClass('role-event-creator')))) {
-      $('ul.primary').remove();
-      $('.field-name-add-a-date').remove();
-      $('.field-name-add-a-presenter').remove();
-    }
-    
-    
-    
-    
-    // Reduce height of the surrounding divs for scaled notification previews
-    $('.form-field-type-markup .views-field-field-email-body > div > div > table').each(function(){
-      var height = $(this).height();
-      cl(height); // Becomes 0 because of the collapsed fieldsets... need to fix
-      $(this).parent().css('height', height*.75);
-    });
     
     
     
@@ -155,46 +148,34 @@ Drupal.behaviors.my_custom_behavior = {
     var subject = '';
     var body = '';
     
-    $('#event-notifications-node-form > div > fieldset > .fieldset-wrapper').each(function(){
+    $('#event-notifications-node-form > div > .field-widget-inline-entity-form-single > div > fieldset').each(function(){
       // Store the contents of the fieldset in a variable
-      var $notificationFieldsetWrapper = $(this);
-      var $notificationForm = $notificationFieldsetWrapper.find('.form-field-type-entityreference > div > fieldset > .fieldset-wrapper > .form-wrapper');
+      var $notificationFieldset = $(this);
       // Get the "do not send this type of notification" checkbox
-      var $preventCheckbox = $notificationForm.find('.field-name-field-prevent-notification');
+      var $preventCheckbox = $notificationFieldset.find('.field-name-field-prevent-notification');
       // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
       if ($preventCheckbox.find('input').prop('checked')) {
-        $notificationForm.children('div').each(function(){
-          $(this).css('display','none');
-        });
-        $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','none');
-        $preventCheckbox.css('display','block');
+        $notificationFieldset.find('.group-form').css('display','none').next().css('display','none');
       }
       
       // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
       $preventCheckbox.find('input').change(function(){
         if (this.checked) {
-          $notificationForm.children('div').each(function(){
-            $(this).css('display','none');
-          });
-          $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','none');
-          $preventCheckbox.css('display','block');
+          $notificationFieldset.find('.group-form').css('display','none').next().css('display','none');
         }
         else {
-          $notificationForm.children('div').each(function(){
-            $(this).css('display','block');
-          });
-          $notificationFieldsetWrapper.children('.form-field-type-markup').css('display','block');
+          $notificationFieldset.find('.group-form').css('display','block').next().css('display','block');
         }
       });
       
       // Limit the available default templates to those that match the category of notification, based on taxonomy
-      $notificationForm.find('.field-name-field-use-a-default-template select option').each(function(){
+      $notificationFieldset.find('.field-name-field-use-a-default-template select option').each(function(){
         // Get this option's value
         var optionValue = $(this).text().trim();
         // Split the option so that we get the category of the template (we can have many different templates of a particular category)
         var optionCategory = optionValue.split('|');
         // Grab this fieldset's label so we can compare
-        var notificationLabel = $notificationFieldsetWrapper.find('.form-field-type-entityreference > div > fieldset > legend').text().trim();
+        var notificationLabel = $notificationFieldset.find('legend').text().trim();
         // Compare the category of the template with the fieldset's label and only keep if they match
         if ((optionCategory[0] != notificationLabel) && (optionCategory[0] != '- None -')) {
           $(this).remove();
