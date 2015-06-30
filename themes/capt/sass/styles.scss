@@ -879,7 +879,7 @@ h4.black {
   .view-dashboard {
     /*border-bottom: 1px solid $capt-midgrey;*/
     padding-top: 0px;
-     div.view-empty {
+    div.view-empty {
       margin-top: 20px;
     }
   }
@@ -1050,8 +1050,8 @@ div.top-header-container {
   div.capt-logo {
     background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
     width: 340px;
-    margin-left: 0px; /*$logo-margin;*/
-
+    margin-left: 0px;
+    /*$logo-margin;*/
     margin-bottom: 0px;
     top: 28px;
   }
@@ -1303,7 +1303,8 @@ body.admin-menu.section-administration {
 ul.tabs-primary,
 ul.tabs-secondary {
   @include bottom-line(1px);
-  width: 920px; /*907px;*/
+  width: 916px;
+  /*907px;*/
   li:first-child {
     margin-left: 10px;
   }
@@ -1535,7 +1536,6 @@ form#event-node-form {
  *  Start Login Page
  */
 
-
 body.not-logged-in.page-user:not(.page-user-register) {
   height: 100%;
   header#header {
@@ -1670,7 +1670,6 @@ body.not-logged-in.page-user:not(.page-user-register) {
       /* color needed? */
       color: $capt-black;
       font-weight: normal;
-
     }
   }
   #block-block-9,
@@ -1822,14 +1821,16 @@ body.node-type-event {
   h2.element-invisible {
     display: none;
   }
+
   /* delete? */
   .ds-2col-stacked > .group-left {
-    width: 550px; /*590px;*/
+    width: 560px;
+    /*590px;*/
   }
   /* dates panel */
   .ds-2col-stacked > .group-right {
     float: right;
-    margin-right: 65px;
+    margin-right: 69px;
          /*div.group-dates {
             
             border: 1px solid red;
@@ -2258,7 +2259,8 @@ body.not-logged-in.page-user-register:not(.node-type-event) {
   /* specific width of fieldset wrapper - very important */
   div.fieldset-wrapper {
     margin-left: -20px;
-    padding: 10px 17px; /*17px;*/
+    padding: 10px 17px;
+    /*17px;*/
   }
 }
 
@@ -2392,10 +2394,11 @@ form#user-pass {
   top: 360px;
   pointer-events: none;
 }
+
 .not-logged-in .field-name-field-workflow-state {
   display: none;
 }
- 
+
 .node-event .group-left h4:first-of-type {
   margin-top: 0;
 }
@@ -2408,6 +2411,9 @@ form.workflow-transition-form {
   border: 1px solid rgb(219, 228, 229);
 }
 
+.node.workflow-published .field-name-field-workflow-state {
+  display: none;
+}
 
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
@@ -2421,20 +2427,20 @@ form.workflow-transition-form {
 /* Subtitle / Type Block */
 
 #block-views-subtitle-and-type-block {
-margin-top: -1em;
+  margin-top: -1em;
 }
 
 h1.subtitle {
-color: #577785;
-font-weight: normal;
-font-size: 2em;
+  color: #577785;
+  font-weight: normal;
+  font-size: 2em;
 }
 
 h2.type {
-font-size: 1.75em;
-font-style: italic;
-font-weight: bold;
-color: #333333;
+  font-size: 1.75em;
+  font-style: italic;
+  font-weight: bold;
+  color: #333333;
 }
 
 /***********************************************
@@ -2461,8 +2467,6 @@ color: #333333;
   }
 }
 
-
-
 @media screen and (min-width: 321px) and (max-width: $phone-tablet-divide) {}
 
 /**
@@ -2470,41 +2474,43 @@ color: #333333;
  */
 
 @media screen and (max-width: 1024px) {
-
-div#main {
+  div#main {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    div#navigation {
       width: 100%;
-      margin-left: 0px;
-      padding-left: 0px;
-      padding-right: 0px;
-      div#navigation {
-        width: 100%;
-        padding: 0px;
-        margin: 0px auto;
-        div.region.region-navigation {
-          margin-top: 20px;
-          div.contextual-links-region {
+      padding: 0px;
+      margin: 0px auto;
+      div.region.region-navigation {
+        margin-top: 20px;
+        div.contextual-links-region {
+          margin: 0px auto;
+          width: 100%;
+          ul#main-menu.main-menu.responsive-menu {
+            width: 96.75%;
+            overflow: visible;
             margin: 0px auto;
-            width: 100%;
-            ul#main-menu.main-menu.responsive-menu {
-              width: 96.75%;
-              overflow: visible;
-              margin: 0px auto;
-              padding: 0px;
-              /* hide admin*/
-              li#menu-item-1185,
-              li#menu-item-589 {
-                display: none;
-              }
-              // end items
+            padding: 0px;
+            /* hide admin*/
+            li#menu-item-1185,
+            li#menu-item-589 {
+              display: none;
             }
-            // end menu
+            // end items
+         
           }
-          // end contextual links
+          // end menu
+       
         }
-        // end region nav
+        // end contextual links
+     
       }
+      // end region nav
+   
     }
-
+  }
 }
 
 /* 
@@ -2512,13 +2518,14 @@ div#main {
  */
 /* hide search block form */
 @media screen and (max-width: 768px) {
-  input#edit-search-block-form--2,div#edit-actions {
-     display: none;
- }
- div.region.region-header {
-  margin-top: 10px;
- }
+  input#edit-search-block-form--2, div#edit-actions {
+    display: none;
+  }
+  div.region.region-header {
+    margin-top: 10px;
+  }
 }
+
 /**
  * iPhone 6 landscape 
  */
@@ -2603,14 +2610,15 @@ div#main {
       min-height: 750px;
       @extend .reset-layout;
       display: inline-block;
-      margin-bottom: -100px; /*-200px;*/
-      padding-bottom: 60px; /*80px;*/
+      margin-bottom: -100px;
+      /*-200px;*/
+      padding-bottom: 60px;
+      /*80px;*/
     }
     div#block-search-form {
       display: none;
     }
     div#page {
-
       header#header {
         height: 89px;
         background: url("../images/banners/login-phone.png") 0 0 no-repeat;
@@ -2621,7 +2629,10 @@ div#main {
       width: 100%;
       margin: 0px;
       padding: 0px;
-      padding-left: 0px;
+     /* padding-left: 0px;*/
+     /* added 6.29 */
+      padding-left: 16px;
+      padding-right: 16px; 
       /* border: 1px dotted orange;*/
     }
   }
@@ -2631,11 +2642,9 @@ div#main {
     text-align: left;
   }
   div.block-devel#block-devel-switch-user {
- 
-  width: 50%;
-  margin-top: 40px;
-  
-}
+    width: 50%;
+    margin-top: 40px;
+  }
   /*
    *  End General Styles
    */
@@ -2651,14 +2660,11 @@ div#main {
       padding-bottom: 6px;
       @include side_borders($capt-midgrey);
     }
-
-
     /* reformatting panels for mobile */
     form#user-login,
     div#title-section,
     div#block-block-8,
     div#block-block-9 {
-     
       @extend .mobile-panel;
       @include side_borders($capt-midgrey);
       // headers for form and blocks.
@@ -2779,35 +2785,34 @@ div#main {
     }
     ul#main-menu.main-menu {
       li.menu-item > a {
-          width: 150px;
+        width: 150px;
       }
     }
-  
     div.bottom-footer div.disclaimer {
       width: 100%;
       margin: 0px auto;
       padding: 0px;
     }
     /* iphone 6 */
-      div#content {
-        width: 96.8%;
+    div#content {
+      width: 96.8%;
+      margin: 0px auto;
+      margin-top: 55px;
+      /* different from iPad */
+      display: block;
+      padding-left: 0px;
+      padding-right: 0px;
+      ul.tabs-primary {
+        width: 97%;
         margin: 0px auto;
-        margin-top: 55px; /* different from iPad */
-        display: block;
-        padding-left: 0px;
-        padding-right: 0px;
-        ul.tabs-primary {
-          width: 97%;
-          margin: 0px auto;
-          margin-bottom: 20px;
-
-        }
+        margin-bottom: 20px;
       }
-     fieldset.group-demographic-information {
+    }
+    fieldset.group-demographic-information {
       div.data-view div.button.edit-button {
         top: 130px;
       }
-      div.save-button:first-child,div.cancel-button:nth-child(2) {
+      div.save-button:first-child, div.cancel-button:nth-child(2) {
         display: none;
       }
     }
@@ -2942,7 +2947,7 @@ div#main {
   body.not-logged-in.page-user:not(.page-user-register) {
     div.top-header {
       height: $mobile-header-height;
-     @include rainbow-bar($mobile-header-height - $rainbow-height);
+      @include rainbow-bar($mobile-header-height - $rainbow-height);
       div.top-header-container {
         div.capt-logo {
           top: $top-margin + 2px;
@@ -2960,13 +2965,13 @@ div#main {
 /* Devel tabs */
 
 @media screen and (max-width: 425px) {
-   ul.tabs-primary {
-       
-          li:nth-child(3),li:nth-child(4) {
-            display: none;
-          }
-        }
+  ul.tabs-primary {
+    li:nth-child(3), li:nth-child(4) {
+      display: none;
+    }
+  }
 }
+
 /* iPhone 4 */
 @media screen and (max-width: $small-phone-width) {
   body.admin-menu,
@@ -2974,13 +2979,12 @@ div#main {
   body.not-logged-in.page-user:not(.page-user-register) {
     ul#main-menu.main-menu {
       li.menu-item > a {
-          width: 125px;
+        width: 125px;
       }
     }
-   
     div.top-header {
-       height: $mobile-header-height;
-     @include rainbow-bar($mobile-header-height - $rainbow-height);
+      height: $mobile-header-height;
+      @include rainbow-bar($mobile-header-height - $rainbow-height);
       div.top-header-container {
         div.capt-logo {
           top: $top-margin + 2px;
@@ -3001,7 +3005,6 @@ div#main {
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
     div.top-header {
-
       div.top-header-container {
         div.capt-logo {
           background-image: url("../images/logos/CAPT-logo-portal.png");
@@ -3031,17 +3034,16 @@ div#main {
   body.admin-menu,
   body.page-user-register {
     div.bottom-footer div.disclaimer {
-         width: 60%;
-         padding: 0px;
-         margin-left: 7%;
-         padding-bottom: 8px;
+      width: 60%;
+      padding: 0px;
+      margin-left: 7%;
+      padding-bottom: 8px;
     }
     input#edit-search-block-form--2 {
       width: 100px;
       background-position: 80px 4px;
       padding-right: 20px;
     }
-
     div#main,
     div#content {
       width: 100%;
@@ -3063,7 +3065,6 @@ div#main {
         margin-right: 8%;
       }
     }
-
   }
   // login screen, iPad
   body.not-logged-in.page-user:not(.page-user-register) {
@@ -3109,7 +3110,7 @@ div#main {
     div#block-block-3 {
       margin-left: 12px;
     }
-    div#main { 
+    div#main {
       div#navigation {
         div.region.region-navigation {
           margin-top: 20px;
@@ -3120,12 +3121,16 @@ div#main {
                 display: none;
               }
               // end items
+           
             }
             // end menu
+         
           }
           // end contextual links
+       
         }
         // end region nav
+     
       }
       // end nav
       // content, profile screen, iPad for registration d
@@ -3157,7 +3162,6 @@ div#main {
           margin-bottom: 20px;
           padding-right: 0px;
           border-right: 1px solid blue;
-       
         }
       }
     }
@@ -3218,7 +3222,6 @@ div#main {
       h2.block-title, h2.custom_block_title {
         font-size: 1.65em;
         margin-left: 10px;
-
       }
     }
     div#block-block-8 {
