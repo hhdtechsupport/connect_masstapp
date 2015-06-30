@@ -655,7 +655,8 @@ body.node-type-dashboard {
     /* changed from 1000px*/
     div.view-content span.flag-registration a.unflag-action {
       font-size: 12px;
-      margin-left: -14px;
+      line-height: 1.2em;
+      font-style: italic;
     }
   }
 }
@@ -881,7 +882,7 @@ h4.black {
     /*border-bottom: 1px solid $capt-midgrey;*/
     padding-top: 0px;
     div.view-empty {
-      margin-top: 20px;
+      margin-top: 40px;
     }
   }
   div.item-list {
@@ -929,6 +930,8 @@ h4.black {
     text-decoration: underline;
     display: block;
     margin-bottom: -12px;
+    /* added 6/30 */
+    line-height: 1.2em;
   }
   div.item-list {
     border-width: 0px;
@@ -981,12 +984,18 @@ padding: 4px 7px;
       margin-top: 20px;
     }
   }
+  .views-field-flagged {
+    font-size: 12px;
+    line-height: 1.2em;
+    font-style: italic;
+  }
+
   div.view-content {
     margin-left: -8px;
     div.item-list {
       margin-left: 0px;
       ul {
-        padding-bottom: 5px;
+        padding-bottom: 12px;
       }
     }
   }
@@ -1856,7 +1865,9 @@ body.node-type-event {
         font-weight: normal;
         text-decoration: underline;
         color: $capt-orange;
-        font-size: 13px;
+        /* changed on 6/30 */
+        font-size: 12px; 
+        line-height: 1.2em;
       }
     }
     .views-row {
