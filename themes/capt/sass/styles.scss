@@ -53,8 +53,8 @@ $capt-profgrey: #dbdbd9;
 
 /*measurements */
 
-$header-height: 10px;
-$rainbow-height: 10px;
+$header-height: 115px;
+$rainbow-height: 9px;
 $page-width: 1000px;
 $logo-margin: 16px;
 $dash-nudge: 2px;
@@ -84,7 +84,7 @@ $samhsa-iPh4-scale: 0.6;
 
 $small-tablet-scale: 0.85;
 
-$header-height: 91px;
+$mobile-header-height: 91px;
 $mobile-header-height: 61px;
 
 $capt-phone-logo-width: 290px;
@@ -1044,16 +1044,17 @@ div.top-header-container {
   div.capt-logo {
     background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
     width: 340px;
-    margin-left: $logo-margin;
+    margin-left: 0px; /*$logo-margin;*/
+
     margin-bottom: 0px;
-    top: 32px;
+    top: 28px;
   }
   div.samhsa-logo {
     background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
     width: 295px;
     background-size: 295px 73px;
     margin-right: $logo-margin;
-    top: 6px;
+    top: 16px;
   }
   div.capt-logo,
   div.samhsa-logo {
@@ -2250,7 +2251,7 @@ body.not-logged-in.page-user-register:not(.node-type-event) {
   /* specific width of fieldset wrapper - very important */
   div.fieldset-wrapper {
     margin-left: -20px;
-    padding: 10px 17px;
+    padding: 10px 17px; /*17px;*/
   }
 }
 
@@ -3077,7 +3078,7 @@ div#main {
         // end region nav
       }
       // end nav
-      // content, profile screen, iPad
+      // content, profile screen, iPad for registration d
       div#content {
         width: 96.8%;
         margin: 0px auto;
@@ -3103,6 +3104,10 @@ div#main {
           /*width: 95%;*/
           margin: 0px auto;
           display: block;
+          margin-bottom: 20px;
+          padding-right: 0px;
+          border-right: 1px solid blue;
+       
         }
       }
     }
