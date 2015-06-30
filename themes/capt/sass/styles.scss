@@ -2105,12 +2105,20 @@ body.node-type-event #block-block-12 {
  *  Mozilla-specific fix for footer. 
  */
 @-moz-document url-prefix() {
-  body.node-type-event #block-block-12 {
-    .disclaimer {
-      top: -40px;
+  body.node-type-event  {
+    
+    #page {
+      margin-bottom: -100px;
+      padding-bottom: 100px;
+      
+    }
+
+    #block-block-12 .disclaimer {
+      top: 20px;
       left: 20px;
     }
   }
+  
 }
 
 
