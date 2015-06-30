@@ -60,6 +60,7 @@ $logo-margin: 16px;
 $dash-nudge: 2px;
 $login-margin-left: 17px;
 
+$event-right-panel-pos: -20px;
 /*fonts*/
 
 $login-font: 16px;
@@ -1884,11 +1885,12 @@ body.node-type-event {
     .item-list h3 {
       font-size: 16px;
     }
+  
     /* extra padding on dates panel because of floats */
     .field-type-ds.field-name-event-date-s- {
       padding-bottom: 54px;
       padding-top: 25px;
-      margin-left: -20px;
+      margin-left: $event-right-panel-pos;
       &:before {
         margin-left: -27px;
         padding-left: 54px;
@@ -1899,6 +1901,7 @@ body.node-type-event {
      */
     div.field-name-materials {
       padding-top: 25px;
+      margin-left: $event-right-panel-pos;
       &:before {
         margin-left: -27px;
         padding-left: 54px;
