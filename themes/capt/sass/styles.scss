@@ -879,6 +879,9 @@ h4.black {
   .view-dashboard {
     /*border-bottom: 1px solid $capt-midgrey;*/
     padding-top: 0px;
+     div.view-empty {
+      margin-top: 20px;
+    }
   }
   div.item-list {
     margin-right: 12px;
@@ -973,6 +976,9 @@ padding: 4px 7px;
   background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
   .view-dashboard {
     /* min-height: 170px;*/
+    div.view-empty {
+      margin-top: 20px;
+    }
   }
   div.view-content {
     margin-left: -8px;
@@ -1879,6 +1885,7 @@ body.node-type-event {
     .field-type-ds.field-name-event-date-s- {
       padding-bottom: 54px;
       padding-top: 25px;
+      margin-left: -20px;
       &:before {
         margin-left: -27px;
         padding-left: 54px;
@@ -2392,7 +2399,13 @@ form#user-pass {
   margin-top: 0;
 }
 
-
+form.workflow-transition-form {
+  padding: 10px 26px 36px 26px;
+  width: 269px;
+  margin-left: -14px;
+  background: rgb(241, 249, 253);
+  border: 1px solid rgb(219, 228, 229);
+}
 
 
 /* fine-tuning for Chrome & Safari */
