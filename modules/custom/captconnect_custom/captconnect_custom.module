@@ -109,15 +109,15 @@ function captconnect_custom_user_page_title() {
     $path = drupal_get_path_alias($_GET['q']);
     switch ($path) {
       case 'user/password':
-        $title = variable_get('login_page_title','Request new password');
+        $title = t('Request new password');
         break;
 
       case 'user/register':
-        $title = variable_get('login_page_title','User Registration');
+        $title = t('User Registration');
         break;
 
       default:
-        $title = variable_get('login_page_title','Log in');
+        $title = t('Log in');
         break;
     }
   }
