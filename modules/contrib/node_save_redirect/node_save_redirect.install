@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the node_save_redirect module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function node_save_redirect_install() {
+  // We need to ensure this module comes after workbench mdoeration.
+  db_update('system')
+    ->fields(array('weight' => 10))
+    ->condition('name', 'node_save_redirect')
+    ->execute();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function node_save_redirect_uninstall() {
+  // Loop through all the node types and delete the settings variables.
+  $types =  array_keys(node_type_get_types());
+  foreach ($types as $key => $type) {
+    variable_del('node_save_redirect_' . $type);
+    variable_del('node_save_redirect_location_' . $type);
+    variable_del('node_save_redirect_destination_' . $type);
+  }
+}

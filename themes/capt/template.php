@@ -149,7 +149,7 @@ function capt_preprocess_page(&$variables) {
         $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
     }
     // prevent green message from showing up on login page
-    if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');
+    /*if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');*/
  
 }
 function capt_page_alter($page) {
