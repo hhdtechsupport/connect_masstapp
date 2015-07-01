@@ -57,7 +57,7 @@ $header-height: 115px;
 $rainbow-height: 9px;
 $page-width: 1000px;
 $logo-margin: 0px;
-$dash-nudge: 2px;
+$dash-nudge: 15px;
 $login-margin-left: 17px;
 
 $event-right-panel-pos: -27px;
@@ -702,8 +702,8 @@ body.node-type-dashboard {
 
 #main {
   width: $page-width;
-  margin-left: 12px;
-  margin-right: 14px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 /* page */
@@ -741,22 +741,8 @@ body.node-type-dashboard {
   display: inline;
 }
 
-.ds-2col-stacked > {
-  .group-left {
-    float: left;
-    width: auto;
-    margin-right: 280px;
-  }
-  .group-right {
-    float: left;
-    width: 240px;
-    margin-left: -260px;
-  }
-}
-
 body.node-type-event #title-section {
   width: auto;
-  margin-right: 330px;
   /*280px;*/
 }
 
@@ -1264,13 +1250,13 @@ div#content {
   min-height: 466px;
   padding-right: 15px;
   margin-left: $dash-nudge;
-  margin-right: 5px;
+  margin-right: 15px;
   margin-top: 24px;
   z-index: 10px;
   top: 8px;
   position: relative;
   border-top: 1px solid white;
-  padding-left: 27px;
+  padding-left: 15px;
 }
 
 /* my profile page; we need the "you are here" style too" */
@@ -1314,7 +1300,6 @@ body.admin-menu.section-administration {
 ul.tabs-primary,
 ul.tabs-secondary {
   @include bottom-line(1px);
-  width: 908px;
   /*907px;*/
   li:first-child {
     margin-left: 10px;
@@ -1846,27 +1831,14 @@ body.node-type-event {
     display: none;
   }
 
-  /* delete? */
-  .ds-2col-stacked > .group-left {
-    width: 560px;
-    /*590px;*/
-  }
   /* dates panel */
+  .ds-2col-stacked > .group-left {
+    width: auto;
+    margin-right: 383px;
+  }
   .ds-2col-stacked > .group-right {
-    float: right;
-    margin-right: 69px;
-         /*div.group-dates {
-
-            border: 1px solid red;
-            min-height: 42px;
-            span.date-display-single {
-                clear: left;
-                background: url('../images/icons/arrow-icons.png') 0px 5px no-repeat;
-                padding-left: 20px;
-                padding-right: 0px;
-
-            }
-        }*/
+    width: 323px;
+    margin-left: -323px;
     .view-content .field-content .views-row div {
       margin-left: 0px;
       display: inline;
@@ -1877,7 +1849,7 @@ body.node-type-event {
       a.flag-action, a.unflag-action {
         font-weight: normal;
         text-decoration: underline;
-        color: $capt-orange;
+        color: $capt-maroon;
         /* changed on 6/30 */
         font-size: 12px;
         line-height: 1.2em;
@@ -1914,7 +1886,7 @@ body.node-type-event {
     .field-type-ds.field-name-event-date-s- {
       padding-bottom: 54px;
       padding-top: 25px;
-      margin-left: $event-right-panel-pos;
+  //    margin-left: $event-right-panel-pos;
       &:before {
         margin-left: -27px;
         padding-left: 54px;
@@ -1925,7 +1897,6 @@ body.node-type-event {
      */
     div.field-name-materials {
       padding-top: 25px;
-      margin-left: $event-right-panel-pos;
       &:before {
         margin-left: -27px;
         padding-left: 54px;
@@ -1950,7 +1921,6 @@ body.node-type-event {
       @include border-radius(0px);
       width: 269px;
       /* changed from 250px so "cancel" link does not start new line */
-      margin-left: -14px;
       padding: 10px 26px 36px 26px;
       // could be part of the mixin maybe...
       h2.block-title {
@@ -2027,6 +1997,9 @@ body.node-type-event {
  */
 
 body.node-type-event.not-logged-in {
+  #main {
+    padding-top: 0;
+  }
   h3 {
     font-weight: normal;
     color: $capt-aqua;
@@ -2035,6 +2008,7 @@ body.node-type-event.not-logged-in {
   }
   div#content.column {
     border-top-color: $capt-midgrey;
+    margin-top: 10px;
   }
 }
 
@@ -2439,9 +2413,17 @@ form#user-pass {
   display: none;
 }
 
-.node-event .group-left h4:first-of-type {
-  margin-top: 0;
+.node-event .group-left .field-group-html-element {
+  &:not(:first-child) h4 {
+    border-top: 1px solid #d7d7d7;
+    padding-top: 1.4em;
+    margin-top: 1.6em;
+  }
+  &:first-child h4 {
+    margin-top: 0;
+  }
 }
+
 
 form.workflow-transition-form {
   padding: 10px 26px 36px 26px;
