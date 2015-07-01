@@ -77,7 +77,6 @@ function captconnect_custom_access_notifications($node) {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
       $notification = $notification[0]['target_id'];
-//      return node_access('view', node_load($notification));
       return node_access('update', node_load($notification));
     }
   }
@@ -92,7 +91,6 @@ function captconnect_custom_view_notifications($node) {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
       $notification = array_pop(array_pop($notification));
-//      return node_view(node_load($notification));
       module_load_include('inc', 'node', 'node.pages');
       return node_page_edit(node_load($notification));
     }
@@ -136,47 +134,11 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
     $implementations ['captconnect_custom'] = $group;
   }
 
-  if ($hook == 'form_alter' && isset($implementations['captconnect_custom'])) {
-    $group = $implementations ['captconnect_custom'];
-    unset($implementations['captconnect_custom']);
-    $implementations['captconnect_custom'] = $group;
+  if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
+    $group = $implementations ['node_save_redirect'];
+    unset($implementations['node_save_redirect']);
+    $implementations['node_save_redirect'] = $group;
   } /* */
-}
-
-/**
- * Implements hook_admin_paths().
- * Set all event_notifications paths to use Overlay.
- */
-function xcaptconnect_custom_admin_paths() {
-  // This query should be fairly quick unless theer are lots of notifications.
-  // Note that the list is statically cached by path_get_admin_paths().
-  $paths = db_query("SELECT CONCAT('node/', nid, '/edit'), 1 FROM {node} WHERE type = 'event_notifications'")->fetchAllKeyed();
-  $paths['event/*/registrations'] = TRUE;
-  $paths['node/*/registrations'] = TRUE;
-  return $paths;
-}
-
-/**
- * Implements hook_admin_paths_alter().
- * Turn off Overlay on some standard pages.
- */
-function captconnect_custom_admin_paths_alter(&$paths) {
-  $paths['user/*'] = FALSE;
-//  $paths['admin'] = FALSE;
-  $paths['admin/modules'] = FALSE;
-//  $paths['admin/*'] = FALSE;
-}
-
-/**
- * Implements hook_workflow_permitted_state_transitions_alter().
- */
-function xcaptconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
-  // Remove any transition where the target state is the same as the current state.
-  foreach ($transitions as $key => $transition) {
-    if ($transition->sid == $transition->target_sid) {
-      unset($transitions[$key]);
-    }
-  }
 }
 
 /**
@@ -192,25 +154,10 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     // Save the current path and grab the submit handler.
     case 'event_notifications_node_form':
       $form['#where_to'] = $_GET['q'];
-      $form['actions']['submit']['#submit'][] = 'captconnect_custom_notifications_submit';
-//      array_unshift($form['actions']['submit']['#submit'], 'captconnect_custom_notifications_submit');
-      dpm($form['actions'], 'actions');
-      break; /* */
-  /*
-    case 'notifications_node_form':
-      $form['field_related_event']['#disabled'] = TRUE;
-      $form['field_related_event'][LANGUAGE_NONE]['#disabled'] = TRUE;
+//      dpm($form['actions'], 'actions');
       break; /* */
   }
 //  dpm($form, $form_id);
-}
-
-/**
- * Submit handler for event_notifications.
- */
-function captconnect_custom_notifications_submit($form, &$form_state) {
-  dpm($form_state['values'], 'values');
-  $form_state['redirect'] = $form['#where_to'];
 }
 
 /**
@@ -368,24 +315,11 @@ function captconnect_custom_preprocess_node(&$variables) {
 
 function captconnect_custom_nancy() {
   global $user;
+  $output = '';
+
   // Flush the schema cache.
   drupal_get_schema(NULL, TRUE);
+  $output .= '<p>Schema cache cleared.</p>';
 
-  /*
-  $query = "SELECT n.nid FROM node n "
-    . "LEFT JOIN field_data_field_workflow_state s ON s.revision_id = n.vid "
-    . "WHERE n.type = 'event' AND n.status = 1 AND s.field_workflow_state_value IS NULL";
-  $nids = db_query($query)->fetchCol();
-  $nodes = entity_load('node', $nids);
-  dpm($nodes, 'nodes');
-  foreach ($nodes as $nid => $node) {
-    $new_state = workflow_state_load_single(2);
-    $options = $new_state->getOptions('node', $node, 'field_workflow_state', $user, FALSE);
-    $transition = new WorkflowTransition();
-    $transition->setValues('node', $node, 'field_workflow_state', 1, 2, $user->uid, REQUEST_TIME, 'assign initial');
-    workflow_execute_transition('node', $node, 'field_workflow_state', $transition, FALSE);
-//    end($nodes);
-  }
-  return "Event nodes changed";
-  /* */
+  return $output;
 }
