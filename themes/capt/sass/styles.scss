@@ -56,7 +56,7 @@ $capt-profgrey: #dbdbd9;
 $header-height: 115px;
 $rainbow-height: 9px;
 $page-width: 1000px;
-$logo-margin: 16px;
+$logo-margin: 0px;
 $dash-nudge: 2px;
 $login-margin-left: 17px;
 
@@ -382,7 +382,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 1.1em;
   margin-bottom: .5em;
 }
 
@@ -1578,7 +1578,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
   }
   form#user-login {
     @extend .panel;
-    height: 322px;
+    height: 311px;
     margin-top: -20px;
     padding-top: 10px;
     float: left;
@@ -1590,7 +1590,6 @@ body.not-logged-in.page-user:not(.page-user-register) {
       border: 0px solid transparent;
       margin-left: $login-margin-left;
       position: relative;
-      top: 40px;
       width: 75px;
     }
     div.description {
@@ -1646,6 +1645,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     h2.custom_block_title {
       margin-top: 0px;
       margin-left: $login-margin-left;
+      font-size: 1.8em;
     }
     margin-top: -64px;
     a {
@@ -1668,6 +1668,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     margin-top: 9px;
     h2.block-title {
       margin-left: $login-margin-left;
+      font-size: 1.8em;
     }
     ul {
       margin-left: 4px;
@@ -1715,6 +1716,7 @@ h1#page-title {
 body.logged-in {
   h1#page-title {
     @extend .calendar-title;
+    margin-top: 0px;
   }
   h2 {
     margin-bottom: 0px;
@@ -1782,6 +1784,17 @@ body.node-type-event {
   h2 {
     color: $capt-aqua;
     font-weight: normal;
+  }
+  h2.type {
+    font-size: 1.75em;
+    font-style: italic;
+    font-weight: bold;
+    color: #333333;
+  }
+  h1.subtitle {
+    color: #577785;
+    font-weight: normal;
+    font-size: 2em;
   }
   /* added to align title and subtitle on event pages*/
   div#title-section h2 {
@@ -2455,19 +2468,6 @@ form.workflow-transition-form {
 
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
-}
-
-h1.subtitle {
-  color: #577785;
-  font-weight: normal;
-  font-size: 2em;
-}
-
-h2.type {
-  font-size: 1.75em;
-  font-style: italic;
-  font-weight: bold;
-  color: #333333;
 }
 
 /***********************************************
