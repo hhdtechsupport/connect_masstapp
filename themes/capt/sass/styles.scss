@@ -64,7 +64,7 @@ $event-right-panel-pos: -27px;
 /*fonts*/
 
 $login-font: 16px;
-$edit-margin-right: 15px;
+$edit-margin-right: 0px;
 $input-font-size: 14px;
 
 /* responsive */
@@ -173,8 +173,8 @@ $small-phone-width: 342px;
 
 .panel {
   background-color: $capt-lightgrey;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
   border: 1px solid $capt-midgrey;
   border-top: 0px;
   h3 a:hover {
@@ -188,10 +188,11 @@ $small-phone-width: 342px;
 .panel-rule {
   @extend .panel;
   padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 0px;
   /*5px solid $capt-aqua;*/
-  border-bottom: 0px;
   font-size: 14px;
+  margin-top: 30px;
   @include border-radius(1px);
   &:before {
     display: block;
@@ -201,8 +202,8 @@ $small-phone-width: 342px;
     content: "";
     position: relative;
     top: -25px;
-    margin-left: -16px;
-    padding-left: 32px;
+    margin-left: -1px;
+    padding-left: 2px;
   }
 }
 
@@ -459,7 +460,6 @@ div.field-name-upcoming-events {
     /* set to min-height to avoid breaking layout */
     margin-top: -30px;
     /*min-height: 450px;*/
-    margin-left: -16px;
     /*border-bottom: 5px solid $capt-aqua;*/
     width: 410px;
     padding-bottom: 0px;
@@ -858,7 +858,7 @@ h4.black {
   overflow: none;
   /*min-height: 245px;*/
   padding-bottom: 30px;
-  margin-right: 14px;
+  margin-right: 0px;
   padding-right: 30px;
   padding-left: 0px;
   div.field-items {
@@ -1257,6 +1257,7 @@ div#content {
   position: relative;
   border-top: 1px solid white;
   padding-left: 15px;
+  padding-top: 20px;
 }
 
 /* my profile page; we need the "you are here" style too" */
@@ -1329,158 +1330,127 @@ ul.tabs-secondary {
 /* form elements for Edit & Create Event */
 
 form#event-node-form {
-  div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
-    /* @extend .panel;*/
+  a:not(.chosen-single) {
+    font-weight: normal;
+    color: $capt-maroon;
   }
-  /* form panels */
-  /* title */
-  div.form-item.form-item-title {
+  .form-item {
+    margin: 1.5em 0;
+    &:first-of-type {
+      //margin: 0;
+    }
+  }
+  > div > .field-group-div.panel {
     @extend .panel-rule;
-    margin-bottom: 0px;
-    margin-right: $edit-margin-right;
-  }
-  div#edit-field-subtitle.form-field-type-text {
-    margin-top: 0px;
-  }
-  div#field-subtitle-add-more-wrapper {
-    margin-top: 0px;
-  /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-margin-top: 0px; // remove to add more space betw title and subtitle
-}*/
-  }
-  //div.form-field-name-field-date-instance /*.fieldset-wrapper*/
-  div#edit-field-date-instance {
-    @extend .field-container;
-    @extend .panel-rule;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    div#edit-field-date-instance-und-actions {
-      padding-top: 0px;
+    > * {
+      margin-left: 20px;
+      margin-right: 20px;
     }
-    fieldset#edit-field-date-instance-und {
-      padding-left: 0px;
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      text-transform: uppercase;
+      color: $capt-aqua;
+      font-size: 1.3em;
+      font-style: normal;
     }
-  }
-  div#edit-field-subtitle {
-    @extend .panel;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  div#edit-field-type-event.form-wrapper {
-    @extend .panel-rule-single;
-    margin-top: 0px;
-    /*padding-top: 0px;*/
-    margin-bottom: 0px;
-    margin-right: $edit-margin-right;
-    div#field-type-event-add-more-wrapper {
-      margin-top: -26px;
+    fieldset:not(.ief-form) {
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
+      legend {
+        display: none; // I think this is fine because this isn't a public form
+      }
+      table {
+        margin-top: 0;
+      }
     }
-  }
-  div#edit-field-category {
-    @extend .panel;
-    margin-top: -20px;
-    padding-bottom: 10px;
-    // inheritance?
-    padding-top: 10px;
-    margin-right: $edit-margin-right;
-  }
-  div#field-banner-text-add-more-wrapper {
-    @extend .panel;
-    margin-top: -20px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  div.form-field-name-field-date-instance {
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  /* audience */
-  div#edit-field-audience,
-  div#edit-field-body {
-    @extend .panel-rule-single;
-    margin-right: $edit-margin-right;
-    /*padding-top: 0px;*/
-    padding-bottom: 10px;
-    label {
-      margin-top: -10px;
+    .text-format-wrapper {
+      > div > label {
+        display: none; // I think this is fine because this isn't a public form
+      }
+      .form-item {
+        margin-bottom: 0px;
+      }
+      .ckeditor_links {
+        font-size: .85em;
+      }
+      .filter-wrapper {
+        border: 1px solid rgb(212, 213, 213);
+        background-color: #F6F8FA;
+        padding: 15px 0;
+        .form-type-select {
+          margin-top: 0px;
+        }
+        .filter-guidelines {
+          font-size: .85em;
+          line-height: 1.25em;
+          .tips {
+            padding-left: 15px;
+          }
+        }
+      }
     }
-    div.form-textarea-wrapper {
-      margin-bottom: 20px;
+    fieldset.ief-form {
+      background: rgb(228, 231, 232);
+      padding: 25px;
+      > legend {
+        display: block;
+        font-weight: bold;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-transform: capitalize;
+        font-style: italic;
+        font-size: 1.25em;
+      }
+      .container-inline-date {
+        .form-item {
+          margin: 0;
+        }
+        .date-padding {
+          padding: 0;
+        }
+      }
+      .link-field-subrow .form-item {
+        margin: .5em 0;
+        label {
+          font-size: .85em;
+        }
+      }
+      .text-format-wrapper {
+        > div > label {
+          display: block;
+        }
+      }
     }
-    div.grippie {
-      background-color: $capt-midgrey;
+    input.form-text {
+      font-size: $input-font-size;
+      padding: 5px;
+      max-width: 400px;
+      border: 1px solid $capt-midgrey;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
     }
-  }
-  input.form-submit {
-    background-color: $capt-orange;
+    .field-type-datetime {
+      .start-date-wrapper, .end-date-wrapper {
+        width: auto;
+        clear: none;
+        float: left;
+      }
+      .end-date-wrapper {
+        > div > label {
+          float: left;
+          margin-top: 45px;
+          margin-right: 15px;
+          margin-left: 15px;
+        }
+      }
+    }
   }
 }
 
-div#edit-field-presenter {
-  @extend .panel-rule;
-  @extend .field-container;
-  margin-right: $edit-margin-right;
-  span.fieldset-legend {
-    margin-top: -30px;
-    text-transform: uppercase;
-    color: $capt-aqua;
-  }
-  table {
-    width: 780px;
-    border: 1px solid $capt-darkgrey;
-    td {
-      padding: 4px 10px;
-    }
-    td.inline-entity-form-node-field_body {
-      min-width: 500px;
-    }
-    a.tabledrag-handle {
-      margin-left: 5px;
-    }
-    input {
-      width: 80px;
-    }
-  }
-}
-
-div#edit-field-related-material {
-  @extend .panel;
-  @extend .field-container;
-  margin-right: $edit-margin-right;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-div#edit-field-contact-name {
-  @extend .panel-rule;
-  /*padding-top: 0px;*/
-  margin-bottom: 0px;
-  margin-right: $edit-margin-right;
-  div#field-contact-name-add-more-wrapper {
-    margin-top: -26px;
-  }
-}
-
-div#edit-field-contact-email {
-  @extend .panel;
-  margin-top: 0px;
-  margin-right: $edit-margin-right;
-  margin-top: -22px;
-  padding-top: 5px;
-}
-
-div#edit-field-related-notifications {
-  @extend .panel;
-  margin-top: -20px;
-  margin-right: $edit-margin-right;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
 
 div.vertical-tabs {
   margin-right: $edit-margin-right;
@@ -2154,8 +2124,7 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
-    margin-bottom: 18px;
-    margin-right: 14px;
+    margin: 0px 0px 18px;
     legend {
       margin-left: 20px;
       span.fieldset-legend {
@@ -2172,6 +2141,9 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
       }
     }
     /* end legend */
+    fieldset {
+      margin-right: 10px;
+    }
   }
   /* end fieldset */
   span.label {
@@ -2199,12 +2171,12 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
     }
   }
   .form-item {
-    max-width: 580px;
     .description {
       font-size: 0.85em;
       line-height: 1.8em;
       margin-left: 2px;
       color: $capt-formgrey;
+      max-width: 400px;
     }
     .confirm-parent, .password-parent {
       width: 40em !important;
@@ -2341,10 +2313,6 @@ body.page-user-edit, body.page-user-register {
     margin: 0 20px 30px 10px;
     font-size: 12px;
   }
-  ul.tabs-primary,
-ul.tabs-secondary {
-  width: 908px;
-}
 }
 
 /**
@@ -3237,3 +3205,16 @@ form.workflow-transition-form {
     }
   }
 }
+
+
+
+
+
+
+  /* MATT STYLES */
+  .chosen-container {
+    width: 400px !important;
+    a {
+      font-weight: normal;
+    }
+  }
