@@ -1533,6 +1533,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
       margin-left: $login-margin-left;
       position: relative;
       width: 75px;
+      text-transform: capitalize;
     }
     div.description {
       display: none;
@@ -1639,6 +1640,10 @@ body.not-logged-in.page-user:not(.page-user-register) {
       margin-left: 28px;
     }
   }
+}
+body.not-logged-in.page-user.page-user-password h1#page-title {
+  margin-left: 27px;
+  text-transform: capitalize;
 }
 
 /*
@@ -2202,6 +2207,7 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
   }
   input#edit-submit, input#edit-cancel {
     background-color: $capt-orange;
+    text-transform: capitalize;
   }
 }
 
@@ -2324,11 +2330,12 @@ div.block-devel#block-devel-switch-user {
 
 body.page-user-password {
   div#content div#title-section {
-    width: 370px;
+    width: 400px;
     margin: 0px auto;
   }
   input#edit-submit {
     background-color: $capt-orange;
+    text-transform: capitalize;
   }
   input#edit-name {
     font-size: $input-font-size;
