@@ -18,7 +18,7 @@ $databases = array();
      'username' => 'captconnect',
      'password' => 'MEkmf0234klhj*y',
      'host' => 'pubdevweb1.edc.org',
-     'prefix' => 'captconnect',
+     'prefix' => '',
    );
 #$conf['environment_indicator_enabled'] = TRUE;
 #$conf['environment_indicator_text'] = 'Development SERVER';
