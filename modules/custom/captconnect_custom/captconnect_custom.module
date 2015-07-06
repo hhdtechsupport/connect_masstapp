@@ -14,6 +14,11 @@ function captconnect_custom_permission() {
       'description' => t('View Registrations on Events.'),
       'restrict access' => FALSE,
       ),
+    'register others' => array(
+      'title' => t('Register Others'),
+      'description' => t('Register another user.'),
+      'restrict access' => FALSE,
+      ),
     );
   return $perms;
 }
@@ -45,6 +50,24 @@ function captconnect_custom_menu() {
     'type' => MENU_NORMAL_ITEM,
     );
 
+  $items['register_others'] = array(
+    'title' => 'Register Another',
+    'description' => 'Register on behalf of someone else.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_register_other'),
+    'access arguments' => array('register others'),
+//    'type' => MENU_CALLBACK,
+    'type' => MENU_NORMAL_ITEM,
+    );
+
+  $items['anon_register'] = array(
+    'title' => 'Anonymous Registration',
+    'description' => 'Create user then register.',
+    'page callback' => 'captconnect_custom_anon_register',
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
   $items['nancy'] = array(
     'title' => 'Nancy',
     'description' => 'Stuff that needs a menu item',
@@ -67,6 +90,10 @@ function captconnect_custom_menu_alter(&$items) {
   $items['user/%user/view']['type'] -= MENU_LINKS_TO_PARENT;
   // Make user.edit the default tab.
   $items['user/%user/edit']['type'] |= MENU_LINKS_TO_PARENT;
+
+  // Try to hide "Log in" and "Request new password" tabs.
+  $items['user/password']['type'] = MENU_CALLBACK;
+//  $items['user']['type'] = MENU_CALLBACK;
 }
 
 /**
@@ -107,6 +134,7 @@ function captconnect_custom_user_page_title() {
   }
   else {
     $path = drupal_get_path_alias($_GET['q']);
+
     switch ($path) {
       case 'user/password':
         $title = t('Request new password');
@@ -161,14 +189,45 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
+ * Implements hook_workflow().
+ */
+function captconnect_custom_workflow($op, $id, $new_sid, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
+  switch ($op) {
+    case 'transition permitted':
+      return ($id != $new_sid);
+  }
+}
+
+/**
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
+function captconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
+  // Remove any transition where the target state is the same as the current state.
+  foreach ($transitions as $key => $transition) {
+    if ($transition->sid == $transition->target_sid) {
+      unset($transitions[$key]);
+    }
+  }
+//  dpm($transitions, 'transitions');
+//  dpm($context['state'], 'context[state]');
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
   $current_sid = $form['#default_value'];
-  $form['actions']['workflow_' . $current_sid]['#access'] = FALSE;
+
+  // Hide button for current state.
+//  $form['actions']['workflow_' . $current_sid]['#access'] = FALSE;
+//  $form['actions']['workflow_' . $current_sid]['#disabled'] = TRUE;
+//  unset($form['actions']['workflow_' . $current_sid]);
+
+  // Put a class wrapper on the form.
   $current_state = workflow_state_load_single($current_sid);
-  $class = drupal_html_class($current_state ? workflow_get_sid_label($current_sid) : 'unknown state');
+  $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
+  dpm($form, $form_id . ' ' . $current_state->sid);
 }
 
 /**
@@ -289,7 +348,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
   }
 
   // Replace fields shown for notifications
-  if($notifications) {
+  if ($notifications) {
     unset($fields['status']);
     unset($fields['title']);
     $fields['field_email_body'] = array(
@@ -298,6 +357,118 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'weight' => 3
       );
   }
+}
+
+/**
+ * Menu Callback.
+ * Allow one user to register for someone else.
+ */
+function captconnect_custom_register_other($form, $form_state) {
+  $flag_action = variable_get('captconnect_custom_other_flag', 'registration');
+  $form['#flag_action'] = $flag_action;
+
+  $form['congrats'] = array(
+    '#type' => 'markup',
+    '#markup' => '<h3>' . t('Congratulations, you have almost registered for someone else!') . '</h3>',
+    );
+
+	$form['account'] = array (
+		'#type' => 'textfield',
+		'#title' => t('Select the user'),
+		'#required' => TRUE,
+		'#autocomplete_path' => 'user/autocomplete',
+  	);
+
+  $form ['actions'] = array('#type' => 'actions', '#weight' => 100);
+  $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save configuration'));
+  $form ['actions']['cancel'] = array('#type' => 'submit', '#value' => t('Changed my mind'));
+
+  return $form;
+}
+
+/**
+ * Submit handler.
+ */
+function captconnect_custom_register_other_submit($form, $form_state) {
+  $flags = flag_get_flags();
+
+  $flag_action = $form['#flag_action'];
+  $flag_title = $flags[$flag_action]->title;
+
+  $account = user_load_by_name($form_state['values']['account']);
+
+  $output = t("You tried to use the @flag flag on @user (@uid)", array(
+    '@flag' => $flag_title,
+    '@user' => format_username($account),
+    '@uid' => $account->uid,
+    ));
+  dpm($output);
+}
+
+/**
+ * Implements hook_node_view();
+ */
+function captconnect_custom_node_view($node, $view_mode, $langcode) {
+  switch ($node->type) {
+    case 'event':
+      // May we add a proxy registration btton?
+      if (user_access('register others')) {
+        drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;float:right;}', 'inline');
+        $node->content['register_others'] = array(
+          '#theme' => 'link',
+          '#text' => t('Register Someone Else'),
+          '#path' => 'register_others',
+          '#options' => array(
+            'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
+            'html' => FALSE,
+            'query' => drupal_get_destination(),
+            ),
+          );
+      }
+    break;
+  }
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function captconnect_custom_field_extra_fields() {
+  $extra['node']['event'] = array(
+    'display' => array(
+      'register_others' => array(
+        'label' => t("Register others button"),
+        'description' => t('Allow registering someone else by proxy.'),
+        'weight' => -99,   // Default to top.
+        ),
+      )
+    );
+
+  return $extra;
+}
+
+/**
+ * Menu Callback.
+ * Allow anonymous users to register for events.
+ */
+function captconnect_custom_anon_register() {
+  $output = '';
+  $dest = drupal_get_destination();
+
+  $where = substr($dest['destination'], 5);
+  $node = node_load($where);
+  $output .= "<p>You want to register for '$node->title' ($where).</p>";
+
+  $output .= '<p>' . t('Congratulations, you made it!') . '</p>';
+
+  return $output;
+}
+
+/*
+ * Implements hook_flag_anon_tokens_alter().
+ * Add a token for our URL.
+ */
+function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
+  $tokens['[anon_register]'] = check_url(url('anon_register', $link_options));
 }
 
 /*
