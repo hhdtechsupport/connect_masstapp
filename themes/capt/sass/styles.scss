@@ -1199,34 +1199,36 @@ ul#main-menu.main-menu {
   padding: 0px;
 }
 
-li.menu-parent {
+#main-menu li.menu-parent {
   ul.sub-menu.tier-two {
-    width: 194px;
     padding: 0px;
     margin-top: 0px;
     padding-right: 0px;
+    background: white;
+    
     li {
-      width: 194px;
       padding: 0px;
       margin: 0px;
-      height: 48px;
-      background-color: $capt-darkgrey;
       display: block;
+      background: white;
       a {
-        width: 110px;
-        border: 1px solid $capt-darkgrey;
         display: block;
         margin: 0px;
-        height: 28px;
-        padding: 10px 0;
-        text-align: center;
+        text-transform: capitalize;
+        text-align: left;
+        font-weight: normal;
+        color: #333;
+        padding: 0px 0px 0px 35px;
+        font-size: 13px;
+        background: white;
+        height: 18px;
       }
       a.active {
         background-color: white;
+        color: #333;
       }
-      li#menu-item-1187.menu-item.last a {
-        height: 34px;
-        background-color: orange;
+      a:hover {
+        text-decoration: underline;
       }
     }
   }

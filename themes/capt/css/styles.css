@@ -1216,43 +1216,44 @@ ul#main-menu.main-menu li.menu-item > a.active {
 }
 
 /* line 1203, ../sass/styles.scss */
-li.menu-parent ul.sub-menu.tier-two {
-  width: 194px;
+#main-menu li.menu-parent ul.sub-menu.tier-two {
   padding: 0px;
   margin-top: 0px;
   padding-right: 0px;
+  background: white;
 }
-/* line 1208, ../sass/styles.scss */
-li.menu-parent ul.sub-menu.tier-two li {
-  width: 194px;
+/* line 1209, ../sass/styles.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li {
   padding: 0px;
   margin: 0px;
-  height: 48px;
-  background-color: #959595;
   display: block;
+  background: white;
 }
-/* line 1215, ../sass/styles.scss */
-li.menu-parent ul.sub-menu.tier-two li a {
-  width: 110px;
-  border: 1px solid #959595;
+/* line 1214, ../sass/styles.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a {
   display: block;
   margin: 0px;
-  height: 28px;
-  padding: 10px 0;
-  text-align: center;
+  text-transform: capitalize;
+  text-align: left;
+  font-weight: normal;
+  color: #333;
+  padding: 0px 0px 0px 35px;
+  font-size: 13px;
+  background: white;
+  height: 18px;
 }
-/* line 1224, ../sass/styles.scss */
-li.menu-parent ul.sub-menu.tier-two li a.active {
+/* line 1226, ../sass/styles.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
+  color: #333;
 }
-/* line 1227, ../sass/styles.scss */
-li.menu-parent ul.sub-menu.tier-two li li#menu-item-1187.menu-item.last a {
-  height: 34px;
-  background-color: orange;
+/* line 1230, ../sass/styles.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a:hover {
+  text-decoration: underline;
 }
 
 /* hiding text in key areas! */
-/* line 1237, ../sass/styles.scss */
+/* line 1239, ../sass/styles.scss */
 div.view-event-banner div.field-content,
 h1#site-name,
 div.samhsa-logo,
@@ -1262,14 +1263,14 @@ div.capt-logo {
   overflow: hidden;
 }
 
-/* line 1246, ../sass/styles.scss */
+/* line 1248, ../sass/styles.scss */
 div.bottom-footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
 }
 
-/* line 1253, ../sass/styles.scss */
+/* line 1255, ../sass/styles.scss */
 div#block-block-12 {
   /*height: 100px;*/
   margin-bottom: 0px;
@@ -1284,7 +1285,7 @@ div#block-block-12 {
 /* event dashboard content */
 /* which styles will be specific to dashboard? */
 /* this has a large role in determining page height */
-/* line 1268, ../sass/styles.scss */
+/* line 1270, ../sass/styles.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -1303,7 +1304,7 @@ div#content {
 }
 
 /* my profile page; we need the "you are here" style too" */
-/* line 1291, ../sass/styles.scss */
+/* line 1293, ../sass/styles.scss */
 body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a,
 body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
@@ -1313,7 +1314,7 @@ body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   height: 26px;
 }
 
-/* line 1300, ../sass/styles.scss */
+/* line 1302, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1321,13 +1322,13 @@ body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.
   color: #8c1d18;
   height: 26px;
 }
-/* line 1304, ../sass/styles.scss */
+/* line 1306, ../sass/styles.scss */
 body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
   display: block;
 }
 
 /* View | Edit | Manage Display | etc. tabs */
-/* line 1313, ../sass/styles.scss */
+/* line 1315, ../sass/styles.scss */
 ul.tabs-primary,
 ul.tabs-secondary {
   background-image: -o-linear-gradient(bottom, black 1px, transparent 1px);
@@ -1336,17 +1337,17 @@ ul.tabs-secondary {
   background-image: linear-gradient(center bottom, black, 1px, transparent 1px);
   /*907px;*/
 }
-/* line 1317, ../sass/styles.scss */
+/* line 1319, ../sass/styles.scss */
 ul.tabs-primary li:first-child,
 ul.tabs-secondary li:first-child {
   margin-left: 10px;
 }
-/* line 1320, ../sass/styles.scss */
+/* line 1322, ../sass/styles.scss */
 ul.tabs-primary li,
 ul.tabs-secondary li {
   border: 0px;
 }
-/* line 1322, ../sass/styles.scss */
+/* line 1324, ../sass/styles.scss */
 ul.tabs-primary li a, ul.tabs-primary li a:active, ul.tabs-primary li a.is-active,
 ul.tabs-secondary li a,
 ul.tabs-secondary li a:active,
@@ -1357,18 +1358,18 @@ ul.tabs-secondary li a.is-active {
   font-weight: 500;
   padding: 3px 20px;
 }
-/* line 1329, ../sass/styles.scss */
+/* line 1331, ../sass/styles.scss */
 ul.tabs-primary li a:not(.is-active),
 ul.tabs-secondary li a:not(.is-active) {
   border: 0px;
 }
-/* line 1332, ../sass/styles.scss */
+/* line 1334, ../sass/styles.scss */
 ul.tabs-primary li a:hover, ul.tabs-primary li a:active,
 ul.tabs-secondary li a:hover,
 ul.tabs-secondary li a:active {
   background-color: white;
 }
-/* line 1336, ../sass/styles.scss */
+/* line 1338, ../sass/styles.scss */
 ul.tabs-primary li.tabs-primary__tab.is-active,
 ul.tabs-secondary li.tabs-primary__tab.is-active {
   border-color: black;
@@ -1376,35 +1377,35 @@ ul.tabs-secondary li.tabs-primary__tab.is-active {
 }
 
 /* form elements for Edit & Create Event */
-/* line 1345, ../sass/styles.scss */
+/* line 1347, ../sass/styles.scss */
 form#event-node-form a:not(.chosen-single), form#event-notifications-node-form a:not(.chosen-single) {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 1348, ../sass/styles.scss */
+/* line 1350, ../sass/styles.scss */
 form#event-node-form a:not(.chosen-single).field-group-format-title, form#event-notifications-node-form a:not(.chosen-single).field-group-format-title {
   font-weight: bold;
   color: #577785;
 }
-/* line 1351, ../sass/styles.scss */
+/* line 1353, ../sass/styles.scss */
 form#event-node-form a:not(.chosen-single).field-group-format-title:hover, form#event-notifications-node-form a:not(.chosen-single).field-group-format-title:hover {
   color: #8c1d18;
   text-decoration: none;
 }
-/* line 1357, ../sass/styles.scss */
+/* line 1359, ../sass/styles.scss */
 form#event-node-form .form-item, form#event-notifications-node-form .form-item {
   margin: 1.5em 0;
 }
-/* line 1359, ../sass/styles.scss */
+/* line 1361, ../sass/styles.scss */
 form#event-node-form .form-item.form-type-radio, form#event-notifications-node-form .form-item.form-type-radio {
   margin: 0;
 }
-/* line 1365, ../sass/styles.scss */
+/* line 1367, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule > *, form#event-node-form > div > .field-group-div.panel-rule-single > *, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds > *, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds > *, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 > *, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 > *, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials > *, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds > *, form#event-node-form > div > .field-group-div.panel > *, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section > *, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login > *, form#event-node-form > div > form.field-group-div#user-pass > *, form#event-notifications-node-form > div > .field-group-div.panel-rule > *, form#event-notifications-node-form > div > .field-group-div.panel-rule-single > *, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds > *, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds > *, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 > *, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 > *, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials > *, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds > *, form#event-notifications-node-form > div > .field-group-div.panel > *, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section > *, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login > *, form#event-notifications-node-form > div > form.field-group-div#user-pass > * {
   margin-left: 20px;
   margin-right: 20px;
 }
-/* line 1369, ../sass/styles.scss */
+/* line 1371, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule h3, form#event-node-form > div > .field-group-div.panel-rule-single h3, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds h3, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds h3, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 h3, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 h3, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials h3, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds h3, form#event-node-form > div > .field-group-div.panel h3, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section h3, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login h3, form#event-node-form > div > form.field-group-div#user-pass h3, form#event-notifications-node-form > div > .field-group-div.panel-rule h3, form#event-notifications-node-form > div > .field-group-div.panel-rule-single h3, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds h3, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds h3, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 h3, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 h3, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials h3, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds h3, form#event-notifications-node-form > div > .field-group-div.panel h3, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section h3, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login h3, form#event-notifications-node-form > div > form.field-group-div#user-pass h3 {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1413,57 +1414,57 @@ form#event-node-form > div > .field-group-div.panel-rule h3, form#event-node-for
   font-size: 1.3em;
   font-style: normal;
 }
-/* line 1377, ../sass/styles.scss */
+/* line 1379, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form), form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form), .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form), body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form), body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form), form#event-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form), .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form), body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form), body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form), body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form), form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form) {
   border: 0px;
   margin: 0px;
   padding: 0px;
 }
-/* line 1381, ../sass/styles.scss */
+/* line 1383, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) legend, form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) legend, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form) legend, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form) legend, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form) legend, form#event-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) legend, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form) legend, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form) legend, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form) legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form) legend {
   display: none;
 }
-/* line 1384, ../sass/styles.scss */
+/* line 1386, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) table, form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) table, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form) table, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form) table, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form) table, form#event-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) table, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset:not(.ief-form) table, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset:not(.ief-form) table, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset:not(.ief-form) table, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset:not(.ief-form) table, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset:not(.ief-form) table {
   margin-top: 0;
 }
-/* line 1389, ../sass/styles.scss */
+/* line 1391, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper > div > label, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper > div > label, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper > div > label, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper > div > label, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper > div > label, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper > div > label, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper > div > label {
   display: none;
 }
-/* line 1392, ../sass/styles.scss */
+/* line 1394, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .form-item, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .form-item, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .form-item, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .form-item, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .form-item, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .form-item, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .form-item, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .form-item {
   margin-bottom: 0px;
 }
-/* line 1395, ../sass/styles.scss */
+/* line 1397, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .ckeditor_links, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .ckeditor_links, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .ckeditor_links, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .ckeditor_links, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .ckeditor_links, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .ckeditor_links, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .ckeditor_links, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .ckeditor_links, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .ckeditor_links, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .ckeditor_links {
   font-size: .85em;
 }
-/* line 1398, ../sass/styles.scss */
+/* line 1400, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper {
   border: 1px solid #d4d5d5;
   background-color: #F6F8FA;
   padding: 15px 0;
 }
-/* line 1402, ../sass/styles.scss */
+/* line 1404, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .form-type-select, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .form-type-select, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .form-type-select, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .form-type-select, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .form-type-select, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .form-type-select, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .form-type-select, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .form-type-select, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .form-type-select, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .form-type-select {
   margin-top: 0px;
 }
-/* line 1405, ../sass/styles.scss */
+/* line 1407, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .filter-guidelines, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .filter-guidelines, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .filter-guidelines, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .filter-guidelines, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .filter-guidelines, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .filter-guidelines {
   font-size: .85em;
   line-height: 1.25em;
 }
-/* line 1408, ../sass/styles.scss */
+/* line 1410, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines .tips, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines .tips, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .text-format-wrapper .filter-wrapper .filter-guidelines .tips, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > form.field-group-div#user-pass .text-format-wrapper .filter-wrapper .filter-guidelines .tips {
   padding-left: 15px;
 }
-/* line 1414, ../sass/styles.scss */
+/* line 1416, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, form#event-node-form > div > .field-group-div.panel fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form {
   background: #e4e7e8;
   padding: 25px;
 }
-/* line 1417, ../sass/styles.scss */
+/* line 1419, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form > legend, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form > legend, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form > legend, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form > legend, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form > legend, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form > legend, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form > legend, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form > legend, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form > legend {
   display: block;
   font-weight: bold;
@@ -1473,45 +1474,45 @@ form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form > leg
   font-style: italic;
   font-size: 1.25em;
 }
-/* line 1427, ../sass/styles.scss */
+/* line 1429, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .form-item, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .form-item, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form .container-inline-date .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .form-item, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .form-item, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form .container-inline-date .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form .container-inline-date .form-item {
   margin: 0;
 }
-/* line 1430, ../sass/styles.scss */
+/* line 1432, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .date-padding, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .date-padding, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form .container-inline-date .date-padding, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .date-padding, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .date-padding, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form .container-inline-date .date-padding, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form .container-inline-date .date-padding {
   padding: 0;
 }
-/* line 1434, ../sass/styles.scss */
+/* line 1436, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form .link-field-subrow .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form .link-field-subrow .form-item, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form .link-field-subrow .form-item {
   margin: .5em 0;
 }
-/* line 1436, ../sass/styles.scss */
+/* line 1438, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item label, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item label, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form .link-field-subrow .form-item label, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item label, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item label, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form .link-field-subrow .form-item label, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form .link-field-subrow .form-item label {
   font-size: .85em;
 }
-/* line 1441, ../sass/styles.scss */
+/* line 1443, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .text-format-wrapper > div > label, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .text-format-wrapper > div > label, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials fieldset.ief-form .text-format-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > form.field-group-div#user-pass fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .text-format-wrapper > div > label, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .text-format-wrapper > div > label, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials fieldset.ief-form .text-format-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > form.field-group-div#user-pass fieldset.ief-form .text-format-wrapper > div > label {
   display: block;
 }
-/* line 1446, ../sass/styles.scss */
+/* line 1448, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule input.form-text, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds input.form-text, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 input.form-text, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials input.form-text, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds input.form-text, form#event-node-form > div > .field-group-div.panel input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login input.form-text, form#event-node-form > div > form.field-group-div#user-pass input.form-text, form#event-notifications-node-form > div > .field-group-div.panel-rule input.form-text, form#event-notifications-node-form > div > .field-group-div.panel-rule-single input.form-text, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 input.form-text, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials input.form-text, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text, form#event-notifications-node-form > div > .field-group-div.panel input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login input.form-text, form#event-notifications-node-form > div > form.field-group-div#user-pass input.form-text {
   font-size: 14px;
   padding: 5px;
   max-width: 400px;
   border: 1px solid #d7d7d7;
 }
-/* line 1451, ../sass/styles.scss */
+/* line 1453, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule input.form-text:focus, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text:focus, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds input.form-text:focus, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 input.form-text:focus, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials input.form-text:focus, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds input.form-text:focus, form#event-node-form > div > .field-group-div.panel input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login input.form-text:focus, form#event-node-form > div > form.field-group-div#user-pass input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel-rule input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel-rule-single input.form-text:focus, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text:focus, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 input.form-text:focus, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials input.form-text:focus, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login input.form-text:focus, form#event-notifications-node-form > div > form.field-group-div#user-pass input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
-/* line 1457, ../sass/styles.scss */
+/* line 1459, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .start-date-wrapper, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-type-datetime .start-date-wrapper, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .field-type-datetime .start-date-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .field-type-datetime .start-date-wrapper, form#event-node-form > div > form.field-group-div#user-pass .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-type-datetime .end-date-wrapper, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .field-type-datetime .end-date-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, form#event-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .field-type-datetime .end-date-wrapper, form#event-node-form > div > form.field-group-div#user-pass .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .start-date-wrapper, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .field-type-datetime .start-date-wrapper, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .field-type-datetime .start-date-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > form.field-group-div#user-pass .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .field-type-datetime .end-date-wrapper, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .field-type-datetime .end-date-wrapper, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .field-type-datetime .end-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > form.field-group-div#user-pass .field-type-datetime .end-date-wrapper {
   width: auto;
   clear: none;
   float: left;
 }
-/* line 1463, ../sass/styles.scss */
+/* line 1465, ../sass/styles.scss */
 form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper > div > label, .node-dashboard .group-left form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, .node-dashboard .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-type-datetime .end-date-wrapper > div > label, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .field-type-datetime .end-date-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > form.field-group-div#user-pass .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper > div > label, .node-dashboard .group-left form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, .node-dashboard .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .field-type-datetime .end-date-wrapper > div > label, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .field-type-datetime .end-date-wrapper > div > label, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > form.field-group-div#user-pass .field-type-datetime .end-date-wrapper > div > label {
   float: left;
   margin-top: 45px;
@@ -1519,22 +1520,22 @@ form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .e
   margin-left: 15px;
 }
 
-/* line 1475, ../sass/styles.scss */
+/* line 1477, ../sass/styles.scss */
 div.vertical-tabs {
   margin-right: 0px;
 }
 
 /* end create event form */
 /* overall page heights */
-/* line 1483, ../sass/styles.scss */
+/* line 1485, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add {
   /* needed so that save button has space above border */
 }
-/* line 1484, ../sass/styles.scss */
+/* line 1486, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add #page {
   height: 95%;
 }
-/* line 1488, ../sass/styles.scss */
+/* line 1490, ../sass/styles.scss */
 body.page-node-add-event.page-node-add.section-node-add div#content {
   height: 100%;
   padding-bottom: 20px;
@@ -1543,23 +1544,23 @@ body.page-node-add-event.page-node-add.section-node-add div#content {
 /*
  *  Start Login Page
  */
-/* line 1499, ../sass/styles.scss */
+/* line 1501, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) {
   height: 100%;
   /* RIGHT */
   /* why register */
 }
-/* line 1501, ../sass/styles.scss */
+/* line 1503, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) header#header {
   height: 380px;
   background: url("../images/banners/login.png") 0 -37px no-repeat;
   display: block;
 }
-/* line 1506, ../sass/styles.scss */
+/* line 1508, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) ul.tabs-primary {
   display: none;
 }
-/* line 1509, ../sass/styles.scss */
+/* line 1511, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) h1#page-title {
   background-image: none;
   font-size: 24pt;
@@ -1567,23 +1568,23 @@ body.not-logged-in.page-user:not(.page-user-register) h1#page-title {
   margin-left: 17px;
   background-repeat: no-repeat;
 }
-/* line 1516, ../sass/styles.scss */
+/* line 1518, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) div#content {
   border: 0px solid white;
   margin-top: 0;
   padding-top: 0;
 }
-/* line 1521, ../sass/styles.scss */
+/* line 1523, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login,
 body.not-logged-in.page-user:not(.page-user-register) div#title-section {
   margin-left: 85px;
   width: 320px;
 }
-/* line 1526, ../sass/styles.scss */
+/* line 1528, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) div#title-section {
   margin-bottom: 0px;
 }
-/* line 1530, ../sass/styles.scss */
+/* line 1532, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login {
   height: 311px;
   margin-top: -20px;
@@ -1591,24 +1592,24 @@ body.not-logged-in.page-user:not(.page-user-register) form#user-login {
   float: left;
   padding-bottom: 10px;
 }
-/* line 1537, ../sass/styles.scss */
+/* line 1539, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
   margin-left: 17px;
 }
-/* line 1540, ../sass/styles.scss */
+/* line 1542, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.description {
   display: none;
 }
-/* line 1543, ../sass/styles.scss */
+/* line 1545, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-name {
   margin-bottom: 10px;
   padding-top: 20px;
 }
-/* line 1547, ../sass/styles.scss */
+/* line 1549, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-name {
   margin-bottom: 0px;
 }
-/* line 1550, ../sass/styles.scss */
+/* line 1552, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-name,
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-pass {
   font-size: 1.6em;
@@ -1616,11 +1617,11 @@ body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit
   width: 89%;
   margin-top: 0px;
 }
-/* line 1557, ../sass/styles.scss */
+/* line 1559, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-pass {
   margin-top: 0px;
 }
-/* line 1560, ../sass/styles.scss */
+/* line 1562, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login label {
   font-weight: normal;
   color: #333333;
@@ -1628,11 +1629,11 @@ body.not-logged-in.page-user:not(.page-user-register) form#user-login label {
   margin-bottom: 0px;
   font-size: 16px;
 }
-/* line 1567, ../sass/styles.scss */
+/* line 1569, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.description {
   margin-left: 16px;
 }
-/* line 1570, ../sass/styles.scss */
+/* line 1572, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login a.request-password {
   margin-left: 21px;
   font-weight: normal;
@@ -1642,26 +1643,26 @@ body.not-logged-in.page-user:not(.page-user-register) form#user-login a.request-
   color: #8c1d18;
   font-size: 16px;
 }
-/* line 1579, ../sass/styles.scss */
+/* line 1581, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login a.request-password:hover {
   text-decoration: none;
 }
-/* line 1584, ../sass/styles.scss */
+/* line 1586, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 {
   padding-bottom: 20px;
   margin-top: -86px;
 }
-/* line 1587, ../sass/styles.scss */
+/* line 1589, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2.block-title {
   display: none;
 }
-/* line 1590, ../sass/styles.scss */
+/* line 1592, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2.custom_block_title {
   margin-top: 0px;
   margin-left: 17px;
   font-size: 1.8em;
 }
-/* line 1596, ../sass/styles.scss */
+/* line 1598, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a {
   color: #c3791f;
   font-size: 20px;
@@ -1671,7 +1672,7 @@ body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a {
   display: block;
   margin-left: 17px;
 }
-/* line 1607, ../sass/styles.scss */
+/* line 1609, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
   background-image: url("../images/icons/register.png");
   background-position: 270px 30px;
@@ -1679,28 +1680,28 @@ body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
   height: 192px;
   margin-top: 9px;
 }
-/* line 1614, ../sass/styles.scss */
+/* line 1616, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2.block-title {
   margin-left: 17px;
   font-size: 1.8em;
 }
-/* line 1618, ../sass/styles.scss */
+/* line 1620, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul {
   margin-left: 4px;
 }
-/* line 1620, ../sass/styles.scss */
+/* line 1622, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li {
   list-style-image: url("../images/icons/arrow-icons-aqua.png");
   font-size: 16px;
   font-weight: normal;
 }
-/* line 1626, ../sass/styles.scss */
+/* line 1628, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 a {
   /* color needed? */
   color: #333333;
   font-weight: normal;
 }
-/* line 1632, ../sass/styles.scss */
+/* line 1634, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 {
   margin-right: 85px;
@@ -1708,7 +1709,7 @@ body.not-logged-in.page-user:not(.page-user-register) #block-block-8 {
   float: right;
   background-repeat: no-repeat;
 }
-/* line 1639, ../sass/styles.scss */
+/* line 1641, ../sass/styles.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2 {
   font-weight: normal;
@@ -1716,7 +1717,7 @@ body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2 {
   margin-left: 28px;
 }
 
-/* line 1646, ../sass/styles.scss */
+/* line 1648, ../sass/styles.scss */
 body.not-logged-in.page-user.page-user-password h1#page-title {
   margin-left: 27px;
   text-transform: capitalize;
@@ -1729,11 +1730,11 @@ body.not-logged-in.page-user.page-user-password h1#page-title {
 *  Events Page
 */
 /* title of events page; font size & position may need to be fine-tuned */
-/* line 1659, ../sass/styles.scss */
+/* line 1661, ../sass/styles.scss */
 h1#page-title {
   font-weight: normal;
 }
-/* line 1661, ../sass/styles.scss */
+/* line 1663, ../sass/styles.scss */
 h1#page-title em {
   color: #333333;
   font-size: .75em;
@@ -1741,19 +1742,19 @@ h1#page-title em {
 }
 
 /*recently removed node-type event on 6/2; keep an eye out for issues */
-/* line 1670, ../sass/styles.scss */
+/* line 1672, ../sass/styles.scss */
 body.logged-in {
   /* changed margin top for event view logged-in page in chrome*/
 }
-/* line 1671, ../sass/styles.scss */
+/* line 1673, ../sass/styles.scss */
 body.logged-in h1#page-title {
   margin-top: 0px;
 }
-/* line 1675, ../sass/styles.scss */
+/* line 1677, ../sass/styles.scss */
 body.logged-in h2 {
   margin-bottom: 0px;
 }
-/* line 1679, ../sass/styles.scss */
+/* line 1681, ../sass/styles.scss */
 body.logged-in div#title-section h3 {
   margin-bottom: 0px;
   font-weight: normal;
@@ -1761,7 +1762,7 @@ body.logged-in div#title-section h3 {
   color: #577785;
 }
 
-/* line 1689, ../sass/styles.scss */
+/* line 1691, ../sass/styles.scss */
 body.page-node-registrations div#title-section h1.page__title.title {
   color: #888a55;
   font-weight: bold;
@@ -1773,14 +1774,14 @@ body.page-node-registrations div#title-section h1.page__title.title {
 /*
  * Event pages - both anonymous and logged in
  */
-/* line 1703, ../sass/styles.scss */
+/* line 1705, ../sass/styles.scss */
 body.node-type-event {
   /* header */
   /* added to align title and subtitle on event pages*/
   /* dates panel */
   /* home button on event page */
 }
-/* line 1705, ../sass/styles.scss */
+/* line 1707, ../sass/styles.scss */
 body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1788,7 +1789,7 @@ body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
   color: #8c1d18;
   height: 26px;
 }
-/* line 1710, ../sass/styles.scss */
+/* line 1712, ../sass/styles.scss */
 body.node-type-event div#title-section h1.page__title.title {
   color: #888a55;
   font-weight: bold;
@@ -1796,91 +1797,91 @@ body.node-type-event div#title-section h1.page__title.title {
   background-image: none;
   padding-left: 0px;
 }
-/* line 1717, ../sass/styles.scss */
+/* line 1719, ../sass/styles.scss */
 body.node-type-event div#title-section h2, body.node-type-event div#title-section h3 {
   color: #333333;
   margin-bottom: 10px;
 }
-/* line 1721, ../sass/styles.scss */
+/* line 1723, ../sass/styles.scss */
 body.node-type-event div#title-section h3 {
   font-weight: bold;
 }
-/* line 1725, ../sass/styles.scss */
+/* line 1727, ../sass/styles.scss */
 body.node-type-event div.field-name-registration {
   padding-bottom: 30px;
   border-bottom: 1px solid #d7d7d7;
 }
-/* line 1729, ../sass/styles.scss */
+/* line 1731, ../sass/styles.scss */
 body.node-type-event h5.views-field-title {
   margin-left: 0px;
   padding-left: 0px;
   /* does this need to be negative? */
 }
-/* line 1733, ../sass/styles.scss */
+/* line 1735, ../sass/styles.scss */
 body.node-type-event h5.views-field-title span.field-content {
   /*margin-left: -13px;*/
 }
-/* line 1737, ../sass/styles.scss */
+/* line 1739, ../sass/styles.scss */
 body.node-type-event div#content.column {
   border-top-color: black;
 }
-/* line 1740, ../sass/styles.scss */
+/* line 1742, ../sass/styles.scss */
 body.node-type-event .view-content .field-content .views-row div {
   margin-left: 5px;
 }
-/* line 1744, ../sass/styles.scss */
+/* line 1746, ../sass/styles.scss */
 body.node-type-event div#title-section h2 {
   margin-left: 10px;
 }
-/* line 1747, ../sass/styles.scss */
+/* line 1749, ../sass/styles.scss */
 body.node-type-event div#title-section {
   padding-left: 0px;
 }
-/* line 1750, ../sass/styles.scss */
+/* line 1752, ../sass/styles.scss */
 body.node-type-event h2 {
   color: #577785;
   font-weight: normal;
 }
-/* line 1754, ../sass/styles.scss */
+/* line 1756, ../sass/styles.scss */
 body.node-type-event h2.type {
   font-size: 1.75em;
   font-style: italic;
   font-weight: bold;
   color: #333333;
 }
-/* line 1760, ../sass/styles.scss */
+/* line 1762, ../sass/styles.scss */
 body.node-type-event h1.subtitle {
   color: #577785;
   font-weight: normal;
   font-size: 2em;
 }
-/* line 1766, ../sass/styles.scss */
+/* line 1768, ../sass/styles.scss */
 body.node-type-event div#title-section h2 {
   margin-left: 0px;
 }
-/* line 1769, ../sass/styles.scss */
+/* line 1771, ../sass/styles.scss */
 body.node-type-event h5 {
   margin-top: 4px;
 }
-/* line 1772, ../sass/styles.scss */
+/* line 1774, ../sass/styles.scss */
 body.node-type-event h1, body.node-type-event h2, body.node-type-event h3 {
   margin-left: 0px;
 }
-/* line 1775, ../sass/styles.scss */
+/* line 1777, ../sass/styles.scss */
 body.node-type-event h2 a {
   font-size: 20px;
   color: #c3791f;
 }
-/* line 1779, ../sass/styles.scss */
+/* line 1781, ../sass/styles.scss */
 body.node-type-event div.field-items ul a {
   color: #c3791f;
 }
-/* line 1782, ../sass/styles.scss */
+/* line 1784, ../sass/styles.scss */
 body.node-type-event div#content {
   border-top: 1px solid #d7d7d7;
   padding-top: 20px;
 }
-/* line 1787, ../sass/styles.scss */
+/* line 1789, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 {
   position: absolute;
   top: 10px;
@@ -1888,12 +1889,12 @@ body.node-type-event .region-help #block-block-1 {
   margin-top: 0px;
   padding-right: 0px;
 }
-/* line 1794, ../sass/styles.scss */
+/* line 1796, ../sass/styles.scss */
 body.node-type-event .region-help #block-block-1 a.button {
   margin-left: 20px;
   margin-right: 0px;
 }
-/* line 1799, ../sass/styles.scss */
+/* line 1801, ../sass/styles.scss */
 body.node-type-event div.group-materials {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -1902,24 +1903,24 @@ body.node-type-event div.group-materials {
   padding: 10px 16px 36px 16px;
   margin-left: 5px;
 }
-/* line 1804, ../sass/styles.scss */
+/* line 1806, ../sass/styles.scss */
 body.node-type-event div.group-materials h4 {
   margin-top: 0px;
 }
-/* line 1808, ../sass/styles.scss */
+/* line 1810, ../sass/styles.scss */
 body.node-type-event h4 span {
   color: #8c1d18;
 }
-/* line 1811, ../sass/styles.scss */
+/* line 1813, ../sass/styles.scss */
 body.node-type-event h2.element-invisible {
   display: none;
 }
-/* line 1816, ../sass/styles.scss */
+/* line 1818, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-left {
   width: auto;
   margin-right: 383px;
 }
-/* line 1820, ../sass/styles.scss */
+/* line 1822, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right {
   width: 323px;
   margin-left: -323px;
@@ -1928,17 +1929,17 @@ body.node-type-event .ds-2col-stacked > .group-right {
   * Materials portion of event page
    */
 }
-/* line 1823, ../sass/styles.scss */
+/* line 1825, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .view-content .field-content .views-row div {
   margin-left: 0px;
   display: inline;
 }
-/* line 1827, ../sass/styles.scss */
+/* line 1829, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right span.field-content span.flag-registration {
   padding-left: 1px;
   /*10px;*/
 }
-/* line 1830, ../sass/styles.scss */
+/* line 1832, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right span.field-content span.flag-registration a.flag-action, body.node-type-event .ds-2col-stacked > .group-right span.field-content span.flag-registration a.unflag-action {
   font-weight: normal;
   text-decoration: underline;
@@ -1947,20 +1948,20 @@ body.node-type-event .ds-2col-stacked > .group-right span.field-content span.fla
   font-size: 12px;
   line-height: 1.2em;
 }
-/* line 1840, ../sass/styles.scss */
+/* line 1842, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.field-content {
   clear: left;
 }
-/* line 1843, ../sass/styles.scss */
+/* line 1845, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date {
   margin-right: 3px;
   /*border: 1px solid red;*/
 }
-/* line 1846, ../sass/styles.scss */
+/* line 1848, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action {
   font-weight: normal;
 }
-/* line 1850, ../sass/styles.scss */
+/* line 1852, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1 {
   /*border: 1px solid blue;*/
   margin-right: 4px;
@@ -1968,49 +1969,49 @@ body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-
   display: inline;
   float: left;
 }
-/* line 1857, ../sass/styles.scss */
+/* line 1859, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-ops {
   display: inline;
   float: left;
 }
-/* line 1862, ../sass/styles.scss */
+/* line 1864, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .item-list h3 {
   font-size: 16px;
 }
-/* line 1867, ../sass/styles.scss */
+/* line 1869, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- {
   padding-top: 25px;
 }
-/* line 1870, ../sass/styles.scss */
+/* line 1872, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 1878, ../sass/styles.scss */
+/* line 1880, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials {
   padding-top: 25px;
 }
-/* line 1880, ../sass/styles.scss */
+/* line 1882, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 1884, ../sass/styles.scss */
+/* line 1886, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title {
   margin-top: -5px;
 }
-/* line 1888, ../sass/styles.scss */
+/* line 1890, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul {
   padding-left: 23px;
   margin-bottom: 0px;
 }
-/* line 1891, ../sass/styles.scss */
+/* line 1893, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row {
   list-style-image: url("../images/icons/down-arrow.png");
   margin-bottom: 0px;
   margin-top: 0px;
 }
-/* line 1899, ../sass/styles.scss */
+/* line 1901, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2020,7 +2021,7 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 1906, ../sass/styles.scss */
+/* line 1908, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title {
   font-weight: normal;
   margin-top: 0px;
@@ -2028,40 +2029,40 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-tit
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 1913, ../sass/styles.scss */
+/* line 1915, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list {
   border-top: 1px solid #d7d7d7;
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 1917, ../sass/styles.scss */
+/* line 1919, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul {
   padding-left: 14px;
 }
-/* line 1919, ../sass/styles.scss */
+/* line 1921, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row {
   list-style-image: url("../images/icons/arrow-icons.png");
   /*list-style-image: url('../images/icons/down-arrow.png');*/
   margin-bottom: 20px;
   min-height: 42px;
 }
-/* line 1924, ../sass/styles.scss */
+/* line 1926, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
   /* general rule?*/
 }
-/* line 1925, ../sass/styles.scss */
+/* line 1927, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a {
   display: inline;
   font-weight: normal;
   padding-bottom: 10px;
   color: #333333;
 }
-/* line 1932, ../sass/styles.scss */
+/* line 1934, ../sass/styles.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover {
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 1943, ../sass/styles.scss */
+/* line 1945, ../sass/styles.scss */
 body.node-type-event div#block-block-11 {
   /* the absolute positioning keeps its position constant across pages*/
   position: absolute;
@@ -2070,13 +2071,13 @@ body.node-type-event div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 1949, ../sass/styles.scss */
+/* line 1951, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 1953, ../sass/styles.scss */
+/* line 1955, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home {
   font-size: 16px;
   width: 100px;
@@ -2090,7 +2091,7 @@ body.node-type-event div#block-block-11 p a.anonymous_home {
   float: left;
   margin-left: -18px;
 }
-/* line 1967, ../sass/styles.scss */
+/* line 1969, ../sass/styles.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
@@ -2098,18 +2099,18 @@ body.node-type-event div#block-block-11 p a.anonymous_home:hover {
 /**
  *  Event Page, not logged in
  */
-/* line 1980, ../sass/styles.scss */
+/* line 1982, ../sass/styles.scss */
 body.node-type-event.not-logged-in #main {
   padding-top: 0;
 }
-/* line 1983, ../sass/styles.scss */
+/* line 1985, ../sass/styles.scss */
 body.node-type-event.not-logged-in h3 {
   font-weight: normal;
   color: #577785;
   margin-top: 0px;
   /*margin-bottom: 40px;*/
 }
-/* line 1989, ../sass/styles.scss */
+/* line 1991, ../sass/styles.scss */
 body.node-type-event.not-logged-in div#content.column {
   border-top-color: #d7d7d7;
   margin-top: 10px;
@@ -2118,24 +2119,24 @@ body.node-type-event.not-logged-in div#content.column {
 /*
  *  Event Report
  */
-/* line 2001, ../sass/styles.scss */
+/* line 2003, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 2005, ../sass/styles.scss */
+/* line 2007, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr th {
   padding-right: 10px;
 }
-/* line 2008, ../sass/styles.scss */
+/* line 2010, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:first-child {
   padding-left: 10px;
   width: 230px;
 }
-/* line 2012, ../sass/styles.scss */
+/* line 2014, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td {
   padding-right: 10px;
 }
-/* line 2015, ../sass/styles.scss */
+/* line 2017, ../sass/styles.scss */
 body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
   text-align: center;
 }
@@ -2143,21 +2144,21 @@ body.page-administration-event-report table.views-table tr td:nth-child(n+5) {
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 2026, ../sass/styles.scss */
+/* line 2028, ../sass/styles.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 2032, ../sass/styles.scss */
+/* line 2034, ../sass/styles.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
   list-style-image: url("/misc/menu-collapsed.png");
 }
 
-/* line 2038, ../sass/styles.scss */
+/* line 2040, ../sass/styles.scss */
 div.group-audience, div.group-description, div.group-dates {
   /* h4 {
        margin-bottom: 0px;
@@ -2168,17 +2169,17 @@ div.group-audience, div.group-description, div.group-dates {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 2049, ../sass/styles.scss */
+/* line 2051, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
 }
-/* line 2051, ../sass/styles.scss */
+/* line 2053, ../sass/styles.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
   margin-right: 20px;
   border: 1px solid red;
 }
 
-/* line 2057, ../sass/styles.scss */
+/* line 2059, ../sass/styles.scss */
 div.views-field.views-field-field-presenter-image {
   margin: 5px 15px 0px 0px;
   /*16px 23px 0px 0px;*/
@@ -2188,19 +2189,19 @@ div.views-field.views-field-field-presenter-image {
 /**
  * Disclaimer Placement Section
  */
-/* line 2067, ../sass/styles.scss */
+/* line 2069, ../sass/styles.scss */
 body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
 }
 
-/* line 2073, ../sass/styles.scss */
+/* line 2075, ../sass/styles.scss */
 body.node-type-event #block-block-12 {
   /*border: 1px solid blue;*/
   display: block;
 }
-/* line 2076, ../sass/styles.scss */
+/* line 2078, ../sass/styles.scss */
 body.node-type-event #block-block-12 .disclaimer {
   padding: 0px 590px 20px 0px;
   left: 20px;
@@ -2213,24 +2214,24 @@ body.node-type-event #block-block-12 .disclaimer {
  *  Mozilla-specific fix for footer.
  */
 @-moz-document url-prefix() {
-  /* line 2091, ../sass/styles.scss */
+  /* line 2093, ../sass/styles.scss */
   body.node-type-event #page {
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 2097, ../sass/styles.scss */
+  /* line 2099, ../sass/styles.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: 20px;
     left: 20px;
   }
 }
 /* we are using this for the event edit pages*/
-/* line 2108, ../sass/styles.scss */
+/* line 2110, ../sass/styles.scss */
 body.node-type-event.page-node-edit .disclaimer {
   left: 0px;
 }
 
-/* line 2113, ../sass/styles.scss */
+/* line 2115, ../sass/styles.scss */
 body.page-user-edit div.disclaimer {
   margin-bottom: 40px;
 }
@@ -2238,7 +2239,7 @@ body.page-user-edit div.disclaimer {
 /*
  * page administration
  */
-/* line 2123, ../sass/styles.scss */
+/* line 2125, ../sass/styles.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
@@ -2246,22 +2247,22 @@ body.page-administration div#content div#title-section h2 {
 /**
  *  User profile page
  */
-/* line 2133, ../sass/styles.scss */
+/* line 2135, ../sass/styles.scss */
 form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
   /* end fieldset */
 }
-/* line 2134, ../sass/styles.scss */
+/* line 2136, ../sass/styles.scss */
 form#user-profile-form fieldset, body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
   border: 0px;
   border-top: 5px solid #577785;
   margin: 0px 0px 18px;
   /* end legend */
 }
-/* line 2138, ../sass/styles.scss */
+/* line 2140, ../sass/styles.scss */
 form#user-profile-form fieldset legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend {
   margin-left: 20px;
 }
-/* line 2140, ../sass/styles.scss */
+/* line 2142, ../sass/styles.scss */
 form#user-profile-form fieldset legend span.fieldset-legend, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
   color: #577785;
   text-transform: uppercase;
@@ -2270,43 +2271,43 @@ form#user-profile-form fieldset legend span.fieldset-legend, body.not-logged-in.
   padding: 0px 5px;
   left: 20px;
 }
-/* line 2148, ../sass/styles.scss */
+/* line 2150, ../sass/styles.scss */
 form#user-profile-form fieldset legend a, body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend a {
   padding-left: 12px;
   color: #577785;
 }
-/* line 2154, ../sass/styles.scss */
+/* line 2156, ../sass/styles.scss */
 form#user-profile-form fieldset fieldset, body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
   margin-right: 10px;
 }
-/* line 2159, ../sass/styles.scss */
+/* line 2161, ../sass/styles.scss */
 form#user-profile-form span.label, body.not-logged-in.page-user-register:not(.node-type-event) span.label {
   font-weight: bold;
   margin-bottom: 4px;
   font-size: 14px;
   margin-left: 1px;
 }
-/* line 2166, ../sass/styles.scss */
+/* line 2168, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label:not(.option), body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option) {
   font-size: 14px;
 }
-/* line 2169, ../sass/styles.scss */
+/* line 2171, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label.option, body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option {
   font-size: 13px;
 }
-/* line 2173, ../sass/styles.scss */
+/* line 2175, ../sass/styles.scss */
 form#user-profile-form input.form-text, body.not-logged-in.page-user-register:not(.node-type-event) input.form-text {
   font-size: 14px;
   padding: 5px;
   max-width: 400px;
   border: 1px solid #d7d7d7;
 }
-/* line 2178, ../sass/styles.scss */
+/* line 2180, ../sass/styles.scss */
 form#user-profile-form input.form-text:focus, body.not-logged-in.page-user-register:not(.node-type-event) input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
-/* line 2184, ../sass/styles.scss */
+/* line 2186, ../sass/styles.scss */
 form#user-profile-form .form-item .description, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .description {
   font-size: 0.85em;
   line-height: 1.8em;
@@ -2314,21 +2315,21 @@ form#user-profile-form .form-item .description, body.not-logged-in.page-user-reg
   color: #5c5c5c;
   max-width: 400px;
 }
-/* line 2191, ../sass/styles.scss */
+/* line 2193, ../sass/styles.scss */
 form#user-profile-form .form-item .confirm-parent, form#user-profile-form .form-item .password-parent, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .confirm-parent, body.not-logged-in.page-user-register:not(.node-type-event) .form-item .password-parent {
   width: 40em !important;
 }
-/* line 2194, ../sass/styles.scss */
+/* line 2196, ../sass/styles.scss */
 form#user-profile-form .form-item div.password-suggestions, body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions {
   padding: 10px;
   background: #F7F7F7;
   width: 560px;
 }
-/* line 2198, ../sass/styles.scss */
+/* line 2200, ../sass/styles.scss */
 form#user-profile-form .form-item div.password-suggestions ul, body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions ul {
   margin-top: 0.5em;
 }
-/* line 2203, ../sass/styles.scss */
+/* line 2205, ../sass/styles.scss */
 form#user-profile-form div.data-view, form#user-profile-form div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) div.data-view, body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   border: 1px solid #dbdbd9;
   border-top: 0px;
@@ -2341,18 +2342,18 @@ form#user-profile-form div.data-view, form#user-profile-form div.fieldset-wrappe
   padding-top: 17px;
   padding-bottom: 25px;
 }
-/* line 2216, ../sass/styles.scss */
+/* line 2218, ../sass/styles.scss */
 form#user-profile-form fieldset fieldset div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset div.fieldset-wrapper {
   width: 100.6%;
   /*97.86%;*/
   margin-left: -9px;
 }
-/* line 2222, ../sass/styles.scss */
+/* line 2224, ../sass/styles.scss */
 form#user-profile-form div.fieldset-wrapper, body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   /* margin-left: -20px;*/
   /*padding: 10px 17px;*/
 }
-/* line 2226, ../sass/styles.scss */
+/* line 2228, ../sass/styles.scss */
 form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-submit, body.not-logged-in.page-user-register:not(.node-type-event) input#edit-cancel {
   background-color: #c3791f;
   text-transform: capitalize;
@@ -2361,31 +2362,31 @@ form#user-profile-form input#edit-submit, form#user-profile-form input#edit-canc
 /*
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
-/* line 2236, ../sass/styles.scss */
+/* line 2238, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) {
   /* specific width of fieldset wrapper - very important */
 }
-/* line 2237, ../sass/styles.scss */
+/* line 2239, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title {
   margin-top: 0px;
 }
-/* line 2241, ../sass/styles.scss */
+/* line 2243, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div#content {
   border: 0px;
   margin-top: 0;
   padding-top: 0;
 }
-/* line 2246, ../sass/styles.scss */
+/* line 2248, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset {
   padding-left: 20px;
   padding-right: 20px;
 }
-/* line 2249, ../sass/styles.scss */
+/* line 2251, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset legend {
   margin-left: 0px;
   position: relative;
 }
-/* line 2255, ../sass/styles.scss */
+/* line 2257, ../sass/styles.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper {
   margin-left: -20px;
   padding: 10px 17px;
@@ -2395,7 +2396,7 @@ body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
-/* line 2265, ../sass/styles.scss */
+/* line 2267, ../sass/styles.scss */
 form#user-profile-form {
   /*.save-button {
       @extend .basic-button;
@@ -2408,7 +2409,7 @@ form#user-profile-form {
   /* new planbox styles */
   /* fieldset styles */
 }
-/* line 2266, ../sass/styles.scss */
+/* line 2268, ../sass/styles.scss */
 form#user-profile-form .edit-button,
 form#user-profile-form .save-button,
 form#user-profile-form .cancel-button {
@@ -2420,51 +2421,51 @@ form#user-profile-form .cancel-button {
   text-align: center;
   min-width: 68px;
 }
-/* line 2285, ../sass/styles.scss */
+/* line 2287, ../sass/styles.scss */
 form#user-profile-form input.form-text {
   border: 1px solid #d7d7d7;
 }
-/* line 2288, ../sass/styles.scss */
+/* line 2290, ../sass/styles.scss */
 form#user-profile-form .edit-button:after,
 form#user-profile-form .save-button:after,
 form#user-profile-form .cancel-button:after {
   content: " ]";
 }
-/* line 2293, ../sass/styles.scss */
+/* line 2295, ../sass/styles.scss */
 form#user-profile-form .edit-button:before,
 form#user-profile-form .save-button:before,
 form#user-profile-form .cancel-button:before {
   content: "[ ";
 }
-/* line 2298, ../sass/styles.scss */
+/* line 2300, ../sass/styles.scss */
 form#user-profile-form .cancel-button {
   clear: right;
 }
-/* line 2302, ../sass/styles.scss */
+/* line 2304, ../sass/styles.scss */
 form#user-profile-form .item {
   font-size: 14px;
   margin: 10px 0 10px 5px;
   line-height: 1.5em;
   /*font-style: italic;*/
 }
-/* line 2307, ../sass/styles.scss */
+/* line 2309, ../sass/styles.scss */
 form#user-profile-form .item .value {
   font-style: italic;
 }
-/* line 2312, ../sass/styles.scss */
+/* line 2314, ../sass/styles.scss */
 form#user-profile-form .fieldset-wrapper {
   margin-left: 0px;
   width: 97.9%;
 }
 
 /* prevent overlap with bottom save & cancel buttons */
-/* line 2319, ../sass/styles.scss */
+/* line 2321, ../sass/styles.scss */
 form#user-profile-form > div > fieldset > .fieldset-wrapper {
   padding-bottom: 60px;
 }
 
 /* OMB Block; we may want to just use a form here */
-/* line 2325, ../sass/styles.scss */
+/* line 2327, ../sass/styles.scss */
 body.page-user-edit #block-block-3, body.page-user-register #block-block-3 {
   margin: 0 20px 30px 10px;
   font-size: 12px;
@@ -2473,7 +2474,7 @@ body.page-user-edit #block-block-3, body.page-user-register #block-block-3 {
 /**
  * Switch User
  */
-/* line 2334, ../sass/styles.scss */
+/* line 2336, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -2481,7 +2482,7 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 2340, ../sass/styles.scss */
+/* line 2342, ../sass/styles.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
@@ -2489,23 +2490,23 @@ div.block-devel#block-devel-switch-user input.form-submit {
 /*
  *  Request password page
  */
-/* line 2350, ../sass/styles.scss */
+/* line 2352, ../sass/styles.scss */
 body.page-user-password div#content div#title-section {
   width: 400px;
   margin: 0px auto;
 }
-/* line 2354, ../sass/styles.scss */
+/* line 2356, ../sass/styles.scss */
 body.page-user-password input#edit-name {
   font-size: 14px;
 }
-/* line 2356, ../sass/styles.scss */
+/* line 2358, ../sass/styles.scss */
 body.page-user-password input#edit-name:focus {
   background-color: #F5FAFC;
   outline: none;
   border: 2px solid #d7d7d7;
 }
 
-/* line 2364, ../sass/styles.scss */
+/* line 2366, ../sass/styles.scss */
 form#user-pass {
   width: 330px;
   padding-top: 20px;
@@ -2518,7 +2519,7 @@ form#user-pass {
 /*
  *  Workflow Styles
  */
-/* line 2378, ../sass/styles.scss */
+/* line 2380, ../sass/styles.scss */
 .node-event.workflow-in-progress .group-left::after {
   color: #ccbb99;
   content: "DRAFT";
@@ -2531,23 +2532,23 @@ form#user-pass {
   pointer-events: none;
 }
 
-/* line 2390, ../sass/styles.scss */
+/* line 2392, ../sass/styles.scss */
 .not-logged-in .field-name-field-workflow-state {
   display: none;
 }
 
-/* line 2395, ../sass/styles.scss */
+/* line 2397, ../sass/styles.scss */
 .node-event .group-left .field-group-html-element:not(:first-child) h4 {
   border-top: 1px solid #d7d7d7;
   padding-top: 1.4em;
   margin-top: 1.6em;
 }
-/* line 2400, ../sass/styles.scss */
+/* line 2402, ../sass/styles.scss */
 .node-event .group-left .field-group-html-element:first-child h4 {
   margin-top: 0;
 }
 
-/* line 2406, ../sass/styles.scss */
+/* line 2408, ../sass/styles.scss */
 form.workflow-transition-form {
   padding: 10px 26px 20px 26px;
   width: 269px;
@@ -2555,20 +2556,20 @@ form.workflow-transition-form {
   border: 1px solid #DBD6D6;
 }
 
-/* line 2413, ../sass/styles.scss */
+/* line 2415, ../sass/styles.scss */
 .node.workflow-published .field-name-field-workflow-state {
   display: none;
 }
 
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 737px) {
-  /* line 2420, ../sass/styles.scss */
+  /* line 2422, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     height: 192px;
   }
 }
 /* Subtitle / Type Block */
-/* line 2428, ../sass/styles.scss */
+/* line 2430, ../sass/styles.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
@@ -2582,14 +2583,14 @@ form.workflow-transition-form {
  * Uses the styles from responsive.css for mobile phone widths
  */
 @media all and (max-width: 479px) {
-  /* line 2442, ../sass/styles.scss */
+  /* line 2444, ../sass/styles.scss */
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
     position: relative;
   }
 
-  /* line 2447, ../sass/styles.scss */
+  /* line 2449, ../sass/styles.scss */
   #navigation {
     /* Move the navbar up inside #main's padding. */
     position: absolute;
@@ -2602,29 +2603,29 @@ form.workflow-transition-form {
  * General Mobile Styles
  */
 @media screen and (max-width: 1024px) {
-  /* line 2463, ../sass/styles.scss */
+  /* line 2465, ../sass/styles.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2468, ../sass/styles.scss */
+  /* line 2470, ../sass/styles.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 2472, ../sass/styles.scss */
+  /* line 2474, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 2474, ../sass/styles.scss */
+  /* line 2476, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 2477, ../sass/styles.scss */
+  /* line 2479, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
     overflow: visible;
@@ -2632,7 +2633,7 @@ form.workflow-transition-form {
     padding: 0px;
     /* hide admin*/
   }
-  /* line 2483, ../sass/styles.scss */
+  /* line 2485, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
@@ -2643,12 +2644,12 @@ form.workflow-transition-form {
  */
 /* hide search block form */
 @media screen and (max-width: 768px) {
-  /* line 2507, ../sass/styles.scss */
+  /* line 2509, ../sass/styles.scss */
   input#edit-search-block-form--2, div#edit-actions {
     display: none;
   }
 
-  /* line 2510, ../sass/styles.scss */
+  /* line 2512, ../sass/styles.scss */
   div.region.region-header {
     margin-top: 10px;
   }
@@ -2661,7 +2662,7 @@ form.workflow-transition-form {
   /*
    * prototype classes´
    */
-  /* line 2524, ../sass/styles.scss */
+  /* line 2526, ../sass/styles.scss */
   .reset-layout, html div#page,
   body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
@@ -2672,7 +2673,7 @@ form.workflow-transition-form {
   }
 
   /* for mobile panels with no top bars */
-  /* line 2530, ../sass/styles.scss */
+  /* line 2532, ../sass/styles.scss */
   .top-bar-reset, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before {
     background-color: none;
@@ -2681,7 +2682,7 @@ form.workflow-transition-form {
     position: static;
   }
 
-  /* line 2536, ../sass/styles.scss */
+  /* line 2538, ../sass/styles.scss */
   .mobile-panel, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2695,7 +2696,7 @@ form.workflow-transition-form {
     background-color: #eef1f3;
   }
 
-  /* line 2545, ../sass/styles.scss */
+  /* line 2547, ../sass/styles.scss */
   .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -2722,7 +2723,7 @@ form.workflow-transition-form {
   /*
    *Start General Styles
   */
-  /* line 2573, ../sass/styles.scss */
+  /* line 2575, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -2730,7 +2731,7 @@ form.workflow-transition-form {
     overflow-x: visible;
     height: 100%;
   }
-  /* line 2579, ../sass/styles.scss */
+  /* line 2581, ../sass/styles.scss */
   html div.top-header,
   body div.top-header {
     height: 115px;
@@ -2738,25 +2739,25 @@ form.workflow-transition-form {
     background-position: -124px 106px;
     background-repeat: repeat-x;
   }
-  /* line 2582, ../sass/styles.scss */
+  /* line 2584, ../sass/styles.scss */
   html div.top-header div.top-header-container,
   body div.top-header div.top-header-container {
     width: 100%;
   }
-  /* line 2584, ../sass/styles.scss */
+  /* line 2586, ../sass/styles.scss */
   html div.top-header div.top-header-container div.capt-logo,
   body div.top-header div.top-header-container div.capt-logo {
     background-image: url("../images/logos/CAPT-logo-phone.png");
     margin-left: 4%;
     top: 12px;
   }
-  /* line 2589, ../sass/styles.scss */
+  /* line 2591, ../sass/styles.scss */
   html div.top-header div.top-header-container div.samhsa-logo,
   body div.top-header div.top-header-container div.samhsa-logo {
     margin-right: 4%;
     margin-bottom: 0px;
   }
-  /* line 2595, ../sass/styles.scss */
+  /* line 2597, ../sass/styles.scss */
   html div#page,
   body div#page {
     min-height: 750px;
@@ -2766,23 +2767,23 @@ form.workflow-transition-form {
     padding-bottom: 60px;
     /*80px;*/
   }
-  /* line 2604, ../sass/styles.scss */
+  /* line 2606, ../sass/styles.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 2607, ../sass/styles.scss */
+  /* line 2609, ../sass/styles.scss */
   html div#page,
   body div#page {
     padding-bottom: 50px;
   }
-  /* line 2608, ../sass/styles.scss */
+  /* line 2610, ../sass/styles.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 2614, ../sass/styles.scss */
+  /* line 2616, ../sass/styles.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -2796,13 +2797,13 @@ form.workflow-transition-form {
   }
 
   /* switch user block */
-  /* line 2626, ../sass/styles.scss */
+  /* line 2628, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 2630, ../sass/styles.scss */
+  /* line 2632, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
@@ -2814,21 +2815,21 @@ form.workflow-transition-form {
   /*
    *  iPhone Styles -- User Login Page
    */
-  /* line 2643, ../sass/styles.scss */
+  /* line 2645, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) {
     /* reformatting panels for mobile */
     /*specific disclaimer styles; more at the end */
     /* mobile styles, cont'd s*/
     /* new to captconnect? and reasons to join panels */
   }
-  /* line 2644, ../sass/styles.scss */
+  /* line 2646, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2650, ../sass/styles.scss */
+  /* line 2652, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2836,70 +2837,70 @@ form.workflow-transition-form {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2660, ../sass/styles.scss */
+  /* line 2662, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 2665, ../sass/styles.scss */
+  /* line 2667, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div.disclaimer {
     margin: 0px auto;
     left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 2673, ../sass/styles.scss */
+  /* line 2675, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section:before {
     top: -10px;
   }
-  /* line 2678, ../sass/styles.scss */
+  /* line 2680, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     height: 140px;
     padding-bottom: 26px;
   }
-  /* line 2684, ../sass/styles.scss */
+  /* line 2686, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 2693, ../sass/styles.scss */
+  /* line 2695, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content div#title-section h1#page-title {
     margin-left: 17px;
   }
-  /* line 2696, ../sass/styles.scss */
+  /* line 2698, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     height: 250px;
   }
-  /* line 2697, ../sass/styles.scss */
+  /* line 2699, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-name {
     padding-top: 0px;
   }
-  /* line 2701, ../sass/styles.scss */
+  /* line 2703, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 2710, ../sass/styles.scss */
+  /* line 2712, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 2712, ../sass/styles.scss */
+  /* line 2714, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 2715, ../sass/styles.scss */
+  /* line 2717, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 2721, ../sass/styles.scss */
+  /* line 2723, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -2909,31 +2910,31 @@ form.workflow-transition-form {
     margin: 0px;
   }
 
-  /* line 2732, ../sass/styles.scss */
+  /* line 2734, ../sass/styles.scss */
   body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
     margin-left: 30px;
   }
 
   /* merge with styles below? */
-  /* line 2740, ../sass/styles.scss */
+  /* line 2742, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 2743, ../sass/styles.scss */
+  /* line 2745, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 2747, ../sass/styles.scss */
+  /* line 2749, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 2749, ../sass/styles.scss */
+  /* line 2751, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 2755, ../sass/styles.scss */
+  /* line 2757, ../sass/styles.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
@@ -2941,33 +2942,33 @@ form.workflow-transition-form {
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-  /* line 2762, ../sass/styles.scss */
+  /* line 2764, ../sass/styles.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* iphone 6 */
     /* Chrome and Safari Specific Styles */
   }
-  /* line 2765, ../sass/styles.scss */
+  /* line 2767, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 2769, ../sass/styles.scss */
+  /* line 2771, ../sass/styles.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 2773, ../sass/styles.scss */
+  /* line 2775, ../sass/styles.scss */
   form#user-profile-form ul#main-menu.main-menu li.menu-item > a,
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a {
     width: 150px;
   }
-  /* line 2777, ../sass/styles.scss */
+  /* line 2779, ../sass/styles.scss */
   form#user-profile-form div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -2975,7 +2976,7 @@ form.workflow-transition-form {
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 2783, ../sass/styles.scss */
+  /* line 2785, ../sass/styles.scss */
   form#user-profile-form div#content,
   body.admin-menu div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content {
@@ -2987,7 +2988,7 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2791, ../sass/styles.scss */
+  /* line 2793, ../sass/styles.scss */
   form#user-profile-form div#content ul.tabs-primary,
   body.admin-menu div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content ul.tabs-primary {
@@ -2995,13 +2996,13 @@ form.workflow-transition-form {
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 2798, ../sass/styles.scss */
+  /* line 2800, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.admin-menu fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.data-view div.button.edit-button {
     top: 130px;
   }
-  /* line 2801, ../sass/styles.scss */
+  /* line 2803, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.save-button:first-child, form#user-profile-form fieldset.group-demographic-information div.cancel-button:nth-child(2),
   body.admin-menu fieldset.group-demographic-information div.save-button:first-child,
   body.admin-menu fieldset.group-demographic-information div.cancel-button:nth-child(2),
@@ -3009,14 +3010,14 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.cancel-button:nth-child(2) {
     display: none;
   }
-  /* line 2806, ../sass/styles.scss */
+  /* line 2808, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
     width: 300px;
     margin: 0px;
   }
-  /* line 2810, ../sass/styles.scss */
+  /* line 2812, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
@@ -3028,25 +3029,25 @@ form.workflow-transition-form {
     clear: left;
     margin-bottom: 10px;
   }
-  /* line 2817, ../sass/styles.scss */
+  /* line 2819, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
     clear: left;
   }
-  /* line 2820, ../sass/styles.scss */
+  /* line 2822, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
     width: 112%;
   }
-  /* line 2823, ../sass/styles.scss */
+  /* line 2825, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
     margin-top: -20px;
   }
-  /* line 2828, ../sass/styles.scss */
+  /* line 2830, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
@@ -3056,13 +3057,13 @@ form.workflow-transition-form {
     clear: left;
     float: left;
   }
-  /* line 2833, ../sass/styles.scss */
+  /* line 2835, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
     width: 85%;
   }
-  /* line 2836, ../sass/styles.scss */
+  /* line 2838, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
@@ -3071,19 +3072,19 @@ form.workflow-transition-form {
     /*background-color: yellow;*/
     margin-bottom: 20px;
   }
-  /* line 2843, ../sass/styles.scss */
+  /* line 2845, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
     width: 90%;
   }
-  /* line 2846, ../sass/styles.scss */
+  /* line 2848, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
   }
-  /* line 2850, ../sass/styles.scss */
+  /* line 2852, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
@@ -3094,13 +3095,13 @@ form.workflow-transition-form {
     margin-bottom: -20px;
     /* edit button */
   }
-  /* line 2857, ../sass/styles.scss */
+  /* line 2859, ../sass/styles.scss */
   form#user-profile-form fieldset fieldset,
   body.admin-menu fieldset fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
     display: none;
   }
-  /* line 2860, ../sass/styles.scss */
+  /* line 2862, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -3109,7 +3110,7 @@ form.workflow-transition-form {
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 2863, ../sass/styles.scss */
+  /* line 2865, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -3117,7 +3118,7 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 2868, ../sass/styles.scss */
+  /* line 2870, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view div.edit-button,
   body.admin-menu fieldset div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view div.edit-button {
@@ -3125,7 +3126,7 @@ form.workflow-transition-form {
     top: -24px;
     font-size: 18px;
   }
-  /* line 2874, ../sass/styles.scss */
+  /* line 2876, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button,
   body.admin-menu fieldset div.fieldset-wrapper div.save-button,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button,
@@ -3133,7 +3134,7 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 2877, ../sass/styles.scss */
+  /* line 2879, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button:first-child, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu fieldset div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -3142,7 +3143,7 @@ form.workflow-transition-form {
     top: -30px;
     position: relative;
   }
-  /* line 2883, ../sass/styles.scss */
+  /* line 2885, ../sass/styles.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
@@ -3153,7 +3154,7 @@ form.workflow-transition-form {
     top: 30px;
     display: block;
   }
-  /* line 2891, ../sass/styles.scss */
+  /* line 2893, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -3166,13 +3167,13 @@ form.workflow-transition-form {
   }
 }
 @media screen and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 0) and (max-width: 736px) {
-  /* line 2903, ../sass/styles.scss */
+  /* line 2905, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
   body.admin-menu fieldset.group-account,
   body.admin-menu fieldset {
     margin-bottom: 0px;
   }
-  /* line 2904, ../sass/styles.scss */
+  /* line 2906, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
@@ -3181,7 +3182,7 @@ form.workflow-transition-form {
     padding-top: 45px;
     margin-top: 8px;
   }
-  /* line 2911, ../sass/styles.scss */
+  /* line 2913, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset {
     margin-top: 0px;
@@ -3192,7 +3193,7 @@ form.workflow-transition-form {
  */
 /* iPhone 6 */
 @media screen and (min-width: 343px) and (max-width: 736px) {
-  /* line 2934, ../sass/styles.scss */
+  /* line 2936, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3201,7 +3202,7 @@ form.workflow-transition-form {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 2938, ../sass/styles.scss */
+  /* line 2940, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3210,7 +3211,7 @@ form.workflow-transition-form {
     width: 188.5px;
     height: 29.9px;
   }
-  /* line 2942, ../sass/styles.scss */
+  /* line 2944, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3222,20 +3223,20 @@ form.workflow-transition-form {
 }
 /* Devel tabs */
 @media screen and (max-width: 425px) {
-  /* line 2955, ../sass/styles.scss */
+  /* line 2957, ../sass/styles.scss */
   ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
     display: none;
   }
 }
 /* iPhone 4 */
 @media screen and (max-width: 342px) {
-  /* line 2967, ../sass/styles.scss */
+  /* line 2969, ../sass/styles.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 2971, ../sass/styles.scss */
+  /* line 2973, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3244,7 +3245,7 @@ form.workflow-transition-form {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 2975, ../sass/styles.scss */
+  /* line 2977, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3253,7 +3254,7 @@ form.workflow-transition-form {
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 2979, ../sass/styles.scss */
+  /* line 2981, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3265,7 +3266,7 @@ form.workflow-transition-form {
 }
 /* small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 2995, ../sass/styles.scss */
+  /* line 2997, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3274,7 +3275,7 @@ form.workflow-transition-form {
     width: 290.7px;
     height: 39.1px;
   }
-  /* line 2999, ../sass/styles.scss */
+  /* line 3001, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3291,7 +3292,7 @@ form.workflow-transition-form {
  * Start iPad responsive theming
  */
 @media screen and (min-width: 737px) and (max-width: 1024px) {
-  /* line 3018, ../sass/styles.scss */
+  /* line 3020, ../sass/styles.scss */
   html,
   body.not-logged-in.page-user:not(.page-user-register),
   body.admin-menu,
@@ -3299,7 +3300,7 @@ form.workflow-transition-form {
     width: 100%;
     /* login screen */
   }
-  /* line 3022, ../sass/styles.scss */
+  /* line 3024, ../sass/styles.scss */
   html div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user:not(.page-user-register) div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
@@ -3309,7 +3310,7 @@ form.workflow-transition-form {
     margin-left: 7%;
     padding-bottom: 8px;
   }
-  /* line 3028, ../sass/styles.scss */
+  /* line 3030, ../sass/styles.scss */
   html input#edit-search-block-form--2,
   body.not-logged-in.page-user:not(.page-user-register) input#edit-search-block-form--2,
   body.admin-menu input#edit-search-block-form--2,
@@ -3318,7 +3319,7 @@ form.workflow-transition-form {
     background-position: 80px 4px;
     padding-right: 20px;
   }
-  /* line 3033, ../sass/styles.scss */
+  /* line 3035, ../sass/styles.scss */
   html div#main,
   html div#content,
   body.not-logged-in.page-user:not(.page-user-register) div#main,
@@ -3331,7 +3332,7 @@ form.workflow-transition-form {
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 3041, ../sass/styles.scss */
+  /* line 3043, ../sass/styles.scss */
   html div#page,
   body.not-logged-in.page-user:not(.page-user-register) div#page,
   body.admin-menu div#page,
@@ -3339,21 +3340,21 @@ form.workflow-transition-form {
     width: 83.3333%;
     margin-top: -2px;
   }
-  /* line 3045, ../sass/styles.scss */
+  /* line 3047, ../sass/styles.scss */
   html div.top-header-container,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container,
   body.admin-menu div.top-header-container,
   body.page-user-register div.top-header-container {
     width: 100%;
   }
-  /* line 3047, ../sass/styles.scss */
+  /* line 3049, ../sass/styles.scss */
   html div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.capt-logo,
   body.admin-menu div.top-header-container div.capt-logo,
   body.page-user-register div.top-header-container div.capt-logo {
     margin-left: 8%;
   }
-  /* line 3050, ../sass/styles.scss */
+  /* line 3052, ../sass/styles.scss */
   html div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.samhsa-logo,
   body.admin-menu div.top-header-container div.samhsa-logo,
@@ -3361,7 +3362,7 @@ form.workflow-transition-form {
     margin-right: 8%;
   }
 
-  /* line 3057, ../sass/styles.scss */
+  /* line 3059, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3369,7 +3370,7 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3064, ../sass/styles.scss */
+  /* line 3066, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     margin-left: 0px;
@@ -3377,52 +3378,52 @@ form.workflow-transition-form {
     margin-left: 4%;
     margin-right: 0px;
   }
-  /* line 3071, ../sass/styles.scss */
+  /* line 3073, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 41%;
     float: right;
     margin-right: 4%;
   }
-  /* line 3077, ../sass/styles.scss */
+  /* line 3079, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-position: 92% 25%;
     background-size: 75.2px 82.40px;
   }
-  /* line 3080, ../sass/styles.scss */
+  /* line 3082, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul {
     margin-left: -5px;
   }
-  /* line 3082, ../sass/styles.scss */
+  /* line 3084, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul a {
     font-size: 14px;
   }
 
-  /* line 3091, ../sass/styles.scss */
+  /* line 3093, ../sass/styles.scss */
   body.admin-menu div.bottom-footer div.disclaimer,
   body.page-user-register div.bottom-footer div.disclaimer {
     padding: 0px;
     margin-left: 8.5%;
     width: 500px;
   }
-  /* line 3096, ../sass/styles.scss */
+  /* line 3098, ../sass/styles.scss */
   body.admin-menu div#block-block-3,
   body.page-user-register div#block-block-3 {
     margin-left: 12px;
   }
-  /* line 3101, ../sass/styles.scss */
+  /* line 3103, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation,
   body.page-user-register div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 3105, ../sass/styles.scss */
+  /* line 3107, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 3123, ../sass/styles.scss */
+  /* line 3125, ../sass/styles.scss */
   body.admin-menu div#main div#content,
   body.page-user-register div#main div#content {
     width: 96.8%;
@@ -3432,27 +3433,27 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3130, ../sass/styles.scss */
+  /* line 3132, ../sass/styles.scss */
   body.admin-menu div#main div#content ul.tabs-primary,
   body.page-user-register div#main div#content ul.tabs-primary {
     width: 97%;
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 3135, ../sass/styles.scss */
+  /* line 3137, ../sass/styles.scss */
   body.admin-menu div#main div#content input#edit-cancel.form-submit,
   body.page-user-register div#main div#content input#edit-cancel.form-submit {
     margin-left: 10px;
     text-align: center;
   }
-  /* line 3139, ../sass/styles.scss */
+  /* line 3141, ../sass/styles.scss */
   body.admin-menu div#main div#content h1#page-title,
   body.page-user-register div#main div#content h1#page-title {
     background-position: 8px 0px;
     padding-left: 70px;
     font-size: 34px;
   }
-  /* line 3144, ../sass/styles.scss */
+  /* line 3146, ../sass/styles.scss */
   body.admin-menu div#main div#content fieldset,
   body.page-user-register div#main div#content fieldset {
     /*width: 95%;*/
@@ -3463,18 +3464,18 @@ form.workflow-transition-form {
     border-right: 1px solid blue;
   }
 
-  /* line 3156, ../sass/styles.scss */
+  /* line 3158, ../sass/styles.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
 }
 /* large phone, small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 3167, ../sass/styles.scss */
+  /* line 3169, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1#page-title {
     font-size: 22px;
   }
-  /* line 3170, ../sass/styles.scss */
+  /* line 3172, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     margin-left: 0px;
@@ -3482,26 +3483,26 @@ form.workflow-transition-form {
     margin-left: 3%;
     margin-right: 0px;
   }
-  /* line 3177, ../sass/styles.scss */
+  /* line 3179, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -52px;
   }
-  /* line 3180, ../sass/styles.scss */
+  /* line 3182, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 42%;
   }
-  /* line 3183, ../sass/styles.scss */
+  /* line 3185, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 22px;
   }
-  /* line 3187, ../sass/styles.scss */
+  /* line 3189, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-image: none;
   }
-  /* line 3190, ../sass/styles.scss */
+  /* line 3192, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3512,34 +3513,34 @@ form.workflow-transition-form {
 /* Nevin comment */
 /* iPad theming */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* line 3202, ../sass/styles.scss */
+  /* line 3204, ../sass/styles.scss */
   div#title-section h1#page-title {
     font-size: 25px;
   }
 
-  /* line 3208, ../sass/styles.scss */
+  /* line 3210, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
     margin-left: 10px;
   }
-  /* line 3213, ../sass/styles.scss */
+  /* line 3215, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -58px;
   }
 }
 /* MATT STYLES */
-/* line 3225, ../sass/styles.scss */
+/* line 3227, ../sass/styles.scss */
 .chosen-container {
   width: 400px !important;
 }
-/* line 3227, ../sass/styles.scss */
+/* line 3229, ../sass/styles.scss */
 .chosen-container a {
   font-weight: normal;
 }
 
-/* line 3231, ../sass/styles.scss */
+/* line 3233, ../sass/styles.scss */
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
