@@ -213,6 +213,48 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 }
 
 /**
+ * Implements hook_username_alter().
+ */
+function captconnect_custom_username_alter(&$name, $account) {
+  static $names = array();
+
+  if (!is_object($account)) {
+    return t('Invalid User');
+  }
+
+  // If the uid is 0 or not present, assume the user is anonymous.
+  // Also, new users don't have a profile built yet, so just go away.
+  if (empty($account->uid) || (isset($account->is_new) && $account->is_new)) {
+    return variable_get('anonymous', t('Anonymous'));
+  }
+
+  if (isset($names[$account->uid])) {
+    $name = $names[$account->uid];
+    return;
+  }
+
+  // Get their first name. It will be FALSE if not given.
+  $first = field_get_items('user', $account, 'field_first_name');
+  if ($first) {
+    $first = $first[0]['safe_value'];
+  }
+  else {
+    $first = t('unknown');
+  }
+  // Likewise, the last name.
+  $last = field_get_items('user', $account, 'field_last_name');
+  if ($last) {
+    $last = $last[0]['safe_value'];
+  }
+  else {
+    $last = t('unknown');
+  }
+
+  // Save it and return.
+  $names[$account->uid] = $first . ' ' . $last;
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
@@ -367,10 +409,22 @@ function captconnect_custom_register_other($form, $form_state) {
   $flag_action = variable_get('captconnect_custom_other_flag', 'registration');
   $form['#flag_action'] = $flag_action;
 
-  $form['congrats'] = array(
-    '#type' => 'markup',
-    '#markup' => '<h3>' . t('Congratulations, you have almost registered for someone else!') . '</h3>',
-    );
+  $dest = drupal_get_destination();
+  $event = node_load(substr($dest['destination'], 5));
+  $form['#event'] = $event;
+
+  drupal_set_title(t('Register another person for "%event"', array('%event' => $event->title)), PASS_THROUGH);
+
+  $instances = array();
+  foreach (field_get_items('node', $event, 'field_date_instance') as $instance) {
+    $instances[] = $instance['target_id'];
+  }
+
+  $form['#instances'] = entity_load('node', $instances);
+  $instance_list = array();
+  foreach ($form['#instances'] as $nid => $instance) {
+    $instance_list[$nid] = $instance->title;
+  }
 
 	$form['account'] = array (
 		'#type' => 'textfield',
@@ -379,8 +433,15 @@ function captconnect_custom_register_other($form, $form_state) {
 		'#autocomplete_path' => 'user/autocomplete',
   	);
 
+  $form['which_one'] = array(
+    '#type' => 'radios',
+    '#options' => $instance_list,
+    '#title' => t('Select a time for "%event"', array('%event' => $event->title)),
+		'#required' => TRUE,
+    );
+
   $form ['actions'] = array('#type' => 'actions', '#weight' => 100);
-  $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save configuration'));
+  $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save my choices'));
   $form ['actions']['cancel'] = array('#type' => 'submit', '#value' => t('Changed my mind'));
 
   return $form;
@@ -397,12 +458,22 @@ function captconnect_custom_register_other_submit($form, $form_state) {
 
   $account = user_load_by_name($form_state['values']['account']);
 
-  $output = t("You tried to use the @flag flag on @user (@uid)", array(
-    '@flag' => $flag_title,
+  $instance = $form['#instances'][$form_state['values']['which_one']];
+
+  // Okay, let's get 'er done.
+  $args = array(
+    '@event' => $form['#event']->title,
     '@user' => format_username($account),
-    '@uid' => $account->uid,
-    ));
-  dpm($output);
+    '@time' => $instance->title,
+    );
+
+  // The flag function returns a boolean to indicate success or failure.
+  if (flag('flag', $flag_action, $instance->nid, $account)) {
+    drupal_set_message(t('@user is now registrered for "@event" at @time.', $args));
+  }
+  else {
+    drupal_set_message(t('Registration for @user for "@event" at @time failed.', $args));
+  }
 }
 
 /**
