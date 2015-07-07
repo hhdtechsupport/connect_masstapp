@@ -145,7 +145,7 @@ function captconnect_custom_view_registrations($node) {
       .instance-label {text-align: center; padding: 6px 0 3px 0; font-weight: bold; font-size: 120%; background-color: #ddffee;
         border-bottom: 2px solid #ff9900;}
       #registrations-list tr.odd {background-color: #fff !important}
-      #registrations-list tr {border-bottom: 0px;';
+      #registrations-list tr {border-bottom: 0px;}';
     drupal_add_css($css, 'inline');
 
     $table = array(
@@ -226,7 +226,24 @@ function captconnect_custom_view_registrations($node) {
       }
     }
 
-    return theme('table', $table);
+    if (user_access('register others')) {
+      drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;}', 'inline');
+      $register_others = array(
+        '#theme' => 'link',
+        '#text' => t('Register Someone Else'),
+        '#path' => 'register_others',
+        '#options' => array(
+          'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
+          'html' => FALSE,
+          'query' => drupal_get_destination(),
+          ),
+        );
+    }
+    else {
+      $register_others = NULL;
+    }
+
+    return theme('table', $table) . drupal_render($register_others);
   }
 }
 
@@ -288,7 +305,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     // Save the current path and grab the submit handler.
     case 'event_notifications_node_form':
       $form['#where_to'] = $_GET['q'];
-//      dpm($form['actions'], 'actions');
       break; /* */
   }
 //  dpm($form, $form_id);
@@ -376,7 +392,7 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
   $current_state = workflow_state_load_single($current_sid);
   $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
-  dpm($form, $form_id . ' ' . $current_state->sid);
+//  dpm($form, $form_id . ' ' . $current_state->sid);
 }
 
 /**
