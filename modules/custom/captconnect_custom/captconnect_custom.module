@@ -39,6 +39,15 @@ function captconnect_custom_menu() {
     'type' => MENU_LOCAL_TASK,
     );
 
+  $items['node/%node/registrations'] = array(
+    'title' => 'Registrations',
+    'page callback' => 'captconnect_custom_view_registrations',
+    'page arguments' => array(1),
+    'access arguments' => array('view registrations'),
+    'weight' => 0,
+    'type' => MENU_LOCAL_TASK,
+    );
+
   $items['admin/config/administration/captconnect'] = array(
     'title' => 'CAPT Connect',
     'description' => 'Various settings to control CAPT Connect custom functions',
@@ -56,8 +65,8 @@ function captconnect_custom_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('captconnect_custom_register_other'),
     'access arguments' => array('register others'),
-//    'type' => MENU_CALLBACK,
-    'type' => MENU_NORMAL_ITEM,
+    'type' => MENU_CALLBACK,
+//    'type' => MENU_NORMAL_ITEM,
     );
 
   $items['anon_register'] = array(
@@ -121,6 +130,103 @@ function captconnect_custom_view_notifications($node) {
       module_load_include('inc', 'node', 'node.pages');
       return node_page_edit(node_load($notification));
     }
+  }
+}
+
+/**
+ * Menu callback.
+ */
+function captconnect_custom_view_registrations($node) {
+  global $user;
+  if ($node->type == 'event') {
+    drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
+
+    $css = '.no-registrations {text-align: center;}
+      .instance-label {text-align: center; padding: 6px 0 3px 0; font-weight: bold; font-size: 120%; background-color: #ddffee;
+        border-bottom: 2px solid #ff9900;}
+      #registrations-list tr.odd {background-color: #fff !important}
+      #registrations-list tr {border-bottom: 0px;';
+    drupal_add_css($css, 'inline');
+
+    $table = array(
+      'rows' => array(),
+      'header' => array(
+        t('Registrant'),
+        t('Registered'),
+        t('Cancel Registration'),
+        t('Participation'),
+        ),
+      'attributes' => array(
+        'id' => 'registrations-list',
+        ),
+      'sticky' => TRUE,
+      'empty' => t('There are currently no instances of this event.'),
+      );
+    $event = entity_metadata_wrapper('node', $node);
+
+    // Query for registrations below.
+    // @TODO: add "timestamp" column.
+    $reg_query = "SELECT uid, timestamp FROM {flagging} "
+      . "WHERE entity_id = :instance "
+      . "AND fid = 2 "      // Registration.
+      ;
+
+    // Get all the instances.
+    foreach ($event->field_date_instance->getIterator() as $instance) {
+      if (user_access('edit any instance content')
+      || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
+        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
+          array('query' => drupal_get_destination()));
+      }
+      else {
+        $title_link = $instance->label();
+      }
+      $table['rows'][] = array(array(
+        'data' => $title_link,
+        'colspan' => 20,
+        'class' => array('instance-label'),
+        ));
+//      $dates = $instance->field_date->value();
+      // Get the event join link.
+      // @TODO: Only show for a short time before the event?
+      $link = $instance->field_link->value();
+
+      // Get all the registration details.
+      $rows = db_query($reg_query, array('instance' => $instance->nid->value()))->fetchAllKeyed();
+
+      if (count($rows) > 0) {
+        $users = entity_load('user', array_keys($rows));
+        foreach ($users as $uid => $account) {
+          $registrant = (user_access('administer users') ?
+            l(format_username($account), "user/$account->uid/edit") : format_username($account));
+
+          // @TODO: Time check.
+          if ($link['url']) {
+            $join = l($link['title'], 'flag/flag/participate/' . $instance->nid->value(),
+              array('query' => array('destination' => $link['url'])));
+          }
+          else {
+            $join = t('See the access information.');
+          }
+
+          $table['rows'][] = array(
+            $registrant,
+            format_date($rows[$uid]),
+            l(t('Cancel'), 'flag/unflag/registration/' . $instance->nid->value()),
+            $join,
+            );
+        }
+      }
+      else {
+        $table['rows'][] = array(array(
+          'data' => t('There are no registrations for this instance yet.'),
+          'colspan' => 20,
+          'class' => array('no-registrations'),
+          ));
+      }
+    }
+
+    return theme('table', $table);
   }
 }
 
@@ -251,7 +357,8 @@ function captconnect_custom_username_alter(&$name, $account) {
   }
 
   // Save it and return.
-  $names[$account->uid] = $first . ' ' . $last;
+  $name = $first . ' ' . $last;
+  $names[$account->uid] = $name;
 }
 
 /**
