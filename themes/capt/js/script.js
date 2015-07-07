@@ -138,6 +138,16 @@ Drupal.behaviors.my_custom_behavior = {
 
 
 
+  // Submenu hover fix
+  $('#main-menu li.menu-parent:not(.active-trail) ul.sub-menu.tier-two li').each(function(){
+    $(this).hover(function(){
+      $(this).parent().prev().css('background','#efefef');
+    }, function(){
+      $(this).parent().prev().css('background','');
+    });
+  });
+
+
 
   /*
    * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES

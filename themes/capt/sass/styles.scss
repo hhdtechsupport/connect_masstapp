@@ -818,14 +818,6 @@ a.unflag-action {
   color: $capt-orange;
 }
 
-/* banners */
-
-.view-event-banner {
-  .views-row {
-    font-size: 3em;
-    font-weight: bold;
-  }
-}
 
 .vertical-tabs {
   clear: both;
@@ -1139,7 +1131,46 @@ div#edit-actions {
 
 header#header {
   height: 191px;
-  background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
+  background: url("../images/banners/blank-banner.png") 0 0 no-repeat;
+}
+
+body.logged-in header#header {
+  padding-left: 345px;
+  #name-and-slogan {
+    padding-top: 30px;
+    padding-bottom: 12px;
+    a.header__site-link {
+      color: white;
+      text-decoration: none;
+      font-weight: normal;
+      &:hover {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    em {
+      font-weight: normal;
+    }
+  }
+  .view-event-banner .views-row {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: white;
+    opacity: .4;
+  }
+}
+
+body.logged-in:not(.node-type-event) {
+  #name-and-slogan {
+    font-size: 1.7em;
+  }
+  #block-block-13 {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: normal;
+    margin-top: -1.25em;
+  }
 }
 
 /*
@@ -1204,13 +1235,12 @@ ul#main-menu.main-menu {
     padding: 0px;
     margin-top: 0px;
     padding-right: 0px;
-    background: white;
-    
+    background: $capt-hovergrey;
+    width: 200px;
     li {
       padding: 0px;
       margin: 0px;
       display: block;
-      background: white;
       a {
         display: block;
         margin: 0px;
@@ -1220,8 +1250,9 @@ ul#main-menu.main-menu {
         color: #333;
         padding: 0px 0px 0px 35px;
         font-size: 13px;
-        background: white;
         height: 18px;
+        width: 165px;
+        background: none;
       }
       a.active {
         background-color: white;
@@ -1230,14 +1261,19 @@ ul#main-menu.main-menu {
       a:hover {
         text-decoration: underline;
       }
+      &.last {
+        padding-bottom: 15px;
+      }
     }
+  }
+  &.active-trail ul.sub-menu.tier-two {
+    background: white;
   }
 }
 
 /* hiding text in key areas! */
 
-div.view-event-banner div.field-content,
-h1#site-name,
+body:not(.logged-in) h1#site-name,
 div.samhsa-logo,
 div.capt-logo {
   text-indent: 100%;
