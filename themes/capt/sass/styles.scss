@@ -340,12 +340,6 @@ a.button {
 
 /*ul.main-menu a:hover, */
 
-input[type="submit"]:hover,
-a.button:hover {
-  background: #595959;
-  text-decoration: none;
-}
-
 ul.sub-menu {
   background: #292929;
   li {
@@ -359,6 +353,18 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
+  padding: 12px 20px;
+  text-transform: capitalize;
+  background-color: $capt-orange;
+  &:hover {
+    background-color: lighten($capt-orange, 10%);
+  }
+  &[value="Cancel"], &[value="Remove"], &[value="Delete"] {
+    background-color: $capt-aqua;
+    &:hover {
+      background-color: lighten($capt-aqua, 10%);
+    }
+  }
 }
 
 h1 {
@@ -434,11 +440,15 @@ li.views-row:last-child {
 
 div.view-content div.item-list {
   padding-left: 0px;
-  margin-bottom: -21px;
+  padding-top: 15px;
+  &:first-of-type {
+      padding-top: 0;
+  }
   h3 {
     margin-bottom: 10px;
     padding-top: 0px;
     line-height: 16px;
+    margin-top: 0;
     a:hover {
       text-decoration: none;
     }
@@ -466,7 +476,7 @@ div.field-name-upcoming-events {
     ul {
       padding-left: 14px;
       border-bottom: 1px solid $capt-midgrey;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
     }
     div.item-list {
       margin-left: 0px;
@@ -612,8 +622,39 @@ a {
 
 table {
   width: 100%;
-  thead th {
-    text-align: left;
+  thead {
+    tr {
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      th {
+        text-align: left;
+        font-size: 1.2em;
+        font-weight: normal;
+        background-color: lighten($capt-aqua, 35%);
+        border-top: 3px solid $capt-aqua;
+        border-bottom: none;
+        padding: 8px 8px;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border: 1px solid #ccc;
+      &.odd {
+        background-color: lighten($capt-aqua, 53%);
+      }
+      td {
+        padding: 3px 6px;
+        a, a:visited {
+          color: #333;
+          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+            color: $capt-maroon;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -861,7 +902,7 @@ h4.black {
   /* debold the title */
   h2.block-title {
     font-weight: normal;
-    margin-bottom: -10px;
+    margin-bottom: 20px;
     margin-top: 3px;
     color: $capt-darkblue;
   }
@@ -876,7 +917,6 @@ h4.black {
     padding-left: 30px;
   }
   div.view-content {
-    margin-bottom: 25px;
     /*padding-left: 20px;*/
     /*we may need this to be more specific elsewhere*/
     div.item-list ul {
@@ -910,7 +950,6 @@ h4.black {
   /* pager logic */
   ul.pager {
     margin-bottom: -10px;
-    margin-top: 40px;
     li.pager-item {
       border: 1px solid $capt-aqua;
       /*padding: 6px 9px;*/
@@ -966,7 +1005,7 @@ padding: 4px 7px;
     div.item-list {
       margin-left: 0px;
       ul {
-        padding-bottom: 12px;
+        padding-bottom: 6px;
       }
     }
   }
@@ -977,7 +1016,6 @@ padding: 4px 7px;
     margin-top: 30px;
   }
   ul.pager {
-    margin-top: 48px;
     /*margin-bottom: -30px;*/
     padding-bottom: 0px;
   }
@@ -1247,16 +1285,6 @@ div#content {
 
 /* my profile page; we need the "you are here" style too" */
 
-body.admin-menu {
-  div#content {
-    /*height: 1750px;*/
-    /* currently too general. if height is needed, make it specific to profile page. */
-    input#edit-submit {
-      background-color: $capt-orange;
-    }
-  }
-}
-
 body.page-user-edit,
 body.page-user {
   ul#main-menu.main-menu {
@@ -1318,6 +1346,14 @@ form#event-node-form, form#event-notifications-node-form {
   a:not(.chosen-single) {
     font-weight: normal;
     color: $capt-maroon;
+    &.field-group-format-title {
+      font-weight: bold;
+      color: $capt-aqua;
+      &:hover {
+        color: $capt-maroon;
+        text-decoration: none;
+      }
+    }
   }
   .form-item {
     margin: 1.5em 0;
@@ -1441,14 +1477,6 @@ div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
 
-/* save */
-
-form#event-node-form {
-  input.form-submit {
-    padding: 8px 20px;
-    height: 36px;
-  }
-}
 
 /* end create event form */
 /* overall page heights */
@@ -1464,24 +1492,6 @@ body.page-node-add-event.page-node-add.section-node-add {
   }
 }
 
-/*
- *  Editing an event
- */
-
-form#event-node-form {
-  div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-related-material {
-    input.form-submit {
-      padding: 8px 20px;
-      margin: 5px 13px 5px 0px;
-      margin-top: 5px;
-      text-transform: capitalize;
-    }
-    a {
-      color: $capt-orange;
-      font-weight: normal;
-    }
-  }
-}
 
 /*
  *  Start Login Page
@@ -1526,14 +1536,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     float: left;
     padding-bottom: 10px;
     input#edit-submit {
-      background-color: $capt-orange;
-      padding: 10px 10px;
-      height: 40px;
-      border: 0px solid transparent;
       margin-left: $login-margin-left;
-      position: relative;
-      width: 75px;
-      text-transform: capitalize;
     }
     div.description {
       display: none;
@@ -1656,6 +1659,11 @@ body.not-logged-in.page-user.page-user-password h1#page-title {
 
 h1#page-title {
   font-weight: normal;
+  em {
+    color: #333333;
+    font-size: .75em;
+    display: block;
+  }
 }
 
 /*recently removed node-type event on 6/2; keep an eye out for issues */
@@ -1674,6 +1682,18 @@ body.logged-in {
     font-weight: normal;
     margin-top: 14px;
     color: $capt-aqua;
+  }
+}
+
+body.page-node-registrations {
+  div#title-section {
+    h1.page__title.title {
+      color: $capt-green;
+      font-weight: bold;
+      font-size: 36px;
+      background-image: none;
+      padding-left: 0px;
+    }
   }
 }
 
@@ -2332,10 +2352,6 @@ body.page-user-password {
   div#content div#title-section {
     width: 400px;
     margin: 0px auto;
-  }
-  input#edit-submit {
-    background-color: $capt-orange;
-    text-transform: capitalize;
   }
   input#edit-name {
     font-size: $input-font-size;
