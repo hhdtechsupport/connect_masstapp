@@ -533,7 +533,8 @@ function captconnect_custom_register_other($form, $form_state) {
   $form['#flag_action'] = $flag_action;
 
   $dest = drupal_get_destination();
-  $event = node_load(substr($dest['destination'], 5));
+  list($x, $nid) = explode('/', $dest['destination']);
+  $event = node_load($nid);
   $form['#event'] = $event;
 
   drupal_set_title(t('Register another person for "%event"', array('%event' => $event->title)), PASS_THROUGH);
