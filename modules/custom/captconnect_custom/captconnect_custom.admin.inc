@@ -3,7 +3,7 @@
  * @file
  * Adminstrative functions for CAPTConnect.
  */
- 
+
 function captconnect_custom_admin_settings($form, $form_state) {
   global $user;
   $form = array();
