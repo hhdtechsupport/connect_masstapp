@@ -4,6 +4,9 @@
  * Adminstrative functions for CAPTConnect.
  */
 
+/**
+ * Main settings form.
+ */
 function captconnect_custom_admin_settings($form, $form_state) {
   global $user;
   $form = array();
@@ -36,5 +39,43 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_proxy_display', 'registration'),
     );
 
+  $form['#theme'] = 'captconnect_custom_admin_settings';
+
   return system_settings_form($form);
+}
+
+/**
+ * Theme the Main settings form.
+ */
+
+/**
+ * Theme the Settings form.
+ */
+function theme_captconnect_custom_settings_form($variables) {
+  $output = '';
+
+  $form = $variables['form'];
+
+  $rows = array();
+
+  $style = 'vertical-align: top; white-space: normal';
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_login_page_title']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_request_password_text']), 'style' => $style),
+    );
+
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_other_flag']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
+    );
+
+  $output .= theme('table', array(
+    'rows' => $rows,
+    'attributes' => array('id' => 'captconnect-custom-settings-form'),
+    ));
+
+  $output .= drupal_render_children($form);
+  return $output;
 }
