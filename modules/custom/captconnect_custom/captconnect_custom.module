@@ -43,7 +43,8 @@ function captconnect_custom_menu() {
     'title' => 'Registrations',
     'page callback' => 'captconnect_custom_view_registrations',
     'page arguments' => array(1),
-    'access arguments' => array('view registrations'),
+    'access callback' => 'captconnect_custom_access_registrations',
+    'access arguments' => array(1),
     'weight' => 0,
     'type' => MENU_LOCAL_TASK,
     );
@@ -108,6 +109,13 @@ function captconnect_custom_menu_alter(&$items) {
 /**
  * Menu access callback.
  */
+function captconnect_custom_access_registrations($node) {
+  return ($node->type == 'event' && user_access('view registrations'));
+}
+
+/**
+ * Menu access callback.
+ */
 function captconnect_custom_access_notifications($node) {
   if ($node->type == 'event') {
     $notification = field_get_items('node', $node, 'field_related_notifications');
@@ -144,6 +152,10 @@ function captconnect_custom_view_registrations($node) {
     $css = '.no-registrations {text-align: center;}
       .instance-label {text-align: center; padding: 6px 0 3px 0; font-weight: bold; font-size: 120%; background-color: #ddffee;
         border-bottom: 2px solid #ff9900;}
+      .instance-complete {font-size: 75%; color: #bb3333; font-style: italic;}
+      .access-information {background-color: #ffff99;font-size: 89%;}
+      .access-information p {margin: 0 2em;}
+      #registrations-list a {color: inherit !important}
       #registrations-list tr.odd {background-color: #fff !important}
       #registrations-list tr {border-bottom: 0px;}';
     drupal_add_css($css, 'inline');
@@ -173,6 +185,10 @@ function captconnect_custom_view_registrations($node) {
 
     // Get all the instances.
     foreach ($event->field_date_instance->getIterator() as $instance) {
+      $dates = $instance->field_date->value();
+      // Is the event instance past?
+      $instance_is_past = (strtotime($dates['value2'] . ' UTC') < REQUEST_TIME);
+
       if (user_access('edit any instance content')
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
         $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
@@ -181,12 +197,17 @@ function captconnect_custom_view_registrations($node) {
       else {
         $title_link = $instance->label();
       }
+      
+      if ($instance_is_past) {
+        $title_link .= ' <span class="instance-complete">' . t('Complete') . '</span>';
+      }
+      
       $table['rows'][] = array(array(
         'data' => $title_link,
         'colspan' => 20,
         'class' => array('instance-label'),
         ));
-//      $dates = $instance->field_date->value();
+
       // Get the event join link.
       // @TODO: Only show for a short time before the event?
       $link = $instance->field_link->value();
@@ -201,19 +222,27 @@ function captconnect_custom_view_registrations($node) {
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
 
           // @TODO: Time check.
-          if ($link['url']) {
-            $join = l($link['title'], 'flag/flag/participate/' . $instance->nid->value(),
-              array('query' => array('destination' => $link['url'])));
+          if ($instance_is_past) {
+            $join = '';
           }
           else {
-            $join = t('See the access information.');
+            if ($link['url']) {
+              $join = l($link['title'], 'flag/flag/participate/' . $instance->nid->value(),
+                array('query' => array(
+                'destination' => $link['url'],
+                'token' => flag_get_token($instance->nid->value()),   // Flag requires a token.
+                )));
+            }
+            else {
+              $join = t('See the access information.');
+            }
           }
 
           $table['rows'][] = array(
-            $registrant,
-            format_date($rows[$uid]),
-            l(t('Cancel'), 'flag/unflag/registration/' . $instance->nid->value()),
-            $join,
+            array('data' => $registrant, 'class' => array('registrant_name')),
+            array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
+            array('data' => l(t('Cancel'), 'flag/unflag/registration/' . $instance->nid->value()), 'class' => array('cancel_link')),
+            array('data' => $join, 'class' => array('join_link')),
             );
         }
       }
@@ -224,20 +253,21 @@ function captconnect_custom_view_registrations($node) {
           'class' => array('no-registrations'),
           ));
       }
+      
+      // Display Access information.
+      $text = $instance->field_access_information->value();
+      if (!empty($text['value'])) {
+        $table['rows'][] = array(array(
+          'data' => check_markup($text['value'], $text['format']),
+          'colspan' => 20,
+          'class' => array('access-information'),
+          ));
+      }
     }
 
-    if (user_access('register others')) {
+    if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'registration') {
       drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;}', 'inline');
-      $register_others = array(
-        '#theme' => 'link',
-        '#text' => t('Register Someone Else'),
-        '#path' => 'register_others',
-        '#options' => array(
-          'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
-          'html' => FALSE,
-          'query' => drupal_get_destination(),
-          ),
-        );
+      $register_others = captconnect_custom_proxy_registration_button();
     }
     else {
       $register_others = NULL;
@@ -408,18 +438,6 @@ function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id
         'title' => t('I forgot my password'),
         ))),
     );
-
-  if (module_exists('username_reminder')) {
-    $form['reminder'] = array(
-      '#type' => 'markup',
-      '#markup' => '<br />' . l(t('Look up your username'),
-        '/user/username',
-        array('attributes' => array(
-          'class' => array('request-password'),
-          'title' => t('I forgot my user name'),
-          ))),
-      );
-  }
 }
 
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
@@ -529,9 +547,6 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
  * Allow one user to register for someone else.
  */
 function captconnect_custom_register_other($form, $form_state) {
-  $flag_action = variable_get('captconnect_custom_other_flag', 'registration');
-  $form['#flag_action'] = $flag_action;
-
   $dest = drupal_get_destination();
   list($x, $nid) = explode('/', $dest['destination']);
   $event = node_load($nid);
@@ -577,7 +592,7 @@ function captconnect_custom_register_other($form, $form_state) {
 function captconnect_custom_register_other_submit($form, $form_state) {
   $flags = flag_get_flags();
 
-  $flag_action = $form['#flag_action'];
+  $flag_action = variable_get('captconnect_custom_other_flag', 'registration');
   $flag_title = $flags[$flag_action]->title;
 
   $account = user_load_by_name($form_state['values']['account']);
@@ -607,21 +622,28 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
   switch ($node->type) {
     case 'event':
       // May we add a proxy registration btton?
-      if (user_access('register others')) {
+      if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'node') {
         drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;float:right;}', 'inline');
-        $node->content['register_others'] = array(
-          '#theme' => 'link',
-          '#text' => t('Register Someone Else'),
-          '#path' => 'register_others',
-          '#options' => array(
-            'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
-            'html' => FALSE,
-            'query' => drupal_get_destination(),
-            ),
-          );
+        $node->content['register_others'] = captconnect_custom_proxy_registration_button();
       }
     break;
   }
+}
+
+/**
+ * Helper to build the register button render array.
+ */
+function captconnect_custom_proxy_registration_button() {
+  return array(
+    '#theme' => 'link',
+    '#text' => t('Register Someone Else'),
+    '#path' => 'register_others',
+    '#options' => array(
+      'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
+      'html' => FALSE,
+      'query' => drupal_get_destination(),
+      ),
+    );
 }
 
 /**
