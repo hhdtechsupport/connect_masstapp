@@ -1,0 +1,128 @@
+<?php
+
+class CerCrudTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'CRUD',
+      'group' => 'CER',
+      'description' => 'Tests basic CER functionality.',
+    );
+  }
+
+  public function setUp() {
+    parent::setUp('node', 'field', 'entityreference', 'cer');
+
+    field_create_field(array(
+      'field_name' => 'field_related_pages',
+      'type' => 'entityreference',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'page',
+          ),
+        ),
+      ),
+    ));
+
+    field_create_instance(array(
+      'entity_type' => 'node',
+      'bundle' => 'article',
+      'field_name' => 'field_related_pages',
+    ));
+    
+    field_create_field(array(
+      'field_name' => 'field_related_articles',
+      'type' => 'entityreference',
+      'cardinality' => FIELD_CARDINALITY_UNLIMITED,
+      'settings' => array(
+        'target_type' => 'node',
+        'handler' => 'base',
+        'handler_settings' => array(
+          'target_bundles' => array(
+            'article',
+          ),
+        ),
+      ),
+    ));
+
+    field_create_instance(array(
+      'entity_type' => 'node',
+      'bundle' => 'page',
+      'field_name' => 'field_related_articles',
+    ));
+
+    $preset = new CerPreset();
+
+    $left = new CerFieldChain();
+    $left->addField(new CerEntityReferenceField('node', 'page', 'field_related_articles'));
+    $preset->left($left);
+    
+    $right = new CerFieldChain();
+    $right->addField(new CerEntityReferenceField('node', 'article', 'field_related_pages'));
+    $preset->right($right);
+
+    $preset->write();
+  }
+
+  public function testInsert() {
+    $page = $this->drupalCreateNode(array(
+      'type' => 'page',
+    ));
+
+    $article = $this->drupalCreateNode(array(
+      'type' => 'article',
+      'field_related_pages' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'target_id' => $page->nid,
+          ),
+        ),
+      ),
+    ));
+
+    $page = node_load($page->nid);
+    $this->assertEqual($page->field_related_articles[LANGUAGE_NONE][0]['target_id'], $article->nid, 'Creating a reference on a new node creates a backreference.');
+  }
+
+  public function testUpdate() {
+    $page = $this->drupalCreateNode(array(
+      'type' => 'page',
+    ));
+    $article = $this->drupalCreateNode(array(
+      'type' => 'article',
+    ));
+    
+    $page->field_related_articles[LANGUAGE_NONE][0]['target_id'] = $article->nid;
+    node_save($page);
+    
+    $article = node_load($article->nid);
+    $this->assertEqual($article->field_related_pages[LANGUAGE_NONE][0]['target_id'], $page->nid, 'Adding a reference to an existing node creates a backreference.');
+  }
+
+  public function testDelete() {
+    $page = $this->drupalCreateNode(array(
+      'type' => 'page',
+    ));
+
+    $article = $this->drupalCreateNode(array(
+      'type' => 'article',
+      'field_related_pages' => array(
+        LANGUAGE_NONE => array(
+          array(
+            'target_id' => $page->nid,
+          ),
+        ),
+      ),
+    ));
+
+    node_delete($article->nid);
+
+    $page = node_load($page->nid);
+    $this->assertEqual(0, sizeof($page->field_related_articles), 'Deleting a referenced node clears the backreferences.');
+  }
+
+}
