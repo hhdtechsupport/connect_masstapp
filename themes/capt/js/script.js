@@ -437,10 +437,14 @@ Drupal.behaviors.my_custom_behavior = {
   }
 
   // If any required fields are not completed, then expand the corresponding fieldsets
-  $('.page-user-edit input.error').each(function(){
+  $('.section-user input.error').each(function(){
     var $section = $(this).closest('fieldset');
     $section.children('.fieldset-wrapper').css('display', 'block');
     $section.children('.data-view').css('display','none');
+    if ($(this).hasClass('form-radio') || $(this).hasClass('form-checkbox')) {
+      cl($(this).closest('.form-wrapper'));
+      $(this).closest('.form-wrapper').children('div').children('div').css('border', '2px solid red');
+    }
   });
 
 
@@ -448,6 +452,17 @@ Drupal.behaviors.my_custom_behavior = {
   /*
    * END OF: "MY PROFILE" EDIT/VIEW FUNCTIONALITY
    */
+
+
+ /*
+  * SWITCH BANNER IF CATEGORY FOR EVENT EXISTS
+  */
+
+  var category = $('#block-block-13').clone().children().remove().end().text().trim();
+  if (category != "Your access point for all CAPT virtual events") {
+    $('#name-and-slogan').addClass('category');
+    $('.region-highlighted').addClass('category');
+  }
 
 
 
