@@ -51,8 +51,12 @@ function captconnect_custom_admin_settings($form, $form_state) {
 /**
  * Theme the Settings form.
  */
-function theme_captconnect_custom_settings_form($variables) {
-  $output = '';
+function theme_captconnect_custom_admin_settings($variables) {
+  $css = '#captconnect-custom-admin-settings {font-size: 100%;}
+  ';
+  drupal_add_css($css, 'inline');
+
+    $output = '';
 
   $form = $variables['form'];
 
@@ -73,7 +77,7 @@ function theme_captconnect_custom_settings_form($variables) {
 
   $output .= theme('table', array(
     'rows' => $rows,
-    'attributes' => array('id' => 'captconnect-custom-settings-form'),
+    'attributes' => array('id' => 'captconnect-custom-admin-settings'),
     ));
 
   $output .= drupal_render_children($form);
