@@ -436,30 +436,11 @@ Drupal.behaviors.my_custom_behavior = {
     }
   }
 
-// WORKING ON THIS - REQUIRING OTHER TEXT FIELDS
-  $('#user-profile-form').submit(function(event){
-    //event.preventDefault();
-    $(this).find('input.other-required').each(function(){
-      cl($(this));
-      if ($(this).val() == '') {
-        cl($(this));
-      //  return false;
-      }
-    });
-  });
-
-
   // If any required fields are not completed, then expand the corresponding fieldsets
-  $('.page-user-edit div.messages.error li').each(function(){
-    var split = $(this).text().split(' field is required.').join('');
-    split += ' *';
-    $('.form-wrapper > .form-item > label, .form-wrapper > div > .form-item > label').each(function(){
-      if ($(this).text().trim() == split) {
-        var $section = $(this).closest('fieldset');
-        $section.children('.fieldset-wrapper').css('display', 'block');
-        $section.children('.data-view').css('display','none');
-      }
-    });
+  $('.page-user-edit input.error').each(function(){
+    var $section = $(this).closest('fieldset');
+    $section.children('.fieldset-wrapper').css('display', 'block');
+    $section.children('.data-view').css('display','none');
   });
 
 
