@@ -197,11 +197,19 @@ function captconnect_custom_view_registrations($node) {
       else {
         $title_link = $instance->label();
       }
+<<<<<<< HEAD
       
       if ($instance_is_past) {
         $title_link .= ' <span class="instance-complete">' . t('Complete') . '</span>';
       }
       
+=======
+
+      if ($instance_is_past) {
+        $title_link .= ' <span class="instance-complete">' . t('Complete') . '</span>';
+      }
+
+>>>>>>> nancy
       $table['rows'][] = array(array(
         'data' => $title_link,
         'colspan' => 20,
@@ -253,7 +261,11 @@ function captconnect_custom_view_registrations($node) {
           'class' => array('no-registrations'),
           ));
       }
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> nancy
       // Display Access information.
       $text = $instance->field_access_information->value();
       if (!empty($text['value'])) {
