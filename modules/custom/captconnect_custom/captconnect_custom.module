@@ -90,6 +90,18 @@ function captconnect_custom_menu() {
 }
 
 /**
+ * Implements hook_theme().
+ */
+function captconnect_custom_theme() {
+  return array(
+    'captconnect_custom_admin_settings' => array(
+       'render element' => 'form',
+       'file' => 'captconnect_custom.admin.inc',
+       ),
+    );
+}
+
+/**
  * Implements hook_menu_alter().
  */
 function captconnect_custom_menu_alter(&$items) {
