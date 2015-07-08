@@ -64,7 +64,7 @@ $event-right-panel-pos: -27px;
 /*fonts*/
 
 $login-font: 16px;
-$edit-margin-right: 15px;
+$edit-margin-right: 0px;
 $input-font-size: 14px;
 
 /* responsive */
@@ -173,8 +173,8 @@ $small-phone-width: 342px;
 
 .panel {
   background-color: $capt-lightgrey;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0px;
+  padding-right: 0px;
   border: 1px solid $capt-midgrey;
   border-top: 0px;
   h3 a:hover {
@@ -188,10 +188,12 @@ $small-phone-width: 342px;
 .panel-rule {
   @extend .panel;
   padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 0px;
   /*5px solid $capt-aqua;*/
-  border-bottom: 0px;
   font-size: 14px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   @include border-radius(1px);
   &:before {
     display: block;
@@ -201,14 +203,14 @@ $small-phone-width: 342px;
     content: "";
     position: relative;
     top: -25px;
-    margin-left: -16px;
-    padding-left: 32px;
+    margin-left: -1px;
+    padding-left: 2px;
   }
 }
 
 .panel-rule-single {
   @extend .panel-rule;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-bottom: 1px solid $capt-midgrey;
   /* needs to be larger for dashboard panels */
 }
@@ -338,12 +340,6 @@ a.button {
 
 /*ul.main-menu a:hover, */
 
-input[type="submit"]:hover,
-a.button:hover {
-  background: #595959;
-  text-decoration: none;
-}
-
 ul.sub-menu {
   background: #292929;
   li {
@@ -357,6 +353,18 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
+  padding: 12px 20px;
+  text-transform: capitalize;
+  background-color: $capt-orange;
+  &:hover {
+    background-color: lighten($capt-orange, 10%);
+  }
+  &[value="Cancel"], &[value="Remove"], &[value="Delete"] {
+    background-color: $capt-aqua;
+    &:hover {
+      background-color: lighten($capt-aqua, 10%);
+    }
+  }
 }
 
 h1 {
@@ -432,11 +440,15 @@ li.views-row:last-child {
 
 div.view-content div.item-list {
   padding-left: 0px;
-  margin-bottom: -21px;
+  padding-top: 15px;
+  &:first-of-type {
+      padding-top: 0;
+  }
   h3 {
     margin-bottom: 10px;
     padding-top: 0px;
     line-height: 16px;
+    margin-top: 0;
     a:hover {
       text-decoration: none;
     }
@@ -457,21 +469,20 @@ div.field-name-upcoming-events {
   padding-bottom: 0px;
   div.view-content {
     /* set to min-height to avoid breaking layout */
-    margin-top: -30px;
     /*min-height: 450px;*/
-    margin-left: -16px;
     /*border-bottom: 5px solid $capt-aqua;*/
-    width: 410px;
     padding-bottom: 0px;
     margin-bottom: 0px;
     ul {
       padding-left: 14px;
       border-bottom: 1px solid $capt-midgrey;
-      width: 394px;
-      padding-bottom: 13px;
+      padding-bottom: 14px;
     }
     div.item-list {
       margin-left: 0px;
+    }
+    div.item-list:last-child ul {
+      border-bottom: none;
     }
   }
   ul.pager {
@@ -611,8 +622,39 @@ a {
 
 table {
   width: 100%;
-  thead th {
-    text-align: left;
+  thead {
+    tr {
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      th {
+        text-align: left;
+        font-size: 1.2em;
+        font-weight: normal;
+        background-color: lighten($capt-aqua, 35%);
+        border-top: 5px solid $capt-aqua;
+        border-bottom: none;
+        padding: 8px 8px;
+      }
+    }
+  }
+  tbody {
+    tr {
+      border: 1px solid #ccc;
+      &.odd {
+        background-color: lighten($capt-aqua, 53%);
+      }
+      td {
+        padding: 3px 6px;
+        a, a:visited {
+          color: $capt-orange;
+          text-decoration: none;
+          &:hover {
+            text-decoration: none;
+            color: lighten($capt-orange, 15%);
+          }
+        }
+      }
+    }
   }
 }
 
@@ -626,10 +668,9 @@ table {
 }
 
 .view-registrations table {
-  margin-bottom: 50px;
   caption {
     font-size: 1.5em;
-    margin: .2em 0;
+    margin: 1em 0 .5em;
   }
 }
 
@@ -655,7 +696,7 @@ body.node-type-dashboard {
     /* changed from 1000px*/
     div.view-content span.flag-registration a.unflag-action {
       font-size: 12px;
-      line-height: 1.2em;
+      line-height: 1em;
       font-style: italic;
     }
   }
@@ -777,14 +818,6 @@ a.unflag-action {
   color: $capt-orange;
 }
 
-/* banners */
-
-.view-event-banner {
-  .views-row {
-    font-size: 3em;
-    font-weight: bold;
-  }
-}
 
 .vertical-tabs {
   clear: both;
@@ -794,21 +827,7 @@ a.unflag-action {
 
 #event-notifications-node-form {
   .form-field-type-entityreference.field-widget-inline-entity-form-single {
-    float: left;
-    width: 56%;
-    padding-right: 1%;
-    clear: both;
-  }
-  .form-field-type-markup {
-    float: left;
-    width: 43%;
-    .views-field-field-email-body > div > div > table {
-      margin: 0 1.5% !important;
-      transform: scale(0.75);
-      transform-origin: 0 0;
-      -moz-transform: scale(0.75);
-      -moz-transform-origin: top left;
-    }
+
   }
   .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
     display: none;
@@ -850,7 +869,7 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
-  background: url("../images/icons/registered-events.png") 396px 10px no-repeat;
+  background: url("../images/icons/registered-events.png") 405px 21px no-repeat;
 }
 
 .field-name-my-archived-events.field-type-ds,
@@ -858,11 +877,11 @@ h4.black {
   overflow: none;
   /*min-height: 245px;*/
   padding-bottom: 30px;
-  margin-right: 14px;
+  margin-right: 0px;
   padding-right: 30px;
   padding-left: 0px;
   div.field-items {
-    margin-left: 20px;
+    margin: 0 26px;
   }
   .view-dashboard {
     /*border-bottom: 1px solid $capt-midgrey;*/
@@ -871,17 +890,12 @@ h4.black {
       margin-top: 40px;
     }
   }
-  div.item-list {
-    margin-right: 12px;
-    margin-left: -6px;
-  }
   /* debold the title */
   h2.block-title {
     font-weight: normal;
-    margin-bottom: -10px;
+    margin-bottom: 20px;
     margin-top: 3px;
     color: $capt-darkblue;
-    margin-left: -10px;
   }
   /* blacken the links */
   h3 a {
@@ -894,7 +908,6 @@ h4.black {
     padding-left: 30px;
   }
   div.view-content {
-    margin-bottom: 25px;
     /*padding-left: 20px;*/
     /*we may need this to be more specific elsewhere*/
     div.item-list ul {
@@ -908,6 +921,9 @@ h4.black {
         padding-left: 0px;
       }
     }
+    div.item-list:last-child ul {
+      border-bottom: none;
+    }
   }
   /* cancel registration link */
   a.unflag-action {
@@ -915,7 +931,7 @@ h4.black {
     color: black;
     text-decoration: underline;
     display: block;
-    margin-bottom: -12px;
+    margin-bottom: -15px;
     /* added 6/30 */
     line-height: 1.2em;
   }
@@ -925,7 +941,6 @@ h4.black {
   /* pager logic */
   ul.pager {
     margin-bottom: -10px;
-    margin-top: 40px;
     li.pager-item {
       border: 1px solid $capt-aqua;
       /*padding: 6px 9px;*/
@@ -963,7 +978,7 @@ padding: 4px 7px;
 }
 
 .field-name-my-archived-events.field-type-ds {
-  background: url("../images/icons/archived-events.png") 396px 10px no-repeat;
+  background: url("../images/icons/archived-events.png") 405px 21px no-repeat;
   .view-dashboard {
     /* min-height: 170px;*/
     div.view-empty {
@@ -972,16 +987,16 @@ padding: 4px 7px;
   }
   .views-field-flagged {
     font-size: 12px;
-    line-height: 1.2em;
+    line-height: 1em;
     font-style: italic;
+    margin-bottom: 6px;
   }
 
   div.view-content {
-    margin-left: -8px;
     div.item-list {
       margin-left: 0px;
       ul {
-        padding-bottom: 12px;
+        padding-bottom: 6px;
       }
     }
   }
@@ -992,7 +1007,6 @@ padding: 4px 7px;
     margin-top: 30px;
   }
   ul.pager {
-    margin-top: 48px;
     /*margin-bottom: -30px;*/
     padding-bottom: 0px;
   }
@@ -1006,9 +1020,6 @@ body.logged-in {
     border-width: 5px 0px 0px 0px;
     margin-right: 40px;
     margin-left: 0px;
-    div.item-list {
-      margin-top: 34px;
-    }
     h2.block-title {
       font-weight: normal;
       /* best way to do it?*/
@@ -1021,6 +1032,9 @@ body.logged-in {
       a {
         color: black;
       }
+    }
+    h3 {
+      margin-top: 0px;
     }
   }
 }
@@ -1056,7 +1070,7 @@ div.top-header-container {
     width: 295px;
     background-size: 295px 73px;
     margin-right: $logo-margin;
-    top: 16px;
+    top: 22px;
   }
   div.capt-logo,
   div.samhsa-logo {
@@ -1117,7 +1131,46 @@ div#edit-actions {
 
 header#header {
   height: 191px;
-  background: url("../images/banners/event-dashboard.png") 0 0 no-repeat;
+  background: url("../images/banners/blank-banner.png") 0 0 no-repeat;
+}
+
+body.logged-in header#header {
+  padding-left: 345px;
+  #name-and-slogan {
+    padding-top: 30px;
+    padding-bottom: 12px;
+    a.header__site-link {
+      color: white;
+      text-decoration: none;
+      font-weight: normal;
+      &:hover {
+        text-decoration: none;
+        color: white;
+      }
+    }
+    em {
+      font-weight: normal;
+    }
+  }
+  .view-event-banner .views-row {
+    font-size: 3.5em;
+    font-weight: bold;
+    color: white;
+    opacity: .4;
+  }
+}
+
+body.logged-in:not(.node-type-event) {
+  #name-and-slogan {
+    font-size: 1.7em;
+  }
+  #block-block-13 {
+    font-size: 1.25em;
+    text-transform: uppercase;
+    color: white;
+    font-weight: normal;
+    margin-top: -1.25em;
+  }
 }
 
 /*
@@ -1177,43 +1230,50 @@ ul#main-menu.main-menu {
   padding: 0px;
 }
 
-li.menu-parent {
+#main-menu li.menu-parent {
   ul.sub-menu.tier-two {
-    width: 194px;
     padding: 0px;
     margin-top: 0px;
     padding-right: 0px;
+    background: $capt-hovergrey;
+    width: 200px;
     li {
-      width: 194px;
       padding: 0px;
       margin: 0px;
-      height: 48px;
-      background-color: $capt-darkgrey;
       display: block;
       a {
-        width: 110px;
-        border: 1px solid $capt-darkgrey;
         display: block;
         margin: 0px;
-        height: 28px;
-        padding: 10px 0;
-        text-align: center;
+        text-transform: capitalize;
+        text-align: left;
+        font-weight: normal;
+        color: #333;
+        padding: 0px 0px 0px 35px;
+        font-size: 13px;
+        height: 18px;
+        width: 165px;
+        background: none;
       }
       a.active {
         background-color: white;
+        color: #333;
       }
-      li#menu-item-1187.menu-item.last a {
-        height: 34px;
-        background-color: orange;
+      a:hover {
+        text-decoration: underline;
+      }
+      &.last {
+        padding-bottom: 15px;
       }
     }
+  }
+  &.active-trail ul.sub-menu.tier-two {
+    background: white;
   }
 }
 
 /* hiding text in key areas! */
 
-div.view-event-banner div.field-content,
-h1#site-name,
+body:not(.logged-in) h1#site-name,
 div.samhsa-logo,
 div.capt-logo {
   text-indent: 100%;
@@ -1257,19 +1317,10 @@ div#content {
   position: relative;
   border-top: 1px solid white;
   padding-left: 15px;
+  padding-top: 20px;
 }
 
 /* my profile page; we need the "you are here" style too" */
-
-body.admin-menu {
-  div#content {
-    /*height: 1750px;*/
-    /* currently too general. if height is needed, make it specific to profile page. */
-    input#edit-submit {
-      background-color: $capt-orange;
-    }
-  }
-}
 
 body.page-user-edit,
 body.page-user {
@@ -1328,172 +1379,141 @@ ul.tabs-secondary {
 
 /* form elements for Edit & Create Event */
 
-form#event-node-form {
-  div.fieldset-wrapper, div#field-subtitle-add-more-wrapper {
-    /* @extend .panel;*/
+form#event-node-form, form#event-notifications-node-form {
+  a:not(.chosen-single) {
+    font-weight: normal;
+    color: $capt-maroon;
+    &.field-group-format-title {
+      font-weight: bold;
+      color: $capt-aqua;
+      &:hover {
+        color: $capt-maroon;
+        text-decoration: none;
+      }
+    }
   }
-  /* form panels */
-  /* title */
-  div.form-item.form-item-title {
+  .form-item {
+    margin: 1.5em 0;
+    &.form-type-radio {
+      margin: 0;
+    }
+  }
+  > div > .field-group-div.panel {
     @extend .panel-rule;
-    margin-bottom: 0px;
-    margin-right: $edit-margin-right;
-  }
-  div#edit-field-subtitle.form-field-type-text {
-    margin-top: 0px;
-  }
-  div#field-subtitle-add-more-wrapper {
-    margin-top: 0px;
-  /*.form-item.form-type-textfield.form-item-field-subtitle-und-0-value {
-margin-top: 0px; // remove to add more space betw title and subtitle
-}*/
-  }
-  //div.form-field-name-field-date-instance /*.fieldset-wrapper*/
-  div#edit-field-date-instance {
-    @extend .field-container;
-    @extend .panel-rule;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    div#edit-field-date-instance-und-actions {
-      padding-top: 0px;
+    > * {
+      margin-left: 20px;
+      margin-right: 20px;
     }
-    fieldset#edit-field-date-instance-und {
-      padding-left: 0px;
+    h3 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      text-transform: uppercase;
+      color: $capt-aqua;
+      font-size: 1.3em;
+      font-style: normal;
     }
-  }
-  div#edit-field-subtitle {
-    @extend .panel;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  div#edit-field-type-event.form-wrapper {
-    @extend .panel-rule-single;
-    margin-top: 0px;
-    /*padding-top: 0px;*/
-    margin-bottom: 0px;
-    margin-right: $edit-margin-right;
-    div#field-type-event-add-more-wrapper {
-      margin-top: -26px;
+    fieldset:not(.ief-form) {
+      border: 0px;
+      margin: 0px;
+      padding: 0px;
+      legend {
+        display: none; // I think this is fine because this isn't a public form
+      }
+      table {
+        margin-top: 0;
+      }
     }
-  }
-  div#edit-field-category {
-    @extend .panel;
-    margin-top: -20px;
-    padding-bottom: 10px;
-    // inheritance?
-    padding-top: 10px;
-    margin-right: $edit-margin-right;
-  }
-  div#field-banner-text-add-more-wrapper {
-    @extend .panel;
-    margin-top: -20px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  div.form-field-name-field-date-instance {
-    margin-bottom: 20px;
-    margin-right: $edit-margin-right;
-  }
-  /* audience */
-  div#edit-field-audience,
-  div#edit-field-body {
-    @extend .panel-rule-single;
-    margin-right: $edit-margin-right;
-    /*padding-top: 0px;*/
-    padding-bottom: 10px;
-    label {
-      margin-top: -10px;
+    .text-format-wrapper {
+      > div > label {
+        display: none; // I think this is fine because this isn't a public form
+      }
+      .form-item {
+        margin-bottom: 0px;
+      }
+      .ckeditor_links {
+        font-size: .85em;
+      }
+      .filter-wrapper {
+        border: 1px solid rgb(212, 213, 213);
+        background-color: #F6F8FA;
+        padding: 15px 0;
+        .form-type-select {
+          margin-top: 0px;
+        }
+        .filter-guidelines {
+          font-size: .85em;
+          line-height: 1.25em;
+          .tips {
+            padding-left: 15px;
+          }
+        }
+      }
     }
-    div.form-textarea-wrapper {
-      margin-bottom: 20px;
+    fieldset.ief-form {
+      background: rgb(228, 231, 232);
+      padding: 25px;
+      > legend {
+        display: block;
+        font-weight: bold;
+        padding-left: 5px;
+        padding-right: 5px;
+        text-transform: capitalize;
+        font-style: italic;
+        font-size: 1.25em;
+      }
+      .container-inline-date {
+        .form-item {
+          margin: 0;
+        }
+        .date-padding {
+          padding: 0;
+        }
+      }
+      .link-field-subrow .form-item {
+        margin: .5em 0;
+        label {
+          font-size: .85em;
+        }
+      }
+      .text-format-wrapper {
+        > div > label {
+          display: block;
+        }
+      }
     }
-    div.grippie {
-      background-color: $capt-midgrey;
+    input.form-text {
+      font-size: $input-font-size;
+      padding: 5px;
+      max-width: 400px;
+      border: 1px solid $capt-midgrey;
+      &:focus {
+        background: $capt-inputfocus;
+        outline: none;
+      }
     }
-  }
-  input.form-submit {
-    background-color: $capt-orange;
+    .field-type-datetime {
+      .start-date-wrapper, .end-date-wrapper {
+        width: auto;
+        clear: none;
+        float: left;
+      }
+      .end-date-wrapper {
+        > div > label {
+          float: left;
+          margin-top: 45px;
+          margin-right: 15px;
+          margin-left: 15px;
+        }
+      }
+    }
   }
 }
 
-div#edit-field-presenter {
-  @extend .panel-rule;
-  @extend .field-container;
-  margin-right: $edit-margin-right;
-  span.fieldset-legend {
-    margin-top: -30px;
-    text-transform: uppercase;
-    color: $capt-aqua;
-  }
-  table {
-    width: 780px;
-    border: 1px solid $capt-darkgrey;
-    td {
-      padding: 4px 10px;
-    }
-    td.inline-entity-form-node-field_body {
-      min-width: 500px;
-    }
-    a.tabledrag-handle {
-      margin-left: 5px;
-    }
-    input {
-      width: 80px;
-    }
-  }
-}
-
-div#edit-field-related-material {
-  @extend .panel;
-  @extend .field-container;
-  margin-right: $edit-margin-right;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-div#edit-field-contact-name {
-  @extend .panel-rule;
-  /*padding-top: 0px;*/
-  margin-bottom: 0px;
-  margin-right: $edit-margin-right;
-  div#field-contact-name-add-more-wrapper {
-    margin-top: -26px;
-  }
-}
-
-div#edit-field-contact-email {
-  @extend .panel;
-  margin-top: 0px;
-  margin-right: $edit-margin-right;
-  margin-top: -22px;
-  padding-top: 5px;
-}
-
-div#edit-field-related-notifications {
-  @extend .panel;
-  margin-top: -20px;
-  margin-right: $edit-margin-right;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
 
 div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
 
-/* save */
-
-form#event-node-form {
-  input.form-submit {
-    padding: 6px;
-    height: 36px;
-  }
-}
 
 /* end create event form */
 /* overall page heights */
@@ -1509,24 +1529,6 @@ body.page-node-add-event.page-node-add.section-node-add {
   }
 }
 
-/*
- *  Editing an event
- */
-
-form#event-node-form {
-  div#edit-field-date-instance, div#edit-field-presenter, div#edit-field-related-material {
-    input.form-submit {
-      padding: 0px 10px;
-      margin: 5px 13px 5px 0px;
-      height: 30px;
-      margin-top: 5px;
-    }
-    a {
-      color: $capt-orange;
-      font-weight: normal;
-    }
-  }
-}
 
 /*
  *  Start Login Page
@@ -1551,11 +1553,13 @@ body.not-logged-in.page-user:not(.page-user-register) {
   }
   div#content {
     border: 0px solid white;
+    margin-top: 0;
+    padding-top: 0;
   }
   form#user-login,
   div#title-section {
     margin-left: 85px;
-    width: 315px;
+    width: 320px;
   }
   div#title-section {
     @extend .panel-rule;
@@ -1569,13 +1573,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     float: left;
     padding-bottom: 10px;
     input#edit-submit {
-      background-color: $capt-orange;
-      padding: 10px 10px;
-      height: 40px;
-      border: 0px solid transparent;
       margin-left: $login-margin-left;
-      position: relative;
-      width: 75px;
     }
     div.description {
       display: none;
@@ -1632,7 +1630,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
       margin-left: $login-margin-left;
       font-size: 1.8em;
     }
-    margin-top: -64px;
+    margin-top: -86px;
     a {
       color: $capt-orange;
       font-size: 20px;
@@ -1649,7 +1647,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     background-image: url("../images/icons/register.png");
     background-position: 270px 30px;
     background-repeat: no-repeat;
-    height: 202px;
+    height: 192px;
     margin-top: 9px;
     h2.block-title {
       margin-left: $login-margin-left;
@@ -1672,8 +1670,8 @@ body.not-logged-in.page-user:not(.page-user-register) {
   #block-block-9,
   #block-block-8 {
     @extend .panel-rule-single;
-    margin-right: 75px;
-    width: 365px;
+    margin-right: 85px;
+    width: 390px;
     float: right;
     background-repeat: no-repeat;
     h2 {
@@ -1682,6 +1680,10 @@ body.not-logged-in.page-user:not(.page-user-register) {
       margin-left: 28px;
     }
   }
+}
+body.not-logged-in.page-user.page-user-password h1#page-title {
+  margin-left: 27px;
+  text-transform: capitalize;
 }
 
 /*
@@ -1694,6 +1696,11 @@ body.not-logged-in.page-user:not(.page-user-register) {
 
 h1#page-title {
   font-weight: normal;
+  em {
+    color: #333333;
+    font-size: .75em;
+    display: block;
+  }
 }
 
 /*recently removed node-type event on 6/2; keep an eye out for issues */
@@ -1712,6 +1719,18 @@ body.logged-in {
     font-weight: normal;
     margin-top: 14px;
     color: $capt-aqua;
+  }
+}
+
+body.page-node-registrations {
+  div#title-section {
+    h1.page__title.title {
+      color: $capt-green;
+      font-weight: bold;
+      font-size: 36px;
+      background-image: none;
+      padding-left: 0px;
+    }
   }
 }
 
@@ -1884,7 +1903,6 @@ body.node-type-event {
 
     /* extra padding on dates panel because of floats */
     .field-type-ds.field-name-event-date-s- {
-      padding-bottom: 54px;
       padding-top: 25px;
   //    margin-left: $event-right-panel-pos;
       &:before {
@@ -1921,7 +1939,7 @@ body.node-type-event {
       @include border-radius(0px);
       width: 269px;
       /* changed from 250px so "cancel" link does not start new line */
-      padding: 10px 26px 36px 26px;
+      padding: 10px 26px 14px 26px;
       // could be part of the mixin maybe...
       h2.block-title {
         font-weight: normal;
@@ -2154,8 +2172,7 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
-    margin-bottom: 18px;
-    margin-right: 14px;
+    margin: 0px 0px 18px;
     legend {
       margin-left: 20px;
       span.fieldset-legend {
@@ -2172,6 +2189,9 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
       }
     }
     /* end legend */
+    fieldset {
+      margin-right: 10px;
+    }
   }
   /* end fieldset */
   span.label {
@@ -2199,12 +2219,12 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
     }
   }
   .form-item {
-    max-width: 580px;
     .description {
       font-size: 0.85em;
       line-height: 1.8em;
       margin-left: 2px;
       color: $capt-formgrey;
+      max-width: 400px;
     }
     .confirm-parent, .password-parent {
       width: 40em !important;
@@ -2243,6 +2263,7 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
   }
   input#edit-submit, input#edit-cancel {
     background-color: $capt-orange;
+    text-transform: capitalize;
   }
 }
 
@@ -2257,6 +2278,8 @@ body.not-logged-in.page-user-register:not(.node-type-event) {
   }
   div#content {
     border: 0px;
+    margin-top: 0;
+    padding-top: 0;
   }
   fieldset.field-group-fieldset {
     padding-left: 20px;
@@ -2341,10 +2364,6 @@ body.page-user-edit, body.page-user-register {
     margin: 0 20px 30px 10px;
     font-size: 12px;
   }
-  ul.tabs-primary,
-ul.tabs-secondary {
-  width: 908px;
-}
 }
 
 /**
@@ -2367,11 +2386,8 @@ div.block-devel#block-devel-switch-user {
 
 body.page-user-password {
   div#content div#title-section {
-    width: 370px;
+    width: 400px;
     margin: 0px auto;
-  }
-  input#edit-submit {
-    background-color: $capt-orange;
   }
   input#edit-name {
     font-size: $input-font-size;
@@ -2426,11 +2442,10 @@ form#user-pass {
 
 
 form.workflow-transition-form {
-  padding: 10px 26px 36px 26px;
+  padding: 10px 26px 20px 26px;
   width: 269px;
-  margin-left: -14px;
-  background: rgb(241, 249, 253);
-  border: 1px solid rgb(219, 228, 229);
+  background: #F3EEEE;
+  border: 1px solid #DBD6D6;
 }
 
 .node.workflow-published .field-name-field-workflow-state {
@@ -2441,7 +2456,7 @@ form.workflow-transition-form {
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
   body.not-logged-in.page-user:not(.page-user-register) {
     #block-block-9 {
-      height: 199px;
+      height: 192px;
     }
   }
 }
@@ -3238,3 +3253,19 @@ form.workflow-transition-form {
     }
   }
 }
+
+
+
+
+
+
+  /* MATT STYLES */
+  .chosen-container {
+    width: 400px !important;
+    a {
+      font-weight: normal;
+    }
+  }
+  .field-widget-inline-entity-form > div {
+    margin-top: 20px;
+  }

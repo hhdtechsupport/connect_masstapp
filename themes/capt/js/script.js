@@ -138,6 +138,16 @@ Drupal.behaviors.my_custom_behavior = {
 
 
 
+  // Submenu hover fix
+  $('#main-menu li.menu-parent:not(.active-trail) ul.sub-menu.tier-two li').each(function(){
+    $(this).hover(function(){
+      $(this).parent().prev().css('background','#efefef');
+    }, function(){
+      $(this).parent().prev().css('background','');
+    });
+  });
+
+
 
   /*
    * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
@@ -147,7 +157,7 @@ Drupal.behaviors.my_custom_behavior = {
   var subject = '';
   var body = '';
 
-  $('#event-notifications-node-form > div > .field-widget-inline-entity-form-single > div > fieldset').each(function(){
+  $('#event-notifications-node-form > div > .panel').each(function(){
     // Store the contents of the fieldset in a variable
     var $notificationFieldset = $(this);
     // Get the "do not send this type of notification" checkbox
@@ -159,12 +169,7 @@ Drupal.behaviors.my_custom_behavior = {
 
     // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
     $preventCheckbox.find('input').change(function(){
-      if (this.checked) {
-        $notificationFieldset.find('.group-form').css('display','none').next().css('display','none');
-      }
-      else {
-        $notificationFieldset.find('.group-form').css('display','block').next().css('display','block');
-      }
+      $notificationFieldset.find('.group-form').slideToggle().next().toggle();
     });
 
     // Limit the available default templates to those that match the category of notification, based on taxonomy
@@ -183,6 +188,7 @@ Drupal.behaviors.my_custom_behavior = {
         $(this).text(optionCategory[0]);
       }
     });
+    $notificationFieldset.find('.field-name-field-use-a-default-template select').chosen();
 
   });
 
