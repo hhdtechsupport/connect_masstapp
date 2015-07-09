@@ -709,6 +709,98 @@ body.node-type-dashboard {
   position: relative;
 }
 
+
+/*
+ *  Banners
+ */
+ body {
+   &.front, &.not-logged-in:not(.node-type-event) {
+     header#header {
+       height: 380px;
+       background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
+       padding-left: 135px;
+       #name-and-slogan {
+         padding-top: 55px;
+         float: left;
+         clear: none;
+         h1 {
+           font-size: 3em;
+           line-height: 1em;
+         }
+         a.header__site-link {
+           color: white;
+           text-decoration: none;
+           font-weight: normal;
+           &:hover {
+             text-decoration: none;
+             color: white;
+           }
+         }
+         em {
+           font-weight: normal;
+         }
+       }
+       .region-highlighted {
+         padding: 70px 0 0 20px;
+         font-size: 1.25em;
+         text-transform: uppercase;
+         color: white;
+         float: left;
+       }
+     }
+   }
+   &.not-front {
+     header#header {
+       height: 191px;
+       background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
+       padding-left: 360px;
+       #name-and-slogan {
+         padding: 40px 0 8px 0;
+         h1 {
+           font-size: 3.25em;
+           line-height: 1em;
+         }
+         a.header__site-link {
+           color: white;
+           text-decoration: none;
+           font-weight: normal;
+           &:hover {
+             text-decoration: none;
+             color: white;
+           }
+         }
+         em {
+           font-weight: normal;
+         }
+         &.category {
+           h1 {
+             font-size: 2.25em;
+           }
+         }
+       }
+       .region-highlighted {
+         font-size: 1.25em;
+         text-transform: uppercase;
+         color: white;
+         &.category {
+           text-transform: none;
+           font-weight: bold;
+           font-size: 3.25em;
+           opacity: 0.5;
+           overflow: hidden;
+           height: 70px;
+           line-height: 1.5em;
+           margin-top: -10px;
+         }
+       }
+     }
+   }
+ }
+ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
+   padding-top: 80px;
+ }
+
+
 /*
  *  Specific event page styling for the footer.
  */
@@ -1124,54 +1216,8 @@ div#edit-actions {
   padding-bottom: 10px;
 }
 
-/*
-*  Banners
-*/
-/* Event Dashboard banner */
 
-header#header {
-  height: 191px;
-  background: url("../images/banners/blank-banner.png") 0 0 no-repeat;
-}
 
-body.logged-in header#header {
-  padding-left: 345px;
-  #name-and-slogan {
-    padding-top: 30px;
-    padding-bottom: 12px;
-    a.header__site-link {
-      color: white;
-      text-decoration: none;
-      font-weight: normal;
-      &:hover {
-        text-decoration: none;
-        color: white;
-      }
-    }
-    em {
-      font-weight: normal;
-    }
-  }
-  .view-event-banner .views-row {
-    font-size: 3.5em;
-    font-weight: bold;
-    color: white;
-    opacity: .4;
-  }
-}
-
-body.logged-in:not(.node-type-event) {
-  #name-and-slogan {
-    font-size: 1.7em;
-  }
-  #block-block-13 {
-    font-size: 1.25em;
-    text-transform: uppercase;
-    color: white;
-    font-weight: normal;
-    margin-top: -1.25em;
-  }
-}
 
 /*
 *  Navigation
@@ -1273,7 +1319,6 @@ ul#main-menu.main-menu {
 
 /* hiding text in key areas! */
 
-body:not(.logged-in) h1#site-name,
 div.samhsa-logo,
 div.capt-logo {
   text-indent: 100%;
@@ -1536,20 +1581,14 @@ body.page-node-add-event.page-node-add.section-node-add {
 
 body.not-logged-in.page-user:not(.page-user-register) {
   height: 100%;
-  header#header {
-    height: 380px;
-    background: url("../images/banners/login.png") 0 -37px no-repeat;
-    display: block;
-  }
   ul.tabs-primary {
     display: none;
   }
   h1#page-title {
-    background-image: none;
-    font-size: 24pt;
+    font-size: 2.25em;
+    text-transform: capitalize;
+    margin-left: 17px;
     color: $capt-darkblue;
-    margin-left: $login-margin-left;
-    background-repeat: no-repeat;
   }
   div#content {
     border: 0px solid white;
