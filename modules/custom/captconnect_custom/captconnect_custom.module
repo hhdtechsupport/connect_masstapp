@@ -205,6 +205,7 @@ function captconnect_custom_view_registrations($node) {
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
         $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
+        
       }
       else {
         $title_link = $instance->label();
@@ -223,7 +224,7 @@ function captconnect_custom_view_registrations($node) {
       // Get the event join link.
       // @TODO: Only show for a short time before the event?
       $link = $instance->field_link->value();
-
+      
       // Get all the registration details.
       $rows = db_query($reg_query, array('instance' => $instance->nid->value()))->fetchAllKeyed();
 
@@ -241,7 +242,7 @@ function captconnect_custom_view_registrations($node) {
             if ($link['url']) {
               $join = l($link['title'], 'flag/flag/participate/' . $instance->nid->value(),
                 array('query' => array(
-                'destination' => $link['url'],
+                'destination' => $link['url'] . ' target="_blank"',
                 'token' => flag_get_token($instance->nid->value()),   // Flag requires a token.
                 )));
             }
@@ -395,6 +396,11 @@ function captconnect_custom_username_alter(&$name, $account) {
   if (isset($names[$account->uid])) {
     $name = $names[$account->uid];
     return;
+  }
+  
+  // Sometimes we don't get a full user object.
+  if (!isset($account->mail)) {
+    $account = user_load($account->uid);
   }
 
   // Get their first name. It will be FALSE if not given.
