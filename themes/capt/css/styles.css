@@ -3613,17 +3613,77 @@ form.workflow-transition-form {
     margin-top: -58px;
   }
 }
-/* MATT STYLES */
+/*** Table Registrations-list (from Nancy, 7/10) ***/
+/* line 3298, ../sass/styles.scss */
+.no-registrations {
+  text-align: center;
+}
+
 /* line 3302, ../sass/styles.scss */
+.instance-label {
+  background-color: #ddffee;
+  border-bottom: 2px solid #ff9900;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 6px 0 3px 0;
+  text-align: center;
+}
+
+/* line 3311, ../sass/styles.scss */
+.instance-complete {
+  color: #bb3333;
+  font-size: 75%;
+  font-style: italic;
+}
+
+/* line 3317, ../sass/styles.scss */
+.access-information {
+  background-color: #ffffcc;
+  font-size: 89%;
+}
+/* line 3320, ../sass/styles.scss */
+.access-information p {
+  margin: 0 2em;
+}
+
+/* line 3326, ../sass/styles.scss */
+#registrations-list tr {
+  border-bottom: 0px;
+}
+/* line 3329, ../sass/styles.scss */
+#registrations-list tr.odd {
+  background-color: #fff !important;
+}
+/* line 3332, ../sass/styles.scss */
+#registrations-list a {
+  color: inherit !important;
+}
+
+/*** Register and Participate Others ***/
+/* line 3338, ../sass/styles.scss */
+.participate-others-button,
+.register-others-button {
+  border-radius: 15px !important;
+  color: white !important;
+}
+
+/* line 3344, ../sass/styles.scss */
+.participate-others-button a:visited,
+.register-others-button a:visited {
+  color: white !important;
+}
+
+/* Matt's styles for chosen container and field-widget-inline-entity-form */
+/* line 3350, ../sass/styles.scss */
 .chosen-container {
   width: 400px !important;
 }
-/* line 3304, ../sass/styles.scss */
+/* line 3352, ../sass/styles.scss */
 .chosen-container a {
   font-weight: normal;
 }
 
-/* line 3308, ../sass/styles.scss */
+/* line 3356, ../sass/styles.scss */
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
