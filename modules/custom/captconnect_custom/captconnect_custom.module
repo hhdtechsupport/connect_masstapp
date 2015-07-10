@@ -169,17 +169,6 @@ function captconnect_custom_view_registrations($node) {
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
 
-    $css = '.no-registrations {text-align: center;}
-      .instance-label {text-align: center; padding: 6px 0 3px 0; font-weight: bold; font-size: 120%; background-color: #ddffee;
-        border-bottom: 2px solid #ff9900;}
-      .instance-complete {font-size: 75%; color: #bb3333; font-style: italic;}
-      .access-information {background-color: #ffffcc;font-size: 89%;}
-      .access-information p {margin: 0 2em;}
-      #registrations-list a {color: inherit !important}
-      #registrations-list tr.odd {background-color: #fff !important}
-      #registrations-list tr {border-bottom: 0px;}';
-    drupal_add_css($css, 'inline');
-
     $table = array(
       'rows' => array(),
       'header' => array(
@@ -289,7 +278,6 @@ function captconnect_custom_view_registrations($node) {
     }
 
     if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'registration') {
-      drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;}', 'inline');
       $register_others = captconnect_custom_proxy_registration_button();
       $participate_others = captconnect_custom_proxy_participate_button();
     }
@@ -681,8 +669,8 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
     case 'event':
       // May we add a proxy registration btton?
       if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'node') {
-        drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;float:right;}', 'inline');
         $node->content['register_others'] = captconnect_custom_proxy_registration_button();
+        $node->content['participate_others'] = captconnect_custom_proxy_participate_button();
       }
     break;
   }
@@ -729,6 +717,11 @@ function captconnect_custom_field_extra_fields() {
       'register_others' => array(
         'label' => t("Register others button"),
         'description' => t('Allow registering someone else by proxy.'),
+        'weight' => -99,   // Default to top.
+        ),
+      'participate_others' => array(
+        'label' => t("Participate others button"),
+        'description' => t('Allow participating someone else by proxy.'),
         'weight' => -99,   // Default to top.
         ),
       )
