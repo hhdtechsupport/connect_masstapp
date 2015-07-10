@@ -123,7 +123,19 @@ function captconnect_custom_menu_alter(&$items) {
 
   // Try to hide "Log in" and "Request new password" tabs.
   $items['user/password']['type'] = MENU_CALLBACK;
-//  $items['user']['type'] = MENU_CALLBACK;
+  $items['user/login']['access callback'] = 'captconnect_custom_login_access';
+}
+
+/**
+ * Menu access callback.
+ */
+function captconnect_custom_login_access() {
+  if ($_GET['q'] == 'user/register') {
+    return FALSE;
+  }
+
+  // Menu administrators can see items for anonymous when administering.
+  return !$GLOBALS ['user']->uid || !empty($GLOBALS ['menu_admin']);
 }
 
 /**
