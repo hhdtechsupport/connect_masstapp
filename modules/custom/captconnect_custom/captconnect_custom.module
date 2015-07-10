@@ -67,7 +67,15 @@ function captconnect_custom_menu() {
     'page arguments' => array('captconnect_custom_register_other'),
     'access arguments' => array('register others'),
     'type' => MENU_CALLBACK,
-//    'type' => MENU_NORMAL_ITEM,
+    );
+
+  $items['participate_others'] = array(
+    'title' => 'Participate Another',
+    'description' => 'Participate on behalf of someone else.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_participate_other'),
+    'access arguments' => array('register others'),
+    'type' => MENU_CALLBACK,
     );
 
   $items['anon_register'] = array(
@@ -161,17 +169,6 @@ function captconnect_custom_view_registrations($node) {
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
 
-    $css = '.no-registrations {text-align: center;}
-      .instance-label {text-align: center; padding: 6px 0 3px 0; font-weight: bold; font-size: 120%; background-color: #ddffee;
-        border-bottom: 2px solid #ff9900;}
-      .instance-complete {font-size: 75%; color: #bb3333; font-style: italic;}
-      .access-information {background-color: #ffff99;font-size: 89%;}
-      .access-information p {margin: 0 2em;}
-      #registrations-list a {color: inherit !important}
-      #registrations-list tr.odd {background-color: #fff !important}
-      #registrations-list tr {border-bottom: 0px;}';
-    drupal_add_css($css, 'inline');
-
     $table = array(
       'rows' => array(),
       'header' => array(
@@ -205,7 +202,7 @@ function captconnect_custom_view_registrations($node) {
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
         $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
-        
+
       }
       else {
         $title_link = $instance->label();
@@ -224,7 +221,7 @@ function captconnect_custom_view_registrations($node) {
       // Get the event join link.
       // @TODO: Only show for a short time before the event?
       $link = $instance->field_link->value();
-      
+
       // Get all the registration details.
       $rows = db_query($reg_query, array('instance' => $instance->nid->value()))->fetchAllKeyed();
 
@@ -234,9 +231,11 @@ function captconnect_custom_view_registrations($node) {
           $registrant = (user_access('administer users') ?
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
 
-          // @TODO: Time check.
+          // @TODO: Time check, flag id.
           if ($instance_is_past) {
-            $join = '';
+            $participated = db_query("SELECT 1 FROM {flagging} WHERE entity_id = :nid AND uid = :uid AND fid = 1 ",
+              array(':nid' => $instance->nid->value(), ':uid' => $uid))->fetchField();
+            $join = ($participated ? t('Participated') : '');
           }
           else {
             if ($link['url']) {
@@ -279,14 +278,14 @@ function captconnect_custom_view_registrations($node) {
     }
 
     if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'registration') {
-      drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;}', 'inline');
       $register_others = captconnect_custom_proxy_registration_button();
+      $participate_others = captconnect_custom_proxy_participate_button();
     }
     else {
-      $register_others = NULL;
+      $participate_others = $register_others = NULL;
     }
 
-    return theme('table', $table) . drupal_render($register_others);
+    return theme('table', $table) . drupal_render($register_others). drupal_render($participate_others);
   }
 }
 
@@ -397,9 +396,9 @@ function captconnect_custom_username_alter(&$name, $account) {
     $name = $names[$account->uid];
     return;
   }
-  
+
   // Sometimes we don't get a full user object.
-  if (!isset($account->mail)) {
+  if (!isset($account->field_first_name)) {
     $account = user_load($account->uid);
   }
 
@@ -569,9 +568,37 @@ function captconnect_custom_register_other($form, $form_state) {
   list($x, $nid) = explode('/', $dest['destination']);
   $event = node_load($nid);
   $form['#event'] = $event;
+  $form['#flag_action'] = variable_get('captconnect_custom_other_flag', 'registration');
 
-  drupal_set_title(t('Register another person for "%event"', array('%event' => $event->title)), PASS_THROUGH);
+  drupal_set_title(t('Register another person for "@event"', array('@event' => $event->title)), PASS_THROUGH);
+  captconnect_custom_proxy_flag_form($event, $form);
 
+  return $form;
+}
+
+/**
+ * Menu Callback.
+ * Allow one user to register for someone else.
+ */
+function captconnect_custom_participate_other($form, $form_state) {
+  $dest = drupal_get_destination();
+  list($x, $nid) = explode('/', $dest['destination']);
+  $event = node_load($nid);
+  $form['#event'] = $event;
+  $form['#flag_action'] = 'participate';
+
+  drupal_set_title(t('Participate another person for "@event"', array('@event' => $event->title)), PASS_THROUGH);
+  captconnect_custom_proxy_flag_form($event, $form);
+
+  return $form;
+}
+
+/**
+ * Helper form_builder for proxy regstration or participation.
+ * @param $event - the event node object.
+ * @param $form - the form array (by reference).
+ */
+function captconnect_custom_proxy_flag_form($event, &$form) {
   $instances = array();
   foreach (field_get_items('node', $event, 'field_date_instance') as $instance) {
     $instances[] = $instance['target_id'];
@@ -601,16 +628,16 @@ function captconnect_custom_register_other($form, $form_state) {
   $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save my choices'));
   $form ['actions']['cancel'] = array('#type' => 'submit', '#value' => t('Changed my mind'));
 
-  return $form;
+  $form['#submit'] = array('captconnect_custom_proxy_flag_form_submit');
 }
 
 /**
  * Submit handler.
  */
-function captconnect_custom_register_other_submit($form, $form_state) {
+function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
   $flags = flag_get_flags();
 
-  $flag_action = variable_get('captconnect_custom_other_flag', 'registration');
+  $flag_action = $form['#flag_action'];
   $flag_title = $flags[$flag_action]->title;
 
   $account = user_load_by_name($form_state['values']['account']);
@@ -622,14 +649,15 @@ function captconnect_custom_register_other_submit($form, $form_state) {
     '@event' => $form['#event']->title,
     '@user' => format_username($account),
     '@time' => $instance->title,
+    '@action' => ($flag_action == 'register' ? 'registrered for' : 'participating in'),
     );
 
   // The flag function returns a boolean to indicate success or failure.
   if (flag('flag', $flag_action, $instance->nid, $account)) {
-    drupal_set_message(t('@user is now registrered for "@event" at @time.', $args));
+    drupal_set_message(t('@user is now @action for "@event" at @time.', $args));
   }
   else {
-    drupal_set_message(t('Registration for @user for "@event" at @time failed.', $args));
+    drupal_set_message(t('Flagging for @user for "@event" at @time failed.', $args));
   }
 }
 
@@ -641,8 +669,8 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
     case 'event':
       // May we add a proxy registration btton?
       if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'node') {
-        drupal_add_css('.register-others-button {color: white !important; border-radius: 15px !important;float:right;}', 'inline');
         $node->content['register_others'] = captconnect_custom_proxy_registration_button();
+        $node->content['participate_others'] = captconnect_custom_proxy_participate_button();
       }
     break;
   }
@@ -654,10 +682,26 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
 function captconnect_custom_proxy_registration_button() {
   return array(
     '#theme' => 'link',
-    '#text' => t('Register Someone Else'),
+    '#text' => t(variable_get('captconnect_custom_proxy_register_text', 'Register Someone Else')),
     '#path' => 'register_others',
     '#options' => array(
       'attributes' => array('class' => array('button', 'pretty-button', 'register-others-button')),
+      'html' => FALSE,
+      'query' => drupal_get_destination(),
+      ),
+    );
+}
+
+/**
+ * Helper to build the register button render array.
+ */
+function captconnect_custom_proxy_participate_button() {
+  return array(
+    '#theme' => 'link',
+    '#text' => t(variable_get('captconnect_custom_proxy_participate_text', 'Participate Someone Else')),
+    '#path' => 'participate_others',
+    '#options' => array(
+      'attributes' => array('class' => array('button', 'pretty-button', 'participate-others-button')),
       'html' => FALSE,
       'query' => drupal_get_destination(),
       ),
@@ -673,6 +717,11 @@ function captconnect_custom_field_extra_fields() {
       'register_others' => array(
         'label' => t("Register others button"),
         'description' => t('Allow registering someone else by proxy.'),
+        'weight' => -99,   // Default to top.
+        ),
+      'participate_others' => array(
+        'label' => t("Participate others button"),
+        'description' => t('Allow participating someone else by proxy.'),
         'weight' => -99,   // Default to top.
         ),
       )

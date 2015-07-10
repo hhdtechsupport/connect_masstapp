@@ -39,6 +39,18 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_proxy_display', 'registration'),
     );
 
+  $form['captconnect_custom_proxy_register_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text for "Register another" button'),
+    '#default_value' => variable_get('captconnect_custom_proxy_register_text', 'Register Someone Else'),
+    );
+
+  $form['captconnect_custom_proxy_participate_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Text for "Participate another" button'),
+    '#default_value' => variable_get('captconnect_custom_proxy_participate_text', 'Participate Someone Else'),
+    );
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -69,10 +81,14 @@ function theme_captconnect_custom_admin_settings($variables) {
     array('data' => drupal_render($form['captconnect_custom_request_password_text']), 'style' => $style),
     );
 
-
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_other_flag']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_proxy_register_text']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_proxy_participate_text']), 'style' => $style),
     );
 
   $output .= theme('table', array(
