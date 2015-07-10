@@ -345,7 +345,6 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
     $implementations['node_save_redirect'] = $group;
   } /* */
 }
-
 /**
  * Implements hook_form_alter().
  */
@@ -362,6 +361,14 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       break; /* */
   }
 //  dpm($form, $form_id);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function captconnect_custom_form_node_form_alter(&$form, &$form_state, $form_id) {
+  // Load node.pages.inc from Node module.
+  form_load_include($form_state, 'inc', 'node', 'node.pages');
 }
 
 /**
@@ -473,6 +480,8 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
   if ($entity_form['#entity_type'] == 'notifications') {
     $form['field_related_event']['#access'] = FALSE;
     $form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
+    // Load node.pages.inc from Node module.
+    form_load_include($form_state, 'inc', 'node', 'node.pages');
   }
 //  dpm($entity_form, 'captconnect_custom_inline_entity_form_entity_form_alter');
 }
