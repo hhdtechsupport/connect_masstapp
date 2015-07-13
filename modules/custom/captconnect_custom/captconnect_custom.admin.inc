@@ -45,11 +45,21 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_proxy_register_text', 'Register Someone Else'),
     );
 
+  $lead_time_values = array(0, 60, 300, 600, 900, 1200, 1800, 2700, 3600, 5400, 7200);
+  $lead_time_labels = array_map('format_interval', $lead_time_values);
+  $form['captconnect_custom_participate_lead_time'] = array(
+    '#type' => 'radios',
+    '#options' => array_combine($lead_time_values, $lead_time_labels),
+    '#title' => t('Show a "participate" flag lead time'),
+    '#default_value' => variable_get('captconnect_custom_participate_lead_time', 1800),
+    '#description' => t('After this much time before the start of an event, show a "Participate" link.'),
+    );
+/*
   $form['captconnect_custom_proxy_participate_text'] = array(
     '#type' => 'textfield',
     '#title' => t('Text for "Participate another" button'),
     '#default_value' => variable_get('captconnect_custom_proxy_participate_text', 'Participate Someone Else'),
-    );
+    ); /* */
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
@@ -88,7 +98,8 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_proxy_register_text']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_proxy_participate_text']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_proxy_participate_text']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
     );
 
   $output .= theme('table', array(

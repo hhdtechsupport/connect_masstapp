@@ -49,6 +49,14 @@ function captconnect_custom_menu() {
     'type' => MENU_LOCAL_TASK,
     );
 
+  $items['event/participate/%node/%user'] = array(
+    'title' => 'Flag participation for someone else',
+    'page callback' => 'captconnect_custom_participate_someone_else',
+    'page arguments' => array(2, 3),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
   $items['admin/config/administration/captconnect'] = array(
     'title' => 'CAPT Connect',
     'description' => 'Various settings to control CAPT Connect custom functions',
@@ -128,6 +136,7 @@ function captconnect_custom_menu_alter(&$items) {
 
 /**
  * Menu access callback.
+ * Decide whether or not to show the "Login" tabe.
  */
 function captconnect_custom_login_access() {
   if ($_GET['q'] == 'user/register') {
@@ -140,6 +149,7 @@ function captconnect_custom_login_access() {
 
 /**
  * Menu access callback.
+ * Decide whether or not to show the "Registrations" tab on Events.
  */
 function captconnect_custom_access_registrations($node) {
   return ($node->type == 'event' && user_access('view registrations'));
@@ -147,6 +157,7 @@ function captconnect_custom_access_registrations($node) {
 
 /**
  * Menu access callback.
+ * Decide whether or not to show the "Notifications" tab on Events.
  */
 function captconnect_custom_access_notifications($node) {
   if ($node->type == 'event') {
@@ -161,6 +172,7 @@ function captconnect_custom_access_notifications($node) {
 
 /**
  * Menu callback.
+ * Put the related Notifications into edit moode.
  */
 function captconnect_custom_view_notifications($node) {
   if ($node->type == 'event') {
@@ -174,12 +186,38 @@ function captconnect_custom_view_notifications($node) {
 }
 
 /**
+ * User sort funtion for instances.
+ */
+function _captconnect_custom_sort_instances($a, $b) {
+  // If the start times are the same, then we look at the end times.
+  if ($a['start'] == $b['start']) {
+    if ($a['end'] == $b['end']) {
+      return 0;
+    }
+    else {
+      return ($a['end'] < $b['end'] ? -1 : 1);
+    }
+  }
+  else {
+    return ($a['start'] < $b['start'] ? -1 : 1);
+  }
+}
+
+/**
  * Menu callback.
+ * View the registrations for the Event.
  */
 function captconnect_custom_view_registrations($node) {
   global $user;
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
+    $css = "#registrations-list .join-link.mark a {font-weight: normal !important; color: #000099 !important;}
+      #registrations-list .join-link.proxy a {font-style: italic;; color: #000099 !important;}
+      td.instance-label {font-size: 1.2em; text-align: center;}
+      td.access-information {background-color: #ffffcc;}
+      #registrations-list a {color: inherit !important;}
+      ";
+    drupal_add_css($css, 'inline');
 
     $table = array(
       'rows' => array(),
@@ -197,18 +235,32 @@ function captconnect_custom_view_registrations($node) {
       );
     $event = entity_metadata_wrapper('node', $node);
 
+    $flag = flag_get_flag('participate');
+
     // Query for registrations below.
-    // @TODO: add "timestamp" column.
     $reg_query = "SELECT uid, timestamp FROM {flagging} "
       . "WHERE entity_id = :instance "
       . "AND fid = 2 "      // Registration.
       ;
 
     // Get all the instances.
+    $instances = array();
     foreach ($event->field_date_instance->getIterator() as $instance) {
       $dates = $instance->field_date->value();
+      $start_time = strtotime($dates['value'] . ' UTC');
+      $end_time = strtotime($dates['value2'] . ' UTC');
+      $instances[] = array('start' => $start_time, 'end' => $end_time, 'instance' => $instance);
+    }
+    usort($instances, '_captconnect_custom_sort_instances');
+
+    foreach ($instances as $instance_data) {
+      $instance = $instance_data['instance'];
+      $dates = $instance->field_date->value();
+      $start_time = $instance_data['start'];
+      $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
+
       // Is the event instance past?
-      $instance_is_past = (strtotime($dates['value2'] . ' UTC') < REQUEST_TIME);
+      $instance_is_past = ($instance_data['end'] < REQUEST_TIME);
 
       if (user_access('edit any instance content')
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
@@ -243,22 +295,49 @@ function captconnect_custom_view_registrations($node) {
           $registrant = (user_access('administer users') ?
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
 
-          // @TODO: Time check, flag id.
+          $participated = db_query("SELECT 1 FROM {flagging} WHERE entity_id = :nid AND uid = :uid AND fid = 1 ",
+            array(':nid' => $instance->nid->value(), ':uid' => $uid))->fetchField();
+
+          $join_class = array('join-link');
+
           if ($instance_is_past) {
-            $participated = db_query("SELECT 1 FROM {flagging} WHERE entity_id = :nid AND uid = :uid AND fid = 1 ",
-              array(':nid' => $instance->nid->value(), ':uid' => $uid))->fetchField();
-            $join = ($participated ? t('Participated') : '');
-          }
-          else {
-            if ($link['url']) {
-              $join = l($link['title'], 'flag/flag/participate/' . $instance->nid->value(),
-                array('query' => array(
-                'destination' => $link['url'] . ' target="_blank"',
-                'token' => flag_get_token($instance->nid->value()),   // Flag requires a token.
-                )));
+            if ($participated) {
+              $join = t('Participated');
             }
             else {
-              $join = t('See the access information.');
+              $query = drupal_get_destination();
+              $query += array('token' => flag_get_token($instance->nid->value()));
+              $attrs = array('title' => $flag->get_label('flag_long', $instance->nid->value()));
+              $join_class[] = 'mark';
+              $join = l(t('Mark as participated'),
+                'event/participate/' . $instance->nid->value() . '/' . $account->uid,
+                array('query' => $query, 'attributes' => $attrs));
+            }
+          }
+          else {
+            // Only show flag after half an hour before the event, for our own events.
+          $lead_time = 86400 * 600;
+            if ((REQUEST_TIME > $start_time - $lead_time) && ($user->uid == $account->uid)) {
+              $join = flag_create_link('participate', $instance->nid->value(), array());
+            }  // or flag('flag', $flag_action, $instance->nid, $account) somehow.
+            else {
+              if ($participated) {
+                $join = t('Particpating');
+              }
+              else {
+                if (REQUEST_TIME > $start_time - $lead_time) {
+                  $query = drupal_get_destination();
+                  $query += array('token' => flag_get_token($instance->nid->value()));
+                  $attrs = array('title' => $flag->get_label('flag_long', $instance->nid->value()));
+                  $join_class[] = 'proxy';
+                  $join = l($flag->get_label('flag_short', $instance->nid->value()),
+                    'event/participate/' . $instance->nid->value() . '/' . $account->uid,
+                    array('query' => $query, 'attributes' => $attrs));
+                }
+                else {
+                  $join = t('Starts in approximately @interval', array('@interval' => format_interval($start_time - REQUEST_TIME, 1)));
+                }
+              }
             }
           }
 
@@ -266,7 +345,7 @@ function captconnect_custom_view_registrations($node) {
             array('data' => $registrant, 'class' => array('registrant_name')),
             array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
             array('data' => l(t('Cancel'), 'flag/unflag/registration/' . $instance->nid->value()), 'class' => array('cancel_link')),
-            array('data' => $join, 'class' => array('join_link')),
+            array('data' => $join, 'class' => $join_class),
             );
         }
       }
@@ -291,18 +370,35 @@ function captconnect_custom_view_registrations($node) {
 
     if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'registration') {
       $register_others = captconnect_custom_proxy_registration_button();
-      $participate_others = captconnect_custom_proxy_participate_button();
     }
     else {
-      $participate_others = $register_others = NULL;
+      $register_others = NULL;
     }
 
-    return theme('table', $table) . drupal_render($register_others). drupal_render($participate_others);
+    return theme('table', $table) . drupal_render($register_others);
   }
 }
 
 /**
+ * Particpate flag for someone else.
+ */
+function captconnect_custom_participate_someone_else($instance, $account) {
+  $token = $_GET['token'];
+  if ($token == flag_get_token($instance->nid)) {
+    if (!flag('flag', 'participate', $instance->nid, $account)) {
+      drupal_set_message(t('@name participation in "@title" failed,',
+        array('@name' => format_username($account), '@title' => $instance->label()), 'error'));
+    }
+  }
+  else {
+    drupal_set_message(t('Invalid token in link.'));
+  }
+  drupal_goto();
+}
+
+/**
  * Menu title callback.
+ * Various titles for the user page, depending on why we're here.
  */
 function captconnect_custom_user_page_title() {
   global $user;
@@ -331,28 +427,24 @@ function captconnect_custom_user_page_title() {
 
 /**
  * Implements hook_module_implements_alter().
+ * Make Node_Save_redirect last to run. See https://www.drupal.org/node/2476031.
  */
 function captconnect_custom_module_implements_alter(&$implementations, $hook) {
-  if ($hook == 'admin_paths' && isset($implementations ['captconnect_custom'])) {
-    $group = $implementations ['captconnect_custom'];
-    unset($implementations ['captconnect_custom']);
-    $implementations ['captconnect_custom'] = $group;
-  }
-
   if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
     $group = $implementations ['node_save_redirect'];
     unset($implementations['node_save_redirect']);
     $implementations['node_save_redirect'] = $group;
-  } /* */
+  }
 }
+
 /**
  * Implements hook_form_alter().
  */
 function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
-    case 'user_profile_form':
+    case 'user_register_form':
       // This doesn't actually work.
-      $form['#attributes'] = array('autocomplete' => 'off');
+      $form['#submit'][] = 'captconnect_custom_user_register_submit';
       break; /* */
 
     // Save the current path and grab the submit handler.
@@ -365,38 +457,15 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
 /**
  * Implements hook_form_alter().
+ * Load node.pages.inc from Node module.
  */
 function captconnect_custom_form_node_form_alter(&$form, &$form_state, $form_id) {
-  // Load node.pages.inc from Node module.
   form_load_include($form_state, 'inc', 'node', 'node.pages');
 }
 
 /**
- * Implements hook_workflow().
- */
-function captconnect_custom_workflow($op, $id, $new_sid, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
-  switch ($op) {
-    case 'transition permitted':
-      return ($id != $new_sid);
-  }
-}
-
-/**
- * Implements hook_workflow_permitted_state_transitions_alter().
- */
-function captconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
-  // Remove any transition where the target state is the same as the current state.
-  foreach ($transitions as $key => $transition) {
-    if ($transition->sid == $transition->target_sid) {
-      unset($transitions[$key]);
-    }
-  }
-//  dpm($transitions, 'transitions');
-//  dpm($context['state'], 'context[state]');
-}
-
-/**
  * Implements hook_username_alter().
+ * Invoked by format_username();
  */
 function captconnect_custom_username_alter(&$name, $account) {
   static $names = array();
@@ -424,7 +493,7 @@ function captconnect_custom_username_alter(&$name, $account) {
   // Get their first name. It will be FALSE if not given.
   $first = field_get_items('user', $account, 'field_first_name');
   if ($first) {
-    $first = $first[0]['safe_value'];
+    $first = $first[0]['value'];
   }
   else {
     $first = t('unknown');
@@ -432,7 +501,7 @@ function captconnect_custom_username_alter(&$name, $account) {
   // Likewise, the last name.
   $last = field_get_items('user', $account, 'field_last_name');
   if ($last) {
-    $last = $last[0]['safe_value'];
+    $last = $last[0]['value'];
   }
   else {
     $last = t('unknown');
@@ -445,37 +514,19 @@ function captconnect_custom_username_alter(&$name, $account) {
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ * Put a class wrapper on the workflow_transition_form.
+ * See https://www.drupal.org/node/2510958
  */
 function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
   $current_sid = $form['#default_value'];
-
-  // Hide button for current state.
-//  $form['actions']['workflow_' . $current_sid]['#access'] = FALSE;
-//  $form['actions']['workflow_' . $current_sid]['#disabled'] = TRUE;
-//  unset($form['actions']['workflow_' . $current_sid]);
-
-  // Put a class wrapper on the form.
   $current_state = workflow_state_load_single($current_sid);
   $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
-//  dpm($form, $form_id . ' ' . $current_state->sid);
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ * Implements hook_inline_entity_form_entity_form_alter().
  */
-function captconnect_custom_form_user_login_alter(&$form, &$form_state, $form_id) {
-  $form['request'] = array(
-    '#type' => 'markup',
-    '#markup' => l(t(variable_get('request_password_text', 'Request a new password')),
-      '/user/password',
-      array('attributes' => array(
-        'class' => array('request-password'),
-        'title' => t('I forgot my password'),
-        ))),
-    );
-}
-
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
   if ($entity_form['#entity_type'] == 'notifications') {
     $form['field_related_event']['#access'] = FALSE;
@@ -483,7 +534,6 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
     // Load node.pages.inc from Node module.
     form_load_include($form_state, 'inc', 'node', 'node.pages');
   }
-//  dpm($entity_form, 'captconnect_custom_inline_entity_form_entity_form_alter');
 }
 
 /**
@@ -581,6 +631,32 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 }
 
 /**
+ * Submit handler for user registration.
+ */
+function captconnect_custom_user_register_submit($form, $form_state) {
+  // According to user_login_finalize(), the global user is set.
+  global $user;
+
+  // Get the instance ID that they will register for when they come back.
+  $register_nid = $form_state['captconnect_anon_register'];
+  $args = array(
+    'uid' => $user->uid,
+    'nid' => $register_nid,
+    );
+  drupal_write_record('captconnect_custom_anon_register', $args);
+}
+
+/**
+ * Implementation of hook_user_login().
+ * @TODO: Should this be user_login_submit()?
+ */
+function captconnect_custom_user_login(&$edit, $account) {
+  $redirect_nid = db_query("SELECT nid FROM {captconnect_custom_anon_register} WHERE uid = :uid",
+    array(':uid' => $account->uid))->fetchField();
+  dpm($account, 'Login should go to node/' . $redirect_nid);
+}
+
+/**
  * Menu Callback.
  * Allow one user to register for someone else.
  */
@@ -599,7 +675,7 @@ function captconnect_custom_register_other($form, $form_state) {
 
 /**
  * Menu Callback.
- * Allow one user to register for someone else.
+ * Allow one user to participate for someone else.
  */
 function captconnect_custom_participate_other($form, $form_state) {
   $dest = drupal_get_destination();
@@ -688,7 +764,7 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
 function captconnect_custom_node_view($node, $view_mode, $langcode) {
   switch ($node->type) {
     case 'event':
-      // May we add a proxy registration btton?
+      // May we add proxy flag buttons?
       if (user_access('register others') && variable_get('captconnect_custom_proxy_display', 'registration') == 'node') {
         $node->content['register_others'] = captconnect_custom_proxy_registration_button();
         $node->content['participate_others'] = captconnect_custom_proxy_participate_button();
@@ -751,29 +827,30 @@ function captconnect_custom_field_extra_fields() {
   return $extra;
 }
 
+/*
+ * Implements hook_flag_anon_tokens_alter().
+ * Add a token for our URL.
+ * Requires local patch, see https://www.drupal.org/node/2527594.
+ */
+function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
+  $tokens['[anon_register]'] = check_url(url('anon_register', $link_options));
+}
+
 /**
  * Menu Callback.
  * Allow anonymous users to register for events.
  */
 function captconnect_custom_anon_register() {
-  $output = '';
   $dest = drupal_get_destination();
+  $parts = explode('/', $dest['destination']);
 
-  $where = substr($dest['destination'], 5);
-  $node = node_load($where);
-  $output .= "<p>You want to register for '$node->title' ($where).</p>";
+  // Save our stuff in form_state.
+  $form_state = array(
+    'cache' => TRUE,
+    'captconnect_anon_register' => $parts[1],
+    );
 
-  $output .= '<p>' . t('Congratulations, you made it!') . '</p>';
-
-  return $output;
-}
-
-/*
- * Implements hook_flag_anon_tokens_alter().
- * Add a token for our URL.
- */
-function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
-  $tokens['[anon_register]'] = check_url(url('anon_register', $link_options));
+  return drupal_build_form('user_register_form', $form_state);
 }
 
 /*
@@ -789,6 +866,31 @@ function captconnect_custom_preprocess_node(&$variables) {
   }
 }
 
+/**
+ * Implements hook_workflow().
+ */
+function captconnect_custom_workflow($op, $id, $new_sid, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
+  switch ($op) {
+    case 'transition permitted':
+      return ($id != $new_sid);
+  }
+}
+
+/**
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
+function captconnect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
+  // Remove any transition where the target state is the same as the current state.
+  foreach ($transitions as $key => $transition) {
+    if ($transition->sid == $transition->target_sid) {
+      unset($transitions[$key]);
+    }
+  }
+}
+
+/**
+ * Place to put special purpose stuff.
+ */
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
