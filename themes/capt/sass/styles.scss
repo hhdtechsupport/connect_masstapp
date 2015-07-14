@@ -13,11 +13,9 @@
 @import "layouts/responsive.css";
 
 /* Component (SMACSS module) rules */
-
 @import "components/misc.css";
 
 /* Optionally, add your own components here. */
-
 @import "print.css";
 
 /* SMACSS theme rules */
@@ -3091,6 +3089,14 @@ form.workflow-transition-form {
  */
 
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
+
+  /*
+   *  Login Page Variables
+   */
+  $iPad-login-width: 0.3476;
+  $iPad-page-width: 0.8333;
+  $iPad-intro-width: 0.3854; 
+
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
@@ -3130,6 +3136,8 @@ form.workflow-transition-form {
     }
   }
   // login screen, iPad
+
+
   body.not-logged-in.page-user:not(.page-user-register) {
     div#main,
     div#content {
@@ -3138,16 +3146,17 @@ form.workflow-transition-form {
       padding-left: 0px;
       padding-right: 0px;
     }
+
     div#title-section,
-    form#user-login {
+    div#content form#user-login {
       margin-left: 0px;
-      width: 37%;
+      width: ($iPad-login-width/$iPad-page-width)*100%;
       margin-left: 4%;
       margin-right: 0px;
     }
     div#block-block-8,
     div#block-block-9 {
-      width: 41%;
+      width: ($iPad-intro-width/$iPad-page-width)*100%;
       float: right;
       margin-right: 4%;
     }
@@ -3273,8 +3282,7 @@ form.workflow-transition-form {
   }
 }
 
-/* Nevin comment */
-/* iPad theming */
+/* iPad theming -- should be merged with other iPad media query most likely */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   div#title-section h1#page-title {
     font-size: 25px;
@@ -3288,7 +3296,7 @@ form.workflow-transition-form {
       }
     }
     div#block-block-8 {
-      margin-top: -58px;
+      margin-top: -77px;
     }
   }
 }
