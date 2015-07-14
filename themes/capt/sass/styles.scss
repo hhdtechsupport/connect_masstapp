@@ -3385,17 +3385,17 @@ form.workflow-transition-form {
 
   body.not-logged-in.section-user.page-user {
 
-   h1#page-title {
-    font-size: 2.25em;
-    text-transform: capitalize;
-    color: #334B56;
+   div#title-section {
+ 
     margin: 0px auto;
     border-bottom: 0px;
+    width: 360px;
   }
   form#user-pass-reset {
     @extend .panel;
     padding: 20px;
     margin: 0px auto;
+    width: 320px;
     &:before {
       width: 360px;
       margin-left: -21px;
@@ -3403,4 +3403,25 @@ form.workflow-transition-form {
   }
 
 } 
+/*
 
+
+
+body.not-logged-in.section-user.page-user div#title-section {
+  margin: 0px auto;
+  border-bottom: 0px;
+  width: 360px;
+}
+
+body.not-logged-in.section-user.page-user form#user-pass-reset {
+  padding: 20px;
+  margin: 0px auto;
+  width: 320px;
+
+}
+
+body.not-logged-in.section-user.page-user form#user-pass-reset:before {
+  width: 360px;
+  margin-left: -21px;
+}
+*/
