@@ -57,6 +57,7 @@ $page-width: 1000px;
 $logo-margin: 0px;
 $dash-nudge: 15px;
 $login-margin-left: 17px;
+$newto-margin-left: 30px;
 
 $event-right-panel-pos: -27px;
 
@@ -720,8 +721,6 @@ body.node-type-dashboard {
   }
 }
 
-
-
 /*
  *  Banners
  */
@@ -899,7 +898,6 @@ body.node-type-event #title-section {
   padding-right: 10px;
   /*margin-top: 1em;*/
 }
-
 
 /***********************************************
  *                                             *
@@ -1197,7 +1195,6 @@ div#block-block-7 {
   }
 }
 
-
 /***********************************************
  *                                             *
  *  Sitewide Styles 2                          *
@@ -1354,8 +1351,6 @@ div#block-block-12 {
   margin-bottom: 0px;
 }
 
-
-
 /*
   *  Start Event Dashboard
   */
@@ -1382,12 +1377,11 @@ div#content {
 
 /* my profile page; we need the "you are here" style too" */
 
-
- /***********************************************
- *                                             *
- *  Logged in Navigation                       *
- *                                             *
- ***********************************************/
+/***********************************************
+*                                             *
+*  Logged in Navigation                       *
+*                                             *
+***********************************************/
 
 body.page-user-edit,
 body.page-user {
@@ -1443,13 +1437,11 @@ ul.tabs-secondary {
   }
 }
 
-
- /***********************************************
- *                                             *
- *  Page-Specific Styles 2                     *
- *                                             *
- ***********************************************/
-
+/***********************************************
+*                                             *
+*  Page-Specific Styles 2                     *
+*                                             *
+***********************************************/
 
 /* form elements for Edit & Create Event */
 
@@ -1696,7 +1688,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     }
     h2.custom_block_title {
       margin-top: 0px;
-      margin-left: $login-margin-left;
+      margin-left: $newto-margin-left;
       font-size: 1.8em;
     }
     margin-top: -86px;
@@ -1707,7 +1699,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
       font-weight: normal;
       width: 150px;
       display: block;
-      margin-left: $login-margin-left;
+      margin-left: $newto-margin-left;
     }
   }
   /* why register */
@@ -2622,14 +2614,6 @@ body.not-logged-in.section-user.page-user {
   }
 }
 
-// banner subtitle
-body.not-logged-in div#block-block-13 {
-  position: absolute;
-  width: 260px;
-  top: 50px;
-  left: 420px;
-}
-
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
@@ -3211,7 +3195,7 @@ body.not-logged-in div#block-block-13 {
  */
 
 /**
- * Start iPad responsive theming
+ * Start iPad theming
  */
 
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
@@ -3373,7 +3357,36 @@ body.not-logged-in div#block-block-13 {
       width: 360px;
     }
   }
+  // banner subtitle
+  body.not-logged-in div#block-block-13 {
+    position: absolute;
+    width: 260px;
+    top: 50px;
+    left: 420px;
+  }
+  div#title-section h1#page-title {
+    font-size: 25px;
+  }
+  body.not-logged-in.page-user:not(.page-user-register) {
+    div#block-block-8,
+    div#block-block-9 {
+      h2.block-title, h2.custom_block_title {
+        font-size: 1.65em;
+        margin-left: $newto-margin-left;
+      }
+    }
+    div#block-block-9 {
+      ul#why-register {
+        margin-left: $newto-margin-left;
+        padding-left: 14px;
+      }
+    }
+    div#block-block-8 {
+      margin-top: -77px;
+    }
+  }
 }
+
 /* end iPad theming */
 
 /* large phone, small tablet */
@@ -3407,25 +3420,6 @@ body.not-logged-in div#block-block-13 {
       width: 100%;
       margin-left: 0px;
       padding-left: 0px;
-    }
-  }
-}
-
-/* iPad theming -- should be merged with other iPad media query most likely */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  div#title-section h1#page-title {
-    font-size: 25px;
-  }
-  body.not-logged-in.page-user:not(.page-user-register) {
-    div#block-block-8,
-    div#block-block-9 {
-      h2.block-title, h2.custom_block_title {
-        font-size: 1.65em;
-        margin-left: 10px;
-      }
-    }
-    div#block-block-8 {
-      margin-top: -77px;
     }
   }
 }
