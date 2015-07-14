@@ -3210,13 +3210,7 @@ div#block-block-13 {
    $iPad-page-width: 0.8333;
    $iPad-intro-width: 0.3854; 
 
-body.not-logged-in.section-user.page-user {
 
-   div#title-section {
-    margin: 0px auto;
-    width: 360px;
-  }
-}
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
@@ -3365,6 +3359,13 @@ body.not-logged-in.section-user.page-user {
   }
   // TO DO: event dashboard, iPad
   // TO DO: event detail, iPad
+  body.not-logged-in.section-user.page-user {
+
+   div#title-section {
+    margin: 0px auto;
+    width: 360px;
+  }
+}
 }
 
 /* large phone, small tablet */
