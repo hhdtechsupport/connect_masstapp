@@ -632,6 +632,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
  * Submit handler for user registration.
  */
 function captconnect_custom_user_register_submit($form, $form_state) {
+  return;
   // According to user_login_finalize(), the global user is set.
   global $user;
 
