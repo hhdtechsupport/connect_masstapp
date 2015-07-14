@@ -2665,6 +2665,108 @@ form.workflow-transition-form {
   margin-top: -1em;
 }
 
+/* MATT STYLES */
+/*** Table Registrations-list (from Nancy, 7/10) ***/
+/* line 2525, ../sass/styles.scss */
+.no-registrations {
+  text-align: center;
+}
+
+/* line 2529, ../sass/styles.scss */
+.instance-label {
+  background-color: #ddffee;
+  border-bottom: 2px solid #ff9900;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 6px 0 3px 0;
+  text-align: center;
+}
+
+/* line 2538, ../sass/styles.scss */
+.instance-complete {
+  color: #bb3333;
+  font-size: 75%;
+  font-style: italic;
+}
+
+/* line 2544, ../sass/styles.scss */
+.access-information {
+  background-color: #ffffcc;
+  font-size: 89%;
+}
+/* line 2547, ../sass/styles.scss */
+.access-information p {
+  margin: 0 2em;
+}
+
+/* line 2553, ../sass/styles.scss */
+#registrations-list tr {
+  border-bottom: 0px;
+}
+/* line 2556, ../sass/styles.scss */
+#registrations-list tr.odd {
+  background-color: #fff !important;
+}
+/* line 2559, ../sass/styles.scss */
+#registrations-list a {
+  color: inherit !important;
+}
+
+/*** Register and Participate Others ***/
+/* line 2565, ../sass/styles.scss */
+.participate-others-button,
+.register-others-button {
+  border-radius: 15px !important;
+  color: white !important;
+}
+
+/* line 2571, ../sass/styles.scss */
+.participate-others-button a:visited,
+.register-others-button a:visited {
+  color: white !important;
+}
+
+/* Matt's styles for chosen container and field-widget-inline-entity-form */
+/* line 2577, ../sass/styles.scss */
+.chosen-container {
+  width: 400px !important;
+}
+/* line 2579, ../sass/styles.scss */
+.chosen-container a {
+  font-weight: normal;
+}
+
+/* line 2583, ../sass/styles.scss */
+.field-widget-inline-entity-form > div {
+  margin-top: 20px;
+}
+
+/* password reset */
+/* line 2590, ../sass/styles.scss */
+body.not-logged-in.section-user.page-user div#title-section {
+  margin: 0px auto;
+  border-bottom: 0px;
+  width: 360px;
+}
+/* line 2596, ../sass/styles.scss */
+body.not-logged-in.section-user.page-user form#user-pass-reset {
+  padding: 20px;
+  margin: 0px auto;
+  width: 320px;
+}
+/* line 2601, ../sass/styles.scss */
+body.not-logged-in.section-user.page-user form#user-pass-reset:before {
+  width: 360px;
+  margin-left: -21px;
+}
+
+/* line 2612, ../sass/styles.scss */
+div#block-block-13 {
+  top: -70px;
+  position: relative;
+  left: -18px;
+}
+
 /***********************************************
  *                                             *
  *  Responsive theming!                        *
@@ -2674,14 +2776,14 @@ form.workflow-transition-form {
  * Uses the styles from responsive.css for mobile phone widths
  */
 @media all and (max-width: 479px) {
-  /* line 2529, ../sass/styles.scss */
+  /* line 2628, ../sass/styles.scss */
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
     position: relative;
   }
 
-  /* line 2534, ../sass/styles.scss */
+  /* line 2633, ../sass/styles.scss */
   #navigation {
     /* Move the navbar up inside #main's padding. */
     position: absolute;
@@ -2694,29 +2796,29 @@ form.workflow-transition-form {
  * General Mobile Styles
  */
 @media screen and (max-width: 1024px) {
-  /* line 2550, ../sass/styles.scss */
+  /* line 2649, ../sass/styles.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2555, ../sass/styles.scss */
+  /* line 2654, ../sass/styles.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 2559, ../sass/styles.scss */
+  /* line 2658, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 2561, ../sass/styles.scss */
+  /* line 2660, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 2564, ../sass/styles.scss */
+  /* line 2663, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
     overflow: visible;
@@ -2724,7 +2826,7 @@ form.workflow-transition-form {
     padding: 0px;
     /* hide admin*/
   }
-  /* line 2570, ../sass/styles.scss */
+  /* line 2669, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
@@ -2735,12 +2837,12 @@ form.workflow-transition-form {
  */
 /* hide search block form */
 @media screen and (max-width: 768px) {
-  /* line 2594, ../sass/styles.scss */
+  /* line 2693, ../sass/styles.scss */
   input#edit-search-block-form--2, div#edit-actions {
     display: none;
   }
 
-  /* line 2597, ../sass/styles.scss */
+  /* line 2696, ../sass/styles.scss */
   div.region.region-header {
     margin-top: 10px;
   }
@@ -2753,7 +2855,7 @@ form.workflow-transition-form {
   /*
    * prototype classes´
    */
-  /* line 2611, ../sass/styles.scss */
+  /* line 2710, ../sass/styles.scss */
   .reset-layout, html div#page,
   body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
@@ -2764,7 +2866,7 @@ form.workflow-transition-form {
   }
 
   /* for mobile panels with no top bars */
-  /* line 2617, ../sass/styles.scss */
+  /* line 2716, ../sass/styles.scss */
   .top-bar-reset, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before {
     background-color: none;
@@ -2773,7 +2875,7 @@ form.workflow-transition-form {
     position: static;
   }
 
-  /* line 2623, ../sass/styles.scss */
+  /* line 2722, ../sass/styles.scss */
   .mobile-panel, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2787,7 +2889,7 @@ form.workflow-transition-form {
     background-color: #eef1f3;
   }
 
-  /* line 2632, ../sass/styles.scss */
+  /* line 2731, ../sass/styles.scss */
   .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -2814,7 +2916,7 @@ form.workflow-transition-form {
   /*
    *Start General Styles
    */
-  /* line 2660, ../sass/styles.scss */
+  /* line 2759, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -2822,7 +2924,7 @@ form.workflow-transition-form {
     overflow-x: visible;
     height: 100%;
   }
-  /* line 2666, ../sass/styles.scss */
+  /* line 2765, ../sass/styles.scss */
   html div.top-header,
   body div.top-header {
     height: 115px;
@@ -2830,25 +2932,25 @@ form.workflow-transition-form {
     background-position: -124px 106px;
     background-repeat: repeat-x;
   }
-  /* line 2669, ../sass/styles.scss */
+  /* line 2768, ../sass/styles.scss */
   html div.top-header div.top-header-container,
   body div.top-header div.top-header-container {
     width: 100%;
   }
-  /* line 2671, ../sass/styles.scss */
+  /* line 2770, ../sass/styles.scss */
   html div.top-header div.top-header-container div.capt-logo,
   body div.top-header div.top-header-container div.capt-logo {
     background-image: url("../images/logos/CAPT-logo-phone.png");
     margin-left: 4%;
     top: 12px;
   }
-  /* line 2676, ../sass/styles.scss */
+  /* line 2775, ../sass/styles.scss */
   html div.top-header div.top-header-container div.samhsa-logo,
   body div.top-header div.top-header-container div.samhsa-logo {
     margin-right: 4%;
     margin-bottom: 0px;
   }
-  /* line 2682, ../sass/styles.scss */
+  /* line 2781, ../sass/styles.scss */
   html div#page,
   body div#page {
     min-height: 750px;
@@ -2858,23 +2960,23 @@ form.workflow-transition-form {
     padding-bottom: 60px;
     /*80px;*/
   }
-  /* line 2691, ../sass/styles.scss */
+  /* line 2790, ../sass/styles.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 2694, ../sass/styles.scss */
+  /* line 2793, ../sass/styles.scss */
   html div#page,
   body div#page {
     padding-bottom: 50px;
   }
-  /* line 2695, ../sass/styles.scss */
+  /* line 2794, ../sass/styles.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 2701, ../sass/styles.scss */
+  /* line 2800, ../sass/styles.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -2888,13 +2990,13 @@ form.workflow-transition-form {
   }
 
   /* switch user block */
-  /* line 2713, ../sass/styles.scss */
+  /* line 2812, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 2717, ../sass/styles.scss */
+  /* line 2816, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
@@ -2906,21 +3008,21 @@ form.workflow-transition-form {
   /*
    *  iPhone Styles -- User Login Page
    */
-  /* line 2730, ../sass/styles.scss */
+  /* line 2829, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) {
     /* reformatting panels for mobile */
     /*specific disclaimer styles; more at the end */
     /* mobile styles, cont'd s*/
     /* new to captconnect? and reasons to join panels */
   }
-  /* line 2731, ../sass/styles.scss */
+  /* line 2830, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2737, ../sass/styles.scss */
+  /* line 2836, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2928,70 +3030,70 @@ form.workflow-transition-form {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2747, ../sass/styles.scss */
+  /* line 2846, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 2752, ../sass/styles.scss */
+  /* line 2851, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div.disclaimer {
     margin: 0px auto;
     left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 2760, ../sass/styles.scss */
+  /* line 2859, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section:before {
     top: -10px;
   }
-  /* line 2765, ../sass/styles.scss */
+  /* line 2864, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     height: 140px;
     padding-bottom: 26px;
   }
-  /* line 2771, ../sass/styles.scss */
+  /* line 2870, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 2780, ../sass/styles.scss */
+  /* line 2879, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content div#title-section h1#page-title {
     margin-left: 17px;
   }
-  /* line 2783, ../sass/styles.scss */
+  /* line 2882, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     height: 250px;
   }
-  /* line 2784, ../sass/styles.scss */
+  /* line 2883, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-name {
     padding-top: 0px;
   }
-  /* line 2788, ../sass/styles.scss */
+  /* line 2887, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 2797, ../sass/styles.scss */
+  /* line 2896, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 2799, ../sass/styles.scss */
+  /* line 2898, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 2802, ../sass/styles.scss */
+  /* line 2901, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 2808, ../sass/styles.scss */
+  /* line 2907, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -3001,31 +3103,31 @@ form.workflow-transition-form {
     margin: 0px;
   }
 
-  /* line 2819, ../sass/styles.scss */
+  /* line 2918, ../sass/styles.scss */
   body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
     margin-left: 30px;
   }
 
   /* merge with styles below? */
-  /* line 2827, ../sass/styles.scss */
+  /* line 2926, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 2830, ../sass/styles.scss */
+  /* line 2929, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 2834, ../sass/styles.scss */
+  /* line 2933, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 2836, ../sass/styles.scss */
+  /* line 2935, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 2842, ../sass/styles.scss */
+  /* line 2941, ../sass/styles.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
@@ -3033,33 +3135,33 @@ form.workflow-transition-form {
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-  /* line 2849, ../sass/styles.scss */
+  /* line 2948, ../sass/styles.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* iphone 6 */
     /* Chrome and Safari Specific Styles */
   }
-  /* line 2852, ../sass/styles.scss */
+  /* line 2951, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 2856, ../sass/styles.scss */
+  /* line 2955, ../sass/styles.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 2860, ../sass/styles.scss */
+  /* line 2959, ../sass/styles.scss */
   form#user-profile-form ul#main-menu.main-menu li.menu-item > a,
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a {
     width: 150px;
   }
-  /* line 2864, ../sass/styles.scss */
+  /* line 2963, ../sass/styles.scss */
   form#user-profile-form div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -3067,7 +3169,7 @@ form.workflow-transition-form {
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 2870, ../sass/styles.scss */
+  /* line 2969, ../sass/styles.scss */
   form#user-profile-form div#content,
   body.admin-menu div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content {
@@ -3079,7 +3181,7 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2878, ../sass/styles.scss */
+  /* line 2977, ../sass/styles.scss */
   form#user-profile-form div#content ul.tabs-primary,
   body.admin-menu div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content ul.tabs-primary {
@@ -3087,13 +3189,13 @@ form.workflow-transition-form {
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 2885, ../sass/styles.scss */
+  /* line 2984, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.admin-menu fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.data-view div.button.edit-button {
     top: 130px;
   }
-  /* line 2888, ../sass/styles.scss */
+  /* line 2987, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.save-button:first-child, form#user-profile-form fieldset.group-demographic-information div.cancel-button:nth-child(2),
   body.admin-menu fieldset.group-demographic-information div.save-button:first-child,
   body.admin-menu fieldset.group-demographic-information div.cancel-button:nth-child(2),
@@ -3101,14 +3203,14 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.cancel-button:nth-child(2) {
     display: none;
   }
-  /* line 2893, ../sass/styles.scss */
+  /* line 2992, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
     width: 300px;
     margin: 0px;
   }
-  /* line 2897, ../sass/styles.scss */
+  /* line 2996, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
@@ -3120,25 +3222,25 @@ form.workflow-transition-form {
     clear: left;
     margin-bottom: 10px;
   }
-  /* line 2904, ../sass/styles.scss */
+  /* line 3003, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
     clear: left;
   }
-  /* line 2907, ../sass/styles.scss */
+  /* line 3006, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
     width: 112%;
   }
-  /* line 2910, ../sass/styles.scss */
+  /* line 3009, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
     margin-top: -20px;
   }
-  /* line 2915, ../sass/styles.scss */
+  /* line 3014, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
@@ -3148,13 +3250,13 @@ form.workflow-transition-form {
     clear: left;
     float: left;
   }
-  /* line 2920, ../sass/styles.scss */
+  /* line 3019, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
     width: 85%;
   }
-  /* line 2923, ../sass/styles.scss */
+  /* line 3022, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
@@ -3163,19 +3265,19 @@ form.workflow-transition-form {
     /*background-color: yellow;*/
     margin-bottom: 20px;
   }
-  /* line 2930, ../sass/styles.scss */
+  /* line 3029, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
     width: 90%;
   }
-  /* line 2933, ../sass/styles.scss */
+  /* line 3032, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
   }
-  /* line 2937, ../sass/styles.scss */
+  /* line 3036, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
@@ -3186,13 +3288,13 @@ form.workflow-transition-form {
     margin-bottom: -20px;
     /* edit button */
   }
-  /* line 2944, ../sass/styles.scss */
+  /* line 3043, ../sass/styles.scss */
   form#user-profile-form fieldset fieldset,
   body.admin-menu fieldset fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
     display: none;
   }
-  /* line 2947, ../sass/styles.scss */
+  /* line 3046, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -3201,7 +3303,7 @@ form.workflow-transition-form {
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 2950, ../sass/styles.scss */
+  /* line 3049, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -3209,7 +3311,7 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 2955, ../sass/styles.scss */
+  /* line 3054, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view div.edit-button,
   body.admin-menu fieldset div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view div.edit-button {
@@ -3217,7 +3319,7 @@ form.workflow-transition-form {
     top: -24px;
     font-size: 18px;
   }
-  /* line 2961, ../sass/styles.scss */
+  /* line 3060, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button,
   body.admin-menu fieldset div.fieldset-wrapper div.save-button,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button,
@@ -3225,7 +3327,7 @@ form.workflow-transition-form {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 2964, ../sass/styles.scss */
+  /* line 3063, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button:first-child, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu fieldset div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -3234,7 +3336,7 @@ form.workflow-transition-form {
     top: -30px;
     position: relative;
   }
-  /* line 2970, ../sass/styles.scss */
+  /* line 3069, ../sass/styles.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
@@ -3245,7 +3347,7 @@ form.workflow-transition-form {
     top: 30px;
     display: block;
   }
-  /* line 2978, ../sass/styles.scss */
+  /* line 3077, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -3258,13 +3360,13 @@ form.workflow-transition-form {
   }
 }
 @media screen and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 0) and (max-width: 736px) {
-  /* line 2990, ../sass/styles.scss */
+  /* line 3089, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
   body.admin-menu fieldset.group-account,
   body.admin-menu fieldset {
     margin-bottom: 0px;
   }
-  /* line 2991, ../sass/styles.scss */
+  /* line 3090, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
@@ -3273,7 +3375,7 @@ form.workflow-transition-form {
     padding-top: 45px;
     margin-top: 8px;
   }
-  /* line 2998, ../sass/styles.scss */
+  /* line 3097, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset {
     margin-top: 0px;
@@ -3284,7 +3386,7 @@ form.workflow-transition-form {
  */
 /* iPhone 6 */
 @media screen and (min-width: 343px) and (max-width: 736px) {
-  /* line 3021, ../sass/styles.scss */
+  /* line 3120, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3293,7 +3395,7 @@ form.workflow-transition-form {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3025, ../sass/styles.scss */
+  /* line 3124, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3302,7 +3404,7 @@ form.workflow-transition-form {
     width: 188.5px;
     height: 29.9px;
   }
-  /* line 3029, ../sass/styles.scss */
+  /* line 3128, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3314,20 +3416,20 @@ form.workflow-transition-form {
 }
 /* Devel tabs */
 @media screen and (max-width: 425px) {
-  /* line 3042, ../sass/styles.scss */
+  /* line 3141, ../sass/styles.scss */
   ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
     display: none;
   }
 }
 /* iPhone 4 */
 @media screen and (max-width: 342px) {
-  /* line 3054, ../sass/styles.scss */
+  /* line 3153, ../sass/styles.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 3058, ../sass/styles.scss */
+  /* line 3157, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3336,7 +3438,7 @@ form.workflow-transition-form {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3062, ../sass/styles.scss */
+  /* line 3161, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3345,7 +3447,7 @@ form.workflow-transition-form {
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 3066, ../sass/styles.scss */
+  /* line 3165, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3357,7 +3459,7 @@ form.workflow-transition-form {
 }
 /* small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 3082, ../sass/styles.scss */
+  /* line 3181, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3366,7 +3468,7 @@ form.workflow-transition-form {
     width: 290.7px;
     height: 39.1px;
   }
-  /* line 3086, ../sass/styles.scss */
+  /* line 3185, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3386,7 +3488,7 @@ form.workflow-transition-form {
   /*
    *  Login Page Variables
    */
-  /* line 3113, ../sass/styles.scss */
+  /* line 3212, ../sass/styles.scss */
   html,
   body.not-logged-in.page-user:not(.page-user-register),
   body.admin-menu,
@@ -3394,7 +3496,7 @@ form.workflow-transition-form {
     width: 100%;
     /* login screen */
   }
-  /* line 3117, ../sass/styles.scss */
+  /* line 3216, ../sass/styles.scss */
   html div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user:not(.page-user-register) div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
@@ -3404,7 +3506,7 @@ form.workflow-transition-form {
     margin-left: 7%;
     padding-bottom: 8px;
   }
-  /* line 3123, ../sass/styles.scss */
+  /* line 3222, ../sass/styles.scss */
   html input#edit-search-block-form--2,
   body.not-logged-in.page-user:not(.page-user-register) input#edit-search-block-form--2,
   body.admin-menu input#edit-search-block-form--2,
@@ -3413,7 +3515,7 @@ form.workflow-transition-form {
     background-position: 80px 4px;
     padding-right: 20px;
   }
-  /* line 3128, ../sass/styles.scss */
+  /* line 3227, ../sass/styles.scss */
   html div#main,
   html div#content,
   body.not-logged-in.page-user:not(.page-user-register) div#main,
@@ -3426,7 +3528,7 @@ form.workflow-transition-form {
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 3136, ../sass/styles.scss */
+  /* line 3235, ../sass/styles.scss */
   html div#page,
   body.not-logged-in.page-user:not(.page-user-register) div#page,
   body.admin-menu div#page,
@@ -3434,21 +3536,21 @@ form.workflow-transition-form {
     width: 83.3333%;
     margin-top: -2px;
   }
-  /* line 3140, ../sass/styles.scss */
+  /* line 3239, ../sass/styles.scss */
   html div.top-header-container,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container,
   body.admin-menu div.top-header-container,
   body.page-user-register div.top-header-container {
     width: 100%;
   }
-  /* line 3142, ../sass/styles.scss */
+  /* line 3241, ../sass/styles.scss */
   html div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.capt-logo,
   body.admin-menu div.top-header-container div.capt-logo,
   body.page-user-register div.top-header-container div.capt-logo {
     margin-left: 8%;
   }
-  /* line 3145, ../sass/styles.scss */
+  /* line 3244, ../sass/styles.scss */
   html div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.samhsa-logo,
   body.admin-menu div.top-header-container div.samhsa-logo,
@@ -3456,7 +3558,7 @@ form.workflow-transition-form {
     margin-right: 8%;
   }
 
-  /* line 3154, ../sass/styles.scss */
+  /* line 3253, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3464,7 +3566,7 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3162, ../sass/styles.scss */
+  /* line 3261, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#content form#user-login {
     margin-left: 0px;
@@ -3472,52 +3574,52 @@ form.workflow-transition-form {
     margin-left: 4%;
     margin-right: 0px;
   }
-  /* line 3169, ../sass/styles.scss */
+  /* line 3268, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 46.24985%;
     float: right;
     margin-right: 4%;
   }
-  /* line 3175, ../sass/styles.scss */
+  /* line 3274, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-position: 92% 25%;
     background-size: 75.2px 82.40px;
   }
-  /* line 3178, ../sass/styles.scss */
+  /* line 3277, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul {
     margin-left: -5px;
   }
-  /* line 3180, ../sass/styles.scss */
+  /* line 3279, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul a {
     font-size: 14px;
   }
 
-  /* line 3189, ../sass/styles.scss */
+  /* line 3288, ../sass/styles.scss */
   body.admin-menu div.bottom-footer div.disclaimer,
   body.page-user-register div.bottom-footer div.disclaimer {
     padding: 0px;
     margin-left: 8.5%;
     width: 500px;
   }
-  /* line 3194, ../sass/styles.scss */
+  /* line 3293, ../sass/styles.scss */
   body.admin-menu div#block-block-3,
   body.page-user-register div#block-block-3 {
     margin-left: 12px;
   }
-  /* line 3199, ../sass/styles.scss */
+  /* line 3298, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation,
   body.page-user-register div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 3203, ../sass/styles.scss */
+  /* line 3302, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 3221, ../sass/styles.scss */
+  /* line 3320, ../sass/styles.scss */
   body.admin-menu div#main div#content,
   body.page-user-register div#main div#content {
     width: 96.8%;
@@ -3527,27 +3629,27 @@ form.workflow-transition-form {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3228, ../sass/styles.scss */
+  /* line 3327, ../sass/styles.scss */
   body.admin-menu div#main div#content ul.tabs-primary,
   body.page-user-register div#main div#content ul.tabs-primary {
     width: 97%;
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 3233, ../sass/styles.scss */
+  /* line 3332, ../sass/styles.scss */
   body.admin-menu div#main div#content input#edit-cancel.form-submit,
   body.page-user-register div#main div#content input#edit-cancel.form-submit {
     margin-left: 10px;
     text-align: center;
   }
-  /* line 3237, ../sass/styles.scss */
+  /* line 3336, ../sass/styles.scss */
   body.admin-menu div#main div#content h1#page-title,
   body.page-user-register div#main div#content h1#page-title {
     background-position: 8px 0px;
     padding-left: 70px;
     font-size: 34px;
   }
-  /* line 3242, ../sass/styles.scss */
+  /* line 3341, ../sass/styles.scss */
   body.admin-menu div#main div#content fieldset,
   body.page-user-register div#main div#content fieldset {
     /*width: 95%;*/
@@ -3558,18 +3660,18 @@ form.workflow-transition-form {
     border-right: 1px solid blue;
   }
 
-  /* line 3254, ../sass/styles.scss */
+  /* line 3353, ../sass/styles.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
 }
 /* large phone, small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 3265, ../sass/styles.scss */
+  /* line 3364, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1#page-title {
     font-size: 22px;
   }
-  /* line 3268, ../sass/styles.scss */
+  /* line 3367, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     margin-left: 0px;
@@ -3577,26 +3679,26 @@ form.workflow-transition-form {
     margin-left: 3%;
     margin-right: 0px;
   }
-  /* line 3275, ../sass/styles.scss */
+  /* line 3374, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -52px;
   }
-  /* line 3278, ../sass/styles.scss */
+  /* line 3377, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 42%;
   }
-  /* line 3281, ../sass/styles.scss */
+  /* line 3380, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 22px;
   }
-  /* line 3285, ../sass/styles.scss */
+  /* line 3384, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-image: none;
   }
-  /* line 3288, ../sass/styles.scss */
+  /* line 3387, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3606,137 +3708,20 @@ form.workflow-transition-form {
 }
 /* iPad theming -- should be merged with other iPad media query most likely */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* line 3299, ../sass/styles.scss */
+  /* line 3398, ../sass/styles.scss */
   div#title-section h1#page-title {
     font-size: 25px;
   }
 
-  /* line 3305, ../sass/styles.scss */
+  /* line 3404, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
     margin-left: 10px;
   }
-  /* line 3310, ../sass/styles.scss */
+  /* line 3409, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -77px;
   }
 }
-/* MATT STYLES */
-/*** Table Registrations-list (from Nancy, 7/10) ***/
-/* line 3323, ../sass/styles.scss */
-.no-registrations {
-  text-align: center;
-}
-
-/* line 3327, ../sass/styles.scss */
-.instance-label {
-  background-color: #ddffee;
-  border-bottom: 2px solid #ff9900;
-  font-size: 120%;
-  font-weight: bold;
-  padding: 6px 0 3px 0;
-  text-align: center;
-}
-
-/* line 3336, ../sass/styles.scss */
-.instance-complete {
-  color: #bb3333;
-  font-size: 75%;
-  font-style: italic;
-}
-
-/* line 3342, ../sass/styles.scss */
-.access-information {
-  background-color: #ffffcc;
-  font-size: 89%;
-}
-/* line 3345, ../sass/styles.scss */
-.access-information p {
-  margin: 0 2em;
-}
-
-/* line 3351, ../sass/styles.scss */
-#registrations-list tr {
-  border-bottom: 0px;
-}
-/* line 3354, ../sass/styles.scss */
-#registrations-list tr.odd {
-  background-color: #fff !important;
-}
-/* line 3357, ../sass/styles.scss */
-#registrations-list a {
-  color: inherit !important;
-}
-
-/*** Register and Participate Others ***/
-/* line 3363, ../sass/styles.scss */
-.participate-others-button,
-.register-others-button {
-  border-radius: 15px !important;
-  color: white !important;
-}
-
-/* line 3369, ../sass/styles.scss */
-.participate-others-button a:visited,
-.register-others-button a:visited {
-  color: white !important;
-}
-
-/* Matt's styles for chosen container and field-widget-inline-entity-form */
-/* line 3375, ../sass/styles.scss */
-.chosen-container {
-  width: 400px !important;
-}
-/* line 3377, ../sass/styles.scss */
-.chosen-container a {
-  font-weight: normal;
-}
-
-/* line 3381, ../sass/styles.scss */
-.field-widget-inline-entity-form > div {
-  margin-top: 20px;
-}
-
-/* password reset */
-/* line 3388, ../sass/styles.scss */
-body.not-logged-in.section-user.page-user div#title-section {
-  margin: 0px auto;
-  border-bottom: 0px;
-  width: 360px;
-}
-/* line 3394, ../sass/styles.scss */
-body.not-logged-in.section-user.page-user form#user-pass-reset {
-  padding: 20px;
-  margin: 0px auto;
-  width: 320px;
-}
-/* line 3399, ../sass/styles.scss */
-body.not-logged-in.section-user.page-user form#user-pass-reset:before {
-  width: 360px;
-  margin-left: -21px;
-}
-
-/*
-
-
-
-body.not-logged-in.section-user.page-user div#title-section {
-  margin: 0px auto;
-  border-bottom: 0px;
-  width: 360px;
-}
-
-body.not-logged-in.section-user.page-user form#user-pass-reset {
-  padding: 20px;
-  margin: 0px auto;
-  width: 320px;
-
-}
-
-body.not-logged-in.section-user.page-user form#user-pass-reset:before {
-  width: 360px;
-  margin-left: -21px;
-}
-*/
