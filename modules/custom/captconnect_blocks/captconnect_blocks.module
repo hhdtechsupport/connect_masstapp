@@ -1,0 +1,101 @@
+<?php
+/**
+ * @file
+ * Block functions for CAPTServices site.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function captconnect_blocks_block_info() {
+  return array(
+    'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
+    );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function captconnect_blocks_block_view($delta) {
+  global $user;
+  $block = array();
+
+  switch ($delta) {
+    case 'instance_registration':
+      $output = '';
+
+      // Get the node.
+      $node = menu_get_object('node');
+      if ($node->type != 'instance') {
+        return $block;
+      }
+
+      $register = db_query("SELECT fid FROM {flag} WHERE title = 'Registration'")->fetchField();
+      $query = "SELECT uid, timestamp "
+        . "FROM {flagging} "
+        . "WHERE entity_id = :nid "
+        . "AND fid = :reg "
+        ;
+      $registrants = db_query($query, array(':nid' => $node->nid, ':reg' => $register))->fetchALLKeyed();
+
+      if (count($registrants) > 0) {
+        $accounts = entity_load('user', array_keys($registrants));
+        $rows = array();
+        $link_to_user = user_access('administer users');
+        foreach ($accounts as $uid => $account) {
+          $registrant = ($link_to_user ?
+            l(format_username($account), "user/$account->uid/edit") : format_username($account));
+
+          $rows[] = array(
+            $registrant,
+            format_date($registrants[$uid]),
+            );
+        }
+        $output .= theme('table', array('rows' => $rows));
+      }
+      else {
+        $output .= t('No registrations yet.');
+      }
+
+      $block['content'] = $output;
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function captconnect_blocks_block_configure($delta = '') {
+  $form = array();
+  $noyes = array(t('No'), t('Yes'));
+
+  switch ($delta) {
+    case 'ta form info':/*
+      $form['captconnect_custom_ta_summary_subforms'] = array(
+        '#title' => t('TA Form Summary Event Subforms Count'),
+        '#type' => 'radios',
+        '#options' => $noyes,
+        '#default_value' => variable_get('captconnect_custom_ta_summary_subforms', 0),
+        '#description' => t('In the TA Summary block, count event sub forms as event forms.'),
+        '#attributes' => array('class' => array('container-inline')),
+        ); /* */
+
+      break;
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function captconnect_blocks_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'ta form info':
+//      variable_set('captconnect_custom_ta_summary_subforms', $edit['captconnect_custom_ta_summary_subforms']);
+
+      break;
+  }
+}

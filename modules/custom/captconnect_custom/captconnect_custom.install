@@ -1,0 +1,46 @@
+<?php
+/**
+ * @file
+ * Install and update function for CAPTconnect.
+ */
+
+function captconnect_custom_custom_schema() {
+  $schema['captconnect_custom_anon_register'] = captconnect_custom_register_table();
+
+  return $schema;
+}
+
+function captconnect_custom_register_table() {
+  return array(
+    'description' => 'CAPTConnect Custom Anonymous User Delayed Registration',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'The user identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      'nid' => array(
+        'description' => 'The instance node identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'nid' => array('nid'),
+      ),
+    );
+}
+
+/**
+ * Create the consultant scheduling table.
+ */
+function captconnect_custom_update_7000() {
+  db_create_table('captconnect_custom_anon_register', captconnect_custom_register_table());
+
+  return 'The Anonymous User Delayed Registration table has been added.';
+}
