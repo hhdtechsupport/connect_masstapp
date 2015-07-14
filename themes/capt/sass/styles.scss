@@ -1602,27 +1602,7 @@ body.page-node-add-event.page-node-add.section-node-add {
     @extend .panel-rule;
     margin-bottom: 0px;
   }
-  
-  body.not-logged-in.section-user.page-user:not(.page-user-register) {
 
-   h1#page-title {
-    font-size: 2.25em;
-    text-transform: capitalize;
-    color: #334B56;
-    margin: 0px auto;
-    border-bottom: 0px;
-  }
-  form#user-pass-reset {
-    @extend .panel;
-    padding: 20px;
-    margin: 0px auto;
-    &:before {
-      width: 360px;
-      margin-left: -21px;
-    }
-  }
-
-} 
 
 form#user-login {
   @extend .panel;
@@ -3401,3 +3381,26 @@ form.workflow-transition-form {
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
+/* password reset */
+
+  body.not-logged-in.section-user.page-user {
+
+   h1#page-title {
+    font-size: 2.25em;
+    text-transform: capitalize;
+    color: #334B56;
+    margin: 0px auto;
+    border-bottom: 0px;
+  }
+  form#user-pass-reset {
+    @extend .panel;
+    padding: 20px;
+    margin: 0px auto;
+    &:before {
+      width: 360px;
+      margin-left: -21px;
+    }
+  }
+
+} 
+
