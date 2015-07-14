@@ -2741,26 +2741,25 @@ form.workflow-transition-form {
   margin-top: 20px;
 }
 
-/* password reset */
-/* line 2590, ../sass/styles.scss */
+/* line 2591, ../sass/styles.scss */
 body.not-logged-in.section-user.page-user div#title-section {
   margin: 0px auto;
   border-bottom: 0px;
   width: 360px;
 }
-/* line 2596, ../sass/styles.scss */
+/* line 2597, ../sass/styles.scss */
 body.not-logged-in.section-user.page-user form#user-pass-reset {
   padding: 20px;
   margin: 0px auto;
   width: 320px;
 }
-/* line 2601, ../sass/styles.scss */
+/* line 2602, ../sass/styles.scss */
 body.not-logged-in.section-user.page-user form#user-pass-reset:before {
   width: 360px;
   margin-left: -21px;
 }
 
-/* line 2612, ../sass/styles.scss */
+/* line 2613, ../sass/styles.scss */
 div#block-block-13 {
   top: -70px;
   position: relative;
@@ -2776,14 +2775,14 @@ div#block-block-13 {
  * Uses the styles from responsive.css for mobile phone widths
  */
 @media all and (max-width: 479px) {
-  /* line 2628, ../sass/styles.scss */
+  /* line 2629, ../sass/styles.scss */
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
     position: relative;
   }
 
-  /* line 2633, ../sass/styles.scss */
+  /* line 2634, ../sass/styles.scss */
   #navigation {
     /* Move the navbar up inside #main's padding. */
     position: absolute;
@@ -2796,29 +2795,35 @@ div#block-block-13 {
  * General Mobile Styles
  */
 @media screen and (max-width: 1024px) {
-  /* line 2649, ../sass/styles.scss */
+  /* line 2652, ../sass/styles.scss */
+  body.not-logged-in.section-user.page-user div#title-section {
+    margin: 0px auto;
+    width: 360px;
+  }
+
+  /* line 2657, ../sass/styles.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2654, ../sass/styles.scss */
+  /* line 2662, ../sass/styles.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 2658, ../sass/styles.scss */
+  /* line 2666, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 2660, ../sass/styles.scss */
+  /* line 2668, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 2663, ../sass/styles.scss */
+  /* line 2671, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
     overflow: visible;
@@ -2826,7 +2831,7 @@ div#block-block-13 {
     padding: 0px;
     /* hide admin*/
   }
-  /* line 2669, ../sass/styles.scss */
+  /* line 2677, ../sass/styles.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
@@ -2837,12 +2842,12 @@ div#block-block-13 {
  */
 /* hide search block form */
 @media screen and (max-width: 768px) {
-  /* line 2693, ../sass/styles.scss */
+  /* line 2701, ../sass/styles.scss */
   input#edit-search-block-form--2, div#edit-actions {
     display: none;
   }
 
-  /* line 2696, ../sass/styles.scss */
+  /* line 2704, ../sass/styles.scss */
   div.region.region-header {
     margin-top: 10px;
   }
@@ -2855,7 +2860,7 @@ div#block-block-13 {
   /*
    * prototype classes´
    */
-  /* line 2710, ../sass/styles.scss */
+  /* line 2718, ../sass/styles.scss */
   .reset-layout, html div#page,
   body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
@@ -2866,7 +2871,7 @@ div#block-block-13 {
   }
 
   /* for mobile panels with no top bars */
-  /* line 2716, ../sass/styles.scss */
+  /* line 2724, ../sass/styles.scss */
   .top-bar-reset, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before {
     background-color: none;
@@ -2875,7 +2880,7 @@ div#block-block-13 {
     position: static;
   }
 
-  /* line 2722, ../sass/styles.scss */
+  /* line 2730, ../sass/styles.scss */
   .mobile-panel, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -2889,7 +2894,7 @@ div#block-block-13 {
     background-color: #eef1f3;
   }
 
-  /* line 2731, ../sass/styles.scss */
+  /* line 2739, ../sass/styles.scss */
   .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -2916,7 +2921,7 @@ div#block-block-13 {
   /*
    *Start General Styles
    */
-  /* line 2759, ../sass/styles.scss */
+  /* line 2767, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -2924,7 +2929,7 @@ div#block-block-13 {
     overflow-x: visible;
     height: 100%;
   }
-  /* line 2765, ../sass/styles.scss */
+  /* line 2773, ../sass/styles.scss */
   html div.top-header,
   body div.top-header {
     height: 115px;
@@ -2932,25 +2937,25 @@ div#block-block-13 {
     background-position: -124px 106px;
     background-repeat: repeat-x;
   }
-  /* line 2768, ../sass/styles.scss */
+  /* line 2776, ../sass/styles.scss */
   html div.top-header div.top-header-container,
   body div.top-header div.top-header-container {
     width: 100%;
   }
-  /* line 2770, ../sass/styles.scss */
+  /* line 2778, ../sass/styles.scss */
   html div.top-header div.top-header-container div.capt-logo,
   body div.top-header div.top-header-container div.capt-logo {
     background-image: url("../images/logos/CAPT-logo-phone.png");
     margin-left: 4%;
     top: 12px;
   }
-  /* line 2775, ../sass/styles.scss */
+  /* line 2783, ../sass/styles.scss */
   html div.top-header div.top-header-container div.samhsa-logo,
   body div.top-header div.top-header-container div.samhsa-logo {
     margin-right: 4%;
     margin-bottom: 0px;
   }
-  /* line 2781, ../sass/styles.scss */
+  /* line 2789, ../sass/styles.scss */
   html div#page,
   body div#page {
     min-height: 750px;
@@ -2960,23 +2965,23 @@ div#block-block-13 {
     padding-bottom: 60px;
     /*80px;*/
   }
-  /* line 2790, ../sass/styles.scss */
+  /* line 2798, ../sass/styles.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 2793, ../sass/styles.scss */
+  /* line 2801, ../sass/styles.scss */
   html div#page,
   body div#page {
     padding-bottom: 50px;
   }
-  /* line 2794, ../sass/styles.scss */
+  /* line 2802, ../sass/styles.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 2800, ../sass/styles.scss */
+  /* line 2808, ../sass/styles.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -2990,13 +2995,13 @@ div#block-block-13 {
   }
 
   /* switch user block */
-  /* line 2812, ../sass/styles.scss */
+  /* line 2820, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 2816, ../sass/styles.scss */
+  /* line 2824, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
@@ -3008,21 +3013,21 @@ div#block-block-13 {
   /*
    *  iPhone Styles -- User Login Page
    */
-  /* line 2829, ../sass/styles.scss */
+  /* line 2837, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) {
     /* reformatting panels for mobile */
     /*specific disclaimer styles; more at the end */
     /* mobile styles, cont'd s*/
     /* new to captconnect? and reasons to join panels */
   }
-  /* line 2830, ../sass/styles.scss */
+  /* line 2838, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section {
     padding-top: 6px;
     padding-bottom: 6px;
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2836, ../sass/styles.scss */
+  /* line 2844, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -3030,70 +3035,70 @@ div#block-block-13 {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 2846, ../sass/styles.scss */
+  /* line 2854, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 2851, ../sass/styles.scss */
+  /* line 2859, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div.disclaimer {
     margin: 0px auto;
     left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 2859, ../sass/styles.scss */
+  /* line 2867, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section:before {
     top: -10px;
   }
-  /* line 2864, ../sass/styles.scss */
+  /* line 2872, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     height: 140px;
     padding-bottom: 26px;
   }
-  /* line 2870, ../sass/styles.scss */
+  /* line 2878, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     border: 1px solid #d7d7d7;
     background-image: none;
     background-repeat: no-repeat;
   }
-  /* line 2879, ../sass/styles.scss */
+  /* line 2887, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content div#title-section h1#page-title {
     margin-left: 17px;
   }
-  /* line 2882, ../sass/styles.scss */
+  /* line 2890, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     height: 250px;
   }
-  /* line 2883, ../sass/styles.scss */
+  /* line 2891, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-name {
     padding-top: 0px;
   }
-  /* line 2887, ../sass/styles.scss */
+  /* line 2895, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit {
     margin-top: 0px;
     top: 0px;
   }
 
-  /* line 2896, ../sass/styles.scss */
+  /* line 2904, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 2898, ../sass/styles.scss */
+  /* line 2906, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 2901, ../sass/styles.scss */
+  /* line 2909, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 2907, ../sass/styles.scss */
+  /* line 2915, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -3103,31 +3108,31 @@ div#block-block-13 {
     margin: 0px;
   }
 
-  /* line 2918, ../sass/styles.scss */
+  /* line 2926, ../sass/styles.scss */
   body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
     margin-left: 30px;
   }
 
   /* merge with styles below? */
-  /* line 2926, ../sass/styles.scss */
+  /* line 2934, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 2929, ../sass/styles.scss */
+  /* line 2937, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 2933, ../sass/styles.scss */
+  /* line 2941, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 2935, ../sass/styles.scss */
+  /* line 2943, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 2941, ../sass/styles.scss */
+  /* line 2949, ../sass/styles.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
@@ -3135,33 +3140,33 @@ div#block-block-13 {
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-  /* line 2948, ../sass/styles.scss */
+  /* line 2956, ../sass/styles.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* iphone 6 */
     /* Chrome and Safari Specific Styles */
   }
-  /* line 2951, ../sass/styles.scss */
+  /* line 2959, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 2955, ../sass/styles.scss */
+  /* line 2963, ../sass/styles.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 2959, ../sass/styles.scss */
+  /* line 2967, ../sass/styles.scss */
   form#user-profile-form ul#main-menu.main-menu li.menu-item > a,
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a {
     width: 150px;
   }
-  /* line 2963, ../sass/styles.scss */
+  /* line 2971, ../sass/styles.scss */
   form#user-profile-form div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -3169,7 +3174,7 @@ div#block-block-13 {
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 2969, ../sass/styles.scss */
+  /* line 2977, ../sass/styles.scss */
   form#user-profile-form div#content,
   body.admin-menu div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content {
@@ -3181,7 +3186,7 @@ div#block-block-13 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 2977, ../sass/styles.scss */
+  /* line 2985, ../sass/styles.scss */
   form#user-profile-form div#content ul.tabs-primary,
   body.admin-menu div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content ul.tabs-primary {
@@ -3189,13 +3194,13 @@ div#block-block-13 {
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 2984, ../sass/styles.scss */
+  /* line 2992, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.admin-menu fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.data-view div.button.edit-button {
     top: 130px;
   }
-  /* line 2987, ../sass/styles.scss */
+  /* line 2995, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.save-button:first-child, form#user-profile-form fieldset.group-demographic-information div.cancel-button:nth-child(2),
   body.admin-menu fieldset.group-demographic-information div.save-button:first-child,
   body.admin-menu fieldset.group-demographic-information div.cancel-button:nth-child(2),
@@ -3203,14 +3208,14 @@ div#block-block-13 {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.cancel-button:nth-child(2) {
     display: none;
   }
-  /* line 2992, ../sass/styles.scss */
+  /* line 3000, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
     width: 300px;
     margin: 0px;
   }
-  /* line 2996, ../sass/styles.scss */
+  /* line 3004, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
@@ -3222,25 +3227,25 @@ div#block-block-13 {
     clear: left;
     margin-bottom: 10px;
   }
-  /* line 3003, ../sass/styles.scss */
+  /* line 3011, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
     clear: left;
   }
-  /* line 3006, ../sass/styles.scss */
+  /* line 3014, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
     width: 112%;
   }
-  /* line 3009, ../sass/styles.scss */
+  /* line 3017, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
     margin-top: -20px;
   }
-  /* line 3014, ../sass/styles.scss */
+  /* line 3022, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
@@ -3250,13 +3255,13 @@ div#block-block-13 {
     clear: left;
     float: left;
   }
-  /* line 3019, ../sass/styles.scss */
+  /* line 3027, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
     width: 85%;
   }
-  /* line 3022, ../sass/styles.scss */
+  /* line 3030, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
@@ -3265,19 +3270,19 @@ div#block-block-13 {
     /*background-color: yellow;*/
     margin-bottom: 20px;
   }
-  /* line 3029, ../sass/styles.scss */
+  /* line 3037, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
     width: 90%;
   }
-  /* line 3032, ../sass/styles.scss */
+  /* line 3040, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
   }
-  /* line 3036, ../sass/styles.scss */
+  /* line 3044, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
@@ -3288,13 +3293,13 @@ div#block-block-13 {
     margin-bottom: -20px;
     /* edit button */
   }
-  /* line 3043, ../sass/styles.scss */
+  /* line 3051, ../sass/styles.scss */
   form#user-profile-form fieldset fieldset,
   body.admin-menu fieldset fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
     display: none;
   }
-  /* line 3046, ../sass/styles.scss */
+  /* line 3054, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -3303,7 +3308,7 @@ div#block-block-13 {
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 3049, ../sass/styles.scss */
+  /* line 3057, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -3311,7 +3316,7 @@ div#block-block-13 {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 3054, ../sass/styles.scss */
+  /* line 3062, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view div.edit-button,
   body.admin-menu fieldset div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view div.edit-button {
@@ -3319,7 +3324,7 @@ div#block-block-13 {
     top: -24px;
     font-size: 18px;
   }
-  /* line 3060, ../sass/styles.scss */
+  /* line 3068, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button,
   body.admin-menu fieldset div.fieldset-wrapper div.save-button,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button,
@@ -3327,7 +3332,7 @@ div#block-block-13 {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 3063, ../sass/styles.scss */
+  /* line 3071, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button:first-child, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu fieldset div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -3336,7 +3341,7 @@ div#block-block-13 {
     top: -30px;
     position: relative;
   }
-  /* line 3069, ../sass/styles.scss */
+  /* line 3077, ../sass/styles.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
@@ -3347,7 +3352,7 @@ div#block-block-13 {
     top: 30px;
     display: block;
   }
-  /* line 3077, ../sass/styles.scss */
+  /* line 3085, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -3360,13 +3365,13 @@ div#block-block-13 {
   }
 }
 @media screen and (max-width: 736px) and (-webkit-min-device-pixel-ratio: 0) and (max-width: 736px) {
-  /* line 3089, ../sass/styles.scss */
+  /* line 3097, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
   body.admin-menu fieldset.group-account,
   body.admin-menu fieldset {
     margin-bottom: 0px;
   }
-  /* line 3090, ../sass/styles.scss */
+  /* line 3098, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
@@ -3375,7 +3380,7 @@ div#block-block-13 {
     padding-top: 45px;
     margin-top: 8px;
   }
-  /* line 3097, ../sass/styles.scss */
+  /* line 3105, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset {
     margin-top: 0px;
@@ -3386,7 +3391,7 @@ div#block-block-13 {
  */
 /* iPhone 6 */
 @media screen and (min-width: 343px) and (max-width: 736px) {
-  /* line 3120, ../sass/styles.scss */
+  /* line 3128, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3395,7 +3400,7 @@ div#block-block-13 {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3124, ../sass/styles.scss */
+  /* line 3132, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3404,7 +3409,7 @@ div#block-block-13 {
     width: 188.5px;
     height: 29.9px;
   }
-  /* line 3128, ../sass/styles.scss */
+  /* line 3136, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3416,20 +3421,20 @@ div#block-block-13 {
 }
 /* Devel tabs */
 @media screen and (max-width: 425px) {
-  /* line 3141, ../sass/styles.scss */
+  /* line 3149, ../sass/styles.scss */
   ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
     display: none;
   }
 }
 /* iPhone 4 */
 @media screen and (max-width: 342px) {
-  /* line 3153, ../sass/styles.scss */
+  /* line 3161, ../sass/styles.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 3157, ../sass/styles.scss */
+  /* line 3165, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -3438,7 +3443,7 @@ div#block-block-13 {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3161, ../sass/styles.scss */
+  /* line 3169, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3447,7 +3452,7 @@ div#block-block-13 {
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 3165, ../sass/styles.scss */
+  /* line 3173, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3459,7 +3464,7 @@ div#block-block-13 {
 }
 /* small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 3181, ../sass/styles.scss */
+  /* line 3189, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -3468,7 +3473,7 @@ div#block-block-13 {
     width: 290.7px;
     height: 39.1px;
   }
-  /* line 3185, ../sass/styles.scss */
+  /* line 3193, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -3488,7 +3493,7 @@ div#block-block-13 {
   /*
    *  Login Page Variables
    */
-  /* line 3212, ../sass/styles.scss */
+  /* line 3220, ../sass/styles.scss */
   html,
   body.not-logged-in.page-user:not(.page-user-register),
   body.admin-menu,
@@ -3496,7 +3501,7 @@ div#block-block-13 {
     width: 100%;
     /* login screen */
   }
-  /* line 3216, ../sass/styles.scss */
+  /* line 3224, ../sass/styles.scss */
   html div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user:not(.page-user-register) div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
@@ -3506,7 +3511,7 @@ div#block-block-13 {
     margin-left: 7%;
     padding-bottom: 8px;
   }
-  /* line 3222, ../sass/styles.scss */
+  /* line 3230, ../sass/styles.scss */
   html input#edit-search-block-form--2,
   body.not-logged-in.page-user:not(.page-user-register) input#edit-search-block-form--2,
   body.admin-menu input#edit-search-block-form--2,
@@ -3515,7 +3520,7 @@ div#block-block-13 {
     background-position: 80px 4px;
     padding-right: 20px;
   }
-  /* line 3227, ../sass/styles.scss */
+  /* line 3235, ../sass/styles.scss */
   html div#main,
   html div#content,
   body.not-logged-in.page-user:not(.page-user-register) div#main,
@@ -3528,7 +3533,7 @@ div#block-block-13 {
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 3235, ../sass/styles.scss */
+  /* line 3243, ../sass/styles.scss */
   html div#page,
   body.not-logged-in.page-user:not(.page-user-register) div#page,
   body.admin-menu div#page,
@@ -3536,21 +3541,21 @@ div#block-block-13 {
     width: 83.3333%;
     margin-top: -2px;
   }
-  /* line 3239, ../sass/styles.scss */
+  /* line 3247, ../sass/styles.scss */
   html div.top-header-container,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container,
   body.admin-menu div.top-header-container,
   body.page-user-register div.top-header-container {
     width: 100%;
   }
-  /* line 3241, ../sass/styles.scss */
+  /* line 3249, ../sass/styles.scss */
   html div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.capt-logo,
   body.admin-menu div.top-header-container div.capt-logo,
   body.page-user-register div.top-header-container div.capt-logo {
     margin-left: 8%;
   }
-  /* line 3244, ../sass/styles.scss */
+  /* line 3252, ../sass/styles.scss */
   html div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.samhsa-logo,
   body.admin-menu div.top-header-container div.samhsa-logo,
@@ -3558,7 +3563,7 @@ div#block-block-13 {
     margin-right: 8%;
   }
 
-  /* line 3253, ../sass/styles.scss */
+  /* line 3261, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3566,7 +3571,7 @@ div#block-block-13 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3261, ../sass/styles.scss */
+  /* line 3269, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#content form#user-login {
     margin-left: 0px;
@@ -3574,52 +3579,52 @@ div#block-block-13 {
     margin-left: 4%;
     margin-right: 0px;
   }
-  /* line 3268, ../sass/styles.scss */
+  /* line 3276, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 46.24985%;
     float: right;
     margin-right: 4%;
   }
-  /* line 3274, ../sass/styles.scss */
+  /* line 3282, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-position: 92% 25%;
     background-size: 75.2px 82.40px;
   }
-  /* line 3277, ../sass/styles.scss */
+  /* line 3285, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul {
     margin-left: -5px;
   }
-  /* line 3279, ../sass/styles.scss */
+  /* line 3287, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul a {
     font-size: 14px;
   }
 
-  /* line 3288, ../sass/styles.scss */
+  /* line 3296, ../sass/styles.scss */
   body.admin-menu div.bottom-footer div.disclaimer,
   body.page-user-register div.bottom-footer div.disclaimer {
     padding: 0px;
     margin-left: 8.5%;
     width: 500px;
   }
-  /* line 3293, ../sass/styles.scss */
+  /* line 3301, ../sass/styles.scss */
   body.admin-menu div#block-block-3,
   body.page-user-register div#block-block-3 {
     margin-left: 12px;
   }
-  /* line 3298, ../sass/styles.scss */
+  /* line 3306, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation,
   body.page-user-register div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 3302, ../sass/styles.scss */
+  /* line 3310, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 3320, ../sass/styles.scss */
+  /* line 3328, ../sass/styles.scss */
   body.admin-menu div#main div#content,
   body.page-user-register div#main div#content {
     width: 96.8%;
@@ -3629,27 +3634,27 @@ div#block-block-13 {
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3327, ../sass/styles.scss */
+  /* line 3335, ../sass/styles.scss */
   body.admin-menu div#main div#content ul.tabs-primary,
   body.page-user-register div#main div#content ul.tabs-primary {
     width: 97%;
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 3332, ../sass/styles.scss */
+  /* line 3340, ../sass/styles.scss */
   body.admin-menu div#main div#content input#edit-cancel.form-submit,
   body.page-user-register div#main div#content input#edit-cancel.form-submit {
     margin-left: 10px;
     text-align: center;
   }
-  /* line 3336, ../sass/styles.scss */
+  /* line 3344, ../sass/styles.scss */
   body.admin-menu div#main div#content h1#page-title,
   body.page-user-register div#main div#content h1#page-title {
     background-position: 8px 0px;
     padding-left: 70px;
     font-size: 34px;
   }
-  /* line 3341, ../sass/styles.scss */
+  /* line 3349, ../sass/styles.scss */
   body.admin-menu div#main div#content fieldset,
   body.page-user-register div#main div#content fieldset {
     /*width: 95%;*/
@@ -3660,18 +3665,18 @@ div#block-block-13 {
     border-right: 1px solid blue;
   }
 
-  /* line 3353, ../sass/styles.scss */
+  /* line 3361, ../sass/styles.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
 }
 /* large phone, small tablet */
 @media screen and (min-width: 737px) and (max-width: 767px) {
-  /* line 3364, ../sass/styles.scss */
+  /* line 3372, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1#page-title {
     font-size: 22px;
   }
-  /* line 3367, ../sass/styles.scss */
+  /* line 3375, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) form#user-login {
     margin-left: 0px;
@@ -3679,26 +3684,26 @@ div#block-block-13 {
     margin-left: 3%;
     margin-right: 0px;
   }
-  /* line 3374, ../sass/styles.scss */
+  /* line 3382, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -52px;
   }
-  /* line 3377, ../sass/styles.scss */
+  /* line 3385, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     width: 42%;
   }
-  /* line 3380, ../sass/styles.scss */
+  /* line 3388, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 22px;
   }
-  /* line 3384, ../sass/styles.scss */
+  /* line 3392, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
     background-image: none;
   }
-  /* line 3387, ../sass/styles.scss */
+  /* line 3395, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content {
     width: 100%;
@@ -3708,19 +3713,19 @@ div#block-block-13 {
 }
 /* iPad theming -- should be merged with other iPad media query most likely */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* line 3398, ../sass/styles.scss */
+  /* line 3406, ../sass/styles.scss */
   div#title-section h1#page-title {
     font-size: 25px;
   }
 
-  /* line 3404, ../sass/styles.scss */
+  /* line 3412, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
     margin-left: 10px;
   }
-  /* line 3409, ../sass/styles.scss */
+  /* line 3417, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 {
     margin-top: -77px;
   }
