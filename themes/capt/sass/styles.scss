@@ -59,6 +59,7 @@ $dash-nudge: 15px;
 $login-margin-left: 17px;
 
 $event-right-panel-pos: -27px;
+
 /*fonts*/
 
 $login-font: 16px;
@@ -142,7 +143,13 @@ $small-phone-width: 342px;
   transform: scaleX($val);
 }
 
-/* inherited prototype classes */
+/***********************************************
+ *                                             *
+ *  Extensible Classes & General Styles        *
+ *                                             *
+ ***********************************************/
+
+/* prototype classes */
 /* panels */
 
 #block-block-12 .contextual-links-wrapper {
@@ -243,9 +250,9 @@ $small-phone-width: 342px;
 /*
  *  End inherited primitives
  */
- /* pager */
+/* pager */
 
- .pager-link {
+.pager-link {
   background-repeat: no-repeat;
   color: $capt-orange;
   font-size: 14px;
@@ -495,7 +502,7 @@ div.field-name-upcoming-events {
  * Pager styles
  */
 
- ul.pager {
+ul.pager {
   padding-top: 5px;
   height: 40px;
   text-align: center;
@@ -684,11 +691,24 @@ body {
   height: 30px;
 }
 
+.bottom-footer {
+  width: 100%;
+  display: block;
+  top: 100px;
+  position: relative;
+}
+
+/***********************************************
+ *                                             *
+ *  Region-Specific Styles                     *
+ *                                             *
+ ***********************************************/
+
 /*
  *  Cancelling a registered event
  */
 
- body.node-type-dashboard {
+body.node-type-dashboard {
   #page {
     height: 100%;
     /* changed from 1000px*/
@@ -700,110 +720,104 @@ body {
   }
 }
 
-.bottom-footer {
-  width: 100%;
-  display: block;
-  top: 100px;
-  position: relative;
-}
 
 
 /*
  *  Banners
  */
- body {
-   &.front, &.not-logged-in:not(.node-type-event) {
-     header#header {
-       height: 380px;
-       background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
-       padding-left: 135px;
-       #name-and-slogan {
-         padding-top: 55px;
-         float: left;
-         clear: none;
-         h1 {
-           font-size: 3em;
-           line-height: 1em;
-         }
-         a.header__site-link {
-           color: white;
-           text-decoration: none;
-           font-weight: normal;
-           &:hover {
-             text-decoration: none;
-             color: white;
-           }
-         }
-         em {
-           font-weight: normal;
-         }
-       }
-       .region-highlighted {
-         padding: 70px 0 0 20px;
-         font-size: 1.25em;
-         text-transform: uppercase;
-         color: white;
-         float: left;
-       }
-     }
-   }
-   &.not-front {
-     header#header {
-       height: 191px;
-       background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
-       padding-left: 360px;
-       #name-and-slogan {
-         padding: 40px 0 8px 0;
-         h1 {
-           font-size: 3.25em;
-           line-height: 1em;
-         }
-         a.header__site-link {
-           color: white;
-           text-decoration: none;
-           font-weight: normal;
-           &:hover {
-             text-decoration: none;
-             color: white;
-           }
-         }
-         em {
-           font-weight: normal;
-         }
-         &.category {
-           h1 {
-             font-size: 2.25em;
-           }
-         }
-       }
-       .region-highlighted {
-         font-size: 1.25em;
-         text-transform: uppercase;
-         color: white;
-         &.category {
-           text-transform: none;
-           font-weight: bold;
-           font-size: 3.25em;
-           opacity: 0.5;
-           overflow: hidden;
-           height: 70px;
-           line-height: 1.5em;
-           margin-top: -10px;
-         }
-       }
-     }
-   }
- }
- body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
-   padding-top: 80px;
- }
+body {
+  &.front, &.not-logged-in:not(.node-type-event) {
+    header#header {
+      height: 380px;
+      background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
+      padding-left: 135px;
+      #name-and-slogan {
+        padding-top: 55px;
+        float: left;
+        clear: none;
+        h1 {
+          font-size: 3em;
+          line-height: 1em;
+        }
+        a.header__site-link {
+          color: white;
+          text-decoration: none;
+          font-weight: normal;
+          &:hover {
+            text-decoration: none;
+            color: white;
+          }
+        }
+        em {
+          font-weight: normal;
+        }
+      }
+      .region-highlighted {
+        padding: 70px 0 0 20px;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        color: white;
+        float: left;
+      }
+    }
+  }
+  &.not-front {
+    header#header {
+      height: 191px;
+      background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
+      padding-left: 360px;
+      #name-and-slogan {
+        padding: 40px 0 8px 0;
+        h1 {
+          font-size: 3.25em;
+          line-height: 1em;
+        }
+        a.header__site-link {
+          color: white;
+          text-decoration: none;
+          font-weight: normal;
+          &:hover {
+            text-decoration: none;
+            color: white;
+          }
+        }
+        em {
+          font-weight: normal;
+        }
+        &.category {
+          h1 {
+            font-size: 2.25em;
+          }
+        }
+      }
+      .region-highlighted {
+        font-size: 1.25em;
+        text-transform: uppercase;
+        color: white;
+        &.category {
+          text-transform: none;
+          font-weight: bold;
+          font-size: 3.25em;
+          opacity: 0.5;
+          overflow: hidden;
+          height: 70px;
+          line-height: 1.5em;
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+}
 
+body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
+  padding-top: 80px;
+}
 
 /*
  *  Specific event page styling for the footer.
  */
 
- #page {
+#page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
   margin: 0 auto -100px;
@@ -829,69 +843,76 @@ body {
 .disclaimer {
     width: 600px;
     }*/
-    /* treating this as the container for now */
+/* treating this as the container for now */
 
-    #main {
-      width: $page-width;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
+#main {
+  width: $page-width;
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
-    /* page */
+/* page */
 
-    #page {
-      background: #FFF;
-      padding-bottom: 2em;
-      clear: both;
-      /* from the spec */
-      width: $page-width;
-    }
+#page {
+  background: #FFF;
+  padding-bottom: 2em;
+  clear: both;
+  /* from the spec */
+  width: $page-width;
+}
 
-    .header__name-and-slogan {
-      float: none;
-      clear: both;
-    }
+.header__name-and-slogan {
+  float: none;
+  clear: both;
+}
 
-    .region-header {
-      float: right;
-      div, form {
-        display: inline;
-      }
-    }
+.region-header {
+  float: right;
+  div, form {
+    display: inline;
+  }
+}
 
-    .group-dates,
-    .group-event,
-    .group-presenter,
-    .group-materials,
-    .field-name-add-a-date + .field,
-    .field-name-add-a-presenter + .field {
-      clear: both;
-    }
+.group-dates,
+.group-event,
+.group-presenter,
+.group-materials,
+.field-name-add-a-date + .field,
+.field-name-add-a-presenter + .field {
+  clear: both;
+}
 
-    .view-instances.view-display-id-registration > .view-content > .views-row div {
-      display: inline;
-    }
+.view-instances.view-display-id-registration > .view-content > .views-row div {
+  display: inline;
+}
 
-    body.node-type-event #title-section {
-      width: auto;
-      /*280px;*/
-    }
+body.node-type-event #title-section {
+  width: auto;
+  /*280px;*/
+}
 
-    .region-help #block-block-1 {
-      text-align: center;
-      float: right;
-      margin-left: -260px;
-      width: 240px;
-      padding-right: 10px;
-      /*margin-top: 1em;*/
-    }
+.region-help #block-block-1 {
+  text-align: center;
+  float: right;
+  margin-left: -260px;
+  width: 240px;
+  padding-right: 10px;
+  /*margin-top: 1em;*/
+}
+
+
+/***********************************************
+ *                                             *
+ *  Region-Specific Styles                     *
+ *                                             *
+ ***********************************************/
 
 /*
  *  Viewing a Registered Event
  */
- /* view registration and edit notification buttons */
+/* view registration and edit notification buttons */
 
- div#block-block-1.contextual-links-region {
+div#block-block-1.contextual-links-region {
   a.button {
     width: 116px;
     display: block;
@@ -908,7 +929,6 @@ a.unflag-action {
   color: $capt-orange;
 }
 
-
 .vertical-tabs {
   clear: both;
 }
@@ -916,9 +936,7 @@ a.unflag-action {
 /* form stuff */
 
 #event-notifications-node-form {
-  .form-field-type-entityreference.field-widget-inline-entity-form-single {
-
-  }
+  .form-field-type-entityreference.field-widget-inline-entity-form-single {}
   .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
     display: none;
   }
@@ -1037,34 +1055,34 @@ h4.black {
     /* a {
 padding: 4px 7px;
 }*/
-}
-li.pager-current {
-  background-color: $capt-aqua;
-  border: 1px solid $capt-aqua;
-}
-li.pager-next,
-li.pager-last {
-  a {
-    background-image: url("../images/icons/right-arrow-aqua.png");
+    }
+    li.pager-current {
+      background-color: $capt-aqua;
+      border: 1px solid $capt-aqua;
+    }
+    li.pager-next,
+    li.pager-last {
+      a {
+        background-image: url("../images/icons/right-arrow-aqua.png");
+      }
+    }
+    li.pager-previous,
+    li.pager-first {
+      a {
+        background-image: url("../images/icons/left-arrow-aqua.png");
+      }
+    }
+    li.pager-item,
+    li.pager-current,
+    li.pager-previous,
+    li.pager-last,
+    li.pager-first,
+    li.pager-next {
+      a {
+        color: $capt-aqua;
+      }
+    }
   }
-}
-li.pager-previous,
-li.pager-first {
-  a {
-    background-image: url("../images/icons/left-arrow-aqua.png");
-  }
-}
-li.pager-item,
-li.pager-current,
-li.pager-previous,
-li.pager-last,
-li.pager-first,
-li.pager-next {
-  a {
-    color: $capt-aqua;
-  }
-}
-}
 }
 
 .field-name-my-archived-events.field-type-ds {
@@ -1081,7 +1099,6 @@ li.pager-next {
     font-style: italic;
     margin-bottom: 6px;
   }
-
   div.view-content {
     div.item-list {
       margin-left: 0px;
@@ -1136,7 +1153,7 @@ div.top-header {
     /*background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
-height: $header-height;
+  height: $header-height;
 }
 
 /*
@@ -1180,12 +1197,16 @@ div#block-block-7 {
   }
 }
 
-/*
- *  Sitewide styles
- */
- /* search */
 
- input#edit-search-block-form--2 {
+/***********************************************
+ *                                             *
+ *  Sitewide Styles 2                          *
+ *                                             *
+ ***********************************************/
+
+/* search */
+
+input#edit-search-block-form--2 {
   @include border-radius(5px);
   border: 0px;
   margin-left: 16px;
@@ -1213,9 +1234,6 @@ form#search-block-form {
 div#edit-actions {
   padding-bottom: 10px;
 }
-
-
-
 
 /*
 *  Navigation
@@ -1264,7 +1282,7 @@ ul#main-menu.main-menu {
  * Dropdown Logic
  */
 
- #navigation .links li {
+#navigation .links li {
   padding: 0px 5px 0px 0px;
 }
 
@@ -1336,45 +1354,51 @@ div#block-block-12 {
   margin-bottom: 0px;
 }
 
-/*
- *  End Sitewide Styles
- */
+
+
 /*
   *  Start Event Dashboard
   */
-  /* event dashboard content */
-  /* which styles will be specific to dashboard? */
-  /* this has a large role in determining page height */
+/* event dashboard content */
+/* which styles will be specific to dashboard? */
+/* this has a large role in determining page height */
 
-  div#content {
-    border: 1px solid $capt-midgrey;
-    width: 970px;
-    /* set to min height to avoid breaking layout */
-    min-height: 466px;
-    padding-right: 15px;
-    margin-left: $dash-nudge;
-    margin-right: 15px;
-    margin-top: 24px;
-    z-index: 10px;
-    top: 8px;
-    position: relative;
-    border-top: 1px solid white;
-    padding-left: 15px;
-    padding-top: 20px;
-  }
+div#content {
+  border: 1px solid $capt-midgrey;
+  width: 970px;
+  /* set to min height to avoid breaking layout */
+  min-height: 466px;
+  padding-right: 15px;
+  margin-left: $dash-nudge;
+  margin-right: 15px;
+  margin-top: 24px;
+  z-index: 10px;
+  top: 8px;
+  position: relative;
+  border-top: 1px solid white;
+  padding-left: 15px;
+  padding-top: 20px;
+}
 
-  /* my profile page; we need the "you are here" style too" */
+/* my profile page; we need the "you are here" style too" */
 
-  body.page-user-edit,
-  body.page-user {
-    ul#main-menu.main-menu {
-      li#menu-item-591 {
-        a {
-          @include main-active-link;
-        }
+
+ /***********************************************
+ *                                             *
+ *  Logged in Navigation                       *
+ *                                             *
+ ***********************************************/
+
+body.page-user-edit,
+body.page-user {
+  ul#main-menu.main-menu {
+    li#menu-item-591 {
+      a {
+        @include main-active-link;
       }
     }
   }
+}
 
 // admin tab is always white in an admin section.
 body.admin-menu.section-administration {
@@ -1389,7 +1413,6 @@ body.admin-menu.section-administration {
 }
 
 /* View | Edit | Manage Display | etc. tabs */
-
 
 ul.tabs-primary,
 ul.tabs-secondary {
@@ -1419,6 +1442,14 @@ ul.tabs-secondary {
     border-bottom-color: white;
   }
 }
+
+
+ /***********************************************
+ *                                             *
+ *  Page-Specific Styles 2                     *
+ *                                             *
+ ***********************************************/
+
 
 /* form elements for Edit & Create Event */
 
@@ -1460,7 +1491,9 @@ form#event-node-form, form#event-notifications-node-form {
       margin: 0px;
       padding: 0px;
       legend {
-        display: none; // I think this is fine because this isn't a public form
+        display: none;
+        // I think this is fine because this isn't a public form
+     
       }
       table {
         margin-top: 0;
@@ -1468,7 +1501,9 @@ form#event-node-form, form#event-notifications-node-form {
     }
     .text-format-wrapper {
       > div > label {
-        display: none; // I think this is fine because this isn't a public form
+        display: none;
+        // I think this is fine because this isn't a public form
+     
       }
       .form-item {
         margin-bottom: 0px;
@@ -1552,11 +1587,9 @@ form#event-node-form, form#event-notifications-node-form {
   }
 }
 
-
 div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
-
 
 /* end create event form */
 /* overall page heights */
@@ -1572,12 +1605,11 @@ body.page-node-add-event.page-node-add.section-node-add {
   }
 }
 
-
 /*
  *  Start Login Page
  */
 
- body.not-logged-in.page-user:not(.page-user-register) {
+body.not-logged-in.page-user:not(.page-user-register) {
   height: 100%;
   ul.tabs-primary {
     display: none;
@@ -1602,124 +1634,123 @@ body.page-node-add-event.page-node-add.section-node-add {
     @extend .panel-rule;
     margin-bottom: 0px;
   }
-
-
-form#user-login {
-  @extend .panel;
-  height: 311px;
-  margin-top: -20px;
-  padding-top: 10px;
-  float: left;
-  padding-bottom: 10px;
-  input#edit-submit {
-    margin-left: $login-margin-left;
+  form#user-login {
+    @extend .panel;
+    height: 311px;
+    margin-top: -20px;
+    padding-top: 10px;
+    float: left;
+    padding-bottom: 10px;
+    input#edit-submit {
+      margin-left: $login-margin-left;
+    }
+    div.description {
+      display: none;
+    }
+    div.form-item-name {
+      margin-bottom: 10px;
+      padding-top: 20px;
+    }
+    input#edit-name {
+      margin-bottom: 0px;
+    }
+    input#edit-name,
+    input#edit-pass {
+      font-size: 1.6em;
+      margin: 5px 0px 5px $login-margin-left;
+      width: 89%;
+      margin-top: 0px;
+    }
+    div.form-item-pass {
+      margin-top: 0px;
+    }
+    label {
+      font-weight: normal;
+      color: $capt-black;
+      margin-left: $login-margin-left;
+      margin-bottom: 0px;
+      font-size: $login-font;
+    }
+    div.description {
+      margin-left: 16px;
+    }
+    a.request-password {
+      margin-left: $login-margin-left + 4px;
+      font-weight: normal;
+      text-decoration: underline;
+      position: relative;
+      top: -22px;
+      color: $capt-maroon;
+      font-size: $login-font;
+    }
+    a.request-password:hover {
+      text-decoration: none;
+    }
   }
-  div.description {
-    display: none;
+  /* RIGHT */
+  #block-block-8 {
+    @extend .panel-rule-single;
+    padding-bottom: 20px;
+    h2.block-title {
+      display: none;
+    }
+    h2.custom_block_title {
+      margin-top: 0px;
+      margin-left: $login-margin-left;
+      font-size: 1.8em;
+    }
+    margin-top: -86px;
+    a {
+      color: $capt-orange;
+      font-size: 20px;
+      background: url("../images/icons/right-arrow.png") 106px 5px no-repeat;
+      font-weight: normal;
+      width: 150px;
+      display: block;
+      margin-left: $login-margin-left;
+    }
   }
-  div.form-item-name {
-    margin-bottom: 10px;
-    padding-top: 20px;
-  }
-  input#edit-name {
-    margin-bottom: 0px;
-  }
-  input#edit-name,
-  input#edit-pass {
-    font-size: 1.6em;
-    margin: 5px 0px 5px $login-margin-left;
-    width: 89%;
-    margin-top: 0px;
-  }
-  div.form-item-pass {
-    margin-top: 0px;
-  }
-  label {
-    font-weight: normal;
-    color: $capt-black;
-    margin-left: $login-margin-left;
-    margin-bottom: 0px;
-    font-size: $login-font;
-  }
-  div.description {
-    margin-left: 16px;
-  }
-  a.request-password {
-    margin-left: $login-margin-left + 4px;
-    font-weight: normal;
-    text-decoration: underline;
-    position: relative;
-    top: -22px;
-    color: $capt-maroon;
-    font-size: $login-font;
-  }
-  a.request-password:hover {
-    text-decoration: none;
-  }
-}
-/* RIGHT */
-#block-block-8 {
-  @extend .panel-rule-single;
-  padding-bottom: 20px;
-  h2.block-title {
-    display: none;
-  }
-  h2.custom_block_title {
-    margin-top: 0px;
-    margin-left: $login-margin-left;
-    font-size: 1.8em;
-  }
-  margin-top: -86px;
-  a {
-    color: $capt-orange;
-    font-size: 20px;
-    background: url("../images/icons/right-arrow.png") 106px 5px no-repeat;
-    font-weight: normal;
-    width: 150px;
-    display: block;
-    margin-left: $login-margin-left;
-  }
-}
-/* why register */
-#block-block-9 {
-  @extend .panel-rule-single;
-  background-image: url("../images/icons/register.png");
-  background-position: 270px 30px;
-  background-repeat: no-repeat;
-  height: 192px;
-  margin-top: 9px;
-  h2.block-title {
-    margin-left: $login-margin-left;
-    font-size: 1.8em;
-  }
-  ul {
-    margin-left: 4px;
-    li {
-      list-style-image: url("../images/icons/arrow-icons-aqua.png");
-      font-size: 16px;
+  /* why register */
+  #block-block-9 {
+    @extend .panel-rule-single;
+    background-image: url("../images/icons/register.png");
+    background-position: 270px 30px;
+    background-repeat: no-repeat;
+    height: 192px;
+    margin-top: 9px;
+    h2.block-title {
+      margin-left: $login-margin-left;
+      font-size: 1.8em;
+    }
+    ul {
+      margin-left: 4px;
+      li {
+        list-style-image: url("../images/icons/arrow-icons-aqua.png");
+        font-size: 16px;
+        font-weight: normal;
+      }
+    }
+    a {
+      /* color needed? */
+      color: $capt-black;
       font-weight: normal;
     }
   }
-  a {
-    /* color needed? */
-    color: $capt-black;
-    font-weight: normal;
+  #block-block-9,
+  #block-block-8 {
+    @extend .panel-rule-single;
+    margin-right: 85px;
+    width: 390px;
+    float: right;
+    background-repeat: no-repeat;
+    h2 {
+      font-weight: normal;
+      color: $capt-darkblue;
+      margin-left: 28px;
+    }
   }
 }
-#block-block-9,
-#block-block-8 {
-  @extend .panel-rule-single;
-  margin-right: 85px;
-  width: 390px;
-  float: right;
-  background-repeat: no-repeat;
-  h2 {
-    font-weight: normal;
-    color: $capt-darkblue;
-    margin-left: 28px;
-  }
-}
-}
+
 body.not-logged-in.page-user.page-user-password h1#page-title {
   margin-left: 27px;
   text-transform: capitalize;
@@ -1777,7 +1808,7 @@ body.page-node-registrations {
  * Event pages - both anonymous and logged in
  */
 
- body.node-type-event {
+body.node-type-event {
   ul#main-menu.main-menu li#menu-item-588 {
     a {
       @include main-active-link;
@@ -1888,7 +1919,6 @@ body.page-node-registrations {
   h2.element-invisible {
     display: none;
   }
-
   /* dates panel */
   .ds-2col-stacked > .group-left {
     width: auto;
@@ -1939,26 +1969,24 @@ body.page-node-registrations {
     .item-list h3 {
       font-size: 16px;
     }
-
     /* extra padding on dates panel because of floats */
     .field-type-ds.field-name-event-date-s- {
       padding-top: 25px;
-  //    margin-left: $event-right-panel-pos;
-  &:before {
-    margin-left: -27px;
-    padding-left: 54px;
-  }
-}
-.field-type-ds.field-name-join-this-event {
-  &:before {
-    margin-left: -27.5px;
-    width: 320px;
-    margin-top: 0px;
-    top: -10px;
-    left: 1px;
-
-  }
-}
+      //    margin-left: $event-right-panel-pos;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+      }
+    }
+    .field-type-ds.field-name-join-this-event {
+      &:before {
+        margin-left: -27.5px;
+        width: 320px;
+        margin-top: 0px;
+        top: -10px;
+        left: 1px;
+      }
+    }
     /**
     * Materials portion of event page
     */
@@ -2063,7 +2091,7 @@ body.page-node-registrations {
  *  Event Page, not logged in
  */
 
- body.node-type-event.not-logged-in {
+body.node-type-event.not-logged-in {
   #main {
     padding-top: 0;
   }
@@ -2083,7 +2111,7 @@ body.page-node-registrations {
  *  Event Report
  */
 
- body.page-administration-event-report {
+body.page-administration-event-report {
   table.views-table {
     tbody {
       border: 1px solid $capt-midgrey;
@@ -2110,7 +2138,7 @@ body.page-node-registrations {
  *  styles from Nancy on 5/21-5/22:
  */
 
- #account-pass-restrictions {
+#account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
@@ -2129,29 +2157,29 @@ div.group-audience, div.group-description, div.group-dates {
   /* p {
        margin: 0px;
        }*/
-     }
+}
 
-     /* Float image on Presenters in Event view. */
+/* Float image on Presenters in Event view. */
 
-     .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
-      float: left;
-      div.field-content img {
-        margin-right: 20px;
-        border: 1px solid red;
-      }
-    }
+.field-name-field-presenter .node-teaser .field-name-field-presenter-image {
+  float: left;
+  div.field-content img {
+    margin-right: 20px;
+    border: 1px solid red;
+  }
+}
 
-    div.views-field.views-field-field-presenter-image {
-      margin: 5px 15px 0px 0px;
-      /*16px 23px 0px 0px;*/
-      line-height: 1em;
-    }
+div.views-field.views-field-field-presenter-image {
+  margin: 5px 15px 0px 0px;
+  /*16px 23px 0px 0px;*/
+  line-height: 1em;
+}
 
 /**
  * Disclaimer Placement Section
  */
 
- body.node-type-event div.bottom-footer {
+body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
@@ -2172,21 +2200,17 @@ body.node-type-event #block-block-12 {
 /*
  *  Mozilla-specific fix for footer.
  */
- @-moz-document url-prefix() {
-  body.node-type-event  {
-
+@-moz-document url-prefix() {
+  body.node-type-event {
     #page {
       margin-bottom: -100px;
       padding-bottom: 100px;
-
     }
-
     #block-block-12 .disclaimer {
       top: 20px;
       left: 20px;
     }
   }
-
 }
 
 
@@ -2205,7 +2229,7 @@ body.page-user-edit div.disclaimer {
  * page administration
  */
 
- body.page-administration {
+body.page-administration {
   div#content div#title-section {
     h2 {
       display: none;
@@ -2217,7 +2241,7 @@ body.page-user-edit div.disclaimer {
  *  User profile page
  */
 
- form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
@@ -2320,7 +2344,7 @@ body.page-user-edit div.disclaimer {
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
 
- body.not-logged-in.page-user-register:not(.node-type-event) {
+body.not-logged-in.page-user-register:not(.node-type-event) {
   h1#page-title.page__title {
     @extend .calendar-title;
     margin-top: 0px;
@@ -2349,7 +2373,7 @@ body.page-user-edit div.disclaimer {
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
- form#user-profile-form {
+form#user-profile-form {
   .edit-button,
   .save-button,
   .cancel-button {
@@ -2369,56 +2393,56 @@ body.page-user-edit div.disclaimer {
         cursor: pointer;
         padding: 8px 20px;
         }*/
-        input.form-text {
-          border: 1px solid $capt-midgrey;
-        }
-        .edit-button:after,
-        .save-button:after,
-        .cancel-button:after {
-          content: " ]";
-        }
-        .edit-button:before,
-        .save-button:before,
-        .cancel-button:before {
-          content: "[ ";
-        }
-        .cancel-button {
-          clear: right;
-        }
-        /* new planbox styles */
-        .item {
-          font-size: 14px;
-          margin: 10px 0 10px 5px;
-          line-height: 1.5em;
-          /*font-style: italic;*/
-          .value {
-            font-style: italic;
-          }
-        }
-        /* fieldset styles */
-        .fieldset-wrapper {
-          margin-left: 0px;
-          width: 97.9%;
-        }
-      }
+  input.form-text {
+    border: 1px solid $capt-midgrey;
+  }
+  .edit-button:after,
+  .save-button:after,
+  .cancel-button:after {
+    content: " ]";
+  }
+  .edit-button:before,
+  .save-button:before,
+  .cancel-button:before {
+    content: "[ ";
+  }
+  .cancel-button {
+    clear: right;
+  }
+  /* new planbox styles */
+  .item {
+    font-size: 14px;
+    margin: 10px 0 10px 5px;
+    line-height: 1.5em;
+    /*font-style: italic;*/
+    .value {
+      font-style: italic;
+    }
+  }
+  /* fieldset styles */
+  .fieldset-wrapper {
+    margin-left: 0px;
+    width: 97.9%;
+  }
+}
 
-      /* prevent overlap with bottom save & cancel buttons */
-      form#user-profile-form > div > fieldset > .fieldset-wrapper {
-        padding-bottom: 60px;
-      }
+/* prevent overlap with bottom save & cancel buttons */
+form#user-profile-form > div > fieldset > .fieldset-wrapper {
+  padding-bottom: 60px;
+}
 
-      /* OMB Block; we may want to just use a form here */
-      body.page-user-edit, body.page-user-register {
-        #block-block-3 {
-          margin: 0 20px 30px 10px;
-          font-size: 12px;
-        }
-      }
+/* OMB Block; we may want to just use a form here */
+body.page-user-edit, body.page-user-register {
+  #block-block-3 {
+    margin: 0 20px 30px 10px;
+    font-size: 12px;
+  }
+}
 
 /**
  * Switch User
  */
- div.block-devel#block-devel-switch-user {
+div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
   padding: 20px;
@@ -2433,7 +2457,7 @@ body.page-user-edit div.disclaimer {
  *  Request password page
  */
 
- body.page-user-password {
+body.page-user-password {
   div#content div#title-section {
     width: 400px;
     margin: 0px auto;
@@ -2462,7 +2486,7 @@ form#user-pass {
  *  Workflow Styles
  */
 
- .node-event.workflow-in-progress .group-left::after {
+.node-event.workflow-in-progress .group-left::after {
   color: #ccbb99;
   content: "DRAFT";
   display: block;
@@ -2488,7 +2512,6 @@ form#user-pass {
     margin-top: 0;
   }
 }
-
 
 form.workflow-transition-form {
   padding: 10px 26px 20px 26px;
@@ -2516,10 +2539,6 @@ form.workflow-transition-form {
   margin-top: -1em;
 }
 
-
-
-
-
 /* MATT STYLES */
 /*** Table Registrations-list (from Nancy, 7/10) ***/
 .no-registrations {
@@ -2546,7 +2565,7 @@ form.workflow-transition-form {
   font-size: 89%;
   p {
     margin: 0 2em;
-  }  
+  }
 }
 
 #registrations-list {
@@ -2569,7 +2588,7 @@ form.workflow-transition-form {
 }
 
 .participate-others-button a:visited,
-.register-others-button  a:visited {
+.register-others-button a:visited {
   color: white !important;
 }
 
@@ -2580,16 +2599,13 @@ form.workflow-transition-form {
     font-weight: normal;
   }
 }
+
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
 
-
-
-  body.not-logged-in.section-user.page-user {
-
-   div#title-section {
- 
+body.not-logged-in.section-user.page-user {
+  div#title-section {
     margin: 0px auto;
     border-bottom: 0px;
     width: 360px;
@@ -2604,16 +2620,14 @@ form.workflow-transition-form {
       margin-left: -21px;
     }
   }
-
-} 
-
-
+}
 
 // banner subtitle
-div#block-block-13 {
-    top: -70px;
-    position: relative;
-    left: -18px;
+body.not-logged-in div#block-block-13 {
+  position: absolute;
+  width: 260px;
+  top: 50px;
+  left: 420px;
 }
 
 /***********************************************
@@ -2625,7 +2639,7 @@ div#block-block-13 {
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
  */
- @media all and (max-width: 479px) {
+@media all and (max-width: 479px) {
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
@@ -2646,8 +2660,7 @@ div#block-block-13 {
  * General Mobile Styles
  */
 
- @media screen and (max-width: 1024px) {
- 
+@media screen and (max-width: 1024px) {
   div#main {
     width: 100%;
     margin-left: 0px;
@@ -2673,16 +2686,16 @@ div#block-block-13 {
               display: none;
             }
             // end items
-
+         
           }
           // end menu
-
+       
         }
         // end contextual links
-
+     
       }
       // end region nav
-
+   
     }
   }
 }
@@ -2690,8 +2703,8 @@ div#block-block-13 {
 /*
  *  iPad portrait
  */
- /* hide search block form */
- @media screen and (max-width: 768px) {
+/* hide search block form */
+@media screen and (max-width: 768px) {
   input#edit-search-block-form--2, div#edit-actions {
     display: none;
   }
@@ -2704,12 +2717,12 @@ div#block-block-13 {
  * iPhone 6 landscape
  */
 
- @media screen and (max-width: $phone-tablet-divide) {
+@media screen and (max-width: $phone-tablet-divide) {
   /* general styles */
   /*
    * prototype classes´
    */
-   .reset-layout {
+  .reset-layout {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -2743,7 +2756,7 @@ div#block-block-13 {
   /*
    *  End Prototypes, Start Mixins
    */
-   @mixin side_borders($color) {
+  @mixin side_borders($color) {
     border-left: 1px solid $color;
     border-right: 1px solid $color;
   }
@@ -2758,8 +2771,8 @@ div#block-block-13 {
   /*
    *Start General Styles
    */
-   html,
-   body {
+  html,
+  body {
     width: 100%;
     min-width: 320px;
     overflow-x: visible;
@@ -2825,7 +2838,7 @@ div#block-block-13 {
   /*
    *  iPhone Styles -- User Login Page
    */
-   #main {
+  #main {
     @extend .reset-layout;
   }
   body.not-logged-in.page-user:not(.page-user-register) {
@@ -2892,7 +2905,7 @@ div#block-block-13 {
       }
     }
     // end user login
-
+ 
   }
   // end body
   div.bottom-footer {
@@ -2947,9 +2960,9 @@ div#block-block-13 {
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-   form#user-profile-form,
-   body.admin-menu,
-   body.not-logged-in.page-user-register:not(.node-type-event) {
+  form#user-profile-form,
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event) {
     div#block-block-3.block.block-block {
       width: 85%;
       margin: 0px auto;
@@ -3107,7 +3120,7 @@ div#block-block-13 {
  *  Logo Styles for iPhone 6 and iPhone 4
  */
 
- @mixin logo_size($width, $height, $scale) {
+@mixin logo_size($width, $height, $scale) {
   background-size: $width * $scale $height * $scale;
   width: $width * $scale;
   height: $height * $scale;
@@ -3201,16 +3214,13 @@ div#block-block-13 {
  * Start iPad responsive theming
  */
 
- @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
-
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
   /*
    *  Login Page Variables
    */
-   $iPad-login-width: 0.3476;
-   $iPad-page-width: 0.8333;
-   $iPad-intro-width: 0.3854; 
-
-
+  $iPad-login-width: 0.3476;
+  $iPad-page-width: 0.8333;
+  $iPad-intro-width: 0.3854;
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
@@ -3250,8 +3260,6 @@ div#block-block-13 {
     }
   }
   // login screen, iPad
-
-
   body.not-logged-in.page-user:not(.page-user-register) {
     div#main,
     div#content {
@@ -3260,17 +3268,16 @@ div#block-block-13 {
       padding-left: 0px;
       padding-right: 0px;
     }
-
     div#title-section,
     div#content form#user-login {
       margin-left: 0px;
-      width: ($iPad-login-width/$iPad-page-width)*100%;
+      width: $iPad-login-width / $iPad-page-width * 100%;
       margin-left: 4%;
       margin-right: 0px;
     }
     div#block-block-8,
     div#block-block-9 {
-      width: ($iPad-intro-width/$iPad-page-width)*100%;
+      width: $iPad-intro-width / $iPad-page-width * 100%;
       float: right;
       margin-right: 4%;
     }
@@ -3307,16 +3314,16 @@ div#block-block-13 {
                 display: none;
               }
               // end items
-
+           
             }
             // end menu
-
+         
           }
           // end contextual links
-
+       
         }
         // end region nav
-
+     
       }
       // end nav
       // content, profile screen, iPad for registration d
@@ -3359,14 +3366,15 @@ div#block-block-13 {
   }
   // TO DO: event dashboard, iPad
   // TO DO: event detail, iPad
+  /* password reset - you get to it via email link */
   body.not-logged-in.section-user.page-user {
-
-   div#title-section {
-    margin: 0px auto;
-    width: 360px;
+    div#title-section {
+      margin: 0px auto;
+      width: 360px;
+    }
   }
 }
-}
+/* end iPad theming */
 
 /* large phone, small tablet */
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
@@ -3421,5 +3429,3 @@ div#block-block-13 {
     }
   }
 }
-
-
