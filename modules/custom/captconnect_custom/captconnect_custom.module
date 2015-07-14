@@ -234,7 +234,6 @@ function captconnect_custom_view_registrations($node) {
       'empty' => t('There are currently no instances of this event.'),
       );
     $event = entity_metadata_wrapper('node', $node);
-    
     $flag = flag_get_flag('participate');
 
     // Query for registrations below.
@@ -297,7 +296,6 @@ function captconnect_custom_view_registrations($node) {
 
           $participated = db_query("SELECT 1 FROM {flagging} WHERE entity_id = :nid AND uid = :uid AND fid = 1 ",
             array(':nid' => $instance->nid->value(), ':uid' => $uid))->fetchField();
-            
           $join_class = array('join-link');
 
           if ($instance_is_past) {
@@ -330,7 +328,7 @@ function captconnect_custom_view_registrations($node) {
                   $query += array('token' => flag_get_token($instance->nid->value()));
                   $attrs = array('title' => $flag->get_label('flag_long', $instance->nid->value()));
                   $join_class[] = 'proxy';
-                  $join = l($flag->get_label('flag_short', $instance->nid->value()), 
+                  $join = l($flag->get_label('flag_short', $instance->nid->value()),
                     'event/participate/' . $instance->nid->value() . '/' . $account->uid,
                     array('query' => $query, 'attributes' => $attrs));
                 }
@@ -386,8 +384,8 @@ function captconnect_custom_participate_someone_else($instance, $account) {
   $token = $_GET['token'];
   if ($token == flag_get_token($instance->nid)) {
     if (!flag('flag', 'participate', $instance->nid, $account)) {
-      drupal_set_message(t('@name participation in "@title" failed,', 
-        array('@name' => format_username($account), '@title' => $instance->label()), 'error'));
+      drupal_set_message(t('@name participation in "@title" failed,',
+      array('@name' => format_username($account), '@title' => $instance->label()), 'error'));
     }
   }
   else {

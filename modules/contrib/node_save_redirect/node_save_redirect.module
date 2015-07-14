@@ -4,7 +4,6 @@
  * Allows a user to be redirected after submitting a node.
  */
 
-
 /**
  * Implements hook_form_FORM_ID_alter().
  *
@@ -23,9 +22,7 @@ function node_save_redirect_form_node_form_alter(&$form, &$form_state, $form_id)
  * Adds the action and redirect fields. Used by node type edit and node edit forms.
  */
 function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
-
   if (isset($form['#node_type'])) {
-
     // ADdd the new radios buttons to the submission vertical tab.
     $form['submission']['node_save_redirect'] = array(
       '#type' => 'radios',
@@ -34,7 +31,7 @@ function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
         0 => t('Default'),
         1 => t('Return to Edit page after saving.'),
         2 => t('Return to Content Overview after saving.'),
-        3 => t('Re-direct to custom location'),
+        3 => t('Re-direct to custom location.'),
       ),
       '#description' => t('Choose where the user should be sent after creating new content.'),
       '#default_value' => variable_get('node_save_redirect_' . $form['#node_type']->type, 0)
@@ -42,7 +39,7 @@ function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
 
     // Only add workbench options if workbench is installed.
     if (module_exists('workbench')) {
-      $form['submission']['node_save_redirect']['#options'][4] = t('Re-direct to My Workbench after saving');
+      $form['submission']['node_save_redirect']['#options'][4] = t('Re-direct to My Workbench after saving.');
     }
 
     // Add a textfield to the submission vertical tab.
@@ -58,7 +55,7 @@ function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
     );
 
     if (module_exists('token')) {
-      $form['submission']['node_save_redirect_location']['#description'] = t('Enter a custom redirect location, you may use tokens e.g. [node:nid]');
+      $form['submission']['node_save_redirect_location']['#description'] = t('Enter a custom redirect location; you may use tokens, e.g. [node:nid]');
       $form['submission']['node_save_redirect_tokens'] = array(
         '#type' => 'container',
         '#id' => 'node-save-redirect-locations',
@@ -75,7 +72,6 @@ function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
         '#global_types' => FALSE,
         '#click_insert' => FALSE,
         '#dialog' => TRUE,
-
       );
     }
 
@@ -97,13 +93,12 @@ function node_save_redirect_form_alter(&$form, &$form_state, $form_id) {
  * @param array $form_state
  */
 function node_save_redirect_node_form_submit($form, &$form_state) {
-
-  // load settings
+  // Load settings.
   $node_save_redirect_settings = variable_get('node_save_redirect_' . $form['type']['#value'], NULL);
   $custom_location = variable_get('node_save_redirect_location_' . $form['type']['#value'], '');
   $ignore_destination = variable_get('node_save_redirect_destination_' . $form['type']['#value'], '');
 
-  // Optionally destroy the destination parameter
+  // Optionally destroy the destination parameter.
   if ($ignore_destination) {
     unset($_GET['destination']);
     drupal_static_reset('drupal_get_destination');
@@ -112,28 +107,45 @@ function node_save_redirect_node_form_submit($form, &$form_state) {
 
 
   if (!is_null($node_save_redirect_settings)) {
-    if ($node_save_redirect_settings == '1') {
-      $form_state['redirect'] = 'node/' . $form_state['nid'] . '/edit';
-    }
-    elseif ($node_save_redirect_settings == '2' && user_access('access content overview')) {
-      $form_state['redirect'] = 'admin/content';
-    }
-    elseif ($node_save_redirect_settings == '4' && user_access('access workbench')) {
-      $form_state['redirect'] = 'admin/workbench';
-    }
-    elseif ($node_save_redirect_settings == '3') {
-      // Parse for tokens if possible
-      if (module_exists('token')) {
-        $custom_location = token_replace($custom_location, array('node' => $form_state['node']));
-      }
-      $options = drupal_parse_url($custom_location);
-      $form_state['redirect'] = array(
-        $options['path'],
-        array(
-          'query' => $options['query'],
-          'fragment' => $options['fragment']
-        )
-      );
+    switch ($node_save_redirect_settings) {
+      // Return to Edit page after saving.
+      case '1':
+        $form_state['redirect'] = 'node/' . $form_state['nid'] . '/edit';
+        break;
+
+      // Return to Content Overview after saving.
+      case '2':
+        if (user_access('access content overview')) {
+          $form_state['redirect'] = 'admin/content';
+        }
+        break;
+
+      // Re-direct to My Workbench after saving.
+      case '4':
+        if (user_access('access workbench')) {
+          $form_state['redirect'] = 'admin/workbench';
+        }
+        break;
+
+      // Re-direct to custom location.
+      case '3':
+        // Parse for tokens if possible.
+        if (module_exists('token')) {
+          $custom_location = token_replace($custom_location, array('node' => $form_state['node']));
+          $options = drupal_parse_url($custom_location);
+          $form_state['redirect'] = array(
+            $options['path'],
+            array(
+              'query' => $options['query'],
+              'fragment' => $options['fragment']
+              )
+            );
+        }
+        break;
+
+      default:
+        // Do nothing.
+        break;
     }
   }
 }

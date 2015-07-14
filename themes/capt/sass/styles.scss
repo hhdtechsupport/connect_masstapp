@@ -3299,6 +3299,59 @@ form.workflow-transition-form {
 
 
   /* MATT STYLES */
+/*** Table Registrations-list (from Nancy, 7/10) ***/
+.no-registrations {
+  text-align: center;
+}
+ 
+.instance-label {
+  background-color: #ddffee;
+  border-bottom: 2px solid #ff9900;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 6px 0 3px 0;
+  text-align: center;
+}
+ 
+.instance-complete {
+  color: #bb3333;
+  font-size: 75%;
+  font-style: italic;
+}
+ 
+.access-information {
+  background-color: #ffffcc;
+  font-size: 89%;
+  p {
+    margin: 0 2em;
+  }  
+}
+ 
+#registrations-list {
+  tr {
+    border-bottom: 0px;
+  }
+  tr.odd {
+    background-color: #fff !important;
+  }
+  a {
+    color: inherit !important;
+  }
+}
+ 
+/*** Register and Participate Others ***/
+.participate-others-button,
+.register-others-button {
+  border-radius: 15px !important;
+  color: white !important;
+}
+ 
+.participate-others-button a:visited,
+.register-others-button  a:visited {
+  color: white !important;
+}
+
+  /* Matt's styles for chosen container and field-widget-inline-entity-form */
   .chosen-container {
     width: 400px !important;
     a {

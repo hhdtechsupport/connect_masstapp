@@ -236,6 +236,10 @@ function _flag_anon_link($flag, $entity_id) {
   // Backward compatibility:
   $tokens['!login'] = $tokens['[login]'];
   $tokens['!register'] = $tokens['[register]'];
+
+  // Let other modules add to this list.
+  drupal_alter('flag_anon_tokens', $tokens, $link_options);
+
   return array(
     'title' => strtr($flag->get_label('anon_message', $entity_id), $tokens),
     'html' => TRUE,
