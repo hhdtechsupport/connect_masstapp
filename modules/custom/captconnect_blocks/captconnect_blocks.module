@@ -10,6 +10,7 @@
 function captconnect_blocks_block_info() {
   return array(
     'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
+    'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE /*DRUPAL_CACHE_PER_PAGE*/),
     );
 }
 
@@ -19,45 +20,15 @@ function captconnect_blocks_block_info() {
 function captconnect_blocks_block_view($delta) {
   global $user;
   $block = array();
+  $output = '';
 
   switch ($delta) {
     case 'instance_registration':
-      $output = '';
+      $block['content'] = captconnect_blocks_instance_registration_view();
+      break;
 
-      // Get the node.
-      $node = menu_get_object('node');
-      if ($node->type != 'instance') {
-        return $block;
-      }
-
-      $register = db_query("SELECT fid FROM {flag} WHERE title = 'Registration'")->fetchField();
-      $query = "SELECT uid, timestamp "
-        . "FROM {flagging} "
-        . "WHERE entity_id = :nid "
-        . "AND fid = :reg "
-        ;
-      $registrants = db_query($query, array(':nid' => $node->nid, ':reg' => $register))->fetchALLKeyed();
-
-      if (count($registrants) > 0) {
-        $accounts = entity_load('user', array_keys($registrants));
-        $rows = array();
-        $link_to_user = user_access('administer users');
-        foreach ($accounts as $uid => $account) {
-          $registrant = ($link_to_user ?
-            l(format_username($account), "user/$account->uid/edit") : format_username($account));
-
-          $rows[] = array(
-            $registrant,
-            format_date($registrants[$uid]),
-            );
-        }
-        $output .= theme('table', array('rows' => $rows));
-      }
-      else {
-        $output .= t('No registrations yet.');
-      }
-
-      $block['content'] = $output;
+    case 'date_instances':
+      $block['content'] = captconnect_blocks_date_instances_view();
       break;
   }
 
@@ -72,13 +43,14 @@ function captconnect_blocks_block_configure($delta = '') {
   $noyes = array(t('No'), t('Yes'));
 
   switch ($delta) {
-    case 'ta form info':/*
-      $form['captconnect_custom_ta_summary_subforms'] = array(
-        '#title' => t('TA Form Summary Event Subforms Count'),
+    case 'date_instances':
+      $form['captconnect_blocks_date_instances_participate'] = array(
+        '#title' => t('Show a "Participate" link'),
         '#type' => 'radios',
         '#options' => $noyes,
-        '#default_value' => variable_get('captconnect_custom_ta_summary_subforms', 0),
-        '#description' => t('In the TA Summary block, count event sub forms as event forms.'),
+        '#default_value' => variable_get('captconnect_blocks_date_instances_participate', 1),
+        '#description' => t('In this block, do you want to show a "Participate" link on instances
+          for which the current user is registered?'),
         '#attributes' => array('class' => array('container-inline')),
         ); /* */
 
@@ -93,10 +65,139 @@ function captconnect_blocks_block_configure($delta = '') {
  */
 function captconnect_blocks_block_save($delta = '', $edit = array()) {
   switch ($delta) {
-    case 'ta form info':
-//      variable_set('captconnect_custom_ta_summary_subforms', $edit['captconnect_custom_ta_summary_subforms']);
-
+    case 'date_instances':
+      variable_set('captconnect_blocks_date_instances_participate', $edit['captconnect_blocks_date_instances_participate']);
       break;
   }
 }
 
+/**
+ * Sorting function for instances below.
+ */
+function _captconnect_blocks_sort_instances($a, $b) {
+  // Are the start dates the same?
+  if ($a->field_date[LANGUAGE_NONE][0]['value'] == $b->field_date[LANGUAGE_NONE][0]['value']) {
+    // How about the end dates?
+    if ($a->field_date[LANGUAGE_NONE][0]['value2'] == $b->field_date[LANGUAGE_NONE][0]['value2']) {
+      return 0;
+    }
+    else {
+      return ($a->field_date[LANGUAGE_NONE][0]['value2'] < $b->field_date[LANGUAGE_NONE][0]['value2'] ? -1 : 1);
+    }
+  }
+  return ($a->field_date[LANGUAGE_NONE][0]['value'] < $b->field_date[LANGUAGE_NONE][0]['value'] ? -1 : 1);
+}
+
+/**
+ * block_view(date_instances).
+ */
+function captconnect_blocks_date_instances_view() {
+  // @TODO: This doesn't work for anonymous users.
+  $css = "#evant-date-instances ul {padding: 0 0 0 12px; margin-top: 0;}
+    #evant-date-instances .instance-date {font-weight: bold; font-size: 115%;}
+    #evant-date-instances .instance-time {display: block;}
+    #evant-date-instances .flag-link-normal {font-size: 89%; font-weight: normal;}
+    #evant-date-instances .flag-wrapper {display: inline;}
+    ";
+  drupal_add_css($css, 'inline');
+  $output = '<div id="evant-date-instances">';
+  $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
+  $show_participate = variable_get('captconnect_blocks_date_instances_participate', 1);
+
+  // Get the node.
+  $node = menu_get_object('node');
+  $dates = field_get_items('node', $node, 'field_date_instance');
+  $targets = array();
+  foreach ($dates as $target) {
+    $targets[] = $target['target_id'];
+  }
+  $instances = entity_load('node', $targets);
+
+  // Put them in date order.
+  uasort($instances, '_captconnect_blocks_sort_instances');
+
+  // @TODO: sort by date.
+  $items = array();
+  foreach ($instances as $nid => $instance) {
+    $start = strtotime($instance->field_date[LANGUAGE_NONE][0]['value'] . 'UTC');
+    $end = strtotime($instance->field_date[LANGUAGE_NONE][0]['value2'] . 'UTC');
+    $start_date = format_date($start, 'long');
+    $end_date = format_date($end, 'long');
+    $line = '<span class="instance-date">' . $start_date;
+    if ($end_date != $start_date) {
+      $line .= ' ' . t('to') . ' ' . $end_date;
+    }
+    $line .= '</span>';
+
+    $line .= '<span class="instance-time">';
+    $line .= format_date($start, 'time') . ' ' . t('to') . ' ' . format_date($end, 'time');
+    $line .= '</span>';
+
+    $reg_flag = flag_get_flag('registration');
+    $part_flag = flag_get_flag('participate');
+
+    // Has the instance ended yet?
+    if (REQUEST_TIME < $end) {
+      // No.
+      // Note that this results in "register" or "cancel" link.
+      $line .= flag_create_link('registration', $nid);
+
+      // @TODO: Do we show participate here?
+      // Are they already registered?
+      if ($show_participate && $reg_flag->is_flagged($nid)) {
+        // Now see if we are in the participate lead time window.
+        if (REQUEST_TIME > ($start_date - $lead_time)) {
+          $line .= flag_create_link('participate', $nid);
+        }
+      }
+    }
+
+    $items[] = $line;
+  }
+  $output .= theme('item_list', array('items' => $items));
+
+  $output .= '</div>';
+  return $output;
+}
+
+/**
+ * block_view(instance_registration).
+ */
+function captconnect_blocks_instance_registration_view() {
+  $output = '';
+
+  // Get the node.
+  $node = menu_get_object('node');
+  if ($node->type != 'instance') {
+    return $block;
+  }
+
+  $register = db_query("SELECT fid FROM {flag} WHERE title = 'Registration'")->fetchField();
+  $query = "SELECT uid, timestamp "
+    . "FROM {flagging} "
+    . "WHERE entity_id = :nid "
+    . "AND fid = :reg "
+    ;
+  $registrants = db_query($query, array(':nid' => $node->nid, ':reg' => $register))->fetchALLKeyed();
+
+  if (count($registrants) > 0) {
+    $accounts = entity_load('user', array_keys($registrants));
+    $rows = array();
+    $link_to_user = user_access('administer users');
+    foreach ($accounts as $uid => $account) {
+      $registrant = ($link_to_user ?
+        l(format_username($account), "user/$account->uid/edit") : format_username($account));
+
+      $rows[] = array(
+        $registrant,
+        format_date($registrants[$uid]),
+        );
+    }
+    $output .= theme('table', array('rows' => $rows));
+  }
+  else {
+    $output .= t('No registrations yet.');
+  }
+
+  return $output;
+}
