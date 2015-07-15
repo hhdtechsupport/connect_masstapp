@@ -212,8 +212,7 @@ function captconnect_custom_view_registrations($node) {
   global $user;
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
-    $css = "#registrations-list .join-link.mark a {font-weight: normal !important; color: #000099 !important;}
-      #registrations-list .join-link.proxy a {font-style: italic;; color: #000099 !important;}
+    $css = "#registrations-list .join-link.proxy a {font-style: italic;; color: #000099 !important;}
       td.instance-label {font-size: 1.2em; text-align: center;}
       td.access-information {background-color: #ffffcc;}
       #registrations-list a {color: inherit !important;}
@@ -296,48 +295,32 @@ function captconnect_custom_view_registrations($node) {
           $registrant = (user_access('administer users') ?
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
 
-          $participated = db_query("SELECT 1 FROM {flagging} WHERE entity_id = :nid AND uid = :uid AND fid = 1 ",
-            array(':nid' => $instance->nid->value(), ':uid' => $uid))->fetchField();
           $join_class = array('join-link');
+          $join_class[] = ($user->uid == $uid ? 'mark' : 'proxy');
+          
+          $query = drupal_get_destination();
+          $query += array('token' => flag_get_token($instance->nid->value()));
 
-          if ($instance_is_past) {
-            if ($participated) {
-              $join = t('Participated');
+          if ($part_flag->is_flagged($instance->nid->value(), $uid)) {
+            if ($user->uid == $uid) {
+              $join = flag_create_link('participate', $instance->nid->value());
             }
             else {
-              $query = drupal_get_destination();
-              $query += array('token' => flag_get_token($instance->nid->value()));
-              $attrs = array('title' => $part_flag->get_label('flag_long', $instance->nid->value()));
-              $join_class[] = 'mark';
-              $join = l(t($part_flag->get_label('flag_short', $instance->nid->value())),
+              $attrs = array('title' => $part_flag->get_label('unflag_long', $instance->nid->value()));
+              $join = l($part_flag->get_label('unflag_short', $instance->nid->value()),
                 'event/participate/' . $instance->nid->value() . '/' . $account->uid,
                 array('query' => $query, 'attributes' => $attrs));
             }
           }
           else {
-            // Only show flag after half an hour before the event, for our own events.
-          $lead_time = 86400 * 600;
-            if ((REQUEST_TIME > $start_time - $lead_time) && ($user->uid == $account->uid)) {
-              $join = flag_create_link('participate', $instance->nid->value(), array());
+            if ($user->uid == $uid) {
+              $join = flag_create_link('participate', $instance->nid->value());
             }
             else {
-              if ($participated) {
-                $join = t('Particpating');
-              }
-              else {
-                if (REQUEST_TIME > $start_time - $lead_time) {
-                  $query = drupal_get_destination();
-                  $query += array('token' => flag_get_token($instance->nid->value()));
-                  $attrs = array('title' => $part_flag->get_label('flag_long', $instance->nid->value()));
-                  $join_class[] = 'proxy';
-                  $join = l($part_flag->get_label('flag_short', $instance->nid->value()),
-                    'event/participate/' . $instance->nid->value() . '/' . $account->uid,
-                    array('query' => $query, 'attributes' => $attrs));
-                }
-                else {
-                  $join = t('Starts in approximately @interval', array('@interval' => format_interval($start_time - REQUEST_TIME, 1)));
-                }
-              }
+              $attrs = array('title' => $part_flag->get_label('flag_long', $instance->nid->value()));
+              $join = l($part_flag->get_label('flag_short', $instance->nid->value()),
+                'event/participate/' . $instance->nid->value() . '/' . $account->uid,
+                array('query' => $query, 'attributes' => $attrs));
             }
           }
 
@@ -387,9 +370,16 @@ function captconnect_custom_view_registrations($node) {
 function captconnect_custom_participate_someone_else($instance, $account) {
   $token = $_GET['token'];
   if ($token == flag_get_token($instance->nid)) {
-    if (!flag('flag', 'participate', $instance->nid, $account)) {
-      drupal_set_message(t('@name participation in "@title" failed,',
-      array('@name' => format_username($account), '@title' => $instance->label()), 'error'));
+    $part_flag = flag_get_flag('participate');
+    $action = ($part_flag->is_flagged($instance->nid, $account->uid) ? 'unflag' : 'flag');
+
+    if (!flag($action, 'participate', $instance->nid, $account)) {
+      drupal_set_message(t('@name @action participation in "@title" failed,',
+      array(
+        '@name' => format_username($account),
+        '@title' => $instance->label(),
+        '@action' => $action,
+        ), 'error'));
     }
   }
   else {
@@ -926,13 +916,18 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
-
+  
+  dpm(ip_address(), 'ip_address');
+  $result = db_query("SELECT * FROM {sessions} WHERE hostname = :ip", array(':ip' => ip_address()))->fetchAll();
+  dpm($result, 'result');
+/*
   // Flush the schema cache.
   $schema = drupal_get_schema('captconnect_custom_anon_register', TRUE);
   if ($schema === FALSE) {
     $schema = 'Bah, humbug!';
   }
   $output .= '<pre>' . print_r($schema, TRUE) . '</p>';
+/* */
 
   return $output;
 }
