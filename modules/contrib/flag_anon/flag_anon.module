@@ -226,6 +226,7 @@ function flag_anon_preprocess_flag(&$variables) {
 function _flag_anon_link($flag, $entity_id) {
   $link_options = array(
     'query' => drupal_get_destination(),
+    'entity_id' => $entity_id,
   );
   $tokens = array(
     '[login]' => l(t('login'), 'user/login', $link_options),
