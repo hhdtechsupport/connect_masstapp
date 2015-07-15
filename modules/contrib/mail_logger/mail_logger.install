@@ -91,6 +91,8 @@ function mail_logger_install() {
  */
 function mail_logger_uninstall() {
   variable_del('mail_logger_log_maximum_age');
+  variable_del('mail_logger_log_date_format');
+  variable_del('mail_logger_log_lines_per_page');
 }
 
 /**
