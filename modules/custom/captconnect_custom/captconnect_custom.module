@@ -57,6 +57,14 @@ function captconnect_custom_menu() {
     'type' => MENU_CALLBACK,
     );
 
+  $items['event/unregister/%node/%user'] = array(
+    'title' => 'Unflag registration for someone else',
+    'page callback' => 'captconnect_custom_unregister_someone_else',
+    'page arguments' => array(2, 3),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
   $items['admin/config/administration/captconnect'] = array(
     'title' => 'CAPT Connect',
     'description' => 'Various settings to control CAPT Connect custom functions',
@@ -87,7 +95,7 @@ function captconnect_custom_menu() {
     );
 
   $items['anon_register/%'] = array(
-    'title' => 'Anonymous Registration',
+    'title' => 'Create a new account',
     'description' => 'Create user then register.',
     'page callback' => 'captconnect_custom_anon_register',
     'page arguments' => array(1),
@@ -212,12 +220,9 @@ function captconnect_custom_view_registrations($node) {
   global $user;
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
-    $css = "#registrations-list .join-link.proxy a {font-style: italic;; color: #000099 !important;}
-      td.instance-label {font-size: 1.2em; text-align: center;}
-      td.access-information {background-color: #ffffcc;}
-      #registrations-list a {color: inherit !important;}
+    $css = "
       ";
-    drupal_add_css($css, 'inline');
+//    drupal_add_css($css, 'inline');
 
     $table = array(
       'rows' => array(),
@@ -297,9 +302,20 @@ function captconnect_custom_view_registrations($node) {
 
           $join_class = array('join-link');
           $join_class[] = ($user->uid == $uid ? 'mark' : 'proxy');
-          
+
+          // Query parameter for all links below.
           $query = drupal_get_destination();
           $query += array('token' => flag_get_token($instance->nid->value()));
+
+          if ($user->uid == $uid) {
+            $reg_link = l(t($reg_flag->get_label('unflag_short', $instance->nid->value())),
+              'flag/unflag/registration/' . $instance->nid->value(), array('query' => $query));
+          }
+          else {
+            // @TODO: Cancel registration for someone else.
+            $reg_link = l(t($reg_flag->get_label('unflag_short', $instance->nid->value())),
+              'event/unregister/' . $instance->nid->value() . '/' . $account->uid, array('query' => $query));
+          }
 
           if ($part_flag->is_flagged($instance->nid->value(), $uid)) {
             if ($user->uid == $uid) {
@@ -324,12 +340,10 @@ function captconnect_custom_view_registrations($node) {
             }
           }
 
-          // @TODO: unflag for others.
           $table['rows'][] = array(
             array('data' => $registrant, 'class' => array('registrant_name')),
             array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
-            array('data' => l(t($reg_flag->get_label('unflag_short', $instance->nid->value())),
-              'flag/unflag/registration/' . $instance->nid->value()), 'class' => array('cancel_link')),
+            array('data' => $reg_link, 'class' => array('cancel_link')),
             array('data' => $join, 'class' => $join_class),
             );
         }
@@ -375,6 +389,29 @@ function captconnect_custom_participate_someone_else($instance, $account) {
 
     if (!flag($action, 'participate', $instance->nid, $account)) {
       drupal_set_message(t('@name @action participation in "@title" failed,',
+      array(
+        '@name' => format_username($account),
+        '@title' => $instance->label(),
+        '@action' => $action,
+        ), 'error'));
+    }
+  }
+  else {
+    drupal_set_message(t('Invalid token in link.'));
+  }
+  drupal_goto();
+}
+
+/**
+ * Particpate flag for someone else.
+ */
+function captconnect_custom_unregister_someone_else($instance, $account) {
+  $token = $_GET['token'];
+  if ($token == flag_get_token($instance->nid)) {
+    $part_flag = flag_get_flag('registrtation');
+
+    if (!flag('unflag', 'registration', $instance->nid, $account)) {
+      drupal_set_message(t('@name unregister in "@title" failed,',
       array(
         '@name' => format_username($account),
         '@title' => $instance->label(),
@@ -662,7 +699,17 @@ function captconnect_custom_user_login(&$edit, $account) {
     $instance_nid = key($result);
 
     // Actually execute the flag before going to the event.
-    flag('flag', 'registration', $instance_nid, $account);
+    $event = node_load($event_nid);
+    if (flag('flag', 'registration', $instance_nid, $account)) {
+      drupal_set_message(t('You are now registered for "@title".',
+      array('@title' => $event->title)));
+    }
+    else {
+      drupal_set_message(t('Your registration for "@title" failed;
+        please try again now that you are logged in.',
+        array('@title' => $event->title)));
+    }
+
 
     // Delete the record and then go to the event.
     $num_deleted = db_delete('captconnect_custom_anon_register')
@@ -861,16 +908,13 @@ function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
  * @param $instance - nid of the instance node for which registration is desired.
  */
 function captconnect_custom_anon_register($instance) {
-//  $dest = drupal_get_destination();
-//  $parts = explode('/', $dest['destination']);
-//  dpm($instance, 'instance');
-
   // Save our stuff in form_state.
   $form_state = array(
     'cache' => TRUE,
-//    'captconnect_anon_register' => $parts[1],
     'captconnect_anon_register' => $instance,
     );
+  drupal_set_message(t('If you already have an account here, please 
+    <a href="!login_url">Log In</a>', array('!login_url' => url('user'))));
 
   return drupal_build_form('user_register_form', $form_state);
 }
@@ -916,7 +960,7 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
-  
+
   dpm(ip_address(), 'ip_address');
   $result = db_query("SELECT * FROM {sessions} WHERE hostname = :ip", array(':ip' => ip_address()))->fetchAll();
   dpm($result, 'result');
