@@ -11,6 +11,7 @@ function mail_logger_overview() {
   drupal_add_css(drupal_get_path('module', 'mail_logger') . '/mail_logger.css');
   $form = drupal_get_form('mail_logger_form_overview');
   $output = drupal_render($form);
+  $date_format = variable_get('mail_logger_log_date_format', 'short');
 
   $header = array(
     array('data' => t('Date Sent'), 'field' => 'date_sent', 'sort' => 'desc'),
@@ -22,7 +23,7 @@ function mail_logger_overview() {
   );
 
   $query = db_select('mail_logger', 'ml')
-    ->extend('PagerDefault')->limit(50)
+    ->extend('PagerDefault')->limit(variable_get('mail_logger_log_lines_per_page', 50))
     ->extend('TableSort')->orderByHeader($header)
     ->fields('ml', array(
       'mlid',
@@ -67,7 +68,7 @@ function mail_logger_overview() {
     $rows[] = array('data' =>
       array(
         // Cells
-        format_date($mail_logger->date_sent, 'small'),
+        format_date($mail_logger->date_sent, $date_format),
         $mail_logger->mailkey,
         $mail_logger->language,
         $mail_logger->mailto,
