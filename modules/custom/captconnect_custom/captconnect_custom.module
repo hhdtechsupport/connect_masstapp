@@ -86,10 +86,11 @@ function captconnect_custom_menu() {
     'type' => MENU_CALLBACK,
     );
 
-  $items['anon_register'] = array(
+  $items['anon_register/%'] = array(
     'title' => 'Anonymous Registration',
     'description' => 'Create user then register.',
     'page callback' => 'captconnect_custom_anon_register',
+    'page arguments' => array(1),
     'access callback' => TRUE,
     'type' => MENU_CALLBACK,
     );
@@ -235,7 +236,8 @@ function captconnect_custom_view_registrations($node) {
       );
     $event = entity_metadata_wrapper('node', $node);
 
-    $flag = flag_get_flag('participate');
+    $reg_flag = flag_get_flag('registration');
+    $part_flag = flag_get_flag('participate');
 
     // Query for registrations below.
     $reg_query = "SELECT uid, timestamp FROM {flagging} "
@@ -283,7 +285,6 @@ function captconnect_custom_view_registrations($node) {
         ));
 
       // Get the event join link.
-      // @TODO: Only show for a short time before the event?
       $link = $instance->field_link->value();
 
       // Get all the registration details.
@@ -307,9 +308,9 @@ function captconnect_custom_view_registrations($node) {
             else {
               $query = drupal_get_destination();
               $query += array('token' => flag_get_token($instance->nid->value()));
-              $attrs = array('title' => $flag->get_label('flag_long', $instance->nid->value()));
+              $attrs = array('title' => $part_flag->get_label('flag_long', $instance->nid->value()));
               $join_class[] = 'mark';
-              $join = l(t('Mark as participated'),
+              $join = l(t($part_flag->get_label('flag_short', $instance->nid->value())),
                 'event/participate/' . $instance->nid->value() . '/' . $account->uid,
                 array('query' => $query, 'attributes' => $attrs));
             }
@@ -319,7 +320,7 @@ function captconnect_custom_view_registrations($node) {
           $lead_time = 86400 * 600;
             if ((REQUEST_TIME > $start_time - $lead_time) && ($user->uid == $account->uid)) {
               $join = flag_create_link('participate', $instance->nid->value(), array());
-            }  // or flag('flag', $flag_action, $instance->nid, $account) somehow.
+            }
             else {
               if ($participated) {
                 $join = t('Particpating');
@@ -328,9 +329,9 @@ function captconnect_custom_view_registrations($node) {
                 if (REQUEST_TIME > $start_time - $lead_time) {
                   $query = drupal_get_destination();
                   $query += array('token' => flag_get_token($instance->nid->value()));
-                  $attrs = array('title' => $flag->get_label('flag_long', $instance->nid->value()));
+                  $attrs = array('title' => $part_flag->get_label('flag_long', $instance->nid->value()));
                   $join_class[] = 'proxy';
-                  $join = l($flag->get_label('flag_short', $instance->nid->value()),
+                  $join = l($part_flag->get_label('flag_short', $instance->nid->value()),
                     'event/participate/' . $instance->nid->value() . '/' . $account->uid,
                     array('query' => $query, 'attributes' => $attrs));
                 }
@@ -341,10 +342,12 @@ function captconnect_custom_view_registrations($node) {
             }
           }
 
+          // @TODO: unflag for others.
           $table['rows'][] = array(
             array('data' => $registrant, 'class' => array('registrant_name')),
             array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
-            array('data' => l(t('Cancel'), 'flag/unflag/registration/' . $instance->nid->value()), 'class' => array('cancel_link')),
+            array('data' => l(t($reg_flag->get_label('unflag_short', $instance->nid->value())),
+              'flag/unflag/registration/' . $instance->nid->value()), 'class' => array('cancel_link')),
             array('data' => $join, 'class' => $join_class),
             );
         }
@@ -434,6 +437,13 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
     $group = $implementations ['node_save_redirect'];
     unset($implementations['node_save_redirect']);
     $implementations['node_save_redirect'] = $group;
+  }
+
+  // Make our hook_user_login() fire last so we can drupal_goto().
+  if ($hook == 'user_login' && isset($implementations['captconnect_custom'])) {
+    $group = $implementations ['captconnect_custom'];
+    unset($implementations['captconnect_custom']);
+    $implementations['captconnect_custom'] = $group;
   }
 }
 
@@ -634,26 +644,46 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
  * Submit handler for user registration.
  */
 function captconnect_custom_user_register_submit($form, $form_state) {
-  // According to user_login_finalize(), the global user is set.
-  global $user;
-
   // Get the instance ID that they will register for when they come back.
-  $register_nid = $form_state['captconnect_anon_register'];
-  $args = array(
-    'uid' => $user->uid,
-    'nid' => $register_nid,
-    );
-  drupal_write_record('captconnect_custom_anon_register', $args);
+  if (isset($form_state['captconnect_anon_register'])) {
+    $register_nid = $form_state['captconnect_anon_register'];
+    if ($register_nid) {
+      $record = array(
+        'uid' => $form['#user']->uid,
+        'nid' => $register_nid,
+        );
+      $success = drupal_write_record('captconnect_custom_anon_register', $record);
+    }
+  }
 }
 
 /**
  * Implementation of hook_user_login().
- * @TODO: Should this be user_login_submit()?
  */
 function captconnect_custom_user_login(&$edit, $account) {
-  $redirect_nid = db_query("SELECT nid FROM {captconnect_custom_anon_register} WHERE uid = :uid",
-    array(':uid' => $account->uid))->fetchField();
-  dpm($account, 'Login should go to node/' . $redirect_nid);
+  // Find out if the user is mid-registration (anon user).
+  $result = db_query("SELECT ar.nid, di.entity_id "
+    . "FROM {captconnect_custom_anon_register} ar "
+    . "INNER JOIN field_data_field_date_instance di ON di.field_date_instance_target_id = ar.nid "
+    . "WHERE ar.uid = :uid ",
+    array(':uid' => $account->uid))->fetchAllKeyed();
+
+  if ($result) {
+    $event_nid = reset($result);
+    $instance_nid = key($result);
+
+    // Actually execute the flag before going to the event.
+    flag('flag', 'registration', $instance_nid, $account);
+
+    // Delete the record and then go to the event.
+    $num_deleted = db_delete('captconnect_custom_anon_register')
+      ->condition('uid', $account->uid)
+      ->execute();
+
+    // The redirect method is not working, so fall back on good ol' drupal_goto().
+    $edit['redirect'] = 'node/' . $event_nid;
+    drupal_goto('node/' . $event_nid);
+  }
 }
 
 /**
@@ -833,21 +863,24 @@ function captconnect_custom_field_extra_fields() {
  * Requires local patch, see https://www.drupal.org/node/2527594.
  */
 function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
-  $tokens['[anon_register]'] = check_url(url('anon_register', $link_options));
+  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
 }
 
 /**
  * Menu Callback.
  * Allow anonymous users to register for events.
+ * @param $instance - nid of the instance node for which registration is desired.
  */
-function captconnect_custom_anon_register() {
-  $dest = drupal_get_destination();
-  $parts = explode('/', $dest['destination']);
+function captconnect_custom_anon_register($instance) {
+//  $dest = drupal_get_destination();
+//  $parts = explode('/', $dest['destination']);
+//  dpm($instance, 'instance');
 
   // Save our stuff in form_state.
   $form_state = array(
     'cache' => TRUE,
-    'captconnect_anon_register' => $parts[1],
+//    'captconnect_anon_register' => $parts[1],
+    'captconnect_anon_register' => $instance,
     );
 
   return drupal_build_form('user_register_form', $form_state);
@@ -896,8 +929,11 @@ function captconnect_custom_nancy() {
   $output = '';
 
   // Flush the schema cache.
-  drupal_get_schema(NULL, TRUE);
-  $output .= '<p>Schema cache cleared.</p>';
+  $schema = drupal_get_schema('captconnect_custom_anon_register', TRUE);
+  if ($schema === FALSE) {
+    $schema = 'Bah, humbug!';
+  }
+  $output .= '<pre>' . print_r($schema, TRUE) . '</p>';
 
   return $output;
 }
