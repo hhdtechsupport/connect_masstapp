@@ -4,6 +4,15 @@
  * Custom Code for CAPTConnect.
  */
 
+// OPEN CODE.
+  global $conf;
+  $conf['locale_custom_strings_en'][''] = array(
+    'You must set a new password to proceed.' => 'In order to continue on this site, you need to change your password.',
+    'A welcome message with further instructions has been sent to your e-mail address.' => 
+      'An email has been sent with a link to complete the registration process.',
+    );
+  
+
 /**
  * Implements hook_permission().
  */
@@ -558,6 +567,10 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
   $current_state = workflow_state_load_single($current_sid);
   $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
+
+  // Doing this just leaves us with "Update workflow" instaed
+  // of the correct state.
+//  unset($form['workflow']['workflow_sid']['#options'][$current_sid]);
 }
 
 /**
@@ -913,7 +926,7 @@ function captconnect_custom_anon_register($instance) {
     'cache' => TRUE,
     'captconnect_anon_register' => $instance,
     );
-  drupal_set_message(t('If you already have an account here, please 
+  drupal_set_message(t('If you already have an account here, please
     <a href="!login_url">Log In</a>', array('!login_url' => url('user'))));
 
   return drupal_build_form('user_register_form', $form_state);
