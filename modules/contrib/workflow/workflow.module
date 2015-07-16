@@ -550,10 +550,23 @@ function workflow_form_alter(&$form, &$form_state, $form_id) {
     return;
   }
 
+// START INSERT  https://www.drupal.org/node/2363521 #15
+// Todo: If we are on a Formatter, not a Widget...
+//  (how to find that out?? using workflowfield_field_formatter_view()
+//   and _workflow_use_action_buttons() with value formatter/widget instead of 0/1 ?
+// Done: If Action buttons are active...
+// Done: Then remove the current value from the buttons list.
+// Todo: the current line is now duplicated ( See this line +12 )
+  $current_sid = $workflow_form['workflow_sid']['#default_value'];
+  unset($workflow_form['workflow_sid']['#options'][$current_sid]);
+
+// Todo: test the following line, with two values, one remaining.
+// END INSERT
+
   // Quit if there are no Workflow Action buttons.
   // (If user has only 1 workflow option, there are no Action buttons.)
   if (count($workflow_form['workflow_sid']['#options']) <= 1) {
-    return;
+//    return;
   }
 
   if (isset($form['actions']['submit'])) {
