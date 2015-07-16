@@ -10,7 +10,7 @@
 function captconnect_blocks_block_info() {
   return array(
     'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
-    'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE /*DRUPAL_CACHE_PER_PAGE*/),
+    'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
     );
 }
 
@@ -54,6 +54,16 @@ function captconnect_blocks_block_configure($delta = '') {
         '#attributes' => array('class' => array('container-inline')),
         ); /* */
 
+      $form['captconnect_blocks_date_instances_show_ended'] = array(
+        '#title' => t('Show Instances that have already ended'),
+        '#type' => 'radios',
+        '#options' => $noyes,
+        '#default_value' => variable_get('captconnect_blocks_date_instances_show_ended', 1),
+        '#description' => t('In this block, do you want to show instances
+          for which the end time has already passed?'),
+        '#attributes' => array('class' => array('container-inline')),
+        ); /* */
+
       break;
   }
 
@@ -67,6 +77,7 @@ function captconnect_blocks_block_save($delta = '', $edit = array()) {
   switch ($delta) {
     case 'date_instances':
       variable_set('captconnect_blocks_date_instances_participate', $edit['captconnect_blocks_date_instances_participate']);
+      variable_set('captconnect_blocks_date_instances_show_ended', $edit['captconnect_blocks_date_instances_show_ended']);
       break;
   }
 }
@@ -94,15 +105,18 @@ function _captconnect_blocks_sort_instances($a, $b) {
 function captconnect_blocks_date_instances_view() {
   // @TODO: This doesn't work for anonymous users.
   $css = "#evant-date-instances ul {padding: 0 0 0 12px; margin-top: 0;}
-    #evant-date-instances .instance-date {font-weight: bold; font-size: 115%;}
+    #evant-date-instances .instance-date {font-weight: bold;}
     #evant-date-instances .instance-time {display: block;}
     #evant-date-instances .flag-link-normal {font-size: 89%; font-weight: normal;}
     #evant-date-instances .flag-wrapper {display: inline;}
+    #evant-date-instances li.instance-ended {color: #888888;}
+    .field-name-instances-for-event {border-top: 5px solid #577785 !important;}
     ";
   drupal_add_css($css, 'inline');
   $output = '<div id="evant-date-instances">';
   $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
   $show_participate = variable_get('captconnect_blocks_date_instances_participate', 1);
+  $show_ended = variable_get('captconnect_blocks_date_instances_show_ended', 1);
 
   // Get the node.
   $node = menu_get_object('node');
@@ -116,7 +130,6 @@ function captconnect_blocks_date_instances_view() {
   // Put them in date order.
   uasort($instances, '_captconnect_blocks_sort_instances');
 
-  // @TODO: sort by date.
   $items = array();
   foreach ($instances as $nid => $instance) {
     $start = strtotime($instance->field_date[LANGUAGE_NONE][0]['value'] . 'UTC');
@@ -124,6 +137,16 @@ function captconnect_blocks_date_instances_view() {
     $start_date = format_date($start, 'long');
     $end_date = format_date($end, 'long');
     $line = '<span class="instance-date">' . $start_date;
+
+    $classes = array('instance-row');
+    // Has it already ended?
+    if (REQUEST_TIME >= $end) {
+      $classes[] = 'instance-ended';
+      if (!$show_ended) {
+        continue;
+      }
+    }
+
     if ($end_date != $start_date) {
       $line .= ' ' . t('to') . ' ' . $end_date;
     }
@@ -152,7 +175,7 @@ function captconnect_blocks_date_instances_view() {
       }
     }
 
-    $items[] = $line;
+    $items[] = array('data' => $line, 'class' => $classes);
   }
   $output .= theme('item_list', array('items' => $items));
 
