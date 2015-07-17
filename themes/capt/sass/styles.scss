@@ -24,6 +24,11 @@
 /* variables */
 /*fonts*/
 
+/***********************************************
+ *                                             *
+ *  Section_1 - Variables                      *
+ *                                             *
+ ***********************************************/
 $default-stack: Arial, Helvetica, sans-serif;
 
 /* colors*/
@@ -144,11 +149,11 @@ $small-phone-width: 342px;
   transform: scaleX($val);
 }
 
-/***********************************************
- *                                             *
- *  Extensible Classes & General Styles        *
- *                                             *
- ***********************************************/
+/***********************************************************
+ *                                                         *
+ *  Section_2 - Extensible Classes & General Styles        *
+ *                                                         *
+ ***********************************************************/
 
 /* prototype classes */
 /* panels */
@@ -699,11 +704,11 @@ body {
   position: relative;
 }
 
-/***********************************************
- *                                             *
- *  Region-Specific Styles                     *
- *                                             *
- ***********************************************/
+/**********************************************************
+ *                                                        *
+ *  Section_3 - Region-Specific Styles                    *
+ *                                                        *
+ **********************************************************/
 
 /*
  *  Cancelling a registered event
@@ -899,12 +904,6 @@ body.node-type-event #title-section {
   /*margin-top: 1em;*/
 }
 
-/***********************************************
- *                                             *
- *  Region-Specific Styles                     *
- *                                             *
- ***********************************************/
-
 /*
  *  Viewing a Registered Event
  */
@@ -971,6 +970,13 @@ h4.black {
   margin-top: 20px;
   margin-bottom: 9px;
 }
+
+
+/***********************************************
+ *                                             *
+ *  Section_4 - Dashboard                      *
+ *                                             *
+ ***********************************************/
 
 /* panels */
 
@@ -1144,6 +1150,12 @@ body.logged-in {
   }
 }
 
+/***********************************************
+ *                                             *
+ *  Section_5 Sitewide Styles 2                *
+ *                                             *
+ ***********************************************/
+
 /*logos above header - move up to general area? */
 
 div.top-header {
@@ -1153,6 +1165,7 @@ background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
   height: $header-height;
 }
+
 
 /*
 *  Logos
@@ -1195,11 +1208,7 @@ div#block-block-7 {
   }
 }
 
-/***********************************************
- *                                             *
- *  Sitewide Styles 2                          *
- *                                             *
- ***********************************************/
+
 
 /* search */
 
@@ -1351,12 +1360,7 @@ div#block-block-12 {
   margin-bottom: 0px;
 }
 
-/*
-  *  Start Event Dashboard
-  */
-/* event dashboard content */
-/* which styles will be specific to dashboard? */
-/* this has a large role in determining page height */
+
 
 div#content {
   border: 1px solid $capt-midgrey;
@@ -1379,7 +1383,7 @@ div#content {
 
 /***********************************************
 *                                             *
-*  Logged in Navigation                       *
+*  Section_6 - Logged in Navigation           *
 *                                             *
 ***********************************************/
 
@@ -1437,9 +1441,9 @@ ul.tabs-secondary {
   }
 }
 
-/***********************************************
+/**********************************************
 *                                             *
-*  Page-Specific Styles 2                     *
+*  Section_7 - Page-Specific Styles 2         *
 *                                             *
 ***********************************************/
 
@@ -1683,6 +1687,8 @@ body.not-logged-in.page-user:not(.page-user-register) {
   #block-block-8 {
     @extend .panel-rule-single;
     padding-bottom: 20px;
+    background-image: none;
+    background-repeat: no-repeat;
     h2.block-title {
       display: none;
     }
@@ -2474,6 +2480,11 @@ form#user-pass {
   margin: -20px auto 0;
 }
 
+/***********************************************
+ *                                             *
+ *  Section_8 Admin Styles (Matt & Nancy)      *
+ *                                             *
+ ***********************************************/
 /*
  *  Workflow Styles
  */
@@ -2531,7 +2542,7 @@ form.workflow-transition-form {
   margin-top: -1em;
 }
 
-/* MATT STYLES */
+
 /*** Table Registrations-list (from Nancy, 7/10) ***/
 .no-registrations {
   text-align: center;
@@ -2616,7 +2627,7 @@ body.not-logged-in.section-user.page-user {
 
 /***********************************************
  *                                             *
- *  Responsive theming!                        *
+ *  Section_9 - Responsive theming!            *
  *                                             *
  ***********************************************/
 
@@ -2719,11 +2730,12 @@ body.not-logged-in.section-user.page-user {
     position: static;
   }
   .mobile-panel {
-    padding-top: 10px;
+   padding-top: 10px;
+   text-align: left;
     margin: 0px auto;
     float: none;
     width: 84%;
-    display: block;
+    padding-left: 0px;
     background: no-repeat;
     background-color: $capt-lightgrey;
   }
@@ -2829,9 +2841,37 @@ body.not-logged-in.section-user.page-user {
     div#title-section {
       padding-top: 6px;
       padding-bottom: 6px;
+      cursor: pointer;
       @include side_borders($capt-midgrey);
     }
     /* reformatting panels for mobile */
+
+    div#content {
+      text-align: center;
+    }
+    h1#site-name {
+      display: none;
+    }
+    div#title-section {
+     
+      border-bottom: 0px;
+      margin: 0px auto;
+      left: 0px;
+      display: inline-block;
+      height: 50px;
+
+      h1 {
+        /*display: inline-block;*/
+        width: 90%;
+        margin-top: 0px;
+        padding-left: 18px;
+        
+        position: relative;
+        font-size: 1.8em;
+       /* margin-bottom: -30px;*/
+
+      }
+    }
     form#user-login,
     div#title-section,
     div#block-block-8,
@@ -2845,6 +2885,20 @@ body.not-logged-in.section-user.page-user {
       h2 {
         margin-bottom: 6px;
       }
+    }
+    div#block-block-8 {
+      .panel-body { 
+        h2 {
+          margin-left: 16px;
+        }
+        p {
+          margin-left: -14px;
+        }
+      }
+    }
+    /* banner text */
+    div#block-block-13 {
+      display: none;
     }
     /*specific disclaimer styles; more at the end */
     div.disclaimer {
@@ -2881,8 +2935,9 @@ body.not-logged-in.section-user.page-user {
     form#user-login {
       div.form-item-name {
         padding-top: 0px;
+        margin-top: -10px;
       }
-      height: 250px;
+      height: 140px;
       input#edit-submit {
         margin-top: 0px;
         top: 0px;
@@ -3144,6 +3199,7 @@ body.not-logged-in.section-user.page-user {
 }
 
 /* iPhone 4 */
+
 @media screen and (max-width: $small-phone-width) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
@@ -3171,6 +3227,7 @@ body.not-logged-in.section-user.page-user {
 }
 
 /* small tablet */
+/*
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
@@ -3188,7 +3245,7 @@ body.not-logged-in.section-user.page-user {
       }
     }
   }
-}
+}*/
 
 /**
  * End iPhone responsive theming
@@ -3391,6 +3448,7 @@ body.not-logged-in.section-user.page-user {
 /* end iPad theming */
 
 /* large phone, small tablet */
+/*
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
   body.not-logged-in.page-user:not(.page-user-register) {
     div#title-section h1#page-title {
@@ -3423,4 +3481,4 @@ body.not-logged-in.section-user.page-user {
       padding-left: 0px;
     }
   }
-}
+}*/
