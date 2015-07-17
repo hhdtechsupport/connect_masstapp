@@ -103,7 +103,7 @@ $samhsa-logo-width: 300px;
 $samhsa-logo-height: 74px;
 
 $top-margin: 10px;
-$small-phone-width: 342px;
+$small-phone-width: 360px;
 
 /* end logos */
 
@@ -2734,7 +2734,7 @@ body.not-logged-in.section-user.page-user {
    text-align: left;
     margin: 0px auto;
     float: none;
-    width: 84%;
+    width: 95%;
     padding-left: 0px;
     background: no-repeat;
     background-color: $capt-lightgrey;
@@ -3197,34 +3197,6 @@ body.not-logged-in.section-user.page-user {
   }
 }
 
-/* iPhone 4 */
-
-@media screen and (max-width: $small-phone-width) {
-  body.admin-menu,
-  body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-user:not(.page-user-register) {
-    ul#main-menu.main-menu {
-      li.menu-item > a {
-        width: 125px;
-      }
-    }
-    div.top-header {
-      height: $mobile-header-height;
-      @include rainbow-bar($mobile-header-height - $rainbow-height);
-      div.top-header-container {
-        div.capt-logo {
-          top: $top-margin + 2px;
-          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh4-scale);
-        }
-        div.samhsa-logo {
-          top: $top-margin;
-          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh4-scale);
-        }
-      }
-    }
-  }
-}
-
 /* small tablet */
 /*
 @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: 767px) {
@@ -3440,6 +3412,42 @@ body.not-logged-in.section-user.page-user {
     }
     div#block-block-8 {
       margin-top: -77px;
+    }
+  }
+}
+
+
+/* iPhone 4 */
+
+@media screen and (max-width: $small-phone-width) {
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register) {
+    
+    div#block-block-8, div#title-section, div#block-block-9 {
+      h1,h2.block-title, h2.custom_block_title {
+        font-size: 1.65em;
+      }
+    }
+    ul#main-menu.main-menu {
+      li.menu-item > a {
+        width: 125px;
+      }
+    }
+
+    div.top-header {
+      height: $mobile-header-height;
+      @include rainbow-bar($mobile-header-height - $rainbow-height);
+      div.top-header-container {
+        div.capt-logo {
+          top: $top-margin + 2px;
+          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh4-scale);
+        }
+        div.samhsa-logo {
+          top: $top-margin;
+          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh4-scale);
+        }
+      }
     }
   }
 }
