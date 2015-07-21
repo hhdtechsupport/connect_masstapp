@@ -288,8 +288,11 @@ function captconnect_custom_view_registrations($node) {
       // Is the event instance past?
       $instance_is_past = ($instance_data['end'] < REQUEST_TIME);
 
-      if (user_access('edit any instance content')
-      || (user_access('edit own instance content') && $instance->uid->value() == $user->uid)) {
+      // We can link the instance title to its node if the setting says so
+      // and the user has permission.
+      if (variable_get('captconnect_custom_registrations_link_instance', 1)
+      && (user_access('edit any instance content')
+      || (user_access('edit own instance content') && $instance->uid->value() == $user->uid))) {
         $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
 

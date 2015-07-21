@@ -68,6 +68,13 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#description' => t('This is where a user will end up after logging in.'),
     ); /* */
 
+  $form['captconnect_custom_registrations_link_instance'] = array(
+    '#type' => 'radios',
+    '#options' => $noyes,
+    '#title' => t('Link the Instance name on the Registrations page.'),
+    '#default_value' => variable_get('captconnect_custom_registrations_link_instance', 1),
+    );
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -111,7 +118,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_dest']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_registrations_link_instance']), 'style' => $style),
     );
 
   $output .= theme('table', array(
