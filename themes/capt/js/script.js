@@ -33,7 +33,7 @@ Drupal.behaviors.my_custom_behavior = {
   var iPh6H = 667;
   var iPh6W = 375;
   // new variable to account for the division between phone and tablet styles
-  var phone_tablet_divide = 736;
+  var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['207','140','34']
   // laptop, mobile-expanded, mobile-compact
@@ -63,13 +63,15 @@ Drupal.behaviors.my_custom_behavior = {
   }
   if ($('body').hasClass('role-anonymous-user'))
   {
-    $('#page-title').click(function () {
+    $('div#title-section').click(function () {
        togglePanel('#page-title','#user-login');
     });
+    // new to capt connect
     $('#block-block-8 h2.custom_block_title').click(function () {
         togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
 
     });
+    // why register
     $('#block-block-9 h2.block-title').click(function () {
         togglePanel('#block-block-9 h2.block-title',
                     '#block-block-9 div.panel-body',
@@ -83,11 +85,14 @@ Drupal.behaviors.my_custom_behavior = {
   // reset if resizing browser
     $(window).resize(function(){
         var bclass = '.role-anonymous-user ';
+        // correct login title
         panel_respond(bclass + '#page-title','#user-login');
 
-        panel_respond(bclass + '#block-block-8 h2.block-title',
+        // correct new to captconnect
+        panel_respond(bclass + '#block-block-8 h2.custom_block_title',
                       bclass + '#block-block-8 div.panel-body');
 
+        // correct why register
         panel_respond(bclass + '#block-block-9 h2.block-title',
                       bclass + '#block-block-9 div.panel-body',
                       bclass + '#block-block-9',
@@ -104,6 +109,7 @@ Drupal.behaviors.my_custom_behavior = {
         if (mql.matches)
         {
           // laptop
+         // show body
           if ($(body).css('display') == 'none') $(body).show();
             $(header).css('backgroundImage','none');
 
