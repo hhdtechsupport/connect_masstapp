@@ -7,11 +7,13 @@
 // OPEN CODE.
   global $conf;
   $conf['locale_custom_strings_en'][''] = array(
-    'You must set a new password to proceed.' => 'In order to continue on this site, you need to change your password.',
-    'A welcome message with further instructions has been sent to your e-mail address.' => 
+    'Your password has expired. You must change your password to proceed on the site.' =>
+      'In order to continue on this site, you need to change your password.',
+    'A welcome message with further instructions has been sent to your e-mail address.' =>
       'An email has been sent with a link to complete the registration process.',
+    'Click on this button to log in to the site and change your password.' => 
+      'Please log in and change your password to confirm your event registration',
     );
-  
 
 /**
  * Implements hook_permission().
@@ -100,6 +102,15 @@ function captconnect_custom_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('captconnect_custom_participate_other'),
     'access arguments' => array('register others'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['anon_login/%'] = array(
+    'title' => 'Log In',
+    'description' => 'Login then register.',
+    'page callback' => 'captconnect_custom_anon_login',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
     'type' => MENU_CALLBACK,
     );
 
@@ -476,9 +487,11 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 
   // Make our hook_user_login() fire last so we can drupal_goto().
   if ($hook == 'user_login' && isset($implementations['captconnect_custom'])) {
-    $group = $implementations ['captconnect_custom'];
+//    $group = $implementations ['captconnect_custom'];
+    $group = array('captconnect_custom' => $implementations['captconnect_custom']);
     unset($implementations['captconnect_custom']);
-    $implementations['captconnect_custom'] = $group;
+//    $implementations['captconnect_custom'] = $group;
+    $implementations = $group + $implementations;
   }
 }
 
@@ -488,8 +501,33 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_register_form':
-      // This doesn't actually work.
+      // Give them options.
+      drupal_set_message(t('If you already have an account, please
+        <a href="!login_url">Log In</a> to complete yoour registration.',
+        array('!login_url' => url('anon_login/' . arg(1),
+        array('query' => drupal_get_destination())))),
+        'status', FALSE);
+
+      // Add our submit handler.
       $form['#submit'][] = 'captconnect_custom_user_register_submit';
+
+      // Yes, there is no break, we want to fall through.
+
+    case 'user_login':
+      // User_login is normally the front page, so ignore that.
+      if (!drupal_is_front_page()) {
+        // We can get the instance nid from the original URI.
+        $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+        $parts = explode('/', $x['path']);
+        // It's $parts[2] because there is a leading slash.
+        $form['#captconnect_anon_instance'] = $parts[2];
+        $form_state['#captconnect_anon_instance'] = $parts[2];
+      }
+
+      break; /* */
+
+    case 'user_pass_reset':
+//      dpm($form, $form_id);
       break; /* */
 
     // Save the current path and grab the submit handler.
@@ -567,10 +605,6 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
   $current_state = workflow_state_load_single($current_sid);
   $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
   $form['#attributes']['class'] = array('workflow-transition-form', $class);
-
-  // Doing this just leaves us with "Update workflow" instaed
-  // of the correct state.
-//  unset($form['workflow']['workflow_sid']['#options'][$current_sid]);
 }
 
 /**
@@ -680,12 +714,33 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 }
 
 /**
+ * Menu Callback.
+ * Allow anonymous users to register for events.
+ * @param $instance - nid of the instance node for which registration is desired.
+ */
+function captconnect_custom_anon_login($instance) {
+  // So just redirect to the normal registration page.
+  menu_execute_active_handler('user', TRUE);
+}
+
+/**
+ * Menu Callback.
+ * Allow anonymous users to register for events.
+ * @param $instance - nid of the instance node for which registration is desired.
+ */
+function captconnect_custom_anon_register($instance) {
+  // So just redirect to the normal registration page.
+  menu_execute_active_handler('user/register', TRUE);
+}
+
+/**
  * Submit handler for user registration.
  */
 function captconnect_custom_user_register_submit($form, $form_state) {
+  global $user;
   // Get the instance ID that they will register for when they come back.
-  if (isset($form_state['captconnect_anon_register'])) {
-    $register_nid = $form_state['captconnect_anon_register'];
+  if (isset($form['#captconnect_anon_instance'])) {
+    $register_nid = $form['#captconnect_anon_instance'];
     if ($register_nid) {
       $record = array(
         'uid' => $form['#user']->uid,
@@ -700,12 +755,24 @@ function captconnect_custom_user_register_submit($form, $form_state) {
  * Implementation of hook_user_login().
  */
 function captconnect_custom_user_login(&$edit, $account) {
+  // Default redirect should be the front page.
+  $edit['redirect'] = '<front>';
+
   // Find out if the user is mid-registration (anon user).
-  $result = db_query("SELECT ar.nid, di.entity_id "
-    . "FROM {captconnect_custom_anon_register} ar "
-    . "INNER JOIN field_data_field_date_instance di ON di.field_date_instance_target_id = ar.nid "
-    . "WHERE ar.uid = :uid ",
-    array(':uid' => $account->uid))->fetchAllKeyed();
+  if (isset($edit['#captconnect_anon_instance'])) {
+    // Got here from Login.
+    // We can get the instance nid from the original URI.
+    $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+    $result[$edit['#captconnect_anon_instance']] = substr($x['query']['destination'], 5);
+  }
+  else {
+    // Got here from user register.
+    $result = db_query("SELECT ar.nid, di.entity_id "
+      . "FROM {captconnect_custom_anon_register} ar "
+      . "INNER JOIN field_data_field_date_instance di ON di.field_date_instance_target_id = ar.nid "
+      . "WHERE ar.uid = :uid ",
+      array(':uid' => $account->uid))->fetchAllKeyed();
+  }
 
   if ($result) {
     $event_nid = reset($result);
@@ -713,9 +780,10 @@ function captconnect_custom_user_login(&$edit, $account) {
 
     // Actually execute the flag before going to the event.
     $event = node_load($event_nid);
+    $instance = node_load($instance_nid);
     if (flag('flag', 'registration', $instance_nid, $account)) {
-      drupal_set_message(t('You are now registered for "@title".',
-      array('@title' => $event->title)));
+      drupal_set_message(t('You are now registered for "@title" on @when.',
+      array('@title' => $event->title, '@when' => $instance->title)));
     }
     else {
       drupal_set_message(t('Your registration for "@title" failed;
@@ -730,8 +798,10 @@ function captconnect_custom_user_login(&$edit, $account) {
       ->execute();
 
     // The redirect method is not working, so fall back on good ol' drupal_goto().
-    $edit['redirect'] = 'node/' . $event_nid;
-    drupal_goto('node/' . $event_nid);
+//    $_GET['destination'] = 'node/' . $event_nid;
+//    $edit['redirect'] = 'node/' . $event_nid;
+    $GLOBALS['destination'] = 'node/' . $event_nid;
+//    drupal_goto('node/' . $event_nid);
   }
 }
 
@@ -915,23 +985,6 @@ function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
   $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
 }
 
-/**
- * Menu Callback.
- * Allow anonymous users to register for events.
- * @param $instance - nid of the instance node for which registration is desired.
- */
-function captconnect_custom_anon_register($instance) {
-  // Save our stuff in form_state.
-  $form_state = array(
-    'cache' => TRUE,
-    'captconnect_anon_register' => $instance,
-    );
-  drupal_set_message(t('If you already have an account here, please
-    <a href="!login_url">Log In</a>', array('!login_url' => url('user'))));
-
-  return drupal_build_form('user_register_form', $form_state);
-}
-
 /*
  * Implements template_preprocess_node().
  * Add a class to the node so it can be displayed as published or not.
@@ -974,9 +1027,10 @@ function captconnect_custom_nancy() {
   global $user;
   $output = '';
 
-  dpm(ip_address(), 'ip_address');
-  $result = db_query("SELECT * FROM {sessions} WHERE hostname = :ip", array(':ip' => ip_address()))->fetchAll();
-  dpm($result, 'result');
+  dpm($_SERVER, 'SERVER');
+  $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+  dpm($x, 'drupal_parse_url');
+  dpm(explode('/', $x['path']), 'path parts');
 /*
   // Flush the schema cache.
   $schema = drupal_get_schema('captconnect_custom_anon_register', TRUE);
