@@ -61,6 +61,13 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_proxy_participate_text', 'Participate Someone Else'),
     ); /* */
 
+  $form['captconnect_custom_login_dest'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Login destination'),
+    '#default_value' => variable_get('captconnect_custom_login_dest', 'events'),
+    '#description' => t('This is where a user will end up after logging in.'),
+    ); /* */
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -100,6 +107,11 @@ function theme_captconnect_custom_admin_settings($variables) {
     array('data' => drupal_render($form['captconnect_custom_proxy_register_text']), 'style' => $style),
 //    array('data' => drupal_render($form['captconnect_custom_proxy_participate_text']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_login_dest']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
     );
 
   $output .= theme('table', array(
