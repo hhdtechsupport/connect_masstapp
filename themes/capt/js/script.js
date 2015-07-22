@@ -496,8 +496,30 @@ Drupal.behaviors.my_custom_behavior = {
 
 
 
+$('.access-information').each(function(){
+  $(this).find('p').wrapAll('<div class="access-information-content"></div>');
+  $(this).prepend('<div class="show-access-information">Show Access Information</div>');
+});
 
+$('.show-access-information').each(function(){
+  $(this).next().toggle();
+  $(this).on('click', function(){
+    $(this).next().toggle();
+  });
+});
 
+var $registrationsTitle = $('.page-node-registrations h1#page-title');
+var titleString = $registrationsTitle.text();
+var parsedTitle = titleString.substring(titleString.indexOf('"') + 1, titleString.lastIndexOf('"'));
+$registrationsTitle.html('<em>View Event Registrations</em>' + parsedTitle);
+
+var $workflowTitle = $('.page-node-workflow h1#page-title');
+var parsedTitle = $workflowTitle.text();
+$workflowTitle.html('<em>Workflow History</em>' + parsedTitle);
+
+var $develTitle = $('.page-node-devel h1#page-title');
+var parsedTitle = $develTitle.text();
+$develTitle.html('<em>Devel</em>' + parsedTitle);
 
 
 
