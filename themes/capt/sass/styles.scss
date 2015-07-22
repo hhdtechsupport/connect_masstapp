@@ -355,12 +355,13 @@ a.button {
 }
 
 .group-right .button, .view-dashboard .button {
-  .flag-wrapper a {
+  .flag-wrapper a, .field-content > a {
     @include border-radius(3px);
     color: #ffffff;
     padding: 4px 12px;
     @extend .button-reset;
     font-size: 12px;
+    font-weight: bold;
   }
   &.register .flag-wrapper a {
     background: $capt-green;
@@ -370,7 +371,7 @@ a.button {
   }
   &.participate {
     margin: 5px 0;
-    .flag-wrapper a {
+    .flag-wrapper a, .field-content > a {
       background: $capt-orange;
       font-size: 13px;
       padding: 5px 16px;
@@ -2017,7 +2018,7 @@ body.node-type-event {
         padding-left: 54px;
       }
     }
-    .field-type-ds.field-name-join-this-event {
+    .field-type-ds.field-name-join-this-event, .field-type-ds.field-name-join-this-event-2 {
       padding-top: 25px;
       &:before {
         margin-left: -27.5px;
@@ -2080,7 +2081,7 @@ body.node-type-event {
           li.views-row {
             list-style-image: url("../images/icons/arrow-icons.png");
             /*list-style-image: url('../images/icons/down-arrow.png');*/
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             min-height: 42px;
             div.field-content {
               a {
