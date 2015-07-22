@@ -11,8 +11,6 @@
       'In order to continue on this site, you need to change your password.',
     'A welcome message with further instructions has been sent to your e-mail address.' =>
       'An email has been sent with a link to complete the registration process.',
-    'Click on this button to log in to the site and change your password.' => 
-      'Please log in and change your password to confirm your event registration',
     );
 
 /**
@@ -523,7 +521,47 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       break; /* */
 
     case 'user_pass_reset':
-//      dpm($form, $form_id);
+      // Borrowed and cleaned up from user.pages.inc.
+      $timeout = variable_get('user_password_reset_timeout', 86400);
+      $timestamp = arg(3);
+      $form['message']['#markup'] = '';
+
+      $account = user_load(arg(2));
+
+      $result = db_query("SELECT ar.nid, di.entity_id "
+        . "FROM {captconnect_custom_anon_register} ar "
+        . "INNER JOIN {field_data_field_date_instance} di ON di.field_date_instance_target_id = ar.nid "
+        . "WHERE ar.uid = :uid ",
+        array(':uid' => $account->uid))->fetchAllKeyed();
+
+      if ($result) {
+        $event_nid = reset($result);
+        $instance_nid = key($result);
+
+        $event = node_load($event_nid);
+        $instance = node_load($instance_nid);
+        $form['message']['#markup'] .= '<p class="click-message">'
+          . t('Click on this button to log in to the site and change your password.')
+          . ' '
+          . t('This will also complete your registration for "@event" on @instance.', array(
+            '@event' => $event->title,
+            '@instance' => $instance->title,
+            ))
+          . '</p>';
+      }
+      else {
+        $form['message']['#markup'] .= '<p class="click-message">'
+          . t('Click on this button to log in to the site and change your password.')
+          . '</p>';
+      }
+
+      $form['message']['#markup'] .= '<p class="one-time-message">'
+        . t('This is a one-time login for %user_name and will expire on %expiration_date.',
+          array(
+            '%user_name' => $account->name,
+            '%expiration_date' => format_date($timestamp + $timeout),
+            ))
+        . '</p>';
       break; /* */
 
     // Save the current path and grab the submit handler.
@@ -780,7 +818,7 @@ function captconnect_custom_user_login(&$edit, $account) {
     // Got here from user register.
     $result = db_query("SELECT ar.nid, di.entity_id "
       . "FROM {captconnect_custom_anon_register} ar "
-      . "INNER JOIN field_data_field_date_instance di ON di.field_date_instance_target_id = ar.nid "
+      . "INNER JOIN {field_data_field_date_instance} di ON di.field_date_instance_target_id = ar.nid "
       . "WHERE ar.uid = :uid ",
       array(':uid' => $account->uid))->fetchAllKeyed();
   }
