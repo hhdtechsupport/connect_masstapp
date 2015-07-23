@@ -908,6 +908,8 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 
 .region-header {
   float: right;
+  margin-top: 10px;
+  margin-bottom: -10px;
   div, form {
     display: inline;
   }
@@ -1642,7 +1644,8 @@ body.page-node-add-event.page-node-add.section-node-add {
  *  Start Login Page
  */
 
-body.not-logged-in.page-user:not(.page-user-register) {
+body.not-logged-in.page-user:not(.page-user-register),
+body.not-logged-in.page-anon-login {
   height: 100%;
   ul.tabs-primary {
     display: none;
@@ -1662,6 +1665,11 @@ body.not-logged-in.page-user:not(.page-user-register) {
   div#title-section {
     margin-left: 85px;
     width: 320px;
+  }
+  &.section-anon-login form#user-login {
+    margin: 0 auto;
+    float: none;
+    width: 360px;
   }
   div#title-section {
     @extend .panel-rule;
@@ -2158,24 +2166,37 @@ body.node-type-event.not-logged-in {
  *  Event Report
  */
 
-body.page-administration-event-report {
-  table.views-table {
-    tbody {
-      border: 1px solid $capt-midgrey;
+body.page-administration {
+  line-height: 1.5em;
+  a, a:visited {
+    color: $capt-black;
+    &:hover {
+      color: $capt-maroon;
     }
-    tr {
-      th {
-        padding-right: 10px;
+  }
+  &.page-administration-event-report,
+  &.page-administration-my-events {
+    table.views-table {
+      tbody {
+        border: 1px solid $capt-midgrey;
       }
-      td:first-child {
-        padding-left: 10px;
-        width: 230px;
-      }
-      td {
-        padding-right: 10px;
-      }
-      td:nth-child(n+5) {
-        text-align: center;
+      tr {
+        th {
+          padding-right: 10px;
+        }
+        td:first-child {
+          padding-left: 10px;
+          width: 230px;
+        }
+        td:nth-child(2) {
+          width: 220px;
+        }
+        td {
+          padding-right: 10px;
+        }
+        td:nth-child(n+5) {
+          text-align: center;
+        }
       }
     }
   }
@@ -2288,11 +2309,14 @@ body.page-administration {
  *  User profile page
  */
 
-form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+form#user-profile-form,
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
     margin: 0px 0px 18px;
+    background:#eef1f3;
     legend {
       margin-left: 20px;
       span.fieldset-legend {
@@ -2391,7 +2415,8 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
 
-body.not-logged-in.page-user-register:not(.node-type-event) {
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
   h1#page-title.page__title {
     @extend .calendar-title;
     margin-top: 0px;
@@ -2404,6 +2429,7 @@ body.not-logged-in.page-user-register:not(.node-type-event) {
   fieldset.field-group-fieldset {
     padding-left: 20px;
     padding-right: 20px;
+    background: #eef1f3;
     legend {
       margin-left: 0px;
       position: relative;
@@ -2479,7 +2505,9 @@ form#user-profile-form > div > fieldset > .fieldset-wrapper {
 }
 
 /* OMB Block; we may want to just use a form here */
-body.page-user-edit, body.page-user-register {
+body.page-user-edit,
+body.page-user-register,
+body.page-anon-register {
   #block-block-3 {
     margin: 0 20px 30px 10px;
     font-size: 12px;
@@ -2662,7 +2690,8 @@ form.workflow-transition-form {
   margin-top: 20px;
 }
 
-body.not-logged-in.section-user.page-user {
+body.not-logged-in.section-user.page-user,
+body.not-logged-in.section-anon-login.page-anon-login {
   div#title-section {
     margin: 0px auto;
     border-bottom: 0px;
@@ -2892,7 +2921,8 @@ body.not-logged-in.section-user.page-user {
   #main {
     @extend .reset-layout;
   }
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div#title-section {
       padding-top: 6px;
       padding-bottom: 6px;
@@ -3224,7 +3254,8 @@ body.not-logged-in.section-user.page-user {
 @media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div.top-header {
       height: $mobile-header-height;
       @include rainbow-bar($mobile-header-height - $rainbow-height);
@@ -3291,6 +3322,7 @@ body.not-logged-in.section-user.page-user {
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login,
   body.admin-menu,
   body.page-user-register {
     div.bottom-footer div.disclaimer {
@@ -3327,7 +3359,8 @@ body.not-logged-in.section-user.page-user {
     }
   }
   // login screen, iPad
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div#main,
     div#content {
       width: 100%;
@@ -3434,7 +3467,8 @@ body.not-logged-in.section-user.page-user {
   // TO DO: event dashboard, iPad
   // TO DO: event detail, iPad
   /* password reset - you get to it via email link */
-  body.not-logged-in.section-user.page-user {
+  body.not-logged-in.section-user.page-user,
+  body.not-logged-in.page-anon-login {
     div#title-section {
       margin: 0px auto;
       width: 360px;
@@ -3451,7 +3485,8 @@ body.not-logged-in.section-user.page-user {
   div#title-section h1#page-title {
     font-size: 25px;
   }
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register)
+  body.not-logged-in.page-anon-login {
     div#block-block-8,
     div#block-block-9 {
       h2.block-title, h2.custom_block_title {
