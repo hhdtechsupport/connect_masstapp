@@ -8,9 +8,11 @@
   global $conf;
   $conf['locale_custom_strings_en'][''] = array(
     'Your password has expired. You must change your password to proceed on the site.' =>
-      'In order to continue on this site, you need to change your password.',
+      variable_get('captconnect_custom_must_change_password',
+      'In order to continue on this site, you need to change your password.'),
     'A welcome message with further instructions has been sent to your e-mail address.' =>
-      'An email has been sent with a link to complete the registration process.',
+      variable_get('captconnect_custom_completion_email_sent',
+      'An email has been sent with a link to complete the registration process.'),
     );
 
 /**
@@ -81,8 +83,26 @@ function captconnect_custom_menu() {
     'page arguments' => array('captconnect_custom_admin_settings'),
     'access arguments' => array('access administration pages'),
     'file' => 'captconnect_custom.admin.inc',
-    'weight' => 2,
-    'type' => MENU_NORMAL_ITEM,
+    );
+
+  $items['admin/config/administration/captconnect/basic'] = array(
+    'title' => 'Basic',
+    'description' => 'Various settings to control CAPT Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'captconnect_custom.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    );
+
+  $items['admin/config/administration/captconnect/texts'] = array(
+    'title' => 'Message Texts',
+    'description' => 'Message texts for CAPT Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_message_texts'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'captconnect_custom.admin.inc',
+    'type' => MENU_LOCAL_TASK,
     );
 
   $items['register_others'] = array(
@@ -138,6 +158,10 @@ function captconnect_custom_menu() {
 function captconnect_custom_theme() {
   return array(
     'captconnect_custom_admin_settings' => array(
+       'render element' => 'form',
+       'file' => 'captconnect_custom.admin.inc',
+       ),
+    'captconnect_custom_message_texts' => array(
        'render element' => 'form',
        'file' => 'captconnect_custom.admin.inc',
        ),
@@ -526,6 +550,11 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       $timestamp = arg(3);
       $form['message']['#markup'] = '';
 
+      // Custom title?
+      // @TODO: should this be in menu_alter()?
+      drupal_set_title(variable_get('captconnect_custom_reset_pass_head',
+        'Reset Password'));
+
       $account = user_load(arg(2));
 
       $result = db_query("SELECT ar.nid, di.entity_id "
@@ -541,12 +570,13 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         $event = node_load($event_nid);
         $instance = node_load($instance_nid);
         $form['message']['#markup'] .= '<p class="click-message">'
-          . t('Click on this button to log in to the site and change your password.')
-          . ' '
-          . t('This will also complete your registration for "@event" on @instance.', array(
-            '@event' => $event->title,
-            '@instance' => $instance->title,
-            ))
+          . t(variable_get('captconnect_custom_reset_pass_welcome',
+              'Click on this button to log in to the site and change your password. '
+              . 'This will also complete your registration for "@event" on @instance.'),
+            array(
+              '@event' => $event->title,
+              '@instance' => $instance->title,
+              ))
           . '</p>';
       }
       else {
@@ -764,8 +794,8 @@ function captconnect_custom_anon_login($instance) {
  */
 function captconnect_custom_anon_register($instance) {
   // Give them options.
-  drupal_set_message(t('If you already have an account, please
-    <a href="!login_url">Log In</a> to complete yoour registration.',
+  drupal_set_message(t(variable_get('captconnect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
     array('!login_url' => url('anon_login/' . arg(1),
     array('query' => drupal_get_destination())))),
     'status', FALSE);
@@ -831,12 +861,13 @@ function captconnect_custom_user_login(&$edit, $account) {
     $event = node_load($event_nid);
     $instance = node_load($instance_nid);
     if (flag('flag', 'registration', $instance_nid, $account)) {
-      drupal_set_message(t('You are now registered for "@title" on @when.',
-      array('@title' => $event->title, '@when' => $instance->title)));
+      drupal_set_message(t(variable_get('captconnect_custom_registration_successful',
+        'You are now registered for "@title" on @when.'),
+        array('@title' => $event->title, '@when' => $instance->title)));
     }
     else {
-      drupal_set_message(t('Your registration for "@title" failed;
-        please try again now that you are logged in.',
+      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
+        'Your registration for "@title" failed; please try again now that you are logged in.'),
         array('@title' => $event->title)));
     }
 

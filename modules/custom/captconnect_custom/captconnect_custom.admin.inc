@@ -92,7 +92,7 @@ function theme_captconnect_custom_admin_settings($variables) {
   ';
   drupal_add_css($css, 'inline');
 
-    $output = '';
+  $output = '';
 
   $form = $variables['form'];
 
@@ -124,6 +124,165 @@ function theme_captconnect_custom_admin_settings($variables) {
   $output .= theme('table', array(
     'rows' => $rows,
     'attributes' => array('id' => 'captconnect-custom-admin-settings'),
+    ));
+
+  $output .= drupal_render_children($form);
+  return $output;
+}
+
+/**
+ * Message texts form.
+ */
+function captconnect_custom_message_texts($form, $form_state) {
+  global $user;
+  $form = array();
+  $noyes = array(t('No'), t('Yes'));
+
+  $form['captconnect_custom_registration_successful'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Registration Successful'),
+    '#default_value' => variable_get('captconnect_custom_registration_successful',
+      'You are now registered for "@title" on @when.'),
+    '#description' => t('When the anonymous registration process succeeds, this message is displayed.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@title - the title of the event.') . '</li>'
+      . '<li>' . t('@when - the title (date and time) of the instance.') . '</li>'
+      . '</ul>',
+    );
+
+  $form['captconnect_custom_registration_failed'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Registration Failed'),
+    '#default_value' => variable_get('captconnect_custom_registration_failed',
+      'Your registration for "@title" failed; please try again now that you are logged in.'),
+    '#description' => t('If the anonymous registration fails, display this message.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@title - the title of the event.') . '</li>'
+      . '</ul>',
+    );
+
+  $form['captconnect_custom_must_change_password'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Must Change Password'),
+    '#default_value' => variable_get('captconnect_custom_must_change_password',
+      'In order to continue on this site, you need to change your password.'),
+    '#description' => t('This message is displayed when an account is initially
+      logged into in the anonymous registration process'),
+    );
+
+  $form['captconnect_custom_completion_email_sent'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Completion Email Sent'),
+    '#default_value' => variable_get('captconnect_custom_completion_email_sent',
+      'An email has been sent with a link to complete the registration process.'),
+    '#description' => t('This message is displayed when an account is created
+      in the anonymous registration process'),
+    );
+
+  $form['captconnect_custom_reset_pass_head'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Reset password heading'),
+    '#default_value' => variable_get('captconnect_custom_reset_pass_head',
+      'Reset Password'),
+//    '#description' => t(''),
+    );
+
+  $form['captconnect_custom_reset_pass_welcome'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Reset password explanation'),
+    '#default_value' => variable_get('captconnect_custom_reset_pass_welcome',
+      'Click on this button to log in to the site and change your password. '
+      . 'This will also complete your registration for "@event" on @instance.'),
+    '#description' => t('This text is displayed when a user has been invited to
+      log in during the anonymoous registration process.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@title - the title of the event.') . '</li>'
+      . '<li>' . t('@when - the title (date and time) of the instance.') . '</li>'
+      . '</ul>',
+    );
+
+  $form['captconnect_custom_anon_login'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Login invitation'),
+    '#default_value' => variable_get('captconnect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
+    '#description' => t('When an anonymous user tries to register, this message
+      is shown to invite a login rather than account creation.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('!login_url - the URL for logging in.') . '</li>'
+      . '</ul>'
+    );
+
+  $form['#theme'] = 'captconnect_custom_message_texts';
+
+  return system_settings_form($form);
+}
+
+/**
+ * Form theme.
+ */
+function theme_captconnect_custom_message_texts(&$variables) {
+  $css = '#captconnect-custom-message-texts {font-size: 100% !important;}
+    #captconnect-custom-message-texts textarea,
+    #captconnect-custom-message-texts input {font-family: "Courier New", Courier, monospace; width: 95%}
+    #captconnect-custom-message-texts .grippie {width: 95%;}
+    #captconnect-custom-message-texts input#edit-submit {font-family: inherit; width: auto;}
+    ';
+  drupal_add_css($css, 'inline');
+
+  $output = '';
+
+  $form = $variables['form'];
+
+  $rows = array();
+
+  $style = 'vertical-align: top; white-space: normal';
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_registration_successful']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_registration_failed']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_must_change_password']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_completion_email_sent']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_reset_pass_head']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    );
+
+  $output .= theme('table', array(
+    'rows' => $rows,
+    'attributes' => array('id' => 'captconnect-custom-message-texts'),
     ));
 
   $output .= drupal_render_children($form);
