@@ -219,7 +219,8 @@ $small-phone-width: 360px;
   }
 }
 
-.section-events .field-type-ds {
+.section-events .field-type-ds,
+.section-event .field-type-ds {
   margin-top: 0px !important;
 }
 
@@ -612,12 +613,12 @@ ul.pager {
     a {
       @extend .pager-link;
       background-image: url("../images/icons/right-arrow.png");
-      background-position: 35px 8px;
+      background-position: 33px 7px;
       padding: 8px 24px 8px 0px;
     }
   }
   li.pager-last a {
-    background-position: 34px 8px;
+    background-position: 30px 7px;
   }
   li.pager-current {
     margin-left: 3px;
@@ -1049,7 +1050,7 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
-  background: url("../images/icons/registered-events.png") 405px 21px no-repeat;
+  background: url("../images/icons/registered.png") 405px 21px no-repeat;
 }
 
 .field-name-my-archived-events.field-type-ds,
@@ -1158,7 +1159,7 @@ padding: 4px 7px;
 }
 
 .field-name-my-archived-events.field-type-ds {
-  background: url("../images/icons/archived-events.png") 405px 21px no-repeat;
+  background: url("../images/icons/archived.png") 405px 21px no-repeat;
   .view-dashboard {
     /* min-height: 170px;*/
     div.view-empty {
@@ -1658,6 +1659,15 @@ form#event-node-form, form#event-notifications-node-form {
   }
 }
 
+form#event-notifications-node-form {
+  .panel {
+    margin-top: 0px !important;
+  }
+  h3 {
+    top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
 
 
 div.vertical-tabs {
@@ -1870,8 +1880,20 @@ body.logged-in {
       margin-top: 0px;
   }
   &.section-events h1#page-title {
-    background: url("../images/icons/create-event-2.png") 0 0 no-repeat;
+    background: url("../images/icons/dashboard.png") 0 0 no-repeat;
     padding-left: 70px;
+  }
+  &.section-node-add h1#page-title {
+    background: url("../images/icons/create.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.section-administration h1#page-title {
+    background: url("../images/icons/admin.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.page-user-edit h1#page-title {
+    background: url("../images/icons/profile.png") 0 0 no-repeat;
+    padding-left: 55px;
   }
   h2 {
     margin-bottom: 0px;
@@ -2612,6 +2634,37 @@ form#user-pass {
   padding-right: 35px;
   margin: -20px auto 0;
 }
+
+
+
+
+.messages {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border: none;
+  color: #ffffff;
+  line-height: 1.5em;
+  &.ok, &.messages--status {
+    background-color: #7AA04F;
+    background-image: url("../images/icons/status.png") !important;
+  }
+  &.error, &.messages--error {
+    background-color: #CC5454;
+    background-image: url("../images/icons/error.png") !important;
+  }
+  &.warning, &.messages--warning {
+    background-color: #C1A93F;
+    background-image: url("../images/icons/error.png") !important;
+  }
+}
+
+
+
+
+
+
+
+
 
 /***********************************************
  *                                             *
