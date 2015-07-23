@@ -203,7 +203,7 @@ $small-phone-width: 360px;
   border-top: 0px;
   /*5px solid $capt-aqua;*/
   font-size: 13px;
-  margin-top: 20px;
+  margin-top: 60px;
   margin-bottom: 30px;
   @include border-radius(1px);
   &:before {
@@ -217,6 +217,10 @@ $small-phone-width: 360px;
     margin-left: -1px;
     padding-left: 2px;
   }
+}
+
+.section-events .field-type-ds {
+  margin-top: 0px !important;
 }
 
 .panel-rule-single {
@@ -238,19 +242,6 @@ $small-phone-width: 360px;
   input.form-submit {
     margin-top: 0px;
   }
-}
-
-.calendar-title {
-  background: url("../images/icons/create-event-2.png") 0 0 no-repeat;
-  padding-left: 70px;
-  /* variable? deviate from spec and reduce? */
-  padding-top: 7px;
-  color: $capt-maroon;
-  min-height: 44px;
-  font-size: 26pt;
-  /* from h2 in the specs */
-  margin-top: 36px;
-  margin-bottom: 21px;
 }
 
 
@@ -354,6 +345,34 @@ a.button {
   @extend .button-reset;
 }
 
+.page-user-edit .button {
+  @include border-radius(5px);
+  color: #ffffff;
+  padding: 4px 16px;
+  @extend .button-reset;
+  width: 50px;
+  &.save-button {
+    background: $capt-orange;
+    &:hover {
+      background: lighten($capt-orange, 10%);
+    }
+  }
+  &.cancel-button {
+    background: $capt-darkblue;
+    margin-top: 10px;
+    &:hover {
+      background: lighten($capt-darkblue, 10%);
+    }
+  }
+  &.edit-button {
+    background: $capt-orange;
+    &:hover {
+      background: lighten($capt-orange, 10%);
+    }
+  }
+}
+
+
 .group-right .button, .view-dashboard .button {
   .flag-wrapper a, .field-content > a {
     @include border-radius(3px);
@@ -394,7 +413,7 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
-  padding: 12px 20px;
+  padding: 6px 18px;
   text-transform: capitalize;
   background-color: $capt-orange;
   &:hover {
@@ -406,6 +425,9 @@ input[type="submit"] {
       background-color: lighten($capt-aqua, 10%);
     }
   }
+}
+.ief-entity-operations input[type="submit"] {
+  margin-top: 0;
 }
 
 h1 {
@@ -685,7 +707,10 @@ table {
     tr {
       border: 1px solid #ccc;
       &.odd {
-        background-color: lighten($capt-aqua, 53%);
+        background-color: #F7F7F7;
+      }
+      &.ief-row-form {
+
       }
       td {
         padding: 3px 6px;
@@ -700,10 +725,15 @@ table {
             color: lighten($capt-orange, 15%);
           }
         }
+        &.inline-entity-form-node-field_body {
+          width: 400px;
+        }
       }
     }
   }
 }
+
+
 
 .admin-only {
   background: #c7ff86;
@@ -1520,6 +1550,9 @@ form#event-node-form, form#event-notifications-node-form {
       color: $capt-aqua;
       font-size: 1.3em;
       font-style: normal;
+      position: relative;
+      top: -55px;
+      margin-bottom: -40px;
     }
     fieldset:not(.ief-form) {
       border: 0px;
@@ -1562,8 +1595,7 @@ form#event-node-form, form#event-notifications-node-form {
         }
       }
     }
-    fieldset.ief-form {
-      background: rgb(228, 231, 232);
+    fieldset.ief-form, tr.ief-row-form {
       padding: 25px;
       > legend {
         display: block;
@@ -1598,7 +1630,11 @@ form#event-node-form, form#event-notifications-node-form {
       font-size: $input-font-size;
       padding: 5px;
       max-width: 400px;
-      border: 1px solid $capt-midgrey;
+      display: block;
+      border: 1px solid #b6b6b6;
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.15);
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
+      box-shadow: 0 0 3px rgba(0,0,0,.15);
       &:focus {
         background: $capt-inputfocus;
         outline: none;
@@ -1621,6 +1657,8 @@ form#event-node-form, form#event-notifications-node-form {
     }
   }
 }
+
+
 
 div.vertical-tabs {
   margin-right: $edit-margin-right;
@@ -1813,6 +1851,7 @@ h1#page-title {
     color: #333333;
     font-size: .75em;
     display: block;
+    font-weight: normal;
   }
 }
 
@@ -1820,8 +1859,19 @@ h1#page-title {
 
 body.logged-in {
   h1#page-title {
-    @extend .calendar-title;
-    margin-top: 0px;
+      /* variable? deviate from spec and reduce? */
+      padding-top: 7px;
+      color: $capt-maroon;
+      min-height: 44px;
+      font-size: 26pt;
+      /* from h2 in the specs */
+      margin-top: 36px;
+      margin-bottom: 21px;
+      margin-top: 0px;
+  }
+  &.section-events h1#page-title {
+    background: url("../images/icons/create-event-2.png") 0 0 no-repeat;
+    padding-left: 70px;
   }
   h2 {
     margin-bottom: 0px;
@@ -2166,6 +2216,13 @@ body.node-type-event.not-logged-in {
  *  Event Report
  */
 
+ .views-exposed-form .views-exposed-widget .form-submit {
+   margin-top: .8em;
+ }
+ .entity-entityform-type h2 {
+   display: none;
+ }
+
 body.page-administration {
   line-height: 1.5em;
   a, a:visited {
@@ -2315,10 +2372,13 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
-    margin: 0px 0px 18px;
+    margin: 40px 0px 18px;
     background:#eef1f3;
     legend {
-      margin-left: 20px;
+      margin-left: 4px;
+      top: -13px;
+      position: relative;
+      border-bottom: 5px solid #577785;
       span.fieldset-legend {
         color: $capt-aqua;
         text-transform: uppercase;
@@ -2331,6 +2391,9 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
         padding-left: 12px;
         color: $capt-aqua;
       }
+    }
+    fieldset legend {
+      top: -12px;
     }
     /* end legend */
     fieldset {
@@ -2418,7 +2481,13 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
   h1#page-title.page__title {
-    @extend .calendar-title;
+    padding-top: 7px;
+    color: $capt-maroon;
+    min-height: 44px;
+    font-size: 26pt;
+    /* from h2 in the specs */
+    margin-top: 36px;
+    margin-bottom: 21px;
     margin-top: 0px;
   }
   div#content {
@@ -2431,7 +2500,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     padding-right: 20px;
     background: #eef1f3;
     legend {
-      margin-left: 0px;
+      margin-left: -6px;
       position: relative;
     }
   }
@@ -2450,13 +2519,10 @@ form#user-profile-form {
   .edit-button,
   .save-button,
   .cancel-button {
-    text-transform: uppercase;
-    color: $capt-aqua;
     float: right;
     margin-right: 10px;
     cursor: pointer;
     text-align: center;
-    min-width: 68px;
   }
   /*.save-button {
       @extend .basic-button;
@@ -2468,16 +2534,6 @@ form#user-profile-form {
         }*/
   input.form-text {
     border: 1px solid $capt-midgrey;
-  }
-  .edit-button:after,
-  .save-button:after,
-  .cancel-button:after {
-    content: " ]";
-  }
-  .edit-button:before,
-  .save-button:before,
-  .cancel-button:before {
-    content: "[ ";
   }
   .cancel-button {
     clear: right;
@@ -2501,7 +2557,7 @@ form#user-profile-form {
 
 /* prevent overlap with bottom save & cancel buttons */
 form#user-profile-form > div > fieldset > .fieldset-wrapper {
-  padding-bottom: 60px;
+  padding-bottom: 90px;
 }
 
 /* OMB Block; we may want to just use a form here */
@@ -2684,6 +2740,24 @@ form.workflow-transition-form {
   a {
     font-weight: normal;
   }
+  .chosen-single {
+    border-radius: 0px;
+    font-size: 14px;
+    max-width: 400px;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    height: 28px;
+    padding-top: 1px;
+  }
+  .chosen-drop {
+    border-radius: 0px;
+  }
+  &.chosen-container-multi .chosen-choices li.search-choice {
+    border-radius: 0px;
+  }
 }
 
 .field-widget-inline-entity-form > div {
@@ -2693,7 +2767,7 @@ form.workflow-transition-form {
 body.not-logged-in.section-user.page-user,
 body.not-logged-in.section-anon-login.page-anon-login {
   div#title-section {
-    margin: 0px auto;
+    margin: 0px;
     border-bottom: 0px;
     width: 360px;
   }
@@ -3445,7 +3519,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
         }
         h1#page-title {
           background-position: 8px 0px;
-          padding-left: 70px;
           font-size: 34px;
         }
         fieldset {

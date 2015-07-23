@@ -194,8 +194,30 @@ Drupal.behaviors.my_custom_behavior = {
         $(this).text(optionCategory[0]);
       }
     });
-    $notificationFieldset.find('.field-name-field-use-a-default-template select').chosen();
+    $templateSelect = $notificationFieldset.find('.field-name-field-use-a-default-template select');
 
+    $templateSelect.chosen();
+
+    $('.field-type-text input, .field-type-text-long')
+    if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+    }
+    else {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+    }
+
+    $templateSelect.change(function(){
+      if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+      }
+      else {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+      }
+    });
   });
 
   /*
@@ -520,6 +542,17 @@ $workflowTitle.html('<em>Workflow History</em>' + parsedTitle);
 var $develTitle = $('.page-node-devel h1#page-title');
 var parsedTitle = $develTitle.text();
 $develTitle.html('<em>Devel</em>' + parsedTitle);
+
+
+
+
+$('.ief-entity-operations input[value="Edit"]').each(function(){
+
+
+});
+
+
+
 
 
 
