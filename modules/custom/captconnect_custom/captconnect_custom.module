@@ -542,6 +542,23 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         $form_state['#captconnect_anon_instance'] = $parts[2];
       }
 
+      $form['request_password'] = array(
+       '#theme' => 'link',
+       '#text' => variable_get('captconnect_custom_request_password_text',
+         'Request a new password'),
+       '#path' => 'user/password',
+       '#prefix' => '<div class="request-new-password">',
+       '#suffix' => '</div>',
+       '#options' => array(
+         'attributes' => array(
+           'title' => 'Request a new password',
+           'alt' => 'Request new password'),
+         'html' => FALSE,
+        ),
+      );
+
+      $form['actions']['#weight'] = 100;
+
       break; /* */
 
     case 'user_pass_reset':
