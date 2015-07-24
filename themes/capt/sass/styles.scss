@@ -1726,6 +1726,7 @@ body.not-logged-in.page-anon-login {
   div#title-section {
     margin-left: 85px;
     width: 320px;
+    margin-top: 0px;
   }
   &.section-anon-login form#user-login {
     margin: 0 auto;
@@ -1758,10 +1759,16 @@ body.not-logged-in.page-anon-login {
     }
     input#edit-name,
     input#edit-pass {
-      font-size: 1.6em;
       margin: 5px 0px 5px $login-margin-left;
       width: 89%;
       margin-top: 0px;
+      font-size: 14px;
+      padding: 5px;
+      display: block;
+      border: 1px solid #b6b6b6;
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     }
     div.form-item-pass {
       margin-top: 0px;
@@ -1781,9 +1788,9 @@ body.not-logged-in.page-anon-login {
       font-weight: normal;
       text-decoration: underline;
       position: relative;
-      top: -22px;
+      top: -10px;
       color: $capt-maroon;
-      font-size: $login-font;
+      font-size: 13px;
     }
     div.request-new-password a:hover {
       text-decoration: none;
@@ -2452,7 +2459,11 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     font-size: $input-font-size;
     padding: 5px;
     max-width: 400px;
-    border: 1px solid $capt-midgrey;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     &:focus {
       background: $capt-inputfocus;
       outline: none;
@@ -2513,6 +2524,9 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
 
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
+  .request-new-password {
+    display: none;
+  }
   div#main {
     padding-top: 0px;
   }
@@ -2525,6 +2539,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     margin-top: 36px;
     margin-bottom: 21px;
     margin-top: 0px;
+    text-transform: capitalize;
   }
   div#content {
     border-top: 1px solid #d7d7d7;
@@ -2600,8 +2615,11 @@ body.page-user-edit,
 body.page-user-register,
 body.page-anon-register {
   #block-block-3 {
-    margin: 0 20px 30px 10px;
-    font-size: 12px;
+    margin: 30px 0px;
+    p {
+      font-size: 12px;
+      line-height: 1.3em;
+    }
   }
 }
 
@@ -2630,6 +2648,12 @@ body.page-user-password {
   }
   input#edit-name {
     font-size: $input-font-size;
+    padding: 5px;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     &:focus {
       background-color: $capt-inputfocus;
       outline: none;
@@ -2640,11 +2664,11 @@ body.page-user-password {
 
 form#user-pass {
   @extend .panel;
-  width: 330px;
+  width: 348px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 26px;
+  padding-right: 26px;
   margin: -20px auto 0;
 }
 
