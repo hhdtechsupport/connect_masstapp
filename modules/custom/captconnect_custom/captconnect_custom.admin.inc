@@ -21,7 +21,8 @@ function captconnect_custom_admin_settings($form, $form_state) {
   $form['captconnect_custom_request_password_text'] = array(
     '#type' => 'textfield',
     '#title' => t("'Request a new password' link text"),
-    '#default_value' => variable_get('captconnect_custom_request_password_text', 'Request a new password'),
+    '#default_value' => variable_get('captconnect_custom_request_password_text', 
+      'Request a new password'),
     );
 
   $flags = db_query("SELECT name, title FROM {flag}")->fetchAllKeyed();
