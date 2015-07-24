@@ -381,20 +381,33 @@ a.button {
     padding: 4px 12px;
     @extend .button-reset;
     font-size: 12px;
-    font-weight: bold;
+    font-weight: normal;
   }
-  &.register .flag-wrapper a {
+  &.register .flag-wrapper a, &.register .flag-wrapper a:visited {
     background: $capt-green;
+    font-weight: normal;
   }
-  &.cancel .flag-wrapper a {
+  &.register .flag-wrapper a:hover {
+    background-color: lighten($capt-green, 10%);
+  }
+  &.cancel .flag-wrapper a, &.cancel.flag-wrapper a:visited {
     background: $capt-maroon;
+    font-weight: normal;
+  }
+  &.cancel .flag-wrapper a:hover {
+    background-color: lighten($capt-maroon, 10%);
   }
   &.participate {
     margin: 5px 0;
-    .flag-wrapper a, .field-content > a {
+    font-weight: normal;
+    .flag-wrapper a, .field-content > a, .flag-wrapper a:visited, .field-content > a:visited {
       background: $capt-orange;
       font-size: 13px;
       padding: 5px 16px;
+      font-weight: normal;
+    }
+    .flag-wrapper a:hover, .field-content > a:hover {
+      background-color: lighten($capt-orange, 10%);
     }
   }
 }
@@ -414,7 +427,7 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
-  padding: 6px 18px;
+  padding: 8px 18px;
   text-transform: capitalize;
   background-color: $capt-orange;
   &:hover {
@@ -600,7 +613,7 @@ ul.pager {
     margin: 0px 4px 0px 0px;
     a {
       @extend .pager-link;
-      background-image: url("../images/icons/left-arrow.png");
+      background-image: url("../images/icons/left-arrow-orange.png");
       background-position: 0 8px;
       padding: 8px 0px 8px 20px;
     }
@@ -612,7 +625,7 @@ ul.pager {
     margin: 0px 0px 0px 4px;
     a {
       @extend .pager-link;
-      background-image: url("../images/icons/right-arrow.png");
+      background-image: url("../images/icons/right-arrow-orange.png");
       background-position: 33px 7px;
       padding: 8px 24px 8px 0px;
     }
@@ -1763,7 +1776,7 @@ body.not-logged-in.page-anon-login {
     div.description {
       margin-left: 16px;
     }
-    a.request-password {
+    div.request-new-password a {
       margin-left: $login-margin-left + 4px;
       font-weight: normal;
       text-decoration: underline;
@@ -1772,7 +1785,7 @@ body.not-logged-in.page-anon-login {
       color: $capt-maroon;
       font-size: $login-font;
     }
-    a.request-password:hover {
+    div.request-new-password a:hover {
       text-decoration: none;
     }
   }
@@ -1794,7 +1807,7 @@ body.not-logged-in.page-anon-login {
     a {
       color: $capt-orange;
       font-size: 20px;
-      background: url("../images/icons/right-arrow.png") 106px 5px no-repeat;
+      background: url("../images/icons/right-arrow-orange.png") 103px 1px no-repeat;
       font-weight: normal;
       width: 150px;
       display: block;
@@ -2059,13 +2072,6 @@ body.node-type-event {
       margin-left: 0px;
       display: inline;
     }
-    span.field-content span.flag-registration {
-      padding-left: 1px;
-      /*10px;*/
-      a.flag-action, a.unflag-action {
-        font-weight: bold;
-      }
-    }
     .views-row {
       div.field-content {
         clear: left;
@@ -2128,12 +2134,15 @@ body.node-type-event {
       }
       div#block-views-materials-block {
         ul {
-          padding-left: 23px;
+          padding-left: 0px;
           margin-bottom: 0px;
           li.views-row {
-            list-style-image: url("../images/icons/down-arrow.png");
+            list-style: none;
+            background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
             margin-bottom: 0px;
             margin-top: 0px;
+            padding-left: 23px;
+            min-height: 32px;
           }
         }
       }
@@ -2157,12 +2166,14 @@ body.node-type-event {
         padding-top: 15px;
         margin-top: -5px;
         ul {
-          padding-left: 14px;
+          padding-left: 0px;
           li.views-row {
-            list-style-image: url("../images/icons/arrow-icons.png");
-            /*list-style-image: url('../images/icons/down-arrow.png');*/
+            list-style: none;
+            background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
+            /* list-style-image: url('../images/icons/down-arrow.png'); */
             margin-bottom: 15px;
             min-height: 42px;
+            padding-left: 12px;
             div.field-content {
               a {
                 display: inline;
@@ -2502,6 +2513,9 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
 
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
+  div#main {
+    padding-top: 0px;
+  }
   h1#page-title.page__title {
     padding-top: 7px;
     color: $capt-maroon;
@@ -2513,9 +2527,8 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     margin-top: 0px;
   }
   div#content {
-    border: 0px;
-    margin-top: 0;
-    padding-top: 0;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 10px;
   }
   fieldset.field-group-fieldset {
     padding-left: 20px;
@@ -2647,14 +2660,26 @@ form#user-pass {
   &.ok, &.messages--status {
     background-color: #7AA04F;
     background-image: url("../images/icons/status.png") !important;
+    a, a:visited {
+      color: #F9F98C;
+      text-decoration: underline;
+    }
   }
   &.error, &.messages--error {
     background-color: #CC5454;
     background-image: url("../images/icons/error.png") !important;
+    a, a:visited {
+      color: #FBE170;
+      text-decoration: underline;
+    }
   }
   &.warning, &.messages--warning {
-    background-color: #C1A93F;
+    background-color: #D4B447;
     background-image: url("../images/icons/error.png") !important;
+    a, a:visited {
+      color: #8E1A1A;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -2820,7 +2845,7 @@ form.workflow-transition-form {
 body.not-logged-in.section-user.page-user,
 body.not-logged-in.section-anon-login.page-anon-login {
   div#title-section {
-    margin: 0px;
+    margin: 0px auto;
     border-bottom: 0px;
     width: 360px;
   }
