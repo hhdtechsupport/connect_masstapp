@@ -839,8 +839,10 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     // This is embarrassing, but I couldn't figure out any other way
     // to prevent that message from coming out a second time.
     $msgs = drupal_get_messages('status', TRUE);
+    $get_rid_of = variable_get('captconnect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.');
     foreach ($msgs['status'] as $msg) {
-      if (substr($msg, 0, 30) != 'If you already have an account') {
+      if ($msg != $get_rid_of) {
         drupal_set_message($msg);
       }
     }
