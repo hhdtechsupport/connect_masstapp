@@ -1012,6 +1012,11 @@ a.unflag-action {
   clear: both;
 }
 
+img.file-icon {
+  position: relative;
+  top: 4px;
+}
+
 /* form stuff */
 
 #event-notifications-node-form {
@@ -2810,6 +2815,13 @@ form.workflow-transition-form {
 .show-access-information {
   cursor: pointer;
   text-decoration: underline;
+}
+
+.view-instances .views-field-field-access-information {
+  ul {
+    padding: 0 0 0 15px;
+    margin-top: 0px;
+  }
 }
 
 #registrations-list {
