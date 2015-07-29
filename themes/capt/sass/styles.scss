@@ -202,8 +202,8 @@ $small-phone-width: 360px;
   padding-bottom: 20px;
   border-top: 0px;
   /*5px solid $capt-aqua;*/
-  font-size: 14px;
-  margin-top: 20px;
+  font-size: 13px;
+  margin-top: 60px;
   margin-bottom: 30px;
   @include border-radius(1px);
   &:before {
@@ -217,6 +217,11 @@ $small-phone-width: 360px;
     margin-left: -1px;
     padding-left: 2px;
   }
+}
+
+.section-events .field-type-ds,
+.section-event .field-type-ds {
+  margin-top: 0px !important;
 }
 
 .panel-rule-single {
@@ -240,18 +245,10 @@ $small-phone-width: 360px;
   }
 }
 
-.calendar-title {
-  background: url("../images/icons/create-event-2.png") 0 0 no-repeat;
-  padding-left: 70px;
-  /* variable? deviate from spec and reduce? */
-  padding-top: 7px;
-  color: $capt-maroon;
-  min-height: 44px;
-  font-size: 26pt;
-  /* from h2 in the specs */
-  margin-top: 36px;
-  margin-bottom: 21px;
-}
+
+
+
+
 
 /*
  *  End inherited primitives
@@ -349,6 +346,72 @@ a.button {
   @extend .button-reset;
 }
 
+.page-user-edit .button {
+  @include border-radius(5px);
+  color: #ffffff;
+  padding: 4px 16px;
+  @extend .button-reset;
+  width: 50px;
+  &.save-button {
+    background: $capt-orange;
+    &:hover {
+      background: lighten($capt-orange, 10%);
+    }
+  }
+  &.cancel-button {
+    background: $capt-darkblue;
+    margin-top: 10px;
+    &:hover {
+      background: lighten($capt-darkblue, 10%);
+    }
+  }
+  &.edit-button {
+    background: $capt-orange;
+    &:hover {
+      background: lighten($capt-orange, 10%);
+    }
+  }
+}
+
+
+.group-right .button, .view-dashboard .button {
+  .flag-wrapper a, .field-content > a {
+    @include border-radius(3px);
+    color: #ffffff;
+    padding: 4px 12px;
+    @extend .button-reset;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  &.register .flag-wrapper a, &.register .flag-wrapper a:visited {
+    background: $capt-green;
+    font-weight: normal;
+  }
+  &.register .flag-wrapper a:hover {
+    background-color: lighten($capt-green, 10%);
+  }
+  &.cancel .flag-wrapper a, &.cancel.flag-wrapper a:visited {
+    background: $capt-maroon;
+    font-weight: normal;
+  }
+  &.cancel .flag-wrapper a:hover {
+    background-color: lighten($capt-maroon, 10%);
+  }
+  &.participate {
+    margin: 5px 0;
+    font-weight: normal;
+    .flag-wrapper a, .field-content > a, .flag-wrapper a:visited, .field-content > a:visited {
+      background: $capt-orange;
+      font-size: 13px;
+      padding: 5px 16px;
+      font-weight: normal;
+    }
+    .flag-wrapper a:hover, .field-content > a:hover {
+      background-color: lighten($capt-orange, 10%);
+    }
+  }
+}
+
 /*ul.main-menu a:hover, */
 
 ul.sub-menu {
@@ -364,7 +427,7 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
-  padding: 12px 20px;
+  padding: 8px 18px;
   text-transform: capitalize;
   background-color: $capt-orange;
   &:hover {
@@ -376,6 +439,9 @@ input[type="submit"] {
       background-color: lighten($capt-aqua, 10%);
     }
   }
+}
+.ief-entity-operations input[type="submit"] {
+  margin-top: 0;
 }
 
 h1 {
@@ -547,7 +613,7 @@ ul.pager {
     margin: 0px 4px 0px 0px;
     a {
       @extend .pager-link;
-      background-image: url("../images/icons/left-arrow.png");
+      background-image: url("../images/icons/left-arrow-orange.png");
       background-position: 0 8px;
       padding: 8px 0px 8px 20px;
     }
@@ -559,13 +625,13 @@ ul.pager {
     margin: 0px 0px 0px 4px;
     a {
       @extend .pager-link;
-      background-image: url("../images/icons/right-arrow.png");
-      background-position: 35px 8px;
+      background-image: url("../images/icons/right-arrow-orange.png");
+      background-position: 33px 7px;
       padding: 8px 24px 8px 0px;
     }
   }
   li.pager-last a {
-    background-position: 34px 8px;
+    background-position: 30px 7px;
   }
   li.pager-current {
     margin-left: 3px;
@@ -645,6 +711,9 @@ table {
         border-top: 5px solid $capt-aqua;
         border-bottom: none;
         padding: 8px 8px;
+        &:last-child {
+          border-right: 1px solid #ccc;
+        }
       }
     }
   }
@@ -652,10 +721,16 @@ table {
     tr {
       border: 1px solid #ccc;
       &.odd {
-        background-color: lighten($capt-aqua, 53%);
+        background-color: #F7F7F7;
+      }
+      &.ief-row-form {
+
       }
       td {
         padding: 3px 6px;
+        &:last-child {
+          border-right: 1px solid #ccc;
+        }
         a, a:visited {
           color: $capt-orange;
           text-decoration: none;
@@ -664,10 +739,15 @@ table {
             color: lighten($capt-orange, 15%);
           }
         }
+        &.inline-entity-form-node-field_body {
+          width: 400px;
+        }
       }
     }
   }
 }
+
+
 
 .admin-only {
   background: #c7ff86;
@@ -719,9 +799,9 @@ body.node-type-dashboard {
     height: 100%;
     /* changed from 1000px*/
     div.view-content span.flag-registration a.unflag-action {
-      font-size: 12px;
-      line-height: 1em;
-      font-style: italic;
+      // font-size: 12px;
+      // line-height: 1em;
+      // font-style: italic;
     }
   }
 }
@@ -872,6 +952,8 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 
 .region-header {
   float: right;
+  margin-top: 10px;
+  margin-bottom: -10px;
   div, form {
     display: inline;
   }
@@ -930,6 +1012,11 @@ a.unflag-action {
   clear: both;
 }
 
+img.file-icon {
+  position: relative;
+  top: 4px;
+}
+
 /* form stuff */
 
 #event-notifications-node-form {
@@ -981,7 +1068,7 @@ h4.black {
 /* panels */
 
 .field-name-my-registered-events {
-  background: url("../images/icons/registered-events.png") 405px 21px no-repeat;
+  background: url("../images/icons/registered.png") 405px 21px no-repeat;
 }
 
 .field-name-my-archived-events.field-type-ds,
@@ -1039,13 +1126,13 @@ h4.black {
   }
   /* cancel registration link */
   a.unflag-action {
-    font-weight: normal;
-    color: black;
-    text-decoration: underline;
-    display: block;
-    margin-bottom: -15px;
-    /* added 6/30 */
-    line-height: 1.2em;
+    // font-weight: normal;
+    // color: black;
+    // text-decoration: underline;
+    // display: block;
+    // margin-bottom: -15px;
+    // /* added 6/30 */
+    // line-height: 1.2em;
   }
   div.item-list {
     border-width: 0px;
@@ -1090,7 +1177,7 @@ padding: 4px 7px;
 }
 
 .field-name-my-archived-events.field-type-ds {
-  background: url("../images/icons/archived-events.png") 405px 21px no-repeat;
+  background: url("../images/icons/archived.png") 405px 21px no-repeat;
   .view-dashboard {
     /* min-height: 170px;*/
     div.view-empty {
@@ -1143,6 +1230,7 @@ body.logged-in {
       a {
         color: black;
       }
+
     }
     h3 {
       margin-top: 0px;
@@ -1481,6 +1569,9 @@ form#event-node-form, form#event-notifications-node-form {
       color: $capt-aqua;
       font-size: 1.3em;
       font-style: normal;
+      position: relative;
+      top: -55px;
+      margin-bottom: -40px;
     }
     fieldset:not(.ief-form) {
       border: 0px;
@@ -1489,7 +1580,7 @@ form#event-node-form, form#event-notifications-node-form {
       legend {
         display: none;
         // I think this is fine because this isn't a public form
-     
+
       }
       table {
         margin-top: 0;
@@ -1499,7 +1590,7 @@ form#event-node-form, form#event-notifications-node-form {
       > div > label {
         display: none;
         // I think this is fine because this isn't a public form
-     
+
       }
       .form-item {
         margin-bottom: 0px;
@@ -1523,8 +1614,7 @@ form#event-node-form, form#event-notifications-node-form {
         }
       }
     }
-    fieldset.ief-form {
-      background: rgb(228, 231, 232);
+    fieldset.ief-form, tr.ief-row-form {
       padding: 25px;
       > legend {
         display: block;
@@ -1559,7 +1649,11 @@ form#event-node-form, form#event-notifications-node-form {
       font-size: $input-font-size;
       padding: 5px;
       max-width: 400px;
-      border: 1px solid $capt-midgrey;
+      display: block;
+      border: 1px solid #b6b6b6;
+      -moz-box-shadow: 0 0 3px rgba(0,0,0,.15);
+      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
+      box-shadow: 0 0 3px rgba(0,0,0,.15);
       &:focus {
         background: $capt-inputfocus;
         outline: none;
@@ -1583,6 +1677,17 @@ form#event-node-form, form#event-notifications-node-form {
   }
 }
 
+form#event-notifications-node-form {
+  .panel {
+    margin-top: 0px !important;
+  }
+  h3 {
+    top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+
 div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
@@ -1605,7 +1710,8 @@ body.page-node-add-event.page-node-add.section-node-add {
  *  Start Login Page
  */
 
-body.not-logged-in.page-user:not(.page-user-register) {
+body.not-logged-in.page-user:not(.page-user-register),
+body.not-logged-in.page-anon-login {
   height: 100%;
   ul.tabs-primary {
     display: none;
@@ -1625,6 +1731,12 @@ body.not-logged-in.page-user:not(.page-user-register) {
   div#title-section {
     margin-left: 85px;
     width: 320px;
+    margin-top: 0px;
+  }
+  &.section-anon-login form#user-login {
+    margin: 0 auto;
+    float: none;
+    width: 360px;
   }
   div#title-section {
     @extend .panel-rule;
@@ -1652,10 +1764,16 @@ body.not-logged-in.page-user:not(.page-user-register) {
     }
     input#edit-name,
     input#edit-pass {
-      font-size: 1.6em;
       margin: 5px 0px 5px $login-margin-left;
       width: 89%;
       margin-top: 0px;
+      font-size: 14px;
+      padding: 5px;
+      display: block;
+      border: 1px solid #b6b6b6;
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     }
     div.form-item-pass {
       margin-top: 0px;
@@ -1670,16 +1788,16 @@ body.not-logged-in.page-user:not(.page-user-register) {
     div.description {
       margin-left: 16px;
     }
-    a.request-password {
+    div.request-new-password a {
       margin-left: $login-margin-left + 4px;
       font-weight: normal;
       text-decoration: underline;
       position: relative;
-      top: -22px;
+      top: -10px;
       color: $capt-maroon;
-      font-size: $login-font;
+      font-size: 13px;
     }
-    a.request-password:hover {
+    div.request-new-password a:hover {
       text-decoration: none;
     }
   }
@@ -1701,7 +1819,7 @@ body.not-logged-in.page-user:not(.page-user-register) {
     a {
       color: $capt-orange;
       font-size: 20px;
-      background: url("../images/icons/right-arrow.png") 106px 5px no-repeat;
+      background: url("../images/icons/right-arrow-orange.png") 103px 1px no-repeat;
       font-weight: normal;
       width: 150px;
       display: block;
@@ -1768,6 +1886,7 @@ h1#page-title {
     color: #333333;
     font-size: .75em;
     display: block;
+    font-weight: normal;
   }
 }
 
@@ -1775,8 +1894,31 @@ h1#page-title {
 
 body.logged-in {
   h1#page-title {
-    @extend .calendar-title;
-    margin-top: 0px;
+      /* variable? deviate from spec and reduce? */
+      padding-top: 7px;
+      color: $capt-maroon;
+      min-height: 44px;
+      font-size: 26pt;
+      /* from h2 in the specs */
+      margin-top: 36px;
+      margin-bottom: 21px;
+      margin-top: 0px;
+  }
+  &.section-events h1#page-title {
+    background: url("../images/icons/dashboard.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.section-node-add h1#page-title {
+    background: url("../images/icons/create.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.section-administration h1#page-title {
+    background: url("../images/icons/admin.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.page-user-edit h1#page-title {
+    background: url("../images/icons/profile.png") 0 0 no-repeat;
+    padding-left: 55px;
   }
   h2 {
     margin-bottom: 0px;
@@ -1882,8 +2024,10 @@ body.node-type-event {
     font-size: 20px;
     color: $capt-orange;
   }
-  div.field-items ul a {
+  div.group-right a {
     color: $capt-orange;
+    font-weight: normal;
+    text-decoration: underline;
   }
   div#content {
     border-top: 1px solid $capt-midgrey;
@@ -1914,6 +2058,17 @@ body.node-type-event {
   h4 span {
     color: $capt-maroon;
   }
+  .views-field {
+    h4 {
+      color: $capt-maroon;
+    }
+    strong .date-display-single {
+      font-weight: bold;
+    }
+    .date-display-single {
+      font-weight: normal;
+    }
+  }
   h2.element-invisible {
     display: none;
   }
@@ -1928,18 +2083,6 @@ body.node-type-event {
     .view-content .field-content .views-row div {
       margin-left: 0px;
       display: inline;
-    }
-    span.field-content span.flag-registration {
-      padding-left: 1px;
-      /*10px;*/
-      a.flag-action, a.unflag-action {
-        font-weight: normal;
-        text-decoration: underline;
-        color: $capt-maroon;
-        /* changed on 6/30 */
-        font-size: 12px;
-        line-height: 1.2em;
-      }
     }
     .views-row {
       div.field-content {
@@ -1956,12 +2099,9 @@ body.node-type-event {
         /*border: 1px solid blue;*/
         margin-right: 4px;
         /*10px;*/
-        display: inline;
-        float: left;
       }
       div.views-field-ops {
-        display: inline;
-        float: left;
+        //display: inline;
       }
     }
     .item-list h3 {
@@ -1976,13 +2116,20 @@ body.node-type-event {
         padding-left: 54px;
       }
     }
-    .field-type-ds.field-name-join-this-event {
+    .field-type-ds.field-name-join-this-event, .field-type-ds.field-name-join-this-event-2 {
+      padding-top: 25px;
       &:before {
         margin-left: -27.5px;
         width: 320px;
         margin-top: 0px;
-        top: -10px;
         left: 1px;
+      }
+      .views-field-field-date .field-content {
+        background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
+        padding-left: 14px;
+      }
+      .button {
+        margin-left: 14px;
       }
     }
     /**
@@ -1999,12 +2146,15 @@ body.node-type-event {
       }
       div#block-views-materials-block {
         ul {
-          padding-left: 23px;
+          padding-left: 0px;
           margin-bottom: 0px;
           li.views-row {
-            list-style-image: url("../images/icons/down-arrow.png");
+            list-style: none;
+            background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
             margin-bottom: 0px;
             margin-top: 0px;
+            padding-left: 23px;
+            min-height: 32px;
           }
         }
       }
@@ -2028,12 +2178,14 @@ body.node-type-event {
         padding-top: 15px;
         margin-top: -5px;
         ul {
-          padding-left: 14px;
+          padding-left: 0px;
           li.views-row {
-            list-style-image: url("../images/icons/arrow-icons.png");
-            /*list-style-image: url('../images/icons/down-arrow.png');*/
-            margin-bottom: 20px;
+            list-style: none;
+            background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
+            /* list-style-image: url('../images/icons/down-arrow.png'); */
+            margin-bottom: 15px;
             min-height: 42px;
+            padding-left: 12px;
             div.field-content {
               a {
                 display: inline;
@@ -2109,24 +2261,44 @@ body.node-type-event.not-logged-in {
  *  Event Report
  */
 
-body.page-administration-event-report {
-  table.views-table {
-    tbody {
-      border: 1px solid $capt-midgrey;
+ .views-exposed-form .views-exposed-widget .form-submit {
+   margin-top: .8em;
+ }
+ .entity-entityform-type h2 {
+   display: none;
+ }
+
+body.page-administration {
+  line-height: 1.5em;
+  a, a:visited {
+    color: $capt-black;
+    &:hover {
+      color: $capt-maroon;
     }
-    tr {
-      th {
-        padding-right: 10px;
+  }
+  &.page-administration-event-report,
+  &.page-administration-my-events {
+    table.views-table {
+      tbody {
+        border: 1px solid $capt-midgrey;
       }
-      td:first-child {
-        padding-left: 10px;
-        width: 230px;
-      }
-      td {
-        padding-right: 10px;
-      }
-      td:nth-child(n+5) {
-        text-align: center;
+      tr {
+        th {
+          padding-right: 10px;
+        }
+        td:first-child {
+          padding-left: 10px;
+          width: 230px;
+        }
+        td:nth-child(2) {
+          width: 220px;
+        }
+        td {
+          padding-right: 10px;
+        }
+        td:nth-child(n+5) {
+          text-align: center;
+        }
       }
     }
   }
@@ -2239,13 +2411,19 @@ body.page-administration {
  *  User profile page
  */
 
-form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-event) {
+form#user-profile-form,
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
-    margin: 0px 0px 18px;
+    margin: 40px 0px 18px;
+    background:#eef1f3;
     legend {
-      margin-left: 20px;
+      margin-left: 4px;
+      top: -13px;
+      position: relative;
+      border-bottom: 5px solid #577785;
       span.fieldset-legend {
         color: $capt-aqua;
         text-transform: uppercase;
@@ -2258,6 +2436,9 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
         padding-left: 12px;
         color: $capt-aqua;
       }
+    }
+    fieldset legend {
+      top: -12px;
     }
     /* end legend */
     fieldset {
@@ -2283,7 +2464,11 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
     font-size: $input-font-size;
     padding: 5px;
     max-width: 400px;
-    border: 1px solid $capt-midgrey;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     &:focus {
       background: $capt-inputfocus;
       outline: none;
@@ -2342,21 +2527,35 @@ form#user-profile-form, body.not-logged-in.page-user-register:not(.node-type-eve
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
 
-body.not-logged-in.page-user-register:not(.node-type-event) {
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
+  .request-new-password {
+    display: none;
+  }
+  div#main {
+    padding-top: 0px;
+  }
   h1#page-title.page__title {
-    @extend .calendar-title;
+    padding-top: 7px;
+    color: $capt-maroon;
+    min-height: 44px;
+    font-size: 26pt;
+    /* from h2 in the specs */
+    margin-top: 36px;
+    margin-bottom: 21px;
     margin-top: 0px;
+    text-transform: capitalize;
   }
   div#content {
-    border: 0px;
-    margin-top: 0;
-    padding-top: 0;
+    border-top: 1px solid #d7d7d7;
+    margin-top: 10px;
   }
   fieldset.field-group-fieldset {
     padding-left: 20px;
     padding-right: 20px;
+    background: #eef1f3;
     legend {
-      margin-left: 0px;
+      margin-left: -6px;
       position: relative;
     }
   }
@@ -2375,13 +2574,10 @@ form#user-profile-form {
   .edit-button,
   .save-button,
   .cancel-button {
-    text-transform: uppercase;
-    color: $capt-aqua;
     float: right;
     margin-right: 10px;
     cursor: pointer;
     text-align: center;
-    min-width: 68px;
   }
   /*.save-button {
       @extend .basic-button;
@@ -2393,16 +2589,6 @@ form#user-profile-form {
         }*/
   input.form-text {
     border: 1px solid $capt-midgrey;
-  }
-  .edit-button:after,
-  .save-button:after,
-  .cancel-button:after {
-    content: " ]";
-  }
-  .edit-button:before,
-  .save-button:before,
-  .cancel-button:before {
-    content: "[ ";
   }
   .cancel-button {
     clear: right;
@@ -2426,14 +2612,19 @@ form#user-profile-form {
 
 /* prevent overlap with bottom save & cancel buttons */
 form#user-profile-form > div > fieldset > .fieldset-wrapper {
-  padding-bottom: 60px;
+  padding-bottom: 90px;
 }
 
 /* OMB Block; we may want to just use a form here */
-body.page-user-edit, body.page-user-register {
+body.page-user-edit,
+body.page-user-register,
+body.page-anon-register {
   #block-block-3 {
-    margin: 0 20px 30px 10px;
-    font-size: 12px;
+    margin: 30px 0px;
+    p {
+      font-size: 12px;
+      line-height: 1.3em;
+    }
   }
 }
 
@@ -2462,6 +2653,12 @@ body.page-user-password {
   }
   input#edit-name {
     font-size: $input-font-size;
+    padding: 5px;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     &:focus {
       background-color: $capt-inputfocus;
       outline: none;
@@ -2472,13 +2669,56 @@ body.page-user-password {
 
 form#user-pass {
   @extend .panel;
-  width: 330px;
+  width: 348px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-left: 35px;
-  padding-right: 35px;
+  padding-left: 26px;
+  padding-right: 26px;
   margin: -20px auto 0;
 }
+
+
+
+
+.messages {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border: none;
+  color: #ffffff;
+  line-height: 1.5em;
+  &.ok, &.messages--status {
+    background-color: #7AA04F;
+    background-image: url("../images/icons/status.png") !important;
+    a, a:visited {
+      color: #F9F98C;
+      text-decoration: underline;
+    }
+  }
+  &.error, &.messages--error {
+    background-color: #CC5454;
+    background-image: url("../images/icons/error.png") !important;
+    a, a:visited {
+      color: #FBE170;
+      text-decoration: underline;
+    }
+  }
+  &.warning, &.messages--warning {
+    background-color: #D4B447;
+    background-image: url("../images/icons/error.png") !important;
+    a, a:visited {
+      color: #8E1A1A;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+
+
+
+
+
 
 /***********************************************
  *                                             *
@@ -2544,42 +2784,55 @@ form.workflow-transition-form {
 
 
 /*** Table Registrations-list (from Nancy, 7/10) ***/
+
 .no-registrations {
   text-align: center;
 }
 
 .instance-label {
-  background-color: #ddffee;
-  border-bottom: 2px solid #ff9900;
-  font-size: 120%;
+  background-color: #DAE6EC;
+  border-top: 2px solid #949596;
+  font-size: 14px;
   font-weight: bold;
   padding: 6px 0 3px 0;
   text-align: center;
 }
 
 .instance-complete {
-  color: #bb3333;
-  font-size: 75%;
+  color: #577684;
+  font-size: 11px;
   font-style: italic;
 }
 
 .access-information {
-  background-color: #ffffcc;
-  font-size: 89%;
+  background-color: #F2F2F2;
+  font-size: 11px;
   p {
-    margin: 0 2em;
+    margin: 10px;
+  }
+}
+
+.show-access-information {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.view-instances .views-field-field-access-information {
+  ul {
+    padding: 0 0 0 15px;
+    margin-top: 0px;
   }
 }
 
 #registrations-list {
-  tr {
-    border-bottom: 0px;
-  }
   tr.odd {
     background-color: #fff !important;
   }
   a {
     color: inherit !important;
+    &:hover {
+      color: $capt-maroon !important;
+    }
   }
 }
 
@@ -2601,13 +2854,32 @@ form.workflow-transition-form {
   a {
     font-weight: normal;
   }
+  .chosen-single {
+    border-radius: 0px;
+    font-size: 14px;
+    max-width: 400px;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    height: 28px;
+    padding-top: 1px;
+  }
+  .chosen-drop {
+    border-radius: 0px;
+  }
+  &.chosen-container-multi .chosen-choices li.search-choice {
+    border-radius: 0px;
+  }
 }
 
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
 
-body.not-logged-in.section-user.page-user {
+body.not-logged-in.section-user.page-user:not(.page-user-register),
+body.not-logged-in.section-anon-login.page-anon-login {
   div#title-section {
     margin: 0px auto;
     border-bottom: 0px;
@@ -2681,16 +2953,16 @@ body.not-logged-in.section-user.page-user {
               display: none;
             }
             // end items
-         
+
           }
           // end menu
-       
+
         }
         // end contextual links
-     
+
       }
       // end region nav
-   
+
     }
   }
 }
@@ -2837,7 +3109,8 @@ body.not-logged-in.section-user.page-user {
   #main {
     @extend .reset-layout;
   }
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div#title-section {
       padding-top: 6px;
       padding-bottom: 6px;
@@ -2864,7 +3137,7 @@ body.not-logged-in.section-user.page-user {
         width: 90%;
         margin-top: 0px;
         padding-left: 18px;
-        
+
         position: relative;
         font-size: 1.8em;
        /* margin-bottom: -30px;*/
@@ -2886,7 +3159,7 @@ body.not-logged-in.section-user.page-user {
       }
     }
     div#block-block-8 {
-      .panel-body { 
+      .panel-body {
         h2 {
           margin-left: 16px;
         }
@@ -2943,7 +3216,7 @@ body.not-logged-in.section-user.page-user {
       }
     }
     // end user login
- 
+
   }
   // end body
   div.bottom-footer {
@@ -3169,7 +3442,8 @@ body.not-logged-in.section-user.page-user {
 @media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div.top-header {
       height: $mobile-header-height;
       @include rainbow-bar($mobile-header-height - $rainbow-height);
@@ -3236,6 +3510,7 @@ body.not-logged-in.section-user.page-user {
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login,
   body.admin-menu,
   body.page-user-register {
     div.bottom-footer div.disclaimer {
@@ -3272,7 +3547,8 @@ body.not-logged-in.section-user.page-user {
     }
   }
   // login screen, iPad
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
     div#main,
     div#content {
       width: 100%;
@@ -3326,16 +3602,16 @@ body.not-logged-in.section-user.page-user {
                 display: none;
               }
               // end items
-           
+
             }
             // end menu
-         
+
           }
           // end contextual links
-       
+
         }
         // end region nav
-     
+
       }
       // end nav
       // content, profile screen, iPad for registration d
@@ -3357,7 +3633,6 @@ body.not-logged-in.section-user.page-user {
         }
         h1#page-title {
           background-position: 8px 0px;
-          padding-left: 70px;
           font-size: 34px;
         }
         fieldset {
@@ -3379,7 +3654,8 @@ body.not-logged-in.section-user.page-user {
   // TO DO: event dashboard, iPad
   // TO DO: event detail, iPad
   /* password reset - you get to it via email link */
-  body.not-logged-in.section-user.page-user {
+  body.not-logged-in.section-user.page-user,
+  body.not-logged-in.page-anon-login {
     div#title-section {
       margin: 0px auto;
       width: 360px;
@@ -3396,7 +3672,8 @@ body.not-logged-in.section-user.page-user {
   div#title-section h1#page-title {
     font-size: 25px;
   }
-  body.not-logged-in.page-user:not(.page-user-register) {
+  body.not-logged-in.page-user:not(.page-user-register)
+  body.not-logged-in.page-anon-login {
     div#block-block-8,
     div#block-block-9 {
       h2.block-title, h2.custom_block_title {
@@ -3423,7 +3700,7 @@ body.not-logged-in.section-user.page-user {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
-    
+
     div#block-block-8, div#title-section, div#block-block-9 {
       h1,h2.block-title, h2.custom_block_title {
         font-size: 1.65em;

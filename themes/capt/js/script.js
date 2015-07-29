@@ -194,8 +194,30 @@ Drupal.behaviors.my_custom_behavior = {
         $(this).text(optionCategory[0]);
       }
     });
-    $notificationFieldset.find('.field-name-field-use-a-default-template select').chosen();
+    $templateSelect = $notificationFieldset.find('.field-name-field-use-a-default-template select');
 
+    $templateSelect.chosen();
+
+    $('.field-type-text input, .field-type-text-long')
+    if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+    }
+    else {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+    }
+
+    $templateSelect.change(function(){
+      if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+      }
+      else {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+      }
+    });
   });
 
   /*
@@ -495,6 +517,39 @@ Drupal.behaviors.my_custom_behavior = {
 
 
 
+
+$('.access-information').each(function(){
+  $(this).find('p').wrapAll('<div class="access-information-content"></div>');
+  $(this).prepend('<div class="show-access-information">Show Access Information</div>');
+});
+
+$('.show-access-information').each(function(){
+  $(this).next().toggle();
+  $(this).on('click', function(){
+    $(this).next().toggle();
+  });
+});
+
+var $registrationsTitle = $('.page-node-registrations h1#page-title');
+var titleString = $registrationsTitle.text();
+var parsedTitle = titleString.substring(titleString.indexOf('"') + 1, titleString.lastIndexOf('"'));
+$registrationsTitle.html('<em>View Event Registrations</em>' + parsedTitle);
+
+var $workflowTitle = $('.page-node-workflow h1#page-title');
+var parsedTitle = $workflowTitle.text();
+$workflowTitle.html('<em>Workflow History</em>' + parsedTitle);
+
+var $develTitle = $('.page-node-devel h1#page-title');
+var parsedTitle = $develTitle.text();
+$develTitle.html('<em>Devel</em>' + parsedTitle);
+
+
+
+
+$('.ief-entity-operations input[value="Edit"]').each(function(){
+
+
+});
 
 
 
