@@ -21,7 +21,7 @@ function captconnect_custom_admin_settings($form, $form_state) {
   $form['captconnect_custom_request_password_text'] = array(
     '#type' => 'textfield',
     '#title' => t("'Request a new password' link text"),
-    '#default_value' => variable_get('captconnect_custom_request_password_text', 
+    '#default_value' => variable_get('captconnect_custom_request_password_text',
       'Request a new password'),
     );
 
@@ -76,6 +76,32 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_registrations_link_instance', 1),
     );
 
+  $styles_list = image_styles();
+  $styles = array();
+  foreach ($styles_list as $style => $info) {
+    $styles[$style] = $info['label'];
+  }
+  $form['captconnect_custom_presenters_list_style'] = array(
+    '#type' => 'radios',
+    '#options' => $styles,
+    '#title' => t('Image style for Presenter image on the Presenters List page.'),
+    '#default_value' => variable_get('captconnect_custom_presenters_list_style', 'presenter_image'),
+    );
+
+  $form['captconnect_custom_presenters_list_limit'] = array(
+    '#type' => 'radios',
+    '#options' => array(5 => 5, 10 => 10, 15 => 15, 20 => 20, 25 => 25, 50 => 50),
+    '#title' => t('Number of presenters per page on the Presenters List page.'),
+    '#default_value' => variable_get('captconnect_custom_presenters_list_limit', 10),
+    );
+
+  $form['captconnect_custom_presenters_list_show_past'] = array(
+    '#type' => 'radios',
+    '#options' => $noyes,
+    '#title' => t('Show past instances on the Presenters List page.'),
+    '#default_value' => variable_get('captconnect_custom_presenters_list_show_past', 1),
+    );
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -113,13 +139,22 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_proxy_register_text']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_proxy_participate_text']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
     );
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_dest']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_registrations_link_instance']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_presenters_list_style']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_presenters_list_limit']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_presenters_list_show_past']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_presenters_list_limit']), 'style' => $style),
     );
 
   $output .= theme('table', array(
