@@ -141,6 +141,16 @@ function captconnect_custom_menu() {
     'type' => MENU_CALLBACK,
     );
 
+  $items['administration/presenters'] = array(
+    'title' => 'Presenters',
+    'description' => 'List of Presenter Activity',
+    'page callback' => 'captconnect_custom_presenter_list',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+    'menu_name' => 'main-menu',
+    );
+
   $items['nancy'] = array(
     'title' => 'Nancy',
     'description' => 'Stuff that needs a menu item',
@@ -1118,6 +1128,98 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
       unset($transitions[$key]);
     }
   }
+}
+
+/**
+ * Menu Callback
+ * Show a list of Presenter activity.
+ */
+function captconnect_custom_presenter_list() {
+  $output = '';
+
+  $table = array(
+    'header' => array(
+      /*t('Picture')*/ '',
+      array('data' => t('Name'), 'field' => 'title', 'sort' => 'asc'),
+      t('Event'),
+      ),
+    'rows' => array(),
+    'attributes' => array(
+      'id' => 'presenter-list',
+      ),
+    'empty' => t('There are no presenters to show.'),
+    'sticky' => TRUE,
+    );
+
+  $pquery = db_select('node', 'n')
+    ->extend('PagerDefault')
+    ->extend('TableSort')
+    ->limit(variable_get('captconnect_custom_presenters_list_limit', 10))
+    ->orderByHeader($table['header']);
+  $pquery->condition('n.status', 1);
+  $pquery->condition('n.type', 'presenter');
+  $pquery->join('field_data_field_presenter_image', 'i', 'i.entity_id = n.nid');
+  $pquery->join('file_managed', 'f', 'f.fid = i.field_presenter_image_fid');
+  $pquery->fields('n', array('nid', 'title'));
+  $pquery->addField('f', 'uri');
+
+  $style = variable_get('captconnect_custom_presenters_list_style', 'presenter_image');
+
+  $result = $pquery->execute();
+  $event_query = "SELECT e.field_events_target_id AS event_id, ne.title AS event "
+    . "FROM {field_data_field_events} e "
+    . "INNER JOIN {node} ne ON ne.nid = e.field_events_target_id "
+    . "WHERE e.entity_id = :presenter "
+    . "ORDER BY ne.title "
+    ;
+  foreach ($result as $row) {
+    $events = db_query($event_query, array(':presenter' => $row->nid))->fetchAllAssoc('event_id', PDO::FETCH_ASSOC);
+    $event_list = theme('item_list', array('items' => array_map('_captconnect_custom_link_events', $events)));
+
+    $table['rows'][] = array(
+      theme('image_style', array('path' => $row->uri, 'style_name' => $style)),
+      l($row->title, 'node/' . $row->nid),
+      $event_list,
+      );
+  }
+
+  $output .= theme('table', $table);
+  $pager = array('#theme' => 'pager', '#weight' => 50);
+  $output .= drupal_render($pager);
+
+  return $output;
+}
+
+function _captconnect_custom_link_events($a) {
+  $instance_list = db_select('field_data_field_date_instance', 'd');
+  $instance_list->condition('d.entity_id', $a['event_id']);
+  $instance_list->join('node', 'n', 'n.nid = d.field_date_instance_target_id');
+  $instance_list->addField('n', 'title');
+
+  if (!variable_get('captconnect_custom_presenters_list_show_past', 0)) {
+    $instance_list->join('field_data_field_date', 'id', 'id.entity_id = n.nid');
+    $instance_list->condition('id.field_date_value2', gmdate('Y-m-d H:i:s', REQUEST_TIME), '>');
+  }
+
+  $instances = $instance_list->execute()->fetchCol();
+  $class = array('event-name');
+  if ($instances) {
+    $ret = array(
+     'data' => l($a['event'], 'node/' . $a['event_id'], array('attributes' => array('class' => array('event-name'))))
+      . ' <span class="instance-list">'
+      . implode(', ', $instances)
+      . '</span>',
+    'class' => array('scheduled'),
+    );
+  }
+  else {
+    $ret = array(
+      'data' => l($a['event'], 'node/' . $a['event_id'], array('attributes' => array('class' => array('event-name')))),
+      'class' => array('not-scheduled'),
+      );
+  }
+
+  return $ret;
 }
 
 /**
