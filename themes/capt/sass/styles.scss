@@ -433,7 +433,7 @@ input[type="submit"] {
   &:hover {
     background-color: lighten($capt-orange, 10%);
   }
-  &[value="Cancel"], &[value="Remove"], &[value="Delete"] {
+  &[value="Cancel"], &[value="Remove"], &[value="Delete"], &[value="Reset"] {
     background-color: $capt-aqua;
     &:hover {
       background-color: lighten($capt-aqua, 10%);
@@ -517,7 +517,7 @@ li.views-row:last-child {
 
 div.view-content div.item-list {
   padding-left: 0px;
-  padding-top: 15px;
+  padding-top: 10px;
   &:first-of-type {
     padding-top: 0;
   }
@@ -1114,7 +1114,7 @@ h4.black {
       margin-top: 0px;
       margin-bottom: 0px;
       border-bottom: 1px solid $capt-midgrey;
-      padding-bottom: 0px;
+      padding-bottom: 10px;
       li {
         margin-bottom: 0px;
         padding-left: 0px;
@@ -1688,6 +1688,26 @@ form#event-notifications-node-form {
 }
 
 
+
+#dashboard-search {
+  input[type="text"] {
+    font-size: $input-font-size;
+    padding: 5px;
+    margin-right: 15px;
+    max-width: 400px;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
+    box-shadow: 0 0 3px rgba(0,0,0,.15);
+    &:focus {
+      background: $capt-inputfocus;
+      outline: none;
+    }
+  }
+}
+
+
+
 div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
@@ -1929,6 +1949,14 @@ body.logged-in {
     font-weight: normal;
     margin-top: 14px;
     color: $capt-aqua;
+  }
+  &.node-type-dashboard {
+    #title-section {
+      float: left;
+    }
+    .region-help {
+      float: right;
+    }
   }
 }
 
