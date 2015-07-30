@@ -3010,8 +3010,12 @@ body.not-logged-in.section-anon-login.page-anon-login {
    padding-left: 0px;
    background: no-repeat;
    background-color: $capt-lightgrey;
- }
- .show-hide {
+
+   &:before {
+    top: -12px;
+  }
+}
+.show-hide {
   font-size: 22px;
   padding-left: 20px;
   cursor: pointer;
@@ -3137,7 +3141,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
         width: 90%;
         margin-top: 0px;
         padding-left: 18px;
-
+        margin-left: 16px;
         position: relative;
         font-size: 1.8em;
         /* margin-bottom: -30px;*/
@@ -3206,30 +3210,30 @@ body.not-logged-in.section-anon-login.page-anon-login {
 
 
 
- /* merge with styles below? */
+  /* merge with styles below? */
 
 
- body.admin-menu {
-  div#navigation {
-    ul#main-menu.main-menu.responsive-menu {
-      overflow: visible;
-      /* admin*/
-      li#menu-item-1185,
-      li#menu-item-589 {
-        display: none;
-      }
-      li#menu-item-591 {
+  body.admin-menu {
+    div#navigation {
+      ul#main-menu.main-menu.responsive-menu {
         overflow: visible;
-        a {
-          border-bottom: 1px solid white;
+        /* admin*/
+        li#menu-item-1185,
+        li#menu-item-589 {
+          display: none;
+        }
+        li#menu-item-591 {
+          overflow: visible;
+          a {
+            border-bottom: 1px solid white;
+          }
         }
       }
     }
+    div#content {
+      margin-top: 50px;
+    }
   }
-  div#content {
-    margin-top: 50px;
-  }
-}
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
@@ -3248,6 +3252,11 @@ body.not-logged-in.section-anon-login.page-anon-login {
         width: 150px;
       }
     }
+    h1#page-title.page__title.title {
+      margin: 0px auto;
+      text-align: center;
+  
+    }
     div.bottom-footer div.disclaimer {
       width: 100%;
       margin: 0px auto;
@@ -3262,6 +3271,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
       display: block;
       padding-left: 0px;
       padding-right: 0px;
+      /* may only be for registration*/
+      border-width: 0px;
       ul.tabs-primary {
         width: 97%;
         margin: 0px auto;
@@ -3279,10 +3290,12 @@ body.not-logged-in.section-anon-login.page-anon-login {
     fieldset div.fieldset-wrapper {
       border-width: 0px;
     }
+    /* declare variable */
+    $pass-width: 300px;
 
     fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
       div.form-type-password-confirm.form-item {
-        $pass-width: 300px;
+
         width: $pass-width;
         margin: 0px;
         input.form-text.password-field,
@@ -3325,10 +3338,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
         margin-right: 5px;
       }
     }
-    fieldset.required-fields.group-contact-information {
-      min-width: 40%;
-      width: 85%;
-      background-color: yellow;
+    fieldset.field-group-fieldset {
+      background-color: white;
     }
     fieldset {
       padding-top: 0px;
@@ -3336,6 +3347,34 @@ body.not-logged-in.section-anon-login.page-anon-login {
       min-width: 0px;
       margin: 0px auto;
       margin-bottom: -20px;
+      border: 1px solid $capt-profgrey;
+      border-top: 0px;
+      background-color: white;
+      margin-bottom: 16px;
+      &:before {
+        display: block;
+        background-color: $capt-aqua;
+        height: 5px;
+        width: 100%;
+        content: "";
+        position: relative;
+        left: -20px;
+        top: -30px;
+        margin-left: -1px;
+        padding-left: 21px;
+        padding-right: 21px;
+      }
+
+      .chosen-container {
+        width: 100% !important;
+      }
+      /* widths of all contents must be controlled */
+      div.field-type-entityreference,
+      label,
+      div.form-item.form-type-select,
+      input {
+        width: 100%;
+      }
       // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
       fieldset {
         display: none;
@@ -3380,7 +3419,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
       }
 
     }
-  
+
 
   }
 
@@ -3401,7 +3440,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
       }
     }
   }
-    /* hide logo */
+  /* hide logo */
   body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
   #block-block-13 {
    display: none;
