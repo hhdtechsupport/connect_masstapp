@@ -545,37 +545,10 @@ $develTitle.html('<em>Devel</em>' + parsedTitle);
 
 
 
-var $search = $('#dashboard-search');
-
-$search.children('input[value="Search"]').on('click', function(){
-  var href = $search.children('input[type="text"]').val();
-  window.location = "/events?keys=" + href;
-});
-
-$search.children('input[value="Reset"]').on('click', function(){
-  var href = "all"
-  window.location = "/events?keys=" + href;
-});
-
-$search.children('input[type="text"]').keypress(function(e) {
-  var key = e.which;
-  if(key == 13) {
-    $search.children('input[value="Search"]').click();
-    return false;
-  }
-});
 
 
+$('.sidebars .view-dashboard .view-filters').css('display','none');
 
-if ((window.location.pathname == "/events") && (window.location.search != "")) {
-  var keys = window.location.search.split("=");
-  if(keys[1] == "all") {
-    $search.children('input[type="text"]').val("");
-  }
-  else {
-    $search.children('input[type="text"]').val(keys[1]);
-  }
-}
 
 
 
