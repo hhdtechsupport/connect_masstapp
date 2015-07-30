@@ -546,11 +546,8 @@ $develTitle.html('<em>Devel</em>' + parsedTitle);
 
 
 
-$('.ief-entity-operations input[value="Edit"]').each(function(){
 
-
-});
-
+$('.sidebars .view-dashboard .view-filters').css('display','none');
 
 
 
