@@ -29,88 +29,88 @@
  *  Section_1 - Variables                      *
  *                                             *
  ***********************************************/
- $default-stack: Arial, Helvetica, sans-serif;
+$default-stack: Arial, Helvetica, sans-serif;
 
- /* colors*/
+/* colors*/
 
- $capt-orange: #c3791f;
- $capt-maroon: #8c1d18;
- $capt-green: #888a55;
- $capt-aqua: #577785;
- $capt-darkblue: #334b56;
- $capt-black: #333333;
- $capt-darkgrey: #959595;
- $capt-midgrey: #d7d7d7;
- $capt-lightgrey: #eef1f3;
- $capt-hovergrey: #efefef;
- $capt-formgrey: #5c5c5c;
- $capt-inputfocus: #F5FAFC;
- $password-suggest: #F7F7F7;
+$capt-orange: #c3791f;
+$capt-maroon: #8c1d18;
+$capt-green: #888a55;
+$capt-aqua: #577785;
+$capt-darkblue: #334b56;
+$capt-black: #333333;
+$capt-darkgrey: #959595;
+$capt-midgrey: #d7d7d7;
+$capt-lightgrey: #eef1f3;
+$capt-hovergrey: #efefef;
+$capt-formgrey: #5c5c5c;
+$capt-inputfocus: #F5FAFC;
+$password-suggest: #F7F7F7;
 
- /*#e4e4e4;*/
+/*#e4e4e4;*/
 
- $capt-tabsgrey: #e3e4e0;
+$capt-tabsgrey: #e3e4e0;
 
- /*#e4e3e0;*/
- $capt-profgrey: #dbdbd9;
+/*#e4e3e0;*/
+$capt-profgrey: #dbdbd9;
 
- /*measurements */
+/*measurements */
 
- $header-height: 115px;
- $rainbow-height: 9px;
- $page-width: 1000px;
- $logo-margin: 0px;
- $dash-nudge: 15px;
- $login-margin-left: 17px;
- $newto-margin-left: 30px;
+$header-height: 115px;
+$rainbow-height: 9px;
+$page-width: 1000px;
+$logo-margin: 0px;
+$dash-nudge: 15px;
+$login-margin-left: 17px;
+$newto-margin-left: 30px;
 
- $event-right-panel-pos: -27px;
+$event-right-panel-pos: -27px;
 
- /*fonts*/
+/*fonts*/
 
- $login-font: 16px;
- $edit-margin-right: 0px;
- $input-font-size: 14px;
+$login-font: 16px;
+$edit-margin-right: 0px;
+$input-font-size: 14px;
 
- /* responsive */
+/* responsive */
 
- $iPh6H: 667px;
- $iPh6W: 375px;
- $iPadH: 1024px;
- $iPadW: 768px;
- $phone-tablet-divide: 767px;
+$iPh6H: 667px;
+$iPh6W: 375px;
+$iPadH: 1024px;
+$iPadW: 768px;
+$phone-tablet-divide: 767px;
 
- /* logos */
+/* logos */
 
- $capt-iPh6-scale: 0.65;
- $samhsa-iPh6-scale: 0.7;
+$capt-iPh6-scale: 0.65;
+$samhsa-iPh6-scale: 0.7;
 
- $capt-iPh4-scale: 0.55;
- $samhsa-iPh4-scale: 0.6;
+$capt-iPh4-scale: 0.55;
+$samhsa-iPh4-scale: 0.6;
 
- $small-tablet-scale: 0.85;
+$small-tablet-scale: 0.85;
 
- $mobile-header-height: 91px;
- $mobile-header-height: 61px;
+$mobile-header-height: 91px;
+$mobile-header-height: 61px;
 
- $capt-phone-logo-width: 290px;
- $capt-logo-width: 342px;
- $capt-logo-height: 46px;
+$capt-phone-logo-width: 290px;
+$capt-logo-width: 342px;
+$capt-logo-height: 46px;
 
- $samhsa-phone-logo-width: 175px;
- $samhsa-phone-logo-height: 50px;
- $samhsa-logo-width: 300px;
- $samhsa-logo-height: 74px;
+$samhsa-phone-logo-width: 175px;
+$samhsa-phone-logo-height: 50px;
+$samhsa-logo-width: 300px;
+$samhsa-logo-height: 74px;
 
- $top-margin: 10px;
- $small-phone-width: 360px;
+$top-margin: 10px;
+$small-phone-width: 360px;
 
- /* end logos */
+/* end logos */
 
- /* mixins */
- /* for tabs! */
+/* mixins */
+/* for tabs! */
 
- @mixin bottom-line($thickness) {
+@mixin bottom-line($thickness) {
   background-image: -o-linear-gradient(bottom, black $thickness, transparent $thickness);
   background-image: -moz-linear-gradient(center bottom, black, $thickness, transparent $thickness / 2);
   background-image: -webkit-linear-gradient(bottom, black $thickness, transparent $thickness);
@@ -155,10 +155,10 @@
  *                                                         *
  ***********************************************************/
 
- /* prototype classes */
- /* panels */
+/* prototype classes */
+/* panels */
 
- #block-block-12 .contextual-links-wrapper {
+#block-block-12 .contextual-links-wrapper {
   width: 970px;
   margin: 0px auto;
 }
@@ -245,17 +245,12 @@
   }
 }
 
-
-
-
-
-
 /*
  *  End inherited primitives
  */
- /* pager */
+/* pager */
 
- .pager-link {
+.pager-link {
   background-repeat: no-repeat;
   color: $capt-orange;
   font-size: 14px;
@@ -303,9 +298,15 @@ body {
   background: #86a9b5;
 }
 
-.ds-2col-stacked-fluid > .group-left {
+/* NK (7/30): dashboard update.
+
+updating for new events styles; events subject to change */
+.ds-2col-stacked-fluid > .group-left
+body.page-events2.section-events2 div#content {
   margin-right: 1%;
   width: 49%;
+  /* added 7/30 */
+  border: 0px;
 }
 
 /* from the Hemali's first and second style sheets */
@@ -373,7 +374,6 @@ a.button {
   }
 }
 
-
 .group-right .button, .view-dashboard .button {
   .flag-wrapper a, .field-content > a {
     @include border-radius(3px);
@@ -440,6 +440,7 @@ input[type="submit"] {
     }
   }
 }
+
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
@@ -542,122 +543,7 @@ p {
   line-height: 1.6em;
 }
 
-div.field-name-upcoming-events {
-  padding-bottom: 0px;
-  div.view-content {
-    /* set to min-height to avoid breaking layout */
-    /*min-height: 450px;*/
-    /*border-bottom: 5px solid $capt-aqua;*/
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-    ul {
-      padding-left: 14px;
-      border-bottom: 1px solid $capt-midgrey;
-      padding-bottom: 14px;
-    }
-    div.item-list {
-      margin-left: 0px;
-    }
-    div.item-list:last-child ul {
-      border-bottom: none;
-    }
-  }
-  ul.pager {
-    margin-top: 45px;
-    padding-left: 0px;
-    width: 390px;
-    margin-left: -7px;
-  }
-}
 
-/* *
- * Pager styles
- */
-
- ul.pager {
-  padding-top: 5px;
-  height: 40px;
-  text-align: center;
-  text-overflow: visible;
-  a:hover {
-    text-decoration: none;
-  }
-  /* width: 106%;*/
-  li.pager-ellipsis {
-    padding: 0px;
-  }
-  li.pager-item {
-    background-color: $capt-lightgrey;
-    color: $capt-orange;
-    height: 30px;
-    /*padding: 8px 0px 8px 0px;*/
-    width: 50px;
-    a {
-      color: $capt-orange;
-      /*padding: 4px 7px;*/
-    }
-  }
-  /* no link within pager-current */
-  li.pager-current {
-    background-color: $capt-orange;
-    width: 60px;
-    color: $capt-lightgrey;
-  }
-  li.pager-last a {
-    background-position: 33px 8px;
-  }
-  /* first & previous on left */
-  li.pager-first,
-  li.pager-previous {
-    padding: 0px;
-    margin: 0px 4px 0px 0px;
-    a {
-      @extend .pager-link;
-      background-image: url("../images/icons/left-arrow-orange.png");
-      background-position: 0 8px;
-      padding: 8px 0px 8px 20px;
-    }
-  }
-  /* next & last on right */
-  li.pager-next,
-  li.pager-last {
-    padding: 0px;
-    margin: 0px 0px 0px 4px;
-    a {
-      @extend .pager-link;
-      background-image: url("../images/icons/right-arrow-orange.png");
-      background-position: 33px 7px;
-      padding: 8px 24px 8px 0px;
-    }
-  }
-  li.pager-last a {
-    background-position: 30px 7px;
-  }
-  li.pager-current {
-    margin-left: 3px;
-    margin-right: 3px;
-    padding: 6px 9px;
-  }
-  li.pager-item {
-    /* not sure why we need vert padding but not horiz padding.*/
-    padding: 6px 0px;
-    margin-right: 3px;
-    margin-left: 3px;
-    a {
-      padding: 6px 9px;
-    }
-  }
-  // throbber needs to be on its own line
-  // so as not to affect the pager
-  div.ajax-progress {
-    float: right;
-    display: inline;
-    top: 20px;
-    left: center;
-    position: relative;
-    margin-left: -20px;
-  }
-}
 
 /* end pager styles */
 
@@ -723,9 +609,7 @@ table {
       &.odd {
         background-color: #F7F7F7;
       }
-      &.ief-row-form {
-
-      }
+      &.ief-row-form {}
       td {
         padding: 3px 6px;
         &:last-child {
@@ -746,8 +630,6 @@ table {
     }
   }
 }
-
-
 
 .admin-only {
   background: #c7ff86;
@@ -794,7 +676,7 @@ body {
  *  Cancelling a registered event
  */
 
- body.node-type-dashboard {
+body.node-type-dashboard {
   #page {
     height: 100%;
     /* changed from 1000px*/
@@ -802,6 +684,7 @@ body {
       // font-size: 12px;
       // line-height: 1em;
       // font-style: italic;
+   
     }
   }
 }
@@ -809,7 +692,7 @@ body {
 /*
  *  Banners
  */
- body {
+body {
   &.front, &.not-logged-in:not(.node-type-event) {
     header#header {
       height: 380px;
@@ -901,7 +784,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
  *  Specific event page styling for the footer.
  */
 
- #page {
+#page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
   margin: 0 auto -100px;
@@ -927,71 +810,71 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 .disclaimer {
     width: 600px;
     }*/
-    /* treating this as the container for now */
+/* treating this as the container for now */
 
-    #main {
-      width: $page-width;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
+#main {
+  width: $page-width;
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
-    /* page */
+/* page */
 
-    #page {
-      background: #FFF;
-      padding-bottom: 2em;
-      clear: both;
-      /* from the spec */
-      width: $page-width;
-    }
+#page {
+  background: #FFF;
+  padding-bottom: 2em;
+  clear: both;
+  /* from the spec */
+  width: $page-width;
+}
 
-    .header__name-and-slogan {
-      float: none;
-      clear: both;
-    }
+.header__name-and-slogan {
+  float: none;
+  clear: both;
+}
 
-    .region-header {
-      float: right;
-      margin-top: 10px;
-      margin-bottom: -10px;
-      div, form {
-        display: inline;
-      }
-    }
+.region-header {
+  float: right;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  div, form {
+    display: inline;
+  }
+}
 
-    .group-dates,
-    .group-event,
-    .group-presenter,
-    .group-materials,
-    .field-name-add-a-date + .field,
-    .field-name-add-a-presenter + .field {
-      clear: both;
-    }
+.group-dates,
+.group-event,
+.group-presenter,
+.group-materials,
+.field-name-add-a-date + .field,
+.field-name-add-a-presenter + .field {
+  clear: both;
+}
 
-    .view-instances.view-display-id-registration > .view-content > .views-row div {
-      display: inline;
-    }
+.view-instances.view-display-id-registration > .view-content > .views-row div {
+  display: inline;
+}
 
-    body.node-type-event #title-section {
-      width: auto;
-      /*280px;*/
-    }
+body.node-type-event #title-section {
+  width: auto;
+  /*280px;*/
+}
 
-    .region-help #block-block-1 {
-      text-align: center;
-      float: right;
-      margin-left: -260px;
-      width: 240px;
-      padding-right: 10px;
-      /*margin-top: 1em;*/
-    }
+.region-help #block-block-1 {
+  text-align: center;
+  float: right;
+  margin-left: -260px;
+  width: 240px;
+  padding-right: 10px;
+  /*margin-top: 1em;*/
+}
 
 /*
  *  Viewing a Registered Event
  */
- /* view registration and edit notification buttons */
+/* view registration and edit notification buttons */
 
- div#block-block-1.contextual-links-region {
+div#block-block-1.contextual-links-region {
   a.button {
     width: 116px;
     display: block;
@@ -1058,16 +941,18 @@ h4.black {
   margin-bottom: 9px;
 }
 
-
 /***********************************************
  *                                             *
  *  Section_4 - Dashboard                      *
  *                                             *
  ***********************************************/
 
- /* panels */
+/*
+ * NK (7/30) - pulling styles from here - some here may get deprecated.
+ */
+/* panels */
 
- .field-name-my-registered-events {
+.field-name-my-registered-events {
   background: url("../images/icons/registered.png") 405px 21px no-repeat;
 }
 
@@ -1124,16 +1009,6 @@ h4.black {
       border-bottom: none;
     }
   }
-  /* cancel registration link */
-  a.unflag-action {
-    // font-weight: normal;
-    // color: black;
-    // text-decoration: underline;
-    // display: block;
-    // margin-bottom: -15px;
-    // /* added 6/30 */
-    // line-height: 1.2em;
-  }
   div.item-list {
     border-width: 0px;
   }
@@ -1146,34 +1021,34 @@ h4.black {
     /* a {
 padding: 4px 7px;
 }*/
-}
-li.pager-current {
-  background-color: $capt-aqua;
-  border: 1px solid $capt-aqua;
-}
-li.pager-next,
-li.pager-last {
-  a {
-    background-image: url("../images/icons/right-arrow-aqua.png");
+    }
+    li.pager-current {
+      background-color: $capt-aqua;
+      border: 1px solid $capt-aqua;
+    }
+    li.pager-next,
+    li.pager-last {
+      a {
+        background-image: url("../images/icons/right-arrow-aqua.png");
+      }
+    }
+    li.pager-previous,
+    li.pager-first {
+      a {
+        background-image: url("../images/icons/left-arrow-aqua.png");
+      }
+    }
+    li.pager-item,
+    li.pager-current,
+    li.pager-previous,
+    li.pager-last,
+    li.pager-first,
+    li.pager-next {
+      a {
+        color: $capt-aqua;
+      }
+    }
   }
-}
-li.pager-previous,
-li.pager-first {
-  a {
-    background-image: url("../images/icons/left-arrow-aqua.png");
-  }
-}
-li.pager-item,
-li.pager-current,
-li.pager-previous,
-li.pager-last,
-li.pager-first,
-li.pager-next {
-  a {
-    color: $capt-aqua;
-  }
-}
-}
 }
 
 .field-name-my-archived-events.field-type-ds {
@@ -1213,8 +1088,10 @@ li.pager-next {
 /* upcoming events panel  */
 
 body.logged-in {
-  .field-name-upcoming-events.field-type-ds {
-    background-color: white;
+  /* old*/
+  .field-name-upcoming-events.field-type-ds,
+  div.view.view-dashboard {
+    /*background-color: white;*/
     border-width: 5px 0px 0px 0px;
     margin-right: 40px;
     margin-left: 0px;
@@ -1230,7 +1107,6 @@ body.logged-in {
       a {
         color: black;
       }
-
     }
     h3 {
       margin-top: 0px;
@@ -1238,22 +1114,313 @@ body.logged-in {
   }
 }
 
+/*
+NK (7/30): dashboard update. 
+we may deprecate field-name-upcoming-events selector
+
+*/
+
+body.page-events2.section-events2 {
+  div.bottom-footer div.disclaimer {
+    display: inline-block;
+    margin-left: 20px;
+    top: -20px;
+  }
+  .views-exposed-form .views-exposed-widget .form-submit {
+    margin-top: 1.6em;
+  }
+  #page {}
+  div#content {
+    border: 0px;
+    div.view.view-dashboard.view-id-dashboard {
+      @extend .panel-rule-single;
+      background-color: white;
+      border-width: 0px;
+      width: 55%;
+    }
+  }
+  section.region.region-sidebar-second {
+    position: relative;
+    width: 50%;
+    margin-top: 180px;
+    left: -330px;
+    /*border: 1px dashed orange;*/
+    // registered events, archived events
+    div#block-views-dashboard-block-1,
+    div#block-views-dashboard-block-2 {
+      @extend .panel-rule-single;
+      overflow: none;
+      padding-bottom: 30px;
+      margin-right: 0px;
+      padding-right: 30px;
+      padding-left: 0px;
+      &:before {
+        width: 476px;
+      }
+      div.field-items {
+        margin: 0 26px;
+      }
+      div.view.view-dashboard {
+        /*border-bottom: 1px solid $capt-midgrey;*/
+        padding-top: 0px;
+        div.view-empty {
+          margin-top: 40px;
+        }
+      }
+      /* debold the title */
+      h2.block-title {
+        font-weight: normal;
+        margin-bottom: 20px;
+        margin-top: 3px;
+        font-size: 24px;
+        margin-left: 20px;
+        color: $capt-darkblue;
+      }
+      /* blacken the links */
+      h3 a {
+        font-style: normal;
+        font-size: 14px;
+        color: black;
+      }
+      /* format list of events */
+      div#content {
+        padding-left: 30px;
+      }
+      div.view-content {
+        margin-left: 20px;
+        /*we may need this to be more specific elsewhere*/
+        div.item-list ul {
+          padding-left: 16px;
+          margin-top: 0px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid $capt-midgrey;
+          padding-bottom: 10px;
+          li {
+            margin-bottom: 0px;
+            padding-left: 0px;
+          }
+        }
+        div.item-list:last-child ul {
+          border-bottom: none;
+        }
+      }
+      div.item-list {
+        border-width: 0px;
+      }
+      /* pager logic */
+      ul.pager {
+        margin-bottom: -10px;
+        li.pager-item {
+          border: 1px solid $capt-aqua;
+        }
+        li.pager-current {
+          background-color: $capt-aqua;
+          border: 1px solid $capt-aqua;
+        }
+        li.pager-next,
+        li.pager-last {
+          a {
+            background-image: url("../images/icons/right-arrow-aqua.png");
+          }
+        }
+        li.pager-previous,
+        li.pager-first {
+          a {
+            background-image: url("../images/icons/left-arrow-aqua.png");
+          }
+        }
+        li.pager-item,
+        li.pager-current,
+        li.pager-previous,
+        li.pager-last,
+        li.pager-first,
+        li.pager-next {
+          a {
+            color: $capt-aqua;
+          }
+        }
+      }
+    }
+  }
+  div#block-views-dashboard-block-1 {
+    background: url("../images/icons/registered.png") 405px 21px no-repeat;
+    a.flag-action.flag-link-normal {
+      padding: 10px 20px;
+      margin-left: -30px;
+      position: relative;
+      top: 20px;
+    }
+  }
+  div#block-views-dashboard-block-2 {
+    background: url("../images/icons/archived.png") 405px 21px no-repeat;
+    .view-dashboard {
+      /* min-height: 170px;*/
+      div.view-empty {
+        margin-top: 20px;
+      }
+    }
+    .views-field-flagged {
+      font-size: 12px;
+      line-height: 1em;
+      font-style: italic;
+      margin-bottom: 6px;
+    }
+    div.view-content {
+      div.item-list {
+        margin-left: 0px;
+        ul {
+          padding-bottom: 6px;
+        }
+      }
+    }
+    h2.block-title {
+      font-weight: normal;
+    }
+    div.view-empty {
+      margin-top: 30px;
+    }
+    ul.pager {
+      /*margin-bottom: -30px;*/
+      padding-bottom: 0px;
+    }
+  }
+  div.field-name-upcoming-events,
+  div.view.view-dashboard {
+    padding-bottom: 0px;
+    div.view-content {
+      /* set to min-height to avoid breaking layout */
+      /*min-height: 450px;*/
+      /*border-bottom: 5px solid $capt-aqua;*/
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+      ul {
+        padding-left: 14px;
+        border-bottom: 1px solid $capt-midgrey;
+        padding-bottom: 14px;
+      }
+      div.item-list {
+        margin-left: 0px;
+      }
+      div.item-list:last-child ul {
+        border-bottom: none;
+      }
+    }
+    ul.pager {
+      margin-top: 45px;
+      padding-left: 0px;
+      width: 390px;
+      margin-left: -7px;
+    }
+  }
+}
+
+/* *
+ * Pager styles
+ */
+
+ul.pager {
+  padding-top: 5px;
+  height: 40px;
+  text-align: center;
+  text-overflow: visible;
+  a:hover {
+    text-decoration: none;
+  }
+  /* width: 106%;*/
+  li.pager-ellipsis {
+    padding: 0px;
+  }
+  li.pager-item {
+    background-color: $capt-lightgrey;
+    color: $capt-orange;
+    height: 30px;
+    /*padding: 8px 0px 8px 0px;*/
+    width: 50px;
+    a {
+      color: $capt-orange;
+      /*padding: 4px 7px;*/
+    }
+  }
+  /* no link within pager-current */
+  li.pager-current {
+    background-color: $capt-orange;
+    width: 60px;
+    color: $capt-lightgrey;
+  }
+  li.pager-last a {
+    background-position: 33px 8px;
+  }
+  /* first & previous on left */
+  li.pager-first,
+  li.pager-previous {
+    padding: 0px;
+    margin: 0px 4px 0px 0px;
+    a {
+      @extend .pager-link;
+      background-image: url("../images/icons/left-arrow-orange.png");
+      background-position: 0 8px;
+      padding: 8px 0px 8px 20px;
+    }
+  }
+  /* next & last on right */
+  li.pager-next,
+  li.pager-last {
+    padding: 0px;
+    margin: 0px 0px 0px 4px;
+    a {
+      @extend .pager-link;
+      background-image: url("../images/icons/right-arrow-orange.png");
+      background-position: 33px 7px;
+      padding: 8px 24px 8px 0px;
+    }
+  }
+  li.pager-last a {
+    background-position: 30px 7px;
+  }
+  li.pager-current {
+    margin-left: 3px;
+    margin-right: 3px;
+    padding: 6px 9px;
+  }
+  li.pager-item {
+    /* not sure why we need vert padding but not horiz padding.*/
+    padding: 6px 0px;
+    margin-right: 3px;
+    margin-left: 3px;
+    a {
+      padding: 6px 9px;
+    }
+  }
+  // throbber needs to be on its own line
+  // so as not to affect the pager
+  div.ajax-progress {
+    float: right;
+    display: inline;
+    top: 20px;
+    left: center;
+    position: relative;
+    margin-left: -20px;
+  }
+  #page {
+    height: 100%;
+    margin-bottom: -200px;
+  }
+}
 /***********************************************
  *                                             *
  *  Section_5 Sitewide Styles 2                *
  *                                             *
  ***********************************************/
 
- /*logos above header - move up to general area? */
+/*logos above header - move up to general area? */
 
- div.top-header {
+div.top-header {
   @include rainbow-bar($header-height - $rainbow-height);
     /*background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
 background-repeat: repeat-x;*/
-height: $header-height;
+  height: $header-height;
 }
-
 
 /*
 *  Logos
@@ -1295,8 +1462,6 @@ div#block-block-7 {
     text-decoration: underline;
   }
 }
-
-
 
 /* search */
 
@@ -1376,7 +1541,7 @@ ul#main-menu.main-menu {
  * Dropdown Logic
  */
 
- #navigation .links li {
+#navigation .links li {
   padding: 0px 5px 0px 0px;
 }
 
@@ -1447,8 +1612,6 @@ div#block-block-12 {
   /*height: 100px;*/
   margin-bottom: 0px;
 }
-
-
 
 div#content {
   border: 1px solid $capt-midgrey;
@@ -1580,7 +1743,7 @@ form#event-node-form, form#event-notifications-node-form {
       legend {
         display: none;
         // I think this is fine because this isn't a public form
-
+     
       }
       table {
         margin-top: 0;
@@ -1590,7 +1753,7 @@ form#event-node-form, form#event-notifications-node-form {
       > div > label {
         display: none;
         // I think this is fine because this isn't a public form
-
+     
       }
       .form-item {
         margin-bottom: 0px;
@@ -1651,9 +1814,9 @@ form#event-node-form, form#event-notifications-node-form {
       max-width: 400px;
       display: block;
       border: 1px solid #b6b6b6;
-      -moz-box-shadow: 0 0 3px rgba(0,0,0,.15);
-      -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
-      box-shadow: 0 0 3px rgba(0,0,0,.15);
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
       &:focus {
         background: $capt-inputfocus;
         outline: none;
@@ -1687,8 +1850,6 @@ form#event-notifications-node-form {
   }
 }
 
-
-
 #dashboard-search {
   input[type="text"] {
     font-size: $input-font-size;
@@ -1696,17 +1857,15 @@ form#event-notifications-node-form {
     margin-right: 15px;
     max-width: 400px;
     border: 1px solid #b6b6b6;
-    -moz-box-shadow: 0 0 3px rgba(0,0,0,.15);
-    -webkit-box-shadow: 0 0 3px rgba(0,0,0,.15);
-    box-shadow: 0 0 3px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
     &:focus {
       background: $capt-inputfocus;
       outline: none;
     }
   }
 }
-
-
 
 div.vertical-tabs {
   margin-right: $edit-margin-right;
@@ -1730,8 +1889,8 @@ body.page-node-add-event.page-node-add.section-node-add {
  *  Start Login Page
  */
 
- body.not-logged-in.page-user:not(.page-user-register),
- body.not-logged-in.page-anon-login {
+body.not-logged-in.page-user:not(.page-user-register),
+body.not-logged-in.page-anon-login {
   height: 100%;
   ul.tabs-primary {
     display: none;
@@ -1976,7 +2135,7 @@ body.page-node-registrations {
  * Event pages - both anonymous and logged in
  */
 
- body.node-type-event {
+body.node-type-event {
   ul#main-menu.main-menu li#menu-item-588 {
     a {
       @include main-active-link;
@@ -2130,6 +2289,7 @@ body.page-node-registrations {
       }
       div.views-field-ops {
         //display: inline;
+     
       }
     }
     .item-list h3 {
@@ -2269,7 +2429,7 @@ body.page-node-registrations {
  *  Event Page, not logged in
  */
 
- body.node-type-event.not-logged-in {
+body.node-type-event.not-logged-in {
   #main {
     padding-top: 0;
   }
@@ -2289,14 +2449,15 @@ body.page-node-registrations {
  *  Event Report
  */
 
- .views-exposed-form .views-exposed-widget .form-submit {
-   margin-top: .8em;
- }
- .entity-entityform-type h2 {
-   display: none;
- }
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: .8em;
+}
 
- body.page-administration {
+.entity-entityform-type h2 {
+  display: none;
+}
+
+body.page-administration {
   line-height: 1.5em;
   a, a:visited {
     color: $capt-black;
@@ -2336,7 +2497,7 @@ body.page-node-registrations {
  *  styles from Nancy on 5/21-5/22:
  */
 
- #account-pass-restrictions {
+#account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
@@ -2355,29 +2516,29 @@ div.group-audience, div.group-description, div.group-dates {
   /* p {
        margin: 0px;
        }*/
-     }
+}
 
-     /* Float image on Presenters in Event view. */
+/* Float image on Presenters in Event view. */
 
-     .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
-      float: left;
-      div.field-content img {
-        margin-right: 20px;
-        border: 1px solid red;
-      }
-    }
+.field-name-field-presenter .node-teaser .field-name-field-presenter-image {
+  float: left;
+  div.field-content img {
+    margin-right: 20px;
+    border: 1px solid red;
+  }
+}
 
-    div.views-field.views-field-field-presenter-image {
-      margin: 5px 15px 0px 0px;
-      /*16px 23px 0px 0px;*/
-      line-height: 1em;
-    }
+div.views-field.views-field-field-presenter-image {
+  margin: 5px 15px 0px 0px;
+  /*16px 23px 0px 0px;*/
+  line-height: 1em;
+}
 
 /**
  * Disclaimer Placement Section
  */
 
- body.node-type-event div.bottom-footer {
+body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
@@ -2398,7 +2559,7 @@ body.node-type-event #block-block-12 {
 /*
  *  Mozilla-specific fix for footer.
  */
- @-moz-document url-prefix() {
+@-moz-document url-prefix() {
   body.node-type-event {
     #page {
       margin-bottom: -100px;
@@ -2427,7 +2588,7 @@ body.page-user-edit div.disclaimer {
  * page administration
  */
 
- body.page-administration {
+body.page-administration {
   div#content div#title-section {
     h2 {
       display: none;
@@ -2439,14 +2600,14 @@ body.page-user-edit div.disclaimer {
  *  User profile page
  */
 
- form#user-profile-form,
- body.not-logged-in.page-user-register:not(.node-type-event),
- body.not-logged-in.page-anon-register:not(.node-type-event) {
+form#user-profile-form,
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
   fieldset {
     border: 0px;
     border-top: 5px solid $capt-aqua;
     margin: 40px 0px 18px;
-    background:#eef1f3;
+    background: #eef1f3;
     legend {
       margin-left: 4px;
       top: -13px;
@@ -2555,8 +2716,8 @@ body.page-user-edit div.disclaimer {
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
 
- body.not-logged-in.page-user-register:not(.node-type-event),
- body.not-logged-in.page-anon-register:not(.node-type-event) {
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
   .request-new-password {
     display: none;
   }
@@ -2598,7 +2759,7 @@ body.page-user-edit div.disclaimer {
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
- form#user-profile-form {
+form#user-profile-form {
   .edit-button,
   .save-button,
   .cancel-button {
@@ -2615,51 +2776,51 @@ body.page-user-edit div.disclaimer {
         cursor: pointer;
         padding: 8px 20px;
         }*/
-        input.form-text {
-          border: 1px solid $capt-midgrey;
-        }
-        .cancel-button {
-          clear: right;
-        }
-        /* new planbox styles */
-        .item {
-          font-size: 14px;
-          margin: 10px 0 10px 5px;
-          line-height: 1.5em;
-          /*font-style: italic;*/
-          .value {
-            font-style: italic;
-          }
-        }
-        /* fieldset styles */
-        .fieldset-wrapper {
-          margin-left: 0px;
-          width: 97.9%;
-        }
-      }
+  input.form-text {
+    border: 1px solid $capt-midgrey;
+  }
+  .cancel-button {
+    clear: right;
+  }
+  /* new planbox styles */
+  .item {
+    font-size: 14px;
+    margin: 10px 0 10px 5px;
+    line-height: 1.5em;
+    /*font-style: italic;*/
+    .value {
+      font-style: italic;
+    }
+  }
+  /* fieldset styles */
+  .fieldset-wrapper {
+    margin-left: 0px;
+    width: 97.9%;
+  }
+}
 
-      /* prevent overlap with bottom save & cancel buttons */
-      form#user-profile-form > div > fieldset > .fieldset-wrapper {
-        padding-bottom: 90px;
-      }
+/* prevent overlap with bottom save & cancel buttons */
+form#user-profile-form > div > fieldset > .fieldset-wrapper {
+  padding-bottom: 90px;
+}
 
-      /* OMB Block; we may want to just use a form here */
-      body.page-user-edit,
-      body.page-user-register,
-      body.page-anon-register {
-        #block-block-3 {
-          margin: 30px 0px;
-          p {
-            font-size: 12px;
-            line-height: 1.3em;
-          }
-        }
-      }
+/* OMB Block; we may want to just use a form here */
+body.page-user-edit,
+body.page-user-register,
+body.page-anon-register {
+  #block-block-3 {
+    margin: 30px 0px;
+    p {
+      font-size: 12px;
+      line-height: 1.3em;
+    }
+  }
+}
 
 /**
  * Switch User
  */
- div.block-devel#block-devel-switch-user {
+div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
   padding: 20px;
@@ -2674,7 +2835,7 @@ body.page-user-edit div.disclaimer {
  *  Request password page
  */
 
- body.page-user-password {
+body.page-user-password {
   div#content div#title-section {
     width: 400px;
     margin: 0px auto;
@@ -2704,9 +2865,6 @@ form#user-pass {
   padding-right: 26px;
   margin: -20px auto 0;
 }
-
-
-
 
 .messages {
   padding-top: 14px;
@@ -2740,14 +2898,6 @@ form#user-pass {
   }
 }
 
-
-
-
-
-
-
-
-
 /***********************************************
  *                                             *
  *  Section_8 Admin Styles (Matt & Nancy)      *
@@ -2757,7 +2907,7 @@ form#user-pass {
  *  Workflow Styles
  */
 
- .node-event.workflow-in-progress .group-left::after {
+.node-event.workflow-in-progress .group-left::after {
   color: #ccbb99;
   content: "DRAFT";
   display: block;
@@ -2809,7 +2959,6 @@ form.workflow-transition-form {
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
-
 
 /*** Table Registrations-list (from Nancy, 7/10) ***/
 
@@ -2934,7 +3083,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
  */
- @media all and (max-width: 479px) {
+@media all and (max-width: 479px) {
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
@@ -2955,7 +3104,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
  * General Mobile Styles
  */
 
- @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   div#main {
     width: 100%;
     margin-left: 0px;
@@ -2981,16 +3130,16 @@ body.not-logged-in.section-anon-login.page-anon-login {
               display: none;
             }
             // end items
-
+         
           }
           // end menu
-
+       
         }
         // end contextual links
-
+     
       }
       // end region nav
-
+   
     }
   }
 }
@@ -2998,8 +3147,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
 /*
  *  iPad portrait
  */
- /* hide search block form */
- @media screen and (max-width: 768px) {
+/* hide search block form */
+@media screen and (max-width: 768px) {
   input#edit-search-block-form--2, div#edit-actions {
     display: none;
   }
@@ -3012,12 +3161,12 @@ body.not-logged-in.section-anon-login.page-anon-login {
  * iPhone 6 landscape
  */
 
- @media screen and (max-width: $phone-tablet-divide) {
+@media screen and (max-width: $phone-tablet-divide) {
   /* general styles */
   /*
    * prototype classes´
    */
-   .reset-layout {
+  .reset-layout {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -3030,33 +3179,32 @@ body.not-logged-in.section-anon-login.page-anon-login {
     position: static;
   }
   .mobile-panel {
-   padding-top: 10px;
-   text-align: left;
-   margin: 0px auto;
-   float: none;
-   width: 95%;
-   padding-left: 0px;
-   background: no-repeat;
-   background-color: $capt-lightgrey;
-
-   &:before {
-    top: -12px;
+    padding-top: 10px;
+    text-align: left;
+    margin: 0px auto;
+    float: none;
+    width: 95%;
+    padding-left: 0px;
+    background: no-repeat;
+    background-color: $capt-lightgrey;
+    &:before {
+      top: -12px;
+    }
   }
-}
-.show-hide {
-  font-size: 22px;
-  padding-left: 20px;
-  cursor: pointer;
-  background-image: url("../images/icons/hide.png");
-  background-position: 0px 8px;
-  background-repeat: no-repeat;
-  margin-left: 0px;
-  margin-top: 0px;
-}
+  .show-hide {
+    font-size: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    background-image: url("../images/icons/hide.png");
+    background-position: 0px 8px;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
   /*
    *  End Prototypes, Start Mixins
    */
-   @mixin side_borders($color) {
+  @mixin side_borders($color) {
     border-left: 1px solid $color;
     border-right: 1px solid $color;
   }
@@ -3071,8 +3219,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
   /*
    *Start General Styles
    */
-   html,
-   body {
+  html,
+  body {
     width: 100%;
     min-width: 320px;
     overflow-x: visible;
@@ -3138,7 +3286,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
   /*
    *  iPhone Styles -- User Login Page
    */
-   #main {
+  #main {
     @extend .reset-layout;
   }
   body.not-logged-in.page-user:not(.page-user-register),
@@ -3150,7 +3298,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
       @include side_borders($capt-midgrey);
     }
     /* reformatting panels for mobile */
-
     div#content {
       text-align: center;
     }
@@ -3173,7 +3320,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
         position: relative;
         font-size: 1.8em;
         /* margin-bottom: -30px;*/
-
       }
     }
     form#user-login,
@@ -3204,8 +3350,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
     div#block-block-13 {
       display: none;
     }
-
-
   }
   // end body
   div.bottom-footer {
@@ -3235,12 +3379,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
       }
     }
   }
-
-
-
   /* merge with styles below? */
-
-
   body.admin-menu {
     div#navigation {
       ul#main-menu.main-menu.responsive-menu {
@@ -3265,9 +3404,9 @@ body.not-logged-in.section-anon-login.page-anon-login {
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-   form#user-profile-form,
-   body.admin-menu,
-   body.not-logged-in.page-user-register:not(.node-type-event) {
+  form#user-profile-form,
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event) {
     div#block-block-3.block.block-block {
       width: 85%;
       margin: 0px auto;
@@ -3283,7 +3422,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
     h1#page-title.page__title.title {
       margin: 0px auto;
       text-align: center;
-
     }
     div.bottom-footer div.disclaimer {
       width: 100%;
@@ -3320,10 +3458,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
     }
     /* declare variable */
     $pass-width: 300px;
-
     fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
       div.form-type-password-confirm.form-item {
-
         width: $pass-width;
         margin: 0px;
         input.form-text.password-field,
@@ -3392,7 +3528,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
         padding-left: 21px;
         padding-right: 21px;
       }
-
       .chosen-container {
         width: 100% !important;
       }
@@ -3445,13 +3580,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
         margin-bottom: 0px;
         z-index: 0;
       }
-
     }
-
-
   }
-
-
   @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: $phone-tablet-divide) {
     form#user-profile-form,
     body.admin-menu {
@@ -3471,16 +3601,15 @@ body.not-logged-in.section-anon-login.page-anon-login {
   /* hide logo */
   body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
   #block-block-13 {
-   display: none;
- }
-
+    display: none;
+  }
 }
 
 /**
  *  Logo Styles for iPhone 6 and iPhone 4
  */
 
- @mixin logo_size($width, $height, $scale) {
+@mixin logo_size($width, $height, $scale) {
   background-size: $width * $scale $height * $scale;
   width: $width * $scale;
   height: $height * $scale;
@@ -3508,7 +3637,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
       }
     }
   }
-
 }
 
 /* Devel tabs */
@@ -3521,8 +3649,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
   }
 }
 
-
-
 /**
  * End iPhone responsive theming
  */
@@ -3531,13 +3657,13 @@ body.not-logged-in.section-anon-login.page-anon-login {
  * Start iPad theming
  */
 
- @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
+@media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
   /*
    *  Login Page Variables
    */
-   $iPad-login-width: 0.3476;
-   $iPad-page-width: 0.8333;
-   $iPad-intro-width: 0.3854;
+  $iPad-login-width: 0.3476;
+  $iPad-page-width: 0.8333;
+  $iPad-intro-width: 0.3854;
   // styles for all iPad-ready pages
   html,
   body.not-logged-in.page-user:not(.page-user-register),
@@ -3633,16 +3759,16 @@ body.not-logged-in.section-anon-login.page-anon-login {
                 display: none;
               }
               // end items
-
+           
             }
             // end menu
-
+         
           }
           // end contextual links
-
+       
         }
         // end region nav
-
+     
       }
       // end nav
       // content, profile screen, iPad for registration d
@@ -3724,16 +3850,14 @@ body.not-logged-in.section-anon-login.page-anon-login {
   }
 }
 
-
 /* iPhone 4 */
 
 @media screen and (max-width: $small-phone-width) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register) {
-
     div#block-block-8, div#title-section, div#block-block-9 {
-      h1,h2.block-title, h2.custom_block_title {
+      h1, h2.block-title, h2.custom_block_title {
         font-size: 1.65em;
       }
     }
@@ -3742,7 +3866,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
         width: 125px;
       }
     }
-
     div.top-header {
       height: $mobile-header-height;
       @include rainbow-bar($mobile-header-height - $rainbow-height);
