@@ -4336,6 +4336,9 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* iphone 6 */
     /* declare variable */
+    /*fieldset.field-group-fieldset {
+      background-color: white;
+    }*/
   }
   /* line 3435, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
@@ -4486,12 +4489,6 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
-  }
-  /* line 3530, ../sass/styles.scss */
-  form#user-profile-form fieldset.field-group-fieldset,
-  body.admin-menu fieldset.field-group-fieldset,
-  body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset {
-    background-color: white;
   }
   /* line 3533, ../sass/styles.scss */
   form#user-profile-form fieldset,
@@ -4882,28 +4879,28 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   /* line 3820, ../sass/styles.scss */
   body.admin-menu div#main div#content fieldset,
   body.page-user-register div#main div#content fieldset {
-    /*width: 95%;*/
+    width: 94%;
     margin: 0px auto;
     display: block;
     margin-bottom: 20px;
     padding-right: 0px;
-    border-right: 1px solid blue;
+    border-right: 1px solid #d7d7d7;
   }
 
-  /* line 3832, ../sass/styles.scss */
+  /* line 3833, ../sass/styles.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
 
   /* password reset - you get to it via email link */
-  /* line 3841, ../sass/styles.scss */
+  /* line 3842, ../sass/styles.scss */
   body.not-logged-in.section-user.page-user div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     margin: 0px auto;
     width: 360px;
   }
 
-  /* line 3847, ../sass/styles.scss */
+  /* line 3848, ../sass/styles.scss */
   body.not-logged-in div#block-block-13 {
     position: absolute;
     width: 210px;
@@ -4912,12 +4909,12 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     font-size: 13px;
   }
 
-  /* line 3854, ../sass/styles.scss */
+  /* line 3855, ../sass/styles.scss */
   div#title-section h1#page-title {
     font-size: 25px;
   }
 
-  /* line 3861, ../sass/styles.scss */
+  /* line 3862, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 h2.custom_block_title,
@@ -4928,13 +4925,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     font-size: 1.65em;
     margin-left: 30px;
   }
-  /* line 3867, ../sass/styles.scss */
+  /* line 3868, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-9 ul#why-register {
     margin-left: 30px;
     padding-left: 14px;
   }
-  /* line 3872, ../sass/styles.scss */
+  /* line 3873, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 {
     margin-top: -77px;
@@ -4942,7 +4939,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 /* iPhone 4 */
 @media screen and (max-width: 360px) {
-  /* line 3885, ../sass/styles.scss */
+  /* line 3886, ../sass/styles.scss */
   body.admin-menu div#block-block-8 h1, body.admin-menu div#block-block-8 h2.block-title, body.admin-menu div#block-block-8 h2.custom_block_title, body.admin-menu div#title-section h1, body.admin-menu div#title-section h2.block-title, body.admin-menu div#title-section h2.custom_block_title, body.admin-menu div#block-block-9 h1, body.admin-menu div#block-block-9 h2.block-title, body.admin-menu div#block-block-9 h2.custom_block_title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h1,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h2.block-title,
@@ -4964,13 +4961,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
   }
-  /* line 3890, ../sass/styles.scss */
+  /* line 3891, ../sass/styles.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 3894, ../sass/styles.scss */
+  /* line 3895, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -4979,7 +4976,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3898, ../sass/styles.scss */
+  /* line 3899, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -4988,7 +4985,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 3902, ../sass/styles.scss */
+  /* line 3903, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
