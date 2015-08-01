@@ -196,6 +196,53 @@ function captconnect_custom_menu_alter(&$items) {
 }
 
 /**
+ * Implements hook_node_access().
+ *
+ * Exceptions to normal Drupal access rules.
+ */
+function captconnect_custom_node_access($node, $op, $account) {
+  global $user;
+
+  switch ($op) {
+    case 'create':
+      break;
+
+    case 'view':
+      // Node 931 is the core group, which we want to see the title of.
+      // @TODO: do we need this in CAPTConnect?
+      if (is_object($node) && $node->nid == 931) {
+        return NODE_ACCESS_ALLOW;
+      }
+      break;
+
+    case 'update':
+      // Workflow Access grants access based on roles, but Events also need an OG check.
+      $access_types = array('event');
+      if (in_array($node->type, $access_types)) {
+        $gid = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
+        // See if the user is a member of the node's group or core.
+        if (og_is_member('node', $gid, 'user') /*
+        || og_is_member('node', variable_get('tta_custom_core_group', 0), 'user')*/) {
+          // Yes, so just let other Drupal rules take over.
+          return NODE_ACCESS_IGNORE;
+        }
+        else {
+          // No, the current user does not match the viewed node's groups.
+          return NODE_ACCESS_DENY;
+        }
+      }
+
+      // Well, we've run out of exceptions, so Drupal can take it from here.
+      break;
+
+    case 'delete':
+      return NODE_ACCESS_DENY;
+  }
+
+  return NODE_ACCESS_IGNORE;
+}
+
+/**
  * Menu access callback.
  * Decide whether or not to show the "Login" tabe.
  */
@@ -1028,6 +1075,7 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
         $node->content['register_others'] = captconnect_custom_proxy_registration_button();
         $node->content['participate_others'] = captconnect_custom_proxy_participate_button();
       }
+
     break;
   }
 }
