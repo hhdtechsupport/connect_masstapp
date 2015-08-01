@@ -20,7 +20,7 @@ Drupal.behaviors.my_custom_behavior = {
   /**
    *  Menu Logic
    */
-  function init () {
+   function init () {
     $('span.toggle-help').click();
     $('a.menu-toggle').hide();
   }
@@ -35,100 +35,137 @@ Drupal.behaviors.my_custom_behavior = {
   // new variable to account for the division between phone and tablet styles
   var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
-  var why_reg_heights = ['207','140','34']
+  var why_reg_heights = ['207','150','34']
   // laptop, mobile-expanded, mobile-compact
 
   // function for toggling a panel on click of header
   function togglePanel(header, body, panel, compact, expanded)
   {
+    var retval = 'default';
     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
-     if (mql.matches)
-     {
-        switch($(body).css('display')) {
+    if (mql.matches)
+    {
+      switch($(body).css('display')) {
         case 'none':
-        $(body).show();
+
         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-        if (arguments.length == 5) $(panel).css('height',expanded);
+        if (arguments.length == 5) 
+        {
+          //alert($(panel).css('margin-top'));
+          $(panel).animate({
+           height: expanded
 
-        break;
+         }, 200);
+          $(body).show(200);
+        }
+        else
+         $(body).slideDown("fast", function () { $(body).show()});
+       retval= 'open';
+       break;
 
-        default:
-        $(body).hide();
-        $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-        if (arguments.length == 5) $(panel).css('height',compact);
+       default:
+
+       $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+
+       if (arguments.length == 5) 
+       {
+          //$(panel).css('height',compact);
+          $(panel).animate({
+            height: compact
+
+          }, 200);
+          $(body).hide(100);
+        }
+        else
+
+
+          $(body).slideUp("fast",function () {$(body).hide()});
+        retval='closed';
 
         break;
       }
     }
+    return retval;
   }
   if ($('body').hasClass('role-anonymous-user'))
   {
     $('div#title-section').click(function () {
-       togglePanel('#page-title','#user-login');
-    });
+     var v = togglePanel('#page-title','#user-login');
+     
+     switch (v)
+     {
+      case 'open':
+      $('#block-block-8').css('borderTopWidth','1px')
+      break;
+      case 'closed':
+      $('#block-block-8').css('borderTopWidth','2px')
+      break;
+    }
+  });
     // new to capt connect
     $('#block-block-8 h2.custom_block_title').click(function () {
-        togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
+
+      togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
 
     });
     // why register
     $('#block-block-9 h2.block-title').click(function () {
-        togglePanel('#block-block-9 h2.block-title',
-                    '#block-block-9 div.panel-body',
-                    '#block-block-9',
-                     why_reg_heights[2],
-                     why_reg_heights[1])
+      togglePanel('#block-block-9 h2.block-title',
+        '#block-block-9 div.panel-body',
+        '#block-block-9',
+        why_reg_heights[2],
+        why_reg_heights[1])
 
 
     });
   }
   // reset if resizing browser
-    $(window).resize(function(){
-        var bclass = '.role-anonymous-user ';
+  $(window).resize(function(){
+    var bclass = '.role-anonymous-user ';
         // correct login title
         panel_respond(bclass + '#page-title','#user-login');
 
         // correct new to captconnect
         panel_respond(bclass + '#block-block-8 h2.custom_block_title',
-                      bclass + '#block-block-8 div.panel-body');
+          bclass + '#block-block-8 div.panel-body');
 
         // correct why register
         panel_respond(bclass + '#block-block-9 h2.block-title',
-                      bclass + '#block-block-9 div.panel-body',
-                      bclass + '#block-block-9',
-                      '207px',
-                      why_reg_heights[1]);
+          bclass + '#block-block-9 div.panel-body',
+          bclass + '#block-block-9',
+          '207px',
+          why_reg_heights[1]);
 
-    });
+      });
 
   // correct styles when browser is resized
   function panel_respond(header, body, panel, laptop_height, mobile_height)
   {
-        var min = phone_tablet_divide+1;
-        var mql = window.matchMedia("screen and (min-width:"+min+"px)");
-        if (mql.matches)
-        {
+    var min = phone_tablet_divide+1;
+    var mql = window.matchMedia("screen and (min-width:"+min+"px)");
+    if (mql.matches)
+    {
           // laptop
          // show body
-          if ($(body).css('display') == 'none') $(body).show();
-            $(header).css('backgroundImage','none');
+         if ($(body).css('display') == 'none') $(body).show();
+         $(header).css('backgroundImage','none');
 
-            if (arguments.length == 5)
-               $(panel).css('height',laptop_height)
-        }
-        else
-        {
+         if (arguments.length == 5)
+           $(panel).css('height',laptop_height)
+       }
+       else
+       {
           // mobile
           if ($(body).css('backgroundImage') == 'none') {
             $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
 
-              if (arguments.length == 5)
+            if (arguments.length == 5)
               $(panel).css('height',mobile_height)
 
           }
 
         }
-  }
+      }
   /*
    *  End responsive show-hide functinality
    */
@@ -319,16 +356,16 @@ Drupal.behaviors.my_custom_behavior = {
       var labelText = $(this).children('.label').text().slice(0, -2);
       // Check whether the label matches any of the "bad" fields we don't want to display
       if (labelText == 'Status' ||
-          labelText == 'Roles' ||
-          labelText == 'Default state' ||
-          labelText == 'Show the disable/enable rich text editor toggle' ||
-          labelText == 'Editor width' ||
-          labelText == 'Language' ||
-          labelText == 'Auto-detect language') {
+        labelText == 'Roles' ||
+        labelText == 'Default state' ||
+        labelText == 'Show the disable/enable rich text editor toggle' ||
+        labelText == 'Editor width' ||
+        labelText == 'Language' ||
+        labelText == 'Auto-detect language') {
         // And remove them from the dataView if they do
-        $(this).remove();
-      }
-    });
+      $(this).remove();
+    }
+  });
     // Action to take when edit button is clicked
     $section.find('.button.edit-button').on('click',function(){
       $section.siblings('fieldset').each(function(){
@@ -384,8 +421,8 @@ Drupal.behaviors.my_custom_behavior = {
     }
   });
 
-  function otherSelectbox ($field, $fieldPrev) {
-    var selection = $fieldPrev.find('option:selected').text();
+function otherSelectbox ($field, $fieldPrev) {
+  var selection = $fieldPrev.find('option:selected').text();
     // Empty and hide the "other" field if any option except for "Other" is selected
     if (selection != 'Other') {
       $field.find('input').val('');
@@ -416,7 +453,7 @@ Drupal.behaviors.my_custom_behavior = {
         $field.find('input').val('');
         $field.css('display','none');
         $field.find('input').removeClass('other-required');
-    }
+      }
       // Otherwise, show the "other" field
       else {
         $field.css('display','block');
@@ -513,47 +550,47 @@ Drupal.behaviors.my_custom_behavior = {
    else {
      $('#edit-field-banner-text').css('display','block');
    }
+ });
+
+
+
+
+  $('.access-information').each(function(){
+    $(this).find('p').wrapAll('<div class="access-information-content"></div>');
+    $(this).prepend('<div class="show-access-information">Show Access Information</div>');
   });
 
-
-
-
-$('.access-information').each(function(){
-  $(this).find('p').wrapAll('<div class="access-information-content"></div>');
-  $(this).prepend('<div class="show-access-information">Show Access Information</div>');
-});
-
-$('.show-access-information').each(function(){
-  $(this).next().toggle();
-  $(this).on('click', function(){
+  $('.show-access-information').each(function(){
     $(this).next().toggle();
+    $(this).on('click', function(){
+      $(this).next().toggle();
+    });
   });
-});
 
-var $registrationsTitle = $('.page-node-registrations h1#page-title');
-var titleString = $registrationsTitle.text();
-var parsedTitle = titleString.substring(titleString.indexOf('"') + 1, titleString.lastIndexOf('"'));
-$registrationsTitle.html('<em>View Event Registrations</em>' + parsedTitle);
+  var $registrationsTitle = $('.page-node-registrations h1#page-title');
+  var titleString = $registrationsTitle.text();
+  var parsedTitle = titleString.substring(titleString.indexOf('"') + 1, titleString.lastIndexOf('"'));
+  $registrationsTitle.html('<em>View Event Registrations</em>' + parsedTitle);
 
-var $workflowTitle = $('.page-node-workflow h1#page-title');
-var parsedTitle = $workflowTitle.text();
-$workflowTitle.html('<em>Workflow History</em>' + parsedTitle);
+  var $workflowTitle = $('.page-node-workflow h1#page-title');
+  var parsedTitle = $workflowTitle.text();
+  $workflowTitle.html('<em>Workflow History</em>' + parsedTitle);
 
-var $develTitle = $('.page-node-devel h1#page-title');
-var parsedTitle = $develTitle.text();
-$develTitle.html('<em>Devel</em>' + parsedTitle);
-
-
-
-
-
-$('.sidebars .view-dashboard .view-filters').css('display','none');
+  var $develTitle = $('.page-node-devel h1#page-title');
+  var parsedTitle = $develTitle.text();
+  $develTitle.html('<em>Devel</em>' + parsedTitle);
 
 
 
 
 
-  }
+  $('.sidebars .view-dashboard .view-filters').css('display','none');
+
+
+
+
+
+}
 };
 
 

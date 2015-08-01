@@ -4002,14 +4002,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   }
 
   /* line 3181, ../sass/styles.scss */
-  .mobile-panel, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
-  body.not-logged-in.page-user:not(.page-user-register) div#title-section,
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
+  .mobile-panel, .mobile-login-lower-panel, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
-  body.not-logged-in.page-anon-login form#user-login,
-  body.not-logged-in.page-anon-login div#title-section,
   body.not-logged-in.page-anon-login div#block-block-8,
-  body.not-logged-in.page-anon-login div#block-block-9 {
+  body.not-logged-in.page-anon-login div#block-block-9, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
+  body.not-logged-in.page-user:not(.page-user-register) div#title-section,
+  body.not-logged-in.page-anon-login form#user-login,
+  body.not-logged-in.page-anon-login div#title-section {
     padding-top: 10px;
     text-align: left;
     margin: 0px auto;
@@ -4020,18 +4019,25 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-color: #eef1f3;
   }
   /* line 3190, ../sass/styles.scss */
-  .mobile-panel:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
-  body.not-logged-in.page-user:not(.page-user-register) div#title-section:before,
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
+  .mobile-panel:before, .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
-  body.not-logged-in.page-anon-login form#user-login:before,
-  body.not-logged-in.page-anon-login div#title-section:before,
   body.not-logged-in.page-anon-login div#block-block-8:before,
-  body.not-logged-in.page-anon-login div#block-block-9:before {
+  body.not-logged-in.page-anon-login div#block-block-9:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
+  body.not-logged-in.page-user:not(.page-user-register) div#title-section:before,
+  body.not-logged-in.page-anon-login form#user-login:before,
+  body.not-logged-in.page-anon-login div#title-section:before {
     top: -12px;
   }
 
-  /* line 3194, ../sass/styles.scss */
+  /* line 3196, ../sass/styles.scss */
+  .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
+  body.not-logged-in.page-anon-login div#block-block-8:before,
+  body.not-logged-in.page-anon-login div#block-block-9:before {
+    background-color: white;
+  }
+
+  /* line 3200, ../sass/styles.scss */
   .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
@@ -4066,7 +4072,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   /*
    *Start General Styles
    */
-  /* line 3222, ../sass/styles.scss */
+  /* line 3228, ../sass/styles.scss */
   html,
   body {
     width: 100%;
@@ -4074,7 +4080,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     overflow-x: visible;
     height: 100%;
   }
-  /* line 3228, ../sass/styles.scss */
+  /* line 3234, ../sass/styles.scss */
   html div.top-header,
   body div.top-header {
     height: 115px;
@@ -4082,25 +4088,25 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-position: -124px 106px;
     background-repeat: repeat-x;
   }
-  /* line 3231, ../sass/styles.scss */
+  /* line 3237, ../sass/styles.scss */
   html div.top-header div.top-header-container,
   body div.top-header div.top-header-container {
     width: 100%;
   }
-  /* line 3233, ../sass/styles.scss */
+  /* line 3239, ../sass/styles.scss */
   html div.top-header div.top-header-container div.capt-logo,
   body div.top-header div.top-header-container div.capt-logo {
     background-image: url("../images/logos/CAPT-logo-phone.png");
     margin-left: 4%;
     top: 12px;
   }
-  /* line 3238, ../sass/styles.scss */
+  /* line 3244, ../sass/styles.scss */
   html div.top-header div.top-header-container div.samhsa-logo,
   body div.top-header div.top-header-container div.samhsa-logo {
     margin-right: 4%;
     margin-bottom: 0px;
   }
-  /* line 3244, ../sass/styles.scss */
+  /* line 3250, ../sass/styles.scss */
   html div#page,
   body div#page {
     min-height: 750px;
@@ -4110,23 +4116,23 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     padding-bottom: 60px;
     /*80px;*/
   }
-  /* line 3253, ../sass/styles.scss */
+  /* line 3259, ../sass/styles.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 3256, ../sass/styles.scss */
+  /* line 3262, ../sass/styles.scss */
   html div#page,
   body div#page {
     padding-bottom: 50px;
   }
-  /* line 3257, ../sass/styles.scss */
+  /* line 3263, ../sass/styles.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
     background: url("../images/banners/login-phone.png") 0 0 no-repeat;
   }
-  /* line 3263, ../sass/styles.scss */
+  /* line 3269, ../sass/styles.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -4140,13 +4146,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   }
 
   /* switch user block */
-  /* line 3275, ../sass/styles.scss */
+  /* line 3281, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 3279, ../sass/styles.scss */
+  /* line 3285, ../sass/styles.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
@@ -4158,32 +4164,33 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   /*
    *  iPhone Styles -- User Login Page
    */
-  /* line 3292, ../sass/styles.scss */
+  /* line 3298, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register),
   body.not-logged-in.page-anon-login {
     /* reformatting panels for mobile */
+    /* specific styles for responsive panel tops*/
     /* banner text */
   }
-  /* line 3294, ../sass/styles.scss */
+  /* line 3300, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     padding-top: 6px;
-    padding-bottom: 6px;
+    padding-bottom: 0px;
     cursor: pointer;
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 3301, ../sass/styles.scss */
+  /* line 3308, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content,
   body.not-logged-in.page-anon-login div#content {
     text-align: center;
   }
-  /* line 3304, ../sass/styles.scss */
+  /* line 3311, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) h1#site-name,
   body.not-logged-in.page-anon-login h1#site-name {
     display: none;
   }
-  /* line 3307, ../sass/styles.scss */
+  /* line 3314, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     border-bottom: 0px;
@@ -4193,7 +4200,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     height: 50px;
     margin-top: 30px;
   }
-  /* line 3314, ../sass/styles.scss */
+  /* line 3321, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-anon-login div#title-section h1 {
     /*display: inline-block;*/
@@ -4205,7 +4212,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     font-size: 1.8em;
     /* margin-bottom: -30px;*/
   }
-  /* line 3325, ../sass/styles.scss */
+  /* line 3332, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -4217,7 +4224,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 3335, ../sass/styles.scss */
+  /* line 3341, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
@@ -4228,38 +4235,60 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-anon-login div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 3341, ../sass/styles.scss */
+  /* line 3350, ../sass/styles.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
+  body.not-logged-in.page-anon-login div#block-block-8,
+  body.not-logged-in.page-anon-login div#block-block-9 {
+    border-top: 1px solid #d7d7d7;
+  }
+  /* line 3354, ../sass/styles.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
+  body.not-logged-in.page-anon-login div#block-block-8:before,
+  body.not-logged-in.page-anon-login div#block-block-9:before {
+    height: 0px;
+  }
+  /* line 3358, ../sass/styles.scss */
+  body.not-logged-in.page-user:not(.page-user-register) form#user-login,
+  body.not-logged-in.page-anon-login form#user-login {
+    padding-top: 0px;
+    margin-top: -20px;
+    padding-bottom: 0px;
+    height: 200px;
+  }
+  /* line 3366, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body h2,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body h2 {
     margin-left: 16px;
   }
-  /* line 3344, ../sass/styles.scss */
+  /* line 3369, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body p,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body p {
     margin-left: -14px;
   }
-  /* line 3350, ../sass/styles.scss */
+  /* line 3375, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-13,
   body.not-logged-in.page-anon-login div#block-block-13 {
     display: none;
   }
 
-  /* line 3355, ../sass/styles.scss */
+  /* line 3380, ../sass/styles.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 3357, ../sass/styles.scss */
+  /* line 3382, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container {
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 3360, ../sass/styles.scss */
+  /* line 3385, ../sass/styles.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 80%;
     margin: 0px auto;
   }
 
-  /* line 3366, ../sass/styles.scss */
+  /* line 3391, ../sass/styles.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -4269,31 +4298,31 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin: 0px;
   }
 
-  /* line 3377, ../sass/styles.scss */
+  /* line 3402, ../sass/styles.scss */
   body.logged-in.page-user-edit div#title-section h1#page-title.page__title {
     margin-left: 30px;
   }
 
   /* merge with styles below? */
-  /* line 3385, ../sass/styles.scss */
+  /* line 3410, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 3388, ../sass/styles.scss */
+  /* line 3413, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 3392, ../sass/styles.scss */
+  /* line 3417, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 3394, ../sass/styles.scss */
+  /* line 3419, ../sass/styles.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 3400, ../sass/styles.scss */
+  /* line 3425, ../sass/styles.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
@@ -4301,40 +4330,40 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-  /* line 3407, ../sass/styles.scss */
+  /* line 3432, ../sass/styles.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
     /* iphone 6 */
     /* declare variable */
   }
-  /* line 3410, ../sass/styles.scss */
+  /* line 3435, ../sass/styles.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 3414, ../sass/styles.scss */
+  /* line 3439, ../sass/styles.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 3418, ../sass/styles.scss */
+  /* line 3443, ../sass/styles.scss */
   form#user-profile-form ul#main-menu.main-menu li.menu-item > a,
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a {
     width: 150px;
   }
-  /* line 3422, ../sass/styles.scss */
+  /* line 3447, ../sass/styles.scss */
   form#user-profile-form h1#page-title.page__title.title,
   body.admin-menu h1#page-title.page__title.title,
   body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title.title {
     margin: 0px auto;
     text-align: center;
   }
-  /* line 3426, ../sass/styles.scss */
+  /* line 3451, ../sass/styles.scss */
   form#user-profile-form div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -4342,7 +4371,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 3432, ../sass/styles.scss */
+  /* line 3457, ../sass/styles.scss */
   form#user-profile-form div#content,
   body.admin-menu div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content {
@@ -4356,7 +4385,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     /* may only be for registration*/
     border-width: 0px;
   }
-  /* line 3442, ../sass/styles.scss */
+  /* line 3467, ../sass/styles.scss */
   form#user-profile-form div#content ul.tabs-primary,
   body.admin-menu div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content ul.tabs-primary {
@@ -4364,13 +4393,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 3449, ../sass/styles.scss */
+  /* line 3474, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.admin-menu fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.data-view div.button.edit-button {
     top: 130px;
   }
-  /* line 3452, ../sass/styles.scss */
+  /* line 3477, ../sass/styles.scss */
   form#user-profile-form fieldset.group-demographic-information div.save-button:first-child, form#user-profile-form fieldset.group-demographic-information div.cancel-button:nth-child(2),
   body.admin-menu fieldset.group-demographic-information div.save-button:first-child,
   body.admin-menu fieldset.group-demographic-information div.cancel-button:nth-child(2),
@@ -4378,20 +4407,20 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.cancel-button:nth-child(2) {
     display: none;
   }
-  /* line 3456, ../sass/styles.scss */
+  /* line 3481, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper {
     border-width: 0px;
   }
-  /* line 3462, ../sass/styles.scss */
+  /* line 3487, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
     width: 300px;
     margin: 0px;
   }
-  /* line 3465, ../sass/styles.scss */
+  /* line 3490, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
@@ -4403,25 +4432,25 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     clear: left;
     margin-bottom: 10px;
   }
-  /* line 3472, ../sass/styles.scss */
+  /* line 3497, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
     clear: left;
   }
-  /* line 3475, ../sass/styles.scss */
+  /* line 3500, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
     width: 112%;
   }
-  /* line 3478, ../sass/styles.scss */
+  /* line 3503, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
     margin-top: -20px;
   }
-  /* line 3483, ../sass/styles.scss */
+  /* line 3508, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
@@ -4431,13 +4460,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     clear: left;
     float: left;
   }
-  /* line 3488, ../sass/styles.scss */
+  /* line 3513, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
     width: 85%;
   }
-  /* line 3491, ../sass/styles.scss */
+  /* line 3516, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
@@ -4446,25 +4475,25 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     /*background-color: yellow;*/
     margin-bottom: 20px;
   }
-  /* line 3498, ../sass/styles.scss */
+  /* line 3523, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
     width: 90%;
   }
-  /* line 3501, ../sass/styles.scss */
+  /* line 3526, ../sass/styles.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
   }
-  /* line 3505, ../sass/styles.scss */
+  /* line 3530, ../sass/styles.scss */
   form#user-profile-form fieldset.field-group-fieldset,
   body.admin-menu fieldset.field-group-fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset {
     background-color: white;
   }
-  /* line 3508, ../sass/styles.scss */
+  /* line 3533, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
@@ -4480,7 +4509,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     /* widths of all contents must be controlled */
     /* edit button */
   }
-  /* line 3518, ../sass/styles.scss */
+  /* line 3543, ../sass/styles.scss */
   form#user-profile-form fieldset:before,
   body.admin-menu fieldset:before,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset:before {
@@ -4496,13 +4525,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     padding-left: 21px;
     padding-right: 21px;
   }
-  /* line 3531, ../sass/styles.scss */
+  /* line 3556, ../sass/styles.scss */
   form#user-profile-form fieldset .chosen-container,
   body.admin-menu fieldset .chosen-container,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset .chosen-container {
     width: 100% !important;
   }
-  /* line 3535, ../sass/styles.scss */
+  /* line 3560, ../sass/styles.scss */
   form#user-profile-form fieldset div.field-type-entityreference,
   form#user-profile-form fieldset label,
   form#user-profile-form fieldset div.form-item.form-type-select,
@@ -4517,13 +4546,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset input.text-full {
     width: 100%;
   }
-  /* line 3542, ../sass/styles.scss */
+  /* line 3567, ../sass/styles.scss */
   form#user-profile-form fieldset fieldset,
   body.admin-menu fieldset fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
     display: none;
   }
-  /* line 3545, ../sass/styles.scss */
+  /* line 3570, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -4532,7 +4561,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 3548, ../sass/styles.scss */
+  /* line 3573, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -4540,7 +4569,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 3553, ../sass/styles.scss */
+  /* line 3578, ../sass/styles.scss */
   form#user-profile-form fieldset div.data-view div.edit-button,
   body.admin-menu fieldset div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view div.edit-button {
@@ -4548,7 +4577,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     top: -24px;
     font-size: 18px;
   }
-  /* line 3559, ../sass/styles.scss */
+  /* line 3584, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button,
   body.admin-menu fieldset div.fieldset-wrapper div.save-button,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button,
@@ -4556,7 +4585,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 3562, ../sass/styles.scss */
+  /* line 3587, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button:first-child, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu fieldset div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -4565,7 +4594,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     top: -30px;
     position: relative;
   }
-  /* line 3568, ../sass/styles.scss */
+  /* line 3593, ../sass/styles.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
@@ -4577,7 +4606,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     left: 300px;
     display: block;
   }
-  /* line 3577, ../sass/styles.scss */
+  /* line 3602, ../sass/styles.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -4590,13 +4619,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   }
 }
 @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) and (max-width: 767px) {
-  /* line 3588, ../sass/styles.scss */
+  /* line 3613, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
   body.admin-menu fieldset.group-account,
   body.admin-menu fieldset {
     margin-bottom: 0px;
   }
-  /* line 3589, ../sass/styles.scss */
+  /* line 3614, ../sass/styles.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
@@ -4605,7 +4634,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     padding-top: 45px;
     margin-top: 8px;
   }
-  /* line 3596, ../sass/styles.scss */
+  /* line 3621, ../sass/styles.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset {
     margin-top: 0px;
@@ -4613,7 +4642,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 @media screen and (max-width: 767px) {
   /* hide logo */
-  /* line 3602, ../sass/styles.scss */
+  /* line 3627, ../sass/styles.scss */
   body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
   #block-block-13 {
     display: none;
@@ -4624,7 +4653,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
  */
 /* iPhone 6 */
 @media screen and (min-width: 361px) and (max-width: 767px) {
-  /* line 3625, ../sass/styles.scss */
+  /* line 3650, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header,
@@ -4634,7 +4663,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3629, ../sass/styles.scss */
+  /* line 3654, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
@@ -4644,7 +4673,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 188.5px;
     height: 29.9px;
   }
-  /* line 3633, ../sass/styles.scss */
+  /* line 3658, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
@@ -4657,7 +4686,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 /* Devel tabs */
 @media screen and (max-width: 425px) {
-  /* line 3646, ../sass/styles.scss */
+  /* line 3671, ../sass/styles.scss */
   ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
     display: none;
   }
@@ -4672,7 +4701,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   /*
    *  Login Page Variables
    */
-  /* line 3668, ../sass/styles.scss */
+  /* line 3693, ../sass/styles.scss */
   html,
   body.not-logged-in.page-user:not(.page-user-register),
   body.not-logged-in.page-anon-login,
@@ -4681,7 +4710,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 100%;
     /* login screen */
   }
-  /* line 3673, ../sass/styles.scss */
+  /* line 3698, ../sass/styles.scss */
   html div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user:not(.page-user-register) div.bottom-footer div.disclaimer,
   body.not-logged-in.page-anon-login div.bottom-footer div.disclaimer,
@@ -4692,7 +4721,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin-left: 7%;
     padding-bottom: 8px;
   }
-  /* line 3679, ../sass/styles.scss */
+  /* line 3704, ../sass/styles.scss */
   html input#edit-search-block-form--2,
   body.not-logged-in.page-user:not(.page-user-register) input#edit-search-block-form--2,
   body.not-logged-in.page-anon-login input#edit-search-block-form--2,
@@ -4702,7 +4731,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-position: 80px 4px;
     padding-right: 20px;
   }
-  /* line 3684, ../sass/styles.scss */
+  /* line 3709, ../sass/styles.scss */
   html div#main,
   html div#content,
   body.not-logged-in.page-user:not(.page-user-register) div#main,
@@ -4717,7 +4746,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 3692, ../sass/styles.scss */
+  /* line 3717, ../sass/styles.scss */
   html div#page,
   body.not-logged-in.page-user:not(.page-user-register) div#page,
   body.not-logged-in.page-anon-login div#page,
@@ -4726,7 +4755,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 83.3333%;
     margin-top: -2px;
   }
-  /* line 3696, ../sass/styles.scss */
+  /* line 3721, ../sass/styles.scss */
   html div.top-header-container,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container,
   body.not-logged-in.page-anon-login div.top-header-container,
@@ -4734,7 +4763,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.page-user-register div.top-header-container {
     width: 100%;
   }
-  /* line 3698, ../sass/styles.scss */
+  /* line 3723, ../sass/styles.scss */
   html div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.capt-logo,
   body.not-logged-in.page-anon-login div.top-header-container div.capt-logo,
@@ -4742,7 +4771,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.page-user-register div.top-header-container div.capt-logo {
     margin-left: 8%;
   }
-  /* line 3701, ../sass/styles.scss */
+  /* line 3726, ../sass/styles.scss */
   html div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-anon-login div.top-header-container div.samhsa-logo,
@@ -4751,7 +4780,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin-right: 8%;
   }
 
-  /* line 3709, ../sass/styles.scss */
+  /* line 3734, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#main,
   body.not-logged-in.page-user:not(.page-user-register) div#content,
   body.not-logged-in.page-anon-login div#main,
@@ -4761,7 +4790,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3716, ../sass/styles.scss */
+  /* line 3741, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#content form#user-login,
   body.not-logged-in.page-anon-login div#title-section,
@@ -4771,7 +4800,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     margin-left: 4%;
     margin-right: 0px;
   }
-  /* line 3723, ../sass/styles.scss */
+  /* line 3748, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
   body.not-logged-in.page-anon-login div#block-block-8,
@@ -4780,48 +4809,48 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     float: right;
     margin-right: 4%;
   }
-  /* line 3729, ../sass/styles.scss */
+  /* line 3754, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
   body.not-logged-in.page-anon-login div#block-block-9 {
     background-position: 92% 25%;
     background-size: 75.2px 82.40px;
   }
-  /* line 3732, ../sass/styles.scss */
+  /* line 3757, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul,
   body.not-logged-in.page-anon-login div#block-block-9 ul {
     margin-left: -5px;
   }
-  /* line 3734, ../sass/styles.scss */
+  /* line 3759, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 ul a,
   body.not-logged-in.page-anon-login div#block-block-9 ul a {
     font-size: 14px;
   }
 
-  /* line 3743, ../sass/styles.scss */
+  /* line 3768, ../sass/styles.scss */
   body.admin-menu div.bottom-footer div.disclaimer,
   body.page-user-register div.bottom-footer div.disclaimer {
     padding: 0px;
     margin-left: 8.5%;
     width: 500px;
   }
-  /* line 3748, ../sass/styles.scss */
+  /* line 3773, ../sass/styles.scss */
   body.admin-menu div#block-block-3,
   body.page-user-register div#block-block-3 {
     margin-left: 12px;
   }
-  /* line 3753, ../sass/styles.scss */
+  /* line 3778, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation,
   body.page-user-register div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 3757, ../sass/styles.scss */
+  /* line 3782, ../sass/styles.scss */
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.page-user-register div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 3775, ../sass/styles.scss */
+  /* line 3800, ../sass/styles.scss */
   body.admin-menu div#main div#content,
   body.page-user-register div#main div#content {
     width: 96.8%;
@@ -4831,26 +4860,26 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 3782, ../sass/styles.scss */
+  /* line 3807, ../sass/styles.scss */
   body.admin-menu div#main div#content ul.tabs-primary,
   body.page-user-register div#main div#content ul.tabs-primary {
     width: 97%;
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 3787, ../sass/styles.scss */
+  /* line 3812, ../sass/styles.scss */
   body.admin-menu div#main div#content input#edit-cancel.form-submit,
   body.page-user-register div#main div#content input#edit-cancel.form-submit {
     margin-left: 10px;
     text-align: center;
   }
-  /* line 3791, ../sass/styles.scss */
+  /* line 3816, ../sass/styles.scss */
   body.admin-menu div#main div#content h1#page-title,
   body.page-user-register div#main div#content h1#page-title {
     background-position: 8px 0px;
     font-size: 34px;
   }
-  /* line 3795, ../sass/styles.scss */
+  /* line 3820, ../sass/styles.scss */
   body.admin-menu div#main div#content fieldset,
   body.page-user-register div#main div#content fieldset {
     /*width: 95%;*/
@@ -4861,20 +4890,20 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     border-right: 1px solid blue;
   }
 
-  /* line 3807, ../sass/styles.scss */
+  /* line 3832, ../sass/styles.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
 
   /* password reset - you get to it via email link */
-  /* line 3816, ../sass/styles.scss */
+  /* line 3841, ../sass/styles.scss */
   body.not-logged-in.section-user.page-user div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     margin: 0px auto;
     width: 360px;
   }
 
-  /* line 3822, ../sass/styles.scss */
+  /* line 3847, ../sass/styles.scss */
   body.not-logged-in div#block-block-13 {
     position: absolute;
     width: 210px;
@@ -4883,12 +4912,12 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     font-size: 13px;
   }
 
-  /* line 3829, ../sass/styles.scss */
+  /* line 3854, ../sass/styles.scss */
   div#title-section h1#page-title {
     font-size: 25px;
   }
 
-  /* line 3836, ../sass/styles.scss */
+  /* line 3861, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 h2.block-title, body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 h2.custom_block_title,
@@ -4899,13 +4928,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     font-size: 1.65em;
     margin-left: 30px;
   }
-  /* line 3842, ../sass/styles.scss */
+  /* line 3867, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-9 ul#why-register {
     margin-left: 30px;
     padding-left: 14px;
   }
-  /* line 3847, ../sass/styles.scss */
+  /* line 3872, ../sass/styles.scss */
   body.not-logged-in.page-user:not(.page-user-register)
   body.not-logged-in.page-anon-login div#block-block-8 {
     margin-top: -77px;
@@ -4913,7 +4942,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 /* iPhone 4 */
 @media screen and (max-width: 360px) {
-  /* line 3860, ../sass/styles.scss */
+  /* line 3885, ../sass/styles.scss */
   body.admin-menu div#block-block-8 h1, body.admin-menu div#block-block-8 h2.block-title, body.admin-menu div#block-block-8 h2.custom_block_title, body.admin-menu div#title-section h1, body.admin-menu div#title-section h2.block-title, body.admin-menu div#title-section h2.custom_block_title, body.admin-menu div#block-block-9 h1, body.admin-menu div#block-block-9 h2.block-title, body.admin-menu div#block-block-9 h2.custom_block_title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h1,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h2.block-title,
@@ -4935,13 +4964,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
   }
-  /* line 3865, ../sass/styles.scss */
+  /* line 3890, ../sass/styles.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 3869, ../sass/styles.scss */
+  /* line 3894, ../sass/styles.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -4950,7 +4979,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 3873, ../sass/styles.scss */
+  /* line 3898, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -4959,7 +4988,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 3877, ../sass/styles.scss */
+  /* line 3902, ../sass/styles.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {

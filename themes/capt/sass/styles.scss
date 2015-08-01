@@ -3191,6 +3191,12 @@ body.not-logged-in.section-anon-login.page-anon-login {
       top: -12px;
     }
   }
+  .mobile-login-lower-panel {
+    @extend .mobile-panel;
+    &:before {
+      background-color: white;
+    }
+  }
   .show-hide {
     font-size: 22px;
     padding-left: 20px;
@@ -3293,8 +3299,9 @@ body.not-logged-in.section-anon-login.page-anon-login {
   body.not-logged-in.page-anon-login {
     div#title-section {
       padding-top: 6px;
-      padding-bottom: 6px;
+      padding-bottom: 0px;
       cursor: pointer;
+
       @include side_borders($capt-midgrey);
     }
     /* reformatting panels for mobile */
@@ -3326,7 +3333,6 @@ body.not-logged-in.section-anon-login.page-anon-login {
     div#title-section,
     div#block-block-8,
     div#block-block-9 {
-      @extend .mobile-panel;
       @include side_borders($capt-midgrey);
       // headers for form and blocks.
       h1, h2 {
@@ -3335,6 +3341,25 @@ body.not-logged-in.section-anon-login.page-anon-login {
       h2 {
         margin-bottom: 6px;
       }
+    }
+    /* specific styles for responsive panel tops*/
+    form#user-login,
+    div#title-section {
+       @extend .mobile-panel;
+    }
+    div#block-block-8,
+    div#block-block-9 {
+       @extend .mobile-login-lower-panel;
+       border-top: 1px solid $capt-midgrey;
+       &:before {
+        height: 0px;
+       }
+    }
+    form#user-login {
+      padding-top: 0px;
+      margin-top: -20px;
+      padding-bottom: 0px;
+      height: 200px;
     }
     div#block-block-8 {
       .panel-body {
