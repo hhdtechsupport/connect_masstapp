@@ -3380,11 +3380,15 @@ body.not-logged-in.section-anon-login.page-anon-login {
   div.bottom-footer {
     width: 100%;
     div.bottom-footer-container {
+       text-align: center;
+       overflow-x: hidden;
       /* border: 1px solid blue;*/
       width: 100%;
       div.disclaimer {
-        width: 80%;
+        width: 97%;
         margin: 0px auto;
+        border: 1px solid transparent;
+        height: 100px;
       }
     }
   }
@@ -3396,7 +3400,7 @@ body.not-logged-in.section-anon-login.page-anon-login {
     text-align: center;
     display: block;
     margin: 0px;
-  }
+    }
   body.logged-in.page-user-edit {
     div#title-section {
       h1#page-title.page__title {
