@@ -3149,7 +3149,8 @@ body.not-logged-in.section-anon-login.page-anon-login {
  */
 /* hide search block form */
 @media screen and (max-width: 768px) {
-  input#edit-search-block-form--2, div#edit-actions {
+  /* this was hiding the login button*/
+  input#edit-search-block-form--2 /*div#edit-actions */{
     display: none;
   }
   div.region.region-header {
@@ -3357,7 +3358,10 @@ body.not-logged-in.section-anon-login.page-anon-login {
       padding-top: 0px;
       margin-top: -20px;
       padding-bottom: 0px;
-      height: 200px;
+      height: 240px;
+      div#edit-actions input#edit-submit {
+        display: block;
+      }
     }
     div#block-block-8 {
       .panel-body {
