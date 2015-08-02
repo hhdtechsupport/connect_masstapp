@@ -1,12 +1,6 @@
-@import 'variables';
-@import 'capt-mixins';
-@import 'extensible';
-
-/**
- * iPhone 6 landscape
- * test
- */
-
+@import "variables";
+@import "capt-mixins";
+@import "extensible";
 
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
@@ -26,12 +20,12 @@
   }
 }
 
- @media screen and (max-width: $phone-tablet-divide) {
+@media screen and (max-width: $phone-tablet-divide) {
   /* general styles */
   /*
    * prototype classes´
    */
-   .reset-layout {
+  .reset-layout {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -75,7 +69,7 @@
   /*
    *  End Prototypes, Start Mixins
    */
-   @mixin side_borders($color) {
+  @mixin side_borders($color) {
     border-left: 1px solid $color;
     border-right: 1px solid $color;
   }
@@ -90,8 +84,8 @@
   /*
    *Start General Styles
    */
-   html,
-   body {
+  html,
+  body {
     width: 100%;
     min-width: 320px;
     overflow-x: visible;
@@ -113,13 +107,12 @@
       }
     }
     /* this was hiding the login button*/
-    input#edit-search-block-form--2 /*div#edit-actions */{
+    input#edit-search-block-form--2 {
       display: none;
     }
     div.region.region-header {
       margin-top: 10px;
     }
-
     div#page {
       min-height: 750px;
       @extend .reset-layout;
@@ -135,7 +128,6 @@
         height: 89px;
         background: url("../images/banners/login-phone.png") 0 0 no-repeat;
       }
-      
     }
     div#content {
       width: 100%;
@@ -163,7 +155,7 @@
   /*
    *  iPhone Styles -- User Login Page
    */
-   #main {
+  #main {
     @extend .reset-layout;
   }
   body.not-logged-in.page-user:not(.page-user-register),
@@ -172,7 +164,6 @@
       padding-top: 6px;
       padding-bottom: 0px;
       cursor: pointer;
-
       @include side_borders($capt-midgrey);
     }
     /* reformatting panels for mobile */
@@ -216,103 +207,105 @@
     /* specific styles for responsive panel tops*/
     form#user-login,
     div#title-section {
-     @extend .mobile-panel;
-   }
-   div#block-block-8,
-   div#block-block-9 {
-     @extend .mobile-login-lower-panel;
-     border-top: 1px solid $capt-midgrey;
-     &:before {
-      height: 0px;
+      @extend .mobile-panel;
     }
-  }
-  div#block-block-9 {
-    height: 130px;
-  }
-  form#user-login {
-    padding-top: 0px;
-    margin-top: -20px;
-    padding-bottom: 0px;
-    height: 250px;
-    div#edit-actions input#edit-submit {
-      display: block;
-    }
-  }
-  div#block-block-8 {
-    .panel-body {
-      h2 {
-        margin-left: 16px;
-      }
-      p {
-        margin-left: -14px;
+    div#block-block-8,
+    div#block-block-9 {
+      @extend .mobile-login-lower-panel;
+      border-top: 1px solid $capt-midgrey;
+      &:before {
+        height: 0px;
       }
     }
+    div#block-block-9 {
+      height: 130px;
+    }
+    form#user-login {
+      padding-top: 0px;
+      margin-top: -20px;
+      padding-bottom: 0px;
+      height: 250px;
+      div#edit-actions input#edit-submit {
+        display: block;
+      }
+    }
+    div#block-block-8 {
+      .panel-body {
+        h2 {
+          margin-left: 16px;
+        }
+        p {
+          margin-left: -14px;
+        }
+      }
+    }
+    /* banner text */
+    div#block-block-13 {
+      display: none;
+    }
   }
-  /* banner text */
-  div#block-block-13 {
-    display: none;
-  }
-}
   // end body
   div.bottom-footer {
     width: 100%;
     div.bottom-footer-container {
-     text-align: center;
-     overflow-x: hidden;
-     /* border: 1px solid blue;*/
-     width: 100%;
-     div.disclaimer {
-      width: 97%;
-      margin: 0px auto;
-      border: 1px solid transparent;
-      height: 100px;
+      text-align: center;
+      overflow-x: hidden;
+      /* border: 1px solid blue;*/
+      width: 100%;
+      div.disclaimer {
+        width: 97%;
+        margin: 0px auto;
+        border: 1px solid transparent;
+        height: 100px;
+      }
     }
   }
-}
-div.bottom-footer,
-div.bottom-footer-container,
-div.disclaimer {
-  @extend .reset-layout;
-  max-width: 100%;
-  text-align: center;
-  display: block;
-  margin: 0px;
-}
+  div.bottom-footer,
+  div.bottom-footer-container,
+  div.disclaimer {
+    @extend .reset-layout;
+    max-width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0px;
+  }
+ /*
 body.logged-in.page-user-edit {
   div#title-section {
     h1#page-title.page__title {
       margin-left: 30px;
     }
   }
-}
-/* merge with styles below? */
-body.admin-menu {
-  div#navigation {
-    ul#main-menu.main-menu.responsive-menu {
-      overflow: visible;
-      /* admin*/
-      li#menu-item-1185,
-      li#menu-item-589 {
-        display: none;
-      }
-      li#menu-item-591 {
+  }*/
+  /* merge with styles below? */
+  body.admin-menu {
+    div#navigation {
+      ul#main-menu.main-menu.responsive-menu {
         overflow: visible;
-        a {
-          border-bottom: 1px solid white;
+        /* admin*/
+        li#menu-item-1185,
+        li#menu-item-589 {
+          display: none;
+        }
+        li#menu-item-591 {
+          overflow: visible;
+          a {
+            border-bottom: 1px solid white;
+          }
         }
       }
     }
+    div#content {
+      margin-top: 50px;
+    }
   }
-  div#content {
-    margin-top: 50px;
-  }
-}
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-   form#user-profile-form,
-   body.admin-menu,
-   body.not-logged-in.page-user-register:not(.node-type-event) {
+  /* profile*/
+  form#user-profile-form,
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event) {
     div#block-block-3.block.block-block {
       width: 85%;
       margin: 0px auto;
@@ -411,39 +404,39 @@ body.admin-menu {
     /*fieldset.field-group-fieldset {
       background-color: white;
       }*/
-      fieldset {
-        padding-top: 0px;
-        width: 85%;
-        min-width: 0px;
-        margin: 0px auto;
-        margin-bottom: -20px;
-        border: 1px solid $capt-profgrey;
-        border-top: 0px;
-        background-color: white;
-        margin-bottom: 16px;
-        &:before {
-          display: block;
-          background-color: $capt-aqua;
-          height: 5px;
-          width: 100%;
-          content: "";
-          position: relative;
-          left: -20px;
-          top: -30px;
-          margin-left: -1px;
-          padding-left: 21px;
-          padding-right: 21px;
-        }
-        .chosen-container {
-          width: 100% !important;
-        }
-        /* widths of all contents must be controlled */
-        div.field-type-entityreference,
-        label,
-        div.form-item.form-type-select,
-        input.text-full {
-          width: 100%;
-        }
+    fieldset {
+      padding-top: 0px;
+      width: 85%;
+      min-width: 0px;
+      margin: 0px auto;
+      margin-bottom: -20px;
+      border: 1px solid $capt-profgrey;
+      border-top: 0px;
+      background-color: white;
+      margin-bottom: 16px;
+      &:before {
+        display: block;
+        background-color: $capt-aqua;
+        height: 5px;
+        width: 100%;
+        content: "";
+        position: relative;
+        left: -20px;
+        top: -30px;
+        margin-left: -1px;
+        padding-left: 21px;
+        padding-right: 21px;
+      }
+      .chosen-container {
+        width: 100% !important;
+      }
+      /* widths of all contents must be controlled */
+      div.field-type-entityreference,
+      label,
+      div.form-item.form-type-select,
+      input.text-full {
+        width: 100%;
+      }
       // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
       fieldset {
         display: none;
@@ -487,6 +480,29 @@ body.admin-menu {
         z-index: 0;
       }
     }
+    div#title-section {
+      margin-left: 6%;
+      padding-left: 0px;
+      h1#page-title.page__title {
+        text-align: left;
+        margin-left: 0px;
+      }
+    }
+    /* user profile specific stuff! */
+    form#user-profile-form {
+      fieldset {
+        background-color: $capt-lightgrey;
+        &:before {
+          width: 100%;
+          padding-left: 8px;
+          padding-right: 9px;
+          margin-left: 12px;
+        }
+        div.data-view {
+          border-width: 0px;
+        }
+      }
+    }
   }
   @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: $phone-tablet-divide) {
     form#user-profile-form,
@@ -509,13 +525,23 @@ body.admin-menu {
   #block-block-13 {
     display: none;
   }
+  /* center title on registration page */
+  body.not-logged-in.page-user-register:not(.node-type-event) {
+    div#title-section {
+      margin-left: 0px;
+      h1#page-title.page__title {
+        margin: 0px auto;
+        text-align: center;
+      }
+    }
+  }
 }
 
 /**
  *  Logo Styles for iPhone 6 and iPhone 4
  */
 
- @mixin logo_size($width, $height, $scale) {
+@mixin logo_size($width, $height, $scale) {
   background-size: $width * $scale $height * $scale;
   width: $width * $scale;
   height: $height * $scale;

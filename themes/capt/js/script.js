@@ -25,9 +25,7 @@ Drupal.behaviors.my_custom_behavior = {
     $('a.menu-toggle').hide();
   }
   init();
-  /**
-   *  Responsive Show - Hides
-   */
+ 
 
   // currently not used - replaced with phone_tablet_divide
   var iPh6H = 667;
@@ -36,8 +34,43 @@ Drupal.behaviors.my_custom_behavior = {
   var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34']
-  // laptop, mobile-expanded, mobile-compact
 
+  /* helpers */
+    // helper functions
+    function toInt(myString) {
+      var myInt;
+      myInt = parseInt(myString.substring(0, myString.length - 2));
+      return myInt;
+    }
+
+    function makeString(myInt) {
+      var myString;
+      myString = myInt.toString() + 'px';
+      return myString;
+    }
+  // height workaround
+
+
+ /* function setContentHeight(num) {
+
+  if ($('body').hasClass('page-events2')) {
+
+    var main_height = makeString(toInt($('#main').css('height')) - num);
+    $('#content').css('height',main_height);
+    
+   }
+  }
+  setContentHeight(175);
+
+  $('ul.pager').click(function () {
+      
+      setContentHeight(0);
+
+  })*/
+  
+   /**
+   *  Responsive Show - Hides
+   */
   // function for toggling a panel on click of header
   function togglePanel(header, body, panel, compact, expanded)
   {
@@ -87,9 +120,10 @@ Drupal.behaviors.my_custom_behavior = {
     }
     return retval;
   }
+
   if ($('body').hasClass('role-anonymous-user'))
   {
-    $('div#title-section').click(function () {
+    $('body.role-anonymous-user.not-logged-in:not(".page-user-register") div#title-section').click(function () {
      var v = togglePanel('#page-title','#user-login');
      
      switch (v)

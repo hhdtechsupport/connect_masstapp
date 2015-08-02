@@ -4,15 +4,14 @@
 
 
 
-/* NK (7/30): dashboard update.
 
-updating for new events styles; events subject to change */
 .ds-2col-stacked-fluid > .group-left
 body.page-events2.section-events2 div#content {
+
   margin-right: 1%;
-  width: 49%;
-  /* added 7/30 */
-  border: 0px;
+ /* width: 980px;
+  border: 1px solid $capt-midgrey;
+  background-color: red;*/
 }
 /* dashboard */
 /* the main panels */
@@ -81,7 +80,7 @@ p {
  *  Cancelling a registered event -- still needed?
  */
 
-body.node-type-dashboard {
+ body.node-type-dashboard {
   #page {
     height: 100%;
     /* changed from 1000px*/
@@ -89,7 +88,7 @@ body.node-type-dashboard {
       // font-size: 12px;
       // line-height: 1em;
       // font-style: italic;
-   
+
     }
   }
 }
@@ -166,34 +165,34 @@ body.node-type-dashboard {
     /* a {
 padding: 4px 7px;
 }*/
-    }
-    li.pager-current {
-      background-color: $capt-aqua;
-      border: 1px solid $capt-aqua;
-    }
-    li.pager-next,
-    li.pager-last {
-      a {
-        background-image: url("../images/icons/right-arrow-aqua.png");
-      }
-    }
-    li.pager-previous,
-    li.pager-first {
-      a {
-        background-image: url("../images/icons/left-arrow-aqua.png");
-      }
-    }
-    li.pager-item,
-    li.pager-current,
-    li.pager-previous,
-    li.pager-last,
-    li.pager-first,
-    li.pager-next {
-      a {
-        color: $capt-aqua;
-      }
-    }
+}
+li.pager-current {
+  background-color: $capt-aqua;
+  border: 1px solid $capt-aqua;
+}
+li.pager-next,
+li.pager-last {
+  a {
+    background-image: url("../images/icons/right-arrow-aqua.png");
   }
+}
+li.pager-previous,
+li.pager-first {
+  a {
+    background-image: url("../images/icons/left-arrow-aqua.png");
+  }
+}
+li.pager-item,
+li.pager-current,
+li.pager-previous,
+li.pager-last,
+li.pager-first,
+li.pager-next {
+  a {
+    color: $capt-aqua;
+  }
+}
+}
 }
 
 .field-name-my-archived-events.field-type-ds {
@@ -274,22 +273,38 @@ body.page-events2.section-events2 {
   .views-exposed-form .views-exposed-widget .form-submit {
     margin-top: 1.6em;
   }
-  #page {}
-  div#content {
-    border: 0px;
-    margin-left: 13px;
-    div.view.view-dashboard.view-id-dashboard {
-      @extend .panel-rule-single;
-      background-color: white;
-      border-width: 0px;
-      width: 55%;
+  html, body, #page {
+     height: 100%;
+  }
+  div#main {
+
+      height: 100%;
+      display: table;
+    div#content {
+
+      width: 980px;
+
+      height: 100%;
+      
+      height: inherit;
+      margin-left: 13px;
+
+      div.view.view-dashboard.view-id-dashboard {
+        @extend .panel-rule-single;
+        background-color: white;
+        border-width: 0px;
+        width: 45%;
+        display: block;
+
+      }
     }
   }
+  /* right matter */
   section.region.region-sidebar-second {
     position: relative;
     width: 50%;
     margin-top: 180px;
-    left: -330px;
+    left: -510px;
     /*border: 1px dashed orange;*/
     // registered events, archived events
     div#block-views-dashboard-block-1,
@@ -301,7 +316,7 @@ body.page-events2.section-events2 {
       padding-right: 30px;
       padding-left: 0px;
       &:before {
-        width: 476px;
+        width: 478px;
       }
       div.field-items {
         margin: 0 26px;
@@ -464,7 +479,7 @@ body.page-events2.section-events2 {
  * Pager styles
  */
 
-ul.pager {
+ ul.pager {
   padding-top: 5px;
   height: 40px;
   text-align: center;
