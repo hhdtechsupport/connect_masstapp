@@ -35,7 +35,7 @@ Drupal.behaviors.my_custom_behavior = {
   // new variable to account for the division between phone and tablet styles
   var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
-  var why_reg_heights = ['190','150','34']
+  var why_reg_heights = ['191','150','34']
   // laptop, mobile-expanded, mobile-compact
 
   // function for toggling a panel on click of header
@@ -133,7 +133,7 @@ Drupal.behaviors.my_custom_behavior = {
         panel_respond(bclass + '#block-block-9 h2.block-title',
           bclass + '#block-block-9 div.panel-body',
           bclass + '#block-block-9',
-          '207px',
+          why_reg_heights[0],
           why_reg_heights[1]);
 
       });
