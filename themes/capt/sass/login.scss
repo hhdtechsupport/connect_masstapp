@@ -98,6 +98,7 @@ body.not-logged-in.page-anon-login {
     }
   }
   /* RIGHT */
+  /* new to capt connect */
   #block-block-8 {
     @extend .panel-rule-single;
     padding-bottom: 20px;
@@ -111,7 +112,9 @@ body.not-logged-in.page-anon-login {
       margin-left: $newto-margin-left;
       font-size: 1.8em;
     }
-    margin-top: -79px;
+    margin-top: -83px;
+  
+    /* join today*/
     a {
       color: $capt-orange;
       font-size: 20px;
@@ -128,7 +131,7 @@ body.not-logged-in.page-anon-login {
     background-image: url("../images/icons/register.png");
     background-position: 270px 30px;
     background-repeat: no-repeat;
-    height: 190px;
+    height: 193px;
     margin-top: 9px;
     h2.block-title {
       margin-left: $login-margin-left;
@@ -148,6 +151,7 @@ body.not-logged-in.page-anon-login {
       font-weight: normal;
     }
   }
+  /* both right panels*/
   #block-block-9,
   #block-block-8 {
     @extend .panel-rule-single;
