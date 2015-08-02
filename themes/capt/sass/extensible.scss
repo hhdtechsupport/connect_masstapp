@@ -1,3 +1,7 @@
+@import 'variables';
+@import 'capt-mixins';
+@import 'extensible';
+
 #block-block-12 .contextual-links-wrapper {
   width: 970px;
   margin: 0px auto;
@@ -57,4 +61,19 @@
     margin-left: -1px;
     padding-left: 2px;
   }
+}
+
+.panel-rule-single {
+  @extend .panel-rule;
+  margin-bottom: 30px;
+  border-bottom: 1px solid $capt-midgrey;
+  /* needs to be larger for dashboard panels */
+}
+
+
+.pager-link {
+  background-repeat: no-repeat;
+  color: $capt-orange;
+  font-size: 14px;
+  font-weight: normal;
 }

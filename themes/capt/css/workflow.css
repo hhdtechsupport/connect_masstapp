@@ -1,0 +1,44 @@
+/*
+ *  Workflow Styles
+ */
+/* line 5, ../sass/workflow.scss */
+.node-event.workflow-in-progress .group-left::after {
+  color: #ccbb99;
+  content: "DRAFT";
+  display: block;
+  font-size: 15em;
+  font-weight: bold;
+  opacity: 0.4;
+  position: absolute;
+  top: 360px;
+  pointer-events: none;
+}
+
+/* line 17, ../sass/workflow.scss */
+.not-logged-in .field-name-field-workflow-state {
+  display: none;
+}
+
+/* line 22, ../sass/workflow.scss */
+.node-event .group-left .field-group-html-element:not(:first-child) h4 {
+  border-top: 1px solid #d7d7d7;
+  padding-top: 1.4em;
+  margin-top: 1.6em;
+}
+/* line 27, ../sass/workflow.scss */
+.node-event .group-left .field-group-html-element:first-child h4 {
+  margin-top: 0;
+}
+
+/* line 32, ../sass/workflow.scss */
+form.workflow-transition-form {
+  padding: 10px 26px 20px 26px;
+  width: 269px;
+  background: #F3EEEE;
+  border: 1px solid #DBD6D6;
+}
+
+/* line 39, ../sass/workflow.scss */
+.node.workflow-published .field-name-field-workflow-state {
+  display: none;
+}

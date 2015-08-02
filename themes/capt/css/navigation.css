@@ -1,0 +1,297 @@
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/* variables */
+/* colors*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../sass/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../sass/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../sass/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../sass/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../sass/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../sass/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 43, ../sass/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 53, ../sass/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 66, ../sass/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 74, ../sass/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*
+*  Navigation
+*/
+/* line 11, ../sass/navigation.scss */
+#block-responsive-dropdown-menus-main-menu {
+  margin-left: -10px;
+  /*border-bottom: 1px solid $capt-midgrey;*/
+  height: 27px;
+  width: 870px;
+  padding-left: 0px;
+}
+
+/* line 19, ../sass/navigation.scss */
+ul#main-menu.main-menu > li.menu-item > a.active {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-bottom: 1px solid white;
+  color: #8c1d18;
+  height: 26px;
+}
+
+/* line 23, ../sass/navigation.scss */
+ul#main-menu.main-menu {
+  margin-top: 28px;
+  border-bottom: 1px solid #d7d7d7;
+  width: 970px;
+  margin-left: 15px;
+  height: 43px;
+  /* submenu active */
+}
+/* line 29, ../sass/navigation.scss */
+ul#main-menu.main-menu li.menu-item > a {
+  text-transform: uppercase;
+  display: block;
+  height: 27px;
+  width: 200px;
+  text-align: center;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #e3e4e0;
+  /*$capt-midgrey;*/
+}
+/* line 41, ../sass/navigation.scss */
+ul#main-menu.main-menu li.menu-item > a:hover {
+  background-color: #efefef;
+}
+/* line 44, ../sass/navigation.scss */
+ul#main-menu.main-menu li.menu-item > a.active {
+  background-color: white;
+  color: #8c1d18;
+}
+
+/**
+ * Dropdown Logic
+ */
+/* line 54, ../sass/navigation.scss */
+#navigation .links li {
+  padding: 0px 5px 0px 0px;
+}
+
+/* needed to eliminate a grey border on right side of dropdown */
+/* line 60, ../sass/navigation.scss */
+#navigation .links li.menu-parent li {
+  padding: 0px;
+}
+
+/* line 65, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two {
+  padding: 0px;
+  margin-top: 0px;
+  padding-right: 0px;
+  background: #efefef;
+  width: 200px;
+}
+/* line 71, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li {
+  padding: 0px;
+  margin: 0px;
+  display: block;
+}
+/* line 75, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a {
+  display: block;
+  margin: 0px;
+  text-transform: capitalize;
+  text-align: left;
+  font-weight: normal;
+  color: #333;
+  padding: 0px 0px 0px 35px;
+  font-size: 13px;
+  height: 18px;
+  width: 165px;
+  background: none;
+}
+/* line 88, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a.active {
+  background-color: white;
+  color: #333;
+}
+/* line 92, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li a:hover {
+  text-decoration: underline;
+}
+/* line 95, ../sass/navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li.last {
+  padding-bottom: 15px;
+}
+/* line 100, ../sass/navigation.scss */
+#main-menu li.menu-parent.active-trail ul.sub-menu.tier-two {
+  background: white;
+}
+
+/* line 109, ../sass/navigation.scss */
+body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a,
+body.page-user ul#main-menu.main-menu li#menu-item-591 a {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-bottom: 1px solid white;
+  color: #8c1d18;
+  height: 26px;
+}
+
+/* line 118, ../sass/navigation.scss */
+body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-bottom: 1px solid white;
+  color: #8c1d18;
+  height: 26px;
+}
+/* line 122, ../sass/navigation.scss */
+body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
+  display: block;
+}
+
+/* View | Edit | Manage Display | etc. tabs */
+/* line 130, ../sass/navigation.scss */
+ul.tabs-primary,
+ul.tabs-secondary {
+  background-image: -o-linear-gradient(bottom, black 1px, transparent 1px);
+  background-image: -moz-linear-gradient(center bottom, black, 1px, transparent 0.5px);
+  background-image: -webkit-linear-gradient(bottom, black 1px, transparent 1px);
+  background-image: linear-gradient(center bottom, black, 1px, transparent 1px);
+  /*907px;*/
+}
+/* line 134, ../sass/navigation.scss */
+ul.tabs-primary li:first-child,
+ul.tabs-secondary li:first-child {
+  margin-left: 10px;
+}
+/* line 137, ../sass/navigation.scss */
+ul.tabs-primary li,
+ul.tabs-secondary li {
+  border: 0px;
+}
+/* line 139, ../sass/navigation.scss */
+ul.tabs-primary li a, ul.tabs-primary li a:active, ul.tabs-primary li a.is-active,
+ul.tabs-secondary li a,
+ul.tabs-secondary li a:active,
+ul.tabs-secondary li a.is-active {
+  background-image: none;
+  background-color: white;
+  font-family: ArialMT, Arial;
+  font-weight: 500;
+  padding: 3px 20px;
+}
+/* line 146, ../sass/navigation.scss */
+ul.tabs-primary li a:not(.is-active),
+ul.tabs-secondary li a:not(.is-active) {
+  border: 0px;
+}
+/* line 149, ../sass/navigation.scss */
+ul.tabs-primary li a:hover, ul.tabs-primary li a:active,
+ul.tabs-secondary li a:hover,
+ul.tabs-secondary li a:active {
+  background-color: white;
+}
+/* line 153, ../sass/navigation.scss */
+ul.tabs-primary li.tabs-primary__tab.is-active,
+ul.tabs-secondary li.tabs-primary__tab.is-active {
+  border-color: black;
+  border-bottom-color: white;
+}
+
+/* line 159, ../sass/navigation.scss */
+div.vertical-tabs {
+  margin-right: 0px;
+}

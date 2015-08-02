@@ -1,0 +1,89 @@
+/*
+Error: Undefined variable: "$capt-maroon".
+        on line 7 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-events.scss
+
+2: /* form elements for Edit & Create Event *\/
+3: 
+4: form#event-node-form, form#event-notifications-node-form {
+5:   a:not(.chosen-single) {
+6:     font-weight: normal;
+7:     color: $capt-maroon;
+8:     &.field-group-format-title {
+9:       font-weight: bold;
+10:       color: $capt-aqua;
+11:       &:hover {
+12:         color: $capt-maroon;
+
+Backtrace:
+/Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-events.scss:7
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `call'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `load'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `<main>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `eval'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$capt-maroon\".\A         on line 7 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-events.scss\A \A 2: /* form elements for Edit & Create Event */\A 3: \A 4: form#event-node-form, form#event-notifications-node-form {\A 5:   a:not(.chosen-single) {\A 6:     font-weight: normal;\A 7:     color: $capt-maroon;\A 8:     &.field-group-format-title {\A 9:       font-weight: bold;\A 10:       color: $capt-aqua;\A 11:       &:hover {\A 12:         color: $capt-maroon;"; }

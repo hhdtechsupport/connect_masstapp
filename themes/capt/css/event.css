@@ -1,0 +1,498 @@
+/*
+ * Event pages - both anonymous and logged in
+ * testsss*/
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/* variables */
+/* colors*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../sass/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../sass/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../sass/extensible.scss */
+.basic-button, body.node-type-event div#block-block-11 p a.anonymous_home {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../sass/extensible.scss */
+.panel, .panel-rule, .panel-rule-single, body.node-type-event div.group-materials, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../sass/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, body.node-type-event div.group-materials h3 a:hover, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../sass/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper, body.node-type-event div.group-materials .filter-wrapper, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds .filter-wrapper {
+  border: 0px;
+}
+
+/* line 43, ../sass/extensible.scss */
+.panel-rule, .panel-rule-single, body.node-type-event div.group-materials, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 53, ../sass/extensible.scss */
+.panel-rule:before, .panel-rule-single:before, body.node-type-event div.group-materials:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 66, ../sass/extensible.scss */
+.panel-rule-single, body.node-type-event div.group-materials, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 74, ../sass/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* line 10, ../sass/event.scss */
+body.node-type-event {
+  /* header */
+  /* added to align title and subtitle on event pages*/
+  /* dates panel */
+  /* home button on event page */
+}
+/* line 12, ../sass/event.scss */
+body.node-type-event ul#main-menu.main-menu li#menu-item-588 a {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-bottom: 1px solid white;
+  color: #8c1d18;
+  height: 26px;
+}
+/* line 17, ../sass/event.scss */
+body.node-type-event div#title-section h1.page__title.title {
+  color: #888a55;
+  font-weight: bold;
+  font-size: 36px;
+  background-image: none;
+  padding-left: 0px;
+}
+/* line 24, ../sass/event.scss */
+body.node-type-event div#title-section h2, body.node-type-event div#title-section h3 {
+  color: #333333;
+  margin-bottom: 10px;
+}
+/* line 28, ../sass/event.scss */
+body.node-type-event div#title-section h3 {
+  font-weight: bold;
+}
+/* line 32, ../sass/event.scss */
+body.node-type-event div.field-name-registration {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+}
+/* line 36, ../sass/event.scss */
+body.node-type-event h5.views-field-title {
+  margin-left: 0px;
+  padding-left: 0px;
+  /* does this need to be negative? */
+}
+/* line 40, ../sass/event.scss */
+body.node-type-event h5.views-field-title span.field-content {
+  /*margin-left: -13px;*/
+}
+/* line 44, ../sass/event.scss */
+body.node-type-event div#content.column {
+  border-top-color: black;
+}
+/* line 47, ../sass/event.scss */
+body.node-type-event .view-content .field-content .views-row div {
+  margin-left: 5px;
+}
+/* line 51, ../sass/event.scss */
+body.node-type-event div#title-section h2 {
+  margin-left: 10px;
+}
+/* line 54, ../sass/event.scss */
+body.node-type-event div#title-section {
+  padding-left: 0px;
+}
+/* line 57, ../sass/event.scss */
+body.node-type-event h2 {
+  color: #577785;
+  font-weight: normal;
+}
+/* line 61, ../sass/event.scss */
+body.node-type-event h2.type {
+  font-size: 1.75em;
+  font-style: italic;
+  font-weight: bold;
+  color: #333333;
+}
+/* line 67, ../sass/event.scss */
+body.node-type-event h1.subtitle {
+  color: #577785;
+  font-weight: normal;
+  font-size: 2em;
+}
+/* line 73, ../sass/event.scss */
+body.node-type-event div#title-section h2 {
+  margin-left: 0px;
+}
+/* line 76, ../sass/event.scss */
+body.node-type-event h5 {
+  margin-top: 4px;
+}
+/* line 79, ../sass/event.scss */
+body.node-type-event h1, body.node-type-event h2, body.node-type-event h3 {
+  margin-left: 0px;
+}
+/* line 82, ../sass/event.scss */
+body.node-type-event h2 a {
+  font-size: 20px;
+  color: #c3791f;
+}
+/* line 86, ../sass/event.scss */
+body.node-type-event div.group-right a {
+  color: #c3791f;
+  font-weight: normal;
+  text-decoration: underline;
+}
+/* line 91, ../sass/event.scss */
+body.node-type-event div#content {
+  border-top: 1px solid #d7d7d7;
+  padding-top: 20px;
+}
+/* line 96, ../sass/event.scss */
+body.node-type-event .region-help #block-block-1 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-top: 0px;
+  padding-right: 0px;
+}
+/* line 103, ../sass/event.scss */
+body.node-type-event .region-help #block-block-1 a.button {
+  margin-left: 20px;
+  margin-right: 0px;
+}
+/* line 108, ../sass/event.scss */
+body.node-type-event div.group-materials {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  padding: 10px 16px 36px 16px;
+  margin-left: 5px;
+}
+/* line 113, ../sass/event.scss */
+body.node-type-event div.group-materials h4 {
+  margin-top: 0px;
+}
+/* line 117, ../sass/event.scss */
+body.node-type-event h4 span {
+  color: #8c1d18;
+}
+/* line 121, ../sass/event.scss */
+body.node-type-event .views-field h4 {
+  color: #8c1d18;
+}
+/* line 124, ../sass/event.scss */
+body.node-type-event .views-field strong .date-display-single {
+  font-weight: bold;
+}
+/* line 127, ../sass/event.scss */
+body.node-type-event .views-field .date-display-single {
+  font-weight: normal;
+}
+/* line 131, ../sass/event.scss */
+body.node-type-event h2.element-invisible {
+  display: none;
+}
+/* line 135, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-left {
+  width: auto;
+  margin-right: 383px;
+}
+/* line 139, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right {
+  width: 323px;
+  margin-left: -323px;
+  /* extra padding on dates panel because of floats */
+  /**
+  * Materials portion of event page
+  */
+}
+/* line 142, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .view-content .field-content .views-row div {
+  margin-left: 0px;
+  display: inline;
+}
+/* line 147, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .views-row div.field-content {
+  clear: left;
+}
+/* line 150, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date {
+  margin-right: 3px;
+  /*border: 1px solid red;*/
+}
+/* line 153, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action {
+  font-weight: normal;
+}
+/* line 157, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1 {
+  /*border: 1px solid blue;*/
+  margin-right: 4px;
+  /*10px;*/
+}
+/* line 167, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .item-list h3 {
+  font-size: 16px;
+}
+/* line 171, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- {
+  padding-top: 25px;
+}
+/* line 174, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before {
+  margin-left: -27px;
+  padding-left: 54px;
+}
+/* line 179, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 {
+  padding-top: 25px;
+}
+/* line 181, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2:before {
+  margin-left: -27.5px;
+  width: 320px;
+  margin-top: 0px;
+  left: 1px;
+}
+/* line 187, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content {
+  background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
+  padding-left: 14px;
+}
+/* line 191, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .button, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .button {
+  margin-left: 14px;
+}
+/* line 198, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials {
+  padding-top: 25px;
+}
+/* line 200, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before {
+  margin-left: -27px;
+  padding-left: 54px;
+}
+/* line 204, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title {
+  margin-top: -5px;
+}
+/* line 208, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul {
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+/* line 211, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row {
+  list-style: none;
+  background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  padding-left: 23px;
+  min-height: 32px;
+}
+/* line 222, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  width: 269px;
+  /* changed from 250px so "cancel" link does not start new line */
+  padding: 10px 26px 14px 26px;
+}
+/* line 229, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title {
+  font-weight: normal;
+  margin-top: 0px;
+  color: #334b56;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+/* line 236, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list {
+  border-top: 1px solid #d7d7d7;
+  padding-top: 15px;
+  margin-top: -5px;
+}
+/* line 240, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul {
+  padding-left: 0px;
+}
+/* line 242, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row {
+  list-style: none;
+  background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
+  /* list-style-image: url('../images/icons/down-arrow.png'); */
+  margin-bottom: 15px;
+  min-height: 42px;
+  padding-left: 12px;
+}
+/* line 249, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
+  /* general rule?*/
+}
+/* line 250, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a {
+  display: inline;
+  font-weight: normal;
+  padding-bottom: 10px;
+  color: #333333;
+}
+/* line 257, ../sass/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover {
+  text-decoration: none;
+  color: #8c1d18;
+}
+/* line 268, ../sass/event.scss */
+body.node-type-event div#block-block-11 {
+  /* the absolute positioning keeps its position constant across pages*/
+  position: absolute;
+  top: -50px;
+  height: 0px;
+  margin: 0px 0px 0px -10px;
+  z-index: 20;
+}
+/* line 274, ../sass/event.scss */
+body.node-type-event div#block-block-11 p {
+  list-style-type: none;
+  list-style-image: none;
+  margin-left: 0px;
+}
+/* line 278, ../sass/event.scss */
+body.node-type-event div#block-block-11 p a.anonymous_home {
+  font-size: 16px;
+  width: 100px;
+  padding: 3px;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+  height: 24px;
+  position: relative;
+  top: 0px;
+  float: left;
+  margin-left: -18px;
+}
+/* line 292, ../sass/event.scss */
+body.node-type-event div#block-block-11 p a.anonymous_home:hover {
+  text-decoration: none;
+}
+
+/**
+ *  Event Page, not logged in
+ */
+/* line 305, ../sass/event.scss */
+body.node-type-event.not-logged-in #main {
+  padding-top: 0;
+}
+/* line 308, ../sass/event.scss */
+body.node-type-event.not-logged-in h3 {
+  font-weight: normal;
+  color: #577785;
+  margin-top: 0px;
+  /*margin-bottom: 40px;*/
+}
+/* line 314, ../sass/event.scss */
+body.node-type-event.not-logged-in div#content.column {
+  border-top-color: #d7d7d7;
+  margin-top: 10px;
+}
+
+/*
+ *  Event Page -- Mozilla-specific fix for footer.
+ */
+@-moz-document url-prefix() {
+  /* line 330, ../sass/event.scss */
+  body.node-type-event #page {
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+  }
+  /* line 334, ../sass/event.scss */
+  body.node-type-event #block-block-12 .disclaimer {
+    top: 20px;
+    left: 20px;
+  }
+}
+/* fine-tuning for Chrome & Safari */
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
+  /* line 343, ../sass/event.scss */
+  body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
+    height: 192px;
+  }
+}
+/* line 348, ../sass/event.scss */
+#block-views-subtitle-and-type-block {
+  margin-top: -1em;
+}

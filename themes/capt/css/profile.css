@@ -1,0 +1,287 @@
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/* variables */
+/* colors*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../sass/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../sass/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../sass/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../sass/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../sass/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../sass/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 43, ../sass/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 53, ../sass/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 66, ../sass/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 74, ../sass/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/**
+ *  User profile page
+ */
+/* line 10, ../sass/profile.scss */
+form#user-profile-form,
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
+  /* end fieldset */
+}
+/* line 13, ../sass/profile.scss */
+form#user-profile-form fieldset,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset {
+  border: 0px;
+  border-top: 5px solid #577785;
+  margin: 40px 0px 18px;
+  background: #eef1f3;
+  /* end legend */
+}
+/* line 18, ../sass/profile.scss */
+form#user-profile-form fieldset legend,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset legend {
+  margin-left: 4px;
+  top: -13px;
+  position: relative;
+  border-bottom: 5px solid #577785;
+}
+/* line 23, ../sass/profile.scss */
+form#user-profile-form fieldset legend span.fieldset-legend,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset legend span.fieldset-legend {
+  color: #577785;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 0px 5px;
+  left: 20px;
+}
+/* line 31, ../sass/profile.scss */
+form#user-profile-form fieldset legend a,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend a,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset legend a {
+  padding-left: 12px;
+  color: #577785;
+}
+/* line 36, ../sass/profile.scss */
+form#user-profile-form fieldset fieldset legend,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset legend,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset fieldset legend {
+  top: -12px;
+}
+/* line 40, ../sass/profile.scss */
+form#user-profile-form fieldset fieldset,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset fieldset {
+  margin-right: 10px;
+}
+/* line 45, ../sass/profile.scss */
+form#user-profile-form span.label,
+body.not-logged-in.page-user-register:not(.node-type-event) span.label,
+body.not-logged-in.page-anon-register:not(.node-type-event) span.label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 14px;
+  margin-left: 1px;
+}
+/* line 52, ../sass/profile.scss */
+form#user-profile-form .fieldset-wrapper div.form-item label:not(.option),
+body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option),
+body.not-logged-in.page-anon-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option) {
+  font-size: 14px;
+}
+/* line 55, ../sass/profile.scss */
+form#user-profile-form .fieldset-wrapper div.form-item label.option,
+body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option,
+body.not-logged-in.page-anon-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option {
+  font-size: 13px;
+}
+/* line 59, ../sass/profile.scss */
+form#user-profile-form input.form-text,
+body.not-logged-in.page-user-register:not(.node-type-event) input.form-text,
+body.not-logged-in.page-anon-register:not(.node-type-event) input.form-text {
+  font-size: 14px;
+  padding: 5px;
+  max-width: 400px;
+  display: block;
+  border: 1px solid #b6b6b6;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+/* line 68, ../sass/profile.scss */
+form#user-profile-form input.form-text:focus,
+body.not-logged-in.page-user-register:not(.node-type-event) input.form-text:focus,
+body.not-logged-in.page-anon-register:not(.node-type-event) input.form-text:focus {
+  background: #F5FAFC;
+  outline: none;
+}
+/* line 74, ../sass/profile.scss */
+form#user-profile-form .form-item .description,
+body.not-logged-in.page-user-register:not(.node-type-event) .form-item .description,
+body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .description {
+  font-size: 0.85em;
+  line-height: 1.8em;
+  margin-left: 2px;
+  color: #5c5c5c;
+  max-width: 400px;
+}
+/* line 81, ../sass/profile.scss */
+form#user-profile-form .form-item .confirm-parent, form#user-profile-form .form-item .password-parent,
+body.not-logged-in.page-user-register:not(.node-type-event) .form-item .confirm-parent,
+body.not-logged-in.page-user-register:not(.node-type-event) .form-item .password-parent,
+body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .confirm-parent,
+body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .password-parent {
+  width: 40em !important;
+}
+/* line 84, ../sass/profile.scss */
+form#user-profile-form .form-item div.password-suggestions,
+body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions,
+body.not-logged-in.page-anon-register:not(.node-type-event) .form-item div.password-suggestions {
+  padding: 10px;
+  background: #F7F7F7;
+  width: 560px;
+}
+/* line 88, ../sass/profile.scss */
+form#user-profile-form .form-item div.password-suggestions ul,
+body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions ul,
+body.not-logged-in.page-anon-register:not(.node-type-event) .form-item div.password-suggestions ul {
+  margin-top: 0.5em;
+}
+/* line 93, ../sass/profile.scss */
+form#user-profile-form div.data-view, form#user-profile-form div.fieldset-wrapper,
+body.not-logged-in.page-user-register:not(.node-type-event) div.data-view,
+body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper,
+body.not-logged-in.page-anon-register:not(.node-type-event) div.data-view,
+body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper {
+  border: 1px solid #dbdbd9;
+  border-top: 0px;
+  padding-left: 10px;
+  margin-left: -8px;
+  margin-bottom: -30px;
+  width: 100.45%;
+  top: -17px;
+  position: relative;
+  padding-top: 17px;
+  padding-bottom: 25px;
+}
+/* line 106, ../sass/profile.scss */
+form#user-profile-form fieldset fieldset div.fieldset-wrapper,
+body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset div.fieldset-wrapper,
+body.not-logged-in.page-anon-register:not(.node-type-event) fieldset fieldset div.fieldset-wrapper {
+  width: 100.6%;
+  /*97.86%;*/
+  margin-left: -9px;
+}
+/* line 112, ../sass/profile.scss */
+form#user-profile-form div.fieldset-wrapper,
+body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper,
+body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper {
+  /* margin-left: -20px;*/
+  /*padding: 10px 17px;*/
+}
+/* line 116, ../sass/profile.scss */
+form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel,
+body.not-logged-in.page-user-register:not(.node-type-event) input#edit-submit,
+body.not-logged-in.page-user-register:not(.node-type-event) input#edit-cancel,
+body.not-logged-in.page-anon-register:not(.node-type-event) input#edit-submit,
+body.not-logged-in.page-anon-register:not(.node-type-event) input#edit-cancel {
+  background-color: #c3791f;
+  text-transform: capitalize;
+}
+
+/* prevent overlap with bottom save & cancel buttons */
+/* line 124, ../sass/profile.scss */
+form#user-profile-form > div > fieldset > .fieldset-wrapper {
+  padding-bottom: 90px;
+}
