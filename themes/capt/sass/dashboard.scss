@@ -4,36 +4,8 @@
 
 
 
-
-.ds-2col-stacked-fluid > .group-left
-body.page-events.section-events div#content {
-
-  margin-right: 1%;
-  width: 970px;
-
-
-}
-/* dashboard */
-/* the main panels */
-
-.node-dashboard {
-  .group-left .field-type-ds, .group-right .field-type-ds {
-    @extend .panel-rule-single;
-  }
-}
-
-/* adopting h4:black for this one */
-
-.node-dashboard h2.block-title {
-  /* artifacts */
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  /* new */
-  font-size: 24px;
-  color: $capt-black;
-}
-
 /* dashboard lists */
+/* MATT NOTE: THIS ALL LOOKS GLOBAL... NOT DASHBOARD-SPECIFIC */
 
 li.views-row {
   list-style-image: url("../images/icons/arrow-icons.png");
@@ -59,12 +31,12 @@ div.view-content div.item-list {
       text-decoration: none;
     }
   }
-  /* TODO: add variant for registered events */
   ul {
     margin-top: 0px;
     margin-bottom: 0px;
   }
 }
+
 
 p {
   margin: 0 0 1em 0;
@@ -73,25 +45,55 @@ p {
 
 
 
-/* end pager styles */
 
 
-/*
- *  Cancelling a registered event -- still needed?
- */
 
- body.node-type-dashboard {
-  #page {
-    height: 100%;
-    /* changed from 1000px*/
-    div.view-content span.flag-registration a.unflag-action {
-      // font-size: 12px;
-      // line-height: 1em;
-      // font-style: italic;
+.section-events {
+  #block-views-exp-dashboard-page-1 {
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  .view-dashboard.view-display-id-page_1 {
+    @extend .panel-rule-single;
+    background-color: white;
+    border-width: 0px;
+    width: 45%;
+    display: block;
+    margin-top: 20px;
+    float: left;
+    &:before {
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+  }
+  #block-views-dashboard-block-1 {
 
+  }
+  #block-views-dashboard-block-2 {
+    clear: right;
+  }
+  #block-views-dashboard-block-1,
+  #block-views-dashboard-block-2 {
+    float: right;
+    width: 45%;
+    h2.block-title {
+      font-weight: normal;
+      margin-bottom: 20px;
+      margin-top: 3px;
+      font-size: 24px;
+      margin-left: 20px;
+      color: $capt-darkblue;
     }
   }
 }
+
+
+
+
+
+
+
 
 
 /* panels */
@@ -275,24 +277,6 @@ body.page-events.section-events {
   }
   html, body, #page {
      height: 100%;
-  }
-  div#main {
-    div#content {
-      width: 973px;
-
-
-
-      margin-left: 13px;
-
-      div.view.view-dashboard.view-id-dashboard {
-        @extend .panel-rule-single;
-        background-color: white;
-        border-width: 0px;
-        width: 45%;
-        display: block;
-
-      }
-    }
   }
   /* right matter */
   section.region.region-sidebar-second {
