@@ -622,6 +622,12 @@ function otherSelectbox ($field, $fieldPrev) {
   $('.section-events .block-views .view-filters').css('display','none');
 
 
+  $('.view-empty').each(function(){
+    if($('#edit-keys-wrapper input[type="text"]').val() != "") {
+      $(this).text("No events match your search terms.");
+    }
+  });
+
 
 
 

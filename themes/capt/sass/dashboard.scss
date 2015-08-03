@@ -5,7 +5,6 @@
 
 
 /* dashboard lists */
-/* MATT NOTE: THIS ALL LOOKS GLOBAL... NOT DASHBOARD-SPECIFIC */
 
 li.views-row {
   list-style-image: url("../images/icons/arrow-icons.png");
@@ -18,7 +17,7 @@ li.views-row:last-child {
 
 div.view-content div.item-list {
   padding-left: 0px;
-  padding-top: 10px;
+  padding-top: 14px;
   &:first-of-type {
     padding-top: 0;
   }
@@ -44,23 +43,53 @@ p {
 }
 
 
-
+.pager-ellipsis {
+  font-weight: bold;
+  color: $capt-orange;
+}
 
 
 
 .section-events {
+  h3,
+  span.date-display-single {
+    font-style: normal;
+    font-size: 14px;
+    a {
+      color: black;
+    }
+  }
+  h3 {
+    margin-top: 0px;
+  }
   #block-views-exp-dashboard-page-1 {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 0;
+    .views-exposed-widget input[type="submit"] {
+      margin-right: 0px;
+    }
+    .views-exposed-widget input[type="text"] {
+      font-size: 14px;
+      padding: 5px;
+      max-width: 400px;
+      display: block;
+      border: 1px solid #b6b6b6;
+      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    }
+    #edit-keys-wrapper {
+      margin-top: -2px;
+    }
   }
   .view-dashboard.view-display-id-page_1 {
     @extend .panel-rule-single;
     background-color: white;
     border-width: 0px;
-    width: 45%;
+    width: 48%;
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
     float: left;
     &:before {
       margin-left: 0px;
@@ -68,197 +97,51 @@ p {
     }
   }
   #block-views-dashboard-block-1 {
-
+    background: url("../images/icons/registered.png") 380px 17px no-repeat #eef1f3;
   }
   #block-views-dashboard-block-2 {
+    background: url("../images/icons/archived.png") 380px 17px no-repeat #eef1f3;
     clear: right;
   }
   #block-views-dashboard-block-1,
   #block-views-dashboard-block-2 {
     float: right;
-    width: 45%;
+    width: 48%;
+    margin-top: 10px;
+    @extend .panel-rule-single;
+    overflow: none;
+    margin-right: 0px;
+    padding-left: 0px;
     h2.block-title {
       font-weight: normal;
       margin-bottom: 20px;
       margin-top: 3px;
       font-size: 24px;
-      margin-left: 20px;
+      padding: 0 20px;
       color: $capt-darkblue;
     }
-  }
-}
-
-
-
-
-
-
-
-
-
-/* panels */
-
-.field-name-my-registered-events {
-  background: url("../images/icons/registered.png") 405px 21px no-repeat;
-}
-
-.field-name-my-archived-events.field-type-ds,
-.field-name-my-registered-events.field-type-ds {
-  overflow: none;
-  /*min-height: 245px;*/
-  padding-bottom: 30px;
-  margin-right: 0px;
-  padding-right: 30px;
-  padding-left: 0px;
-  div.field-items {
-    margin: 0 26px;
-  }
-  .view-dashboard {
-    /*border-bottom: 1px solid $capt-midgrey;*/
-    padding-top: 0px;
-    div.view-empty {
-      margin-top: 40px;
+    .view-content {
+      padding: 0 20px;
+    }
+    .view-dashboard .button.participate {
+      margin: 2px 0 12px;
+    }
+    .pager {
+      margin: 10px 0 0;
+    }
+    .view-empty {
+      margin-left: 20px;
     }
   }
-  /* debold the title */
-  h2.block-title {
-    font-weight: normal;
-    margin-bottom: 20px;
-    margin-top: 3px;
-    color: $capt-darkblue;
-  }
-  /* blacken the links */
-  h3 a {
-    font-style: normal;
-    font-size: 14px;
-    color: black;
-  }
-  /* format list of events */
-  div#content {
-    padding-left: 30px;
-  }
-  div.view-content {
-    /*padding-left: 20px;*/
-    /*we may need this to be more specific elsewhere*/
-    div.item-list ul {
-      padding-left: 16px;
-      margin-top: 0px;
-      margin-bottom: 0px;
-      border-bottom: 1px solid $capt-midgrey;
-      padding-bottom: 10px;
-      li {
-        margin-bottom: 0px;
-        padding-left: 0px;
-      }
-    }
-    div.item-list:last-child ul {
-      border-bottom: none;
-    }
-  }
-  div.item-list {
-    border-width: 0px;
-  }
-  /* pager logic */
-  ul.pager {
-    margin-bottom: -10px;
-    li.pager-item {
-      border: 1px solid $capt-aqua;
-      /*padding: 6px 9px;*/
-    /* a {
-padding: 4px 7px;
-}*/
-}
-li.pager-current {
-  background-color: $capt-aqua;
-  border: 1px solid $capt-aqua;
-}
-li.pager-next,
-li.pager-last {
-  a {
-    background-image: url("../images/icons/right-arrow-aqua.png");
-  }
-}
-li.pager-previous,
-li.pager-first {
-  a {
-    background-image: url("../images/icons/left-arrow-aqua.png");
-  }
-}
-li.pager-item,
-li.pager-current,
-li.pager-previous,
-li.pager-last,
-li.pager-first,
-li.pager-next {
-  a {
-    color: $capt-aqua;
-  }
-}
-}
-}
-
-.field-name-my-archived-events.field-type-ds {
-  background: url("../images/icons/archived.png") 405px 21px no-repeat;
-  .view-dashboard {
-    /* min-height: 170px;*/
-    div.view-empty {
-      margin-top: 20px;
-    }
-  }
-  .views-field-flagged {
-    font-size: 12px;
-    line-height: 1em;
-    font-style: italic;
-    margin-bottom: 6px;
-  }
-  div.view-content {
-    div.item-list {
-      margin-left: 0px;
-      ul {
-        padding-bottom: 6px;
-      }
-    }
-  }
-  h2.block-title {
-    font-weight: normal;
-  }
-  div.view-empty {
-    margin-top: 30px;
-  }
-  ul.pager {
-    /*margin-bottom: -30px;*/
-    padding-bottom: 0px;
+  #block-block-15 {
+    clear: both;
   }
 }
 
-/* upcoming events panel  */
 
-body.logged-in {
-  /* old*/
-  .field-name-upcoming-events.field-type-ds,
-  div.view.view-dashboard {
-    /*background-color: white;*/
-    border-width: 5px 0px 0px 0px;
-    margin-right: 40px;
-    margin-left: 0px;
-    h2.block-title {
-      font-weight: normal;
-      /* best way to do it?*/
-      display: none;
-    }
-    h3,
-    span.date-display-single {
-      font-style: normal;
-      font-size: 14px;
-      a {
-        color: black;
-      }
-    }
-    h3 {
-      margin-top: 0px;
-    }
-  }
-}
+
+
+
 
 /*
 NK (7/30): dashboard update.
@@ -267,145 +150,17 @@ we may deprecate field-name-upcoming-events selector
 */
 
 body.page-events.section-events {
-  div.bottom-footer div.disclaimer {
-    display: inline-block;
-    margin-left: 90px;
-    top: -20px;
-  }
   .views-exposed-form .views-exposed-widget .form-submit {
     margin-top: 1.6em;
   }
-  html, body, #page {
-     height: 100%;
-  }
-  /* right matter */
-  section.region.region-sidebar-second {
-    position: relative;
-    width: 50%;
-    margin-top: 180px;
-    left: -510px;
-    /*border: 1px dashed orange;*/
-    // registered events, archived events
-    div#block-views-dashboard-block-1,
-    div#block-views-dashboard-block-2 {
-      @extend .panel-rule-single;
-      overflow: none;
-      padding-bottom: 30px;
-      margin-right: 0px;
-      padding-right: 30px;
-      padding-left: 0px;
-      &:before {
-        width: 478px;
-      }
-      div.field-items {
-        margin: 0 26px;
-      }
-      div.view.view-dashboard {
-        /*border-bottom: 1px solid $capt-midgrey;*/
-        padding-top: 0px;
-        div.view-empty {
-          margin-top: 40px;
-        }
-      }
-      /* debold the title */
-      h2.block-title {
-        font-weight: normal;
-        margin-bottom: 20px;
-        margin-top: 3px;
-        font-size: 24px;
-        margin-left: 20px;
-        color: $capt-darkblue;
-      }
-      /* blacken the links */
-      h3 a {
-        font-style: normal;
-        font-size: 14px;
-        color: black;
-      }
-      /* format list of events */
-      div#content {
-        padding-left: 30px;
-      }
-      div.view-content {
-        margin-left: 20px;
-        /*we may need this to be more specific elsewhere*/
-        div.item-list ul {
-          padding-left: 16px;
-          margin-top: 0px;
-          margin-bottom: 0px;
-          border-bottom: 1px solid $capt-midgrey;
-          padding-bottom: 10px;
-          li {
-            margin-bottom: 0px;
-            padding-left: 0px;
-          }
-        }
-        div.item-list:last-child ul {
-          border-bottom: none;
-        }
-      }
-      div.item-list {
-
-
-      }
-      /* pager logic */
-      ul.pager {
-        margin-bottom: -10px;
-        width: 100%;
-        margin-left: 0px;
-        li.pager-item {
-          border: 1px solid $capt-aqua;
-        }
-        li.pager-current {
-          background-color: $capt-aqua;
-          border: 1px solid $capt-aqua;
-        }
-        li.pager-next,
-        li.pager-last {
-          a {
-            background-image: url("../images/icons/right-arrow-aqua.png");
-          }
-        }
-        li.pager-previous,
-        li.pager-first {
-          a {
-            background-image: url("../images/icons/left-arrow-aqua.png");
-          }
-        }
-        li.pager-item,
-        li.pager-current,
-        li.pager-previous,
-        li.pager-last,
-        li.pager-first,
-        li.pager-next {
-          a {
-            color: $capt-aqua;
-          }
-        }
-      }
-    }
-  }
-  div#block-views-dashboard-block-1 {
-    background: url("../images/icons/registered.png") 405px 21px no-repeat;
-    a.flag-action.flag-link-normal {
-      padding: 10px 20px;
-      margin-left: -30px;
-      position: relative;
-      top: 20px;
-    }
-
-  }
 
   div#block-views-dashboard-block-2 > div > div.item-list {
-
       margin: 0px auto;
-      width: 475px;
       ul.pager {
         margin-left: 0px;
       }
   }
   div#block-views-dashboard-block-2 {
-    background: url("../images/icons/archived.png") 405px 21px no-repeat;
     .view-dashboard {
       /* min-height: 170px;*/
       div.view-empty {
@@ -462,12 +217,6 @@ body.page-events.section-events {
         border-bottom: none;
       }
     }
-    ul.pager {
-      margin-top: 45px;
-      padding-left: 0px;
-      width: 390px;
-      margin-left: -7px;
-    }
   }
 }
 
@@ -476,8 +225,6 @@ body.page-events.section-events {
  */
 
  ul.pager {
-  padding-top: 5px;
-  height: 40px;
   text-align: center;
   text-overflow: visible;
   a:hover {
@@ -561,22 +308,5 @@ body.page-events.section-events {
   #page {
     height: 100%;
     margin-bottom: -200px;
-  }
-}
-
-#dashboard-search {
-  input[type="text"] {
-    font-size: $input-font-size;
-    padding: 5px;
-    margin-right: 15px;
-    max-width: 400px;
-    border: 1px solid #b6b6b6;
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    &:focus {
-      background: $capt-inputfocus;
-      outline: none;
-    }
   }
 }
