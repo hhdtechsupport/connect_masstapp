@@ -9,9 +9,9 @@
 body.page-events2.section-events2 div#content {
 
   margin-right: 1%;
- /* width: 980px;
-  border: 1px solid $capt-midgrey;
-  background-color: red;*/
+  width: 970px;
+  
+  
 }
 /* dashboard */
 /* the main panels */
@@ -267,7 +267,7 @@ we may deprecate field-name-upcoming-events selector
 body.page-events2.section-events2 {
   div.bottom-footer div.disclaimer {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 90px;
     top: -20px;
   }
   .views-exposed-form .views-exposed-widget .form-submit {
@@ -277,16 +277,11 @@ body.page-events2.section-events2 {
      height: 100%;
   }
   div#main {
-
-      height: 100%;
-      display: table;
     div#content {
+      width: 973px;
 
-      width: 980px;
-
-      height: 100%;
       
-      height: inherit;
+   
       margin-left: 13px;
 
       div.view.view-dashboard.view-id-dashboard {
@@ -366,11 +361,14 @@ body.page-events2.section-events2 {
         }
       }
       div.item-list {
-        border-width: 0px;
+   
+    
       }
       /* pager logic */
       ul.pager {
         margin-bottom: -10px;
+        width: 100%;
+        margin-left: 0px;
         li.pager-item {
           border: 1px solid $capt-aqua;
         }
@@ -411,6 +409,16 @@ body.page-events2.section-events2 {
       position: relative;
       top: 20px;
     }
+
+  }
+
+  div#block-views-dashboard-block-2 > div > div.item-list {
+
+      margin: 0px auto;
+      width: 475px;
+      ul.pager {
+        margin-left: 0px;
+      }
   }
   div#block-views-dashboard-block-2 {
     background: url("../images/icons/archived.png") 405px 21px no-repeat;
@@ -419,7 +427,11 @@ body.page-events2.section-events2 {
       div.view-empty {
         margin-top: 20px;
       }
+   
+
     }
+ 
+
     .views-field-flagged {
       font-size: 12px;
       line-height: 1em;

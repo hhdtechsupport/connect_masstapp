@@ -25,7 +25,7 @@ Drupal.behaviors.my_custom_behavior = {
     $('a.menu-toggle').hide();
   }
   init();
- 
+
 
   // currently not used - replaced with phone_tablet_divide
   var iPh6H = 667;
@@ -48,26 +48,27 @@ Drupal.behaviors.my_custom_behavior = {
       myString = myInt.toString() + 'px';
       return myString;
     }
-  // height workaround
 
+    function setHeights() {
 
- /* function setContentHeight(num) {
+      var sideBar = $('.region-sidebar-second.column.sidebar').css('height');
 
-  if ($('body').hasClass('page-events2')) {
+      var centerContent = $('div#content').css('height');
 
-    var main_height = makeString(toInt($('#main').css('height')) - num);
-    $('#content').css('height',main_height);
-    
-   }
-  }
-  setContentHeight(175);
+      var sb = toInt(sideBar);
+      var cc = toInt(centerContent);
 
-  $('ul.pager').click(function () {
+      var newHeight = (sb < cc) ? cc : sb;
       
-      setContentHeight(0);
+      var finalConHeight = makeString(newHeight+40);
+    
+      $('.region-sidebar-second.column.sidebar').css('height',newHeight);
+      $('div#content').css('height',finalConHeight);
 
-  })*/
-  
+    }
+    if ($('body').hasClass('section-events2')) setHeights();
+
+
    /**
    *  Responsive Show - Hides
    */
