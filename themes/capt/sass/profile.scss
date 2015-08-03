@@ -10,16 +10,63 @@
 form#user-profile-form,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
+  margin-top: -20px;
+  .horizontal-tabs {
+    border: none;
+    ul.horizontal-tabs-list {
+      background: none;
+      border-right: none;
+      top: 12px;
+      li {
+        background: none;
+        border-right: none;
+        padding: 1px;
+        padding-top: 0;
+        margin: 0;
+        min-width: 5em;
+        float: left;
+        a {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          text-transform: uppercase;
+          font-size: 1.3em;
+          color: #CCCBCB;
+          font-style: normal;
+          position: relative;
+          padding: 5px 20px;
+          &:hover {
+            outline: none;
+            background-color: #fff;
+          }
+        }
+        &.selected a strong {
+          color: #577785;
+        }
+      }
+    }
+    .horizontal-tabs-panes {
+      &:before {
+        display: block;
+        background-color: $capt-aqua;
+        height: 5px;
+        width: 100%;
+        content: "";
+        position: relative;
+        top: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+      }
+    }
+  }
   fieldset {
     border: 0px;
-    border-top: 5px solid $capt-aqua;
-    margin: 40px 0px 18px;
+    border: 1px solid $capt-profgrey;
+    border-top: none;
+    margin: 0px;
     background: #eef1f3;
+    padding: 0px 20px;
     legend {
-      margin-left: 4px;
-      top: -13px;
       position: relative;
-      border-bottom: 5px solid #577785;
       span.fieldset-legend {
         color: $capt-aqua;
         text-transform: uppercase;
@@ -39,6 +86,9 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     /* end legend */
     fieldset {
       margin-right: 10px;
+    }
+    .fieldset-wrapper {
+      width: 100%;
     }
   }
   /* end fieldset */
@@ -90,29 +140,29 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
       }
     }
   }
-  div.data-view, div.fieldset-wrapper {
-    border: 1px solid $capt-profgrey;
-    border-top: 0px;
-    padding-left: 10px;
-    margin-left: -8px;
-    margin-bottom: -30px;
-    width: 100.45%;
-    top: -17px;
-    position: relative;
-    padding-top: 17px;
-    padding-bottom: 25px;
-  }
-  fieldset fieldset {
-    div.fieldset-wrapper {
-      width: 100.6%;
-      /*97.86%;*/
-      margin-left: -9px;
-    }
-  }
-  div.fieldset-wrapper {
-    /* margin-left: -20px;*/
-    /*padding: 10px 17px;*/
-  }
+  // .fieldset-wrapper {
+  //   border: 1px solid $capt-profgrey;
+  //   border-top: 0px;
+  //   padding-left: 10px;
+  //   margin-left: -8px;
+  //   margin-bottom: -30px;
+  //   width: 100.45%;
+  //   top: -17px;
+  //   position: relative;
+  //   padding-top: 17px;
+  //   padding-bottom: 25px;
+  // }
+  // fieldset fieldset {
+  //   div.fieldset-wrapper {
+  //     width: 100.6%;
+  //     /*97.86%;*/
+  //     margin-left: -9px;
+  //   }
+  // }
+  // div.fieldset-wrapper {
+  //   /* margin-left: -20px;*/
+  //   /*padding: 10px 17px;*/
+  // }
   input#edit-submit, input#edit-cancel {
     background-color: $capt-orange;
     text-transform: capitalize;
