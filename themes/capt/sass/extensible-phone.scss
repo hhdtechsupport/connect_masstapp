@@ -15,7 +15,7 @@
     width: 0px;
     position: static;
   }
-  .mobile-panel {
+.mobile-panel {
     padding-top: 10px;
     text-align: left;
     margin: 0px auto;
@@ -28,13 +28,29 @@
     &:before {
       top: -11px;
     }
+}
+.mobile-panel-rule {
+  @extend .mobile-panel;
+   &:before {
+    display: block;
+    background-color: $capt-aqua;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: 0px;
+    margin-left: -1px;
+    padding-left: 2px;
   }
+}
   .mobile-login-lower-panel {
     @extend .mobile-panel;
     &:before {
       background-color: white;
     }
   }
+
+
   .show-hide {
     font-size: 22px;
     padding-left: 20px;

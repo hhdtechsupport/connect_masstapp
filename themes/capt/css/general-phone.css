@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* SMACSS theme rules */
 /* @import "theme-A.css"; */
 /* @import "theme-B.css"; */
@@ -63,7 +64,7 @@
   border: 0px;
 }
 
-/* line 43, ../sass/extensible.scss */
+/* line 47, ../sass/extensible.scss */
 .panel-rule, .panel-rule-single {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -77,7 +78,7 @@
   -ms-border-radius: 1px;
   border-radius: 1px;
 }
-/* line 53, ../sass/extensible.scss */
+/* line 57, ../sass/extensible.scss */
 .panel-rule:before, .panel-rule-single:before {
   display: block;
   background-color: #577785;
@@ -90,14 +91,14 @@
   padding-left: 2px;
 }
 
-/* line 66, ../sass/extensible.scss */
+/* line 70, ../sass/extensible.scss */
 .panel-rule-single {
   margin-bottom: 30px;
   border-bottom: 1px solid #d7d7d7;
   /* needs to be larger for dashboard panels */
 }
 
-/* line 74, ../sass/extensible.scss */
+/* line 78, ../sass/extensible.scss */
 .pager-link {
   background-repeat: no-repeat;
   color: #c3791f;
@@ -126,7 +127,7 @@ body div#page {
 }
 
 /* line 18, ../sass/extensible-phone.scss */
-.mobile-panel, .mobile-login-lower-panel {
+.mobile-panel, .mobile-panel-rule, .mobile-login-lower-panel {
   padding-top: 10px;
   text-align: left;
   margin: 0px auto;
@@ -137,16 +138,29 @@ body div#page {
   background-color: #eef1f3;
 }
 /* line 28, ../sass/extensible-phone.scss */
-.mobile-panel:before, .mobile-login-lower-panel:before {
+.mobile-panel:before, .mobile-panel-rule:before, .mobile-login-lower-panel:before {
   top: -11px;
 }
 
 /* line 34, ../sass/extensible-phone.scss */
+.mobile-panel-rule:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: 0px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 48, ../sass/extensible-phone.scss */
 .mobile-login-lower-panel:before {
   background-color: white;
 }
 
-/* line 38, ../sass/extensible-phone.scss */
+/* line 54, ../sass/extensible-phone.scss */
 .show-hide {
   font-size: 22px;
   padding-left: 20px;
@@ -158,7 +172,7 @@ body div#page {
   margin-top: 0px;
 }
 
-/* line 49, ../sass/extensible-phone.scss */
+/* line 65, ../sass/extensible-phone.scss */
 .noselect {
   cursor: default;
   -webkit-touch-callout: none;
