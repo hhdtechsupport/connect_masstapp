@@ -7,7 +7,7 @@
 * of these @include files will be combined into a single file.
 */
 /* HTML element (SMACSS base) rules */
-/* test me*/
+/* test me!!! */
 @import url(normalize.css);
 /* Layout rules */
 @import url(layouts/responsive.css);
@@ -4214,58 +4214,61 @@ body.page-anon-register #block-block-3 p {
     height: 0px;
     background-color: none;
   }
-  /* line 108, ../sass/login-phone.scss */
-  body.not-logged-in.page-user:not(.page-user-register) div.form-item.form-item-name,
-  body.not-logged-in.page-anon-login div.form-item.form-item-name {
-    clear: left;
-  }
-  /* line 112, ../sass/login-phone.scss */
+  /* line 110, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-anon-login form#user-login {
     padding-top: 0px;
     margin-top: 20px;
     padding-bottom: 0px;
-    height: 250px;
+    height: 300px;
   }
-  /* line 117, ../sass/login-phone.scss */
+  /* line 115, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item.form-item-name,
+  body.not-logged-in.page-anon-login form#user-login div.form-item.form-item-name {
+    padding-top: 0px;
+    margin-top: -100px;
+    clear: left;
+    /* test*/
+  }
+  /* line 122, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login div#edit-actions input#edit-submit,
   body.not-logged-in.page-anon-login form#user-login div#edit-actions input#edit-submit {
     display: block;
   }
-  /* line 123, ../sass/login-phone.scss */
+  /* line 128, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body h2,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body h2 {
     margin-left: 16px;
   }
-  /* line 126, ../sass/login-phone.scss */
+  /* line 131, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body p,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body p {
     margin-left: -14px;
   }
-  /* line 131, ../sass/login-phone.scss */
+  /* line 136, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
   body.not-logged-in.page-anon-login div#block-block-9 {
     height: 130px;
     margin-bottom: -60px;
   }
-  /* line 134, ../sass/login-phone.scss */
+  /* line 139, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
   body.not-logged-in.page-anon-login div#block-block-9 h2.block-title {
     margin-left: 16px;
   }
 
-  /* line 141, ../sass/login-phone.scss */
+  /* line 146, ../sass/login-phone.scss */
   div.bottom-footer {
     height: 50px;
     width: 100%;
     /*border-color: red;*/
   }
-  /* line 145, ../sass/login-phone.scss */
+  /* line 150, ../sass/login-phone.scss */
   div.bottom-footer div.bottom-footer-container {
     text-align: center;
     width: 100%;
   }
-  /* line 148, ../sass/login-phone.scss */
+  /* line 153, ../sass/login-phone.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 95%;
     max-width: 360px;
@@ -4276,7 +4279,7 @@ body.page-anon-register #block-block-3 p {
     padding: 0px;
   }
 
-  /* line 159, ../sass/login-phone.scss */
+  /* line 164, ../sass/login-phone.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -4287,54 +4290,54 @@ body.page-anon-register #block-block-3 p {
   }
 
   /* merge with styles below? */
-  /* line 171, ../sass/login-phone.scss */
+  /* line 176, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 174, ../sass/login-phone.scss */
+  /* line 179, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 178, ../sass/login-phone.scss */
+  /* line 183, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 180, ../sass/login-phone.scss */
+  /* line 185, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 186, ../sass/login-phone.scss */
+  /* line 191, ../sass/login-phone.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
 
-  /* line 190, ../sass/login-phone.scss */
+  /* line 195, ../sass/login-phone.scss */
   body {
     overflow-x: hidden;
   }
 
-  /* line 193, ../sass/login-phone.scss */
+  /* line 198, ../sass/login-phone.scss */
   body, html {
     width: 100%;
     max-width: 100%;
   }
 
-  /* line 199, ../sass/login-phone.scss */
+  /* line 204, ../sass/login-phone.scss */
   body footer {
     width: 100%;
     max-width: 100%;
   }
-  /* line 202, ../sass/login-phone.scss */
+  /* line 207, ../sass/login-phone.scss */
   body footer .disclaimer {
     padding: 0px;
   }
-  /* line 206, ../sass/login-phone.scss */
+  /* line 211, ../sass/login-phone.scss */
   body div.top-header {
     width: 100%;
   }
-  /* line 209, ../sass/login-phone.scss */
+  /* line 214, ../sass/login-phone.scss */
   body div#page {
     max-width: 100%;
     margin-bottom: -110px;
@@ -4342,7 +4345,7 @@ body.page-anon-register #block-block-3 p {
     height: 550px !important;
     min-height: 550px;
   }
-  /* line 215, ../sass/login-phone.scss */
+  /* line 220, ../sass/login-phone.scss */
   body div#page #main {
     width: 100%;
   }
