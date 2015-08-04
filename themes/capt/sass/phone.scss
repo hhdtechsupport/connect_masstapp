@@ -1,10 +1,11 @@
 @import "variables";
 @import "capt-mixins";
+@import "capt-mixins-phone";
 @import "extensible";
 
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
- */
+ * change max? */
 @media all and (max-width: 479px) {
   #main {
     /* Move all the children of #main down to make room. */
@@ -20,491 +21,32 @@
   }
 }
 
+
 @media screen and (max-width: $phone-tablet-divide) {
+
+  @import 'extensible';
   /* general styles */
-  /*
-   * prototype classes´
-   */
-  .reset-layout {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-  }
-  /* for mobile panels with no top bars */
-  .top-bar-reset {
-    background-color: none;
-    height: 0px;
-    width: 0px;
-    position: static;
-  }
-  .mobile-panel {
-    padding-top: 10px;
-    text-align: left;
-    margin: 0px auto;
-    float: none;
-    width: 95%;
-    padding-left: 0px;
-    background: no-repeat;
-    background-color: $capt-lightgrey;
-    &:before {
-      top: -12px;
-    }
-  }
-  .mobile-login-lower-panel {
-    @extend .mobile-panel;
-    &:before {
-      background-color: white;
-    }
-  }
-  .show-hide {
-    font-size: 22px;
-    padding-left: 20px;
-    cursor: pointer;
-    background-image: url("../images/icons/hide.png");
-    background-position: 0px 8px;
-    background-repeat: no-repeat;
-    margin-left: 0px;
-    margin-top: 0px;
-  }
-  /*
-   *  End Prototypes, Start Mixins
-   */
-  @mixin side_borders($color) {
-    border-left: 1px solid $color;
-    border-right: 1px solid $color;
-  }
-  @mixin top_open($color) {
-    border-left: 1px solid $color;
-    border-right: 1px solid $color;
-    border-bottom: 1px solid $color;
-  }
-  /*
-   *  End Mixins
-   */
-  /*
-   *Start General Styles
-   */
-  html,
-  body {
-    width: 100%;
-    min-width: 320px;
-    overflow-x: visible;
-    height: 100%;
-    div.top-header {
-      height: $header-height;
-      @include rainbow-bar($header-height - $rainbow-height);
-      div.top-header-container {
-        width: 100%;
-        div.capt-logo {
-          background-image: url("../images/logos/CAPT-logo-phone.png");
-          margin-left: 4%;
-          top: $top-margin + 2px;
-        }
-        div.samhsa-logo {
-          margin-right: 4%;
-          margin-bottom: 0px;
-        }
-      }
-    }
-    /* this was hiding the login button*/
-    input#edit-search-block-form--2 {
-      display: none;
-    }
-    div.region.region-header {
-      margin-top: 10px;
-    }
-    div#page {
-      min-height: 750px;
-      @extend .reset-layout;
-      display: inline-block;
-      margin-bottom: -100px;
-      padding-bottom: 100px;
-    }
-    div#block-search-form {
-      display: none;
-    }
-    div#page {
-      header#header {
-        height: 89px;
-        background: url("../images/banners/login-phone.png") 0 0 no-repeat;
-      }
-    }
-    div#content {
-      width: 100%;
-      margin: 0px;
-      padding: 0px;
-      /* padding-left: 0px;*/
-      /* added 6.29 */
-      padding-left: 16px;
-      padding-right: 16px;
-      /* border: 1px dotted orange;*/
-    }
-  }
-  /* switch user block */
-  div.block-devel#block-devel-switch-user {
-    margin: 0px auto;
-    text-align: left;
-  }
-  div.block-devel#block-devel-switch-user {
-    width: 50%;
-    margin-top: 40px;
-  }
-  /*
-   *  End General Styles
-   */
-  /*
-   *  iPhone Styles -- User Login Page
-   */
-  #main {
-    @extend .reset-layout;
-  }
-  body.not-logged-in.page-user:not(.page-user-register),
-  body.not-logged-in.page-anon-login {
-    div#title-section {
-      padding-top: 6px;
-      padding-bottom: 0px;
-      cursor: pointer;
-      @include side_borders($capt-midgrey);
-    }
-    /* reformatting panels for mobile */
-    div#content {
-      text-align: center;
-    }
-    h1#site-name {
-      display: none;
-    }
-    div#title-section {
-      border-bottom: 0px;
-      margin: 0px auto;
-      left: 0px;
-      display: inline-block;
-      height: 50px;
-      margin-top: 30px;
-      h1 {
-        /*display: inline-block;*/
-        width: 90%;
-        margin-top: 0px;
-        padding-left: 18px;
-        margin-left: 16px;
-        position: relative;
-        font-size: 1.8em;
-        /* margin-bottom: -30px;*/
-      }
-    }
-    form#user-login,
-    div#title-section,
-    div#block-block-8,
-    div#block-block-9 {
-      @include side_borders($capt-midgrey);
-      // headers for form and blocks.
-      h1, h2 {
-        @extend .show-hide;
-      }
-      h2 {
-        margin-bottom: 6px;
-      }
-    }
-    /* specific styles for responsive panel tops*/
-    form#user-login,
-    div#title-section {
-      @extend .mobile-panel;
-    }
-    div#block-block-8,
-    div#block-block-9 {
-      @extend .mobile-login-lower-panel;
-      border-top: 1px solid $capt-midgrey;
-      &:before {
-        height: 0px;
-      }
-    }
-    div#block-block-9 {
-      height: 130px;
-    }
-    form#user-login {
-      padding-top: 0px;
-      margin-top: -20px;
-      padding-bottom: 0px;
-      height: 250px;
-      div#edit-actions input#edit-submit {
-        display: block;
-      }
-    }
-    div#block-block-8 {
-      .panel-body {
-        h2 {
-          margin-left: 16px;
-        }
-        p {
-          margin-left: -14px;
-        }
-      }
-    }
-    /* banner text */
-    div#block-block-13 {
-      display: none;
-    }
-  }
-  // end body
-  div.bottom-footer {
-    width: 100%;
-    div.bottom-footer-container {
-      text-align: center;
-      overflow-x: hidden;
-      /* border: 1px solid blue;*/
-      width: 100%;
-      div.disclaimer {
-        width: 97%;
-        margin: 0px auto;
-        border: 1px solid transparent;
-        height: 100px;
-      }
-    }
-  }
-  div.bottom-footer,
-  div.bottom-footer-container,
-  div.disclaimer {
-    @extend .reset-layout;
-    max-width: 100%;
-    text-align: center;
-    display: block;
-    margin: 0px;
-  }
- /*
-body.logged-in.page-user-edit {
-  div#title-section {
-    h1#page-title.page__title {
-      margin-left: 30px;
-    }
-  }
-  }*/
-  /* merge with styles below? */
-  body.admin-menu {
-    div#navigation {
-      ul#main-menu.main-menu.responsive-menu {
-        overflow: visible;
-        /* admin*/
-        li#menu-item-1185,
-        li#menu-item-589 {
-          display: none;
-        }
-        li#menu-item-591 {
-          overflow: visible;
-          a {
-            border-bottom: 1px solid white;
-          }
-        }
-      }
-    }
-    div#content {
-      margin-top: 50px;
-    }
-  }
+  @import 'extensible-phone';
+
+  @import 'capt-mixins-phone';
+ 
+  @import 'general-phone';
+  
+  @import 'login-phone';
+
+  @import 'register-profile-phone';
   /*
    *  iPhone 6 Styles -- Registration & Profile Page
    */
-  /* profile*/
-  form#user-profile-form,
-  body.admin-menu,
-  body.not-logged-in.page-user-register:not(.node-type-event) {
-    div#block-block-3.block.block-block {
-      width: 85%;
-      margin: 0px auto;
-    }
-    div#edit-actions {
-      text-align: center;
-    }
-    ul#main-menu.main-menu {
-      li.menu-item > a {
-        width: 150px;
-      }
-    }
-    h1#page-title.page__title.title {
-      margin: 0px auto;
-      text-align: center;
-    }
-    div.bottom-footer div.disclaimer {
-      width: 100%;
-      margin: 0px auto;
-      padding: 0px;
-    }
-    /* iphone 6 */
-    div#content {
-      width: 96.8%;
-      margin: 0px auto;
-      margin-top: 55px;
-      /* different from iPad */
-      display: block;
-      padding-left: 0px;
-      padding-right: 0px;
-      /* may only be for registration*/
-      border-width: 0px;
-      ul.tabs-primary {
-        width: 97%;
-        margin: 0px auto;
-        margin-bottom: 20px;
-      }
-    }
-    fieldset.group-demographic-information {
-      div.data-view div.button.edit-button {
-        top: 130px;
-      }
-      div.save-button:first-child, div.cancel-button:nth-child(2) {
-        display: none;
-      }
-    }
-    fieldset div.fieldset-wrapper {
-      border-width: 0px;
-    }
-    /* declare variable */
-    $pass-width: 300px;
-    fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
-      div.form-type-password-confirm.form-item {
-        width: $pass-width;
-        margin: 0px;
-        input.form-text.password-field,
-        input.form-text.password-confirm {
-          width: $pass-width;
-          float: left;
-          clear: left;
-          margin-bottom: 10px;
-        }
-        div.description {
-          clear: left;
-        }
-        div.password-suggestions {
-          width: 112%;
-        }
-        input#edit-pass-pass2 {
-          margin-top: -20px;
-        }
-        div.form-item-pass-pass1,
-        div.form-item-pass-pass2 {
-          label {
-            clear: left;
-            float: left;
-          }
-        }
-        div.password-parent {
-          width: 85%;
-        }
-        div.password-strength {
-          width: $pass-width;
-          float: left;
-          /*background-color: yellow;*/
-          margin-bottom: 20px;
-        }
-      }
-      input.form-text {
-        width: 90%;
-      }
-      div.description {
-        margin-right: 5px;
-      }
-    }
-    /*fieldset.field-group-fieldset {
-      background-color: white;
-      }*/
-    fieldset {
-      padding-top: 0px;
-      width: 85%;
-      min-width: 0px;
-      margin: 0px auto;
-      margin-bottom: -20px;
-      border: 1px solid $capt-profgrey;
-      border-top: 0px;
-      background-color: white;
-      margin-bottom: 16px;
-      &:before {
-        display: block;
-        background-color: $capt-aqua;
-        height: 5px;
-        width: 100%;
-        content: "";
-        position: relative;
-        left: -20px;
-        top: -30px;
-        margin-left: -1px;
-        padding-left: 21px;
-        padding-right: 21px;
-      }
-      .chosen-container {
-        width: 100% !important;
-      }
-      /* widths of all contents must be controlled */
-      div.field-type-entityreference,
-      label,
-      div.form-item.form-type-select,
-      input.text-full {
-        width: 100%;
-      }
-      // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
-      fieldset {
-        display: none;
-      }
-      div.data-view, div.fieldset-wrapper {
-        width: 100.7%;
-        margin-top: 0px;
-        .item {
-          margin-right: 16px;
-        }
-      }
-      /* edit button */
-      div.data-view div.edit-button {
-        position: relative;
-        top: -24px;
-        font-size: 18px;
-      }
-      div.fieldset-wrapper {
-        div.save-button, div.cancel-button {
-          font-size: 18px;
-        }
-        div.save-button:first-child, div.cancel-button:nth-child(2) {
-          top: -30px;
-          position: relative;
-        }
-      }
-      // legends
-      legend span.fieldset-legend {
-        margin-left: -300px;
-        left: 283px;
-        margin-bottom: 20px;
-        position: relative;
-        top: 50px;
-        left: 300px;
-        display: block;
-      }
-      div.fieldset-wrapper, div.data-view {
-        padding-top: 40px;
-        margin-top: -3px;
-        margin-bottom: 0px;
-        z-index: 0;
-      }
-    }
-    div#title-section {
-      margin-left: 6%;
-      padding-left: 0px;
-      h1#page-title.page__title {
-        text-align: left;
-        margin-left: 0px;
-      }
-    }
-    /* user profile specific stuff! */
-    form#user-profile-form {
-      fieldset {
-        background-color: $capt-lightgrey;
-        &:before {
-          width: 100%;
-          padding-left: 8px;
-          padding-right: 9px;
-          margin-left: 12px;
-        }
-        div.data-view {
-          border-width: 0px;
-        }
-      }
-    }
-  }
-  @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: $phone-tablet-divide) {
+ 
+  /* center title on registration page */
+  /* test */
+}
+
+
+ 
+@media screen and (-webkit-min-device-pixel-ratio: 0) 
+                and (max-width: $phone-tablet-divide) {
     form#user-profile-form,
     body.admin-menu {
       fieldset.group-account, fieldset {
@@ -512,7 +54,7 @@ body.logged-in.page-user-edit {
           padding-top: 45px;
           margin-top: 8px;
         }
-        // end data view and field wrapper
+        // end data view and field wrapper - test
         margin-bottom: 0px;
       }
       fieldset {
@@ -520,45 +62,35 @@ body.logged-in.page-user-edit {
       }
     }
   }
-  /* hide logo */
-  body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
-  #block-block-13 {
-    display: none;
-  }
-  /* center title on registration page */
-  body.not-logged-in.page-user-register:not(.node-type-event) {
-    div#title-section {
-      margin-left: 0px;
-      h1#page-title.page__title {
-        margin: 0px auto;
-        text-align: center;
-      }
-    }
-  }
-}
 
 /**
- *  Logo Styles for iPhone 6 and iPhone 4
+ *  Logo Styles for iPhone 6 and iPhone 4 test!!!!!!
  */
 
+
+
+/* iPhone 6 */
 @mixin logo_size($width, $height, $scale) {
   background-size: $width * $scale $height * $scale;
   width: $width * $scale;
   height: $height * $scale;
 }
-
-/* iPhone 6 */
-
+/* test */
 @media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register),
   body.not-logged-in.page-anon-login {
+
+ 
+    @import "extensible";
+
     div.top-header {
       height: $mobile-header-height;
       @include rainbow-bar($mobile-header-height - $rainbow-height);
       div.top-header-container {
         div.capt-logo {
+          @import 'capt-mixins-phone';
           top: $top-margin + 2px;
           @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
         }
@@ -584,36 +116,6 @@ body.logged-in.page-user-edit {
 /* iPhone 4 */
 
 @media screen and (max-width: $small-phone-width) {
-  body.admin-menu,
-  body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-user:not(.page-user-register) {
-    div#block-block-8, div#title-section, div#block-block-9 {
-      h1, h2.block-title, h2.custom_block_title {
-        font-size: 1.65em;
-      }
-    }
-    ul#main-menu.main-menu {
-      li.menu-item > a {
-        width: 125px;
-      }
-    }
-    div.top-header {
-      height: $mobile-header-height;
-      @include rainbow-bar($mobile-header-height - $rainbow-height);
-      div.top-header-container {
-        div.capt-logo {
-          top: $top-margin + 2px;
-          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh4-scale);
-        }
-        div.samhsa-logo {
-          top: $top-margin;
-          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh4-scale);
-        }
-      }
-    }
-  }
+  @import 'small-phone';
 }
 
-/**
- * End iPhone responsive theming
- */

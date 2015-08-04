@@ -1,0 +1,179 @@
+@import "variables";
+@import "capt-mixins";
+@import "capt-mixins-phone";
+@import "extensible";
+@import "extensible-phone";
+
+
+$login-title-margin: 16px;
+ /*
+   *  iPhone Styles -- User Login Page - yo
+   */
+
+  #main {
+    @extend .reset-layout;
+
+  }
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
+    div#title-section {
+      padding-top: 6px;
+      padding-bottom: 0px;
+      
+      @include side_borders($capt-midgrey);
+    }
+    /* reformatting panels for mobile */
+    div#content {
+      text-align: center;
+    }
+    /* banner title text */
+    h1#site-name.header__site-name {
+      margin-left: -119px;
+      margin-top: -30px;
+      a {
+        font-size: 0.8em;
+      }
+    }
+     /* banner subtitle text */
+    div#block-block-13 {
+   
+      color: white;
+      font-size: 11px;
+      margin-left: -225px;
+      top: -100;
+      position: absolute;
+      margin-top: -8px;
+      cursor: default;
+  
+    }
+    div#title-section {
+
+      border-bottom: 0px;
+      margin: 0px auto;
+      left: 0px;
+      display: inline-block;
+      height: 50px;
+      margin-top: 30px;
+      h1#page-title {
+        width: 90%;
+        margin-top: 0px;
+        padding-left: 18px;
+        margin-left: 0px;
+        position: relative;
+        font-size: 1.8em;
+        /* margin-bottom: -30px;*/
+      }
+    }
+    /* all blocks */
+    form#user-login,
+    div#title-section,
+    div#block-block-8,
+    div#block-block-9 {
+      @extend .noselect;
+      @include side_borders($capt-midgrey);
+      // headers for form and blocks.
+      h1, h2 {
+       // @extend .show-hide;
+       @extend .noselect;
+      }
+      h2 {
+        margin-bottom: 6px;
+      }
+    }
+    /* specific styles for responsive panel tops  ---*/
+    form#user-login,
+    div#title-section {
+      @extend .mobile-panel;
+    }
+    /* lower two blocks */
+    div#block-block-8,
+    div#block-block-9 {
+      @extend .mobile-login-lower-panel;
+      border-top: 1px solid $capt-midgrey;
+      &:before {
+        height: 0px;
+      }
+    }
+    /* individual panel styles */
+    form#user-login {
+      padding-top: 0px;
+      margin-top: -20px;
+      padding-bottom: 0px;
+      height: 250px;
+      div#edit-actions input#edit-submit {
+        display: block;
+      }
+    }
+    div#block-block-8 {
+      .panel-body {
+        h2 {
+          margin-left: $login-title-margin;
+        }
+        p {
+          margin-left: -14px;
+        }
+      }
+    }
+    div#block-block-9 {
+      height: 130px;
+      h2.block-title {
+        margin-left: $login-title-margin;
+      }
+    }
+ 
+  }
+  // end body
+  div.bottom-footer {
+    width: 100%;
+    div.bottom-footer-container {
+      text-align: center;
+      overflow-x: hidden;
+      /* border: 1px solid blue;*/
+      width: 100%;
+      div.disclaimer {
+        width: 97%;
+        margin: 0px auto;
+        border: 1px solid transparent;
+        height: 100px;
+      }
+    }
+  }
+  div.bottom-footer,
+  div.bottom-footer-container,
+  div.disclaimer {
+    @extend .reset-layout;
+    max-width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0px;
+  }
+ /*
+body.logged-in.page-user-edit {
+  div#title-section {
+    h1#page-title.page__title {
+      margin-left: 30px;
+    }
+  }
+  }*/
+  /* merge with styles below? */
+  body.admin-menu {
+    div#navigation {
+      ul#main-menu.main-menu.responsive-menu {
+        overflow: visible;
+        /* admin*/
+        li#menu-item-1185,
+        li#menu-item-589 {
+          display: none;
+        }
+        li#menu-item-591 {
+          overflow: visible;
+          a {
+            border-bottom: 1px solid white;
+          }
+        }
+      }
+    }
+    div#content {
+      margin-top: 50px;
+    }
+  }

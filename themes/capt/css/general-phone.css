@@ -1,0 +1,265 @@
+@charset "UTF-8";
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/* variables */
+/* colors*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../sass/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../sass/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../sass/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../sass/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../sass/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../sass/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 43, ../sass/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 53, ../sass/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 66, ../sass/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 74, ../sass/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*
+ * prototype classes´
+ */
+/* line 6, ../sass/extensible-phone.scss */
+.reset-layout, html div#page,
+body div#page {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* for mobile panels with no top bars */
+/* line 12, ../sass/extensible-phone.scss */
+.top-bar-reset {
+  background-color: none;
+  height: 0px;
+  width: 0px;
+  position: static;
+}
+
+/* line 18, ../sass/extensible-phone.scss */
+.mobile-panel, .mobile-login-lower-panel {
+  padding-top: 10px;
+  text-align: left;
+  margin: 0px auto;
+  float: none;
+  width: 95%;
+  padding-left: 0px;
+  background: no-repeat;
+  background-color: #eef1f3;
+}
+/* line 27, ../sass/extensible-phone.scss */
+.mobile-panel:before, .mobile-login-lower-panel:before {
+  top: -12px;
+}
+
+/* line 33, ../sass/extensible-phone.scss */
+.mobile-login-lower-panel:before {
+  background-color: white;
+}
+
+/* line 37, ../sass/extensible-phone.scss */
+.show-hide {
+  font-size: 22px;
+  padding-left: 20px;
+  cursor: pointer;
+  background-image: url("../images/icons/hide.png");
+  background-position: 0px 8px;
+  background-repeat: no-repeat;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+/* line 48, ../sass/extensible-phone.scss */
+.noselect {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*
+ *  End Prototypes, Start Mixins
+ */
+/* line 6, ../sass/general-phone.scss */
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: visible;
+  height: 100%;
+  /* this was hiding the login button*/
+  /* header */
+}
+/* line 12, ../sass/general-phone.scss */
+html div.top-header,
+body div.top-header {
+  height: 115px;
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px 106px;
+  background-repeat: repeat-x;
+}
+/* line 15, ../sass/general-phone.scss */
+html div.top-header div.top-header-container,
+body div.top-header div.top-header-container {
+  width: 100%;
+}
+/* line 17, ../sass/general-phone.scss */
+html div.top-header div.top-header-container div.capt-logo,
+body div.top-header div.top-header-container div.capt-logo {
+  background-image: url("../images/logos/CAPT-logo-phone.png");
+  margin-left: 4%;
+  top: 12px;
+}
+/* line 22, ../sass/general-phone.scss */
+html div.top-header div.top-header-container div.samhsa-logo,
+body div.top-header div.top-header-container div.samhsa-logo {
+  margin-right: 4%;
+  margin-bottom: 0px;
+}
+/* line 29, ../sass/general-phone.scss */
+html input#edit-search-block-form--2,
+body input#edit-search-block-form--2 {
+  display: none;
+}
+/* line 32, ../sass/general-phone.scss */
+html div.region.region-header,
+body div.region.region-header {
+  margin-top: 10px;
+}
+/* line 35, ../sass/general-phone.scss */
+html div#page,
+body div#page {
+  min-height: 750px;
+  display: inline-block;
+  margin-bottom: -100px;
+  padding-bottom: 100px;
+}
+/* line 42, ../sass/general-phone.scss */
+html div#block-search-form,
+body div#block-search-form {
+  display: none;
+}
+/* line 47, ../sass/general-phone.scss */
+html div#page header#header,
+body div#page header#header {
+  height: 89px;
+  background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
+}
+/* line 52, ../sass/general-phone.scss */
+html div#content,
+body div#content {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  /* padding-left: 0px;*/
+  /* added 6.29 */
+  padding-left: 16px;
+  padding-right: 16px;
+  /* border: 1px dotted orange;*/
+}
+
+/* switch user block */
+/* line 64, ../sass/general-phone.scss */
+div.block-devel#block-devel-switch-user {
+  margin: 0px auto;
+  text-align: left;
+}
+
+/* line 68, ../sass/general-phone.scss */
+div.block-devel#block-devel-switch-user {
+  width: 50%;
+  margin-top: 40px;
+}

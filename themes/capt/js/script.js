@@ -35,38 +35,7 @@ Drupal.behaviors.my_custom_behavior = {
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34']
 
-  /* helpers */
-    // helper functions
-    function toInt(myString) {
-      var myInt;
-      myInt = parseInt(myString.substring(0, myString.length - 2));
-      return myInt;
-    }
 
-    function makeString(myInt) {
-      var myString;
-      myString = myInt.toString() + 'px';
-      return myString;
-    }
-
-    function setHeights() {
-
-      var sideBar = $('.region-sidebar-second.column.sidebar').css('height');
-
-      var centerContent = $('div#content').css('height');
-
-      var sb = toInt(sideBar);
-      var cc = toInt(centerContent);
-
-      var newHeight = (sb < cc) ? cc : sb;
-
-      var finalConHeight = makeString(newHeight+40);
-
-      $('.region-sidebar-second.column.sidebar').css('height',newHeight);
-      $('div#content').css('height',finalConHeight);
-
-    }
-    if ($('body').hasClass('section-events2')) setHeights();
 
 
    /**
@@ -75,6 +44,7 @@ Drupal.behaviors.my_custom_behavior = {
   // function for toggling a panel on click of header
   function togglePanel(header, body, panel, compact, expanded)
   {
+   
     var retval = 'default';
     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
     if (mql.matches)
@@ -122,6 +92,8 @@ Drupal.behaviors.my_custom_behavior = {
     return retval;
   }
 
+  /* revise to include other pages
+
   if ($('body').hasClass('role-anonymous-user'))
   {
     $('body.role-anonymous-user.not-logged-in:not(".page-user-register") div#title-section').click(function () {
@@ -136,7 +108,10 @@ Drupal.behaviors.my_custom_behavior = {
       $('#block-block-8').css('borderTopWidth','2px')
       break;
     }
-  });
+  });*/
+
+   /* change for other pages
+
     // new to capt connect
     $('#block-block-8 h2.custom_block_title').click(function () {
 
@@ -153,8 +128,10 @@ Drupal.behaviors.my_custom_behavior = {
 
 
     });
-  }
+  }*/
   // reset if resizing browser
+
+  /* make this only for certain pages 
   $(window).resize(function(){
     var bclass = '.role-anonymous-user ';
         // correct login title
@@ -171,9 +148,10 @@ Drupal.behaviors.my_custom_behavior = {
           why_reg_heights[0],
           why_reg_heights[1]);
 
-      });
+      });*/
 
   // correct styles when browser is resized
+  // this function is flexible so keep it
   function panel_respond(header, body, panel, laptop_height, mobile_height)
   {
     var min = phone_tablet_divide+1;

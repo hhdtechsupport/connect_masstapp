@@ -17,109 +17,18 @@
 /* for tabs! */
 /* for rounded elements */
 /* for header & footer */
-/* for rounded elements */
-/* for header & footer */
-/* line 5, ../sass/extensible.scss */
-#block-block-12 .contextual-links-wrapper {
-  width: 970px;
-  margin: 0px auto;
-}
-
-/* line 10, ../sass/extensible.scss */
-.proto-disclaimer {
-  position: relative;
-  top: 30px;
-  font-size: 10px;
-  line-height: 1.4em;
-  width: 420px;
-  padding-right: 550px;
-  margin: 0px auto;
-  padding-bottom: 20px;
-  left: 0px;
-}
-
-/* line 22, ../sass/extensible.scss */
-.basic-button {
-  background-color: #c3791f;
-  color: white;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-}
-
-/* line 29, ../sass/extensible.scss */
-.panel, .panel-rule, .panel-rule-single {
-  background-color: #eef1f3;
-  padding-left: 0px;
-  padding-right: 0px;
-  border: 1px solid #d7d7d7;
-  border-top: 0px;
-}
-/* line 35, ../sass/extensible.scss */
-.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
-  color: #8c1d18;
-}
-/* line 38, ../sass/extensible.scss */
-.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
-  border: 0px;
-}
-
-/* line 43, ../sass/extensible.scss */
-.panel-rule, .panel-rule-single {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 0px;
-  /*5px solid $capt-aqua;*/
-  font-size: 13px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  border-radius: 1px;
-}
-/* line 53, ../sass/extensible.scss */
-.panel-rule:before, .panel-rule-single:before {
-  display: block;
-  background-color: #577785;
-  height: 5px;
-  width: 100%;
-  content: "";
-  position: relative;
-  top: -25px;
-  margin-left: -1px;
-  padding-left: 2px;
-}
-
-/* line 66, ../sass/extensible.scss */
-.panel-rule-single {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #d7d7d7;
-  /* needs to be larger for dashboard panels */
-}
-
-/* line 74, ../sass/extensible.scss */
-.pager-link {
-  background-repeat: no-repeat;
-  color: #c3791f;
-  font-size: 14px;
-  font-weight: normal;
-}
-
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
- */
+ * change max? */
 @media all and (max-width: 479px) {
-  /* line 9, ../sass/phone.scss */
+  /* line 10, ../sass/phone.scss */
   #main {
     /* Move all the children of #main down to make room. */
     padding-top: 3em;
     position: relative;
   }
 
-  /* line 14, ../sass/phone.scss */
+  /* line 15, ../sass/phone.scss */
   #navigation {
     /* Move the navbar up inside #main's padding. */
     position: absolute;
@@ -129,11 +38,100 @@
   }
 }
 @media screen and (max-width: 767px) {
+  /* line 5, ../sass/extensible.scss */
+  #block-block-12 .contextual-links-wrapper {
+    width: 970px;
+    margin: 0px auto;
+  }
+
+  /* line 10, ../sass/extensible.scss */
+  .proto-disclaimer {
+    position: relative;
+    top: 30px;
+    font-size: 10px;
+    line-height: 1.4em;
+    width: 420px;
+    padding-right: 550px;
+    margin: 0px auto;
+    padding-bottom: 20px;
+    left: 0px;
+  }
+
+  /* line 22, ../sass/extensible.scss */
+  .basic-button {
+    background-color: #c3791f;
+    color: white;
+    text-align: center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  /* line 29, ../sass/extensible.scss */
+  .panel, .panel-rule, .panel-rule-single {
+    background-color: #eef1f3;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 1px solid #d7d7d7;
+    border-top: 0px;
+  }
+  /* line 35, ../sass/extensible.scss */
+  .panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+    color: #8c1d18;
+  }
+  /* line 38, ../sass/extensible.scss */
+  .panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+    border: 0px;
+  }
+
+  /* line 43, ../sass/extensible.scss */
+  .panel-rule, .panel-rule-single {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 0px;
+    /*5px solid $capt-aqua;*/
+    font-size: 13px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -ms-border-radius: 1px;
+    border-radius: 1px;
+  }
+  /* line 53, ../sass/extensible.scss */
+  .panel-rule:before, .panel-rule-single:before {
+    display: block;
+    background-color: #577785;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: -25px;
+    margin-left: -1px;
+    padding-left: 2px;
+  }
+
+  /* line 66, ../sass/extensible.scss */
+  .panel-rule-single {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d7d7d7;
+    /* needs to be larger for dashboard panels */
+  }
+
+  /* line 74, ../sass/extensible.scss */
+  .pager-link {
+    background-repeat: no-repeat;
+    color: #c3791f;
+    font-size: 14px;
+    font-weight: normal;
+  }
+
   /* general styles */
   /*
    * prototype classes´
    */
-  /* line 28, ../sass/phone.scss */
+  /* line 6, ../sass/extensible-phone.scss */
   .reset-layout, html div#page,
   body div#page, #main, div.bottom-footer,
   div.bottom-footer-container,
@@ -144,7 +142,7 @@
   }
 
   /* for mobile panels with no top bars */
-  /* line 34, ../sass/phone.scss */
+  /* line 12, ../sass/extensible-phone.scss */
   .top-bar-reset {
     background-color: none;
     height: 0px;
@@ -152,7 +150,7 @@
     position: static;
   }
 
-  /* line 40, ../sass/phone.scss */
+  /* line 18, ../sass/extensible-phone.scss */
   .mobile-panel, .mobile-login-lower-panel, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
   body.not-logged-in.page-anon-login div#block-block-8,
@@ -169,7 +167,7 @@
     background: no-repeat;
     background-color: #eef1f3;
   }
-  /* line 49, ../sass/phone.scss */
+  /* line 27, ../sass/extensible-phone.scss */
   .mobile-panel:before, .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
   body.not-logged-in.page-anon-login div#block-block-8:before,
@@ -180,7 +178,7 @@
     top: -12px;
   }
 
-  /* line 55, ../sass/phone.scss */
+  /* line 33, ../sass/extensible-phone.scss */
   .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
   body.not-logged-in.page-anon-login div#block-block-8:before,
@@ -188,8 +186,27 @@
     background-color: white;
   }
 
-  /* line 59, ../sass/phone.scss */
-  .show-hide, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
+  /* line 37, ../sass/extensible-phone.scss */
+  .show-hide {
+    font-size: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    background-image: url("../images/icons/hide.png");
+    background-position: 0px 8px;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+  /* line 48, ../sass/extensible-phone.scss */
+  .noselect, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
+  body.not-logged-in.page-user:not(.page-user-register) div#title-section,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
+  body.not-logged-in.page-anon-login form#user-login,
+  body.not-logged-in.page-anon-login div#title-section,
+  body.not-logged-in.page-anon-login div#block-block-8,
+  body.not-logged-in.page-anon-login div#block-block-9, body.not-logged-in.page-user:not(.page-user-register) form#user-login h1, body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h1,
@@ -204,26 +221,19 @@
   body.not-logged-in.page-anon-login div#block-block-8 h2,
   body.not-logged-in.page-anon-login div#block-block-9 h1,
   body.not-logged-in.page-anon-login div#block-block-9 h2 {
-    font-size: 22px;
-    padding-left: 20px;
-    cursor: pointer;
-    background-image: url("../images/icons/hide.png");
-    background-position: 0px 8px;
-    background-repeat: no-repeat;
-    margin-left: 0px;
-    margin-top: 0px;
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 
   /*
    *  End Prototypes, Start Mixins
    */
-  /*
-   *  End Mixins
-   */
-  /*
-   *Start General Styles
-   */
-  /* line 87, ../sass/phone.scss */
+  /* line 6, ../sass/general-phone.scss */
   html,
   body {
     width: 100%;
@@ -231,8 +241,9 @@
     overflow-x: visible;
     height: 100%;
     /* this was hiding the login button*/
+    /* header */
   }
-  /* line 93, ../sass/phone.scss */
+  /* line 12, ../sass/general-phone.scss */
   html div.top-header,
   body div.top-header {
     height: 115px;
@@ -240,35 +251,35 @@
     background-position: -124px 106px;
     background-repeat: repeat-x;
   }
-  /* line 96, ../sass/phone.scss */
+  /* line 15, ../sass/general-phone.scss */
   html div.top-header div.top-header-container,
   body div.top-header div.top-header-container {
     width: 100%;
   }
-  /* line 98, ../sass/phone.scss */
+  /* line 17, ../sass/general-phone.scss */
   html div.top-header div.top-header-container div.capt-logo,
   body div.top-header div.top-header-container div.capt-logo {
     background-image: url("../images/logos/CAPT-logo-phone.png");
     margin-left: 4%;
     top: 12px;
   }
-  /* line 103, ../sass/phone.scss */
+  /* line 22, ../sass/general-phone.scss */
   html div.top-header div.top-header-container div.samhsa-logo,
   body div.top-header div.top-header-container div.samhsa-logo {
     margin-right: 4%;
     margin-bottom: 0px;
   }
-  /* line 110, ../sass/phone.scss */
+  /* line 29, ../sass/general-phone.scss */
   html input#edit-search-block-form--2,
   body input#edit-search-block-form--2 {
     display: none;
   }
-  /* line 113, ../sass/phone.scss */
+  /* line 32, ../sass/general-phone.scss */
   html div.region.region-header,
   body div.region.region-header {
     margin-top: 10px;
   }
-  /* line 116, ../sass/phone.scss */
+  /* line 35, ../sass/general-phone.scss */
   html div#page,
   body div#page {
     min-height: 750px;
@@ -276,18 +287,18 @@
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 123, ../sass/phone.scss */
+  /* line 42, ../sass/general-phone.scss */
   html div#block-search-form,
   body div#block-search-form {
     display: none;
   }
-  /* line 127, ../sass/phone.scss */
+  /* line 47, ../sass/general-phone.scss */
   html div#page header#header,
   body div#page header#header {
     height: 89px;
-    background: url("../images/banners/login-phone.png") 0 0 no-repeat;
+    background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
   }
-  /* line 132, ../sass/phone.scss */
+  /* line 52, ../sass/general-phone.scss */
   html div#content,
   body div#content {
     width: 100%;
@@ -301,51 +312,68 @@
   }
 
   /* switch user block */
-  /* line 144, ../sass/phone.scss */
+  /* line 64, ../sass/general-phone.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 148, ../sass/phone.scss */
+  /* line 68, ../sass/general-phone.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
   }
 
   /*
-   *  End General Styles
-   */
-  /*
-   *  iPhone Styles -- User Login Page
-   */
-  /* line 161, ../sass/phone.scss */
+    *  iPhone Styles -- User Login Page - yo
+    */
+  /* line 17, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register),
   body.not-logged-in.page-anon-login {
     /* reformatting panels for mobile */
-    /* specific styles for responsive panel tops*/
-    /* banner text */
+    /* banner title text */
+    /* banner subtitle text */
+    /* all blocks */
+    /* specific styles for responsive panel tops  ---*/
+    /* lower two blocks */
+    /* individual panel styles */
   }
-  /* line 163, ../sass/phone.scss */
+  /* line 19, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     padding-top: 6px;
     padding-bottom: 0px;
-    cursor: pointer;
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 170, ../sass/phone.scss */
+  /* line 26, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#content,
   body.not-logged-in.page-anon-login div#content {
     text-align: center;
   }
-  /* line 173, ../sass/phone.scss */
-  body.not-logged-in.page-user:not(.page-user-register) h1#site-name,
-  body.not-logged-in.page-anon-login h1#site-name {
-    display: none;
+  /* line 30, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) h1#site-name.header__site-name,
+  body.not-logged-in.page-anon-login h1#site-name.header__site-name {
+    margin-left: -119px;
+    margin-top: -30px;
   }
-  /* line 176, ../sass/phone.scss */
+  /* line 33, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) h1#site-name.header__site-name a,
+  body.not-logged-in.page-anon-login h1#site-name.header__site-name a {
+    font-size: 0.8em;
+  }
+  /* line 38, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-13,
+  body.not-logged-in.page-anon-login div#block-block-13 {
+    color: white;
+    font-size: 11px;
+    margin-left: -225px;
+    top: -100;
+    position: absolute;
+    margin-top: -8px;
+    /* font-size: 200px;*/
+  }
+  /* line 47, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
     border-bottom: 0px;
@@ -355,19 +383,18 @@
     height: 50px;
     margin-top: 30px;
   }
-  /* line 183, ../sass/phone.scss */
-  body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
-  body.not-logged-in.page-anon-login div#title-section h1 {
-    /*display: inline-block;*/
+  /* line 55, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#title-section h1#page-title,
+  body.not-logged-in.page-anon-login div#title-section h1#page-title {
     width: 90%;
     margin-top: 0px;
     padding-left: 18px;
-    margin-left: 16px;
+    margin-left: 0px;
     position: relative;
     font-size: 1.8em;
     /* margin-bottom: -30px;*/
   }
-  /* line 194, ../sass/phone.scss */
+  /* line 66, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -379,7 +406,7 @@
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 203, ../sass/phone.scss */
+  /* line 77, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login h2,
   body.not-logged-in.page-user:not(.page-user-register) div#title-section h2,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2,
@@ -390,26 +417,21 @@
   body.not-logged-in.page-anon-login div#block-block-9 h2 {
     margin-bottom: 6px;
   }
-  /* line 212, ../sass/phone.scss */
+  /* line 87, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
   body.not-logged-in.page-anon-login div#block-block-8,
   body.not-logged-in.page-anon-login div#block-block-9 {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 216, ../sass/phone.scss */
+  /* line 91, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
   body.not-logged-in.page-anon-login div#block-block-8:before,
   body.not-logged-in.page-anon-login div#block-block-9:before {
     height: 0px;
   }
-  /* line 220, ../sass/phone.scss */
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
-  body.not-logged-in.page-anon-login div#block-block-9 {
-    height: 130px;
-  }
-  /* line 223, ../sass/phone.scss */
+  /* line 96, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-anon-login form#user-login {
     padding-top: 0px;
@@ -417,39 +439,44 @@
     padding-bottom: 0px;
     height: 250px;
   }
-  /* line 228, ../sass/phone.scss */
+  /* line 101, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) form#user-login div#edit-actions input#edit-submit,
   body.not-logged-in.page-anon-login form#user-login div#edit-actions input#edit-submit {
     display: block;
   }
-  /* line 234, ../sass/phone.scss */
+  /* line 107, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body h2,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body h2 {
     margin-left: 16px;
   }
-  /* line 237, ../sass/phone.scss */
+  /* line 110, ../sass/login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 .panel-body p,
   body.not-logged-in.page-anon-login div#block-block-8 .panel-body p {
     margin-left: -14px;
   }
-  /* line 243, ../sass/phone.scss */
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-13,
-  body.not-logged-in.page-anon-login div#block-block-13 {
-    display: none;
+  /* line 115, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
+  body.not-logged-in.page-anon-login div#block-block-9 {
+    height: 130px;
+  }
+  /* line 117, ../sass/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
+  body.not-logged-in.page-anon-login div#block-block-9 h2.block-title {
+    margin-left: 16px;
   }
 
-  /* line 248, ../sass/phone.scss */
+  /* line 124, ../sass/login-phone.scss */
   div.bottom-footer {
     width: 100%;
   }
-  /* line 250, ../sass/phone.scss */
+  /* line 126, ../sass/login-phone.scss */
   div.bottom-footer div.bottom-footer-container {
     text-align: center;
     overflow-x: hidden;
     /* border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 255, ../sass/phone.scss */
+  /* line 131, ../sass/login-phone.scss */
   div.bottom-footer div.bottom-footer-container div.disclaimer {
     width: 97%;
     margin: 0px auto;
@@ -457,7 +484,7 @@
     height: 100px;
   }
 
-  /* line 263, ../sass/phone.scss */
+  /* line 139, ../sass/login-phone.scss */
   div.bottom-footer,
   div.bottom-footer-container,
   div.disclaimer {
@@ -476,34 +503,30 @@ body.logged-in.page-user-edit {
   }
   }*/
   /* merge with styles below? */
-  /* line 283, ../sass/phone.scss */
+  /* line 159, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     /* admin*/
   }
-  /* line 286, ../sass/phone.scss */
+  /* line 162, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
-  /* line 290, ../sass/phone.scss */
+  /* line 166, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 {
     overflow: visible;
   }
-  /* line 292, ../sass/phone.scss */
+  /* line 168, ../sass/login-phone.scss */
   body.admin-menu div#navigation ul#main-menu.main-menu.responsive-menu li#menu-item-591 a {
     border-bottom: 1px solid white;
   }
-  /* line 298, ../sass/phone.scss */
+  /* line 174, ../sass/login-phone.scss */
   body.admin-menu div#content {
     margin-top: 50px;
   }
 
-  /*
-   *  iPhone 6 Styles -- Registration & Profile Page
-   */
-  /* profile*/
-  /* line 306, ../sass/phone.scss */
+  /* line 6, ../sass/register-profile-phone.scss */
   form#user-profile-form,
   body.admin-menu,
   body.not-logged-in.page-user-register:not(.node-type-event) {
@@ -514,33 +537,33 @@ body.logged-in.page-user-edit {
       }*/
     /* user profile specific stuff! */
   }
-  /* line 309, ../sass/phone.scss */
+  /* line 9, ../sass/register-profile-phone.scss */
   form#user-profile-form div#block-block-3.block.block-block,
   body.admin-menu div#block-block-3.block.block-block,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3.block.block-block {
     width: 85%;
     margin: 0px auto;
   }
-  /* line 313, ../sass/phone.scss */
+  /* line 13, ../sass/register-profile-phone.scss */
   form#user-profile-form div#edit-actions,
   body.admin-menu div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions {
     text-align: center;
   }
-  /* line 317, ../sass/phone.scss */
+  /* line 17, ../sass/register-profile-phone.scss */
   form#user-profile-form ul#main-menu.main-menu li.menu-item > a,
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a {
     width: 150px;
   }
-  /* line 321, ../sass/phone.scss */
+  /* line 21, ../sass/register-profile-phone.scss */
   form#user-profile-form h1#page-title.page__title.title,
   body.admin-menu h1#page-title.page__title.title,
   body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title.title {
     margin: 0px auto;
     text-align: center;
   }
-  /* line 325, ../sass/phone.scss */
+  /* line 25, ../sass/register-profile-phone.scss */
   form#user-profile-form div.bottom-footer div.disclaimer,
   body.admin-menu div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -548,7 +571,7 @@ body.logged-in.page-user-edit {
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 331, ../sass/phone.scss */
+  /* line 31, ../sass/register-profile-phone.scss */
   form#user-profile-form div#content,
   body.admin-menu div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content {
@@ -562,7 +585,7 @@ body.logged-in.page-user-edit {
     /* may only be for registration*/
     border-width: 0px;
   }
-  /* line 341, ../sass/phone.scss */
+  /* line 41, ../sass/register-profile-phone.scss */
   form#user-profile-form div#content ul.tabs-primary,
   body.admin-menu div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#content ul.tabs-primary {
@@ -570,13 +593,13 @@ body.logged-in.page-user-edit {
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 348, ../sass/phone.scss */
+  /* line 48, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.admin-menu fieldset.group-demographic-information div.data-view div.button.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.data-view div.button.edit-button {
     top: 130px;
   }
-  /* line 351, ../sass/phone.scss */
+  /* line 51, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.group-demographic-information div.save-button:first-child, form#user-profile-form fieldset.group-demographic-information div.cancel-button:nth-child(2),
   body.admin-menu fieldset.group-demographic-information div.save-button:first-child,
   body.admin-menu fieldset.group-demographic-information div.cancel-button:nth-child(2),
@@ -584,20 +607,20 @@ body.logged-in.page-user-edit {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.group-demographic-information div.cancel-button:nth-child(2) {
     display: none;
   }
-  /* line 355, ../sass/phone.scss */
+  /* line 55, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper {
     border-width: 0px;
   }
-  /* line 361, ../sass/phone.scss */
+  /* line 61, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item {
     width: 300px;
     margin: 0px;
   }
-  /* line 364, ../sass/phone.scss */
+  /* line 64, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-confirm,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input.form-text.password-field,
@@ -609,25 +632,25 @@ body.logged-in.page-user-edit {
     clear: left;
     margin-bottom: 10px;
   }
-  /* line 371, ../sass/phone.scss */
+  /* line 71, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.description {
     clear: left;
   }
-  /* line 374, ../sass/phone.scss */
+  /* line 74, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-suggestions {
     width: 112%;
   }
-  /* line 377, ../sass/phone.scss */
+  /* line 77, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item input#edit-pass-pass2 {
     margin-top: -20px;
   }
-  /* line 382, ../sass/phone.scss */
+  /* line 82, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass2 label,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.form-item-pass-pass1 label,
@@ -637,13 +660,13 @@ body.logged-in.page-user-edit {
     clear: left;
     float: left;
   }
-  /* line 387, ../sass/phone.scss */
+  /* line 87, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-parent {
     width: 85%;
   }
-  /* line 390, ../sass/phone.scss */
+  /* line 90, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.form-type-password-confirm.form-item div.password-strength {
@@ -652,19 +675,19 @@ body.logged-in.page-user-edit {
     /*background-color: yellow;*/
     margin-bottom: 20px;
   }
-  /* line 397, ../sass/phone.scss */
+  /* line 97, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper input.form-text {
     width: 90%;
   }
-  /* line 400, ../sass/phone.scss */
+  /* line 100, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.admin-menu fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset.required-fields.group-account.field-group-fieldset.form-wrapper div.description {
     margin-right: 5px;
   }
-  /* line 407, ../sass/phone.scss */
+  /* line 107, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset {
@@ -680,7 +703,7 @@ body.logged-in.page-user-edit {
     /* widths of all contents must be controlled */
     /* edit button */
   }
-  /* line 417, ../sass/phone.scss */
+  /* line 117, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset:before,
   body.admin-menu fieldset:before,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset:before {
@@ -696,13 +719,13 @@ body.logged-in.page-user-edit {
     padding-left: 21px;
     padding-right: 21px;
   }
-  /* line 430, ../sass/phone.scss */
+  /* line 130, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset .chosen-container,
   body.admin-menu fieldset .chosen-container,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset .chosen-container {
     width: 100% !important;
   }
-  /* line 434, ../sass/phone.scss */
+  /* line 134, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.field-type-entityreference,
   form#user-profile-form fieldset label,
   form#user-profile-form fieldset div.form-item.form-type-select,
@@ -717,13 +740,13 @@ body.logged-in.page-user-edit {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset input.text-full {
     width: 100%;
   }
-  /* line 441, ../sass/phone.scss */
+  /* line 141, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset fieldset,
   body.admin-menu fieldset fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset fieldset {
     display: none;
   }
-  /* line 444, ../sass/phone.scss */
+  /* line 144, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.data-view, form#user-profile-form fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
@@ -732,7 +755,7 @@ body.logged-in.page-user-edit {
     width: 100.7%;
     margin-top: 0px;
   }
-  /* line 447, ../sass/phone.scss */
+  /* line 147, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.data-view .item, form#user-profile-form fieldset div.fieldset-wrapper .item,
   body.admin-menu fieldset div.data-view .item,
   body.admin-menu fieldset div.fieldset-wrapper .item,
@@ -740,7 +763,7 @@ body.logged-in.page-user-edit {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper .item {
     margin-right: 16px;
   }
-  /* line 452, ../sass/phone.scss */
+  /* line 152, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.data-view div.edit-button,
   body.admin-menu fieldset div.data-view div.edit-button,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.data-view div.edit-button {
@@ -748,7 +771,7 @@ body.logged-in.page-user-edit {
     top: -24px;
     font-size: 18px;
   }
-  /* line 458, ../sass/phone.scss */
+  /* line 158, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button,
   body.admin-menu fieldset div.fieldset-wrapper div.save-button,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button,
@@ -756,7 +779,7 @@ body.logged-in.page-user-edit {
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset div.fieldset-wrapper div.cancel-button {
     font-size: 18px;
   }
-  /* line 461, ../sass/phone.scss */
+  /* line 161, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.fieldset-wrapper div.save-button:first-child, form#user-profile-form fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
   body.admin-menu fieldset div.fieldset-wrapper div.save-button:first-child,
   body.admin-menu fieldset div.fieldset-wrapper div.cancel-button:nth-child(2),
@@ -765,7 +788,7 @@ body.logged-in.page-user-edit {
     top: -30px;
     position: relative;
   }
-  /* line 467, ../sass/phone.scss */
+  /* line 167, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset legend span.fieldset-legend,
   body.admin-menu fieldset legend span.fieldset-legend,
   body.not-logged-in.page-user-register:not(.node-type-event) fieldset legend span.fieldset-legend {
@@ -777,7 +800,7 @@ body.logged-in.page-user-edit {
     left: 300px;
     display: block;
   }
-  /* line 476, ../sass/phone.scss */
+  /* line 176, ../sass/register-profile-phone.scss */
   form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset div.fieldset-wrapper,
   body.admin-menu fieldset div.data-view,
@@ -788,27 +811,27 @@ body.logged-in.page-user-edit {
     margin-bottom: 0px;
     z-index: 0;
   }
-  /* line 483, ../sass/phone.scss */
+  /* line 183, ../sass/register-profile-phone.scss */
   form#user-profile-form div#title-section,
   body.admin-menu div#title-section,
   body.not-logged-in.page-user-register:not(.node-type-event) div#title-section {
     margin-left: 6%;
     padding-left: 0px;
   }
-  /* line 486, ../sass/phone.scss */
+  /* line 186, ../sass/register-profile-phone.scss */
   form#user-profile-form div#title-section h1#page-title.page__title,
   body.admin-menu div#title-section h1#page-title.page__title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1#page-title.page__title {
     text-align: left;
     margin-left: 0px;
   }
-  /* line 493, ../sass/phone.scss */
+  /* line 193, ../sass/register-profile-phone.scss */
   form#user-profile-form form#user-profile-form fieldset,
   body.admin-menu form#user-profile-form fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) form#user-profile-form fieldset {
     background-color: #eef1f3;
   }
-  /* line 495, ../sass/phone.scss */
+  /* line 195, ../sass/register-profile-phone.scss */
   form#user-profile-form form#user-profile-form fieldset:before,
   body.admin-menu form#user-profile-form fieldset:before,
   body.not-logged-in.page-user-register:not(.node-type-event) form#user-profile-form fieldset:before {
@@ -817,21 +840,40 @@ body.logged-in.page-user-edit {
     padding-right: 9px;
     margin-left: 12px;
   }
-  /* line 501, ../sass/phone.scss */
+  /* line 201, ../sass/register-profile-phone.scss */
   form#user-profile-form form#user-profile-form fieldset div.data-view,
   body.admin-menu form#user-profile-form fieldset div.data-view,
   body.not-logged-in.page-user-register:not(.node-type-event) form#user-profile-form fieldset div.data-view {
     border-width: 0px;
   }
+  /* line 207, ../sass/register-profile-phone.scss */
+  form#user-profile-form body.not-logged-in.page-user-register:not(.node-type-event) div#title-section,
+  body.admin-menu body.not-logged-in.page-user-register:not(.node-type-event) div#title-section,
+  body.not-logged-in.page-user-register:not(.node-type-event) body.not-logged-in.page-user-register:not(.node-type-event) div#title-section {
+    margin-left: 0px;
+  }
+  /* line 209, ../sass/register-profile-phone.scss */
+  form#user-profile-form body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1#page-title.page__title,
+  body.admin-menu body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1#page-title.page__title,
+  body.not-logged-in.page-user-register:not(.node-type-event) body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1#page-title.page__title {
+    margin: 0px auto;
+    text-align: center;
+  }
+
+  /*
+   *  iPhone 6 Styles -- Registration & Profile Page
+   */
+  /* center title on registration page */
+  /* test */
 }
-@media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 0) and (max-width: 767px) {
-  /* line 510, ../sass/phone.scss */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 767px) {
+  /* line 52, ../sass/phone.scss */
   form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
   body.admin-menu fieldset.group-account,
   body.admin-menu fieldset {
     margin-bottom: 0px;
   }
-  /* line 511, ../sass/phone.scss */
+  /* line 53, ../sass/phone.scss */
   form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
   body.admin-menu fieldset.group-account div.fieldset-wrapper,
   body.admin-menu fieldset.group-account div.data-view,
@@ -840,37 +882,19 @@ body.logged-in.page-user-edit {
     padding-top: 45px;
     margin-top: 8px;
   }
-  /* line 518, ../sass/phone.scss */
+  /* line 60, ../sass/phone.scss */
   form#user-profile-form fieldset,
   body.admin-menu fieldset {
     margin-top: 0px;
   }
 }
-@media screen and (max-width: 767px) {
-  /* hide logo */
-  /* line 524, ../sass/phone.scss */
-  body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
-  #block-block-13 {
-    display: none;
-  }
-
-  /* center title on registration page */
-  /* line 530, ../sass/phone.scss */
-  body.not-logged-in.page-user-register:not(.node-type-event) div#title-section {
-    margin-left: 0px;
-  }
-  /* line 532, ../sass/phone.scss */
-  body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1#page-title.page__title {
-    margin: 0px auto;
-    text-align: center;
-  }
-}
 /**
- *  Logo Styles for iPhone 6 and iPhone 4
+ *  Logo Styles for iPhone 6 and iPhone 4 test!!!!!!
  */
 /* iPhone 6 */
+/* test */
 @media screen and (min-width: 361px) and (max-width: 767px) {
-  /* line 557, ../sass/phone.scss */
+  /* line 88, ../sass/phone.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header,
@@ -880,7 +904,7 @@ body.logged-in.page-user-edit {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 561, ../sass/phone.scss */
+  /* line 92, ../sass/phone.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
@@ -890,7 +914,7 @@ body.logged-in.page-user-edit {
     width: 188.5px;
     height: 29.9px;
   }
-  /* line 565, ../sass/phone.scss */
+  /* line 97, ../sass/phone.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
@@ -903,14 +927,16 @@ body.logged-in.page-user-edit {
 }
 /* Devel tabs */
 @media screen and (max-width: 425px) {
-  /* line 578, ../sass/phone.scss */
+  /* line 110, ../sass/phone.scss */
   ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
     display: none;
   }
 }
 /* iPhone 4 */
 @media screen and (max-width: 360px) {
-  /* line 591, ../sass/phone.scss */
+  /* test */
+  /* test*/
+  /* line 11, ../sass/small-phone.scss */
   body.admin-menu div#block-block-8 h1, body.admin-menu div#block-block-8 h2.block-title, body.admin-menu div#block-block-8 h2.custom_block_title, body.admin-menu div#title-section h1, body.admin-menu div#title-section h2.block-title, body.admin-menu div#title-section h2.custom_block_title, body.admin-menu div#block-block-9 h1, body.admin-menu div#block-block-9 h2.block-title, body.admin-menu div#block-block-9 h2.custom_block_title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h1,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h2.block-title,
@@ -932,13 +958,13 @@ body.logged-in.page-user-edit {
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
     font-size: 1.65em;
   }
-  /* line 596, ../sass/phone.scss */
+  /* line 16, ../sass/small-phone.scss */
   body.admin-menu ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
   body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 600, ../sass/phone.scss */
+  /* line 20, ../sass/small-phone.scss */
   body.admin-menu div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header {
@@ -947,7 +973,7 @@ body.logged-in.page-user-edit {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 604, ../sass/phone.scss */
+  /* line 24, ../sass/small-phone.scss */
   body.admin-menu div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
@@ -956,7 +982,7 @@ body.logged-in.page-user-edit {
     width: 159.5px;
     height: 25.3px;
   }
-  /* line 608, ../sass/phone.scss */
+  /* line 28, ../sass/small-phone.scss */
   body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
@@ -966,6 +992,3 @@ body.logged-in.page-user-edit {
     height: 30px;
   }
 }
-/**
- * End iPhone responsive theming
- */

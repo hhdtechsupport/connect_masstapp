@@ -16,8 +16,6 @@
 /* for tabs! */
 /* for rounded elements */
 /* for header & footer */
-/* for rounded elements */
-/* for header & footer */
 /* line 5, ../sass/extensible.scss */
 #block-block-12 .contextual-links-wrapper {
   width: 970px;
@@ -134,17 +132,25 @@ body.not-logged-in.page-anon-login #block-block-9 {
 body.not-logged-in.page-user:not(.page-user-register),
 body.not-logged-in.page-anon-login {
   height: 100%;
+  /* hide logo */
   /* RIGHT */
   /* new to capt connect */
   /* why register */
   /* both right panels*/
 }
-/* line 12, ../sass/login.scss */
+/* line 16, ../sass/login.scss */
+body.not-logged-in.page-user:not(.page-user-register) body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
+body.not-logged-in.page-user:not(.page-user-register) #block-block-13,
+body.not-logged-in.page-anon-login body.not-logged-in:not(.node-type-event) header#header #name-and-slogan,
+body.not-logged-in.page-anon-login #block-block-13 {
+  color: white;
+}
+/* line 20, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) ul.tabs-primary,
 body.not-logged-in.page-anon-login ul.tabs-primary {
   display: none;
 }
-/* line 15, ../sass/login.scss */
+/* line 23, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) h1#page-title,
 body.not-logged-in.page-anon-login h1#page-title {
   font-size: 2.25em;
@@ -152,14 +158,14 @@ body.not-logged-in.page-anon-login h1#page-title {
   margin-left: 17px;
   color: #334b56;
 }
-/* line 21, ../sass/login.scss */
+/* line 29, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) div#content,
 body.not-logged-in.page-anon-login div#content {
   border: 0px solid white;
   margin-top: 0;
   padding-top: 0;
 }
-/* line 26, ../sass/login.scss */
+/* line 34, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login,
 body.not-logged-in.page-user:not(.page-user-register) div#title-section,
 body.not-logged-in.page-anon-login form#user-login,
@@ -168,19 +174,19 @@ body.not-logged-in.page-anon-login div#title-section {
   width: 320px;
   margin-top: 0px;
 }
-/* line 32, ../sass/login.scss */
+/* line 40, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register).section-anon-login form#user-login,
 body.not-logged-in.page-anon-login.section-anon-login form#user-login {
   margin: 0 auto;
   float: none;
   width: 360px;
 }
-/* line 37, ../sass/login.scss */
+/* line 45, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) div#title-section,
 body.not-logged-in.page-anon-login div#title-section {
   margin-bottom: 0px;
 }
-/* line 41, ../sass/login.scss */
+/* line 49, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login,
 body.not-logged-in.page-anon-login form#user-login {
   height: 311px;
@@ -189,28 +195,28 @@ body.not-logged-in.page-anon-login form#user-login {
   float: left;
   padding-bottom: 10px;
 }
-/* line 48, ../sass/login.scss */
+/* line 56, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-submit,
 body.not-logged-in.page-anon-login form#user-login input#edit-submit {
   margin-left: 17px;
 }
-/* line 51, ../sass/login.scss */
+/* line 59, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.description,
 body.not-logged-in.page-anon-login form#user-login div.description {
   display: none;
 }
-/* line 54, ../sass/login.scss */
+/* line 62, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-name,
 body.not-logged-in.page-anon-login form#user-login div.form-item-name {
   margin-bottom: 10px;
   padding-top: 20px;
 }
-/* line 58, ../sass/login.scss */
+/* line 66, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-name,
 body.not-logged-in.page-anon-login form#user-login input#edit-name {
   margin-bottom: 0px;
 }
-/* line 61, ../sass/login.scss */
+/* line 69, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-name,
 body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit-pass,
 body.not-logged-in.page-anon-login form#user-login input#edit-name,
@@ -226,12 +232,12 @@ body.not-logged-in.page-anon-login form#user-login input#edit-pass {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 74, ../sass/login.scss */
+/* line 82, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.form-item-pass,
 body.not-logged-in.page-anon-login form#user-login div.form-item-pass {
   margin-top: 0px;
 }
-/* line 77, ../sass/login.scss */
+/* line 85, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login label,
 body.not-logged-in.page-anon-login form#user-login label {
   font-weight: normal;
@@ -240,12 +246,12 @@ body.not-logged-in.page-anon-login form#user-login label {
   margin-bottom: 0px;
   font-size: 16px;
 }
-/* line 84, ../sass/login.scss */
+/* line 92, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.description,
 body.not-logged-in.page-anon-login form#user-login div.description {
   margin-left: 16px;
 }
-/* line 87, ../sass/login.scss */
+/* line 95, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.request-new-password a,
 body.not-logged-in.page-anon-login form#user-login div.request-new-password a {
   margin-left: 21px;
@@ -256,12 +262,12 @@ body.not-logged-in.page-anon-login form#user-login div.request-new-password a {
   color: #8c1d18;
   font-size: 13px;
 }
-/* line 96, ../sass/login.scss */
+/* line 104, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) form#user-login div.request-new-password a:hover,
 body.not-logged-in.page-anon-login form#user-login div.request-new-password a:hover {
   text-decoration: none;
 }
-/* line 102, ../sass/login.scss */
+/* line 110, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8,
 body.not-logged-in.page-anon-login #block-block-8 {
   padding-bottom: 20px;
@@ -270,19 +276,19 @@ body.not-logged-in.page-anon-login #block-block-8 {
   margin-top: -83px;
   /* join today*/
 }
-/* line 107, ../sass/login.scss */
+/* line 115, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2.block-title,
 body.not-logged-in.page-anon-login #block-block-8 h2.block-title {
   display: none;
 }
-/* line 110, ../sass/login.scss */
+/* line 118, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2.custom_block_title,
 body.not-logged-in.page-anon-login #block-block-8 h2.custom_block_title {
   margin-top: 0px;
   margin-left: 30px;
   font-size: 1.8em;
 }
-/* line 118, ../sass/login.scss */
+/* line 126, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a,
 body.not-logged-in.page-anon-login #block-block-8 a {
   color: #c3791f;
@@ -293,7 +299,7 @@ body.not-logged-in.page-anon-login #block-block-8 a {
   display: block;
   margin-left: 30px;
 }
-/* line 129, ../sass/login.scss */
+/* line 137, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9,
 body.not-logged-in.page-anon-login #block-block-9 {
   background-image: url("../images/icons/register.png");
@@ -302,32 +308,32 @@ body.not-logged-in.page-anon-login #block-block-9 {
   height: 193px;
   margin-top: 9px;
 }
-/* line 136, ../sass/login.scss */
+/* line 144, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2.block-title,
 body.not-logged-in.page-anon-login #block-block-9 h2.block-title {
   margin-left: 17px;
   font-size: 1.8em;
 }
-/* line 140, ../sass/login.scss */
+/* line 148, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul,
 body.not-logged-in.page-anon-login #block-block-9 ul {
   margin-left: 4px;
 }
-/* line 142, ../sass/login.scss */
+/* line 150, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li,
 body.not-logged-in.page-anon-login #block-block-9 ul li {
   list-style-image: url("../images/icons/arrow-icons-aqua.png");
   font-size: 16px;
   font-weight: normal;
 }
-/* line 148, ../sass/login.scss */
+/* line 156, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 a,
 body.not-logged-in.page-anon-login #block-block-9 a {
   /* color needed? */
   color: #333333;
   font-weight: normal;
 }
-/* line 155, ../sass/login.scss */
+/* line 163, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8,
 body.not-logged-in.page-anon-login #block-block-9,
@@ -337,7 +343,7 @@ body.not-logged-in.page-anon-login #block-block-8 {
   float: right;
   background-repeat: no-repeat;
 }
-/* line 162, ../sass/login.scss */
+/* line 170, ../sass/login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2,
 body.not-logged-in.page-anon-login #block-block-9 h2,
@@ -347,7 +353,7 @@ body.not-logged-in.page-anon-login #block-block-8 h2 {
   margin-left: 28px;
 }
 
-/* line 170, ../sass/login.scss */
+/* line 178, ../sass/login.scss */
 body.not-logged-in.page-user.page-user-password h1#page-title {
   margin-left: 27px;
   text-transform: capitalize;
