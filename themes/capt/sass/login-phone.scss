@@ -51,8 +51,9 @@ $login-title-margin: 16px;
       display: inline-block;
       height: 50px;
       margin-top: 30px;
-      h1#page-title {
+     h1#page-title {
         width: 90%;
+        
         margin-top: 0px;
         padding-left: 18px;
         margin-left: 0px;
@@ -61,7 +62,7 @@ $login-title-margin: 16px;
         /* margin-bottom: -30px;*/
       }
     }
-    /* all blocks */
+        /* all blocks */
     form#user-login,
     div#title-section,
     div#block-block-8,
@@ -76,6 +77,12 @@ $login-title-margin: 16px;
      h2 {
       margin-bottom: 6px;
     }
+    div#title-section {
+       border-left: 5px solid green;
+       background-color: red;
+       display: none;
+    }
+
   }
   /* specific styles for responsive panel tops  ---*/
   form#user-login,
@@ -129,13 +136,13 @@ $login-title-margin: 16px;
       text-align: center;
       width: 100%;
       div.disclaimer {
-        width: 95%;/*370px;*/
-        max-width: 370px;
-        margin-left: 1.5%;
-        border: 1px solid transparent;
+        width: 95%;
+        max-width: 360px;
+        margin-left: 3%;
+        border: 0px solid transparent;
         height: 100px;
         text-align: left;
-
+        padding: 0px;
       }
     }
   }
@@ -148,14 +155,6 @@ $login-title-margin: 16px;
     display: block;
     margin: 0px;
   }
- /*
-body.logged-in.page-user-edit {
-  div#title-section {
-    h1#page-title.page__title {
-      margin-left: 30px;
-    }
-  }
-  }*/
   /* merge with styles below? */
   body.admin-menu {
     div#navigation {
@@ -178,13 +177,33 @@ body.logged-in.page-user-edit {
       margin-top: 50px;
     }
   }
-  body { 
+   body {
     overflow-x: hidden;
+   }
+   body,html {
+    width: 100%;
+    max-width: 100%;
+   }  
+   body {
+        
+    footer {
+     width: 100%;
+     max-width: 100%;
+       .disclaimer {
+         padding: 0px;
+       }
+    }
+    div.top-header {
+      width: 100%;
+    } 
     div#page {
-      overflow-x: hidden;
+      max-width: 100%;
       margin-bottom: -110px;
+      padding-bottom: 210px;
+      height: 550px !important;
       min-height: 550px;
       #main {
+        width: 100%;
         @extend .reset-layout;
       }
     }
