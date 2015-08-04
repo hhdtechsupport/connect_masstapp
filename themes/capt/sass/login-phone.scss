@@ -10,12 +10,9 @@ $login-title-margin: 16px;
    *  iPhone Styles -- User Login Page - yo
    */
 
-  #main {
-    @extend .reset-layout;
 
-  }
-  body.not-logged-in.page-user:not(.page-user-register),
-  body.not-logged-in.page-anon-login {
+   body.not-logged-in.page-user:not(.page-user-register),
+   body.not-logged-in.page-anon-login {
     div#title-section {
       padding-top: 6px;
       padding-bottom: 0px;
@@ -34,9 +31,9 @@ $login-title-margin: 16px;
         font-size: 0.8em;
       }
     }
-     /* banner subtitle text */
+    /* banner subtitle text */
     div#block-block-13 {
-   
+
       color: white;
       font-size: 11px;
       margin-left: -225px;
@@ -44,7 +41,7 @@ $login-title-margin: 16px;
       position: absolute;
       margin-top: -8px;
       cursor: default;
-  
+
     }
     div#title-section {
 
@@ -75,66 +72,70 @@ $login-title-margin: 16px;
       h1, h2 {
        // @extend .show-hide;
        @extend .noselect;
-      }
+     }
+     h2 {
+      margin-bottom: 6px;
+    }
+  }
+  /* specific styles for responsive panel tops  ---*/
+  form#user-login,
+  div#title-section {
+    @extend .mobile-panel;
+  }
+  /* lower two blocks */
+  div#block-block-8,
+  div#block-block-9 {
+    @extend .mobile-login-lower-panel;
+    border-top: 1px solid $capt-midgrey;
+    &:before {
+      height: 0px;
+    }
+  }
+  /* individual panel styles */
+  form#user-login {
+    padding-top: 0px;
+    margin-top: -20px;
+    padding-bottom: 0px;
+    height: 250px;
+    div#edit-actions input#edit-submit {
+      display: block;
+    }
+  }
+  div#block-block-8 {
+    .panel-body {
       h2 {
-        margin-bottom: 6px;
-      }
-    }
-    /* specific styles for responsive panel tops  ---*/
-    form#user-login,
-    div#title-section {
-      @extend .mobile-panel;
-    }
-    /* lower two blocks */
-    div#block-block-8,
-    div#block-block-9 {
-      @extend .mobile-login-lower-panel;
-      border-top: 1px solid $capt-midgrey;
-      &:before {
-        height: 0px;
-      }
-    }
-    /* individual panel styles */
-    form#user-login {
-      padding-top: 0px;
-      margin-top: -20px;
-      padding-bottom: 0px;
-      height: 250px;
-      div#edit-actions input#edit-submit {
-        display: block;
-      }
-    }
-    div#block-block-8 {
-      .panel-body {
-        h2 {
-          margin-left: $login-title-margin;
-        }
-        p {
-          margin-left: -14px;
-        }
-      }
-    }
-    div#block-block-9 {
-      height: 130px;
-      h2.block-title {
         margin-left: $login-title-margin;
       }
+      p {
+        margin-left: -14px;
+      }
     }
- 
   }
+  div#block-block-9 {
+    height: 130px;
+    margin-bottom: -60px;
+    h2.block-title {
+      margin-left: $login-title-margin;
+    }
+  }
+
+}
   // end body
   div.bottom-footer {
+    height: 50px;
     width: 100%;
+    /*border-color: red;*/
     div.bottom-footer-container {
       text-align: center;
-      overflow-x: hidden;
-      /* border: 1px solid blue;*/
       width: 100%;
       div.disclaimer {
-        width: 97%;
-        margin: 0px auto;
+        width: 95%;/*370px;*/
+        max-width: 370px;
+        margin-left: 1.5%;
         border: 1px solid transparent;
         height: 100px;
+        text-align: left;
+
       }
     }
   }
@@ -143,7 +144,7 @@ $login-title-margin: 16px;
   div.disclaimer {
     @extend .reset-layout;
     max-width: 100%;
-    text-align: center;
+    text-align: left;
     display: block;
     margin: 0px;
   }
@@ -175,5 +176,16 @@ body.logged-in.page-user-edit {
     }
     div#content {
       margin-top: 50px;
+    }
+  }
+  body { 
+    overflow-x: hidden;
+    div#page {
+      overflow-x: hidden;
+      margin-bottom: -110px;
+      min-height: 550px;
+      #main {
+        @extend .reset-layout;
+      }
     }
   }
