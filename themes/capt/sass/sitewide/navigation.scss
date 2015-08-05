@@ -1,0 +1,161 @@
+@import 'variables';
+@import 'capt-mixins';
+@import 'extensible';
+
+
+
+/*
+*  Navigation
+*/
+
+#block-responsive-dropdown-menus-main-menu {
+  margin-left: -10px;
+  /*border-bottom: 1px solid $capt-midgrey;*/
+  height: 27px;
+  width: 870px;
+  padding-left: 0px;
+}
+
+ul#main-menu.main-menu > li.menu-item > a.active {
+  @include main-active-link;
+}
+
+ul#main-menu.main-menu {
+  margin-top: 28px;
+  border-bottom: 1px solid $capt-midgrey;
+  width: 970px;
+  margin-left: $dash-nudge;
+  height: 43px;
+  li.menu-item > a {
+    text-transform: uppercase;
+    display: block;
+    height: 27px;
+    width: 200px;
+    text-align: center;
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: $capt-tabsgrey;
+    /*$capt-midgrey;*/
+  }
+  /* submenu active */
+  li.menu-item > a:hover {
+    background-color: $capt-hovergrey;
+  }
+  li.menu-item > a.active {
+    background-color: white;
+    color: $capt-maroon;
+  }
+}
+
+/**
+ * Dropdown Logic
+ */
+
+#navigation .links li {
+  padding: 0px 5px 0px 0px;
+}
+
+/* needed to eliminate a grey border on right side of dropdown */
+
+#navigation .links li.menu-parent li {
+  padding: 0px;
+}
+
+#main-menu li.menu-parent {
+  ul.sub-menu.tier-two {
+    padding: 0px;
+    margin-top: 0px;
+    padding-right: 0px;
+    background: $capt-hovergrey;
+    width: 200px;
+    li {
+      padding: 0px;
+      margin: 0px;
+      display: block;
+      a {
+        display: block;
+        margin: 0px;
+        text-transform: capitalize;
+        text-align: left;
+        font-weight: normal;
+        color: #333;
+        padding: 0px 0px 0px 35px;
+        font-size: 13px;
+        height: 18px;
+        width: 165px;
+        background: none;
+      }
+      a.active {
+        background-color: white;
+        color: #333;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      &.last {
+        padding-bottom: 15px;
+      }
+    }
+  }
+  &.active-trail ul.sub-menu.tier-two {
+    background: white;
+  }
+}
+
+body.page-user-edit,
+body.page-user {
+  ul#main-menu.main-menu {
+    li#menu-item-591 {
+      a {
+        @include main-active-link;
+      }
+    }
+  }
+}
+
+// admin tab is always white in an admin section.
+body.admin-menu.section-administration {
+  li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
+    @include main-active-link;
+  }
+  li#menu-item-1185:hover {
+    ul.sub-menu.tier-two {
+      display: block;
+    }
+  }
+}
+
+/* View | Edit | Manage Display | etc. tabs */
+
+ul.tabs-primary,
+ul.tabs-secondary {
+  @include bottom-line(1px);
+  /*907px;*/
+  li:first-child {
+    margin-left: 10px;
+  }
+  li {
+    border: 0px;
+    a, a:active, a.is-active {
+      background-image: none;
+      background-color: white;
+      font-family: ArialMT, Arial;
+      font-weight: 500;
+      padding: 3px 20px;
+    }
+    a:not(.is-active) {
+      border: 0px;
+    }
+    a:hover, a:active {
+      background-color: white;
+    }
+  }
+  li.tabs-primary__tab.is-active {
+    border-color: black;
+    border-bottom-color: white;
+  }
+}
+
+div.vertical-tabs {
+  margin-right: $edit-margin-right;
+}

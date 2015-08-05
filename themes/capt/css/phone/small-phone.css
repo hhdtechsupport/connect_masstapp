@@ -1,0 +1,164 @@
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/* variables */
+/* colors*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../../sass/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../../sass/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../../sass/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../../sass/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../../sass/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../../sass/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 47, ../../sass/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 57, ../../sass/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 70, ../../sass/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 78, ../../sass/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* test */
+/* test*/
+/* line 11, ../../sass/phone/small-phone.scss */
+body.admin-menu div#block-block-8 h1, body.admin-menu div#block-block-8 h2.block-title, body.admin-menu div#block-block-8 h2.custom_block_title, body.admin-menu div#title-section h1, body.admin-menu div#title-section h2.block-title, body.admin-menu div#title-section h2.custom_block_title, body.admin-menu div#block-block-9 h1, body.admin-menu div#block-block-9 h2.block-title, body.admin-menu div#block-block-9 h2.custom_block_title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h1,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h2.block-title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8 h2.custom_block_title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h1,
+body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h2.block-title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#title-section h2.custom_block_title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9 h1,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9 h2.block-title,
+body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9 h2.custom_block_title,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h1,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.block-title,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-8 h2.custom_block_title,
+body.not-logged-in.page-user:not(.page-user-register) div#title-section h1,
+body.not-logged-in.page-user:not(.page-user-register) div#title-section h2.block-title,
+body.not-logged-in.page-user:not(.page-user-register) div#title-section h2.custom_block_title,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h1,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.block-title,
+body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 h2.custom_block_title {
+  font-size: 1.65em;
+}
+/* line 16, ../../sass/phone/small-phone.scss */
+body.admin-menu ul#main-menu.main-menu li.menu-item > a,
+body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
+body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
+  width: 125px;
+}
+/* line 20, ../../sass/phone/small-phone.scss */
+body.admin-menu div.top-header,
+body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
+body.not-logged-in.page-user:not(.page-user-register) div.top-header {
+  height: 61px;
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px 52px;
+  background-repeat: repeat-x;
+}
+/* line 24, ../../sass/phone/small-phone.scss */
+body.admin-menu div.top-header div.top-header-container div.capt-logo,
+body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
+body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
+  top: 12px;
+  background-size: 159.5px 25.3px;
+  width: 159.5px;
+  height: 25.3px;
+}
+/* line 28, ../../sass/phone/small-phone.scss */
+body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
+body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
+body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
+  top: 10px;
+  background-size: 105px 30px;
+  width: 105px;
+  height: 30px;
+}

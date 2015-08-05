@@ -1,0 +1,76 @@
+@import "../variables";
+@import "../capt-mixins";
+  /*
+   * prototype classes´
+   */
+  .reset-layout {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  /* for mobile panels with no top bars */
+  .top-bar-reset {
+    background-color: none;
+    height: 0px;
+    width: 0px;
+    position: static;
+  }
+.mobile-panel {
+    padding-top: 10px;
+    text-align: left;
+    margin: 0px auto;
+    float: none;
+    width: 94%;
+   
+    padding-left: 0px;
+    background: no-repeat;
+    background-color: $capt-lightgrey;
+    &:before {
+      top: -11px;
+    }
+}
+.mobile-panel-rule {
+  @extend .mobile-panel;
+   &:before {
+    display: block;
+    background-color: $capt-aqua;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: 0px;
+    margin-left: -1px;
+    padding-left: 2px;
+  }
+}
+  .mobile-login-lower-panel {
+    @extend .mobile-panel;
+    &:before {
+      background-color: white;
+    }
+  }
+
+
+  .show-hide {
+    font-size: 22px;
+    padding-left: 20px;
+    cursor: pointer;
+    background-image: url("../images/icons/hide.png");
+    background-position: 0px 8px;
+    background-repeat: no-repeat;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+.noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  /*
+   *  End Prototypes, Start Mixins
+   */

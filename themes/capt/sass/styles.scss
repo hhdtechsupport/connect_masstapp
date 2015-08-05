@@ -17,29 +17,30 @@
 @import "print.css";
 
 /* assets needed for all pages */
-@import 'variables';
-@import 'capt-mixins';
-@import 'extensible';
+@import 'headers/variables';
+@import 'headers/capt-mixins';
+@import 'headers/extensible';
 
 /*general (sitewide) styles*/
-@import 'general';
-@import 'topmatter';
-@import 'navigation';
+@import 'sitewide/general';
+@import 'sitewide/topmatter';
+@import 'sitewide/navigation';
 /* main pages */
-@import 'dashboard';
-@import 'create-event';
-@import 'login';
-@import 'logged-in';
-@import 'event';
+@import 'main_pages/dashboard';
+@import 'main_pages/create-event';
+@import 'main_pages/login';
+@import 'main_pages/logged-in';
+@import 'main_pages/event';
+
 /*admin & profile*/
-@import 'admin';
-@import 'profile';
-@import 'user-password';
-@import 'workflow';
-@import 'register';
+@import 'admin/admin';
+@import 'main_pages/profile';
+@import 'admin/user-password';
+@import 'admin/workflow';
+@import 'main_pages/register';
 /* responsive*/
-@import 'mobile';
-@import 'tablet';
-@import 'phone';
+@import 'phone/mobile';
+@import 'tahblet/tablet';
+@import 'phone/phone';
 
 

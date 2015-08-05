@@ -1,0 +1,153 @@
+@import 'variables';
+@import 'capt-mixins';
+@import 'extensible';
+
+/*
+ *  Event Report
+ */
+
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: .8em;
+}
+
+.entity-entityform-type h2 {
+  display: none;
+}
+
+body.page-administration {
+  line-height: 1.5em;
+  a, a:visited {
+    color: $capt-black;
+    &:hover {
+      color: $capt-maroon;
+    }
+  }
+  &.page-administration-event-report,
+  &.page-administration-my-events {
+    table.views-table {
+      tbody {
+        border: 1px solid $capt-midgrey;
+      }
+      tr {
+        th {
+          padding-right: 10px;
+        }
+        td:first-child {
+          padding-left: 10px;
+          width: 230px;
+        }
+        td:nth-child(2) {
+          width: 220px;
+        }
+        td {
+          padding-right: 10px;
+        }
+        td:nth-child(n+5) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+/*
+ *  styles from Nancy on 5/21-5/22:
+ */
+
+#account-pass-restrictions {
+  border: 1px solid #ff9933;
+  font-family: Georgia, Palatino, serif;
+  padding: 0 6px;
+}
+
+#account-pass-restrictions li {
+  font-size: 120%;
+  line-height: 1.25em;
+  list-style-image: url("/misc/menu-collapsed.png");
+}
+
+div.group-audience, div.group-description, div.group-dates {
+  /* h4 {
+       margin-bottom: 0px;
+       }*/
+  /* p {
+       margin: 0px;
+       }*/
+}
+
+/* Float image on Presenters in Event view. */
+
+.field-name-field-presenter .node-teaser .field-name-field-presenter-image {
+  float: left;
+  div.field-content img {
+    margin-right: 20px;
+    border: 1px solid red;
+  }
+}
+
+div.views-field.views-field-field-presenter-image {
+  margin: 5px 15px 0px 0px;
+  /*16px 23px 0px 0px;*/
+  line-height: 1em;
+}
+
+/**
+ * Disclaimer Placement Section
+ */
+
+body.node-type-event div.bottom-footer {
+  /* border: 1px solid yellow;*/
+  height: 50px;
+  margin-bottom: 0px;
+}
+
+body.node-type-event #block-block-12 {
+  /*border: 1px solid blue;*/
+  display: block;
+  .disclaimer {
+    padding: 0px 590px 20px 0px;
+    left: 20px;
+    /* border: 1px solid red;*/
+    /*float: left;*/
+    /*top: -30px;*/
+  }
+}
+
+
+
+
+/* we are using this for the event edit pages*/
+body.node-type-event.page-node-edit {
+  .disclaimer {
+    left: 0px;
+  }
+}
+
+body.page-user-edit div.disclaimer {
+  margin-bottom: 40px;
+}
+
+/*
+ * page administration
+ */
+
+body.page-administration {
+  div#content div#title-section {
+    h2 {
+      display: none;
+    }
+  }
+}
+
+/**
+ * Switch User
+ */
+div.block-devel#block-devel-switch-user {
+  margin-left: 90px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid $capt-darkgrey;
+  width: 400px;
+  input.form-submit {
+    background-color: $capt-orange;
+  }
+}
