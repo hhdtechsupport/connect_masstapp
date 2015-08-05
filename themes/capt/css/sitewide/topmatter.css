@@ -106,39 +106,45 @@
 /*
  *  Banners
  */
-/* line 11, ../../sass/sitewide/topmatter.scss */
+/* line 9, ../../sass/sitewide/topmatter.scss */
+body {
+  width: 100%;
+  margin: 0px;
+}
+/* line 13, ../../sass/sitewide/topmatter.scss */
 body.front header#header, body.not-logged-in:not(.node-type-event) header#header {
   height: 380px;
   background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
   padding-left: 135px;
+  margin-left: 0px;
 }
-/* line 15, ../../sass/sitewide/topmatter.scss */
+/* line 18, ../../sass/sitewide/topmatter.scss */
 body.front header#header #name-and-slogan, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan {
   padding-top: 55px;
   float: left;
   clear: none;
 }
-/* line 19, ../../sass/sitewide/topmatter.scss */
+/* line 22, ../../sass/sitewide/topmatter.scss */
 body.front header#header #name-and-slogan h1, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan h1 {
   font-size: 3em;
   line-height: 1em;
 }
-/* line 23, ../../sass/sitewide/topmatter.scss */
+/* line 26, ../../sass/sitewide/topmatter.scss */
 body.front header#header #name-and-slogan a.header__site-link, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link {
   color: white;
   text-decoration: none;
   font-weight: normal;
 }
-/* line 27, ../../sass/sitewide/topmatter.scss */
+/* line 30, ../../sass/sitewide/topmatter.scss */
 body.front header#header #name-and-slogan a.header__site-link:hover, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link:hover {
   text-decoration: none;
   color: white;
 }
-/* line 32, ../../sass/sitewide/topmatter.scss */
+/* line 35, ../../sass/sitewide/topmatter.scss */
 body.front header#header #name-and-slogan em, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan em {
   font-weight: normal;
 }
-/* line 36, ../../sass/sitewide/topmatter.scss */
+/* line 39, ../../sass/sitewide/topmatter.scss */
 body.front header#header .region-highlighted, body.not-logged-in:not(.node-type-event) header#header .region-highlighted {
   padding: 70px 0 0 20px;
   font-size: 1.25em;
@@ -146,47 +152,47 @@ body.front header#header .region-highlighted, body.not-logged-in:not(.node-type-
   color: white;
   float: left;
 }
-/* line 46, ../../sass/sitewide/topmatter.scss */
+/* line 49, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header {
   height: 191px;
   background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
   padding-left: 360px;
 }
-/* line 50, ../../sass/sitewide/topmatter.scss */
+/* line 53, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan {
   padding: 40px 0 8px 0;
 }
-/* line 52, ../../sass/sitewide/topmatter.scss */
+/* line 55, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan h1 {
   font-size: 3.25em;
   line-height: 1em;
 }
-/* line 56, ../../sass/sitewide/topmatter.scss */
+/* line 59, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan a.header__site-link {
   color: white;
   text-decoration: none;
   font-weight: normal;
 }
-/* line 60, ../../sass/sitewide/topmatter.scss */
+/* line 63, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan a.header__site-link:hover {
   text-decoration: none;
   color: white;
 }
-/* line 65, ../../sass/sitewide/topmatter.scss */
+/* line 68, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan em {
   font-weight: normal;
 }
-/* line 69, ../../sass/sitewide/topmatter.scss */
+/* line 72, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header #name-and-slogan.category h1 {
   font-size: 2.25em;
 }
-/* line 74, ../../sass/sitewide/topmatter.scss */
+/* line 77, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header .region-highlighted {
   font-size: 1.25em;
   text-transform: uppercase;
   color: white;
 }
-/* line 78, ../../sass/sitewide/topmatter.scss */
+/* line 81, ../../sass/sitewide/topmatter.scss */
 body.not-front header#header .region-highlighted.category {
   text-transform: none;
   font-weight: bold;
@@ -199,27 +205,27 @@ body.not-front header#header .region-highlighted.category {
 }
 
 /*logos above header - move up to general area? */
-/* line 96, ../../sass/sitewide/topmatter.scss */
+/* line 99, ../../sass/sitewide/topmatter.scss */
 div.top-header {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 106px;
   background-repeat: repeat-x;
-    /*background-image: url('../images/design-elements/rainbow-divider.png');
-background-position: -124px $header-height - $rainbow-height;
-background-repeat: repeat-x;*/
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px 106px;
+  background-repeat: repeat-x;
   height: 115px;
 }
 
 /*
 *  Logos
 */
-/* line 108, ../../sass/sitewide/topmatter.scss */
+/* line 111, ../../sass/sitewide/topmatter.scss */
 div.top-header-container {
   height: 100px;
   width: 1000px;
   /* logos */
 }
-/* line 112, ../../sass/sitewide/topmatter.scss */
+/* line 115, ../../sass/sitewide/topmatter.scss */
 div.top-header-container div.capt-logo {
   background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
   width: 340px;
@@ -228,7 +234,7 @@ div.top-header-container div.capt-logo {
   margin-bottom: 0px;
   top: 48px;
 }
-/* line 120, ../../sass/sitewide/topmatter.scss */
+/* line 123, ../../sass/sitewide/topmatter.scss */
 div.top-header-container div.samhsa-logo {
   background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
   width: 295px;
@@ -236,7 +242,7 @@ div.top-header-container div.samhsa-logo {
   margin-right: 0px;
   top: 22px;
 }
-/* line 127, ../../sass/sitewide/topmatter.scss */
+/* line 130, ../../sass/sitewide/topmatter.scss */
 div.top-header-container div.capt-logo,
 div.top-header-container div.samhsa-logo {
   height: 115px;
@@ -244,11 +250,11 @@ div.top-header-container div.samhsa-logo {
 }
 
 /* Welcome line near search box on dashboard*/
-/* line 136, ../../sass/sitewide/topmatter.scss */
+/* line 139, ../../sass/sitewide/topmatter.scss */
 div#block-block-7 {
   color: white;
 }
-/* line 138, ../../sass/sitewide/topmatter.scss */
+/* line 141, ../../sass/sitewide/topmatter.scss */
 div#block-block-7 a {
   color: white;
   font-weight: normal;
@@ -256,7 +262,7 @@ div#block-block-7 a {
 }
 
 /* search */
-/* line 147, ../../sass/sitewide/topmatter.scss */
+/* line 150, ../../sass/sitewide/topmatter.scss */
 input#edit-search-block-form--2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -272,7 +278,7 @@ input#edit-search-block-form--2 {
   background-color: white;
 }
 
-/* line 161, ../../sass/sitewide/topmatter.scss */
+/* line 164, ../../sass/sitewide/topmatter.scss */
 form#search-block-form div#edit-actions input#edit-submit, form#search-block-form div#edit-actions input#edit-submit--2, form#search-block-form div#edit-actions--2 input#edit-submit, form#search-block-form div#edit-actions--2 input#edit-submit--2 {
   border: 1px solid white;
   background-color: transparent;
@@ -282,13 +288,13 @@ form#search-block-form div#edit-actions input#edit-submit, form#search-block-for
   margin-left: 8px;
 }
 
-/* line 172, ../../sass/sitewide/topmatter.scss */
+/* line 175, ../../sass/sitewide/topmatter.scss */
 div#edit-actions {
   padding-bottom: 10px;
 }
 
 /* hiding text in key areas! */
-/* line 178, ../../sass/sitewide/topmatter.scss */
+/* line 181, ../../sass/sitewide/topmatter.scss */
 div.samhsa-logo,
 div.capt-logo {
   text-indent: 100%;
@@ -296,14 +302,14 @@ div.capt-logo {
   overflow: hidden;
 }
 
-/* line 185, ../../sass/sitewide/topmatter.scss */
+/* line 188, ../../sass/sitewide/topmatter.scss */
 div.bottom-footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
 }
 
-/* line 192, ../../sass/sitewide/topmatter.scss */
+/* line 195, ../../sass/sitewide/topmatter.scss */
 div#block-block-12 {
   /*height: 100px;*/
   margin-bottom: 0px;

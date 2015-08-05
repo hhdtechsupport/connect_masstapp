@@ -7,11 +7,14 @@
  */
  
 body {
+  width: 100%;
+  margin: 0px;
   &.front, &.not-logged-in:not(.node-type-event) {
     header#header {
       height: 380px;
       background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
       padding-left: 135px;
+      margin-left: 0px;
       #name-and-slogan {
         padding-top: 55px;
         float: left;
@@ -95,9 +98,9 @@ body {
 
 div.top-header {
   @include rainbow-bar($header-height - $rainbow-height);
-    /*background-image: url('../images/design-elements/rainbow-divider.png');
+    background-image: url('../images/design-elements/rainbow-divider.png');
 background-position: -124px $header-height - $rainbow-height;
-background-repeat: repeat-x;*/
+background-repeat: repeat-x;
   height: $header-height;
 }
 
