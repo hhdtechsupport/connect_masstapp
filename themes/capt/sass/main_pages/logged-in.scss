@@ -1,0 +1,68 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+
+/*
+*  Events Page
+*/
+/* title of events page; font size & position may need to be fine-tuned */
+
+h1#page-title {
+  font-weight: normal;
+  em {
+    color: #333333;
+    font-size: .75em;
+    display: block;
+    font-weight: normal;
+  }
+}
+
+/*recently removed node-type event on 6/2; keep an eye out for issues */
+
+body.logged-in {
+  h1#page-title {
+    /* variable? deviate from spec and reduce? */
+    padding-top: 7px;
+    color: $capt-maroon;
+    min-height: 44px;
+    font-size: 26pt;
+    /* from h2 in the specs */
+    margin-top: 36px;
+    margin-bottom: 21px;
+    margin-top: 0px;
+  }
+  &.section-events h1#page-title {
+    background: url("../images/icons/dashboard.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.section-node-add h1#page-title {
+    background: url("../images/icons/create.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.section-administration h1#page-title {
+    background: url("../images/icons/admin.png") 0 0 no-repeat;
+    padding-left: 70px;
+  }
+  &.page-user-edit h1#page-title {
+    background: url("../images/icons/profile.png") 0 0 no-repeat;
+    padding-left: 55px;
+  }
+  h2 {
+    margin-bottom: 0px;
+  }
+  /* changed margin top for event view logged-in page in chrome*/
+  div#title-section h3 {
+    margin-bottom: 0px;
+    font-weight: normal;
+    margin-top: 14px;
+    color: $capt-aqua;
+  }
+  &.node-type-dashboard {
+    #title-section {
+      float: left;
+    }
+    .region-help {
+      float: right;
+    }
+  }
+}

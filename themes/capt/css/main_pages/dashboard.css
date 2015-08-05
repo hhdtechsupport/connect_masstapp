@@ -1,0 +1,460 @@
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../../sass/headers/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../../sass/headers/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../../sass/headers/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../../sass/headers/extensible.scss */
+.panel, .panel-rule, .panel-rule-single, .section-events .view-dashboard.view-display-id-page_1, .section-events #block-views-dashboard-block-1,
+.section-events #block-views-dashboard-block-2 {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../../sass/headers/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, .section-events .view-dashboard.view-display-id-page_1 h3 a:hover, .section-events #block-views-dashboard-block-1 h3 a:hover,
+.section-events #block-views-dashboard-block-2 h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../../sass/headers/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper, .section-events .view-dashboard.view-display-id-page_1 .filter-wrapper, .section-events #block-views-dashboard-block-1 .filter-wrapper,
+.section-events #block-views-dashboard-block-2 .filter-wrapper {
+  border: 0px;
+}
+
+/* line 47, ../../sass/headers/extensible.scss */
+.panel-rule, .panel-rule-single, .section-events .view-dashboard.view-display-id-page_1, .section-events #block-views-dashboard-block-1,
+.section-events #block-views-dashboard-block-2 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 57, ../../sass/headers/extensible.scss */
+.panel-rule:before, .panel-rule-single:before, .section-events .view-dashboard.view-display-id-page_1:before, .section-events #block-views-dashboard-block-1:before,
+.section-events #block-views-dashboard-block-2:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 70, ../../sass/headers/extensible.scss */
+.panel-rule-single, .section-events .view-dashboard.view-display-id-page_1, .section-events #block-views-dashboard-block-1,
+.section-events #block-views-dashboard-block-2 {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 78, ../../sass/headers/extensible.scss */
+.pager-link, ul.pager li.pager-first a,
+ul.pager li.pager-previous a, ul.pager li.pager-next a,
+ul.pager li.pager-last a {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/* dashboard lists */
+/* line 9, ../../sass/main_pages/dashboard.scss */
+li.views-row {
+  list-style-image: url("../images/icons/arrow-icons.png");
+  margin-bottom: -2px;
+}
+
+/* line 14, ../../sass/main_pages/dashboard.scss */
+li.views-row:last-child {
+  margin-bottom: -3px;
+}
+
+/* line 18, ../../sass/main_pages/dashboard.scss */
+div.view-content div.item-list {
+  padding-left: 0px;
+  padding-top: 14px;
+}
+/* line 21, ../../sass/main_pages/dashboard.scss */
+div.view-content div.item-list:first-of-type {
+  padding-top: 0;
+}
+/* line 24, ../../sass/main_pages/dashboard.scss */
+div.view-content div.item-list h3 {
+  margin-bottom: 10px;
+  padding-top: 0px;
+  line-height: 16px;
+  margin-top: 0;
+}
+/* line 29, ../../sass/main_pages/dashboard.scss */
+div.view-content div.item-list h3 a:hover {
+  text-decoration: none;
+}
+/* line 33, ../../sass/main_pages/dashboard.scss */
+div.view-content div.item-list ul {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+/* line 40, ../../sass/main_pages/dashboard.scss */
+p {
+  margin: 0 0 1em 0;
+  line-height: 1.6em;
+}
+
+/* line 46, ../../sass/main_pages/dashboard.scss */
+.pager-ellipsis {
+  font-weight: bold;
+  color: #c3791f;
+}
+
+/* line 54, ../../sass/main_pages/dashboard.scss */
+.section-events h3,
+.section-events span.date-display-single {
+  font-style: normal;
+  font-size: 14px;
+}
+/* line 58, ../../sass/main_pages/dashboard.scss */
+.section-events h3 a,
+.section-events span.date-display-single a {
+  color: black;
+}
+/* line 62, ../../sass/main_pages/dashboard.scss */
+.section-events h3 {
+  margin-top: 0px;
+}
+/* line 65, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-exp-dashboard-page-1 {
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+/* line 69, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="submit"] {
+  margin-right: 0px;
+}
+/* line 72, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="text"] {
+  font-size: 14px;
+  padding: 5px;
+  max-width: 400px;
+  display: block;
+  border: 1px solid #b6b6b6;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+}
+/* line 82, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-exp-dashboard-page-1 #edit-keys-wrapper {
+  margin-top: -2px;
+}
+/* line 86, ../../sass/main_pages/dashboard.scss */
+.section-events .view-dashboard.view-display-id-page_1 {
+  background-color: white;
+  border-width: 0px;
+  width: 48%;
+  display: block;
+  margin-top: 10px;
+  float: left;
+}
+/* line 94, ../../sass/main_pages/dashboard.scss */
+.section-events .view-dashboard.view-display-id-page_1:before {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+/* line 99, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 {
+  background: url("../images/icons/registered.png") 380px 17px no-repeat #eef1f3;
+}
+/* line 102, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-2 {
+  background: url("../images/icons/archived.png") 380px 17px no-repeat #eef1f3;
+  clear: right;
+}
+/* line 106, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1,
+.section-events #block-views-dashboard-block-2 {
+  float: right;
+  width: 48%;
+  margin-top: 10px;
+  overflow: none;
+  margin-right: 0px;
+  padding-left: 0px;
+}
+/* line 115, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 h2.block-title,
+.section-events #block-views-dashboard-block-2 h2.block-title {
+  font-weight: normal;
+  margin-bottom: 20px;
+  margin-top: 3px;
+  font-size: 24px;
+  padding: 0 20px;
+  color: #334b56;
+}
+/* line 123, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 .view-content,
+.section-events #block-views-dashboard-block-2 .view-content {
+  padding: 0 20px;
+}
+/* line 126, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 .view-dashboard .button.participate,
+.section-events #block-views-dashboard-block-2 .view-dashboard .button.participate {
+  margin: 2px 0 12px;
+}
+/* line 129, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 .pager,
+.section-events #block-views-dashboard-block-2 .pager {
+  margin: 10px 0 0;
+}
+/* line 132, ../../sass/main_pages/dashboard.scss */
+.section-events #block-views-dashboard-block-1 .view-empty,
+.section-events #block-views-dashboard-block-2 .view-empty {
+  margin-left: 20px;
+}
+/* line 136, ../../sass/main_pages/dashboard.scss */
+.section-events #block-block-15 {
+  clear: both;
+}
+
+/*
+NK (7/30): dashboard update.
+we may deprecate field-name-upcoming-events selector
+
+*/
+/* line 153, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 1.6em;
+}
+/* line 157, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list {
+  margin: 0px auto;
+}
+/* line 159, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list ul.pager {
+  margin-left: 0px;
+}
+/* line 164, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard {
+  /* min-height: 170px;*/
+}
+/* line 166, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard div.view-empty {
+  margin-top: 20px;
+}
+/* line 174, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 .views-field-flagged {
+  font-size: 12px;
+  line-height: 1em;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+/* line 181, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list {
+  margin-left: 0px;
+}
+/* line 183, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list ul {
+  padding-bottom: 6px;
+}
+/* line 188, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 h2.block-title {
+  font-weight: normal;
+}
+/* line 191, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty {
+  margin-top: 30px;
+}
+/* line 194, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-2 ul.pager {
+  /*margin-bottom: -30px;*/
+  padding-bottom: 0px;
+}
+/* line 199, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events,
+body.page-events.section-events div.view.view-dashboard {
+  padding-bottom: 0px;
+}
+/* line 202, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events div.view-content,
+body.page-events.section-events div.view.view-dashboard div.view-content {
+  /* set to min-height to avoid breaking layout */
+  /*min-height: 450px;*/
+  /*border-bottom: 5px solid $capt-aqua;*/
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+/* line 208, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events div.view-content ul,
+body.page-events.section-events div.view.view-dashboard div.view-content ul {
+  padding-left: 14px;
+  border-bottom: 1px solid #d7d7d7;
+  padding-bottom: 14px;
+}
+/* line 213, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list,
+body.page-events.section-events div.view.view-dashboard div.view-content div.item-list {
+  margin-left: 0px;
+}
+/* line 216, ../../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list:last-child ul,
+body.page-events.section-events div.view.view-dashboard div.view-content div.item-list:last-child ul {
+  border-bottom: none;
+}
+
+/* *
+ * Pager styles
+ */
+/* line 227, ../../sass/main_pages/dashboard.scss */
+ul.pager {
+  text-align: center;
+  text-overflow: visible;
+  /* width: 106%;*/
+  /* no link within pager-current */
+  /* first & previous on left */
+  /* next & last on right */
+}
+/* line 230, ../../sass/main_pages/dashboard.scss */
+ul.pager a:hover {
+  text-decoration: none;
+}
+/* line 234, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-ellipsis {
+  padding: 0px;
+}
+/* line 237, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-item {
+  background-color: #eef1f3;
+  color: #c3791f;
+  height: 30px;
+  /*padding: 8px 0px 8px 0px;*/
+  width: 50px;
+}
+/* line 243, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-item a {
+  color: #c3791f;
+  /*padding: 4px 7px;*/
+}
+/* line 249, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-current {
+  background-color: #c3791f;
+  width: 60px;
+  color: #eef1f3;
+}
+/* line 254, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-last a {
+  background-position: 33px 8px;
+}
+/* line 258, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-first,
+ul.pager li.pager-previous {
+  padding: 0px;
+  margin: 0px 4px 0px 0px;
+}
+/* line 262, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-first a,
+ul.pager li.pager-previous a {
+  background-image: url("../images/icons/left-arrow-orange.png");
+  background-position: 0 8px;
+  padding: 8px 0px 8px 20px;
+}
+/* line 270, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-next,
+ul.pager li.pager-last {
+  padding: 0px;
+  margin: 0px 0px 0px 4px;
+}
+/* line 274, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-next a,
+ul.pager li.pager-last a {
+  background-image: url("../images/icons/right-arrow-orange.png");
+  background-position: 33px 7px;
+  padding: 8px 24px 8px 0px;
+}
+/* line 281, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-last a {
+  background-position: 30px 7px;
+}
+/* line 284, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-current {
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 6px 9px;
+}
+/* line 289, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-item {
+  /* not sure why we need vert padding but not horiz padding.*/
+  padding: 6px 0px;
+  margin-right: 3px;
+  margin-left: 3px;
+}
+/* line 294, ../../sass/main_pages/dashboard.scss */
+ul.pager li.pager-item a {
+  padding: 6px 9px;
+}
+/* line 300, ../../sass/main_pages/dashboard.scss */
+ul.pager div.ajax-progress {
+  float: right;
+  display: inline;
+  top: 20px;
+  left: center;
+  position: relative;
+  margin-left: -20px;
+}
+/* line 308, ../../sass/main_pages/dashboard.scss */
+ul.pager #page {
+  height: 100%;
+  margin-bottom: -200px;
+}

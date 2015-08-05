@@ -1,6 +1,6 @@
-@import 'variables';
-@import 'capt-mixins';
-@import 'extensible';
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
 
 /*
  *  Start Login Page
@@ -8,8 +8,6 @@
 
 body.not-logged-in.page-user:not(.page-user-register),
 body.not-logged-in.page-anon-login {
-
-
   height: 100%;
 
    /* hide logo */

@@ -1,0 +1,259 @@
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../../sass/headers/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../../sass/headers/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../../sass/headers/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../../sass/headers/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../../sass/headers/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../../sass/headers/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 47, ../../sass/headers/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 57, ../../sass/headers/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 70, ../../sass/headers/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 78, ../../sass/headers/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*
+ *  Event Report
+ */
+/* line 9, ../../sass/admin/admin.scss */
+.views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: .8em;
+}
+
+/* line 13, ../../sass/admin/admin.scss */
+.entity-entityform-type h2 {
+  display: none;
+}
+
+/* line 17, ../../sass/admin/admin.scss */
+body.page-administration {
+  line-height: 1.5em;
+}
+/* line 19, ../../sass/admin/admin.scss */
+body.page-administration a, body.page-administration a:visited {
+  color: #333333;
+}
+/* line 21, ../../sass/admin/admin.scss */
+body.page-administration a:hover, body.page-administration a:visited:hover {
+  color: #8c1d18;
+}
+/* line 28, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tbody, body.page-administration.page-administration-my-events table.views-table tbody {
+  border: 1px solid #d7d7d7;
+}
+/* line 32, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tr th, body.page-administration.page-administration-my-events table.views-table tr th {
+  padding-right: 10px;
+}
+/* line 35, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tr td:first-child, body.page-administration.page-administration-my-events table.views-table tr td:first-child {
+  padding-left: 10px;
+  width: 230px;
+}
+/* line 39, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tr td:nth-child(2), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(2) {
+  width: 220px;
+}
+/* line 42, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tr td, body.page-administration.page-administration-my-events table.views-table tr td {
+  padding-right: 10px;
+}
+/* line 45, ../../sass/admin/admin.scss */
+body.page-administration.page-administration-event-report table.views-table tr td:nth-child(n+5), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(n+5) {
+  text-align: center;
+}
+
+/*
+ *  styles from Nancy on 5/21-5/22:
+ */
+/* line 56, ../../sass/admin/admin.scss */
+#account-pass-restrictions {
+  border: 1px solid #ff9933;
+  font-family: Georgia, Palatino, serif;
+  padding: 0 6px;
+}
+
+/* line 62, ../../sass/admin/admin.scss */
+#account-pass-restrictions li {
+  font-size: 120%;
+  line-height: 1.25em;
+  list-style-image: url("/misc/menu-collapsed.png");
+}
+
+/* line 68, ../../sass/admin/admin.scss */
+div.group-audience, div.group-description, div.group-dates {
+  /* h4 {
+       margin-bottom: 0px;
+       }*/
+  /* p {
+       margin: 0px;
+       }*/
+}
+
+/* Float image on Presenters in Event view. */
+/* line 79, ../../sass/admin/admin.scss */
+.field-name-field-presenter .node-teaser .field-name-field-presenter-image {
+  float: left;
+}
+/* line 81, ../../sass/admin/admin.scss */
+.field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
+  margin-right: 20px;
+  border: 1px solid red;
+}
+
+/* line 87, ../../sass/admin/admin.scss */
+div.views-field.views-field-field-presenter-image {
+  margin: 5px 15px 0px 0px;
+  /*16px 23px 0px 0px;*/
+  line-height: 1em;
+}
+
+/**
+ * Disclaimer Placement Section
+ */
+/* line 97, ../../sass/admin/admin.scss */
+body.node-type-event div.bottom-footer {
+  /* border: 1px solid yellow;*/
+  height: 50px;
+  margin-bottom: 0px;
+}
+
+/* line 103, ../../sass/admin/admin.scss */
+body.node-type-event #block-block-12 {
+  /*border: 1px solid blue;*/
+  display: block;
+}
+/* line 106, ../../sass/admin/admin.scss */
+body.node-type-event #block-block-12 .disclaimer {
+  padding: 0px 590px 20px 0px;
+  left: 20px;
+  /* border: 1px solid red;*/
+  /*float: left;*/
+  /*top: -30px;*/
+}
+
+/* we are using this for the event edit pages*/
+/* line 120, ../../sass/admin/admin.scss */
+body.node-type-event.page-node-edit .disclaimer {
+  left: 0px;
+}
+
+/* line 125, ../../sass/admin/admin.scss */
+body.page-user-edit div.disclaimer {
+  margin-bottom: 40px;
+}
+
+/*
+ * page administration
+ */
+/* line 135, ../../sass/admin/admin.scss */
+body.page-administration div#content div#title-section h2 {
+  display: none;
+}
+
+/**
+ * Switch User
+ */
+/* line 144, ../../sass/admin/admin.scss */
+div.block-devel#block-devel-switch-user {
+  margin-left: 90px;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #959595;
+  width: 400px;
+}
+/* line 150, ../../sass/admin/admin.scss */
+div.block-devel#block-devel-switch-user input.form-submit {
+  background-color: #c3791f;
+}
