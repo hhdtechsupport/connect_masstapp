@@ -219,10 +219,10 @@ function captconnect_custom_node_access($node, $op, $account) {
       // Workflow Access grants access based on roles, but Events also need an OG check.
       $access_types = array('event');
       if (in_array($node->type, $access_types)) {
-//        $gid = $node->og_group_ref[LANGUAGE_NONE][0]['target_id'];
         $gid = field_get_items('node', $node, 'og_group_ref');
+
         // See if the user is a member of the node's group or core.
-        if ($gid && og_is_member('node', $gid, 'user') /*
+        if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user') /*
         || og_is_member('node', variable_get('tta_custom_core_group', 0), 'user')*/) {
           // Yes, so just let other Drupal rules take over.
           return NODE_ACCESS_IGNORE;
