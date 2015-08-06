@@ -430,7 +430,7 @@ class WorkflowTransition extends Entity {
         entity_get_controller('node')->resetCache(array($entity->nid)); // from entity_load(), node_save();
       }
       else {
-        // module_invoke_all('workflow', 'transition post', $old_sid, $new_sid, $entity, $force, $entity_type, $field_name, $this);
+        module_invoke_all('workflow', 'transition post', $old_sid, $new_sid, $entity, $force, $entity_type, $field_name, $this);
         // We have a problem here with Rules, Trigger, etc. when invoking
         // 'transition post': the entity has not been saved, yet. we are still
         // IN the transition, not AFTER. Alternatives:
