@@ -236,23 +236,26 @@ function captconnect_blocks_instance_registration_view() {
 function captconnect_blocks_user_info_view() {
   global $user;
   $output = '';
-  // Get full user object.
-  $user = user_load($user->uid);
+  
+  if (user_is_logged_in()) {
+    // Get full user object.
+    $user = user_load($user->uid);
 
-  // Get the user's roles.
-  $roles = $user->roles;
-  unset($roles[DRUPAL_AUTHENTICATED_RID]);
-  $output .= '<br /><span class="user-roles">' . implode(', ', $roles) . '</span>';
+    // Get the user's roles.
+    $roles = $user->roles;
+    unset($roles[DRUPAL_AUTHENTICATED_RID]);
+    $output .= '<br /><span class="user-roles">' . implode(', ', $roles) . '</span>';
 
-  // Get the user's groups.
-  $gid = field_get_items('user', $user, 'og_user_node');
-  $groups = array();
-  foreach ($gid as $garray) {
-    $groups[] = $garray['target_id'];
+    // Get the user's groups.
+    $gid = field_get_items('user', $user, 'og_user_node');
+    $groups = array();
+    foreach ($gid as $garray) {
+      $groups[] = $garray['target_id'];
+    }
+
+    $stuff = db_query("SELECT title FROM {node} WHERE nid IN(:nids)", array(':nids' => $groups))->fetchCol();
+    $output .= '<br /><span class="user-groups">' . implode(', ', $stuff) . '</span>';
   }
-
-  $stuff = db_query("SELECT title FROM {node} WHERE nid IN(:nids)", array(':nids' => $groups))->fetchCol();
-  $output .= '<br /><span class="user-groups">' . implode(', ', $stuff) . '</span>';
 
   return $output;
 }
