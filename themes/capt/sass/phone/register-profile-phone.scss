@@ -2,214 +2,123 @@
 @import "../headers/capt-mixins";
 @import "../headers/extensible";
 
+body.admin-menu,
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event)  {
 
-form#user-profile-form,
-  body.admin-menu,
-  body.not-logged-in.page-user-register:not(.node-type-event) {
-    div#block-block-3.block.block-block {
-      width: 85%;
-      margin: 0px auto;
+
+  $reg-margin-left: 1.6%;
+
+  div#edit-actions {
+
+    input#edit-submit {
     }
-    div#edit-actions {
-      text-align: center;
-    }
-    ul#main-menu.main-menu {
-      li.menu-item > a {
-        width: 150px;
-      }
-    }
-    h1#page-title.page__title.title {
-      margin: 0px auto;
-      text-align: center;
-    }
-    div.bottom-footer div.disclaimer {
+  }
+
+  @media screen and (max-width: 710px) {
+  div.horizontal-tabs  {
+    border: 1px solid blue;
+    width: 100%;
+    ul.horizontal-tabs-list {
+      margin-left: 0.7%;
       width: 100%;
-      margin: 0px auto;
-      padding: 0px;
-    }
-    /* iphone 6 */
-    div#content {
-      width: 96.8%;
-      margin: 0px auto;
-      margin-top: 55px;
-      /* different from iPad */
-      display: block;
-      padding-left: 0px;
-      padding-right: 0px;
-      /* may only be for registration*/
-      border-width: 0px;
-      ul.tabs-primary {
-        width: 97%;
+      li.horizontal-tab-button {
+        display: block;
+        border: 1px solid red;
+        width: 98%;
+        text-align: center;
         margin: 0px auto;
-        margin-bottom: 20px;
       }
     }
-    fieldset.group-demographic-information {
-      div.data-view div.button.edit-button {
-        top: 130px;
+    /*.horizontal-tabs-panes.horizontal-tabs-processed {
+      &:before {
+
       }
-      div.save-button:first-child, div.cancel-button:nth-child(2) {
-        display: none;
+    }*/
+  }
+}
+div.bottom-footer div.disclaimer {
+
+}
+div#block-block-3 {
+
+}
+div#main {
+  div#navigation {
+    div.region.region-navigation {
+
+      div.contextual-links-region {
+        ul#main-menu.main-menu.responsive-menu {
+          li#menu-item-1185,
+          li#menu-item-589 {
+
+          }
+              // end items
+            }
+            // end menu
+          }
+          // end contextual links
+        }
+        // end region nav
       }
-    }
-    fieldset div.fieldset-wrapper {
-      border-width: 0px;
-    }
-    /* declare variable */
-    $pass-width: 300px;
-    fieldset.required-fields.group-account.field-group-fieldset.form-wrapper {
-      div.form-type-password-confirm.form-item {
-        width: $pass-width;
-        margin: 0px;
-        input.form-text.password-field,
-        input.form-text.password-confirm {
-          width: $pass-width;
-          float: left;
-          clear: left;
-          margin-bottom: 10px;
+      // end nav
+      // content, profile screen, iPad for registration d
+      div#content {
+
+
+        form#user-register-form {
+             width: 100%;
+             border: 2px dashed purple;
+             fieldset.form-wrapper {
+              input {
+                display: none;
+                &:before {
+                  width: 100%;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                }
+              }
+             }
         }
-        div.description {
-          clear: left;
+      
+        input#edit-cancel.form-submit {
+       
         }
-        div.password-suggestions {
-          width: 112%;
-        }
-        input#edit-pass-pass2 {
-          margin-top: -20px;
-        }
-        div.form-item-pass-pass1,
-        div.form-item-pass-pass2 {
-          label {
-            clear: left;
-            float: left;
+        div#title-section {
+
+
+
+          h1#page-title.page__title {
           }
         }
-        div.password-parent {
-          width: 85%;
+        #block-block-3 {
+
         }
-        div.password-strength {
-          width: $pass-width;
-          float: left;
-          /*background-color: yellow;*/
-          margin-bottom: 20px;
+        div.fieldset-wrapper {
+
         }
-      }
-      input.form-text {
-        width: 90%;
-      }
-      div.description {
-        margin-right: 5px;
-      }
-    }
-    /*fieldset.field-group-fieldset {
-      background-color: white;
-      }*/
-    fieldset {
-      padding-top: 0px;
-      width: 85%;
-      min-width: 0px;
-      margin: 0px auto;
-      margin-bottom: -20px;
-      border: 1px solid $capt-profgrey;
-      border-top: 0px;
-      background-color: white;
-      margin-bottom: 16px;
-      &:before {
-        display: block;
-        background-color: $capt-aqua;
-        height: 5px;
-        width: 100%;
-        content: "";
-        position: relative;
-        left: -20px;
-        top: -30px;
-        margin-left: -1px;
-        padding-left: 21px;
-        padding-right: 21px;
-      }
-      .chosen-container {
-        width: 100% !important;
-      }
-      /* widths of all contents must be controlled */
-      div.field-type-entityreference,
-      label,
-      div.form-item.form-type-select,
-      input.text-full {
-        width: 100%;
-      }
-      // inner fieldset -- reset margins so it doesn't make outer fieldset too wide
-      fieldset {
-        display: none;
-      }
-      div.data-view, div.fieldset-wrapper {
-        width: 100.7%;
-        margin-top: 0px;
-        .item {
-          margin-right: 16px;
+        fieldset.form-wrapper {
+            width: 95%;
+            padding-right: 2.5%;
+            padding-left: 2.5%;
+            div.fieldset-wrapper {
+               margin-left: -15px;
+            }
+            &:before {
+              width: 95%;
+              padding-left: 2.5%;
+              padding-right: 2.5%
+            }
+
         }
-      }
-      /* edit button */
-      div.data-view div.edit-button {
-        position: relative;
-        top: -24px;
-        font-size: 18px;
-      }
-      div.fieldset-wrapper {
-        div.save-button, div.cancel-button {
-          font-size: 18px;
-        }
-        div.save-button:first-child, div.cancel-button:nth-child(2) {
-          top: -30px;
-          position: relative;
-        }
-      }
-      // legends
-      legend span.fieldset-legend {
-        margin-left: -300px;
-        left: 283px;
-        margin-bottom: 20px;
-        position: relative;
-        top: 50px;
-        left: 300px;
-        display: block;
-      }
-      div.fieldset-wrapper, div.data-view {
-        padding-top: 40px;
-        margin-top: -3px;
-        margin-bottom: 0px;
-        z-index: 0;
-      }
-    }
-    div#title-section {
-      margin-left: 6%;
-      padding-left: 0px;
-      h1#page-title.page__title {
-        text-align: left;
-        margin-left: 0px;
-      }
-    }
-    /* user profile specific stuff! */
-    form#user-profile-form {
-      fieldset {
-        background-color: $capt-lightgrey;
-        &:before {
-          width: 100%;
-          padding-left: 8px;
-          padding-right: 9px;
-          margin-left: 12px;
-        }
-        div.data-view {
-          border-width: 0px;
-        }
-      }
-    }
-    body.not-logged-in.page-user-register:not(.node-type-event) {
-    div#title-section {
-      margin-left: 0px;
-      h1#page-title.page__title {
-        margin: 0px auto;
-        text-align: center;
       }
     }
   }
+  /* specific to registration*/
+  body.page-user-register {
+    ul.tabs-primary, ul.tabs-primary a {
+
+    }
   }
+
+
