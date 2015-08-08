@@ -29,10 +29,9 @@
       top: -11px;
     }
 }
-.mobile-panel-rule {
-  @extend .mobile-panel;
-   &:before {
-    display: block;
+
+.before-style {
+   display: block;
     background-color: $capt-aqua;
     height: 5px;
     width: 100%;
@@ -41,6 +40,11 @@
     top: 0px;
     margin-left: -1px;
     padding-left: 2px;
+}
+.mobile-panel-rule {
+  @extend .mobile-panel;
+   &:before {
+    @extend .before-style;
   }
 }
   .mobile-login-lower-panel {
@@ -50,16 +54,19 @@
     }
   }
 
-
-  .show-hide {
-    font-size: 22px;
-    padding-left: 20px;
+  .show-hide-basic {
     cursor: pointer;
     background-image: url("../images/icons/hide.png");
     background-position: 0px 8px;
     background-repeat: no-repeat;
+
+  }
+  .show-hide {
+    font-size: 22px;
+    padding-left: 20px;
     margin-left: 0px;
     margin-top: 0px;
+    @extend .show-hide-basic;
   }
 
 .noselect {

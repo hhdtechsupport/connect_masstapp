@@ -1,0 +1,233 @@
+@import "../headers/variables";
+@import "../headers/capt-mixins";
+@import "../headers/extensible";
+@import "capt-mixins-phone";
+@import "extensible-phone";
+
+$panel-margin-left: 20px;
+$header-pad-left: 20px;
+
+.show-hide-button {
+       color: black;
+      font-weight: normal;
+      font-size: 20px;
+      @extend .show-hide-basic;
+      padding-left: $header-pad-left;
+      background-repeat: no-repeat;
+}
+
+/* event primitive */
+.event-show-hide {
+  background-color: $capt-lightgrey;
+  padding-bottom: 10px;
+  border: 1px solid $capt-midgrey;
+  border-top: 0px;
+  h4{
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-top: 0px;
+    margin-left: $panel-margin-left;
+    span {
+       @extend .show-hide-button;
+    }
+  }
+  div.field-items {
+    margin-left: $panel-margin-left;
+    margin-bottom: 20px;
+  }
+}
+/* event page styles */
+body.node-type-event {
+  // banner 
+     /* banner title text */
+    h1#site-name.header__site-name {
+      /* condense */
+        @media screen and (max-width: 519px) {
+        margin-top: -30px;
+        a span strong {
+          /*color: purple;*/
+        }
+      }
+      @media screen and (max-width: 512px) {
+        margin-top: -45px;
+        a span strong {
+          /*color: blue;*/
+        }
+      }
+      @media screen and (max-width: 455px) {
+        margin-top: -60px;
+        a span strong {
+          /*color: yellow;*/
+        }
+      }
+      margin-left: -339px;
+      a {
+        font-size: 1em;
+      
+      }
+    }
+    /* banner subtitle text */
+    div#block-block-7 {
+      display: block;
+      width: 100px;
+    }
+    div#block-block-13 {
+
+      color: white;
+      font-size: 11px;
+      margin-left: -225px;
+      top: -100;
+      position: absolute;
+      margin-top: -8px;
+      cursor: default;
+      @media screen and (max-width: 767px) {
+        margin-left: -337px;
+        margin-top: -20px;
+      }
+      @media screen and (max-width: 512px) {
+        margin-top: -35px;
+      }
+      @media screen and (max-width: 454px) {
+        margin-top: -50px;
+      }
+
+    }
+    
+  // general styles 
+  div#page {
+  padding-bottom: 1950px;
+
+  } 
+  div#main div#content div#title-section {
+      margin-top: 0px;
+  }
+  
+  ul.tabs-primary {
+    display: none;
+  }
+  h1.subtitle {
+    margin-top: 50px;
+  }
+  .ds-2col-stacked > .group-left,
+  .ds-2col-stacked > .group-right {
+    width: 100%;
+    margin: 0px;
+    float: none;
+  }
+  // panel-specific 
+  .ds-2col-stacked > .group-right {
+    div.field-name-materials.field-type-ds {
+      border-top: 1px solid $capt-midgrey;
+      padding-bottom: 0px;
+      h2 {
+        @extend .show-hide-button;
+        border-bottom: 0px;
+        margin-left: $panel-margin-left;
+      }
+      &:before {
+        height: 0px;
+      }
+      div.item-list {
+        margin-left: $panel-margin-left;
+        border-top-width: 0px;
+      }
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 99.5%;
+
+    }
+  }
+  .ds-2col-stacked > .group-left {
+
+    div.group-audience {
+      &:before {
+        @extend .before-style;
+      }
+      @extend .event-show-hide;
+      p {
+        width: 95%;
+      }
+    }
+    div.group-presenter {
+      @extend .event-show-hide;
+      p {
+        width: 95%;
+      }
+    }
+
+    div.field-type-ds.field-name-event-date-s- {
+      br {
+        display: none;
+      }
+   
+      span.date-display-single {
+
+      }
+      width: 100%;
+      padding: 0px;
+      background-color: white;
+      border: 0px;
+      div.item-list ul {
+        padding-left: 13px;
+        li.views-row {
+          width: 200px;
+          position: relative;
+          top: 0px;
+          margin-bottom: 0px;
+      
+         
+          padding-top: 0px;
+          // is there a better way?
+          strong {
+            position: relative;
+           
+            span {
+              white-space: nowrap;
+            }
+          }
+          // start & end time
+          div.field-content > span.date-display-single {
+            &:before {
+              content: '–\00a0';
+            }
+          }
+          // day & date
+          strong strong span.date-display-single { 
+            &:after {
+              content: '\00a0';
+              padding-right: 2px;
+            }
+
+          }
+          // shift up to align with bullet
+          span.date-display-single {
+            top: -14px;
+            position: relative;
+          }
+          div.views-field.views-field-ops {
+      
+            margin-left: 0px;
+            position: relative;
+            top: -10px;
+            span {
+             // border: 1px solid red;
+            }
+          }
+        }
+      }
+      div.field-item h2.block-title {
+        color: $capt-maroon;
+        font-size: 1.25em;
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+      &:before {
+        background-color: white;
+        height: 0px;
+      }
+    }
+    /* make an extensible class?*/
+    
+  }
+}
+

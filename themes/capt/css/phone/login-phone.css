@@ -149,8 +149,8 @@ body.not-logged-in.page-anon-login div#block-block-9:before {
   top: -11px;
 }
 
-/* line 34, ../../sass/phone/extensible-phone.scss */
-.mobile-panel-rule:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
+/* line 33, ../../sass/phone/extensible-phone.scss */
+.before-style, .mobile-panel-rule:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
 body.not-logged-in.page-anon-login form#user-login:before {
   display: block;
   background-color: #577785;
@@ -163,7 +163,7 @@ body.not-logged-in.page-anon-login form#user-login:before {
   padding-left: 2px;
 }
 
-/* line 48, ../../sass/phone/extensible-phone.scss */
+/* line 52, ../../sass/phone/extensible-phone.scss */
 .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
 body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
 body.not-logged-in.page-anon-login div#block-block-8:before,
@@ -171,19 +171,23 @@ body.not-logged-in.page-anon-login div#block-block-9:before {
   background-color: white;
 }
 
-/* line 54, ../../sass/phone/extensible-phone.scss */
-.show-hide {
-  font-size: 22px;
-  padding-left: 20px;
+/* line 57, ../../sass/phone/extensible-phone.scss */
+.show-hide-basic, .show-hide {
   cursor: pointer;
   background-image: url("../images/icons/hide.png");
   background-position: 0px 8px;
   background-repeat: no-repeat;
+}
+
+/* line 64, ../../sass/phone/extensible-phone.scss */
+.show-hide {
+  font-size: 22px;
+  padding-left: 20px;
   margin-left: 0px;
   margin-top: 0px;
 }
 
-/* line 65, ../../sass/phone/extensible-phone.scss */
+/* line 72, ../../sass/phone/extensible-phone.scss */
 .noselect, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
 body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
 body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,

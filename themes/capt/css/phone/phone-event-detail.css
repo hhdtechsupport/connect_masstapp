@@ -1,0 +1,418 @@
+@charset "UTF-8";
+/* SMACSS theme rules */
+/* @import "theme-A.css"; */
+/* @import "theme-B.css"; */
+/* variables */
+/*fonts*/
+/*#e4e4e4;*/
+/*#e4e3e0;*/
+/*measurements */
+/*fonts*/
+/* responsive */
+/* logos */
+/* end logos */
+/* mixins */
+/* for tabs! */
+/* for rounded elements */
+/* for header & footer */
+/* line 5, ../../sass/headers/extensible.scss */
+#block-block-12 .contextual-links-wrapper {
+  width: 970px;
+  margin: 0px auto;
+}
+
+/* line 10, ../../sass/headers/extensible.scss */
+.proto-disclaimer {
+  position: relative;
+  top: 30px;
+  font-size: 10px;
+  line-height: 1.4em;
+  width: 420px;
+  padding-right: 550px;
+  margin: 0px auto;
+  padding-bottom: 20px;
+  left: 0px;
+}
+
+/* line 22, ../../sass/headers/extensible.scss */
+.basic-button {
+  background-color: #c3791f;
+  color: white;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* line 29, ../../sass/headers/extensible.scss */
+.panel, .panel-rule, .panel-rule-single {
+  background-color: #eef1f3;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 35, ../../sass/headers/extensible.scss */
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
+  color: #8c1d18;
+}
+/* line 38, ../../sass/headers/extensible.scss */
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
+  border: 0px;
+}
+
+/* line 47, ../../sass/headers/extensible.scss */
+.panel-rule, .panel-rule-single {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 0px;
+  /*5px solid $capt-aqua;*/
+  font-size: 13px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
+}
+/* line 57, ../../sass/headers/extensible.scss */
+.panel-rule:before, .panel-rule-single:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -25px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 70, ../../sass/headers/extensible.scss */
+.panel-rule-single {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7d7d7;
+  /* needs to be larger for dashboard panels */
+}
+
+/* line 78, ../../sass/headers/extensible.scss */
+.pager-link {
+  background-repeat: no-repeat;
+  color: #c3791f;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+/*
+ * prototype classes´
+ */
+/* line 6, ../../sass/phone/extensible-phone.scss */
+.reset-layout {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* for mobile panels with no top bars */
+/* line 12, ../../sass/phone/extensible-phone.scss */
+.top-bar-reset {
+  background-color: none;
+  height: 0px;
+  width: 0px;
+  position: static;
+}
+
+/* line 18, ../../sass/phone/extensible-phone.scss */
+.mobile-panel, .mobile-panel-rule, .mobile-login-lower-panel {
+  padding-top: 10px;
+  text-align: left;
+  margin: 0px auto;
+  float: none;
+  width: 94%;
+  padding-left: 0px;
+  background: no-repeat;
+  background-color: #eef1f3;
+}
+/* line 28, ../../sass/phone/extensible-phone.scss */
+.mobile-panel:before, .mobile-panel-rule:before, .mobile-login-lower-panel:before {
+  top: -11px;
+}
+
+/* line 33, ../../sass/phone/extensible-phone.scss */
+.before-style, .mobile-panel-rule:before, body.node-type-event .ds-2col-stacked > .group-left div.group-audience:before {
+  display: block;
+  background-color: #577785;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: 0px;
+  margin-left: -1px;
+  padding-left: 2px;
+}
+
+/* line 52, ../../sass/phone/extensible-phone.scss */
+.mobile-login-lower-panel:before {
+  background-color: white;
+}
+
+/* line 57, ../../sass/phone/extensible-phone.scss */
+.show-hide-basic, .show-hide, .show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
+  cursor: pointer;
+  background-image: url("../images/icons/hide.png");
+  background-position: 0px 8px;
+  background-repeat: no-repeat;
+}
+
+/* line 64, ../../sass/phone/extensible-phone.scss */
+.show-hide {
+  font-size: 22px;
+  padding-left: 20px;
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+/* line 72, ../../sass/phone/extensible-phone.scss */
+.noselect {
+  cursor: default;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*
+ *  End Prototypes, Start Mixins
+ */
+/* line 10, ../../sass/phone/phone-event-detail.scss */
+.show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
+  color: black;
+  font-weight: normal;
+  font-size: 20px;
+  padding-left: 20px;
+  background-repeat: no-repeat;
+}
+
+/* event primitive */
+/* line 20, ../../sass/phone/phone-event-detail.scss */
+.event-show-hide, body.node-type-event .ds-2col-stacked > .group-left div.group-audience, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
+  background-color: #eef1f3;
+  padding-bottom: 10px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 25, ../../sass/phone/phone-event-detail.scss */
+.event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-top: 0px;
+  margin-left: 20px;
+}
+/* line 34, ../../sass/phone/phone-event-detail.scss */
+.event-show-hide div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-items {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* event page styles */
+/* line 40, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event {
+  /* banner title text */
+  /* banner subtitle text */
+}
+/* line 43, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event h1#site-name.header__site-name {
+  /* condense */
+  margin-left: -339px;
+}
+@media screen and (max-width: 519px) {
+  /* line 43, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name {
+    margin-top: -30px;
+  }
+  /* line 47, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name a span strong {
+    /*color: purple;*/
+  }
+}
+@media screen and (max-width: 512px) {
+  /* line 43, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name {
+    margin-top: -45px;
+  }
+  /* line 53, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name a span strong {
+    /*color: blue;*/
+  }
+}
+@media screen and (max-width: 455px) {
+  /* line 43, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name {
+    margin-top: -60px;
+  }
+  /* line 59, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event h1#site-name.header__site-name a span strong {
+    /*color: yellow;*/
+  }
+}
+/* line 64, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event h1#site-name.header__site-name a {
+  font-size: 1em;
+}
+/* line 70, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event div#block-block-7 {
+  display: block;
+  width: 100px;
+}
+/* line 74, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event div#block-block-13 {
+  color: white;
+  font-size: 11px;
+  margin-left: -225px;
+  top: -100;
+  position: absolute;
+  margin-top: -8px;
+  cursor: default;
+}
+@media screen and (max-width: 767px) {
+  /* line 74, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event div#block-block-13 {
+    margin-left: -337px;
+    margin-top: -20px;
+  }
+}
+@media screen and (max-width: 512px) {
+  /* line 74, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event div#block-block-13 {
+    margin-top: -35px;
+  }
+}
+@media screen and (max-width: 454px) {
+  /* line 74, ../../sass/phone/phone-event-detail.scss */
+  body.node-type-event div#block-block-13 {
+    margin-top: -50px;
+  }
+}
+/* line 97, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event div#page {
+  padding-bottom: 1950px;
+}
+/* line 101, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event div#main div#content div#title-section {
+  margin-top: 0px;
+}
+/* line 105, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event ul.tabs-primary {
+  display: none;
+}
+/* line 108, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event h1.subtitle {
+  margin-top: 50px;
+}
+/* line 111, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left,
+body.node-type-event .ds-2col-stacked > .group-right {
+  width: 100%;
+  margin: 0px;
+  float: none;
+}
+/* line 119, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds {
+  border-top: 1px solid #d7d7d7;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  width: 99.5%;
+}
+/* line 122, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
+  border-bottom: 0px;
+  margin-left: 20px;
+}
+/* line 127, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds:before {
+  height: 0px;
+}
+/* line 130, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds div.item-list {
+  margin-left: 20px;
+  border-top-width: 0px;
+}
+/* line 140, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left {
+  /* make an extensible class?*/
+}
+/* line 147, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.group-audience p {
+  width: 95%;
+}
+/* line 153, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.group-presenter p {
+  width: 95%;
+}
+/* line 158, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- {
+  width: 100%;
+  padding: 0px;
+  background-color: white;
+  border: 0px;
+}
+/* line 159, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- br {
+  display: none;
+}
+/* line 170, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul {
+  padding-left: 13px;
+}
+/* line 172, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row {
+  width: 200px;
+  position: relative;
+  top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+}
+/* line 181, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong {
+  position: relative;
+}
+/* line 184, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong span {
+  white-space: nowrap;
+}
+/* line 190, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.field-content > span.date-display-single:before {
+  content: '–\00a0';
+}
+/* line 196, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong strong span.date-display-single:after {
+  content: '\00a0';
+  padding-right: 2px;
+}
+/* line 203, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row span.date-display-single {
+  top: -14px;
+  position: relative;
+}
+/* line 207, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.views-field.views-field-ops {
+  margin-left: 0px;
+  position: relative;
+  top: -10px;
+}
+/* line 218, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.field-item h2.block-title {
+  color: #8c1d18;
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+/* line 224, ../../sass/phone/phone-event-detail.scss */
+body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s-:before {
+  background-color: white;
+  height: 0px;
+}
