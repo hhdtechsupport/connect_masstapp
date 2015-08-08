@@ -1,0 +1,45 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+@import 'tablet-variables';
+
+ /* general styles for tablet */
+ html,
+  body.not-logged-in.page-user,
+  body.not-logged-in.page-anon-login,
+  body.admin-menu,
+  body.page-user-register {
+    div.bottom-footer div.disclaimer {
+      width: 60%;
+      padding: 0px;
+      margin-left: 7%;
+      padding-bottom: 8px;
+    }
+    input#edit-search-block-form--2 {
+      width: 100px;
+      background-position: 80px 4px;
+      padding-right: 20px;
+    }
+    div#main,
+    div#content {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+    width: 100%;
+    /* login screen */
+    div#page {
+      width: 83.3333%;
+      margin-top: -2px;
+    }
+    div.top-header-container {
+      width: 100%;
+      div.capt-logo {
+        margin-left: 8%;
+      }
+      div.samhsa-logo {
+        margin-right: 8%;
+      }
+    }
+  }
+ 

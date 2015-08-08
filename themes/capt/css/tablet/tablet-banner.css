@@ -112,9 +112,11 @@ body.page-user-register.front,
 body.page-user-register.not-logged-in:not(.node-type-event),
 body.not-logged-in.page-anon-login.front,
 body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) {
+  /* blue section */
+  /* photo section */
   /* subtitle */
 }
-/* line 12, ../../sass/tablet/tablet-banner.scss */
+/* line 13, ../../sass/tablet/tablet-banner.scss */
 body.not-logged-in.page-user.front header#header, body.not-logged-in.page-user.not-logged-in:not(.node-type-event) header#header,
 body.page-user-register.front header#header,
 body.page-user-register.not-logged-in:not(.node-type-event) header#header,
@@ -126,19 +128,17 @@ body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) header#he
   background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
   margin-bottom: 0px;
 }
-/* line 20, ../../sass/tablet/tablet-banner.scss */
+/* line 21, ../../sass/tablet/tablet-banner.scss */
 body.not-logged-in.page-user.front div#page div#main div#content, body.not-logged-in.page-user.not-logged-in:not(.node-type-event) div#page div#main div#content,
 body.page-user-register.front div#page div#main div#content,
 body.page-user-register.not-logged-in:not(.node-type-event) div#page div#main div#content,
 body.not-logged-in.page-anon-login.front div#page div#main div#content,
 body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) div#page div#main div#content {
-  padding-top: 35%;
-  /*268px;*/
   background: url("../images/banners/banner-desktop-login-photos.png") 0 0 no-repeat;
   background-size: 100%;
   width: 100%;
 }
-/* line 27, ../../sass/tablet/tablet-banner.scss */
+/* line 28, ../../sass/tablet/tablet-banner.scss */
 body.not-logged-in.page-user.front div#block-block-13, body.not-logged-in.page-user.not-logged-in:not(.node-type-event) div#block-block-13,
 body.page-user-register.front div#block-block-13,
 body.page-user-register.not-logged-in:not(.node-type-event) div#block-block-13,
@@ -147,13 +147,18 @@ body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) div#block
   top: 60px;
 }
 
-/* line 35, ../../sass/tablet/tablet-banner.scss */
+/* specifics */
+/* line 36, ../../sass/tablet/tablet-banner.scss */
 body.page-anon-login div#page div#main div#content,
 body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#content {
+  padding-top: 35%;
+  /*268px;*/
   margin-top: -48px;
 }
 
-/* line 40, ../../sass/tablet/tablet-banner.scss */
+/* line 42, ../../sass/tablet/tablet-banner.scss */
 body.page-user-register div#page div#main div#content {
   margin-top: -10px;
+  padding-top: 27%;
+  /*268px;*/
 }

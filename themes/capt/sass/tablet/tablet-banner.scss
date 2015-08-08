@@ -9,6 +9,7 @@ body.not-logged-in.page-user,
 body.page-user-register,
 body.not-logged-in.page-anon-login  {
   &.front, &.not-logged-in:not(.node-type-event) {
+    /* blue section */
     header#header {
       height: 132px;
       padding-top: 0px;
@@ -16,9 +17,9 @@ body.not-logged-in.page-anon-login  {
       background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
       margin-bottom: 0px;
     }
-
+    /* photo section */
     div#page div#main div#content {
-      padding-top: 35%;/*268px;*/
+  
       background: url("../images/banners/banner-desktop-login-photos.png") 0 0 no-repeat;
       background-size: 100%;
       width: 100%;
@@ -29,15 +30,17 @@ body.not-logged-in.page-anon-login  {
     }
   }
 }
-
+/* specifics */
 body.page-anon-login,
 body.not-logged-in.page-user:not(.page-user-register) {
   div#page div#main div#content {
+     padding-top: 35%;/*268px;*/
      margin-top: -48px;
   }
 }
 body.page-user-register {
   div#page div#main div#content {
       margin-top: -10px;
+      padding-top: 27%;/*268px;*/
   }
 }

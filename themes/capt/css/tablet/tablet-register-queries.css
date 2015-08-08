@@ -103,50 +103,43 @@
   font-weight: normal;
 }
 
-/* test */
-/* test*/
-/* line 10, ../../sass/phone/small-phone.scss */
-body.admin-menu div#block-block-8, body.admin-menu div#title-section, body.admin-menu div#block-block-9,
-body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8,
-body.not-logged-in.page-user-register:not(.node-type-event) div#title-section,
-body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9,
-body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
-body.not-logged-in.page-user:not(.page-user-register) div#title-section,
-body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
-  /*h1, h2.block-title, h2.custom_block_title {
-    font-size: 1.65em;
-  }*/
+/* line 2, ../../sass/tablet/tablet-register-queries.scss */
+body.admin-menu,
+body.page-user-register:not(.node-type-event) {
+  /* test */
 }
-/* line 16, ../../sass/phone/small-phone.scss */
-body.admin-menu ul#main-menu.main-menu li.menu-item > a,
-body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
-body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
-  width: 125px;
+@media (min-width: 768px) and (max-width: 787px) {
+  /* line 6, ../../sass/tablet/tablet-register-queries.scss */
+  body.admin-menu div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    width: 97.6%;
+  }
 }
-/* line 20, ../../sass/phone/small-phone.scss */
-body.admin-menu div.top-header,
-body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
-body.not-logged-in.page-user:not(.page-user-register) div.top-header {
-  height: 61px;
-  background-image: url("../images/design-elements/rainbow-divider.png");
-  background-position: -124px 52px;
-  background-repeat: repeat-x;
+@media (min-width: 788px) and (max-width: 827px) {
+  /* line 6, ../../sass/tablet/tablet-register-queries.scss */
+  body.admin-menu div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    width: 97.3%;
+  }
 }
-/* line 24, ../../sass/phone/small-phone.scss */
-body.admin-menu div.top-header div.top-header-container div.capt-logo,
-body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
-body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
-  top: 12px;
-  background-size: 159.5px 25.3px;
-  width: 159.5px;
-  height: 25.3px;
+@media (min-width: 828px) and (max-width: 867px) {
+  /* line 6, ../../sass/tablet/tablet-register-queries.scss */
+  body.admin-menu div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    width: 97%;
+  }
 }
-/* line 28, ../../sass/phone/small-phone.scss */
-body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
-body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
-body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
-  top: 10px;
-  background-size: 105px 30px;
-  width: 105px;
-  height: 30px;
+@media (min-width: 868px) and (max-width: 1016px) {
+  /* line 6, ../../sass/tablet/tablet-register-queries.scss */
+  body.admin-menu div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    width: 96.8%;
+  }
+}
+@media (min-width: 1017px) and (max-width: 1024px) {
+  /* line 6, ../../sass/tablet/tablet-register-queries.scss */
+  body.admin-menu div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    width: 96.6%;
+  }
 }
