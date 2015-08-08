@@ -239,9 +239,10 @@ body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content
 body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title {
   background-position: 8px 0px;
   font-size: 34px;
-  margin-left: 3.5%;
+  padding-left: 60px;
   /*padding-left: 60px !important;*/
   margin-bottom: 10px;
+  margin-left: 10px;
   /*border: 1px solid red;*/
 }
 /* line 111, ../../sass/tablet/tablet-profile-registration.scss */
@@ -280,8 +281,19 @@ body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary
   border-bottom: 2px solid white;
 }
 
+/* specific to profile */
+/* line 141, ../../sass/tablet/tablet-profile-registration.scss */
+body.admin-menu div ul li a {
+  white-space: nowrap;
+}
+/* line 147, ../../sass/tablet/tablet-profile-registration.scss */
+body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
+  margin: 0px auto;
+  width: 97%;
+}
+
 /* password reset - you get to it via email link */
-/* line 142, ../../sass/tablet/tablet-profile-registration.scss */
+/* line 156, ../../sass/tablet/tablet-profile-registration.scss */
 body.not-logged-in.section-user.page-user div#title-section,
 body.not-logged-in.page-anon-login div#title-section {
   margin: 0px auto;
