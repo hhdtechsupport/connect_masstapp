@@ -11,6 +11,7 @@ function captconnect_blocks_block_info() {
   return array(
     'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
     'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
+    'user_info' => array('info' => t('CAPTConnect: User Information'), 'cache' => DRUPAL_NO_CACHE),
     );
 }
 
@@ -29,6 +30,10 @@ function captconnect_blocks_block_view($delta) {
 
     case 'date_instances':
       $block['content'] = captconnect_blocks_date_instances_view();
+      break;
+
+    case 'user_info':
+      $block['content'] = captconnect_blocks_user_info_view();
       break;
   }
 
@@ -221,6 +226,33 @@ function captconnect_blocks_instance_registration_view() {
   else {
     $output .= t('No registrations yet.');
   }
+
+  return $output;
+}
+
+/**
+ * block_view(instance_registration).
+ */
+function captconnect_blocks_user_info_view() {
+  global $user;
+  $output = '';
+  // Get full user object.
+  $user = user_load($user->uid);
+
+  // Get the user's roles.
+  $roles = $user->roles;
+  unset($roles[DRUPAL_AUTHENTICATED_RID]);
+  $output .= '<br /><span class="user-roles">' . implode(', ', $roles) . '</span>';
+
+  // Get the user's groups.
+  $gid = field_get_items('user', $user, 'og_user_node');
+  $groups = array();
+  foreach ($gid as $garray) {
+    $groups[] = $garray['target_id'];
+  }
+
+  $stuff = db_query("SELECT title FROM {node} WHERE nid IN(:nids)", array(':nids' => $groups))->fetchCol();
+  $output .= '<br /><span class="user-groups">' . implode(', ', $stuff) . '</span>';
 
   return $output;
 }
