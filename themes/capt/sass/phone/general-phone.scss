@@ -4,68 +4,72 @@
 @import "extensible-phone"; 
 
 html,
-  body {
-    width: 100%;
-    min-width: 320px;
-    overflow-x: visible;
-    height: 100%;
-    div.top-header {
-      height: $header-height;
-      @include rainbow-bar($header-height - $rainbow-height);
-      div.top-header-container {
-        width: 100%;
-        div.capt-logo {
-          background-image: url("../images/logos/CAPT-logo-phone.png");
-          margin-left: 4%;
-          top: $top-margin + 2px;
-        }
-        div.samhsa-logo {
-          margin-right: 4%;
-          margin-bottom: 0px;
-        }
-      }
-    }
-    /* this was hiding the login button*/
-    input#edit-search-block-form--2 {
-      display: none;
-    }
-    div.region.region-header {
-      margin-top: 10px;
-    }
-    div#page {
-      min-height: 750px;
-      @extend .reset-layout;
-      display: inline-block;
-      margin-bottom: -100px;
-      padding-bottom: 100px;
-    }
-    div#block-search-form {
-      display: none;
-    }
-    /* header */
-    div#page {
-      header#header {
-        height: 89px;
-        background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
-      }
-    }
-    div#content {
+body {
+  width: 100%;
+  min-width: 320px;
+  overflow-x: visible;
+  height: 100%;
+  
+  div#block-captconnect-blocks-user-info {
+    display: none;
+  }
+  div.top-header {
+    height: $header-height;
+    @include rainbow-bar($header-height - $rainbow-height);
+    div.top-header-container {
       width: 100%;
-      margin: 0px;
-      padding: 0px;
-      /* padding-left: 0px;*/
-      /* added 6.29 */
-      padding-left: 16px;
-      padding-right: 16px;
-      /* border: 1px dotted orange;*/
+      div.capt-logo {
+        background-image: url("../images/logos/CAPT-logo-phone.png");
+        margin-left: 4%;
+        top: $top-margin + 2px;
+      }
+      div.samhsa-logo {
+        margin-right: 4%;
+        margin-bottom: 0px;
+      }
     }
   }
-  /* switch user block */
-  div.block-devel#block-devel-switch-user {
-    margin: 0px auto;
-    text-align: left;
+  /* this was hiding the login button*/
+  input#edit-search-block-form--2 {
+    display: none;
   }
-  div.block-devel#block-devel-switch-user {
-    width: 50%;
-    margin-top: 40px;
+  div.region.region-header {
+    margin-top: 10px;
   }
+  div#page {
+    min-height: 750px;
+    @extend .reset-layout;
+    display: inline-block;
+    margin-bottom: -100px;
+    padding-bottom: 100px;
+  }
+  div#block-search-form {
+    display: none;
+  }
+  /* header */
+  div#page {
+    header#header {
+      height: 89px;
+      background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
+    }
+  }
+  div#content {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    /* padding-left: 0px;*/
+    /* added 6.29 */
+    padding-left: 16px;
+    padding-right: 16px;
+    /* border: 1px dotted orange;*/
+  }
+}
+/* switch user block */
+div.block-devel#block-devel-switch-user {
+  margin: 0px auto;
+  text-align: left;
+}
+div.block-devel#block-devel-switch-user {
+  width: 50%;
+  margin-top: 40px;
+}

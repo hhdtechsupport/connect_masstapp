@@ -8,12 +8,12 @@ $panel-margin-left: 20px;
 $header-pad-left: 20px;
 
 .show-hide-button {
-       color: black;
-      font-weight: normal;
-      font-size: 20px;
-      @extend .show-hide-basic;
-      padding-left: $header-pad-left;
-      background-repeat: no-repeat;
+ color: black;
+ font-weight: normal;
+ font-size: 20px;
+ @extend .show-hide-basic;
+ padding-left: $header-pad-left;
+ background-repeat: no-repeat;
 }
 
 /* event primitive */
@@ -28,78 +28,60 @@ $header-pad-left: 20px;
     border-top: 0px;
     margin-left: $panel-margin-left;
     span {
-       @extend .show-hide-button;
-    }
-  }
-  div.field-items {
-    margin-left: $panel-margin-left;
-    margin-bottom: 20px;
-  }
+     @extend .show-hide-button;
+   }
+ }
+ div.field-items {
+  margin-left: $panel-margin-left;
+  margin-bottom: 20px;
+}
 }
 /* event page styles */
 body.node-type-event {
   // banner 
-     /* banner title text */
-    h1#site-name.header__site-name {
-      /* condense */
-        @media screen and (max-width: 519px) {
-        margin-top: -30px;
-        a span strong {
-          /*color: purple;*/
-        }
-      }
-      @media screen and (max-width: 512px) {
-        margin-top: -45px;
-        a span strong {
-          /*color: blue;*/
-        }
-      }
-      @media screen and (max-width: 455px) {
-        margin-top: -60px;
-        a span strong {
-          /*color: yellow;*/
-        }
-      }
-      margin-left: -339px;
-      a {
-        font-size: 1em;
+  /* banner title text */
+  h1#site-name.header__site-name {
+    margin-top: -35px;
+    margin-left: -339px;
+
+    a {
+      font-size: 1em;
       
-      }
     }
+  }
+
+  div#block-block-13 {
+
+    color: white;
+    font-size: 11px;
+    margin-left: -339px;
+    top: -100;
+    position: absolute;
+    margin-top: -26px;
+    cursor: default;
+
+  }
     /* banner subtitle text */
+  @media screen and (max-width: 512px) {
     div#block-block-7 {
       display: block;
       width: 100px;
     }
-    div#block-block-13 {
-
-      color: white;
-      font-size: 11px;
-      margin-left: -225px;
-      top: -100;
-      position: absolute;
-      margin-top: -8px;
-      cursor: default;
-      @media screen and (max-width: 767px) {
-        margin-left: -337px;
-        margin-top: -20px;
-      }
-      @media screen and (max-width: 512px) {
-        margin-top: -35px;
-      }
-      @media screen and (max-width: 454px) {
-        margin-top: -50px;
-      }
-
+    h1#site-name.header__site-name {
+      margin-top: -70px;
     }
-    
+    div#block-block-13 {
+      margin-top: -60px;
+    }
+  }
+
   // general styles 
   div#page {
-  padding-bottom: 1950px;
+    padding-bottom: 1950px;
 
   } 
   div#main div#content div#title-section {
-      margin-top: 0px;
+    margin-top: 0px;
   }
   
   ul.tabs-primary {
@@ -156,10 +138,10 @@ body.node-type-event {
     }
 
     div.field-type-ds.field-name-event-date-s- {
-      br {
+      /*br {
         display: none;
-      }
-   
+      }*/
+
       span.date-display-single {
 
       }
@@ -167,67 +149,49 @@ body.node-type-event {
       padding: 0px;
       background-color: white;
       border: 0px;
+    
+      li.views-row > strong {
+        display: list-item;
+      }
       div.item-list ul {
         padding-left: 13px;
         li.views-row {
-          width: 200px;
+          width: 90%;
+          display: list-item;
           position: relative;
           top: 0px;
-          margin-bottom: 0px;
-      
-         
+          margin-bottom: 10px;
           padding-top: 0px;
           // is there a better way?
           strong {
             position: relative;
-           
-            span {
-              white-space: nowrap;
-            }
-          }
-          // start & end time
-          div.field-content > span.date-display-single {
-            &:before {
-              content: '–\00a0';
-            }
-          }
-          // day & date
-          strong strong span.date-display-single { 
-            &:after {
-              content: '\00a0';
-              padding-right: 2px;
-            }
-
           }
           // shift up to align with bullet
           span.date-display-single {
-            top: -14px;
             position: relative;
+          }
+          span.date-display-start,
+          span.date-display-end {
           }
           div.views-field.views-field-ops {
-      
             margin-left: 0px;
             position: relative;
-            top: -10px;
-            span {
-             // border: 1px solid red;
-            }
-          }
-        }
-      }
-      div.field-item h2.block-title {
-        color: $capt-maroon;
-        font-size: 1.25em;
-        font-weight: bold;
-        margin-bottom: 1em;
-      }
-      &:before {
-        background-color: white;
-        height: 0px;
-      }
+         }
+       }
+     }
+     div.field-item h2.block-title {
+      color: $capt-maroon;
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 1em;
     }
-    /* make an extensible class?*/
-    
+    &:before {
+      background-color: white;
+      height: 0px;
+    }
   }
+  /* make an extensible class?*/
+
+}
 }
 
