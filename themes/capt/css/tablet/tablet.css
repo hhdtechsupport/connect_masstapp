@@ -189,15 +189,22 @@ body.page-user-register:not(.node-type-event) {
   body.page-user-register.not-logged-in:not(.node-type-event) div#block-block-13,
   body.not-logged-in.page-anon-login.front div#block-block-13,
   body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) div#block-block-13 {
-    top: 0px;
-    left: 0px;
+    top: 60px;
+  }
+
+  /* line 34, ../../sass/tablet/tablet-banner.scss */
+  body.logged-in h1#site-name.header__site-name a {
+    font-size: 35px;
+  }
+  /* line 37, ../../sass/tablet/tablet-banner.scss */
+  body.logged-in div#block-block-13 {
     font-size: 15px;
-    margin-top: -65px;
-    margin-left: -20px;
+    margin-top: 0px;
+    top: 0px;
   }
 
   /* specifics */
-  /* line 41, ../../sass/tablet/tablet-banner.scss */
+  /* line 46, ../../sass/tablet/tablet-banner.scss */
   body.page-anon-login div#page div#main div#content,
   body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#content {
     padding-top: 35%;
@@ -205,7 +212,7 @@ body.page-user-register:not(.node-type-event) {
     margin-top: -48px;
   }
 
-  /* line 47, ../../sass/tablet/tablet-banner.scss */
+  /* line 52, ../../sass/tablet/tablet-banner.scss */
   body.page-user-register div#page div#main div#content {
     margin-top: -10px;
     padding-top: 27%;
