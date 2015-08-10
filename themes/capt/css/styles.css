@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Layout rules */
 @import url(layouts/responsive.css);
 /* Component (SMACSS module) rules */
@@ -4091,19 +4092,19 @@ body.page-user-register:not(.node-type-event) {
 
   /* password reset - you get to it via email link */
   /* line 158, ../sass/tablet/tablet-profile-registration.scss */
-  body.not-logged-in.section-user.page-user #page,
+  body.not-logged-in.section-user.page-user-password #page,
   body.not-logged-in.page-anon-login #page {
     min-height: 0px !important;
     height: 700px !important;
   }
   /* line 163, ../sass/tablet/tablet-profile-registration.scss */
-  body.not-logged-in.section-user.page-user div#content div#title-section,
+  body.not-logged-in.section-user.page-user-password div#content div#title-section,
   body.not-logged-in.page-anon-login div#content div#title-section {
-    margin: 0px auto;
+    margin-left: 10px;
     margin-bottom: -40px;
   }
   /* line 169, ../sass/tablet/tablet-profile-registration.scss */
-  body.not-logged-in.section-user.page-user input#edit-name.form-text,
+  body.not-logged-in.section-user.page-user-password input#edit-name.form-text,
   body.not-logged-in.page-anon-login input#edit-name.form-text {
     width: 90%;
     margin-left: 0px;
@@ -4834,7 +4835,7 @@ body.page-user-register:not(.node-type-event) {
   body.not-logged-in.page-anon-login div#title-section {
     margin-left: 0px;
     max-width: 90%;
-    padding-left: 10px;
+    padding-left: 15px;
   }
   /* line 270, ../sass/phone/phone-register-profile.scss */
   body.not-logged-in.section-user.page-user-password div#title-section h1#page-title.page__title,
