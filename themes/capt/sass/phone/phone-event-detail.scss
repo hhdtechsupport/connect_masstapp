@@ -38,6 +38,14 @@ $header-pad-left: 20px;
 }
 /* event page styles */
 body.node-type-event {
+  footer {
+    left: 0px;
+    margin-left: -30px;
+    .disclaimer {
+
+      padding-right: 0px !important;
+    }
+  }
   // banner 
   /* banner title text */
   h1#site-name.header__site-name {
@@ -77,7 +85,8 @@ body.node-type-event {
 
   // general styles 
   div#page {
-    padding-bottom: 1950px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 
   } 
   div#main div#content div#title-section {
