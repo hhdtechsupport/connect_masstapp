@@ -233,8 +233,9 @@ form#user-profile-form fieldset .fieldset-wrapper,
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset .fieldset-wrapper,
 body.not-logged-in.page-anon-register:not(.node-type-event) fieldset .fieldset-wrapper {
   width: 100%;
+  border: 1px solid transparent;
 }
-/* line 96, ../../sass/main_pages/profile.scss */
+/* line 97, ../../sass/main_pages/profile.scss */
 form#user-profile-form span.label,
 body.not-logged-in.page-user-register:not(.node-type-event) span.label,
 body.not-logged-in.page-anon-register:not(.node-type-event) span.label {
@@ -243,19 +244,19 @@ body.not-logged-in.page-anon-register:not(.node-type-event) span.label {
   font-size: 14px;
   margin-left: 1px;
 }
-/* line 103, ../../sass/main_pages/profile.scss */
+/* line 104, ../../sass/main_pages/profile.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label:not(.option),
 body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option),
 body.not-logged-in.page-anon-register:not(.node-type-event) .fieldset-wrapper div.form-item label:not(.option) {
   font-size: 14px;
 }
-/* line 106, ../../sass/main_pages/profile.scss */
+/* line 107, ../../sass/main_pages/profile.scss */
 form#user-profile-form .fieldset-wrapper div.form-item label.option,
 body.not-logged-in.page-user-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option,
 body.not-logged-in.page-anon-register:not(.node-type-event) .fieldset-wrapper div.form-item label.option {
   font-size: 13px;
 }
-/* line 110, ../../sass/main_pages/profile.scss */
+/* line 111, ../../sass/main_pages/profile.scss */
 form#user-profile-form input.form-text,
 body.not-logged-in.page-user-register:not(.node-type-event) input.form-text,
 body.not-logged-in.page-anon-register:not(.node-type-event) input.form-text {
@@ -268,14 +269,14 @@ body.not-logged-in.page-anon-register:not(.node-type-event) input.form-text {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 119, ../../sass/main_pages/profile.scss */
+/* line 120, ../../sass/main_pages/profile.scss */
 form#user-profile-form input.form-text:focus,
 body.not-logged-in.page-user-register:not(.node-type-event) input.form-text:focus,
 body.not-logged-in.page-anon-register:not(.node-type-event) input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
-/* line 125, ../../sass/main_pages/profile.scss */
+/* line 126, ../../sass/main_pages/profile.scss */
 form#user-profile-form .form-item .description,
 body.not-logged-in.page-user-register:not(.node-type-event) .form-item .description,
 body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .description {
@@ -285,7 +286,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .descript
   color: #5c5c5c;
   max-width: 400px;
 }
-/* line 132, ../../sass/main_pages/profile.scss */
+/* line 133, ../../sass/main_pages/profile.scss */
 form#user-profile-form .form-item .confirm-parent, form#user-profile-form .form-item .password-parent,
 body.not-logged-in.page-user-register:not(.node-type-event) .form-item .confirm-parent,
 body.not-logged-in.page-user-register:not(.node-type-event) .form-item .password-parent,
@@ -293,7 +294,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .confirm-
 body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .password-parent {
   width: 40em !important;
 }
-/* line 135, ../../sass/main_pages/profile.scss */
+/* line 136, ../../sass/main_pages/profile.scss */
 form#user-profile-form .form-item div.password-suggestions,
 body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions,
 body.not-logged-in.page-anon-register:not(.node-type-event) .form-item div.password-suggestions {
@@ -301,13 +302,13 @@ body.not-logged-in.page-anon-register:not(.node-type-event) .form-item div.passw
   background: #F7F7F7;
   width: 560px;
 }
-/* line 139, ../../sass/main_pages/profile.scss */
+/* line 140, ../../sass/main_pages/profile.scss */
 form#user-profile-form .form-item div.password-suggestions ul,
 body.not-logged-in.page-user-register:not(.node-type-event) .form-item div.password-suggestions ul,
 body.not-logged-in.page-anon-register:not(.node-type-event) .form-item div.password-suggestions ul {
   margin-top: 0.5em;
 }
-/* line 167, ../../sass/main_pages/profile.scss */
+/* line 168, ../../sass/main_pages/profile.scss */
 form#user-profile-form input#edit-submit, form#user-profile-form input#edit-cancel,
 body.not-logged-in.page-user-register:not(.node-type-event) input#edit-submit,
 body.not-logged-in.page-user-register:not(.node-type-event) input#edit-cancel,
@@ -318,7 +319,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) input#edit-cancel {
 }
 
 /* prevent overlap with bottom save & cancel buttons */
-/* line 175, ../../sass/main_pages/profile.scss */
+/* line 176, ../../sass/main_pages/profile.scss */
 form#user-profile-form > div > fieldset > .fieldset-wrapper {
   padding-bottom: 90px;
 }

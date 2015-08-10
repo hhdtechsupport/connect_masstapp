@@ -33,10 +33,10 @@ div.horizontal-tabs  {
     }
   }
   li.horizontal-tab-button-0 {
-    width: 18%;
+    width: 16%;
   }
   li.horizontal-tab-button-1 {
-    width: 37%;
+    width: 36%;
   }
   li.horizontal-tab-button-2 {
     width: 42%;
@@ -161,10 +161,14 @@ input#edit-name.form-text {
 
 
 /* specific to profile */
-body.logged-in.role-authenticated-user {
+body.logged-in.role-authenticated-user,
+body.admin-menu {
 
   div ul li a {
     white-space: nowrap;
+  }
+  div#main div#content {
+    width: 100%;
   }
   form#user-profile-form  {
 

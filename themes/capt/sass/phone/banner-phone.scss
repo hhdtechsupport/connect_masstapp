@@ -15,7 +15,7 @@ $login-title-margin: 16px;
         font-size: 0.8em;
       }
     }
-    /* banner subtitle text */
+    
     div#block-block-13 {
 
       color: white;
@@ -26,5 +26,14 @@ $login-title-margin: 16px;
       margin-top: -8px;
       cursor: default;
 
+    }
+
+    body.logged-in {
+      h1#site-name.header__site-name {
+        margin-left: -329px;
+      }
+      div#block-block-13 {
+        margin-left: -325px;
+      }
     }
     
