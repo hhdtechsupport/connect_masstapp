@@ -7,46 +7,46 @@
 body.admin-menu,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event)  {
-  
+
 
   $reg-margin-left: 1.6%;
 
   div#edit-actions {
-       padding: 0px;
-       margin-top: -20px;
-       margin-bottom: -10px;
-    input#edit-submit {
-      margin-left: $reg-margin-left;
-    }
+   padding: 0px;
+   margin-top: -20px;
+   margin-bottom: -10px;
+   input#edit-submit {
+    margin-left: $reg-margin-left;
   }
-  /* tabs! */
-  div.horizontal-tabs  {
+}
+/* tabs! */
+div.horizontal-tabs  {
+  width: 100%;
+  ul.horizontal-tabs-list {
     width: 100%;
-    ul.horizontal-tabs-list {
-      width: 100%;
-      margin-left: $reg-margin-left;
-      margin-bottom: 10px;
-      
-      li.horizontal-tab-button {
-       a {
-        padding: 0px;
-      }
-    }
-    li.horizontal-tab-button-0 {
-      width: 18%;
-    }
-    li.horizontal-tab-button-1 {
-      width: 37%;
-    }
-    li.horizontal-tab-button-2 {
-      width: 42%;
+    margin-left: $reg-margin-left;
+    margin-bottom: 10px;
+
+    li.horizontal-tab-button {
+     a {
+      padding: 0px;
     }
   }
-  .horizontal-tabs-panes.horizontal-tabs-processed {
-    &:before {
-     margin: 0px auto;
-   }
+  li.horizontal-tab-button-0 {
+    width: 18%;
+  }
+  li.horizontal-tab-button-1 {
+    width: 37%;
+  }
+  li.horizontal-tab-button-2 {
+    width: 42%;
+  }
+}
+.horizontal-tabs-panes.horizontal-tabs-processed {
+  &:before {
+   margin: 0px auto;
  }
+}
 }
 div.bottom-footer div.disclaimer {
   padding: 0px;
@@ -110,24 +110,22 @@ div#main {
        }
        #block-block-3 {
         width: 95%;
-       }
-       div.fieldset-wrapper {
-         border: 0px;
-       }
-       fieldset {
-        width: 94%;
-        margin: 0px auto;
-        display: block;
-        margin-bottom: 20px;
-        padding-right: 0px;
-        border-right: 1px solid $capt-midgrey;
-        &:before {
-          width: 400px;
-        }
-
       }
+
+     fieldset {
+      width: 94%;
+      margin: 0px auto;
+      display: block;
+      margin-bottom: 20px;
+      padding-right: 0px;
+      border-right: 1px solid $capt-midgrey;
+      &:before {
+        width: 400px;
+      }
+
     }
   }
+}
 }
 /* specific to registration*/
 body.page-user-register {
@@ -136,42 +134,50 @@ body.page-user-register {
   }
 }
 
-/* specific to profile */
-body.admin-menu {
-
-  div ul li a {
-    white-space: nowrap;
-  }
-  
-   form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed {
-
-    &:before {
-     margin: 0px auto;
-     width: 97%;
-   }
- }
-}
 
 /* password reset - you get to it via email link */
 body.not-logged-in.section-user.page-user-password,
 body.not-logged-in.page-anon-login {
-   #page {
-    min-height: 0px !important;
-     height: 700px !important;
-   }
+ #page {
+  min-height: 0px !important;
+  height: 700px !important;
+}
 
-  div#content div#title-section {
-    margin-left: 10px;
-    
-    margin-bottom: -40px;
-    
-  }
-   input#edit-name.form-text {
-      width: 90%;
-      margin-left: 0px;
-      margin-top: 5px;
-    }
+div#content div#title-section {
+  margin-left: 10px;
+
+  margin-bottom: -40px;
+
+}
+input#edit-name.form-text {
+  width: 90%;
+  margin-left: 0px;
+  margin-top: 5px;
+}
 }
 
 
+
+
+
+/* specific to profile */
+body.logged-in.role-authenticated-user {
+
+  div ul li a {
+    white-space: nowrap;
+  }
+  form#user-profile-form  {
+
+    div.horizontal-tabs-panes.horizontal-tabs-processed {
+
+      &:before {
+       margin: 0px auto;
+       width: 97%;
+     }
+      fieldset div.fieldset-wrapper {  
+       border: 1px solid transparent;
+     }
+   }
+ }
+}
 
