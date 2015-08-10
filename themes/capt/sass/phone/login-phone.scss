@@ -195,7 +195,8 @@
     width: 100%;
     max-width: 100%;
    }  
-   body {
+   body.not-logged-in.page-user:not(.page-user-register),
+   body.not-logged-in.page-anon-login { 
         
     footer {
      width: 100%;

@@ -110,7 +110,8 @@
 /* line 6, ../../sass/phone/extensible-phone.scss */
 .reset-layout, div.bottom-footer,
 div.bottom-footer-container,
-div.disclaimer, body div#page #main {
+div.disclaimer, body.not-logged-in.page-user:not(.page-user-register) div#page #main,
+body.not-logged-in.page-anon-login div#page #main {
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -437,28 +438,33 @@ body, html {
   max-width: 100%;
 }
 
-/* line 200, ../../sass/phone/login-phone.scss */
-body footer {
+/* line 201, ../../sass/phone/login-phone.scss */
+body.not-logged-in.page-user:not(.page-user-register) footer,
+body.not-logged-in.page-anon-login footer {
   width: 100%;
   max-width: 100%;
 }
-/* line 203, ../../sass/phone/login-phone.scss */
-body footer .disclaimer {
+/* line 204, ../../sass/phone/login-phone.scss */
+body.not-logged-in.page-user:not(.page-user-register) footer .disclaimer,
+body.not-logged-in.page-anon-login footer .disclaimer {
   padding: 0px;
 }
-/* line 207, ../../sass/phone/login-phone.scss */
-body div.top-header {
+/* line 208, ../../sass/phone/login-phone.scss */
+body.not-logged-in.page-user:not(.page-user-register) div.top-header,
+body.not-logged-in.page-anon-login div.top-header {
   width: 100%;
 }
-/* line 210, ../../sass/phone/login-phone.scss */
-body div#page {
+/* line 211, ../../sass/phone/login-phone.scss */
+body.not-logged-in.page-user:not(.page-user-register) div#page,
+body.not-logged-in.page-anon-login div#page {
   max-width: 100%;
   margin-bottom: -110px;
   padding-bottom: 210px;
   height: 550px !important;
   min-height: 550px;
 }
-/* line 216, ../../sass/phone/login-phone.scss */
-body div#page #main {
+/* line 217, ../../sass/phone/login-phone.scss */
+body.not-logged-in.page-user:not(.page-user-register) div#page #main,
+body.not-logged-in.page-anon-login div#page #main {
   width: 100%;
 }

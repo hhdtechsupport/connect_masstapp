@@ -133,7 +133,8 @@
   .reset-layout, html div#page,
   body div#page, div.bottom-footer,
   div.bottom-footer-container,
-  div.disclaimer, body div#page #main {
+  div.disclaimer, body.not-logged-in.page-user:not(.page-user-register) div#page #main,
+  body.not-logged-in.page-anon-login div#page #main {
     width: 100%;
     margin: 0px;
     padding: 0px;
@@ -556,114 +557,111 @@
     max-width: 100%;
   }
 
-  /* line 200, ../../sass/phone/login-phone.scss */
-  body footer {
+  /* line 201, ../../sass/phone/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) footer,
+  body.not-logged-in.page-anon-login footer {
     width: 100%;
     max-width: 100%;
   }
-  /* line 203, ../../sass/phone/login-phone.scss */
-  body footer .disclaimer {
+  /* line 204, ../../sass/phone/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) footer .disclaimer,
+  body.not-logged-in.page-anon-login footer .disclaimer {
     padding: 0px;
   }
-  /* line 207, ../../sass/phone/login-phone.scss */
-  body div.top-header {
+  /* line 208, ../../sass/phone/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header,
+  body.not-logged-in.page-anon-login div.top-header {
     width: 100%;
   }
-  /* line 210, ../../sass/phone/login-phone.scss */
-  body div#page {
+  /* line 211, ../../sass/phone/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#page,
+  body.not-logged-in.page-anon-login div#page {
     max-width: 100%;
     margin-bottom: -110px;
     padding-bottom: 210px;
     height: 550px !important;
     min-height: 550px;
   }
-  /* line 216, ../../sass/phone/login-phone.scss */
-  body div#page #main {
+  /* line 217, ../../sass/phone/login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#page #main,
+  body.not-logged-in.page-anon-login div#page #main {
     width: 100%;
   }
-
-  /* both registration and profile */
 }
 @media screen and (max-width: 767px) and (max-width: 710px) {
-  /* line 15, ../../sass/phone/register-profile-phone.scss */
+  /* line 16, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div.horizontal-tabs,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs {
-    /*border: 1px solid blue;*/
     width: 100%;
   }
-  /* line 18, ../../sass/phone/register-profile-phone.scss */
+  /* line 19, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div.horizontal-tabs ul.horizontal-tabs-list,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list {
     margin-left: 0.7%;
     width: 100%;
   }
-  /* line 21, ../../sass/phone/register-profile-phone.scss */
+  /* line 22, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button {
     display: block;
-    /*border: 1px solid red;*/
     width: 98%;
     text-align: center;
     margin: 0px auto;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 33, ../../sass/phone/register-profile-phone.scss */
+  /* line 35, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#page,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page {
     height: 100%;
-    padding-bottom: 1600px;
-    /* 600px, 800px for other tabs */
-    margin-bottom: -100px;
   }
-  /* line 57, ../../sass/phone/register-profile-phone.scss */
+  /* line 59, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
     border: 0px;
   }
-  /* line 59, ../../sass/phone/register-profile-phone.scss */
+  /* line 61, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content h1#page-title.page__title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content h1#page-title.page__title,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content h1#page-title.page__title {
     text-align: center;
   }
-  /* line 62, ../../sass/phone/register-profile-phone.scss */
-  body.admin-menu div#main div#content form#user-register-form,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form {
-    /*border: 2px dashed purple;*/
-  }
-  /* line 64, ../../sass/phone/register-profile-phone.scss */
-  body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes {
-    /* use media queries*/
-  }
-  /* line 66, ../../sass/phone/register-profile-phone.scss */
+  /* line 68, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes:before {
     width: 100.6%;
     padding: 0px;
   }
-  /* line 71, ../../sass/phone/register-profile-phone.scss */
-  body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input {
+  /* line 73, ../../sass/phone/register-profile-phone.scss */
+  body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text {
     width: 90%;
   }
-  /* line 74, ../../sass/phone/register-profile-phone.scss */
+  /* line 76, ../../sass/phone/register-profile-phone.scss */
+  body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-checkbox,
+  body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-radio,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-checkbox,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-radio,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-checkbox,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-radio {
+    width: 20px;
+    margin-left: -5px;
+    margin-right: -2px;
+  }
+  /* line 82, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container {
     width: 90% !important;
   }
-  /* line 99, ../../sass/phone/register-profile-phone.scss */
+  /* line 107, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content fieldset.form-wrapper,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset.form-wrapper,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset.form-wrapper {
@@ -671,13 +669,13 @@
     padding-right: 2.5%;
     padding-left: 2.5%;
   }
-  /* line 103, ../../sass/phone/register-profile-phone.scss */
+  /* line 111, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content fieldset.form-wrapper div.fieldset-wrapper,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset.form-wrapper div.fieldset-wrapper,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset.form-wrapper div.fieldset-wrapper {
     margin-left: -15px;
   }
-  /* line 106, ../../sass/phone/register-profile-phone.scss */
+  /* line 114, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content fieldset.form-wrapper:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset.form-wrapper:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset.form-wrapper:before {
@@ -686,121 +684,113 @@
     padding-right: 2.5%;
   }
 
-  /* specific to profile */
-  /* line 118, ../../sass/phone/register-profile-phone.scss */
+  /* line 127, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#page {
     padding-bottom: 1800px;
   }
-  /* line 123, ../../sass/phone/register-profile-phone.scss */
+  /* line 132, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu ul#main-menu li.menu-item a {
     width: 150px;
   }
-  /* line 128, ../../sass/phone/register-profile-phone.scss */
+  /* line 137, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content div#title-section {
     margin-top: 70px;
     height: 65px;
     margin-bottom: -10px;
   }
-  /* line 132, ../../sass/phone/register-profile-phone.scss */
+  /* line 141, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu div#main div#content div#title-section h1#page-title.page__title {
-    /*padding-top: 20px;*/
     text-align: left;
   }
-  /* line 139, ../../sass/phone/register-profile-phone.scss */
-  body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed {
-    /*label,  div.description,*/
-  }
-  /* line 140, ../../sass/phone/register-profile-phone.scss */
+  /* line 149, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container {
     width: 90% !important;
   }
-  /* line 143, ../../sass/phone/register-profile-phone.scss */
+  /* line 152, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 149, ../../sass/phone/register-profile-phone.scss */
+  /* line 158, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
     margin-left: 0px !important;
   }
-  /* line 154, ../../sass/phone/register-profile-phone.scss */
+  /* line 163, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-ckeditor span.fieldset-legend {
     width: 200%;
   }
-  /* line 158, ../../sass/phone/register-profile-phone.scss */
+  /* line 167, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) {
     margin-top: 30px;
   }
-  /* line 160, ../../sass/phone/register-profile-phone.scss */
+  /* line 169, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) legend {
     position: relative;
     top: 0px;
     left: 0px;
   }
-  /* line 166, ../../sass/phone/register-profile-phone.scss */
+  /* line 175, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 172, ../../sass/phone/register-profile-phone.scss */
+  /* line 181, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select {
     width: 80% !important;
-    /*display: none;*/
   }
-  /* line 175, ../../sass/phone/register-profile-phone.scss */
+  /* line 184, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select .chosen-single {
     display: none;
   }
-  /* line 178, ../../sass/phone/register-profile-phone.scss */
+  /* line 187, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select fieldset {
     display: none;
   }
-  /* line 182, ../../sass/phone/register-profile-phone.scss */
+  /* line 191, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select div.chosen-container#edit_timezone__2_chosen {
     width: 80% !important;
     display: none;
   }
-  /* line 187, ../../sass/phone/register-profile-phone.scss */
+  /* line 196, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-item.form-type-radio {
     white-space: nowrap;
   }
-  /* line 190, ../../sass/phone/register-profile-phone.scss */
+  /* line 199, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container-multi {
     max-width: 80% !important;
     display: none;
   }
-  /* line 198, ../../sass/phone/register-profile-phone.scss */
+  /* line 207, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed label {
     whitespace: no-wrap;
   }
-  /* line 201, ../../sass/phone/register-profile-phone.scss */
+  /* line 210, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed input.form-text {
     width: 80%;
   }
-  /* line 207, ../../sass/phone/register-profile-phone.scss */
+  /* line 216, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass {
     background-color: red;
     width: 90% !important;
     margin: 0px;
     width: 10px;
   }
-  /* line 212, ../../sass/phone/register-profile-phone.scss */
+  /* line 221, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-password {
     width: 100% !important;
   }
-  /* line 215, ../../sass/phone/register-profile-phone.scss */
+  /* line 224, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-radio {
     display: none;
   }
-  /* line 218, ../../sass/phone/register-profile-phone.scss */
+  /* line 227, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength {
     display: none;
   }
-  /* line 221, ../../sass/phone/register-profile-phone.scss */
+  /* line 230, ../../sass/phone/register-profile-phone.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass label, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass input, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.description {
     display: none;
   }
 
-  /* specific to registration*/
   /* line 10, ../../sass/phone/phone-event-detail.scss */
   .show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
     color: black;
@@ -1012,119 +1002,70 @@
   /* center title on registration page */
   /* test */
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 767px) {
-  /* line 52, ../../sass/phone/phone.scss */
-  form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
-  body.admin-menu fieldset.group-account,
-  body.admin-menu fieldset {
-    margin-bottom: 0px;
-  }
-  /* line 53, ../../sass/phone/phone.scss */
-  form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
-  body.admin-menu fieldset.group-account div.fieldset-wrapper,
-  body.admin-menu fieldset.group-account div.data-view,
-  body.admin-menu fieldset div.fieldset-wrapper,
-  body.admin-menu fieldset div.data-view {
-    padding-top: 45px;
-    margin-top: 8px;
-  }
-  /* line 60, ../../sass/phone/phone.scss */
-  form#user-profile-form fieldset,
-  body.admin-menu fieldset {
-    margin-top: 0px;
-  }
-}
+ /*
+@media screen and (-webkit-min-device-pixel-ratio: 0) 
+                and (max-width: $phone-tablet-divide) {
+    form#user-profile-form,
+    body.admin-menu {
+      fieldset.group-account, fieldset {
+        div.fieldset-wrapper, div.data-view {
+          padding-top: 45px;
+          margin-top: 8px;
+        }
+        // end data view and field wrapper - test
+        margin-bottom: 0px;
+      }
+      fieldset {
+        margin-top: 0px;
+      }
+    }
+  }*/
 /**
  *  Logo Styles for iPhone 6 and iPhone 4 test!!!!!!
  */
 /* iPhone 6 */
-/* test */
-@media screen and (min-width: 361px) and (max-width: 767px) {
-  /* line 88, ../../sass/phone/phone.scss */
-  body.admin-menu div.top-header,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header,
-  body.not-logged-in.page-anon-login div.top-header {
-    height: 61px;
-    background-image: url("../images/design-elements/rainbow-divider.png");
-    background-position: -124px 52px;
-    background-repeat: repeat-x;
-  }
-  /* line 92, ../../sass/phone/phone.scss */
-  body.admin-menu div.top-header div.top-header-container div.capt-logo,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
-  body.not-logged-in.page-anon-login div.top-header div.top-header-container div.capt-logo {
-    top: 12px;
-    background-size: 188.5px 29.9px;
-    width: 188.5px;
-    height: 29.9px;
-  }
-  /* line 97, ../../sass/phone/phone.scss */
-  body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
-  body.not-logged-in.page-anon-login div.top-header div.top-header-container div.samhsa-logo {
-    top: 10px;
-    background-size: 122.5px 35px;
-    width: 122.5px;
-    height: 35px;
-  }
+/*
+@mixin logo_size($width, $height, $scale) {
+  background-size: $width * $scale $height * $scale;
+  width: $width * $scale;
+  height: $height * $scale;
 }
-/* Devel tabs */
+// test 
+@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
+  body.admin-menu,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
+
+ 
+    @import "../headers/extensible";
+
+    div.top-header {
+      height: $mobile-header-height;
+      @include rainbow-bar($mobile-header-height - $rainbow-height);
+      div.top-header-container {
+        div.capt-logo {
+          @import 'capt-mixins-phone';
+          top: $top-margin + 2px;
+          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
+        }
+        div.samhsa-logo {
+          top: $top-margin;
+          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh6-scale);
+        }
+      }
+    }
+  }
+}*/
+/*
 @media screen and (max-width: 425px) {
-  /* line 110, ../../sass/phone/phone.scss */
-  ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
-    display: none;
+  ul.tabs-primary {
+    li:nth-child(3), li:nth-child(4) {
+      display: none;
+    }
   }
-}
-/* iPhone 4 */
-@media screen and (max-width: 360px) {
-  /* test */
-  /* test*/
-  /* line 10, ../../sass/phone/small-phone.scss */
-  body.admin-menu div#block-block-8, body.admin-menu div#title-section, body.admin-menu div#block-block-9,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#title-section,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9,
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
-  body.not-logged-in.page-user:not(.page-user-register) div#title-section,
-  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
-    /*h1, h2.block-title, h2.custom_block_title {
-      font-size: 1.65em;
-    }*/
-  }
-  /* line 16, ../../sass/phone/small-phone.scss */
-  body.admin-menu ul#main-menu.main-menu li.menu-item > a,
-  body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
-  body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
-    width: 125px;
-  }
-  /* line 20, ../../sass/phone/small-phone.scss */
-  body.admin-menu div.top-header,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header {
-    height: 61px;
-    background-image: url("../images/design-elements/rainbow-divider.png");
-    background-position: -124px 52px;
-    background-repeat: repeat-x;
-  }
-  /* line 24, ../../sass/phone/small-phone.scss */
-  body.admin-menu div.top-header div.top-header-container div.capt-logo,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
-    top: 12px;
-    background-size: 159.5px 25.3px;
-    width: 159.5px;
-    height: 25.3px;
-  }
-  /* line 28, ../../sass/phone/small-phone.scss */
-  body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
-  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
-    top: 10px;
-    background-size: 105px 30px;
-    width: 105px;
-    height: 30px;
-  }
-}
+}*/
+/*
+@media screen and (max-width: $small-phone-width) {
+  @import 'small-phone';
+}*/

@@ -2,7 +2,8 @@
 @import "../headers/capt-mixins";
 @import "../headers/extensible";
 
-/* both registration and profile */
+
+// both registration and profile 
 body.admin-menu,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event)  {
@@ -13,14 +14,14 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
   }
   @media screen and (max-width: 710px) {
     div.horizontal-tabs  {
-      /*border: 1px solid blue;*/
+      // order: 1px solid blue;
       width: 100%;
       ul.horizontal-tabs-list {
         margin-left: 0.7%;
         width: 100%;
         li.horizontal-tab-button {
           display: block;
-          /*border: 1px solid red;*/
+          // border: 1px solid red;
           width: 98%;
           text-align: center;
           margin: 0px auto;
@@ -28,12 +29,13 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
       }
     }
   }
+
   div.bottom-footer div.disclaimer {}
   div#block-block-3 {}
   div#page {
     height: 100%;
-    padding-bottom: 1600px; /* 600px, 800px for other tabs */
-    margin-bottom: -100px;
+    // padding-bottom: 1600px; /* 600px, 800px for other tabs 
+    //margin-bottom: -50%;
   }
   div#main {
     div#navigation {
@@ -60,16 +62,22 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
           text-align: center;
         }
         form#user-register-form {
-         /*border: 2px dashed purple;*/
+         // border: 2px dashed purple;
          div.horizontal-tabs-panes {
-          /* use media queries*/
+          // use media queries
           &:before {
             width: 100.6%;
             padding: 0px;
           }
           fieldset.form-wrapper.horizontal-tabs-pane {
-            input {
-              width: 90%;            
+            input.form-text {
+              width: 90%;
+            }
+            input.form-checkbox,
+            input.form-radio {
+              width: 20px;
+              margin-left: -5px; 
+              margin-right: -2px;     
             }
             .chosen-container {
               width: 90% !important;
@@ -113,7 +121,8 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
    }
  }
 }
-/* specific to profile */
+
+// specific to profile 
 body.admin-menu {
     div#page {
     padding-bottom: 1800px;
@@ -130,7 +139,7 @@ body.admin-menu {
     height: 65px;
     margin-bottom: -10px;
     h1#page-title.page__title {
-    /*padding-top: 20px;*/
+    // padding-top: 20px;
     text-align: left;
 
     
@@ -145,7 +154,7 @@ body.admin-menu {
      width: 100%;
    }
 
-   /*label,  div.description,*/
+   // label,  div.description
    fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
       margin-left: 0px !important;
     }
@@ -171,7 +180,7 @@ body.admin-menu {
    }
    div.form-type-select {
     width: 80% !important;
-    /*display: none;*/
+  // display: none;
     .chosen-single {
       display: none;
     }
@@ -228,7 +237,7 @@ body.admin-menu {
    }
  }
 }
-/* specific to registration*/
+// specific to registration
 body.page-user-register {
   ul.tabs-primary, ul.tabs-primary a {
 
