@@ -226,7 +226,6 @@ body.admin-menu {
    div#edit-account {
   
       div.form-item.form-type-password-confirm.form-item-pass {
-        background-color: red;
         width: 90% !important;
         margin: 0px;
         width: 10px;
@@ -264,16 +263,17 @@ body.not-logged-in.page-anon-login {
       max-height: 300px !important;
     }
   div#title-section {
-    margin: 0px auto;
-    width: 360px;
+      margin-left: 0px;
+      max-width: 90%;
+      padding-left: 10px;   
+
      h1#page-title.page__title {
       text-align: left;
       margin-left: $phone-margin !important;
-      border: 1px solid red;
+      padding: 0px;
     }
 
   }
-
   form#user-pass {
     @extend .mobile-panel-rule;
     margin-top: 20px;

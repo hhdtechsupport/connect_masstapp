@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* Layout rules */
 @import url(layouts/responsive.css);
 /* Component (SMACSS module) rules */
@@ -4802,47 +4801,47 @@ body.page-user-register:not(.node-type-event) {
   }
   /* line 228, ../sass/phone/phone-register-profile.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass {
-    background-color: red;
     width: 90% !important;
     margin: 0px;
     width: 10px;
   }
-  /* line 233, ../sass/phone/phone-register-profile.scss */
+  /* line 232, ../sass/phone/phone-register-profile.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-password {
     width: 100% !important;
   }
-  /* line 236, ../sass/phone/phone-register-profile.scss */
+  /* line 235, ../sass/phone/phone-register-profile.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-radio {
     display: none;
   }
-  /* line 239, ../sass/phone/phone-register-profile.scss */
+  /* line 238, ../sass/phone/phone-register-profile.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength {
     display: none;
   }
-  /* line 242, ../sass/phone/phone-register-profile.scss */
+  /* line 241, ../sass/phone/phone-register-profile.scss */
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass label, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass input, body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.description {
     display: none;
   }
 
   /* password reset - you get to it via email link */
-  /* line 262, ../sass/phone/phone-register-profile.scss */
+  /* line 261, ../sass/phone/phone-register-profile.scss */
   body.not-logged-in.section-user.page-user-password #page,
   body.not-logged-in.page-anon-login #page {
     min-height: 0px !important;
     max-height: 300px !important;
   }
-  /* line 266, ../sass/phone/phone-register-profile.scss */
+  /* line 265, ../sass/phone/phone-register-profile.scss */
   body.not-logged-in.section-user.page-user-password div#title-section,
   body.not-logged-in.page-anon-login div#title-section {
-    margin: 0px auto;
-    width: 360px;
+    margin-left: 0px;
+    max-width: 90%;
+    padding-left: 10px;
   }
-  /* line 269, ../sass/phone/phone-register-profile.scss */
+  /* line 270, ../sass/phone/phone-register-profile.scss */
   body.not-logged-in.section-user.page-user-password div#title-section h1#page-title.page__title,
   body.not-logged-in.page-anon-login div#title-section h1#page-title.page__title {
     text-align: left;
     margin-left: 10px !important;
-    border: 1px solid red;
+    padding: 0px;
   }
   /* line 277, ../sass/phone/phone-register-profile.scss */
   body.not-logged-in.section-user.page-user-password form#user-pass,
