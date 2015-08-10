@@ -4999,70 +4999,116 @@ body.page-user-register:not(.node-type-event) {
   /* center title on registration page */
   /* test */
 }
- /*
-@media screen and (-webkit-min-device-pixel-ratio: 0) 
-                and (max-width: $phone-tablet-divide) {
-    form#user-profile-form,
-    body.admin-menu {
-      fieldset.group-account, fieldset {
-        div.fieldset-wrapper, div.data-view {
-          padding-top: 45px;
-          margin-top: 8px;
-        }
-        // end data view and field wrapper - test
-        margin-bottom: 0px;
-      }
-      fieldset {
-        margin-top: 0px;
-      }
-    }
-  }*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (max-width: 767px) {
+  /* line 52, ../sass/phone/phone.scss */
+  form#user-profile-form fieldset.group-account, form#user-profile-form fieldset,
+  body.admin-menu fieldset.group-account,
+  body.admin-menu fieldset {
+    margin-bottom: 0px;
+  }
+  /* line 53, ../sass/phone/phone.scss */
+  form#user-profile-form fieldset.group-account div.fieldset-wrapper, form#user-profile-form fieldset.group-account div.data-view, form#user-profile-form fieldset div.fieldset-wrapper, form#user-profile-form fieldset div.data-view,
+  body.admin-menu fieldset.group-account div.fieldset-wrapper,
+  body.admin-menu fieldset.group-account div.data-view,
+  body.admin-menu fieldset div.fieldset-wrapper,
+  body.admin-menu fieldset div.data-view {
+    padding-top: 45px;
+    margin-top: 8px;
+  }
+  /* line 60, ../sass/phone/phone.scss */
+  form#user-profile-form fieldset,
+  body.admin-menu fieldset {
+    margin-top: 0px;
+  }
+}
 /**
  *  Logo Styles for iPhone 6 and iPhone 4 test!!!!!!
  */
 /* iPhone 6 */
-/*
-@mixin logo_size($width, $height, $scale) {
-  background-size: $width * $scale $height * $scale;
-  width: $width * $scale;
-  height: $height * $scale;
+@media screen and (min-width: 361px) and (max-width: 767px) {
+  /* line 89, ../sass/phone/phone.scss */
+  body.admin-menu div.top-header,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header,
+  body.not-logged-in.page-anon-login div.top-header {
+    height: 61px;
+    background-image: url("../images/design-elements/rainbow-divider.png");
+    background-position: -124px 52px;
+    background-repeat: repeat-x;
+  }
+  /* line 93, ../sass/phone/phone.scss */
+  body.admin-menu div.top-header div.top-header-container div.capt-logo,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
+  body.not-logged-in.page-anon-login div.top-header div.top-header-container div.capt-logo {
+    top: 12px;
+    background-size: 188.5px 29.9px;
+    width: 188.5px;
+    height: 29.9px;
+  }
+  /* line 98, ../sass/phone/phone.scss */
+  body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
+  body.not-logged-in.page-anon-login div.top-header div.top-header-container div.samhsa-logo {
+    top: 10px;
+    background-size: 122.5px 35px;
+    width: 122.5px;
+    height: 35px;
+  }
 }
-// test 
-@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
-  body.admin-menu,
-  body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-user:not(.page-user-register),
-  body.not-logged-in.page-anon-login {
-
- 
-    @import "../headers/extensible";
-
-    div.top-header {
-      height: $mobile-header-height;
-      @include rainbow-bar($mobile-header-height - $rainbow-height);
-      div.top-header-container {
-        div.capt-logo {
-          @import 'capt-mixins-phone';
-          top: $top-margin + 2px;
-          @include logo_size($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
-        }
-        div.samhsa-logo {
-          top: $top-margin;
-          @include logo_size($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh6-scale);
-        }
-      }
-    }
-  }
-}*/
-/*
 @media screen and (max-width: 425px) {
-  ul.tabs-primary {
-    li:nth-child(3), li:nth-child(4) {
-      display: none;
-    }
+  /* line 111, ../sass/phone/phone.scss */
+  ul.tabs-primary li:nth-child(3), ul.tabs-primary li:nth-child(4) {
+    display: none;
   }
-}*/
-/*
-@media screen and (max-width: $small-phone-width) {
-  @import 'small-phone';
-}*/
+}
+@media screen and (max-width: 360px) {
+  /* test */
+  /* test*/
+  /* line 10, ../sass/phone/small-phone.scss */
+  body.admin-menu div#block-block-8, body.admin-menu div#title-section, body.admin-menu div#block-block-9,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-8,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#title-section,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-9,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
+  body.not-logged-in.page-user:not(.page-user-register) div#title-section,
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-9 {
+    /*h1, h2.block-title, h2.custom_block_title {
+      font-size: 1.65em;
+    }*/
+  }
+  /* line 16, ../sass/phone/small-phone.scss */
+  body.admin-menu ul#main-menu.main-menu li.menu-item > a,
+  body.not-logged-in.page-user-register:not(.node-type-event) ul#main-menu.main-menu li.menu-item > a,
+  body.not-logged-in.page-user:not(.page-user-register) ul#main-menu.main-menu li.menu-item > a {
+    width: 125px;
+  }
+  /* line 20, ../sass/phone/small-phone.scss */
+  body.admin-menu div.top-header,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header {
+    height: 61px;
+    background-image: url("../images/design-elements/rainbow-divider.png");
+    background-position: -124px 52px;
+    background-repeat: repeat-x;
+  }
+  /* line 24, ../sass/phone/small-phone.scss */
+  body.admin-menu div.top-header div.top-header-container div.capt-logo,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo {
+    top: 12px;
+    background-size: 159.5px 25.3px;
+    width: 159.5px;
+    height: 25.3px;
+  }
+  /* line 28, ../sass/phone/small-phone.scss */
+  body.admin-menu div.top-header div.top-header-container div.samhsa-logo,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
+  body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo {
+    top: 10px;
+    background-size: 105px 30px;
+    width: 105px;
+    height: 30px;
+  }
+}
