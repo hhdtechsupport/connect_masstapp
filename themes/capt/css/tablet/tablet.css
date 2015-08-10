@@ -368,16 +368,17 @@ body.page-user-register:not(.node-type-event) {
     margin-top: -78px;
   }
   /* line 66, ../../sass/tablet/tablet-login.scss */
-  body.not-logged-in.page-user:not(.page-user-register) footer,
-  body.not-logged-in.page-anon-login footer {
+  body.not-logged-in.page-user:not(.page-user-register) footer#footer,
+  body.not-logged-in.page-anon-login footer#footer {
     height: 100px;
+    box-sizing: content-box;
   }
-  /* line 69, ../../sass/tablet/tablet-login.scss */
+  /* line 70, ../../sass/tablet/tablet-login.scss */
   body.not-logged-in.page-user:not(.page-user-register) footer .disclaimer,
   body.not-logged-in.page-anon-login footer .disclaimer {
     width: 450px;
+    top: 0px;
     margin-bottom: 20px;
-    display: inline-block;
   }
 
   /* line 7, ../../sass/tablet/tablet-profile-registration.scss */
