@@ -135,7 +135,7 @@ body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs 
 body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list {
   width: 100%;
   margin-left: 1.6%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 /* line 31, ../../sass/tablet/tablet-profile-registration.scss */
 body.admin-menu div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
@@ -239,10 +239,10 @@ body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content
 body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title {
   background-position: 8px 0px;
   font-size: 34px;
-  padding-left: 0px;
+  padding-left: 60px;
   /*padding-left: 60px !important;*/
   margin-bottom: 10px;
-  margin-left: 13px;
+  margin-left: 5px;
   /*border: 1px solid red;*/
 }
 /* line 111, ../../sass/tablet/tablet-profile-registration.scss */
@@ -293,9 +293,22 @@ body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs
 }
 
 /* password reset - you get to it via email link */
-/* line 157, ../../sass/tablet/tablet-profile-registration.scss */
-body.not-logged-in.section-user.page-user div#title-section,
-body.not-logged-in.page-anon-login div#title-section {
+/* line 158, ../../sass/tablet/tablet-profile-registration.scss */
+body.not-logged-in.section-user.page-user #page,
+body.not-logged-in.page-anon-login #page {
+  min-height: 0px !important;
+  height: 700px !important;
+}
+/* line 163, ../../sass/tablet/tablet-profile-registration.scss */
+body.not-logged-in.section-user.page-user div#content div#title-section,
+body.not-logged-in.page-anon-login div#content div#title-section {
   margin: 0px auto;
-  width: 360px;
+  margin-bottom: -40px;
+}
+/* line 169, ../../sass/tablet/tablet-profile-registration.scss */
+body.not-logged-in.section-user.page-user input#edit-name.form-text,
+body.not-logged-in.page-anon-login input#edit-name.form-text {
+  width: 90%;
+  margin-left: 0px;
+  margin-top: 5px;
 }

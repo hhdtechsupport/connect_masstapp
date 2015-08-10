@@ -1,7 +1,10 @@
 @import "../headers/variables";
 @import "../headers/capt-mixins";
 @import "../headers/extensible";
+@import "capt-mixins-phone";
+@import "extensible-phone";
 
+  $phone-margin: 10px;
 
 // both registration and profile 
 body.admin-menu,
@@ -67,7 +70,8 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
       div#content {
         border: 0px;
         h1#page-title.page__title {
-          text-align: center;
+          text-align: left;
+     
         }
         form#user-register-form {
          // border: 2px dashed purple;
@@ -251,5 +255,46 @@ body.page-user-register {
 
   }
 }
+
+/* password reset - you get to it via email link */
+body.not-logged-in.section-user.page-user-password,
+body.not-logged-in.page-anon-login {
+   #page {
+      min-height: 0px !important;
+      max-height: 300px !important;
+    }
+  div#title-section {
+    margin: 0px auto;
+    width: 360px;
+     h1#page-title.page__title {
+      text-align: left;
+      margin-left: $phone-margin !important;
+      border: 1px solid red;
+    }
+
+  }
+
+  form#user-pass {
+    @extend .mobile-panel-rule;
+    margin-top: 20px;
+    padding: 0px;
+    width: 95%;
+
+    input.form-text {
+      width: 90%;
+      margin-left: $phone-margin;
+    }
+    label, 
+    div#edit-actions {
+      margin-left: $phone-margin;
+    }
+    &:before {
+     
+      width: 100%;
+
+    }
+  }
+}
+
 
 

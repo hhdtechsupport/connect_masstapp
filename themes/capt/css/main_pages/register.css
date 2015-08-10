@@ -119,22 +119,22 @@ body.page-node-registrations div#title-section h1.page__title.title {
 /*
  *  Title and other elements for Registration page - all specific stuff goes here.
  */
-/* line 23, ../../sass/main_pages/register.scss */
+/* line 24, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
   /* specific width of fieldset wrapper - very important */
 }
-/* line 25, ../../sass/main_pages/register.scss */
+/* line 26, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) .request-new-password,
 body.not-logged-in.page-anon-register:not(.node-type-event) .request-new-password {
   display: none;
 }
-/* line 28, ../../sass/main_pages/register.scss */
+/* line 29, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div#main,
 body.not-logged-in.page-anon-register:not(.node-type-event) div#main {
   padding-top: 0px;
 }
-/* line 31, ../../sass/main_pages/register.scss */
+/* line 32, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title,
 body.not-logged-in.page-anon-register:not(.node-type-event) h1#page-title.page__title {
   padding-top: 7px;
@@ -146,27 +146,29 @@ body.not-logged-in.page-anon-register:not(.node-type-event) h1#page-title.page__
   margin-bottom: 21px;
   margin-top: 0px;
   text-transform: capitalize;
+  background: url("../images/icons/profile.png") 0 0 no-repeat;
+  padding-left: 55px;
 }
-/* line 42, ../../sass/main_pages/register.scss */
+/* line 45, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div#content,
 body.not-logged-in.page-anon-register:not(.node-type-event) div#content {
   border-top: 1px solid #d7d7d7;
   margin-top: 10px;
 }
-/* line 46, ../../sass/main_pages/register.scss */
+/* line 49, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset,
 body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset {
   padding-left: 20px;
   padding-right: 20px;
   background: #eef1f3;
 }
-/* line 50, ../../sass/main_pages/register.scss */
+/* line 53, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset legend,
 body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset legend {
   margin-left: -6px;
   position: relative;
 }
-/* line 56, ../../sass/main_pages/register.scss */
+/* line 59, ../../sass/main_pages/register.scss */
 body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper,
 body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper {
   margin-left: -20px;
@@ -177,7 +179,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper
 /*
  *  USER PROFILE FORM: Buttons and form elements for user profile
  */
-/* line 66, ../../sass/main_pages/register.scss */
+/* line 69, ../../sass/main_pages/register.scss */
 form#user-profile-form {
   /*.save-button {
       @extend .basic-button;
@@ -189,7 +191,7 @@ form#user-profile-form {
         }*/
   /* fieldset styles */
 }
-/* line 67, ../../sass/main_pages/register.scss */
+/* line 70, ../../sass/main_pages/register.scss */
 form#user-profile-form .edit-button,
 form#user-profile-form .save-button,
 form#user-profile-form .cancel-button {
@@ -198,38 +200,38 @@ form#user-profile-form .cancel-button {
   cursor: pointer;
   text-align: center;
 }
-/* line 83, ../../sass/main_pages/register.scss */
+/* line 86, ../../sass/main_pages/register.scss */
 form#user-profile-form input.form-text {
   border: 1px solid #d7d7d7;
 }
-/* line 86, ../../sass/main_pages/register.scss */
+/* line 89, ../../sass/main_pages/register.scss */
 form#user-profile-form .cancel-button {
   clear: right;
 }
-/* line 89, ../../sass/main_pages/register.scss */
+/* line 92, ../../sass/main_pages/register.scss */
 form#user-profile-form .item {
   font-size: 14px;
   margin: 10px 0 10px 5px;
   line-height: 1.5em;
   /*font-style: italic;*/
 }
-/* line 94, ../../sass/main_pages/register.scss */
+/* line 97, ../../sass/main_pages/register.scss */
 form#user-profile-form .item .value {
   font-style: italic;
 }
-/* line 99, ../../sass/main_pages/register.scss */
+/* line 102, ../../sass/main_pages/register.scss */
 form#user-profile-form .fieldset-wrapper {
   margin-left: 0px;
   width: 97.9%;
 }
 
 /*** Table Registrations-list (from Nancy, 7/10) ***/
-/* line 108, ../../sass/main_pages/register.scss */
+/* line 111, ../../sass/main_pages/register.scss */
 .no-registrations {
   text-align: center;
 }
 
-/* line 112, ../../sass/main_pages/register.scss */
+/* line 115, ../../sass/main_pages/register.scss */
 .instance-label {
   background-color: #DAE6EC;
   border-top: 2px solid #949596;
@@ -239,72 +241,72 @@ form#user-profile-form .fieldset-wrapper {
   text-align: center;
 }
 
-/* line 121, ../../sass/main_pages/register.scss */
+/* line 124, ../../sass/main_pages/register.scss */
 .instance-complete {
   color: #577684;
   font-size: 11px;
   font-style: italic;
 }
 
-/* line 127, ../../sass/main_pages/register.scss */
+/* line 130, ../../sass/main_pages/register.scss */
 .access-information {
   background-color: #F2F2F2;
   font-size: 11px;
 }
-/* line 130, ../../sass/main_pages/register.scss */
+/* line 133, ../../sass/main_pages/register.scss */
 .access-information p {
   margin: 10px;
 }
 
-/* line 135, ../../sass/main_pages/register.scss */
+/* line 138, ../../sass/main_pages/register.scss */
 .show-access-information {
   cursor: pointer;
   text-decoration: underline;
 }
 
-/* line 141, ../../sass/main_pages/register.scss */
+/* line 144, ../../sass/main_pages/register.scss */
 .view-instances .views-field-field-access-information ul {
   padding: 0 0 0 15px;
   margin-top: 0px;
 }
 
-/* line 148, ../../sass/main_pages/register.scss */
+/* line 151, ../../sass/main_pages/register.scss */
 #registrations-list tr.odd {
   background-color: #fff !important;
 }
-/* line 151, ../../sass/main_pages/register.scss */
+/* line 154, ../../sass/main_pages/register.scss */
 #registrations-list a {
   color: inherit !important;
 }
-/* line 153, ../../sass/main_pages/register.scss */
+/* line 156, ../../sass/main_pages/register.scss */
 #registrations-list a:hover {
   color: #8c1d18 !important;
 }
 
 /*** Register and Participate Others ***/
-/* line 160, ../../sass/main_pages/register.scss */
+/* line 163, ../../sass/main_pages/register.scss */
 .participate-others-button,
 .register-others-button {
   border-radius: 15px !important;
   color: white !important;
 }
 
-/* line 166, ../../sass/main_pages/register.scss */
+/* line 169, ../../sass/main_pages/register.scss */
 .participate-others-button a:visited,
 .register-others-button a:visited {
   color: white !important;
 }
 
 /* Matt's styles for chosen container and field-widget-inline-entity-form */
-/* line 173, ../../sass/main_pages/register.scss */
+/* line 176, ../../sass/main_pages/register.scss */
 .chosen-container {
   width: 400px !important;
 }
-/* line 175, ../../sass/main_pages/register.scss */
+/* line 178, ../../sass/main_pages/register.scss */
 .chosen-container a {
   font-weight: normal;
 }
-/* line 178, ../../sass/main_pages/register.scss */
+/* line 181, ../../sass/main_pages/register.scss */
 .chosen-container .chosen-single {
   border-radius: 0px;
   font-size: 14px;
@@ -317,35 +319,35 @@ form#user-profile-form .fieldset-wrapper {
   height: 28px;
   padding-top: 1px;
 }
-/* line 190, ../../sass/main_pages/register.scss */
+/* line 193, ../../sass/main_pages/register.scss */
 .chosen-container .chosen-drop {
   border-radius: 0px;
 }
-/* line 193, ../../sass/main_pages/register.scss */
+/* line 196, ../../sass/main_pages/register.scss */
 .chosen-container.chosen-container-multi .chosen-choices li.search-choice {
   border-radius: 0px;
 }
 
-/* line 198, ../../sass/main_pages/register.scss */
+/* line 201, ../../sass/main_pages/register.scss */
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
 
-/* line 204, ../../sass/main_pages/register.scss */
+/* line 207, ../../sass/main_pages/register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) div#title-section,
 body.not-logged-in.section-anon-login.page-anon-login div#title-section {
   margin: 0px auto;
   border-bottom: 0px;
   width: 360px;
 }
-/* line 209, ../../sass/main_pages/register.scss */
+/* line 212, ../../sass/main_pages/register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset,
 body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset {
   padding: 20px;
   margin: 0px auto;
   width: 320px;
 }
-/* line 214, ../../sass/main_pages/register.scss */
+/* line 217, ../../sass/main_pages/register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset:before,
 body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:before {
   width: 360px;
@@ -353,13 +355,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 
 /* OMB Block; we may want to just use a form here */
-/* line 227, ../../sass/main_pages/register.scss */
+/* line 230, ../../sass/main_pages/register.scss */
 body.page-user-edit #block-block-3,
 body.page-user-register #block-block-3,
 body.page-anon-register #block-block-3 {
   margin: 30px 0px;
 }
-/* line 229, ../../sass/main_pages/register.scss */
+/* line 232, ../../sass/main_pages/register.scss */
 body.page-user-edit #block-block-3 p,
 body.page-user-register #block-block-3 p,
 body.page-anon-register #block-block-3 p {

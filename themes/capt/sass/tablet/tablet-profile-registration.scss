@@ -25,7 +25,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event)  {
     ul.horizontal-tabs-list {
       width: 100%;
       margin-left: $reg-margin-left;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       
       li.horizontal-tab-button {
        a {
@@ -101,10 +101,10 @@ div#main {
           h1#page-title.page__title {
            background-position: 8px 0px;
            font-size: 34px;
-           padding-left: 0px;
+           padding-left: 60px;
            /*padding-left: 60px !important;*/
            margin-bottom: 10px;
-           margin-left: 13px;
+           margin-left: 5px;
            /*border: 1px solid red;*/
          }
        }
@@ -151,13 +151,26 @@ body.admin-menu {
    }
  }
 }
+
 /* password reset - you get to it via email link */
 body.not-logged-in.section-user.page-user,
 body.not-logged-in.page-anon-login {
-  div#title-section {
+   #page {
+    min-height: 0px !important;
+     height: 700px !important;
+   }
+
+  div#content div#title-section {
     margin: 0px auto;
-    width: 360px;
+ 
+    margin-bottom: -40px;
+    
   }
+   input#edit-name.form-text {
+      width: 90%;
+      margin-left: 0px;
+      margin-top: 5px;
+    }
 }
 
 
