@@ -1,370 +1,69 @@
-/* SMACSS theme rules */
-/* @import "theme-A.css"; */
-/* @import "theme-B.css"; */
-/* variables */
-/*fonts*/
-/* variables */
-/* colors*/
-/*#e4e4e4;*/
-/*#e4e3e0;*/
-/*measurements */
-/*fonts*/
-/* responsive */
-/* logos */
-/* end logos */
-/* mixins */
-/* for tabs! */
-/* for rounded elements */
-/* for header & footer */
-/* line 5, ../sass/extensible.scss */
-#block-block-12 .contextual-links-wrapper {
-  width: 970px;
-  margin: 0px auto;
-}
-
-/* line 10, ../sass/extensible.scss */
-.proto-disclaimer {
-  position: relative;
-  top: 30px;
-  font-size: 10px;
-  line-height: 1.4em;
-  width: 420px;
-  padding-right: 550px;
-  margin: 0px auto;
-  padding-bottom: 20px;
-  left: 0px;
-}
-
-/* line 22, ../sass/extensible.scss */
-.basic-button {
-  background-color: #c3791f;
-  color: white;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-}
-
-/* line 29, ../sass/extensible.scss */
-.panel, .panel-rule, .panel-rule-single, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset,
-body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset {
-  background-color: #eef1f3;
-  padding-left: 0px;
-  padding-right: 0px;
-  border: 1px solid #d7d7d7;
-  border-top: 0px;
-}
-/* line 35, ../sass/extensible.scss */
-.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset h3 a:hover,
-body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset h3 a:hover {
-  color: #8c1d18;
-}
-/* line 38, ../sass/extensible.scss */
-.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset .filter-wrapper,
-body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset .filter-wrapper {
-  border: 0px;
-}
-
-/* line 47, ../sass/extensible.scss */
-.panel-rule, .panel-rule-single {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 0px;
-  /*5px solid $capt-aqua;*/
-  font-size: 13px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  border-radius: 1px;
-}
-/* line 57, ../sass/extensible.scss */
-.panel-rule:before, .panel-rule-single:before {
-  display: block;
-  background-color: #577785;
-  height: 5px;
-  width: 100%;
-  content: "";
-  position: relative;
-  top: -25px;
-  margin-left: -1px;
-  padding-left: 2px;
-}
-
-/* line 70, ../sass/extensible.scss */
-.panel-rule-single {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #d7d7d7;
-  /* needs to be larger for dashboard panels */
-}
-
-/* line 78, ../sass/extensible.scss */
-.pager-link {
-  background-repeat: no-repeat;
-  color: #c3791f;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-/* registrations*/
-/* line 8, ../sass/register.scss */
-body.page-node-registrations div#title-section h1.page__title.title {
-  color: #888a55;
-  font-weight: bold;
-  font-size: 36px;
-  background-image: none;
-  padding-left: 0px;
-}
-
 /*
- *  Title and other elements for Registration page - all specific stuff goes here.
- */
-/* line 23, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event),
-body.not-logged-in.page-anon-register:not(.node-type-event) {
-  /* specific width of fieldset wrapper - very important */
-}
-/* line 25, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) .request-new-password,
-body.not-logged-in.page-anon-register:not(.node-type-event) .request-new-password {
-  display: none;
-}
-/* line 28, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div#main,
-body.not-logged-in.page-anon-register:not(.node-type-event) div#main {
-  padding-top: 0px;
-}
-/* line 31, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title,
-body.not-logged-in.page-anon-register:not(.node-type-event) h1#page-title.page__title {
-  padding-top: 7px;
-  color: #8c1d18;
-  min-height: 44px;
-  font-size: 26pt;
-  /* from h2 in the specs */
-  margin-top: 36px;
-  margin-bottom: 21px;
-  margin-top: 0px;
-  text-transform: capitalize;
-}
-/* line 42, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div#content,
-body.not-logged-in.page-anon-register:not(.node-type-event) div#content {
-  border-top: 1px solid #d7d7d7;
-  margin-top: 10px;
-}
-/* line 46, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset,
-body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset {
-  padding-left: 20px;
-  padding-right: 20px;
-  background: #eef1f3;
-}
-/* line 50, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset legend,
-body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset legend {
-  margin-left: -6px;
-  position: relative;
-}
-/* line 56, ../sass/register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper,
-body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper {
-  margin-left: -20px;
-  padding: 10px 17px;
-  /*17px;*/
-}
+Error: File to import not found or unreadable: capt-mixins.
+       Load paths:
+         Compass::SpriteImporter
+         /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass
+         /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets
+        on line 2 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/register.scss
 
-/*
- *  USER PROFILE FORM: Buttons and form elements for user profile
- */
-/* line 66, ../sass/register.scss */
-form#user-profile-form {
-  /*.save-button {
-      @extend .basic-button;
-        text-transform: uppercase;
-        float: right;
-        margin-right: 10px;
-        cursor: pointer;
-        padding: 8px 20px;
-        }*/
-  /* fieldset styles */
-}
-/* line 67, ../sass/register.scss */
-form#user-profile-form .edit-button,
-form#user-profile-form .save-button,
-form#user-profile-form .cancel-button {
-  float: right;
-  margin-right: 10px;
-  cursor: pointer;
-  text-align: center;
-}
-/* line 83, ../sass/register.scss */
-form#user-profile-form input.form-text {
-  border: 1px solid #d7d7d7;
-}
-/* line 86, ../sass/register.scss */
-form#user-profile-form .cancel-button {
-  clear: right;
-}
-/* line 89, ../sass/register.scss */
-form#user-profile-form .item {
-  font-size: 14px;
-  margin: 10px 0 10px 5px;
-  line-height: 1.5em;
-  /*font-style: italic;*/
-}
-/* line 94, ../sass/register.scss */
-form#user-profile-form .item .value {
-  font-style: italic;
-}
-/* line 99, ../sass/register.scss */
-form#user-profile-form .fieldset-wrapper {
-  margin-left: 0px;
-  width: 97.9%;
-}
+1: @import 'variables';
+2: @import 'capt-mixins';
+3: @import 'extensible';
+4: 
+5: /* registrations*\/
+6: body.page-node-registrations {
+7:   div#title-section {
 
-/*** Table Registrations-list (from Nancy, 7/10) ***/
-/* line 108, ../sass/register.scss */
-.no-registrations {
-  text-align: center;
-}
-
-/* line 112, ../sass/register.scss */
-.instance-label {
-  background-color: #DAE6EC;
-  border-top: 2px solid #949596;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 6px 0 3px 0;
-  text-align: center;
-}
-
-/* line 121, ../sass/register.scss */
-.instance-complete {
-  color: #577684;
-  font-size: 11px;
-  font-style: italic;
-}
-
-/* line 127, ../sass/register.scss */
-.access-information {
-  background-color: #F2F2F2;
-  font-size: 11px;
-}
-/* line 130, ../sass/register.scss */
-.access-information p {
-  margin: 10px;
-}
-
-/* line 135, ../sass/register.scss */
-.show-access-information {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* line 141, ../sass/register.scss */
-.view-instances .views-field-field-access-information ul {
-  padding: 0 0 0 15px;
-  margin-top: 0px;
-}
-
-/* line 148, ../sass/register.scss */
-#registrations-list tr.odd {
-  background-color: #fff !important;
-}
-/* line 151, ../sass/register.scss */
-#registrations-list a {
-  color: inherit !important;
-}
-/* line 153, ../sass/register.scss */
-#registrations-list a:hover {
-  color: #8c1d18 !important;
-}
-
-/*** Register and Participate Others ***/
-/* line 160, ../sass/register.scss */
-.participate-others-button,
-.register-others-button {
-  border-radius: 15px !important;
-  color: white !important;
-}
-
-/* line 166, ../sass/register.scss */
-.participate-others-button a:visited,
-.register-others-button a:visited {
-  color: white !important;
-}
-
-/* Matt's styles for chosen container and field-widget-inline-entity-form */
-/* line 173, ../sass/register.scss */
-.chosen-container {
-  width: 400px !important;
-}
-/* line 175, ../sass/register.scss */
-.chosen-container a {
-  font-weight: normal;
-}
-/* line 178, ../sass/register.scss */
-.chosen-container .chosen-single {
-  border-radius: 0px;
-  font-size: 14px;
-  max-width: 400px;
-  display: block;
-  border: 1px solid #b6b6b6;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  height: 28px;
-  padding-top: 1px;
-}
-/* line 190, ../sass/register.scss */
-.chosen-container .chosen-drop {
-  border-radius: 0px;
-}
-/* line 193, ../sass/register.scss */
-.chosen-container.chosen-container-multi .chosen-choices li.search-choice {
-  border-radius: 0px;
-}
-
-/* line 198, ../sass/register.scss */
-.field-widget-inline-entity-form > div {
-  margin-top: 20px;
-}
-
-/* line 204, ../sass/register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) div#title-section,
-body.not-logged-in.section-anon-login.page-anon-login div#title-section {
-  margin: 0px auto;
-  border-bottom: 0px;
-  width: 360px;
-}
-/* line 209, ../sass/register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset,
-body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset {
-  padding: 20px;
-  margin: 0px auto;
-  width: 320px;
-}
-/* line 214, ../sass/register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset:before,
-body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:before {
-  width: 360px;
-  margin-left: -21px;
-}
-
-/* OMB Block; we may want to just use a form here */
-/* line 227, ../sass/register.scss */
-body.page-user-edit #block-block-3,
-body.page-user-register #block-block-3,
-body.page-anon-register #block-block-3 {
-  margin: 30px 0px;
-}
-/* line 229, ../sass/register.scss */
-body.page-user-edit #block-block-3 p,
-body.page-user-register #block-block-3 p,
-body.page-anon-register #block-block-3 p {
-  font-size: 12px;
-  line-height: 1.3em;
-}
+Backtrace:
+/Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/register.scss:2
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `call'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `load'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `<main>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `eval'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: capt-mixins.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass\A          /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets\A         on line 2 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/register.scss\A \A 1: @import 'variables';\A 2: @import 'capt-mixins';\A 3: @import 'extensible';\A 4: \A 5: /* registrations*/\A 6: body.page-node-registrations {\A 7:   div#title-section {"; }

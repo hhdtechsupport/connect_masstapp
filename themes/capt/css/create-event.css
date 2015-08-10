@@ -1,282 +1,68 @@
-/* SMACSS theme rules */
-/* @import "theme-A.css"; */
-/* @import "theme-B.css"; */
-/* variables */
-/*fonts*/
-/* variables */
-/* colors*/
-/*#e4e4e4;*/
-/*#e4e3e0;*/
-/*measurements */
-/*fonts*/
-/* responsive */
-/* logos */
-/* end logos */
-/* mixins */
-/* for tabs! */
-/* for rounded elements */
-/* for header & footer */
-/* line 5, ../sass/extensible.scss */
-#block-block-12 .contextual-links-wrapper {
-  width: 970px;
-  margin: 0px auto;
-}
+/*
+Error: File to import not found or unreadable: variables.
+       Load paths:
+         Compass::SpriteImporter
+         /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass
+         /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets
+        on line 1 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-event.scss
 
-/* line 10, ../sass/extensible.scss */
-.proto-disclaimer {
-  position: relative;
-  top: 30px;
-  font-size: 10px;
-  line-height: 1.4em;
-  width: 420px;
-  padding-right: 550px;
-  margin: 0px auto;
-  padding-bottom: 20px;
-  left: 0px;
-}
+1: @import 'variables';
+2: @import 'capt-mixins';
+3: @import 'extensible';
+4: 
+5: /* form elements for Edit & Create Event *\/
+6: 
 
-/* line 22, ../sass/extensible.scss */
-.basic-button {
-  background-color: #c3791f;
-  color: white;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-}
-
-/* line 29, ../sass/extensible.scss */
-.panel, .panel-rule, .panel-rule-single, form#event-node-form > div > .field-group-div.panel, form#event-notifications-node-form > div > .field-group-div.panel {
-  background-color: #eef1f3;
-  padding-left: 0px;
-  padding-right: 0px;
-  border: 1px solid #d7d7d7;
-  border-top: 0px;
-}
-/* line 35, ../sass/extensible.scss */
-.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, form#event-node-form > div > .field-group-div.panel h3 a:hover, form#event-notifications-node-form > div > .field-group-div.panel h3 a:hover {
-  color: #8c1d18;
-}
-/* line 38, ../sass/extensible.scss */
-.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper, form#event-node-form > div > .field-group-div.panel .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .filter-wrapper {
-  border: 0px;
-}
-
-/* line 47, ../sass/extensible.scss */
-.panel-rule, .panel-rule-single, form#event-node-form > div > .field-group-div.panel, form#event-node-form > div > .field-group-div.panel-rule, form#event-notifications-node-form > div > .field-group-div.panel, form#event-notifications-node-form > div > .field-group-div.panel-rule {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 0px;
-  /*5px solid $capt-aqua;*/
-  font-size: 13px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  border-radius: 1px;
-}
-/* line 57, ../sass/extensible.scss */
-.panel-rule:before, .panel-rule-single:before, form#event-node-form > div > .field-group-div.panel:before, form#event-node-form > div > .field-group-div.panel-rule:before, form#event-notifications-node-form > div > .field-group-div.panel:before, form#event-notifications-node-form > div > .field-group-div.panel-rule:before {
-  display: block;
-  background-color: #577785;
-  height: 5px;
-  width: 100%;
-  content: "";
-  position: relative;
-  top: -25px;
-  margin-left: -1px;
-  padding-left: 2px;
-}
-
-/* line 70, ../sass/extensible.scss */
-.panel-rule-single {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #d7d7d7;
-  /* needs to be larger for dashboard panels */
-}
-
-/* line 78, ../sass/extensible.scss */
-.pager-link {
-  background-repeat: no-repeat;
-  color: #c3791f;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-/* form elements for Edit & Create Event */
-/* line 8, ../sass/create-event.scss */
-form#event-node-form a:not(.chosen-single), form#event-notifications-node-form a:not(.chosen-single) {
-  font-weight: normal;
-  color: #8c1d18;
-}
-/* line 11, ../sass/create-event.scss */
-form#event-node-form a:not(.chosen-single).field-group-format-title, form#event-notifications-node-form a:not(.chosen-single).field-group-format-title {
-  font-weight: bold;
-  color: #577785;
-}
-/* line 14, ../sass/create-event.scss */
-form#event-node-form a:not(.chosen-single).field-group-format-title:hover, form#event-notifications-node-form a:not(.chosen-single).field-group-format-title:hover {
-  color: #8c1d18;
-  text-decoration: none;
-}
-/* line 20, ../sass/create-event.scss */
-form#event-node-form .form-item, form#event-notifications-node-form .form-item {
-  margin: 1.5em 0;
-}
-/* line 22, ../sass/create-event.scss */
-form#event-node-form .form-item.form-type-radio, form#event-notifications-node-form .form-item.form-type-radio {
-  margin: 0;
-}
-/* line 28, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule > *, form#event-node-form > div > .field-group-div.panel-rule-single > *, form#event-node-form > div > .field-group-div.panel > *, form#event-notifications-node-form > div > .field-group-div.panel-rule > *, form#event-notifications-node-form > div > .field-group-div.panel-rule-single > *, form#event-notifications-node-form > div > .field-group-div.panel > * {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-/* line 32, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule h3, form#event-node-form > div > .field-group-div.panel-rule-single h3, form#event-node-form > div > .field-group-div.panel h3, form#event-notifications-node-form > div > .field-group-div.panel-rule h3, form#event-notifications-node-form > div > .field-group-div.panel-rule-single h3, form#event-notifications-node-form > div > .field-group-div.panel h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  text-transform: uppercase;
-  color: #577785;
-  font-size: 1.3em;
-  font-style: normal;
-  position: relative;
-  top: -55px;
-  margin-bottom: -40px;
-}
-/* line 43, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form), form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form), form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form), form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form) {
-  border: 0px;
-  margin: 0px;
-  padding: 0px;
-}
-/* line 47, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) legend, form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) legend, form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) legend, form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form) legend {
-  display: none;
-}
-/* line 52, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) table, form#event-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) table, form#event-node-form > div > .field-group-div.panel fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset:not(.ief-form) table, form#event-notifications-node-form > div > .field-group-div.panel fieldset:not(.ief-form) table {
-  margin-top: 0;
-}
-/* line 57, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper > div > label {
-  display: none;
-}
-/* line 62, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .form-item, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .form-item, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .form-item, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .form-item {
-  margin-bottom: 0px;
-}
-/* line 65, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .ckeditor_links, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .ckeditor_links, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .ckeditor_links, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .ckeditor_links {
-  font-size: .85em;
-}
-/* line 68, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper {
-  border: 1px solid #d4d5d5;
-  background-color: #F6F8FA;
-  padding: 15px 0;
-}
-/* line 72, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .form-type-select, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .form-type-select, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .form-type-select, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .form-type-select {
-  margin-top: 0px;
-}
-/* line 75, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines {
-  font-size: .85em;
-  line-height: 1.25em;
-}
-/* line 78, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel-rule .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .text-format-wrapper .filter-wrapper .filter-guidelines .tips, form#event-notifications-node-form > div > .field-group-div.panel .text-format-wrapper .filter-wrapper .filter-guidelines .tips {
-  padding-left: 15px;
-}
-/* line 84, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form, form#event-node-form > div > .field-group-div.panel fieldset.ief-form, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form, form#event-node-form > div > .field-group-div.panel tr.ief-row-form, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form {
-  padding: 25px;
-}
-/* line 86, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form > legend, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form > legend, form#event-node-form > div > .field-group-div.panel tr.ief-row-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form > legend, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form > legend, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form > legend {
-  display: block;
-  font-weight: bold;
-  padding-left: 5px;
-  padding-right: 5px;
-  text-transform: capitalize;
-  font-style: italic;
-  font-size: 1.25em;
-}
-/* line 96, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel tr.ief-row-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .container-inline-date .form-item, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form .container-inline-date .form-item {
-  margin: 0;
-}
-/* line 99, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel tr.ief-row-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .container-inline-date .date-padding, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form .container-inline-date .date-padding {
-  padding: 0;
-}
-/* line 103, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel tr.ief-row-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .link-field-subrow .form-item, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form .link-field-subrow .form-item {
-  margin: .5em 0;
-}
-/* line 105, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel tr.ief-row-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .link-field-subrow .form-item label, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form .link-field-subrow .form-item label {
-  font-size: .85em;
-}
-/* line 110, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule tr.ief-row-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel tr.ief-row-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel fieldset.ief-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule tr.ief-row-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single tr.ief-row-form .text-format-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel tr.ief-row-form .text-format-wrapper > div > label {
-  display: block;
-}
-/* line 115, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule input.form-text, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text, form#event-node-form > div > .field-group-div.panel input.form-text, form#event-notifications-node-form > div > .field-group-div.panel-rule input.form-text, form#event-notifications-node-form > div > .field-group-div.panel-rule-single input.form-text, form#event-notifications-node-form > div > .field-group-div.panel input.form-text {
-  font-size: 14px;
-  padding: 5px;
-  max-width: 400px;
-  display: block;
-  border: 1px solid #b6b6b6;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-}
-/* line 124, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule input.form-text:focus, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text:focus, form#event-node-form > div > .field-group-div.panel input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel-rule input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel-rule-single input.form-text:focus, form#event-notifications-node-form > div > .field-group-div.panel input.form-text:focus {
-  background: #F5FAFC;
-  outline: none;
-}
-/* line 130, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper, form#event-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .start-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper {
-  width: auto;
-  clear: none;
-  float: left;
-}
-/* line 136, ../sass/create-event.scss */
-form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > .field-group-div.panel .field-type-datetime .end-date-wrapper > div > label {
-  float: left;
-  margin-top: 45px;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-/* line 148, ../sass/create-event.scss */
-form#event-notifications-node-form .panel, form#event-notifications-node-form .panel-rule, form#event-notifications-node-form .panel-rule-single, form#event-notifications-node-form form#event-node-form > div > .field-group-div.panel, form#event-notifications-node-form > div > .field-group-div.panel {
-  margin-top: 0px !important;
-}
-/* line 151, ../sass/create-event.scss */
-form#event-notifications-node-form h3 {
-  top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* end create event form */
-/* overall page heights */
-/* line 160, ../sass/create-event.scss */
-body.page-node-add-event.page-node-add.section-node-add {
-  /* needed so that save button has space above border */
-}
-/* line 161, ../sass/create-event.scss */
-body.page-node-add-event.page-node-add.section-node-add #page {
-  height: 95%;
-}
-/* line 165, ../sass/create-event.scss */
-body.page-node-add-event.page-node-add.section-node-add div#content {
-  height: 100%;
-  padding-bottom: 20px;
-}
+Backtrace:
+/Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-event.scss:1
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `call'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `load'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `<main>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `eval'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: variables.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass\A          /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets\A         on line 1 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/create-event.scss\A \A 1: @import 'variables';\A 2: @import 'capt-mixins';\A 3: @import 'extensible';\A 4: \A 5: /* form elements for Edit & Create Event */\A 6: "; }

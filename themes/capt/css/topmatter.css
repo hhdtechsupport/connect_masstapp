@@ -1,312 +1,69 @@
-/* SMACSS theme rules */
-/* @import "theme-A.css"; */
-/* @import "theme-B.css"; */
-/* variables */
-/*fonts*/
-/* variables */
-/* colors*/
-/*#e4e4e4;*/
-/*#e4e3e0;*/
-/*measurements */
-/*fonts*/
-/* responsive */
-/* logos */
-/* end logos */
-/* mixins */
-/* for tabs! */
-/* for rounded elements */
-/* for header & footer */
-/* line 5, ../sass/extensible.scss */
-#block-block-12 .contextual-links-wrapper {
-  width: 970px;
-  margin: 0px auto;
-}
-
-/* line 10, ../sass/extensible.scss */
-.proto-disclaimer, div.bottom-footer div.disclaimer {
-  position: relative;
-  top: 30px;
-  font-size: 10px;
-  line-height: 1.4em;
-  width: 420px;
-  padding-right: 550px;
-  margin: 0px auto;
-  padding-bottom: 20px;
-  left: 0px;
-}
-
-/* line 22, ../sass/extensible.scss */
-.basic-button {
-  background-color: #c3791f;
-  color: white;
-  text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-}
-
-/* line 29, ../sass/extensible.scss */
-.panel, .panel-rule, .panel-rule-single {
-  background-color: #eef1f3;
-  padding-left: 0px;
-  padding-right: 0px;
-  border: 1px solid #d7d7d7;
-  border-top: 0px;
-}
-/* line 35, ../sass/extensible.scss */
-.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
-  color: #8c1d18;
-}
-/* line 38, ../sass/extensible.scss */
-.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
-  border: 0px;
-}
-
-/* line 47, ../sass/extensible.scss */
-.panel-rule, .panel-rule-single {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 0px;
-  /*5px solid $capt-aqua;*/
-  font-size: 13px;
-  margin-top: 60px;
-  margin-bottom: 30px;
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  border-radius: 1px;
-}
-/* line 57, ../sass/extensible.scss */
-.panel-rule:before, .panel-rule-single:before {
-  display: block;
-  background-color: #577785;
-  height: 5px;
-  width: 100%;
-  content: "";
-  position: relative;
-  top: -25px;
-  margin-left: -1px;
-  padding-left: 2px;
-}
-
-/* line 70, ../sass/extensible.scss */
-.panel-rule-single {
-  margin-bottom: 30px;
-  border-bottom: 1px solid #d7d7d7;
-  /* needs to be larger for dashboard panels */
-}
-
-/* line 78, ../sass/extensible.scss */
-.pager-link {
-  background-repeat: no-repeat;
-  color: #c3791f;
-  font-size: 14px;
-  font-weight: normal;
-}
-
 /*
- *  Banners
- */
-/* line 11, ../sass/topmatter.scss */
-body.front header#header, body.not-logged-in:not(.node-type-event) header#header {
-  height: 380px;
-  background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
-  padding-left: 135px;
-}
-/* line 15, ../sass/topmatter.scss */
-body.front header#header #name-and-slogan, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan {
-  padding-top: 55px;
-  float: left;
-  clear: none;
-}
-/* line 19, ../sass/topmatter.scss */
-body.front header#header #name-and-slogan h1, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan h1 {
-  font-size: 3em;
-  line-height: 1em;
-}
-/* line 23, ../sass/topmatter.scss */
-body.front header#header #name-and-slogan a.header__site-link, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link {
-  color: white;
-  text-decoration: none;
-  font-weight: normal;
-}
-/* line 27, ../sass/topmatter.scss */
-body.front header#header #name-and-slogan a.header__site-link:hover, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link:hover {
-  text-decoration: none;
-  color: white;
-}
-/* line 32, ../sass/topmatter.scss */
-body.front header#header #name-and-slogan em, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan em {
-  font-weight: normal;
-}
-/* line 36, ../sass/topmatter.scss */
-body.front header#header .region-highlighted, body.not-logged-in:not(.node-type-event) header#header .region-highlighted {
-  padding: 70px 0 0 20px;
-  font-size: 1.25em;
-  text-transform: uppercase;
-  color: white;
-  float: left;
-}
-/* line 46, ../sass/topmatter.scss */
-body.not-front header#header {
-  height: 191px;
-  background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
-  padding-left: 360px;
-}
-/* line 50, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan {
-  padding: 40px 0 8px 0;
-}
-/* line 52, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan h1 {
-  font-size: 3.25em;
-  line-height: 1em;
-}
-/* line 56, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan a.header__site-link {
-  color: white;
-  text-decoration: none;
-  font-weight: normal;
-}
-/* line 60, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan a.header__site-link:hover {
-  text-decoration: none;
-  color: white;
-}
-/* line 65, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan em {
-  font-weight: normal;
-}
-/* line 69, ../sass/topmatter.scss */
-body.not-front header#header #name-and-slogan.category h1 {
-  font-size: 2.25em;
-}
-/* line 74, ../sass/topmatter.scss */
-body.not-front header#header .region-highlighted {
-  font-size: 1.25em;
-  text-transform: uppercase;
-  color: white;
-}
-/* line 78, ../sass/topmatter.scss */
-body.not-front header#header .region-highlighted.category {
-  text-transform: none;
-  font-weight: bold;
-  font-size: 3.25em;
-  opacity: 0.5;
-  overflow: hidden;
-  height: 70px;
-  line-height: 1.5em;
-  margin-top: -10px;
-}
+Error: File to import not found or unreadable: capt-mixins.
+       Load paths:
+         Compass::SpriteImporter
+         /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass
+         /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets
+        on line 2 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/topmatter.scss
 
-/*logos above header - move up to general area? */
-/* line 96, ../sass/topmatter.scss */
-div.top-header {
-  background-image: url("../images/design-elements/rainbow-divider.png");
-  background-position: -124px 106px;
-  background-repeat: repeat-x;
-    /*background-image: url('../images/design-elements/rainbow-divider.png');
-background-position: -124px $header-height - $rainbow-height;
-background-repeat: repeat-x;*/
-  height: 115px;
-}
+1: @import 'variables';
+2: @import 'capt-mixins';
+3: @import 'extensible';
+4: 
+5: /*
+6:  *  Banners
+7:  *\/
 
-/*
-*  Logos
+Backtrace:
+/Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/topmatter.scss:2
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:45:in `import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:301:in `visit_import'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/tree/root_node.rb:20:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/engine.rb:268:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `each'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/sass-3.4.9/lib/sass/plugin/compiler.rb:293:in `watch'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `call'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `load'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/compass:23:in `<main>'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `eval'
+/Users/nkatz/.rvm/gems/ruby-1.9.3-p547/bin/ruby_executable_hooks:15:in `<main>'
 */
-/* line 108, ../sass/topmatter.scss */
-div.top-header-container {
-  height: 100px;
-  width: 1000px;
-  /* logos */
-}
-/* line 112, ../sass/topmatter.scss */
-div.top-header-container div.capt-logo {
-  background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
-  width: 340px;
-  margin-left: 0px;
-  /*$logo-margin;*/
-  margin-bottom: 0px;
-  top: 48px;
-}
-/* line 120, ../sass/topmatter.scss */
-div.top-header-container div.samhsa-logo {
-  background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
-  width: 295px;
-  background-size: 295px 73px;
-  margin-right: 0px;
-  top: 22px;
-}
-/* line 127, ../sass/topmatter.scss */
-div.top-header-container div.capt-logo,
-div.top-header-container div.samhsa-logo {
-  height: 115px;
-  position: relative;
-}
-
-/* Welcome line near search box on dashboard*/
-/* line 136, ../sass/topmatter.scss */
-div#block-block-7 {
-  color: white;
-}
-/* line 138, ../sass/topmatter.scss */
-div#block-block-7 a {
-  color: white;
-  font-weight: normal;
-  text-decoration: underline;
-}
-
-/* search */
-/* line 147, ../sass/topmatter.scss */
-input#edit-search-block-form--2 {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  border: 0px;
-  margin-left: 16px;
-  padding-right: 20px;
-  height: 22px;
-  width: 150px;
-  font-weight: normal;
-  background: url("../images/icons/hand-lens.png") 150px 4px no-repeat;
-  background-color: white;
-}
-
-/* line 161, ../sass/topmatter.scss */
-form#search-block-form div#edit-actions input#edit-submit, form#search-block-form div#edit-actions input#edit-submit--2, form#search-block-form div#edit-actions--2 input#edit-submit, form#search-block-form div#edit-actions--2 input#edit-submit--2 {
-  border: 1px solid white;
-  background-color: transparent;
-  height: 24px;
-  padding: 4px;
-  width: 70px;
-  margin-left: 8px;
-}
-
-/* line 172, ../sass/topmatter.scss */
-div#edit-actions {
-  padding-bottom: 10px;
-}
-
-/* hiding text in key areas! */
-/* line 178, ../sass/topmatter.scss */
-div.samhsa-logo,
-div.capt-logo {
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-/* line 185, ../sass/topmatter.scss */
-div.bottom-footer {
-  background-image: url("../images/design-elements/rainbow-divider.png");
-  background-position: -124px 0px;
-  background-repeat: repeat-x;
-}
-
-/* line 192, ../sass/topmatter.scss */
-div#block-block-12 {
-  /*height: 100px;*/
-  margin-bottom: 0px;
-}
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: capt-mixins.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass\A          /Users/nkatz/.rvm/gems/ruby-1.9.3-p547/gems/compass-core-1.0.1/stylesheets\A         on line 2 of /Applications/MAMP/htdocs/D7/sites/captconnect.edc.org/themes/capt/sass/topmatter.scss\A \A 1: @import 'variables';\A 2: @import 'capt-mixins';\A 3: @import 'extensible';\A 4: \A 5: /*\A 6:  *  Banners\A 7:  */"; }
