@@ -1379,80 +1379,86 @@ we may deprecate field-name-upcoming-events selector
 
 */
 /* line 153, ../sass/main_pages/dashboard.scss */
+body.page-events.section-events div#block-views-exp-dashboard-page-1 div#edit-keys-wrapper {
+  margin-top: 2px;
+}
+/* line 158, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1.6em;
 }
-/* line 157, ../sass/main_pages/dashboard.scss */
+/* line 162, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list {
   margin: 0px auto;
 }
-/* line 159, ../sass/main_pages/dashboard.scss */
+/* line 164, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list ul.pager {
   margin-left: 0px;
 }
-/* line 164, ../sass/main_pages/dashboard.scss */
+/* line 169, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard {
   /* min-height: 170px;*/
 }
-/* line 166, ../sass/main_pages/dashboard.scss */
+/* line 171, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard div.view-empty {
   margin-top: 20px;
 }
-/* line 174, ../sass/main_pages/dashboard.scss */
+/* line 179, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .views-field-flagged {
   font-size: 12px;
   line-height: 1em;
   font-style: italic;
   margin-bottom: 6px;
 }
-/* line 181, ../sass/main_pages/dashboard.scss */
+/* line 186, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 183, ../sass/main_pages/dashboard.scss */
+/* line 188, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list ul {
   padding-bottom: 6px;
 }
-/* line 188, ../sass/main_pages/dashboard.scss */
+/* line 193, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 h2.block-title {
   font-weight: normal;
 }
-/* line 191, ../sass/main_pages/dashboard.scss */
+/* line 196, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty {
   margin-top: 30px;
 }
-/* line 194, ../sass/main_pages/dashboard.scss */
+/* line 199, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 ul.pager {
   /*margin-bottom: -30px;*/
   padding-bottom: 0px;
 }
-/* line 199, ../sass/main_pages/dashboard.scss */
+/* line 204, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events,
 body.page-events.section-events div.view.view-dashboard {
   padding-bottom: 0px;
 }
-/* line 202, ../sass/main_pages/dashboard.scss */
+/* line 207, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content,
 body.page-events.section-events div.view.view-dashboard div.view-content {
-  /* set to min-height to avoid breaking layout */
-  /*min-height: 450px;*/
-  /*border-bottom: 5px solid $capt-aqua;*/
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
-/* line 208, ../sass/main_pages/dashboard.scss */
+/* line 211, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content ul,
 body.page-events.section-events div.view.view-dashboard div.view-content ul {
   padding-left: 14px;
   border-bottom: 1px solid #d7d7d7;
   padding-bottom: 14px;
 }
-/* line 213, ../sass/main_pages/dashboard.scss */
+/* line 215, ../sass/main_pages/dashboard.scss */
+body.page-events.section-events div.field-name-upcoming-events div.view-content ul li,
+body.page-events.section-events div.view.view-dashboard div.view-content ul li {
+  margin-bottom: 5px;
+}
+/* line 219, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 216, ../sass/main_pages/dashboard.scss */
+/* line 222, ../sass/main_pages/dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list:last-child ul,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list:last-child ul {
   border-bottom: none;
@@ -1461,7 +1467,7 @@ body.page-events.section-events div.view.view-dashboard div.view-content div.ite
 /* *
  * Pager styles
  */
-/* line 227, ../sass/main_pages/dashboard.scss */
+/* line 233, ../sass/main_pages/dashboard.scss */
 ul.pager {
   text-align: center;
   text-overflow: visible;
@@ -1470,15 +1476,15 @@ ul.pager {
   /* first & previous on left */
   /* next & last on right */
 }
-/* line 230, ../sass/main_pages/dashboard.scss */
+/* line 236, ../sass/main_pages/dashboard.scss */
 ul.pager a:hover {
   text-decoration: none;
 }
-/* line 234, ../sass/main_pages/dashboard.scss */
+/* line 240, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-ellipsis {
   padding: 0px;
 }
-/* line 237, ../sass/main_pages/dashboard.scss */
+/* line 243, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-item {
   background-color: #eef1f3;
   color: #c3791f;
@@ -1486,69 +1492,69 @@ ul.pager li.pager-item {
   /*padding: 8px 0px 8px 0px;*/
   width: 50px;
 }
-/* line 243, ../sass/main_pages/dashboard.scss */
+/* line 249, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-item a {
   color: #c3791f;
   /*padding: 4px 7px;*/
 }
-/* line 249, ../sass/main_pages/dashboard.scss */
+/* line 255, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-current {
   background-color: #c3791f;
   width: 60px;
   color: #eef1f3;
 }
-/* line 254, ../sass/main_pages/dashboard.scss */
+/* line 260, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 33px 8px;
 }
-/* line 258, ../sass/main_pages/dashboard.scss */
+/* line 264, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-first,
 ul.pager li.pager-previous {
   padding: 0px;
   margin: 0px 4px 0px 0px;
 }
-/* line 262, ../sass/main_pages/dashboard.scss */
+/* line 268, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-first a,
 ul.pager li.pager-previous a {
   background-image: url("../images/icons/left-arrow-orange.png");
   background-position: 0 8px;
   padding: 8px 0px 8px 20px;
 }
-/* line 270, ../sass/main_pages/dashboard.scss */
+/* line 276, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-next,
 ul.pager li.pager-last {
   padding: 0px;
   margin: 0px 0px 0px 4px;
 }
-/* line 274, ../sass/main_pages/dashboard.scss */
+/* line 280, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow-orange.png");
   background-position: 33px 7px;
   padding: 8px 24px 8px 0px;
 }
-/* line 281, ../sass/main_pages/dashboard.scss */
+/* line 287, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 30px 7px;
 }
-/* line 284, ../sass/main_pages/dashboard.scss */
+/* line 290, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-current {
   margin-left: 3px;
   margin-right: 3px;
   padding: 6px 9px;
 }
-/* line 289, ../sass/main_pages/dashboard.scss */
+/* line 295, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-item {
   /* not sure why we need vert padding but not horiz padding.*/
   padding: 6px 0px;
   margin-right: 3px;
   margin-left: 3px;
 }
-/* line 294, ../sass/main_pages/dashboard.scss */
+/* line 300, ../sass/main_pages/dashboard.scss */
 ul.pager li.pager-item a {
   padding: 6px 9px;
 }
-/* line 300, ../sass/main_pages/dashboard.scss */
+/* line 306, ../sass/main_pages/dashboard.scss */
 ul.pager div.ajax-progress {
   float: right;
   display: inline;
@@ -1557,7 +1563,7 @@ ul.pager div.ajax-progress {
   position: relative;
   margin-left: -20px;
 }
-/* line 308, ../sass/main_pages/dashboard.scss */
+/* line 314, ../sass/main_pages/dashboard.scss */
 ul.pager #page {
   height: 100%;
   margin-bottom: -200px;
@@ -2220,7 +2226,7 @@ body.not-logged-in.page-user:not(.page-user-register) form#user-login input#edit
 body.not-logged-in.page-anon-login form#user-login input#edit-name,
 body.not-logged-in.page-anon-login form#user-login input#edit-pass {
   margin: 5px 0px 5px 17px;
-  width: 89%;
+  width: 84%;
   margin-top: 0px;
   font-size: 14px;
   padding: 5px;
@@ -2598,7 +2604,7 @@ body.node-type-event .ds-2col-stacked > .group-left {
   width: auto;
   margin-right: 383px;
 }
-/* line 142, ../sass/main_pages/event.scss */
+/* line 144, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right {
   width: 323px;
   margin-left: -323px;
@@ -2607,82 +2613,87 @@ body.node-type-event .ds-2col-stacked > .group-right {
   * Materials portion of event page
   */
 }
-/* line 145, ../sass/main_pages/event.scss */
+/* line 147, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .view-content .field-content .views-row div {
   margin-left: 0px;
   display: inline;
 }
-/* line 150, ../sass/main_pages/event.scss */
+/* line 152, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.field-content {
   clear: left;
 }
-/* line 153, ../sass/main_pages/event.scss */
+/* line 155, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date {
   margin-right: 3px;
   /*border: 1px solid red;*/
 }
-/* line 156, ../sass/main_pages/event.scss */
+/* line 158, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action {
   font-weight: normal;
 }
-/* line 160, ../sass/main_pages/event.scss */
+/* line 162, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1 {
   /*border: 1px solid blue;*/
   margin-right: 4px;
   /*10px;*/
 }
-/* line 170, ../sass/main_pages/event.scss */
+/* line 172, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .item-list h3 {
   font-size: 16px;
 }
-/* line 174, ../sass/main_pages/event.scss */
+/* line 176, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- {
   padding-top: 25px;
 }
-/* line 177, ../sass/main_pages/event.scss */
+/* line 179, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 182, ../sass/main_pages/event.scss */
+/* line 183, ../sass/main_pages/event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.register {
+  margin-top: 7px;
+  display: block;
+}
+/* line 190, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 {
   padding-top: 25px;
 }
-/* line 184, ../sass/main_pages/event.scss */
+/* line 192, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2:before {
   margin-left: -27.5px;
   width: 320px;
   margin-top: 0px;
   left: 1px;
 }
-/* line 190, ../sass/main_pages/event.scss */
+/* line 198, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content {
   background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
   padding-left: 14px;
 }
-/* line 194, ../sass/main_pages/event.scss */
+/* line 202, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .button, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .button {
   margin-left: 14px;
 }
-/* line 201, ../sass/main_pages/event.scss */
+/* line 209, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials {
   padding-top: 25px;
 }
-/* line 203, ../sass/main_pages/event.scss */
+/* line 211, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 207, ../sass/main_pages/event.scss */
+/* line 215, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title {
   margin-top: -5px;
 }
-/* line 211, ../sass/main_pages/event.scss */
+/* line 219, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul {
   padding-left: 0px;
   margin-bottom: 0px;
 }
-/* line 214, ../sass/main_pages/event.scss */
+/* line 222, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row {
   list-style: none;
   background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
@@ -2691,7 +2702,7 @@ body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials di
   padding-left: 23px;
   min-height: 32px;
 }
-/* line 225, ../sass/main_pages/event.scss */
+/* line 233, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2701,7 +2712,7 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 232, ../sass/main_pages/event.scss */
+/* line 240, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title {
   font-weight: normal;
   margin-top: 0px;
@@ -2709,17 +2720,17 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-tit
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 239, ../sass/main_pages/event.scss */
+/* line 247, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list {
   border-top: 1px solid #d7d7d7;
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 243, ../sass/main_pages/event.scss */
+/* line 251, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul {
   padding-left: 0px;
 }
-/* line 245, ../sass/main_pages/event.scss */
+/* line 253, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row {
   list-style: none;
   background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
@@ -2728,23 +2739,23 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-lis
   min-height: 42px;
   padding-left: 12px;
 }
-/* line 252, ../sass/main_pages/event.scss */
+/* line 260, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
   /* general rule?*/
 }
-/* line 253, ../sass/main_pages/event.scss */
+/* line 261, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a {
   display: inline;
   font-weight: normal;
   padding-bottom: 10px;
   color: #333333;
 }
-/* line 260, ../sass/main_pages/event.scss */
+/* line 268, ../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover {
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 271, ../sass/main_pages/event.scss */
+/* line 279, ../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 {
   /* the absolute positioning keeps its position constant across pages*/
   position: absolute;
@@ -2753,13 +2764,13 @@ body.node-type-event div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 277, ../sass/main_pages/event.scss */
+/* line 285, ../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 281, ../sass/main_pages/event.scss */
+/* line 289, ../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home {
   font-size: 16px;
   width: 100px;
@@ -2773,7 +2784,7 @@ body.node-type-event div#block-block-11 p a.anonymous_home {
   float: left;
   margin-left: -18px;
 }
-/* line 295, ../sass/main_pages/event.scss */
+/* line 303, ../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
@@ -2781,18 +2792,18 @@ body.node-type-event div#block-block-11 p a.anonymous_home:hover {
 /**
  *  Event Page, not logged in
  */
-/* line 308, ../sass/main_pages/event.scss */
+/* line 316, ../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in #main {
   padding-top: 0;
 }
-/* line 311, ../sass/main_pages/event.scss */
+/* line 319, ../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in h3 {
   font-weight: normal;
   color: #577785;
   margin-top: 0px;
   /*margin-bottom: 40px;*/
 }
-/* line 317, ../sass/main_pages/event.scss */
+/* line 325, ../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in div#content.column {
   border-top-color: #d7d7d7;
   margin-top: 10px;
@@ -2802,12 +2813,12 @@ body.node-type-event.not-logged-in div#content.column {
  *  Event Page -- Mozilla-specific fix for footer.
  */
 @-moz-document url-prefix() {
-  /* line 333, ../sass/main_pages/event.scss */
+  /* line 341, ../sass/main_pages/event.scss */
   body.node-type-event #page {
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 337, ../sass/main_pages/event.scss */
+  /* line 345, ../sass/main_pages/event.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: 20px;
     left: 20px;
@@ -2815,12 +2826,12 @@ body.node-type-event.not-logged-in div#content.column {
 }
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
-  /* line 346, ../sass/main_pages/event.scss */
+  /* line 354, ../sass/main_pages/event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     height: 192px;
   }
 }
-/* line 351, ../sass/main_pages/event.scss */
+/* line 359, ../sass/main_pages/event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
@@ -3650,7 +3661,7 @@ body.page-anon-register #block-block-3 p {
   /*
    * prototype classes´
    */
-  /* line 6, ../sass/phone/extensible-phone.scss */
+  /* line 11, ../sass/phone/extensible-phone.scss */
   .reset-layout, html div#page,
   body div#page, div.bottom-footer,
   div.bottom-footer-container,
@@ -3662,7 +3673,7 @@ body.page-anon-register #block-block-3 p {
   }
 
   /* for mobile panels with no top bars */
-  /* line 12, ../sass/phone/extensible-phone.scss */
+  /* line 17, ../sass/phone/extensible-phone.scss */
   .top-bar-reset {
     background-color: none;
     height: 0px;
@@ -3670,7 +3681,7 @@ body.page-anon-register #block-block-3 p {
     position: static;
   }
 
-  /* line 18, ../sass/phone/extensible-phone.scss */
+  /* line 23, ../sass/phone/extensible-phone.scss */
   .mobile-panel, .mobile-panel-rule, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-anon-login form#user-login, body.not-logged-in.section-user.page-user-password form#user-pass,
   body.not-logged-in.page-anon-login form#user-pass, .mobile-login-lower-panel, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
@@ -3686,7 +3697,7 @@ body.page-anon-register #block-block-3 p {
     background: no-repeat;
     background-color: #eef1f3;
   }
-  /* line 28, ../sass/phone/extensible-phone.scss */
+  /* line 33, ../sass/phone/extensible-phone.scss */
   .mobile-panel:before, .mobile-panel-rule:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
   body.not-logged-in.page-anon-login form#user-login:before, body.not-logged-in.section-user.page-user-password form#user-pass:before,
   body.not-logged-in.page-anon-login form#user-pass:before, .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
@@ -3696,7 +3707,7 @@ body.page-anon-register #block-block-3 p {
     top: -11px;
   }
 
-  /* line 33, ../sass/phone/extensible-phone.scss */
+  /* line 38, ../sass/phone/extensible-phone.scss */
   .before-style, .mobile-panel-rule:before, body.not-logged-in.page-user:not(.page-user-register) form#user-login:before,
   body.not-logged-in.page-anon-login form#user-login:before, body.not-logged-in.section-user.page-user-password form#user-pass:before,
   body.not-logged-in.page-anon-login form#user-pass:before, body.node-type-event .ds-2col-stacked > .group-left div.group-audience:before {
@@ -3711,7 +3722,7 @@ body.page-anon-register #block-block-3 p {
     padding-left: 2px;
   }
 
-  /* line 52, ../sass/phone/extensible-phone.scss */
+  /* line 57, ../sass/phone/extensible-phone.scss */
   .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9:before,
   body.not-logged-in.page-anon-login div#block-block-8:before,
@@ -3719,7 +3730,7 @@ body.page-anon-register #block-block-3 p {
     background-color: white;
   }
 
-  /* line 57, ../sass/phone/extensible-phone.scss */
+  /* line 62, ../sass/phone/extensible-phone.scss */
   .show-hide-basic, .show-hide, .show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
     cursor: pointer;
     background-image: url("../images/icons/hide.png");
@@ -3727,7 +3738,7 @@ body.page-anon-register #block-block-3 p {
     background-repeat: no-repeat;
   }
 
-  /* line 64, ../sass/phone/extensible-phone.scss */
+  /* line 69, ../sass/phone/extensible-phone.scss */
   .show-hide {
     font-size: 22px;
     padding-left: 20px;
@@ -3735,7 +3746,7 @@ body.page-anon-register #block-block-3 p {
     margin-top: 0px;
   }
 
-  /* line 72, ../sass/phone/extensible-phone.scss */
+  /* line 77, ../sass/phone/extensible-phone.scss */
   .noselect, body.not-logged-in.page-user:not(.page-user-register) form#user-login,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-9,
@@ -3759,6 +3770,36 @@ body.page-anon-register #block-block-3 p {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+
+  /* line 87, ../sass/phone/extensible-phone.scss */
+  .show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
+    color: black;
+    font-weight: normal;
+    font-size: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+  }
+
+  /* event primitive */
+  /* line 97, ../sass/phone/extensible-phone.scss */
+  .event-show-hide, body.node-type-event .ds-2col-stacked > .group-left div.group-audience, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
+    background-color: #eef1f3;
+    padding-bottom: 10px;
+    border: 1px solid #d7d7d7;
+    border-top: 0px;
+  }
+  /* line 102, ../sass/phone/extensible-phone.scss */
+  .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-top: 0px;
+    margin-left: 20px;
+  }
+  /* line 111, ../sass/phone/extensible-phone.scss */
+  .event-show-hide div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-items {
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 
   /*
@@ -4384,61 +4425,31 @@ body.page-anon-register #block-block-3 p {
     width: 100%;
   }
 
-  /* line 10, ../sass/phone/phone-event-detail.scss */
-  .show-hide-button, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
-    color: black;
-    font-weight: normal;
-    font-size: 20px;
-    padding-left: 20px;
-    background-repeat: no-repeat;
-  }
-
-  /* event primitive */
-  /* line 20, ../sass/phone/phone-event-detail.scss */
-  .event-show-hide, body.node-type-event .ds-2col-stacked > .group-left div.group-audience, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
-    background-color: #eef1f3;
-    padding-bottom: 10px;
-    border: 1px solid #d7d7d7;
-    border-top: 0px;
-  }
-  /* line 25, ../sass/phone/phone-event-detail.scss */
-  .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 {
-    margin-top: 0px;
-    margin-bottom: 10px;
-    border-top: 0px;
-    margin-left: 20px;
-  }
-  /* line 34, ../sass/phone/phone-event-detail.scss */
-  .event-show-hide div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-items {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
   /* event page styles */
-  /* line 40, ../sass/phone/phone-event-detail.scss */
+  /* line 11, ../sass/phone/phone-event-detail.scss */
   body.node-type-event {
     /* banner title text */
     /* banner subtitle text */
   }
-  /* line 41, ../sass/phone/phone-event-detail.scss */
+  /* line 12, ../sass/phone/phone-event-detail.scss */
   body.node-type-event footer {
     left: 0px;
     margin-left: -30px;
   }
-  /* line 44, ../sass/phone/phone-event-detail.scss */
+  /* line 15, ../sass/phone/phone-event-detail.scss */
   body.node-type-event footer .disclaimer {
     padding-right: 0px !important;
   }
-  /* line 51, ../sass/phone/phone-event-detail.scss */
+  /* line 22, ../sass/phone/phone-event-detail.scss */
   body.node-type-event h1#site-name.header__site-name {
     margin-top: -35px;
     margin-left: -339px;
   }
-  /* line 55, ../sass/phone/phone-event-detail.scss */
+  /* line 26, ../sass/phone/phone-event-detail.scss */
   body.node-type-event h1#site-name.header__site-name a {
     font-size: 1em;
   }
-  /* line 61, ../sass/phone/phone-event-detail.scss */
+  /* line 32, ../sass/phone/phone-event-detail.scss */
   body.node-type-event div#block-block-13 {
     color: white;
     font-size: 11px;
@@ -4450,46 +4461,46 @@ body.page-anon-register #block-block-3 p {
   }
 }
 @media screen and (max-width: 767px) and (max-width: 512px) {
-  /* line 74, ../sass/phone/phone-event-detail.scss */
+  /* line 45, ../sass/phone/phone-event-detail.scss */
   body.node-type-event div#block-block-7 {
     display: block;
     width: 100px;
   }
-  /* line 78, ../sass/phone/phone-event-detail.scss */
+  /* line 49, ../sass/phone/phone-event-detail.scss */
   body.node-type-event h1#site-name.header__site-name {
     margin-top: -70px;
   }
-  /* line 81, ../sass/phone/phone-event-detail.scss */
+  /* line 52, ../sass/phone/phone-event-detail.scss */
   body.node-type-event div#block-block-13 {
     margin-top: -60px;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 87, ../sass/phone/phone-event-detail.scss */
+  /* line 58, ../sass/phone/phone-event-detail.scss */
   body.node-type-event div#page {
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-  /* line 92, ../sass/phone/phone-event-detail.scss */
+  /* line 63, ../sass/phone/phone-event-detail.scss */
   body.node-type-event div#main div#content div#title-section {
     margin-top: 0px;
   }
-  /* line 96, ../sass/phone/phone-event-detail.scss */
+  /* line 67, ../sass/phone/phone-event-detail.scss */
   body.node-type-event ul.tabs-primary {
     display: none;
   }
-  /* line 99, ../sass/phone/phone-event-detail.scss */
+  /* line 70, ../sass/phone/phone-event-detail.scss */
   body.node-type-event h1.subtitle {
     margin-top: 50px;
   }
-  /* line 102, ../sass/phone/phone-event-detail.scss */
+  /* line 73, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left,
   body.node-type-event .ds-2col-stacked > .group-right {
     width: 100%;
     margin: 0px;
     float: none;
   }
-  /* line 110, ../sass/phone/phone-event-detail.scss */
+  /* line 81, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds {
     border-top: 1px solid #d7d7d7;
     padding-bottom: 0px;
@@ -4497,33 +4508,33 @@ body.page-anon-register #block-block-3 p {
     padding-right: 0px;
     width: 99.5%;
   }
-  /* line 113, ../sass/phone/phone-event-detail.scss */
+  /* line 84, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
     border-bottom: 0px;
     margin-left: 20px;
   }
-  /* line 118, ../sass/phone/phone-event-detail.scss */
+  /* line 89, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds:before {
     height: 0px;
   }
-  /* line 121, ../sass/phone/phone-event-detail.scss */
+  /* line 92, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds div.item-list {
     margin-left: 20px;
     border-top-width: 0px;
   }
-  /* line 131, ../sass/phone/phone-event-detail.scss */
+  /* line 102, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left {
     /* make an extensible class?*/
   }
-  /* line 138, ../sass/phone/phone-event-detail.scss */
+  /* line 109, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience p {
     width: 95%;
   }
-  /* line 144, ../sass/phone/phone-event-detail.scss */
+  /* line 115, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter p {
     width: 95%;
   }
-  /* line 149, ../sass/phone/phone-event-detail.scss */
+  /* line 120, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- {
     /*br {
       display: none;
@@ -4533,15 +4544,15 @@ body.page-anon-register #block-block-3 p {
     background-color: white;
     border: 0px;
   }
-  /* line 162, ../sass/phone/phone-event-detail.scss */
+  /* line 133, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- li.views-row > strong {
     display: list-item;
   }
-  /* line 165, ../sass/phone/phone-event-detail.scss */
+  /* line 136, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul {
     padding-left: 13px;
   }
-  /* line 167, ../sass/phone/phone-event-detail.scss */
+  /* line 138, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row {
     width: 90%;
     display: list-item;
@@ -4550,27 +4561,27 @@ body.page-anon-register #block-block-3 p {
     margin-bottom: 10px;
     padding-top: 0px;
   }
-  /* line 175, ../sass/phone/phone-event-detail.scss */
+  /* line 146, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong {
     position: relative;
   }
-  /* line 179, ../sass/phone/phone-event-detail.scss */
+  /* line 150, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row span.date-display-single {
     position: relative;
   }
-  /* line 185, ../sass/phone/phone-event-detail.scss */
+  /* line 156, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.views-field.views-field-ops {
     margin-left: 0px;
     position: relative;
   }
-  /* line 191, ../sass/phone/phone-event-detail.scss */
+  /* line 162, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.field-item h2.block-title {
     color: #8c1d18;
     font-size: 1.25em;
     font-weight: bold;
     margin-bottom: 1em;
   }
-  /* line 197, ../sass/phone/phone-event-detail.scss */
+  /* line 168, ../sass/phone/phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s-:before {
     background-color: white;
     height: 0px;
@@ -5244,5 +5255,89 @@ body.page-user-register:not(.node-type-event) {
   body.logged-in.role-authenticated-user form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper,
   body.admin-menu form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper {
     border: 1px solid transparent;
+  }
+
+  /* line 11, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event {
+    /* banner title text */
+  }
+  /* line 12, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event footer {
+    left: 0px;
+    margin-left: -30px;
+  }
+  /* line 15, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event footer .disclaimer {
+    padding-right: 0px !important;
+  }
+  /* line 29, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event div.view-content h1.subtitle, body.node-type-event div.view-content h2.views-field {
+    margin-left: 10px;
+    padding-left: 0px;
+  }
+  /* line 35, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event div#main div#content div#title-section h1#page-title.page__title {
+    margin-left: 10px;
+    padding-left: 0px;
+  }
+  /* line 41, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event div.group-right {
+    position: relative;
+    left: -10px;
+  }
+  /* line 45, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event div.group-left {
+    margin-left: 10px;
+  }
+  /* line 48, ../sass/tablet/tablet-event-detail.scss */
+  body.node-type-event ul.tabs-primary {
+    display: none;
+  }
+
+  /* line 9, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events {
+    /* only controls view-dashboard on left column */
+  }
+  /* line 10, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title {
+    padding-left: 75px;
+  }
+  /* line 14, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div.view-content, body.page-events.section-events div.view-dashboard {
+    margin-left: 15px;
+  }
+  /* line 19, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#content > div.view-dashboard {
+    width: 48%;
+  }
+  /* line 22, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div.view-dashboard div.view-content {
+    margin-left: 0px;
+  }
+  /* line 28, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region,
+  body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region {
+    margin-right: 15px;
+    width: 45%;
+    background-position: right -10px top 8px;
+  }
+  /* line 34, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region div.view-content,
+  body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region div.view-content {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+  /* line 38, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region h2.block-title.block__title,
+  body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region h2.block-title.block__title {
+    margin-left: 12px;
+    padding-left: 0px;
+    font-size: 21px;
+    margin-top: 0px;
+  }
+  /* line 44, ../sass/tablet/tablet-event-dashboard.scss */
+  body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region div.view-empty,
+  body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region div.view-empty {
+    margin-left: 0px;
   }
 }

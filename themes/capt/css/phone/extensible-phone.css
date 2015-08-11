@@ -18,7 +18,7 @@
 /*
  * prototype classes´
  */
-/* line 6, ../../sass/phone/extensible-phone.scss */
+/* line 11, ../../sass/phone/extensible-phone.scss */
 .reset-layout {
   width: 100%;
   margin: 0px;
@@ -26,7 +26,7 @@
 }
 
 /* for mobile panels with no top bars */
-/* line 12, ../../sass/phone/extensible-phone.scss */
+/* line 17, ../../sass/phone/extensible-phone.scss */
 .top-bar-reset {
   background-color: none;
   height: 0px;
@@ -34,7 +34,7 @@
   position: static;
 }
 
-/* line 18, ../../sass/phone/extensible-phone.scss */
+/* line 23, ../../sass/phone/extensible-phone.scss */
 .mobile-panel, .mobile-panel-rule, .mobile-login-lower-panel {
   padding-top: 10px;
   text-align: left;
@@ -45,12 +45,12 @@
   background: no-repeat;
   background-color: #eef1f3;
 }
-/* line 28, ../../sass/phone/extensible-phone.scss */
+/* line 33, ../../sass/phone/extensible-phone.scss */
 .mobile-panel:before, .mobile-panel-rule:before, .mobile-login-lower-panel:before {
   top: -11px;
 }
 
-/* line 33, ../../sass/phone/extensible-phone.scss */
+/* line 38, ../../sass/phone/extensible-phone.scss */
 .before-style, .mobile-panel-rule:before {
   display: block;
   background-color: #577785;
@@ -63,20 +63,20 @@
   padding-left: 2px;
 }
 
-/* line 52, ../../sass/phone/extensible-phone.scss */
+/* line 57, ../../sass/phone/extensible-phone.scss */
 .mobile-login-lower-panel:before {
   background-color: white;
 }
 
-/* line 57, ../../sass/phone/extensible-phone.scss */
-.show-hide-basic, .show-hide {
+/* line 62, ../../sass/phone/extensible-phone.scss */
+.show-hide-basic, .show-hide, .show-hide-button, .event-show-hide h4 span {
   cursor: pointer;
   background-image: url("../images/icons/hide.png");
   background-position: 0px 8px;
   background-repeat: no-repeat;
 }
 
-/* line 64, ../../sass/phone/extensible-phone.scss */
+/* line 69, ../../sass/phone/extensible-phone.scss */
 .show-hide {
   font-size: 22px;
   padding-left: 20px;
@@ -84,7 +84,7 @@
   margin-top: 0px;
 }
 
-/* line 72, ../../sass/phone/extensible-phone.scss */
+/* line 77, ../../sass/phone/extensible-phone.scss */
 .noselect {
   cursor: default;
   -webkit-touch-callout: none;
@@ -93,6 +93,36 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+/* line 87, ../../sass/phone/extensible-phone.scss */
+.show-hide-button, .event-show-hide h4 span {
+  color: black;
+  font-weight: normal;
+  font-size: 20px;
+  padding-left: 20px;
+  background-repeat: no-repeat;
+}
+
+/* event primitive */
+/* line 97, ../../sass/phone/extensible-phone.scss */
+.event-show-hide {
+  background-color: #eef1f3;
+  padding-bottom: 10px;
+  border: 1px solid #d7d7d7;
+  border-top: 0px;
+}
+/* line 102, ../../sass/phone/extensible-phone.scss */
+.event-show-hide h4 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  border-top: 0px;
+  margin-left: 20px;
+}
+/* line 111, ../../sass/phone/extensible-phone.scss */
+.event-show-hide div.field-items {
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 
 /*

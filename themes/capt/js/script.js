@@ -10,40 +10,33 @@
 // wrapping it with an "anonymous closure". See:
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+
+  var iPh6H = 667;
+  var iPh6W = 375;
+  // new variable to account for the division between phone and tablet styles
+  var phone_tablet_divide = 767;
+  var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
+  var why_reg_heights = ['191','130','34'];
+
 (function ($, Drupal, window, document, undefined) {
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
-
-
-  /**
-   *  Event Page DOM Trickery
-   */
-
-   //$('div.field-name-event-date-s-').css('backgroundColor','red');
-
-
-
-   
   /**
    *  Menu Logic
    */
    function init () {
     $('span.toggle-help').click();
     $('a.menu-toggle').hide();
+    checkDates();
   }
-  init();
-
-
+  
   // currently not used - replaced with phone_tablet_divide
-  var iPh6H = 667;
-  var iPh6W = 375;
-  // new variable to account for the division between phone and tablet styles
-  var phone_tablet_divide = 767;
-  var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
-  var why_reg_heights = ['191','130','34']
 
+   $(document).ready(function () {
+       init();
+   });
 
 
 
@@ -111,22 +104,11 @@ Drupal.behaviors.my_custom_behavior = {
         togglePanel(myButton,myBody);
     });
    }
-
   if ($('body').hasClass('node-type-event'))
   {
     addShowHide('div.group-audience h4 span','div.field-name-field-audience');
     addShowHide('div.group-presenter h4 span','div.field-name-presenters');
     addShowHide('div#block-views-materials-block h2','div.view-materials');
-
-    /* switch (v)
-     {
-      case 'open':
-      $('#block-block-8').css('borderTopWidth','1px')
-      break;
-      case 'closed':
-      $('#block-block-8').css('borderTopWidth','2px')
-      break;
-    }*/
 
   }
 
@@ -159,20 +141,6 @@ Drupal.behaviors.my_custom_behavior = {
         panel_respond('div.group-presenter h4 span','div.field-name-presenters');
         panel_respond('div#block-views-materials-block h2','div.view-materials');
 
-        // correct login title
-       /* panel_respond(bclass + '#page-title','#user-login');
-
-        // correct new to captconnect
-        panel_respond(bclass + '#block-block-8 h2.custom_block_title',
-          bclass + '#block-block-8 div.panel-body');
-
-        // correct why register
-        panel_respond(bclass + '#block-block-9 h2.block-title',
-          bclass + '#block-block-9 div.panel-body',
-          bclass + '#block-block-9',
-          why_reg_heights[0],
-          why_reg_heights[1]);*/
-
       });
 
   /* date box logic for events page */
@@ -185,10 +153,13 @@ Drupal.behaviors.my_custom_behavior = {
 
   function isPhone () {
     var min = phone_tablet_divide;
-    var mql = window.matchMedia("screen and (max-width:"+min+"px)");
-    return mql.matches;
+
+    // var mql = window.matchMedia("screen and (max-width:"+min+"px)");
+    return window.innerWidth < min;
   }
   function checkDates() {
+
+   // alert(window.innerWidth);
     /* make into a function perhaps*/
     var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
     var ph = isPhone();
@@ -196,7 +167,12 @@ Drupal.behaviors.my_custom_behavior = {
     if (!ph && phoneDates != undefined) 
          $('.group-right').prepend(datePanel);
     else if (ph && phoneDates ==undefined)
+    {
+
+
          $(datePanel).insertBefore($('.group-description'));
+    }
+   // alert (ph + ',' + phoneDates);
     
   }
   // correct styles when browser is resized

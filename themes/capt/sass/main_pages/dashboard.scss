@@ -150,6 +150,11 @@ we may deprecate field-name-upcoming-events selector
 */
 
 body.page-events.section-events {
+  div#block-views-exp-dashboard-page-1 div#edit-keys-wrapper {
+    margin-top: 2px;
+
+  }
+
   .views-exposed-form .views-exposed-widget .form-submit {
     margin-top: 1.6em;
   }
@@ -200,15 +205,16 @@ body.page-events.section-events {
   div.view.view-dashboard {
     padding-bottom: 0px;
     div.view-content {
-      /* set to min-height to avoid breaking layout */
-      /*min-height: 450px;*/
-      /*border-bottom: 5px solid $capt-aqua;*/
+    
       padding-bottom: 0px;
       margin-bottom: 0px;
       ul {
         padding-left: 14px;
         border-bottom: 1px solid $capt-midgrey;
         padding-bottom: 14px;
+        li {
+          margin-bottom: 5px;
+        }
       }
       div.item-list {
         margin-left: 0px;
@@ -309,4 +315,5 @@ body.page-events.section-events {
     height: 100%;
     margin-bottom: -200px;
   }
+
 }

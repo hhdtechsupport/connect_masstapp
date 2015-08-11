@@ -4,38 +4,9 @@
 @import "capt-mixins-phone";
 @import "extensible-phone";
 
-$panel-margin-left: 20px;
-$header-pad-left: 20px;
 
-.show-hide-button {
- color: black;
- font-weight: normal;
- font-size: 20px;
- @extend .show-hide-basic;
- padding-left: $header-pad-left;
- background-repeat: no-repeat;
-}
 
-/* event primitive */
-.event-show-hide {
-  background-color: $capt-lightgrey;
-  padding-bottom: 10px;
-  border: 1px solid $capt-midgrey;
-  border-top: 0px;
-  h4{
-    margin-top: 0px;
-    margin-bottom: 10px;
-    border-top: 0px;
-    margin-left: $panel-margin-left;
-    span {
-     @extend .show-hide-button;
-   }
- }
- div.field-items {
-  margin-left: $panel-margin-left;
-  margin-bottom: 20px;
-}
-}
+
 /* event page styles */
 body.node-type-event {
   footer {
