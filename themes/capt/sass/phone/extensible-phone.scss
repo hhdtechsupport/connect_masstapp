@@ -59,20 +59,19 @@ $header-pad-left: 20px;
     }
   }
 
-  .show-hide-basic {
+.show-hide-appearance {
     cursor: pointer;
-    background-image: url("../images/icons/hide.png");
+    background-image: url("../images/icons/show.png");
     background-position: 0px 8px;
     background-repeat: no-repeat;
 
   }
-  .show-hide {
-    font-size: 22px;
-    padding-left: 20px;
-    margin-left: 0px;
-    margin-top: 0px;
-    @extend .show-hide-basic;
-  }
+.show-hide-text {
+ color: black;
+ font-weight: normal;
+ font-size: 20px;
+}
+
 
 .noselect {
     cursor: default;
@@ -85,28 +84,33 @@ $header-pad-left: 20px;
 }
 
 .show-hide-button {
- color: black;
- font-weight: normal;
- font-size: 20px;
- @extend .show-hide-basic;
+ @extend .show-hide-text;
+ @extend .show-hide-appearance;
  padding-left: $header-pad-left;
  background-repeat: no-repeat;
 }
 
-/* event primitive */
-.event-show-hide {
+.show-hide-panel {
   background-color: $capt-lightgrey;
   padding-bottom: 10px;
   border: 1px solid $capt-midgrey;
   border-top: 0px;
-  h4{
+}
+/* event primitive */
+.event-show-hide {
+  @extend .show-hide-panel;
+  h4 {
     margin-top: 0px;
     margin-bottom: 10px;
     border-top: 0px;
     margin-left: $panel-margin-left;
-    span {
+    
      @extend .show-hide-button;
-   }
+    background-position: 0px 32px;
+    span {
+      @extend .show-hide-text;
+    }
+  
  }
  div.field-items {
   margin-left: $panel-margin-left;

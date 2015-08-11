@@ -11,14 +11,14 @@
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 
-  var iPh6H = 667;
-  var iPh6W = 375;
+var iPh6H = 667;
+var iPh6W = 375;
   // new variable to account for the division between phone and tablet styles
   var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34'];
 
-(function ($, Drupal, window, document, undefined) {
+  (function ($, Drupal, window, document, undefined) {
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.my_custom_behavior = {
@@ -29,24 +29,31 @@ Drupal.behaviors.my_custom_behavior = {
    function init () {
     $('span.toggle-help').click();
     $('a.menu-toggle').hide();
-    checkDates();
+    if ($('body').hasClass('node-type-event') ) {
+      checkDates();
+    }
   }
   
   // currently not used - replaced with phone_tablet_divide
 
-   $(document).ready(function () {
-       init();
-   });
+  $(document).ready(function () {
+   init();
+ });
 
 
-
+  function addShowHide(arr) {
+   var myButton = arr[0];
+   var myBody = arr[1];
+   $(myButton).click(function () {
+    togglePanel(myButton,myBody);
+  });
    /**
    *  Responsive Show - Hides
    */
   // function for toggling a panel on click of header
   function togglePanel(header, body, panel, compact, expanded)
   {
-   
+
     var retval = 'default';
     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
     if (mql.matches)
@@ -54,39 +61,14 @@ Drupal.behaviors.my_custom_behavior = {
 
       switch($(body).css('display')) {
         case 'none':
-
         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-        if (arguments.length == 5)
-        {
-          //alert($(panel).css('margin-top'));
-          $(panel).animate({
-           height: expanded
+        $(body).slideDown("fast", function () { $(body).show()});
+        retval= 'open';
+        break;
 
-         }, 200);
-          $(body).show(200);
-        }
-        else
-         $(body).slideDown("fast", function () { $(body).show()});
-       retval= 'open';
-       break;
-
-       default:
-
-       $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-
-       if (arguments.length == 5)
-       {
-          //$(panel).css('height',compact);
-          $(panel).animate({
-            height: compact
-
-          }, 200);
-          $(body).hide(100);
-        }
-        else
-
-
-          $(body).slideUp("fast",function () {$(body).hide()});
+        default:
+        $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+        $(body).slideUp("fast",function () {$(body).hide()});
         retval='closed';
 
         break;
@@ -94,91 +76,76 @@ Drupal.behaviors.my_custom_behavior = {
     }
     return retval;
   }
+}
 
-  //revise to include other pages
-    
-  function addShowHide(myButton,myBody) {
-
-     $(myButton).click(function () {
+  // event panel variables
+  var aud = ['div.group-audience h4','div.field-name-field-audience'];
+  var pres = ['div.group-presenter h4','div.field-name-presenters'];
+  var mater =['div#block-views-materials-block h2','div.view-materials'];
+  var eventPanels = [aud,pres,mater];
   
-        togglePanel(myButton,myBody);
-    });
-   }
   if ($('body').hasClass('node-type-event'))
   {
-    addShowHide('div.group-audience h4 span','div.field-name-field-audience');
-    addShowHide('div.group-presenter h4 span','div.field-name-presenters');
-    addShowHide('div#block-views-materials-block h2','div.view-materials');
-
+    for (var i = 0; i < 3; ++i) addShowHide(eventPanels[i]);
   }
-
-   // change for other pages
-
-    // new to capt connect
-    $('#block-block-8 h2.custom_block_title').click(function () {
-
-      togglePanel('#block-block-8 h2.custom_block_title', '#block-block-8 p');
-
-    });
-    // why register
-    $('#block-block-9 h2.block-title').click(function () {
-      togglePanel('#block-block-9 h2.block-title',
-        '#block-block-9 div.panel-body',
-        '#block-block-9',
-        why_reg_heights[2],
-        why_reg_heights[1])
-
-
-    });
-  
-  // reset if resizing browser
 
   //make this only for certain pages 
   $(window).resize(function(){
-    var bclass = '.role-anonymous-user ';
+        // TO DO: if this is an event page 
 
-        panel_respond('div.group-audience h4 span','div.field-name-field-audience');
-        panel_respond('div.group-presenter h4 span','div.field-name-presenters');
-        panel_respond('div#block-views-materials-block h2','div.view-materials');
+        if ($('body').hasClass('node-type-event') ) {
+          checkDates();
+          adjust_event_panels();
+        }
 
       });
+  
+  function adjust_event_panels () {
+    for (var i = 0; i < 3; ++i) panel_respond(eventPanels[i]);
+  }
+  function hide_event_panels () {
+    for (var i = 0; i < 3; ++i) $(eventPanels[i][1]).hide();
+  }
 
-  /* date box logic for events page */
-  var datePanel = $('div.field-name-event-date-s-');
-    
-  $(window).resize(function () {
-      checkDates();
-  });
-  /* handler for date movement */
+/* date box logic for events page */
+var datePanel = $('div.field-name-event-date-s-');
 
-  function isPhone () {
-    var min = phone_tablet_divide;
+
+/* handler for date movement */
+
+function isPhone () {
+  var min = phone_tablet_divide;
 
     // var mql = window.matchMedia("screen and (max-width:"+min+"px)");
     return window.innerWidth < min;
   }
+
   function checkDates() {
 
    // alert(window.innerWidth);
-    /* make into a function perhaps*/
-    var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
-    var ph = isPhone();
-    /* check size and if dates are not already where they should be*/
-    if (!ph && phoneDates != undefined) 
-         $('.group-right').prepend(datePanel);
-    else if (ph && phoneDates ==undefined)
-    {
+   /* make into a function perhaps*/
+   var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
+   var ph = isPhone();
+   /* check size and if dates are not already where they should be*/
+   if (!ph && phoneDates != undefined) 
+     $('.group-right').prepend(datePanel);
+   else if (ph && phoneDates ==undefined)
+   {
 
 
-         $(datePanel).insertBefore($('.group-description'));
-    }
+     $(datePanel).insertBefore($('.group-description'));
+     hide_event_panels();
+   }
    // alert (ph + ',' + phoneDates);
-    
-  }
+
+ }
   // correct styles when browser is resized
   // this function is flexible so keep it
-  function panel_respond(header, body, panel, laptop_height, mobile_height)
+  function panel_respond(arr)
+
   {
+    var header = arr[0];
+    var body = arr[1];
     var min = phone_tablet_divide+1;
     var mql = window.matchMedia("screen and (min-width:"+min+"px)");
     if (mql.matches)
@@ -195,10 +162,7 @@ Drupal.behaviors.my_custom_behavior = {
        {
           // mobile
           if ($(body).css('backgroundImage') == 'none') {
-            $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-
-            if (arguments.length == 5)
-              $(panel).css('height',mobile_height)
+            $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
 
           }
 

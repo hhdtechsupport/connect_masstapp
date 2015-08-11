@@ -108,8 +108,7 @@
  * prototype classes´
  */
 /* line 11, ../../sass/phone/extensible-phone.scss */
-.reset-layout, html div#page,
-body div#page {
+.reset-layout {
   width: 100%;
   margin: 0px;
   padding: 0px;
@@ -159,7 +158,8 @@ body div#page {
 }
 
 /* line 62, ../../sass/phone/extensible-phone.scss */
-.show-hide-appearance, .show-hide-button, .event-show-hide h4 {
+.show-hide-appearance, .show-hide-button, .event-show-hide h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region h2,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region h2 {
   cursor: pointer;
   background-image: url("../images/icons/show.png");
   background-position: 0px 8px;
@@ -167,7 +167,8 @@ body div#page {
 }
 
 /* line 69, ../../sass/phone/extensible-phone.scss */
-.show-hide-text, .show-hide-button, .event-show-hide h4, .event-show-hide h4 span {
+.show-hide-text, .show-hide-button, .event-show-hide h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region h2,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region h2, .event-show-hide h4 span {
   color: black;
   font-weight: normal;
   font-size: 20px;
@@ -185,13 +186,14 @@ body div#page {
 }
 
 /* line 86, ../../sass/phone/extensible-phone.scss */
-.show-hide-button, .event-show-hide h4 {
+.show-hide-button, .event-show-hide h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region h2,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region h2 {
   padding-left: 20px;
   background-repeat: no-repeat;
 }
 
 /* line 93, ../../sass/phone/extensible-phone.scss */
-.show-hide-panel, .event-show-hide {
+.show-hide-panel, .event-show-hide, body.page-events.section-events div#content > div.view-dashboard {
   background-color: #eef1f3;
   padding-bottom: 10px;
   border: 1px solid #d7d7d7;
@@ -216,98 +218,73 @@ body div#page {
 /*
  *  End Prototypes, Start Mixins
  */
-/* line 6, ../../sass/phone/general-phone.scss */
-html,
-body {
+/* line 9, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events {
+  /* only controls view-dashboard on left column */
+}
+/* line 10, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#page {
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+}
+/* line 14, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#main div#content div#title-section {
+  margin-top: -40px;
   width: 100%;
-  min-width: 320px;
-  overflow-x: visible;
-  height: 100%;
-  /* this was hiding the login button*/
-  /* header */
+  background-color: #eef1f3;
+  position: relative;
+  background: url("../images/icons/create-event.png") right 10px top 8px no-repeat;
+  top: 104px;
+  padding-bottom: 0px;
+  padding-top: 10px;
+  height: 50px;
 }
-/* line 13, ../../sass/phone/general-phone.scss */
-html div#block-captconnect-blocks-user-info,
-body div#block-captconnect-blocks-user-info {
-  display: none;
+/* line 24, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title {
+  max-width: 100%;
+  padding-left: 30px;
+  margin-left: 0px;
+  background-position: 8px 16px;
+  padding-bottom: 0px;
+  height: 30px;
 }
-/* line 16, ../../sass/phone/general-phone.scss */
-html div.top-header,
-body div.top-header {
-  height: 115px;
-  background-image: url("../images/design-elements/rainbow-divider.png");
-  background-position: -124px 106px;
-  background-repeat: repeat-x;
-}
-/* line 19, ../../sass/phone/general-phone.scss */
-html div.top-header div.top-header-container,
-body div.top-header div.top-header-container {
+/* line 39, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#content > div.view-dashboard {
   width: 100%;
+  margin: 0px auto;
+  float: none;
+  margin-top: 54px;
+  padding-top: 60px;
 }
-/* line 21, ../../sass/phone/general-phone.scss */
-html div.top-header div.top-header-container div.capt-logo,
-body div.top-header div.top-header-container div.capt-logo {
-  background-image: url("../images/logos/CAPT-logo-phone.png");
-  margin-left: 4%;
-  top: 12px;
+/* line 47, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#content > div.view-dashboard div.item-list {
+  margin-left: 10px;
+  width: 90%;
 }
-/* line 26, ../../sass/phone/general-phone.scss */
-html div.top-header div.top-header-container div.samhsa-logo,
-body div.top-header div.top-header-container div.samhsa-logo {
-  margin-right: 4%;
-  margin-bottom: 0px;
+/* line 51, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#content > div.view-dashboard:before {
+  top: -65px;
 }
-/* line 33, ../../sass/phone/general-phone.scss */
-html input#edit-search-block-form--2,
-body input#edit-search-block-form--2 {
-  display: none;
-}
-/* line 36, ../../sass/phone/general-phone.scss */
-html div.region.region-header,
-body div.region.region-header {
-  margin-top: 10px;
-}
-/* line 39, ../../sass/phone/general-phone.scss */
-html div#page,
-body div#page {
-  min-height: 750px;
-  display: inline-block;
-  margin-bottom: -100px;
-  padding-bottom: 100px;
-}
-/* line 46, ../../sass/phone/general-phone.scss */
-html div#block-search-form,
-body div#block-search-form {
-  display: none;
-}
-/* line 51, ../../sass/phone/general-phone.scss */
-html div#page header#header,
-body div#page header#header {
-  height: 89px;
-  background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
-}
-/* line 56, ../../sass/phone/general-phone.scss */
-html div#content,
-body div#content {
+/* line 63, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region {
   width: 100%;
   margin: 0px;
-  padding: 0px;
-  /* padding-left: 0px;*/
-  /* added 6.29 */
-  padding-left: 16px;
-  padding-right: 16px;
-  /* border: 1px dotted orange;*/
+  float: none;
+  background-position: right -10px top 8px;
+  border-top: #d7d7d7;
 }
-
-/* switch user block */
-/* line 68, ../../sass/phone/general-phone.scss */
-div.block-devel#block-devel-switch-user {
-  margin: 0px auto;
-  text-align: left;
+/* line 71, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region h2,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region h2 {
+  width: 100%;
+  padding-left: 30px;
+  margin-left: 0px;
+  background-position: 8px 4px;
 }
-
-/* line 72, ../../sass/phone/general-phone.scss */
-div.block-devel#block-devel-switch-user {
-  width: 50%;
-  margin-top: 40px;
+/* line 79, ../../sass/phone/phone-event-dashboard.scss */
+body.page-events.section-events div#block-views-dashboard-block-1.contextual-links-region:before,
+body.page-events.section-events div#block-views-dashboard-block-2.contextual-links-region:before {
+  height: 0px;
+  background-color: transparent;
 }

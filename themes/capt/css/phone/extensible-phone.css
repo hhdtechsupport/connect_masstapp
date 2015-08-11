@@ -69,22 +69,21 @@
 }
 
 /* line 62, ../../sass/phone/extensible-phone.scss */
-.show-hide-basic, .show-hide, .show-hide-button, .event-show-hide h4 span {
+.show-hide-appearance, .show-hide-button, .event-show-hide h4 {
   cursor: pointer;
-  background-image: url("../images/icons/hide.png");
+  background-image: url("../images/icons/show.png");
   background-position: 0px 8px;
   background-repeat: no-repeat;
 }
 
 /* line 69, ../../sass/phone/extensible-phone.scss */
-.show-hide {
-  font-size: 22px;
-  padding-left: 20px;
-  margin-left: 0px;
-  margin-top: 0px;
+.show-hide-text, .show-hide-button, .event-show-hide h4, .event-show-hide h4 span {
+  color: black;
+  font-weight: normal;
+  font-size: 20px;
 }
 
-/* line 77, ../../sass/phone/extensible-phone.scss */
+/* line 76, ../../sass/phone/extensible-phone.scss */
 .noselect {
   cursor: default;
   -webkit-touch-callout: none;
@@ -95,31 +94,30 @@
   user-select: none;
 }
 
-/* line 87, ../../sass/phone/extensible-phone.scss */
-.show-hide-button, .event-show-hide h4 span {
-  color: black;
-  font-weight: normal;
-  font-size: 20px;
+/* line 86, ../../sass/phone/extensible-phone.scss */
+.show-hide-button, .event-show-hide h4 {
   padding-left: 20px;
   background-repeat: no-repeat;
 }
 
-/* event primitive */
-/* line 97, ../../sass/phone/extensible-phone.scss */
-.event-show-hide {
+/* line 93, ../../sass/phone/extensible-phone.scss */
+.show-hide-panel, .event-show-hide {
   background-color: #eef1f3;
   padding-bottom: 10px;
   border: 1px solid #d7d7d7;
   border-top: 0px;
 }
+
+/* event primitive */
 /* line 102, ../../sass/phone/extensible-phone.scss */
 .event-show-hide h4 {
   margin-top: 0px;
   margin-bottom: 10px;
   border-top: 0px;
   margin-left: 20px;
+  background-position: 0px 32px;
 }
-/* line 111, ../../sass/phone/extensible-phone.scss */
+/* line 115, ../../sass/phone/extensible-phone.scss */
 .event-show-hide div.field-items {
   margin-left: 20px;
   margin-bottom: 20px;
