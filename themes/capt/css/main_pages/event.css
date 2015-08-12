@@ -367,9 +367,10 @@ body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials di
   margin-bottom: 0px;
   margin-top: 0px;
   padding-left: 23px;
-  min-height: 32px;
+  min-height: 29px;
+  padding-top: 3px;
 }
-/* line 233, ../../sass/main_pages/event.scss */
+/* line 234, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -379,7 +380,7 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 240, ../../sass/main_pages/event.scss */
+/* line 241, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title {
   font-weight: normal;
   margin-top: 0px;
@@ -387,17 +388,17 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-tit
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 247, ../../sass/main_pages/event.scss */
+/* line 248, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list {
   border-top: 1px solid #d7d7d7;
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 251, ../../sass/main_pages/event.scss */
+/* line 252, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul {
   padding-left: 0px;
 }
-/* line 253, ../../sass/main_pages/event.scss */
+/* line 254, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row {
   list-style: none;
   background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
@@ -406,23 +407,23 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-lis
   min-height: 42px;
   padding-left: 12px;
 }
-/* line 260, ../../sass/main_pages/event.scss */
+/* line 261, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
   /* general rule?*/
 }
-/* line 261, ../../sass/main_pages/event.scss */
+/* line 262, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a {
   display: inline;
   font-weight: normal;
   padding-bottom: 10px;
   color: #333333;
 }
-/* line 268, ../../sass/main_pages/event.scss */
+/* line 269, ../../sass/main_pages/event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover {
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 279, ../../sass/main_pages/event.scss */
+/* line 280, ../../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 {
   /* the absolute positioning keeps its position constant across pages*/
   position: absolute;
@@ -431,13 +432,13 @@ body.node-type-event div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 285, ../../sass/main_pages/event.scss */
+/* line 286, ../../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p {
   list-style-type: none;
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 289, ../../sass/main_pages/event.scss */
+/* line 290, ../../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home {
   font-size: 16px;
   width: 100px;
@@ -451,7 +452,7 @@ body.node-type-event div#block-block-11 p a.anonymous_home {
   float: left;
   margin-left: -18px;
 }
-/* line 303, ../../sass/main_pages/event.scss */
+/* line 304, ../../sass/main_pages/event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover {
   text-decoration: none;
 }
@@ -459,18 +460,18 @@ body.node-type-event div#block-block-11 p a.anonymous_home:hover {
 /**
  *  Event Page, not logged in
  */
-/* line 316, ../../sass/main_pages/event.scss */
+/* line 317, ../../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in #main {
   padding-top: 0;
 }
-/* line 319, ../../sass/main_pages/event.scss */
+/* line 320, ../../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in h3 {
   font-weight: normal;
   color: #577785;
   margin-top: 0px;
   /*margin-bottom: 40px;*/
 }
-/* line 325, ../../sass/main_pages/event.scss */
+/* line 326, ../../sass/main_pages/event.scss */
 body.node-type-event.not-logged-in div#content.column {
   border-top-color: #d7d7d7;
   margin-top: 10px;
@@ -480,12 +481,12 @@ body.node-type-event.not-logged-in div#content.column {
  *  Event Page -- Mozilla-specific fix for footer.
  */
 @-moz-document url-prefix() {
-  /* line 341, ../../sass/main_pages/event.scss */
+  /* line 342, ../../sass/main_pages/event.scss */
   body.node-type-event #page {
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 345, ../../sass/main_pages/event.scss */
+  /* line 346, ../../sass/main_pages/event.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: 20px;
     left: 20px;
@@ -493,12 +494,12 @@ body.node-type-event.not-logged-in div#content.column {
 }
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
-  /* line 354, ../../sass/main_pages/event.scss */
+  /* line 355, ../../sass/main_pages/event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     height: 192px;
   }
 }
-/* line 359, ../../sass/main_pages/event.scss */
+/* line 360, ../../sass/main_pages/event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }

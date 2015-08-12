@@ -18,6 +18,19 @@ var iPh6W = 375;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34'];
 
+    // event panel variables
+  var aud = ['div.group-audience h4','div.field-name-field-audience'];
+  var pres = ['div.group-presenter h4','div.field-name-presenters'];
+  var mater =['div#block-views-materials-block h2','div.view-materials'];
+  var eventPanels = [aud,pres,mater];
+  // dashboard variables
+  var dashblock = 'div#block-views-dashboard-block-';
+  var ev = ['h1#page-title','div#content > .view-dashboard']
+  var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
+  var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
+  var dashPanels = [ev,reg,arch];
+
+
   (function ($, Drupal, window, document, undefined) {
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
@@ -27,13 +40,21 @@ Drupal.behaviors.my_custom_behavior = {
    *  Menu Logic
    */
    function init () {
+      
     $('span.toggle-help').click();
     $('a.menu-toggle').hide();
-    if ($('body').hasClass('node-type-event') ) {
+    if ($('body').hasClass('node-type-event')) {
       checkDates();
+      activatePanels(eventPanels);
+    }
+    else if ($('body').hasClass('page-events')) {
+
+      hide_panels(dashPanels);
+      activatePanels(dashPanels);
     }
   }
-  
+
+
   // currently not used - replaced with phone_tablet_divide
 
   $(document).ready(function () {
@@ -78,15 +99,13 @@ Drupal.behaviors.my_custom_behavior = {
   }
 }
 
-  // event panel variables
-  var aud = ['div.group-audience h4','div.field-name-field-audience'];
-  var pres = ['div.group-presenter h4','div.field-name-presenters'];
-  var mater =['div#block-views-materials-block h2','div.view-materials'];
-  var eventPanels = [aud,pres,mater];
-  
-  if ($('body').hasClass('node-type-event'))
-  {
-    for (var i = 0; i < 3; ++i) addShowHide(eventPanels[i]);
+  function activatePanels (arr) {
+
+    for (var i = 0; i < 3; ++i) {
+      addShowHide(arr[i]);
+      arr[i][2] = $(arr[i][0]).css('backgroundImage');
+
+    }
   }
 
   //make this only for certain pages 
@@ -95,17 +114,20 @@ Drupal.behaviors.my_custom_behavior = {
 
         if ($('body').hasClass('node-type-event') ) {
           checkDates();
-          adjust_event_panels();
+          adjust_panels(eventPanels);
+        }
+        else if ($('body').hasClass('page-events')) {
+          adjust_panels(dashPanels);
         }
 
       });
   
-  function adjust_event_panels () {
-    for (var i = 0; i < 3; ++i) panel_respond(eventPanels[i]);
+  function adjust_panels (arr) {
+    for (var i = 0; i < 3; ++i) panel_respond(arr[i]);
   }
-  function hide_event_panels () {
-    for (var i = 0; i < 3; ++i) $(eventPanels[i][1]).hide();
-  }
+function hide_panels (arr) {
+  for (var i = 0; i < 3; ++i) $(arr[i][1]).hide();
+}
 
 /* date box logic for events page */
 var datePanel = $('div.field-name-event-date-s-');
@@ -131,10 +153,8 @@ function isPhone () {
      $('.group-right').prepend(datePanel);
    else if (ph && phoneDates ==undefined)
    {
-
-
      $(datePanel).insertBefore($('.group-description'));
-     hide_event_panels();
+     hide_panels(eventPanels);
    }
    // alert (ph + ',' + phoneDates);
 
@@ -153,7 +173,8 @@ function isPhone () {
           // laptop
          // show body
          if ($(body).css('display') == 'none') $(body).show();
-         $(header).css('backgroundImage','none');
+         $(header).css('backgroundImage',arr[2]);
+
 
          if (arguments.length == 5)
            $(panel).css('height',laptop_height)

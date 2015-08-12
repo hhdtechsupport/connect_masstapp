@@ -6,21 +6,39 @@
 
 $top-pad: 60px;
 $header-pos: 10px;
+$title-buffer: 104px;
 body.page-events.section-events {
 	div#page {
 			margin-bottom: 0px !important;
 			padding-bottom: 0px !important;
 		}
+	input#edit-reset,
+	input#edit-submit-dashboard {
+		width: 60px;
+		padding: 8px 10px;
+
+	}
 	div#main div#content div#title-section	{
 		margin-top: -40px;
         width: 100%;
-        background-color: $capt-lightgrey;
+
         position: relative; 
-        background: url('../images/icons/create-event.png') right 10px top 8px no-repeat;
+        background: url('../images/icons/create-event-showhide.png') right 10px top 6px no-repeat;
         top: $top-pad + 44px;
-        padding-bottom: 0px;
+        padding-bottom: 5px;
         padding-top: $header-pos;
         height: $top-pad - $header-pos;
+        background-color: $capt-lightgrey;
+        border-right: 1px solid $capt-midgrey;
+        border-left: 1px solid $capt-midgrey;
+    
+        display: block;
+        margin-bottom: $title-buffer;
+        &:before {
+        	@extend .before-style;
+        	top: -15px;
+
+        }
 		 h1#page-title.page__title {
 	      	max-width: 100%;
 		  	@extend .show-hide-button;
@@ -41,15 +59,17 @@ body.page-events.section-events {
         margin: 0px auto;
         float: none;
 
-        margin-top: $top-pad - 6px;
+        margin-top: $top-pad - 6px - $title-buffer;
         padding-top: $top-pad;
+        border-bottom: 1px solid $capt-midgrey;
         @extend .show-hide-panel;
+ 
         div.item-list {
         	margin-left: 10px;
         	width: 90%;
         }
         &:before {
-        	top: -65px;
+        	height: 0px;
         }
 
 
@@ -59,7 +79,9 @@ body.page-events.section-events {
 	}
 
 
-	
+	div#block-views-dashboard-block-1 {
+		border-bottom: 0px;
+	}
 	div#block-views-dashboard-block-1.contextual-links-region,
 	div#block-views-dashboard-block-2.contextual-links-region {
 		  width: 100%;
@@ -67,20 +89,23 @@ body.page-events.section-events {
           float: none;
        
 		  background-position: right -10px top 8px;
-		  border-top: $capt-midgrey;
+		  border-top: 1px solid $capt-midgrey;
+
 		  h2 {
 		  	width: 100%;
 		  	@extend .show-hide-button;
 		  	padding-left: 30px;
 		  	margin-left: 0px;
-		  	background-position: 8px 4px;
-		  	
+		  	background-position: 8px 8px;
+		  	margin-bottom: 0px;
 		  }
 		  &:before {
 		  	height: 0px;
 		  	background-color: transparent;
 		  }
-
+          div.view-empty, div.item-list {
+          	margin-top: 10px;
+          }
 		div.view-content {
 			
 		}
