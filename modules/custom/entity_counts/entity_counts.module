@@ -1,0 +1,226 @@
+<?php
+/**
+ * @file
+ * Report of Entity usage on the site.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function entity_counts_menu() {
+  $items = array();
+
+  $items['admin/content/entity_count'] = array(
+    'title' => 'Entity Type Counts',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'entity_counts_entity_type_count',
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_admin_paths_alter().
+ * Keep user edit in normal theme.
+ */
+function entity_counts_admin_paths_alter(&$paths) {
+  $paths['admin/content/entity_count'] = FALSE;
+}
+
+/**
+ * User sort function for entities.
+ */
+function _entity_counts_entity_sort($a, $b) {
+  if ($a['label'] == $b['label']) {
+    return 0;
+  }
+  return ($a['label'] < $b['label'] ? -1 : 1);
+}
+
+/**
+ * Count each entity type.
+ */
+function entity_counts_entity_type_count() {
+  $css = "#entity-type-table th, #entity-type-table td {vertical-align: top; padding: 3px 1em;}
+    #entity-type-table ul {margin: 0;}
+    .right {text-align: right;}
+    .center {text-align: center;}
+    .italic {font-style: italic;}
+    table#entity-type-table {width: auto; margin: 0; border-collapse: separate; border-spacing: 1px;}
+    #entity-type-table td.entity-total {border-top: 1px solid #000;}
+    #entity-type-table tr.top td {border-top: 1px solid #999; padding-top: 1em;}
+    ";
+  drupal_add_css($css, 'inline');
+
+  // Get a list of all entities.
+  $entity_info = entity_get_info();
+  uasort($entity_info, '_entity_counts_entity_sort');
+//  dpm($entity_info, 'entity_info');
+
+  $entity_table = array(
+    'header' => array(
+      t('Entity Type'),
+      t('Static Cache'),
+      t('Field Cache'),
+      t('Fieldable'),
+      t('Base Table'),
+      t('Revision Table'),
+      t('Bundle'),
+      t('Fields'),
+      t('Count'),
+      ),
+    'rows' => array(),
+    'attributes' => array('id' => 'entity-type-table'),
+    'sticky' => TRUE,
+    );
+
+  $no_yes = array(t('No'), t('Yes'));
+
+  // Build a table of entity and bundle information.
+  foreach ($entity_info as $entity_type => $info) {
+    $db_table = $info['base table'];
+    $row = array(
+      filter_xss($info['label']),
+      array('data' => $no_yes[$info['static cache']], 'class' => array('center')),
+      array('data' => $no_yes[$info['field cache']], 'class' => array('center')),
+      array('data' => $no_yes[$info['fieldable']], 'class' => array('center')),
+      filter_xss($db_table),
+      (isset($info['revision table']) ? filter_xss($info['revision table']) : ''),
+      );
+
+    // Get a list of the bundles for this entity type.
+    $bundles = array();
+    foreach ($info['bundles'] as $bundle => $bundle_info) {
+      $bundles[$bundle] = $bundle_info['label'];
+    }
+    // Put list in order by the bundle label.
+    asort($bundles);
+
+    // Get counts for each bundle.
+    $bundle_key = FALSE;
+    // Some bundles aren't clear.
+    switch ($entity_type) {
+      case 'field_collection_item':
+        $bundle_key = 'field_name';
+        break;
+      case 'entityform':
+      case 'flagging':
+      case 'node':
+        $bundle_key = $info['bundle keys']['bundle'];
+        break;
+      case 'comment':
+      case 'profile':
+        $bundle_key = 'type';
+        break;
+      case 'taxonomy_term':
+        $bundle_key = 'name';
+        // Need to rebuild $bundles by vid.
+        $bundles = db_query("SELECT name, name FROM {taxonomy_vocabulary}")->fetchAllKeyed();
+        break;
+    }
+
+    if ($bundle_key) {
+      // There is a bundle key to count by.
+      $query = db_select($db_table, 't');
+
+      // Handle those entities that require a join.
+      switch ($entity_type) {
+        case 'comment':
+          $query->innerJoin('node', 'n', 'n.nid = t.nid');
+          $query->addExpression("CONCAT('comment_node_', n.type)", 'type');
+          $query->groupBy('n.' . $bundle_key);
+          break;
+
+        case 'flagging':
+          $query->innerJoin('flag', 'fd', 'fd.fid = t.fid');
+          $query->addField('fd', 'name');
+          $query->groupBy($bundle_key);
+          break;
+
+        case 'taxonomy_term':
+          $query->innerJoin('taxonomy_vocabulary', 'v', 'v.vid = t.vid');
+          $query->addField('v', $bundle_key);
+          $query->groupBy('v.' . $bundle_key);
+          break;
+
+        default:
+          $query->addField('t', $bundle_key);
+          $query->groupBy($bundle_key);
+      }
+
+      $query->addExpression('COUNT(*)', 'num');
+      $bundle_counts = $query->execute()->fetchAllKeyed();
+    }
+    else {
+      // No bundle key, so how do we count?
+      $class = 'top';
+      if (count($info['bundles']) == 1) {
+        $bundle_counts = array(
+          key($bundles) =>
+          db_query("SELECT COUNT(*) FROM {" . $db_table . "}")->fetchField());
+      }
+      else {
+        // Some tables can't be counted without special handling.
+        switch ($entity_type) {
+          /*
+          case 'comment':
+            $query = db_select('comment', 'c');
+            $query->innerJoin('node', 'n', 'n.nid = c.nid');
+            $query->addExpression("CONCAT('comment_node_', n.type)", 'type');
+            $query->addExpression('COUNT(*)', 'num');
+            $query->groupBy('n.type');
+            $bundle_counts = $query->execute()->fetchAllKeyed();
+            break; /* */
+
+          default:
+            drupal_set_message("Unhandled entity type: $entity_type.");
+            dpm($info, $entity_type.' info');
+            $bundle_counts = array(
+              key($bundles) =>
+              db_query("SELECT COUNT(*) FROM {" . $db_table . "}")->fetchField());
+        }
+      }
+    }
+
+    $class = 'top';
+    $entity_total = 0;
+    foreach ($bundles as $bundle_type => $bundle_label) {
+      $row[] = filter_xss($bundle_label);
+
+      // Get the field count for the bundle.
+      if ($info['fieldable']) {
+        $bt = $bundle_type;
+        if ($entity_type == 'taxonomy_term') {
+          $bt = strtr($bundle_type, ' ', '_');
+        }
+        $row[] = array(
+          'data' => number_format(count(field_info_instances($entity_type, $bt))),
+          'class' => array('right'));
+      }
+      else {
+        $row[] = '';
+      }
+
+      $count = (isset($bundle_counts[$bundle_type]) ? $bundle_counts[$bundle_type] : 0);
+      $entity_total += $count;
+      $row[] = array('data' => number_format($count), 'class' => array('right'));
+      $entity_table['rows'][] = array('data' => $row, 'no_striping' => TRUE, 'class' => array($class));
+      $row = array('', '', '', '', '', '');
+      $class = 'not-top';
+    }
+    // Were there more than one?
+    if (count($bundles) > 1) {
+      $row = array('', '', '', '', '', '',
+        array('data' => t('total'), 'class' => array('center italic')),
+        '',
+        array(
+          'data' => number_format($entity_total),
+          'class' => array('right', 'entity-total'),
+          ));
+      $entity_table['rows'][] = array('data' => $row, 'no_striping' => TRUE, 'class' => array($class));
+    }
+  }
+
+  // Output the table.
+  return theme('table', $entity_table);
+}
