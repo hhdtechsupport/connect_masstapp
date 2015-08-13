@@ -4,7 +4,7 @@
 @import 'capt-mixins-phone';
 
   body.logged-in.page-user-edit,
-  body.page-events,
+  body.page-events.section-events,
   body.not-logged-in.page-user-register:not(.node-type-event),
   body.not-logged-in.page-user:not(.page-user-register),
   body.not-logged-in.page-anon-login {
@@ -17,11 +17,11 @@
         div.capt-logo {
           top: $top-margin + 2px;
 
-          @include logosize($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
+          @include logosize($capt-logo-width, $capt-logo-height, $capt-iPh6-scale);
         }
         div.samhsa-logo {
           top: $top-margin;
-          @include logosize($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh6-scale);
+          @include logosize($samhsa-logo-width, $samhsa-logo-height, $samhsa-iPh6-scale);
         }
       }
     }

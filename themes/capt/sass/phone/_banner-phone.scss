@@ -6,16 +6,20 @@
 
 
 $login-title-margin: 16px;
-
-    /* banner title text */
-    h1#site-name.header__site-name {
-      margin-left: -119px;
-      margin-top: -30px;
-      a {
-        font-size: 0.8em;
-      }
+body.not-front, 
+body.logged-in,
+body.not-logged-in {
+ 
+        div.header__region.region-header {
+            width: 375px;
+            margin: 3px 0px -10px 0px;
+            text-align: right;
+          
+           
+        }
+    header#header.header {
+      padding-left: 0px;
     }
-    
     div#block-block-13 {
 
       color: white;
@@ -27,13 +31,20 @@ $login-title-margin: 16px;
       cursor: default;
 
     }
-
-    body.logged-in {
-      h1#site-name.header__site-name {
-        margin-left: -329px;
-      }
+      // CAPT Connect and subtitle
+      h1#site-name.header__site-name,
       div#block-block-13 {
-        margin-left: -325px;
+        margin-left: 0px;
+        padding-left: 10px;
+      }
+         /* banner title text */
+    h1#site-name.header__site-name {
+      margin-top: -30px;
+      a {
+        font-size: 0.8em;
       }
     }
+
+    
+  }
     
