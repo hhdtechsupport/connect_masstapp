@@ -45,13 +45,13 @@ Drupal.behaviors.my_custom_behavior = {
     $('a.menu-toggle').hide();
     if ($('body').hasClass('node-type-event')) {
       checkDates();
-      activatePanels(eventPanels);
+      if (!panels_activated) activatePanels(eventPanels);
     }
     else if ($('body').hasClass('page-events')) {
 
       if (isPhone()) {
         hide_panels(dashPanels);
-        activatePanels(dashPanels);
+        if (!panels_activated) activatePanels(dashPanels);
       }
 
     }
@@ -70,6 +70,11 @@ Drupal.behaviors.my_custom_behavior = {
    var myBody = arr[1];
    $(myButton).click(function () {
     togglePanel(myButton,myBody);
+
+
+
+
+
   });
    /**
    *  Responsive Show - Hides
@@ -106,7 +111,6 @@ Drupal.behaviors.my_custom_behavior = {
 
     for (var i = 0; i < 3; ++i) {
       addShowHide(arr[i]);
-      arr[i][2] = $(arr[i][0]).css('backgroundImage');
 
     }
     panels_activated = true;
@@ -131,7 +135,13 @@ function adjust_panels (arr) {
 }
 
 function hide_panels (arr) {
-  for (var i = 0; i < 3; ++i) $(arr[i][1]).hide();
+  for (var i = 0; i < 3; ++i)  {
+
+    if ($(arr[i][0]).attr('id') != 'page-title')
+    $(arr[i][1]).hide();
+
+     showHideIcons(arr[i][0], arr[i][1])
+  }
 }
 
 /* date box logic for events page */
@@ -190,24 +200,29 @@ function isPhone () {
        else
        {
           // mobile
-          if ($(body).css('backgroundImage') == 'none') {
-            $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-
-          }
-
             if ($(header).attr('id') != 'page-title')
               $(body).hide();
 
+               showHideIcons(header, body)
+          // if resizing to mobile for the first time
            if (!panels_activated)
              activatePanels(panels);
 
         }
       }
+
   /*
    *  End responsive show-hide functinality
    */
 
+  function showHideIcons (header, body) {
 
+      if ($(body).css('display') == 'none') 
+         $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+      else
+         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+
+   }
 
   // Print to console log for bug testing
   function cl(thing){
