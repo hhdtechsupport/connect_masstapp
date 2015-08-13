@@ -1,14 +1,23 @@
 @import "../headers/variables";
 @import "../headers/capt-mixins";
 @import "../headers/extensible";
-@import "capt-mixins-phone";
-@import "extensible-phone";
+@import 'capt-mixins-phone';
+@import 'extensible-phone';
 
 
    $login-title-margin: 16px;
   /*
    *  iPhone Styles -- User Login Page 
    */
+
+
+
+  .reset-mylayout {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+
    body.not-logged-in.page-user:not(.page-user-register),
    body.not-logged-in.page-anon-login {
     /* reformatting panels for mobile */
@@ -30,6 +39,7 @@
     div#block-block-8,
     div#block-block-9 {
       @extend .noselect;
+
       @include side_borders($capt-midgrey);
       // headers for form and blocks.
       h1, h2 {
@@ -72,19 +82,20 @@
   /* individual panel styles */
   form#user-login {
     padding-top: 0px;
-    margin-top: 20px;
+    margin-top: 40px;
     padding-bottom: 0px;
     height: 300px;
      input#edit-name,
     input#edit-pass {
-      width: 85%
+      width: 85%;
+     
     }
       div.form-item.form-item-name {
     padding-top: 0px;
     margin-top: -100px;
     clear: left;
 
-    /* test*/
+    
 
   }
     div#edit-actions input#edit-submit {

@@ -4,31 +4,50 @@
 @import "capt-mixins-phone";
 
 
+@mixin side_borders($color) {
+  border-left: 1px solid $color;
+  border-right: 1px solid $color;
+}
+@mixin top_open($color) {
+  border-left: 1px solid $color;
+  border-right: 1px solid $color;
+  border-bottom: 1px solid $color;
+}
+@mixin logosize($width, $height, $scale) {
+  background-size: $width * $scale $height * $scale;
+  width: $width * $scale;
+  height: $height * $scale;
+}
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
  * change max? */
 
 
 
-@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
-   @import 'capt-mixins-phone';
-   @import 'phone-logos';
-}
+
 
 @media screen and (max-width: $phone-tablet-divide) {
 
-  @import 'capt-mixins-phone';
+
   @import '../headers/extensible';
   @import 'extensible-phone';
   @import 'general-phone';
-  @import 'login-phone';
+
   @import 'phone-register-profile';
   @import 'phone-event-detail';
   @import 'phone-event-dashboard';
   @import 'banner-phone';
   @import 'phone-event-dashboard';
+  @import 'phone-user-password';
+  @import 'login-phone';
 }
-
+@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
+   @import 'capt-mixins-phone';
+   @import 'phone-logos';
+}
+@media screen and (max-width: $small-phone-width) {
+  @import 'small-phone';
+}
  
 @media all and (max-width: 479px) {
   #main {
@@ -72,8 +91,5 @@
 
 // iPhone 4 
 
-@media screen and (max-width: $small-phone-width) {
-  @import 'capt-mixins-phone';
-  @import 'small-phone';
-}
+
 

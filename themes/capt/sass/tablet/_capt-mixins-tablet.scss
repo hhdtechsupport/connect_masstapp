@@ -1,0 +1,31 @@
+  @import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+@import 'tablet-variables';
+
+  $break1: 20px;
+  $break2: 60px;
+  $break3: 100px;
+  $break4: 7px;
+  
+  @mixin breakpoint($point) {
+  @if $point == port {
+    @media (min-width: $phone-tablet-divide+1px) 
+    and (max-width: $phone-tablet-divide+$break1) { @content; }
+  }
+  @else if $point == overport {
+    @media (min-width: $phone-tablet-divide+$break1+1px) 
+       and (max-width: $phone-tablet-divide+$break2) { @content; }
+  }
+  @else if $point == mid {
+    @media (min-width: $phone-tablet-divide+$break2+1px) 
+       and (max-width: $phone-tablet-divide+$break3) { @content; }
+  }
+  @else if $point == underland {
+    @media (min-width: $phone-tablet-divide+$break3 + 1px)
+       and (max-width: $iPadH - $break4 - 1px) { @content; }
+  }
+  @else if $point == land {
+    @media (min-width: $iPadH - $break4) and (max-width: $iPadH)  { @content; }
+  }
+}

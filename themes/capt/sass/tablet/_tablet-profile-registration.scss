@@ -4,7 +4,7 @@
 @import 'tablet-variables';
 
 // profile and registration screen, iPad
-body.admin-menu,
+
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event)  {
 
@@ -112,20 +112,20 @@ div#main {
         width: 95%;
       }
 
-     fieldset {
-      width: 94%;
-      margin: 0px auto;
-      display: block;
-      margin-bottom: 20px;
-      padding-right: 0px;
-      border-right: 1px solid $capt-midgrey;
-      &:before {
-        width: 400px;
-      }
+      fieldset {
+        width: 94%;
+        margin: 0px auto;
+        display: block;
+        margin-bottom: 20px;
+        padding-right: 0px;
+        border-right: 1px solid $capt-midgrey;
+        &:before {
+          width: 400px;
+        }
 
+      }
     }
   }
-}
 }
 /* specific to registration*/
 body.page-user-register {
@@ -135,34 +135,10 @@ body.page-user-register {
 }
 
 
-/* password reset - you get to it via email link */
-body.not-logged-in.section-user.page-user-password,
-body.not-logged-in.page-anon-login {
- #page {
-  min-height: 0px !important;
-  height: 700px !important;
-}
-
-div#content div#title-section {
-  margin-left: 10px;
-
-  margin-bottom: -40px;
-
-}
-input#edit-name.form-text {
-  width: 90%;
-  margin-left: 0px;
-  margin-top: 5px;
-}
-}
-
-
-
 
 
 /* specific to profile */
-body.logged-in.role-authenticated-user,
-body.admin-menu {
+body.logged-in.page-user-edit {
 
   div ul li a {
     white-space: nowrap;
@@ -178,7 +154,7 @@ body.admin-menu {
        margin: 0px auto;
        width: 97%;
      }
-      fieldset div.fieldset-wrapper {  
+     fieldset div.fieldset-wrapper {  
        border: 1px solid transparent;
      }
    }

@@ -1,7 +1,7 @@
-@import "../headers/variables";
-@import "../headers/capt-mixins";
-@import "../headers/extensible";
- @import 'capt-mixins-phone';
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+@import 'capt-mixins-phone';
 
   body.logged-in.page-user-edit,
   body.page-events,
@@ -17,7 +17,7 @@
         div.capt-logo {
           top: $top-margin + 2px;
 
-          @include logosize(1px, 2px, 3);
+          @include logosize($capt-phone-logo-width, $capt-logo-height, $capt-iPh6-scale);
         }
         div.samhsa-logo {
           top: $top-margin;

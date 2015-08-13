@@ -29,7 +29,7 @@ var iPh6W = 375;
   var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
   var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
   var dashPanels = [ev,reg,arch];
-
+  var panels_activated = false;
 
   (function ($, Drupal, window, document, undefined) {
 
@@ -49,8 +49,11 @@ Drupal.behaviors.my_custom_behavior = {
     }
     else if ($('body').hasClass('page-events')) {
 
-      hide_panels(dashPanels);
-      activatePanels(dashPanels);
+      if (isPhone()) {
+        hide_panels(dashPanels);
+        activatePanels(dashPanels);
+      }
+
     }
   }
 
@@ -106,6 +109,7 @@ Drupal.behaviors.my_custom_behavior = {
       arr[i][2] = $(arr[i][0]).css('backgroundImage');
 
     }
+    panels_activated = true;
   }
 
   //make this only for certain pages 
@@ -122,9 +126,10 @@ Drupal.behaviors.my_custom_behavior = {
 
       });
   
-  function adjust_panels (arr) {
-    for (var i = 0; i < 3; ++i) panel_respond(arr[i]);
-  }
+function adjust_panels (arr) {
+    for (var i = 0; i < 3; ++i) panel_respond(arr[i], arr);
+}
+
 function hide_panels (arr) {
   for (var i = 0; i < 3; ++i) $(arr[i][1]).hide();
 }
@@ -144,7 +149,6 @@ function isPhone () {
 
   function checkDates() {
 
-   // alert(window.innerWidth);
    /* make into a function perhaps*/
    var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
    var ph = isPhone();
@@ -161,7 +165,7 @@ function isPhone () {
  }
   // correct styles when browser is resized
   // this function is flexible so keep it
-  function panel_respond(arr)
+  function panel_respond(arr, panels)
 
   {
     var header = arr[0];
@@ -173,7 +177,11 @@ function isPhone () {
           // laptop
          // show body
          if ($(body).css('display') == 'none') $(body).show();
-         $(header).css('backgroundImage',arr[2]);
+
+         if ($(header).attr('id') == 'page-title')
+           $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
+        else
+           $(header).css('backgroundImage','none');
 
 
          if (arguments.length == 5)
@@ -186,6 +194,12 @@ function isPhone () {
             $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
 
           }
+
+            if ($(header).attr('id') != 'page-title')
+              $(body).hide();
+
+           if (!panels_activated)
+             activatePanels(panels);
 
         }
       }
