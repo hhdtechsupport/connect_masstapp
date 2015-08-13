@@ -1,0 +1,362 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+
+/*
+@media screen and (min-width: $phone-tablet-divide+1) {
+  body.node-type-event {
+        .ds-2col-stacked > .group-right .field-type-ds {
+        @extend .panel-rule-single;
+       }
+  }
+}*/
+body.node-type-event {
+  ul#main-menu.main-menu li#menu-item-588 {
+    a {
+      @include main-active-link;
+    }
+  }
+  div#title-section {
+    h1.page__title.title {
+      color: $capt-green;
+      font-weight: bold;
+      font-size: 36px;
+      background-image: none;
+      padding-left: 0px;
+    }
+    h2, h3 {
+      color: $capt-black;
+      margin-bottom: 10px;
+    }
+    h3 {
+      font-weight: bold;
+    }
+  }
+  div.field-name-registration {
+    padding-bottom: 30px;
+    border-bottom: 1px solid $capt-midgrey;
+  }
+  h5.views-field-title {
+    margin-left: 0px;
+    padding-left: 0px;
+    /* does this need to be negative? */
+    span.field-content {
+      /*margin-left: -13px;*/
+    }
+  }
+  div#content.column {
+    border-top-color: black;
+  }
+  .view-content .field-content .views-row div {
+    margin-left: 5px;
+  }
+  /* header */
+  div#title-section h2 {
+    margin-left: 10px;
+  }
+  div#title-section {
+    padding-left: 0px;
+  }
+  h2 {
+    color: $capt-aqua;
+    font-weight: normal;
+  }
+  h2.type {
+    font-size: 1.75em;
+    font-style: italic;
+    font-weight: bold;
+    color: #333333;
+  }
+  h1.subtitle {
+    color: #577785;
+    font-weight: normal;
+    font-size: 2em;
+  }
+  /* added to align title and subtitle on event pages*/
+  div#title-section h2 {
+    margin-left: 0px;
+  }
+  h5 {
+    margin-top: 4px;
+  }
+  h1, h2, h3 {
+    margin-left: 0px;
+  }
+  h2 a {
+    font-size: 20px;
+    color: $capt-orange;
+  }
+  div.group-right a {
+    color: $capt-orange;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+  div#content {
+    border-top: 1px solid $capt-midgrey;
+    padding-top: 20px;
+  }
+  // block with two buttons (edit notif, view reg)
+  .region-help #block-block-1 {
+    // needed so it doesn't run into  the text
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-top: 0px;
+    padding-right: 0px;
+    a.button {
+      margin-left: 20px;
+      margin-right: 0px;
+    }
+  }
+  div.group-materials {
+    @extend .panel-rule-single;
+    @include border-radius(0px);
+    padding: 10px 16px 36px 16px;
+    margin-left: 5px;
+    h4 {
+      margin-top: 0px;
+    }
+  }
+  h4 span {
+    color: $capt-maroon;
+  }
+  .views-field {
+    h4 {
+      color: $capt-maroon;
+    }
+    strong .date-display-single {
+      font-weight: bold;
+    }
+    .date-display-single {
+      font-weight: normal;
+    }
+  }
+  h2.element-invisible {
+    display: none;
+  }
+  /* dates panel */
+  .ds-2col-stacked > .group-left {
+    width: auto;
+    margin-right: 383px;
+
+
+  }
+  .ds-2col-stacked > .group-right {
+    width: 323px;
+    margin-left: -323px;
+    .view-content .field-content .views-row div {
+      margin-left: 0px;
+      display: inline;
+    }
+    .views-row {
+      div.field-content {
+        clear: left;
+      }
+      div.views-field-field-date {
+        margin-right: 3px;
+        /*border: 1px solid red;*/
+        a.unflag-action {
+          font-weight: normal;
+        }
+      }
+      div.views-field-field-date-1 {
+        /*border: 1px solid blue;*/
+        margin-right: 4px;
+        /*10px;*/
+      }
+      div.views-field-ops {
+        //display: inline;
+     
+      }
+    }
+    .item-list h3 {
+      font-size: 16px;
+    }
+    /* extra padding on dates panel because of floats */
+    .field-type-ds.field-name-event-date-s- {
+      padding-top: 25px;
+      //    margin-left: $event-right-panel-pos;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+      }
+         div.button.register {
+        margin-top: 7px;
+        display: block;
+
+      }
+
+    }
+    .field-type-ds.field-name-join-this-event, .field-type-ds.field-name-join-this-event-2 {
+      padding-top: 25px;
+      &:before {
+        margin-left: -27.5px;
+        width: 320px;
+        margin-top: 0px;
+        left: 1px;
+      }
+      .views-field-field-date .field-content {
+        background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
+        padding-left: 14px;
+      }
+      .button {
+        margin-left: 14px;
+      }
+    }
+    /**
+    * Materials portion of event page
+    */
+    div.field-name-materials {
+      padding-top: 25px;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+      }
+      h2.block-title {
+        margin-top: -5px;
+      }
+      div#block-views-materials-block {
+        ul {
+          padding-left: 0px;
+          margin-bottom: 0px;
+          li.views-row {
+            list-style: none;
+            background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            padding-left: 23px;
+            min-height: 29px;
+            padding-top: 3px;
+          }
+        }
+      }
+    }
+    .field-type-ds {
+      @extend .panel-rule-single;
+      @include border-radius(0px);
+      width: 269px;
+      /* changed from 250px so "cancel" link does not start new line */
+      padding: 10px 26px 14px 26px;
+      // could be part of the mixin maybe...
+      h2.block-title {
+        font-weight: normal;
+        margin-top: 0px;
+        color: $capt-darkblue;
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+      div.item-list {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 15px;
+        margin-top: -5px;
+        ul {
+          padding-left: 0px;
+          li.views-row {
+            list-style: none;
+            background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
+            /* list-style-image: url('../images/icons/down-arrow.png'); */
+            margin-bottom: 15px;
+            min-height: 42px;
+            padding-left: 12px;
+            div.field-content {
+              a {
+                display: inline;
+                font-weight: normal;
+                padding-bottom: 10px;
+                color: $capt-black;
+              }
+              /* general rule?*/
+              a:hover {
+                text-decoration: none;
+                color: $capt-maroon;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /* home button on event page */
+  div#block-block-11 {
+    /* the absolute positioning keeps its position constant across pages*/
+    position: absolute;
+    top: -50px;
+    height: 0px;
+    margin: 0px 0px 0px -10px;
+    p {
+      list-style-type: none;
+      list-style-image: none;
+      margin-left: 0px;
+      a.anonymous_home {
+        @extend .basic-button;
+        font-size: 16px;
+        width: 100px;
+        padding: 3px;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+        height: 24px;
+        position: relative;
+        top: 0px;
+        float: left;
+        margin-left: -18px;
+      }
+      a.anonymous_home:hover {
+        text-decoration: none;
+      }
+    }
+    z-index: 20;
+  }
+}
+
+/**
+ *  Event Page, not logged in
+ */
+
+body.node-type-event.not-logged-in {
+  #main {
+    padding-top: 0;
+  }
+  h3 {
+    font-weight: normal;
+    color: $capt-aqua;
+    margin-top: 0px;
+    /*margin-bottom: 40px;*/
+  }
+  div#content.column {
+    border-top-color: $capt-midgrey;
+    margin-top: 10px;
+  }
+}
+
+
+
+
+
+
+/*
+ *  Event Page -- Mozilla-specific fix for footer.
+ */
+@-moz-document url-prefix() {
+  body.node-type-event {
+    #page {
+      margin-bottom: -100px;
+      padding-bottom: 100px;
+    }
+    #block-block-12 .disclaimer {
+      top: 20px;
+      left: 20px;
+    }
+  }
+}
+/* fine-tuning for Chrome & Safari */
+@media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
+  body.not-logged-in.page-user:not(.page-user-register) {
+    #block-block-9 {
+      height: 192px;
+    }
+  }
+}
+#block-views-subtitle-and-type-block {
+  margin-top: -1em;
+}

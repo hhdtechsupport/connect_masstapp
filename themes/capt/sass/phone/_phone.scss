@@ -1,0 +1,79 @@
+@import "../headers/variables";
+@import "../headers/capt-mixins";
+@import "../headers/extensible";
+@import "capt-mixins-phone";
+
+
+/* Navigation bar
+ * Uses the styles from responsive.css for mobile phone widths
+ * change max? */
+
+
+
+@media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
+   @import 'capt-mixins-phone';
+   @import 'phone-logos';
+}
+
+@media screen and (max-width: $phone-tablet-divide) {
+
+  @import 'capt-mixins-phone';
+  @import '../headers/extensible';
+  @import 'extensible-phone';
+  @import 'general-phone';
+  @import 'login-phone';
+  @import 'phone-register-profile';
+  @import 'phone-event-detail';
+  @import 'phone-event-dashboard';
+  @import 'banner-phone';
+  @import 'phone-event-dashboard';
+}
+
+ 
+@media all and (max-width: 479px) {
+  #main {
+    /* Move all the children of #main down to make room. */
+    padding-top: 3em;
+    position: relative;
+  }
+  #navigation {
+    /* Move the navbar up inside #main's padding. */
+    position: absolute;
+    top: 0;
+    height: 3em;
+    width: 100%;
+  }
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) 
+                and (max-width: $phone-tablet-divide) {
+    form#user-profile-form,
+    body.page-user-edit {
+      fieldset.group-account, fieldset {
+        div.fieldset-wrapper, div.data-view {
+          padding-top: 45px;
+          margin-top: 8px;
+        }
+        // end data view and field wrapper - test
+        margin-bottom: 0px;
+      }
+      fieldset {
+        margin-top: 0px;
+      }
+    }
+  }
+
+@media screen and (max-width: 425px) {
+  ul.tabs-primary {
+    li:nth-child(3), li:nth-child(4) {
+      display: none;
+    }
+  }
+}
+
+// iPhone 4 
+
+@media screen and (max-width: $small-phone-width) {
+  @import 'capt-mixins-phone';
+  @import 'small-phone';
+}
+

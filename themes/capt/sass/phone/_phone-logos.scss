@@ -1,0 +1,29 @@
+@import "../headers/variables";
+@import "../headers/capt-mixins";
+@import "../headers/extensible";
+ @import 'capt-mixins-phone';
+
+  body.logged-in.page-user-edit,
+  body.page-events,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
+
+  
+    div.top-header {
+     height: $mobile-header-height;
+      @include rainbow-bar($mobile-header-height - $rainbow-height);
+      div.top-header-container {
+        div.capt-logo {
+          top: $top-margin + 2px;
+
+          @include logosize(1px, 2px, 3);
+        }
+        div.samhsa-logo {
+          top: $top-margin;
+          @include logosize($samhsa-phone-logo-width, $samhsa-phone-logo-height, $samhsa-iPh6-scale);
+        }
+      }
+    }
+  }
+
