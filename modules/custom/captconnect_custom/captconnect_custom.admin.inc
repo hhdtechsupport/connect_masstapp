@@ -271,6 +271,44 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '</ul>'
     );
 
+  $form['captconnect_custom_proxy_registered'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Successful proxy registration'),
+    '#default_value' => variable_get('captconnect_custom_proxy_registered',
+      '@user is now @action for "@event" at @time.'),
+    '#description' => t('When someone is registered or participated by someone
+      else (proxy), this message indicates that the registration has succeeded.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@event - the title of the event.') . '</li>'
+      . '<li>' . t('@user - the name of the person.') . '</li>'
+      . '<li>' . t('@time - the instance title (date and time).') . '</li>'
+      . '<li>' . t('@action - the action taken.') . '</li>'
+      . '</ul>',
+    );
+
+  $form['captconnect_custom_proxy_failed'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#maxlength' => 256,
+    '#title' => t('Unsuccessful proxy registration'),
+    '#default_value' => variable_get('captconnect_custom_proxy_failed',
+      'Flagging for @user for "@event" at @time failed.'),
+    '#description' => t('When someone is registered or participated by someone
+      else (proxy), this message indicates that the registration has failed.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@event - the title of the event.') . '</li>'
+      . '<li>' . t('@user - the name of the person.') . '</li>'
+      . '<li>' . t('@time - the instance title (date and time).') . '</li>'
+      . '<li>' . t('@action - the action taken.') . '</li>'
+      . '</ul>',
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -309,6 +347,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_reset_pass_head']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_proxy_registered']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_proxy_failed']), 'style' => $style),
     );
 
   $rows[] = array(

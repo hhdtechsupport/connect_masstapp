@@ -1058,10 +1058,12 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
 
   // The flag function returns a boolean to indicate success or failure.
   if (flag('flag', $flag_action, $instance->nid, $account)) {
-    drupal_set_message(t('@user is now @action for "@event" at @time.', $args));
+    drupal_set_message(t(variable_get('captconnect_custom_proxy_registered',
+      '@user is now @action for "@event" at @time.'), $args));
   }
   else {
-    drupal_set_message(t('Flagging for @user for "@event" at @time failed.', $args));
+    drupal_set_message(t(variable_get('captconnect_custom_proxy_failed',
+      'Flagging for @user for "@event" at @time failed.'), $args));
   }
 }
 
@@ -1278,7 +1280,7 @@ function _captconnect_custom_entity_sort($a, $b) {
   if ($a['label'] == $b['label']) {
     return 0;
   }
-  return ($a['label'] < $b['label'] ? -1 : 1);  
+  return ($a['label'] < $b['label'] ? -1 : 1);
 }
 
 /**
