@@ -1,0 +1,78 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+@import 'tablet-variables';
+
+// login screen, iPad
+  body.not-logged-in.page-user:not(.page-user-register),
+  body.not-logged-in.page-anon-login {
+    div#main,
+    div#content {
+      width: 100%;
+      margin-left: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    form#user-login {
+      input#edit-name,
+      input#edit-pass {
+        width: 83%;
+      }
+    }
+    div#title-section,
+    div#content form#user-login {
+      margin-left: 0px;
+      width: $iPad-login-width / $iPad-page-width * 100%;
+      margin-left: 4%;
+      margin-right: 0px;
+    }
+    div#block-block-8 {
+      margin-top: -78px;
+    }
+    div#block-block-8,
+    div#block-block-9 {
+      width: $iPad-intro-width / $iPad-page-width * 100%;
+      float: right;
+      margin-right: 4%;
+    }
+    div#block-block-9 {
+      background-position: 92% 25%;
+      background-size: 75.2px 82.40px;
+      ul {
+        margin-left: 0px;
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  
+    div#block-block-8,
+    div#block-block-9 {
+      h2.block-title, h2.custom_block_title {
+        font-size: 1.65em;
+        margin-left: $newto-margin-left;
+      }
+    }
+    div#block-block-9 {
+      ul#why-register {
+        margin-left: $newto-margin-left;
+        padding-left: 14px;
+      }
+    }
+    div#block-block-8 {
+      margin-top: -78px;
+     
+    }
+    footer#footer {
+      height: 100px;
+     
+    }
+    footer .disclaimer {
+      width: 450px;
+      top: 0px;
+    }
+    div#block-block-12 {
+      padding-top: 20px;
+    }
+    
+  }
