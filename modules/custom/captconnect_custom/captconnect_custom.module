@@ -1272,6 +1272,16 @@ function _captconnect_custom_link_events($a) {
 }
 
 /**
+ * User sort function for entities.
+ */
+function _captconnect_custom_entity_sort($a, $b) {
+  if ($a['label'] == $b['label']) {
+    return 0;
+  }
+  return ($a['label'] < $b['label'] ? -1 : 1);  
+}
+
+/**
  * Place to put special purpose stuff.
  */
 function captconnect_custom_nancy() {
