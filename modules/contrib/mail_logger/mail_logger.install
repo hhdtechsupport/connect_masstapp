@@ -27,7 +27,7 @@ function mail_logger_schema() {
       'mailto'        => array(
         'description'   => 'to whom this mail is going',
         'type'          => 'varchar',
-        'length'        => 255,
+        'length'        => 2047,
         'not null'      => TRUE,
       ),
       'subject'       => array(

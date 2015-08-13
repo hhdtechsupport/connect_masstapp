@@ -103,7 +103,10 @@ function entity_counts_entity_type_count() {
       case 'field_collection_item':
         $bundle_key = 'field_name';
         break;
+<<<<<<< HEAD
       case 'entityform':
+=======
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
       case 'flagging':
       case 'node':
         $bundle_key = $info['bundle keys']['bundle'];
@@ -174,7 +177,10 @@ function entity_counts_entity_type_count() {
 
           default:
             drupal_set_message("Unhandled entity type: $entity_type.");
+<<<<<<< HEAD
             dpm($info, $entity_type.' info');
+=======
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
             $bundle_counts = array(
               key($bundles) =>
               db_query("SELECT COUNT(*) FROM {" . $db_table . "}")->fetchField());
@@ -183,18 +189,29 @@ function entity_counts_entity_type_count() {
     }
 
     $class = 'top';
+<<<<<<< HEAD
     $entity_total = 0;
+=======
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
     foreach ($bundles as $bundle_type => $bundle_label) {
       $row[] = filter_xss($bundle_label);
 
       // Get the field count for the bundle.
       if ($info['fieldable']) {
+<<<<<<< HEAD
         $bt = $bundle_type;
         if ($entity_type == 'taxonomy_term') {
           $bt = strtr($bundle_type, ' ', '_');
         }
         $row[] = array(
           'data' => number_format(count(field_info_instances($entity_type, $bt))),
+=======
+        if ($entity_type == 'taxonomy_term') {
+          $bundle_type = strtr(strtolower($bundle_type), ' ', '_');
+        }
+        $row[] = array(
+          'data' => number_format(count(field_info_instances($entity_type, $bundle_type))),
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
           'class' => array('right'));
       }
       else {
@@ -202,12 +219,16 @@ function entity_counts_entity_type_count() {
       }
 
       $count = (isset($bundle_counts[$bundle_type]) ? $bundle_counts[$bundle_type] : 0);
+<<<<<<< HEAD
       $entity_total += $count;
+=======
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
       $row[] = array('data' => number_format($count), 'class' => array('right'));
       $entity_table['rows'][] = array('data' => $row, 'no_striping' => TRUE, 'class' => array($class));
       $row = array('', '', '', '', '', '');
       $class = 'not-top';
     }
+<<<<<<< HEAD
     // Were there more than one?
     if (count($bundles) > 1) {
       $row = array('', '', '', '', '', '',
@@ -219,6 +240,8 @@ function entity_counts_entity_type_count() {
           ));
       $entity_table['rows'][] = array('data' => $row, 'no_striping' => TRUE, 'class' => array($class));
     }
+=======
+>>>>>>> 55b10134ed510ab22bbd96dd1a390f1de12323b2
   }
 
   // Output the table.
