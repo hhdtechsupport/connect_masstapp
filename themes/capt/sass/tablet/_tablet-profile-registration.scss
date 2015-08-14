@@ -104,10 +104,10 @@ div#main {
            background-position: 8px 0px;
            font-size: 34px;
            padding-left: 60px;
-           /*padding-left: 60px !important;*/
            margin-bottom: 10px;
            margin-left: 5px;
-           /*border: 1px solid red;*/
+           margin-top: 10px;
+          
          }
        }
        #block-block-3 {
@@ -115,14 +115,16 @@ div#main {
       }
 
       fieldset {
-        width: 94%;
+        width: 92%;
         margin: 0px auto;
         display: block;
         margin-bottom: 20px;
         padding-right: 0px;
         border-right: 1px solid $capt-midgrey;
         &:before {
-          width: 400px;
+          width: 100%;
+          padding: 0px;
+
         }
 
       }
@@ -154,7 +156,8 @@ body.logged-in.page-user-edit {
 
       &:before {
        margin: 0px auto;
-       width: 97%;
+       width: 95.6%;
+       padding: 0px;
      }
      fieldset div.fieldset-wrapper {  
        border: 1px solid transparent;
