@@ -4367,14 +4367,17 @@ body.page-anon-register #block-block-3 p {
   /* line 45, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title {
     max-width: 100%;
-    content: 'Upcoming Events';
     padding-left: 30px;
     margin-left: 0px;
     background-position: 8px 16px;
     padding-bottom: 0px;
     height: 30px;
   }
-  /* line 60, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 54, ../sass/phone/_phone-event-dashboard.scss */
+  body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title:before {
+    content: 'Upcoming\00a0';
+  }
+  /* line 63, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#content > div.view-dashboard {
     width: 100%;
     margin: 0px auto;
@@ -4383,20 +4386,20 @@ body.page-anon-register #block-block-3 p {
     padding-top: 60px;
     border-bottom: 1px solid #d7d7d7;
   }
-  /* line 70, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 73, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#content > div.view-dashboard div.item-list {
     margin-left: 10px;
     width: 90%;
   }
-  /* line 74, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 77, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#content > div.view-dashboard:before {
     height: 0px;
   }
-  /* line 83, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 86, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 {
     border-bottom: 0px;
   }
-  /* line 86, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 89, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1,
   body.page-events.section-events div#block-views-dashboard-block-2 {
     width: 100%;
@@ -4405,7 +4408,7 @@ body.page-anon-register #block-block-3 p {
     background-position: right -10px top 8px;
     border-top: 1px solid #d7d7d7;
   }
-  /* line 95, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 98, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 h2,
   body.page-events.section-events div#block-views-dashboard-block-2 h2 {
     width: 90%;
@@ -4414,13 +4417,13 @@ body.page-anon-register #block-block-3 p {
     background-position: 8px 8px;
     margin-bottom: 0px;
   }
-  /* line 103, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 106, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1:before,
   body.page-events.section-events div#block-views-dashboard-block-2:before {
     height: 0px;
     background-color: transparent;
   }
-  /* line 107, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 110, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 div.view-empty, body.page-events.section-events div#block-views-dashboard-block-1 div.item-list,
   body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty,
   body.page-events.section-events div#block-views-dashboard-block-2 div.item-list {
@@ -5266,6 +5269,12 @@ body.page-user-register:not(.node-type-event) {
   body.not-logged-in.page-user:not(.page-user-register) div#block-block-12,
   body.not-logged-in.page-anon-login div#block-block-12 {
     padding-top: 20px;
+  }
+  /* line 77, ../sass/tablet/_tablet-login.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#block-block-13,
+  body.not-logged-in.page-anon-login div#block-block-13 {
+    margin-top: 25px;
+    margin-left: -280px;
   }
 
   /* line 8, ../sass/tablet/_tablet-profile-registration.scss */
