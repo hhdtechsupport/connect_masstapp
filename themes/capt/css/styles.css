@@ -157,17 +157,22 @@ ul.pager li.pager-last a {
   margin-top: 0px !important;
 }
 
-/* line 13, ../sass/sitewide/_general.scss */
+/* line 11, ../sass/sitewide/_general.scss */
+.chosen-container {
+  display: block;
+}
+
+/* line 15, ../sass/sitewide/_general.scss */
 .field-container fieldset {
   border: 0px;
   padding-left: 0px;
 }
-/* line 17, ../sass/sitewide/_general.scss */
+/* line 19, ../sass/sitewide/_general.scss */
 .field-container legend,
 .field-container span.fieldset-legend {
   font-weight: bold;
 }
-/* line 21, ../sass/sitewide/_general.scss */
+/* line 23, ../sass/sitewide/_general.scss */
 .field-container input.form-submit {
   margin-top: 0px;
 }
@@ -176,7 +181,7 @@ ul.pager li.pager-last a {
  *  End inherited primitives
  */
 /* pager */
-/* line 31, ../sass/sitewide/_general.scss */
+/* line 33, ../sass/sitewide/_general.scss */
 .pager-clip {
   overflow: hidden;
   white-space: nowrap;
@@ -187,7 +192,7 @@ ul.pager li.pager-last a {
   height: 20px;
 }
 
-/* line 42, ../sass/sitewide/_general.scss */
+/* line 44, ../sass/sitewide/_general.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -196,7 +201,7 @@ body {
 }
 
 /* eliminate blue links */
-/* line 53, ../sass/sitewide/_general.scss */
+/* line 55, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a, #page div.view-content .panel-rule a, #page div.view-content .panel-rule-single a, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a, #page div.view-content .section-events #block-views-dashboard-block-1 a, .section-events #page div.view-content #block-views-dashboard-block-1 a,
 #page div.view-content .section-events #block-views-dashboard-block-2 a,
 .section-events #page div.view-content #block-views-dashboard-block-2 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a,
@@ -224,7 +229,7 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login a.flag
 body.not-logged-in.section-anon-login.page-anon-login #page div.view-content form#user-pass-reset a.flag-action {
   /* color: $capt-black;*/
 }
-/* line 56, ../sass/sitewide/_general.scss */
+/* line 58, ../sass/sitewide/_general.scss */
 #page div.view-content .panel .item-list h3, #page div.view-content .panel-rule .item-list h3, #page div.view-content .panel-rule-single .item-list h3, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 .item-list h3, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 .item-list h3, #page div.view-content .section-events #block-views-dashboard-block-1 .item-list h3, .section-events #page div.view-content #block-views-dashboard-block-1 .item-list h3,
 #page div.view-content .section-events #block-views-dashboard-block-2 .item-list h3,
 .section-events #page div.view-content #block-views-dashboard-block-2 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 .item-list h3,
@@ -240,7 +245,7 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login .item-
 body.not-logged-in.section-anon-login.page-anon-login #page div.view-content form#user-pass-reset .item-list h3 {
   font-size: 16px;
 }
-/* line 59, ../sass/sitewide/_general.scss */
+/* line 61, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a:hover, #page div.view-content .panel-rule a:hover, #page div.view-content .panel-rule-single a:hover, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a:hover, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a:hover, #page div.view-content .section-events #block-views-dashboard-block-1 a:hover, .section-events #page div.view-content #block-views-dashboard-block-1 a:hover,
 #page div.view-content .section-events #block-views-dashboard-block-2 a:hover,
 .section-events #page div.view-content #block-views-dashboard-block-2 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a:hover,
@@ -257,20 +262,20 @@ body.not-logged-in.section-anon-login.page-anon-login #page div.view-content for
   color: #8c1d18;
 }
 
-/* line 65, ../sass/sitewide/_general.scss */
+/* line 67, ../sass/sitewide/_general.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 74, ../sass/sitewide/_general.scss */
+/* line 76, ../sass/sitewide/_general.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
 /* inherited class */
-/* line 80, ../sass/sitewide/_general.scss */
+/* line 82, ../sass/sitewide/_general.scss */
 .button-reset, ul.main-menu a, input[type="submit"],
 a.button, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a {
   text-decoration: none;
@@ -279,20 +284,20 @@ a.button, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-
   appearance: normal;
 }
 
-/* line 87, ../sass/sitewide/_general.scss */
+/* line 89, ../sass/sitewide/_general.scss */
 ul.main-menu a {
   color: #333333;
   background: #eef1f3;
   padding: 12px 20px 4px 20px;
   font-size: 15px;
 }
-/* line 93, ../sass/sitewide/_general.scss */
+/* line 95, ../sass/sitewide/_general.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit & other buttons*/
-/* line 100, ../sass/sitewide/_general.scss */
+/* line 102, ../sass/sitewide/_general.scss */
 input[type="submit"],
 a.button {
   -webkit-border-radius: 5px;
@@ -304,7 +309,7 @@ a.button {
   padding: 8px 20px;
 }
 
-/* line 109, ../sass/sitewide/_general.scss */
+/* line 111, ../sass/sitewide/_general.scss */
 .page-user-edit .button {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -314,33 +319,33 @@ a.button {
   padding: 4px 16px;
   width: 50px;
 }
-/* line 115, ../sass/sitewide/_general.scss */
+/* line 117, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button {
   background: #c3791f;
 }
-/* line 117, ../sass/sitewide/_general.scss */
+/* line 119, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button:hover {
   background: #df9336;
 }
-/* line 121, ../sass/sitewide/_general.scss */
+/* line 123, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button {
   background: #334b56;
   margin-top: 10px;
 }
-/* line 124, ../sass/sitewide/_general.scss */
+/* line 126, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button:hover {
   background: #466776;
 }
-/* line 128, ../sass/sitewide/_general.scss */
+/* line 130, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button {
   background: #c3791f;
 }
-/* line 130, ../sass/sitewide/_general.scss */
+/* line 132, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button:hover {
   background: #df9336;
 }
 
-/* line 137, ../sass/sitewide/_general.scss */
+/* line 139, ../sass/sitewide/_general.scss */
 .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -351,53 +356,53 @@ a.button {
   font-size: 12px;
   font-weight: normal;
 }
-/* line 145, ../sass/sitewide/_general.scss */
+/* line 147, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a, .group-right .button.register .flag-wrapper a:visited, .view-dashboard .button.register .flag-wrapper a, .view-dashboard .button.register .flag-wrapper a:visited {
   background: #888a55;
   font-weight: normal;
 }
-/* line 149, ../sass/sitewide/_general.scss */
+/* line 151, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a:hover, .view-dashboard .button.register .flag-wrapper a:hover {
   background-color: #a3a56d;
 }
-/* line 152, ../sass/sitewide/_general.scss */
+/* line 154, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a, .group-right .button.cancel.flag-wrapper a:visited, .view-dashboard .button.cancel .flag-wrapper a, .view-dashboard .button.cancel.flag-wrapper a:visited {
   background: #8c1d18;
   font-weight: normal;
 }
-/* line 156, ../sass/sitewide/_general.scss */
+/* line 158, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a:hover, .view-dashboard .button.cancel .flag-wrapper a:hover {
   background-color: #b8261f;
 }
-/* line 159, ../sass/sitewide/_general.scss */
+/* line 161, ../sass/sitewide/_general.scss */
 .group-right .button.participate, .view-dashboard .button.participate {
   margin: 5px 0;
   font-weight: normal;
 }
-/* line 162, ../sass/sitewide/_general.scss */
+/* line 164, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a, .group-right .button.participate .field-content > a, .group-right .button.participate .flag-wrapper a:visited, .group-right .button.participate .field-content > a:visited, .view-dashboard .button.participate .flag-wrapper a, .view-dashboard .button.participate .field-content > a, .view-dashboard .button.participate .flag-wrapper a:visited, .view-dashboard .button.participate .field-content > a:visited {
   background: #c3791f;
   font-size: 13px;
   padding: 5px 16px;
   font-weight: normal;
 }
-/* line 168, ../sass/sitewide/_general.scss */
+/* line 170, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a:hover, .group-right .button.participate .field-content > a:hover, .view-dashboard .button.participate .flag-wrapper a:hover, .view-dashboard .button.participate .field-content > a:hover {
   background-color: #df9336;
 }
 
 /*ul.main-menu a:hover, */
-/* line 176, ../sass/sitewide/_general.scss */
+/* line 178, ../sass/sitewide/_general.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 178, ../sass/sitewide/_general.scss */
+/* line 180, ../sass/sitewide/_general.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 184, ../sass/sitewide/_general.scss */
+/* line 186, ../sass/sitewide/_general.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -407,31 +412,31 @@ input[type="submit"] {
   text-transform: capitalize;
   background-color: #c3791f;
 }
-/* line 192, ../sass/sitewide/_general.scss */
+/* line 194, ../sass/sitewide/_general.scss */
 input[type="submit"]:hover {
   background-color: #df9336;
 }
-/* line 195, ../sass/sitewide/_general.scss */
+/* line 197, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"], input[type="submit"][value="Remove"], input[type="submit"][value="Delete"], input[type="submit"][value="Reset"] {
   background-color: #577785;
 }
-/* line 197, ../sass/sitewide/_general.scss */
+/* line 199, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"]:hover, input[type="submit"][value="Remove"]:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Reset"]:hover {
   background-color: #6f91a0;
 }
 
-/* line 203, ../sass/sitewide/_general.scss */
+/* line 205, ../sass/sitewide/_general.scss */
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
 
-/* line 207, ../sass/sitewide/_general.scss */
+/* line 209, ../sass/sitewide/_general.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 212, ../sass/sitewide/_general.scss */
+/* line 214, ../sass/sitewide/_general.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -439,19 +444,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 219, ../sass/sitewide/_general.scss */
+/* line 221, ../sass/sitewide/_general.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 224, ../sass/sitewide/_general.scss */
+/* line 226, ../sass/sitewide/_general.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 229, ../sass/sitewide/_general.scss */
+/* line 231, ../sass/sitewide/_general.scss */
 h5 {
   font-size: 1.1em;
   margin-bottom: .5em;
@@ -459,70 +464,70 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 237, ../sass/sitewide/_general.scss */
+/* line 239, ../sass/sitewide/_general.scss */
 a {
   color: #c3791f;
 }
 
-/* line 241, ../sass/sitewide/_general.scss */
+/* line 243, ../sass/sitewide/_general.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
   color: white;
 }
 
-/* line 249, ../sass/sitewide/_general.scss */
+/* line 251, ../sass/sitewide/_general.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 253, ../sass/sitewide/_general.scss */
+/* line 255, ../sass/sitewide/_general.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 258, ../sass/sitewide/_general.scss */
+/* line 260, ../sass/sitewide/_general.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 263, ../sass/sitewide/_general.scss */
+/* line 265, ../sass/sitewide/_general.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 267, ../sass/sitewide/_general.scss */
+/* line 269, ../sass/sitewide/_general.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 272, ../sass/sitewide/_general.scss */
+/* line 274, ../sass/sitewide/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 277, ../sass/sitewide/_general.scss */
+/* line 279, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 279, ../sass/sitewide/_general.scss */
+/* line 281, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 284, ../sass/sitewide/_general.scss */
+/* line 286, ../sass/sitewide/_general.scss */
 table {
   width: 100%;
 }
-/* line 287, ../sass/sitewide/_general.scss */
+/* line 289, ../sass/sitewide/_general.scss */
 table thead tr {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-/* line 290, ../sass/sitewide/_general.scss */
+/* line 292, ../sass/sitewide/_general.scss */
 table thead tr th {
   text-align: left;
   font-size: 1.2em;
@@ -532,42 +537,42 @@ table thead tr th {
   border-bottom: none;
   padding: 8px 8px;
 }
-/* line 298, ../sass/sitewide/_general.scss */
+/* line 300, ../sass/sitewide/_general.scss */
 table thead tr th:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 305, ../sass/sitewide/_general.scss */
+/* line 307, ../sass/sitewide/_general.scss */
 table tbody tr {
   border: 1px solid #ccc;
 }
-/* line 307, ../sass/sitewide/_general.scss */
+/* line 309, ../sass/sitewide/_general.scss */
 table tbody tr.odd {
   background-color: #F7F7F7;
 }
-/* line 311, ../sass/sitewide/_general.scss */
+/* line 313, ../sass/sitewide/_general.scss */
 table tbody tr td {
   padding: 3px 6px;
 }
-/* line 313, ../sass/sitewide/_general.scss */
+/* line 315, ../sass/sitewide/_general.scss */
 table tbody tr td:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 316, ../sass/sitewide/_general.scss */
+/* line 318, ../sass/sitewide/_general.scss */
 table tbody tr td a, table tbody tr td a:visited {
   color: #c3791f;
   text-decoration: none;
 }
-/* line 319, ../sass/sitewide/_general.scss */
+/* line 321, ../sass/sitewide/_general.scss */
 table tbody tr td a:hover, table tbody tr td a:visited:hover {
   text-decoration: none;
   color: #e39f4c;
 }
-/* line 324, ../sass/sitewide/_general.scss */
+/* line 326, ../sass/sitewide/_general.scss */
 table tbody tr td.inline-entity-form-node-field_body {
   width: 400px;
 }
 
-/* line 332, ../sass/sitewide/_general.scss */
+/* line 334, ../sass/sitewide/_general.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -577,26 +582,26 @@ table tbody tr td.inline-entity-form-node-field_body {
   padding-left: 0;
 }
 
-/* line 342, ../sass/sitewide/_general.scss */
+/* line 344, ../sass/sitewide/_general.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: 1em 0 .5em;
 }
 
 /* end forms */
-/* line 350, ../sass/sitewide/_general.scss */
+/* line 352, ../sass/sitewide/_general.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/* line 354, ../sass/sitewide/_general.scss */
+/* line 356, ../sass/sitewide/_general.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 360, ../sass/sitewide/_general.scss */
+/* line 362, ../sass/sitewide/_general.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -609,7 +614,7 @@ body {
  *  Section_3 - Region-Specific Styles                    *
  *                                                        *
  **********************************************************/
-/* line 376, ../sass/sitewide/_general.scss */
+/* line 378, ../sass/sitewide/_general.scss */
 body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   padding-top: 80px;
 }
@@ -617,7 +622,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 /*
  *  Specific event page styling for the footer.
  */
-/* line 384, ../sass/sitewide/_general.scss */
+/* line 386, ../sass/sitewide/_general.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -625,7 +630,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 391, ../sass/sitewide/_general.scss */
+/* line 393, ../sass/sitewide/_general.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -633,12 +638,12 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   max-width: 1200px;
 }
 
-/* line 398, ../sass/sitewide/_general.scss */
+/* line 400, ../sass/sitewide/_general.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 402, ../sass/sitewide/_general.scss */
+/* line 404, ../sass/sitewide/_general.scss */
 .samhsa-logo {
   float: right;
 }
@@ -648,7 +653,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
     width: 600px;
     }*/
 /* treating this as the container for now */
-/* line 412, ../sass/sitewide/_general.scss */
+/* line 414, ../sass/sitewide/_general.scss */
 #main {
   width: 1000px;
   margin-left: 0px;
@@ -656,7 +661,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 }
 
 /* page */
-/* line 420, ../sass/sitewide/_general.scss */
+/* line 422, ../sass/sitewide/_general.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -665,24 +670,24 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   width: 1000px;
 }
 
-/* line 428, ../sass/sitewide/_general.scss */
+/* line 430, ../sass/sitewide/_general.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 433, ../sass/sitewide/_general.scss */
+/* line 435, ../sass/sitewide/_general.scss */
 .region-header {
   float: right;
   margin-top: 10px;
   margin-bottom: -10px;
 }
-/* line 437, ../sass/sitewide/_general.scss */
+/* line 439, ../sass/sitewide/_general.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 442, ../sass/sitewide/_general.scss */
+/* line 444, ../sass/sitewide/_general.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -692,18 +697,18 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   clear: both;
 }
 
-/* line 451, ../sass/sitewide/_general.scss */
+/* line 453, ../sass/sitewide/_general.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 455, ../sass/sitewide/_general.scss */
+/* line 457, ../sass/sitewide/_general.scss */
 body.node-type-event #title-section {
   width: auto;
   /*280px;*/
 }
 
-/* line 460, ../sass/sitewide/_general.scss */
+/* line 462, ../sass/sitewide/_general.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -717,7 +722,7 @@ body.node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 475, ../sass/sitewide/_general.scss */
+/* line 477, ../sass/sitewide/_general.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -726,36 +731,36 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 485, ../sass/sitewide/_general.scss */
+/* line 487, ../sass/sitewide/_general.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
   color: #c3791f;
 }
 
-/* line 491, ../sass/sitewide/_general.scss */
+/* line 493, ../sass/sitewide/_general.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 495, ../sass/sitewide/_general.scss */
+/* line 497, ../sass/sitewide/_general.scss */
 img.file-icon {
   position: relative;
   top: 4px;
 }
 
 /* form stuff */
-/* line 504, ../sass/sitewide/_general.scss */
+/* line 506, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 509, ../sass/sitewide/_general.scss */
+/* line 511, ../sass/sitewide/_general.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 513, ../sass/sitewide/_general.scss */
+/* line 515, ../sass/sitewide/_general.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -763,12 +768,12 @@ img.file-icon {
 
 /* new styles */
 /* not used yet */
-/* line 521, ../sass/sitewide/_general.scss */
+/* line 523, ../sass/sitewide/_general.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 525, ../sass/sitewide/_general.scss */
+/* line 527, ../sass/sitewide/_general.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -776,7 +781,7 @@ img.file-icon {
 }
 
 /* not used yet */
-/* line 533, ../sass/sitewide/_general.scss */
+/* line 535, ../sass/sitewide/_general.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -785,7 +790,7 @@ h4.black {
   margin-bottom: 9px;
 }
 
-/* line 543, ../sass/sitewide/_general.scss */
+/* line 545, ../sass/sitewide/_general.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -803,12 +808,12 @@ div#content {
   padding-top: 20px;
 }
 
-/* line 562, ../sass/sitewide/_general.scss */
+/* line 564, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info {
   color: white;
   top: 10px;
 }
-/* line 565, ../sass/sitewide/_general.scss */
+/* line 567, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
@@ -2643,49 +2648,50 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-e
   padding-left: 54px;
 }
 /* line 183, ../sass/main_pages/_event.scss */
-body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.register {
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.register,
+body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.cancel {
   margin-top: 7px;
   display: block;
 }
-/* line 190, ../sass/main_pages/_event.scss */
+/* line 191, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 {
   padding-top: 25px;
 }
-/* line 192, ../sass/main_pages/_event.scss */
+/* line 193, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2:before {
   margin-left: -27.5px;
   width: 320px;
   margin-top: 0px;
   left: 1px;
 }
-/* line 198, ../sass/main_pages/_event.scss */
+/* line 199, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content {
   background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
   padding-left: 14px;
 }
-/* line 202, ../sass/main_pages/_event.scss */
+/* line 203, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .button, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .button {
   margin-left: 14px;
 }
-/* line 209, ../sass/main_pages/_event.scss */
+/* line 210, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials {
   padding-top: 25px;
 }
-/* line 211, ../sass/main_pages/_event.scss */
+/* line 212, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 215, ../sass/main_pages/_event.scss */
+/* line 216, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title {
   margin-top: -5px;
 }
-/* line 219, ../sass/main_pages/_event.scss */
+/* line 220, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul {
   padding-left: 0px;
   margin-bottom: 0px;
 }
-/* line 222, ../sass/main_pages/_event.scss */
+/* line 223, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row {
   list-style: none;
   background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
@@ -2695,7 +2701,7 @@ body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials di
   min-height: 29px;
   padding-top: 3px;
 }
-/* line 234, ../sass/main_pages/_event.scss */
+/* line 235, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -2705,7 +2711,7 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 241, ../sass/main_pages/_event.scss */
+/* line 242, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title {
   font-weight: normal;
   margin-top: 0px;
@@ -2713,23 +2719,22 @@ body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-tit
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 248, ../sass/main_pages/_event.scss */
+/* line 249, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list {
   border-top: 1px solid #d7d7d7;
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 252, ../sass/main_pages/_event.scss */
+/* line 253, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul {
   padding-left: 0px;
 }
-/* line 254, ../sass/main_pages/_event.scss */
+/* line 255, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row {
   list-style: none;
   background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
   /* list-style-image: url('../images/icons/down-arrow.png'); */
   margin-bottom: 15px;
-  min-height: 42px;
   padding-left: 12px;
 }
 /* line 261, ../sass/main_pages/_event.scss */
