@@ -192,7 +192,10 @@ body.logged-in.page-user-edit {
     
       div.form-type-select {
         width: 100% !important;
-        // display: none;
+        select#edit-timezone--2 {
+          width: 100%;
+        }
+        // cleanup
         .chosen-single {
           width: 200px !important;
       
@@ -200,9 +203,7 @@ body.logged-in.page-user-edit {
             width: 200px !important;
           }
         }
-        fieldset {
-          display: none;
-        }
+     
         div.chosen-container#edit_timezone__2_chosen {
           width: 80% !important;
     
