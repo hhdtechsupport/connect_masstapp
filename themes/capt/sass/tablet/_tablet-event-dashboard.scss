@@ -19,12 +19,17 @@ body.page-events.section-events {
 	/* only controls view-dashboard on left column */
 	div#content > div.view-dashboard {
 		width: $left-column-width;
+		clear: both;
 	}
 	div.view-dashboard div.view-content {
         margin-left: 0px;
 	}
 
-
+    .views-exposed-widgets {
+    float: right;
+    margin-bottom: 20px;
+    margin-right: -12px;
+   }
 	
 	div#block-views-dashboard-block-1,
 	div#block-views-dashboard-block-2 {
