@@ -5,11 +5,12 @@
 
 // profile and registration screen, iPad
 
+body.logged-in.page-user-edit,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event)  {
 
 
-  $reg-margin-left: 1.6%;
+$reg-margin-left: 1.6%;
 
   div#edit-actions {
    padding: 0px;
@@ -24,8 +25,9 @@ div.horizontal-tabs  {
   width: 100%;
   ul.horizontal-tabs-list {
     width: 100%;
-    margin-left: $reg-margin-left;
+    margin-left: 0px; /*$reg-margin-left;*/
     margin-bottom: 10px;
+    text-align: left;
 
     li.horizontal-tab-button {
      a {
@@ -156,6 +158,11 @@ body.logged-in.page-user-edit {
      }
      fieldset div.fieldset-wrapper {  
        border: 1px solid transparent;
+       .form-item label:not(.option) {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+       }
      }
    }
  }
