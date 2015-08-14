@@ -18,7 +18,7 @@
           margin: 0px auto;
           width: 100%;
           ul#main-menu.main-menu.responsive-menu {
-            width: 96.75%;
+        
             overflow: visible;
             margin: 0px auto;
             padding: 0px;
@@ -39,5 +39,17 @@
       // end region nav
    
     }
+  }
+  body.role-administrator {
+     ul#main-menu.main-menu.responsive-menu {
+            width: 95%;
+     }
+
+  }
+  body.role-authenticated-user{
+     ul#main-menu.main-menu.responsive-menu {
+            width: 96.75%;
+     }
+
   }
 }

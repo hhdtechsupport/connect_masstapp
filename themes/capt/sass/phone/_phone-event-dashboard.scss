@@ -27,6 +27,7 @@ div#main div#content div#title-section	{
   width: 100%;
   position: relative; 
   background: url('../images/icons/create-event-showhide.png') right 10px top 6px no-repeat;
+  background-size: 44px 45px;
   top: $top-pad + 44px;
   padding-bottom: 5px;
   padding-top: $header-pos;
@@ -49,6 +50,7 @@ div#main div#content div#title-section	{
   padding-left: 30px;
   margin-left: 0px;
   background-position: 8px $header-pos + 6px;
+
   padding-bottom: 0px;
   height: 30px;
   &:before {
@@ -91,8 +93,9 @@ div#content > div.view-dashboard {
         width: 100%;
         margin: 0px;
         float: none;
-        background-position: right -10px top 8px;
-
+        // identical to tablet; perhaps make a prototype style
+        background-position: right -6px top 8px;
+        background-size: 60px 45px;
         border-top: 1px solid $capt-midgrey;
 
         h2 {
