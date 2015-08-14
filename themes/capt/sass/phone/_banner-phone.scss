@@ -4,47 +4,46 @@
 @import "capt-mixins-phone";
 @import "extensible-phone";
 
-
 $login-title-margin: 16px;
-body.not-front, 
-body.logged-in,
-body.not-logged-in {
- 
-        div.header__region.region-header {
-            width: 375px;
-            margin: 3px 0px -10px 0px;
-            text-align: right;
-          
-           
-        }
-    header#header.header {
-      padding-left: 0px;
-    }
-    div#block-block-13 {
 
-      color: white;
-      font-size: 11px;
-      margin-left: -225px;
-      top: -100;
-      position: absolute;
-      margin-top: -8px;
-      cursor: default;
-
-    }
-      // CAPT Connect and subtitle
-      h1#site-name.header__site-name,
-      div#block-block-13 {
-        margin-left: 0px;
-        padding-left: 10px;
-      }
-         /* banner title text */
-    h1#site-name.header__site-name {
-      margin-top: -30px;
-      a {
-        font-size: 0.8em;
-      }
-    }
-
-    
+body.not-logged-in,
+body.not-front.logged-in {
+  div.header__region.region-header {
+    width: 375px;
+    margin: 3px 0px -10px 0px;
+    text-align: right;
   }
-    
+  header#header.header {
+    padding-left: 0px;
+  }
+  div#block-block-13 {
+    color: white;
+    font-size: 12px;
+    top: -100;
+    position: absolute;
+    margin-top: -8px;
+    cursor: default;
+  }
+  // CAPT Connect and subtitle
+  h1#site-name.header__site-name,
+  div#block-block-13 {
+    margin-left: 0px;
+    padding-left: 10px;
+  }
+  /* banner title text */
+  h1#site-name.header__site-name {
+    margin-top: -30px;
+    a {
+      font-size: 0.8em;
+    }
+  }
+}
+
+body.not-logged-in.front {
+  div#block-block-13 {
+    margin-left: -236px;
+    top: 72px;
+    color: yellow;
+  }
+   
+}
