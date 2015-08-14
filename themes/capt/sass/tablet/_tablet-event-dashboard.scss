@@ -7,9 +7,12 @@ $right-column-width: 45%;
 $left-column-width: 48%;
 
 body.page-events.section-events {
-	div#main div#content div#title-section h1#page-title.page__title {
+	div#main div#content div#title-section {
+		margin-top: 10px;
+	    h1#page-title.page__title {
 		padding-left: 75px;
 		background-position: 16px 0px;
+	    }
 	}
    
 	div.view-content, div.view-dashboard {
@@ -27,8 +30,9 @@ body.page-events.section-events {
 
     .views-exposed-widgets {
     float: right;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     margin-right: -12px;
+    margin-top: -70px;
    }
 	
 	div#block-views-dashboard-block-1,
