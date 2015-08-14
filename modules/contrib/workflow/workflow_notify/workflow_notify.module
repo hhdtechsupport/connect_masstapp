@@ -226,7 +226,7 @@ function workflow_notify_workflow($op, $old_state, $new_state, $node, $force = F
 }
 
 function workflow_notify_entity_update($entity, $type) {
-  if ($type == 'node') {
+  if ($type == 'node' && isset($entity->workflow_transitions['field_workflow_state'])) {
 //    dpm($entity, 'workflow_notify_entity_update');
     $old_state = $entity->workflow_transitions['field_workflow_state']->old_sid;
     $new_state = $entity->workflow_transitions['field_workflow_state']->new_sid;
