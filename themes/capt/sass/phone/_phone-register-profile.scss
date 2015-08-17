@@ -15,6 +15,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     input#edit-submit {}
   }
   @media screen and (max-width: 736px) {
+
     form#user-profile-form div.horizontal-tabs {
       width: 100%;
       ul.horizontal-tabs-list {
@@ -96,20 +97,10 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
           }
         }
       }
-      input#edit-cancel.form-submit {}
-      #block-block-3 {}
-      div.fieldset-wrapper {}
+   
       fieldset.form-wrapper {
-        width: 95%;
-        padding-right: 2.5%;
-        padding-left: 2.5%;
         div.fieldset-wrapper {
           margin-left: -15px;
-        }
-        &:before {
-          width: 95%;
-          padding-left: 2.5%;
-          padding-right: 2.5%;
         }
       }
     }
@@ -139,6 +130,14 @@ body.logged-in.page-user-edit {
     input.form-text {
       width: 95%;
     }
+      div.form-item ,
+      fieldset.collapsible.form-wrapper,
+      {
+        margin-left: 15px;
+      }
+      div.password-confirm {
+        margin-top: 0px;
+      }
       div.form-item.form-type-textfield.form-item-mail  {
         
         width: 100%;
@@ -232,6 +231,9 @@ body.logged-in.page-user-edit {
           }
           div.form-type-radio {
             display: none;
+          }
+          div.description {
+            margin-left: 15px;
           }
      
           div.password-strength {

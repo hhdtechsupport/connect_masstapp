@@ -1,0 +1,32 @@
+@import "../headers/variables";
+@import "../headers/capt-mixins";
+
+$panel-margin-left: 20px;
+$header-pad-left: 20px;
+
+
+
+
+.tablet-before-style {
+   display: block;
+    background-color: $capt-aqua;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: -5px;
+    margin-left: -1px;
+    padding-left: 2px;
+
+}
+
+
+.tablet-noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
