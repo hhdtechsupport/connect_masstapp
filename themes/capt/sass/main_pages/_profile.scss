@@ -10,6 +10,12 @@
 form#user-profile-form,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
+
+  .form-item label:not(.option) {
+          font-weight: bold;
+          display: block;
+          margin-bottom: 5px;
+  }
   /*margin-top: -20px;*/
   .horizontal-tabs {
     border: none;
