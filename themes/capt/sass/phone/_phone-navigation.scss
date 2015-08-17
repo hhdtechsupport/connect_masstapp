@@ -9,7 +9,8 @@ $header-pos: 10px;
 $title-buffer: 104px;
 
 body.page-events.section-events,
-body.page-user-edit.role-authenticated-user {
+body.page-user-edit.role-authenticated-user,
+body.role-authenticated-user.node-type-event {
 	
 	// transfer to phone-navigation
         ul#main-menu.main-menu  {
@@ -30,8 +31,10 @@ body.page-user-edit.role-authenticated-user {
             width: 375px;
             margin: 3px 0px -10px 0px;
             text-align: right;
+
            
         }
+       
         //navigation
         #block-responsive-dropdown-menus-main-menu {
             width: 100%;
