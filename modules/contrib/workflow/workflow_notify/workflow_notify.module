@@ -28,7 +28,7 @@ function workflow_notify_help($path, $arg) {
 
 /**
  * Implements hook_menu().
- */
+ */ 
 function workflow_notify_menu() {
   $items = array();
 
@@ -42,7 +42,7 @@ function workflow_notify_menu() {
     );
 
   return $items;
-}
+} /* */
 
 /**
  * Implements hook_theme().
@@ -213,6 +213,7 @@ function workflow_notify_workflow($op, $old_state, $new_state, $node, $force = F
         }
 
         // Send the email.
+        dpm($params, 'params');
         drupal_mail('workflow_notify',
           'workflow_notify',
           implode(';', $addr_list),
@@ -248,7 +249,8 @@ function workflow_notify_mail($key, &$message, $params) {
       dpm(token_replace($params['context']['body'], $params['data'], $params), 'body token replace');
 
       $message['subject'] = filter_xss(token_replace($params['context']['subject'], $params['data'], $params));
-      $message['body'][] = check_markup(token_replace($params['context']['body'], $params['data'], $params), $filter);
+//      $message['body'][] = check_markup(token_replace($params['context']['body'], $params['data'], $params), $filter);
+      $message['body'][] = token_replace($params['context']['body'], $params['data'], $params);
       return;
   }
 }
