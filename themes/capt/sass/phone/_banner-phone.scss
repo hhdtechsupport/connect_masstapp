@@ -7,14 +7,28 @@
 $login-title-margin: 16px;
 
 body.not-logged-in,
-body.not-front.logged-in {
+body.not-front.logged-in,
+body.role-authenticated-user.node-type-event {
   div.header__region.region-header {
     width: 375px;
     margin: 3px 0px -10px 0px;
     text-align: right;
+    height: 15px;
+    padding-bottom: 0px;
   }
   header#header.header {
     padding-left: 0px;
+   div#name-and-slogan.category {
+          padding-bottom: 0px;
+          margin-bottom: -20px;
+        
+    }
+    .name-and-slogan h1 {
+      height: 15px;
+
+
+
+    }
   }
   div#block-block-13 {
     color: white;

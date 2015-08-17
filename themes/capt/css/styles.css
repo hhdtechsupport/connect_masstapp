@@ -913,7 +913,7 @@ body.not-front header#header #name-and-slogan em {
 }
 /* line 72, ../sass/sitewide/_topmatter.scss */
 body.not-front header#header #name-and-slogan.category h1 {
-  font-size: 2.25em;
+  /* font-size: 2.25em;*/
 }
 /* line 77, ../sass/sitewide/_topmatter.scss */
 body.not-front header#header .region-highlighted {
@@ -1233,6 +1233,53 @@ div.vertical-tabs {
   margin-right: 0px;
 }
 
+/* used to be in mobile */
+@media screen and (max-width: 1024px) {
+  /* line 166, ../sass/sitewide/_navigation.scss */
+  div#main {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  /* line 171, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation {
+    width: 100%;
+    padding: 0px;
+    margin: 0px auto;
+  }
+  /* line 175, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation {
+    margin-top: 20px;
+  }
+  /* line 177, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation div.contextual-links-region {
+    margin: 0px auto;
+    width: 100%;
+  }
+  /* line 180, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
+    overflow: visible;
+    margin: 0px auto;
+    padding: 0px;
+    /* hide admin*/
+  }
+  /* line 186, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
+  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
+    display: none;
+  }
+
+  /* line 200, ../sass/sitewide/_navigation.scss */
+  body.role-administrator ul#main-menu.main-menu.responsive-menu {
+    width: 95%;
+  }
+
+  /* line 206, ../sass/sitewide/_navigation.scss */
+  body.role-authenticated-user ul#main-menu.main-menu.responsive-menu {
+    width: 96.75%;
+  }
+}
 /* main pages */
 /* dashboard lists */
 /* line 9, ../sass/main_pages/_dashboard.scss */
@@ -3624,55 +3671,6 @@ body.page-anon-register #block-block-3 p {
 }
 
 /* responsive*/
-/**
- * General Mobile Styles
- */
-@media screen and (max-width: 1024px) {
-  /* line 6, ../sass/phone/_mobile.scss */
-  div#main {
-    width: 100%;
-    margin-left: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  /* line 11, ../sass/phone/_mobile.scss */
-  div#main div#navigation {
-    width: 100%;
-    padding: 0px;
-    margin: 0px auto;
-  }
-  /* line 15, ../sass/phone/_mobile.scss */
-  div#main div#navigation div.region.region-navigation {
-    margin-top: 20px;
-  }
-  /* line 17, ../sass/phone/_mobile.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region {
-    margin: 0px auto;
-    width: 100%;
-  }
-  /* line 20, ../sass/phone/_mobile.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
-    overflow: visible;
-    margin: 0px auto;
-    padding: 0px;
-    /* hide admin*/
-  }
-  /* line 26, ../sass/phone/_mobile.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
-    display: none;
-  }
-
-  /* line 40, ../sass/phone/_mobile.scss */
-  body.role-administrator ul#main-menu.main-menu.responsive-menu {
-    width: 95%;
-  }
-
-  /* line 46, ../sass/phone/_mobile.scss */
-  body.role-authenticated-user ul#main-menu.main-menu.responsive-menu {
-    width: 96.75%;
-  }
-}
 /* Navigation bar
  * Uses the styles from responsive.css for mobile phone widths
  * change max? */
@@ -4227,7 +4225,7 @@ body.page-anon-register #block-block-3 p {
   /* line 43, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#block-block-7 {
     display: block;
-    width: 100px;
+    /* width: 100px;*/
   }
   /* line 47, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event h1#site-name.header__site-name {
@@ -4465,24 +4463,43 @@ body.page-anon-register #block-block-3 p {
 
   /* line 9, ../sass/phone/_banner-phone.scss */
   body.not-logged-in,
-  body.not-front.logged-in {
+  body.not-front.logged-in,
+  body.role-authenticated-user.node-type-event {
     /* banner title text */
   }
-  /* line 11, ../sass/phone/_banner-phone.scss */
+  /* line 12, ../sass/phone/_banner-phone.scss */
   body.not-logged-in div.header__region.region-header,
-  body.not-front.logged-in div.header__region.region-header {
+  body.not-front.logged-in div.header__region.region-header,
+  body.role-authenticated-user.node-type-event div.header__region.region-header {
     width: 375px;
     margin: 3px 0px -10px 0px;
     text-align: right;
-  }
-  /* line 16, ../sass/phone/_banner-phone.scss */
-  body.not-logged-in header#header.header,
-  body.not-front.logged-in header#header.header {
-    padding-left: 0px;
+    height: 15px;
+    padding-bottom: 0px;
   }
   /* line 19, ../sass/phone/_banner-phone.scss */
+  body.not-logged-in header#header.header,
+  body.not-front.logged-in header#header.header,
+  body.role-authenticated-user.node-type-event header#header.header {
+    padding-left: 0px;
+  }
+  /* line 21, ../sass/phone/_banner-phone.scss */
+  body.not-logged-in header#header.header div#name-and-slogan.category,
+  body.not-front.logged-in header#header.header div#name-and-slogan.category,
+  body.role-authenticated-user.node-type-event header#header.header div#name-and-slogan.category {
+    padding-bottom: 0px;
+    margin-bottom: -20px;
+  }
+  /* line 26, ../sass/phone/_banner-phone.scss */
+  body.not-logged-in header#header.header .name-and-slogan h1,
+  body.not-front.logged-in header#header.header .name-and-slogan h1,
+  body.role-authenticated-user.node-type-event header#header.header .name-and-slogan h1 {
+    height: 15px;
+  }
+  /* line 33, ../sass/phone/_banner-phone.scss */
   body.not-logged-in div#block-block-13,
-  body.not-front.logged-in div#block-block-13 {
+  body.not-front.logged-in div#block-block-13,
+  body.role-authenticated-user.node-type-event div#block-block-13 {
     color: white;
     font-size: 12px;
     top: -100;
@@ -4490,26 +4507,30 @@ body.page-anon-register #block-block-3 p {
     margin-top: -8px;
     cursor: default;
   }
-  /* line 28, ../sass/phone/_banner-phone.scss */
+  /* line 42, ../sass/phone/_banner-phone.scss */
   body.not-logged-in h1#site-name.header__site-name,
   body.not-logged-in div#block-block-13,
   body.not-front.logged-in h1#site-name.header__site-name,
-  body.not-front.logged-in div#block-block-13 {
+  body.not-front.logged-in div#block-block-13,
+  body.role-authenticated-user.node-type-event h1#site-name.header__site-name,
+  body.role-authenticated-user.node-type-event div#block-block-13 {
     margin-left: 0px;
     padding-left: 10px;
   }
-  /* line 34, ../sass/phone/_banner-phone.scss */
+  /* line 48, ../sass/phone/_banner-phone.scss */
   body.not-logged-in h1#site-name.header__site-name,
-  body.not-front.logged-in h1#site-name.header__site-name {
+  body.not-front.logged-in h1#site-name.header__site-name,
+  body.role-authenticated-user.node-type-event h1#site-name.header__site-name {
     margin-top: -30px;
   }
-  /* line 36, ../sass/phone/_banner-phone.scss */
+  /* line 50, ../sass/phone/_banner-phone.scss */
   body.not-logged-in h1#site-name.header__site-name a,
-  body.not-front.logged-in h1#site-name.header__site-name a {
+  body.not-front.logged-in h1#site-name.header__site-name a,
+  body.role-authenticated-user.node-type-event h1#site-name.header__site-name a {
     font-size: 0.8em;
   }
 
-  /* line 43, ../sass/phone/_banner-phone.scss */
+  /* line 57, ../sass/phone/_banner-phone.scss */
   body.not-logged-in.front div#block-block-13 {
     margin-left: -236px;
     top: 72px;
@@ -4790,52 +4811,60 @@ body.page-anon-register #block-block-3 p {
 
   /* line 11, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events,
-  body.page-user-edit.role-authenticated-user {
+  body.page-user-edit.role-authenticated-user,
+  body.role-authenticated-user.node-type-event {
     /* put in banner region */
   }
-  /* line 15, ../sass/phone/_phone-navigation.scss */
+  /* line 16, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu,
-  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu {
+  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu {
     width: 95%;
     margin-top: 10px;
     margin: 0px auto;
     overflow: visible;
   }
-  /* line 20, ../sass/phone/_phone-navigation.scss */
+  /* line 21, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item,
-  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu li.menu-item {
+  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu li.menu-item,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item {
     width: 45%;
     max-width: 200px;
   }
-  /* line 23, ../sass/phone/_phone-navigation.scss */
+  /* line 24, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item a,
-  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu li.menu-item a {
+  body.page-user-edit.role-authenticated-user ul#main-menu.main-menu li.menu-item a,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item a {
     width: 100%;
   }
-  /* line 29, ../sass/phone/_phone-navigation.scss */
+  /* line 30, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events div.header__region.region-header,
-  body.page-user-edit.role-authenticated-user div.header__region.region-header {
+  body.page-user-edit.role-authenticated-user div.header__region.region-header,
+  body.role-authenticated-user.node-type-event div.header__region.region-header {
     width: 375px;
     margin: 3px 0px -10px 0px;
     text-align: right;
   }
-  /* line 36, ../sass/phone/_phone-navigation.scss */
+  /* line 39, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events #block-responsive-dropdown-menus-main-menu,
-  body.page-user-edit.role-authenticated-user #block-responsive-dropdown-menus-main-menu {
+  body.page-user-edit.role-authenticated-user #block-responsive-dropdown-menus-main-menu,
+  body.role-authenticated-user.node-type-event #block-responsive-dropdown-menus-main-menu {
     width: 100%;
     margin: 0px auto;
   }
-  /* line 45, ../sass/phone/_phone-navigation.scss */
+  /* line 48, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events #block-views-exp-dashboard-page-1,
-  body.page-user-edit.role-authenticated-user #block-views-exp-dashboard-page-1 {
+  body.page-user-edit.role-authenticated-user #block-views-exp-dashboard-page-1,
+  body.role-authenticated-user.node-type-event #block-views-exp-dashboard-page-1 {
     margin-top: -158px;
     position: relative;
     float: right;
     width: 100%;
   }
-  /* line 51, ../sass/phone/_phone-navigation.scss */
+  /* line 54, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events div#main div#content,
-  body.page-user-edit.role-authenticated-user div#main div#content {
+  body.page-user-edit.role-authenticated-user div#main div#content,
+  body.role-authenticated-user.node-type-event div#main div#content {
     border: 1px solid #d7d7d7;
     border-top: 0px;
     margin: 0px auto;
@@ -4846,9 +4875,10 @@ body.page-anon-register #block-block-3 p {
   }
 }
 @media screen and (min-width: 366px) and (max-width: 767px) {
-  /* line 13, ../sass/phone/_phone-logos.scss */
+  /* line 14, ../sass/phone/_phone-logos.scss */
   body.logged-in.page-user-edit div.top-header,
   body.page-events.section-events div.top-header,
+  body.role-authenticated-user.node-type-event div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header,
   body.not-logged-in.page-anon-login div.top-header {
@@ -4857,9 +4887,10 @@ body.page-anon-register #block-block-3 p {
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 17, ../sass/phone/_phone-logos.scss */
+  /* line 18, ../sass/phone/_phone-logos.scss */
   body.logged-in.page-user-edit div.top-header div.top-header-container div.capt-logo,
   body.page-events.section-events div.top-header div.top-header-container div.capt-logo,
+  body.role-authenticated-user.node-type-event div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-anon-login div.top-header div.top-header-container div.capt-logo {
@@ -4868,9 +4899,10 @@ body.page-anon-register #block-block-3 p {
     width: 171px;
     height: 24.5px;
   }
-  /* line 22, ../sass/phone/_phone-logos.scss */
+  /* line 23, ../sass/phone/_phone-logos.scss */
   body.logged-in.page-user-edit div.top-header div.top-header-container div.samhsa-logo,
   body.page-events.section-events div.top-header div.top-header-container div.samhsa-logo,
+  body.role-authenticated-user.node-type-event div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-anon-login div.top-header div.top-header-container div.samhsa-logo {
@@ -4884,30 +4916,33 @@ body.page-anon-register #block-block-3 p {
   /* test */
   /* test*/
   /* logos */
-  /* line 13, ../sass/phone/_small-phone.scss */
+  /* line 14, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit div.top-header,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header,
+  body.role-authenticated-user.node-type-event div.top-header,
   body.page-events.section-events div.top-header {
     height: 61px;
     background-image: url("../images/design-elements/rainbow-divider.png");
     background-position: -124px 52px;
     background-repeat: repeat-x;
   }
-  /* line 17, ../sass/phone/_small-phone.scss */
+  /* line 18, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.capt-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.capt-logo,
+  body.role-authenticated-user.node-type-event div.top-header div.top-header-container div.capt-logo,
   body.page-events.section-events div.top-header div.top-header-container div.capt-logo {
     top: 12px;
     background-size: 171px 24.5px;
     width: 171px;
     height: 24.5px;
   }
-  /* line 21, ../sass/phone/_small-phone.scss */
+  /* line 22, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user-register:not(.node-type-event) div.top-header div.top-header-container div.samhsa-logo,
   body.not-logged-in.page-user:not(.page-user-register) div.top-header div.top-header-container div.samhsa-logo,
+  body.role-authenticated-user.node-type-event div.top-header div.top-header-container div.samhsa-logo,
   body.page-events.section-events div.top-header div.top-header-container div.samhsa-logo {
     top: 10px;
     background-size: 117px 28.86px;
@@ -4915,12 +4950,12 @@ body.page-anon-register #block-block-3 p {
     height: 28.86px;
   }
 
-  /* line 31, ../sass/phone/_small-phone.scss */
+  /* line 32, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit div.header__region.region-header,
   body.page-events.section-events div.header__region.region-header {
     width: 320px;
   }
-  /* line 36, ../sass/phone/_small-phone.scss */
+  /* line 37, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit h1#site-name.header__site-name,
   body.logged-in.page-user-edit div#block-block-13,
   body.page-events.section-events h1#site-name.header__site-name,
@@ -4928,23 +4963,23 @@ body.page-anon-register #block-block-3 p {
     margin-left: 0px;
     padding-left: 10px;
   }
-  /* line 41, ../sass/phone/_small-phone.scss */
+  /* line 42, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit div#block-block-13,
   body.page-events.section-events div#block-block-13 {
     font-size: 11px;
   }
-  /* line 45, ../sass/phone/_small-phone.scss */
+  /* line 46, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit h1#page-title.page__title,
   body.page-events.section-events h1#page-title.page__title {
     font-size: 30px;
     padding-top: 10px;
   }
-  /* line 51, ../sass/phone/_small-phone.scss */
+  /* line 52, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item > a,
   body.page-events.section-events ul#main-menu.main-menu li.menu-item > a {
     width: 125px;
   }
-  /* line 57, ../sass/phone/_small-phone.scss */
+  /* line 58, ../sass/phone/_small-phone.scss */
   body.logged-in.page-user-edit input#edit-submit-dashboard,
   body.logged-in.page-user-edit input#edit-reset,
   body.page-events.section-events input#edit-submit-dashboard,
@@ -4954,18 +4989,18 @@ body.page-anon-register #block-block-3 p {
     margin-left: -5px;
   }
 
-  /* line 69, ../sass/phone/_small-phone.scss */
+  /* line 70, ../sass/phone/_small-phone.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item,
   body.page-user-edit.role-authenticated-user ul#main-menu.main-menu li.menu-item {
     width: 39%;
   }
-  /* line 74, ../sass/phone/_small-phone.scss */
+  /* line 75, ../sass/phone/_small-phone.scss */
   body.page-events.section-events ul.horizontal-tabs-list,
   body.page-user-edit.role-authenticated-user ul.horizontal-tabs-list {
     font-size: 0.9em;
   }
 
-  /* line 80, ../sass/phone/_small-phone.scss */
+  /* line 81, ../sass/phone/_small-phone.scss */
   body.not-logged-in.front div#block-block-13 {
     margin-left: -236px;
     top: 72px;
@@ -5129,6 +5164,15 @@ body.page-user-register:not(.node-type-event) {
     margin-top: -10px;
     padding-top: 27%;
     /*268px;*/
+  }
+
+  /* line 62, ../sass/tablet/_tablet-banner.scss */
+  body.logged-in.node-type-event div.region.region-highlighted.category {
+    margin-left: -45px;
+  }
+  /* line 64, ../sass/tablet/_tablet-banner.scss */
+  body.logged-in.node-type-event div.region.region-highlighted.category div#block-block-13 {
+    margin-left: 0px;
   }
 
   /* general styles for tablet */
@@ -5432,53 +5476,61 @@ body.page-user-register:not(.node-type-event) {
 
   /* line 10, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events,
-  body.logged-in.page-user-edit {
+  body.logged-in.page-user-edit,
+  body.role-authenticated-user.node-type-event {
     /* put in banner region */
   }
-  /* line 14, ../sass/tablet/_tablet-navigation.scss */
+  /* line 15, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu,
-  body.logged-in.page-user-edit ul#main-menu.main-menu {
+  body.logged-in.page-user-edit ul#main-menu.main-menu,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu {
     width: 95%;
     margin: 0px auto;
     overflow: visible;
   }
-  /* line 18, ../sass/tablet/_tablet-navigation.scss */
+  /* line 19, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item,
-  body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item {
+  body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item {
     width: 45%;
     max-width: 200px;
     margin-right: 10px;
   }
-  /* line 22, ../sass/tablet/_tablet-navigation.scss */
+  /* line 23, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item a,
-  body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item a {
+  body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item a,
+  body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item a {
     width: 100%;
   }
-  /* line 28, ../sass/tablet/_tablet-navigation.scss */
+  /* line 29, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events div.header__region.region-header,
-  body.logged-in.page-user-edit div.header__region.region-header {
+  body.logged-in.page-user-edit div.header__region.region-header,
+  body.role-authenticated-user.node-type-event div.header__region.region-header {
     width: 375px;
     margin: 3px 0px -10px 0px;
     text-align: right;
   }
-  /* line 35, ../sass/tablet/_tablet-navigation.scss */
+  /* line 36, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events #block-responsive-dropdown-menus-main-menu,
-  body.logged-in.page-user-edit #block-responsive-dropdown-menus-main-menu {
+  body.logged-in.page-user-edit #block-responsive-dropdown-menus-main-menu,
+  body.role-authenticated-user.node-type-event #block-responsive-dropdown-menus-main-menu {
     width: 100%;
     margin: 0px auto;
   }
-  /* line 44, ../sass/tablet/_tablet-navigation.scss */
+  /* line 45, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events #block-views-exp-dashboard-page-1,
-  body.logged-in.page-user-edit #block-views-exp-dashboard-page-1 {
+  body.logged-in.page-user-edit #block-views-exp-dashboard-page-1,
+  body.role-authenticated-user.node-type-event #block-views-exp-dashboard-page-1 {
     margin-top: -25px;
     position: relative;
     width: 95%;
     padding-left: 3%;
     margin-bottom: 30px;
   }
-  /* line 52, ../sass/tablet/_tablet-navigation.scss */
+  /* line 53, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events div#main div#content,
-  body.logged-in.page-user-edit div#main div#content {
+  body.logged-in.page-user-edit div#main div#content,
+  body.role-authenticated-user.node-type-event div#main div#content {
     border: 1px solid #d7d7d7;
     border-top: 0px;
     margin: 0px auto;

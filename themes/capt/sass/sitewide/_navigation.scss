@@ -159,3 +159,53 @@ ul.tabs-secondary {
 div.vertical-tabs {
   margin-right: $edit-margin-right;
 }
+
+/* used to be in mobile */
+
+@media screen and (max-width: 1024px) {
+  div#main {
+    width: 100%;
+    margin-left: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    div#navigation {
+      width: 100%;
+      padding: 0px;
+      margin: 0px auto;
+      div.region.region-navigation {
+        margin-top: 20px;
+        div.contextual-links-region {
+          margin: 0px auto;
+          width: 100%;
+          ul#main-menu.main-menu.responsive-menu {
+        
+            overflow: visible;
+            margin: 0px auto;
+            padding: 0px;
+            /* hide admin*/
+            li#menu-item-1185,
+            li#menu-item-589 {
+              display: none;
+            }
+            // end items
+          }
+          // end menu
+        }
+        // end contextual links
+      }
+      // end region nav
+    }
+  }
+  body.role-administrator {
+     ul#main-menu.main-menu.responsive-menu {
+            width: 95%;
+     }
+
+  }
+  body.role-authenticated-user {
+     ul#main-menu.main-menu.responsive-menu {
+            width: 96.75%;
+     }
+
+  }
+}
