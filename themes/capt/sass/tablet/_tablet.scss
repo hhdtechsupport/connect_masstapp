@@ -8,17 +8,12 @@
  * Start iPad theming  - testing - where is 97.3 coming from 
  */
 
- @media screen and (min-width: 0px) and (max-width: $iPadH) {
-  // styles for all iPad-ready pages
 
-  @import 'tablet-extensible';
-  @import 'tablet-profile-panel';
-}
 
  @media screen and (min-width: $phone-tablet-divide + 1px) and (max-width: $iPadH) {
   // styles for all iPad-ready pages
 
-  @import 'tablet-profile-registration';
+
   @import 'tablet-banner';  
   @import 'tablet-general';
   @import 'tablet-login';
@@ -27,10 +22,16 @@
   @import 'tablet-event-detail';
   @import 'tablet-event-dashboard';
   @import 'tablet-password-reset';
-  @import 'tablet-navigation';  
+  @import 'tablet-navigation';
+  @import 'tablet-profile-registration';  
 }
  
+ @media screen and (min-width: 0px) and (max-width: $iPadH) {
+  // styles for all iPad-ready pages
 
+  @import 'tablet-extensible';
+  @import 'tablet-profile-panel';
+}
 
   
 
