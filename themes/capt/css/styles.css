@@ -818,6 +818,17 @@ div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
 
+/* Nancy 8/14*/
+/* line 573, ../sass/sitewide/_general.scss */
+fieldset {
+  margin-top: 2em !important;
+}
+
+/* line 577, ../sass/sitewide/_general.scss */
+fieldset legend {
+  top: 0 !important;
+}
+
 /*
  *  Banners
  */
@@ -5033,263 +5044,7 @@ body.page-user-register:not(.node-type-event) {
 /**
  * Start iPad theming  - testing - where is 97.3 coming from 
  */
-@media screen and (min-width: 0px) and (max-width: 1024px) {
-  /* line 10, ../sass/tablet/_tablet-extensible.scss */
-  .tablet-before-style, body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed:before {
-    display: block;
-    background-color: #577785;
-    height: 5px;
-    width: 100%;
-    content: "";
-    position: relative;
-    top: -5px;
-    margin-left: -1px;
-    padding-left: 2px;
-  }
-
-  /* line 24, ../sass/tablet/_tablet-extensible.scss */
-  .tablet-noselect {
-    cursor: default;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  /* specific to profile */
-  /* line 3, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit div ul li a {
-    white-space: nowrap;
-  }
-  /* line 6, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit div#main div#content {
-    width: 100%;
-  }
-  /* line 11, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
-    margin: 0px auto;
-    padding: 0px;
-    height: 0px;
-    background-color: transparent;
-  }
-  /* line 18, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-timezone {
-    margin-left: 0px;
-  }
-  /* line 22, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed > div {
-    margin-right: 20px;
-    margin-left: 20px;
-    width: 95%;
-  }
-  /* line 28, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed {
-    padding-left: 0px;
-  }
-  /* line 30, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed:before {
-    width: 100%;
-    padding-left: 20px;
-    display: block;
-    border-left: 1px solid #577785;
-    border-right: 1px solid #577785;
-  }
-  /* line 42, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper {
-    border: 1px solid transparent;
-  }
-  /* line 44, ../sass/tablet/_tablet-profile-panel.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper .form-item label:not(.option) {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-}
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* line 10, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit,
-  body.not-logged-in.page-user-register:not(.node-type-event),
-  body.not-logged-in.page-anon-register:not(.node-type-event) {
-    /* tabs! */
-  }
-  /* line 15, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#edit-actions,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#edit-actions {
-    padding: 0px;
-    margin-top: -20px;
-    margin-bottom: -10px;
-    margin-left: 2.5%;
-  }
-  /* line 20, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#edit-actions input#edit-submit,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions input#edit-submit,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#edit-actions input#edit-submit {
-    margin-left: 1.6%;
-  }
-  /* line 25, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs {
-    width: 100%;
-  }
-  /* line 27, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list {
-    padding-left: 0px;
-    width: 95%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    margin-bottom: 10px !important;
-    text-align: left;
-  }
-  /* line 34, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child {
-    margin-left: 0px;
-  }
-  /* line 38, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a {
-    padding: 5px 10px !important;
-  }
-  /* line 42, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0 {
-    width: 16%;
-  }
-  /* line 45, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1 {
-    width: 36%;
-  }
-  /* line 48, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2 {
-    width: 42%;
-  }
-  /* line 53, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
-    margin: 0px auto;
-  }
-  /* line 58, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div.bottom-footer div.disclaimer,
-  body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div.bottom-footer div.disclaimer {
-    padding: 0px;
-    margin-left: 8.5%;
-    width: 500px;
-  }
-  /* line 63, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#block-block-3,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#block-block-3 {
-    margin-left: 12px;
-  }
-  /* line 68, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation {
-    margin-top: 20px;
-  }
-  /* line 72, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
-  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
-    display: none;
-  }
-  /* line 86, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
-    width: 96.8%;
-    padding-left: 0px;
-    padding-right: 0px;
-    border: 0px;
-  }
-  /* line 91, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content form#user-register-form,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form {
-    width: 100%;
-    margin: 0px auto;
-  }
-  /* line 95, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content ul.tabs-primary,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content ul.tabs-primary,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content ul.tabs-primary {
-    width: 97%;
-    margin: 0px auto;
-    margin-bottom: 20px;
-  }
-  /* line 100, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content input#edit-cancel.form-submit,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit {
-    margin-left: 10px;
-    text-align: center;
-  }
-  /* line 104, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content div#title-section,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section {
-    margin-left: 2.5%;
-  }
-  /* line 106, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content div#title-section h1#page-title.page__title,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title {
-    background-position: 8px 0px;
-    font-size: 34px;
-    padding-left: 60px;
-    margin-bottom: 10px;
-    margin-left: 0px;
-    margin-top: 10px;
-  }
-  /* line 116, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content #block-block-3,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content #block-block-3,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content #block-block-3 {
-    width: 95%;
-  }
-  /* line 120, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content fieldset,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset {
-    width: 92%;
-    margin: 0px auto;
-    display: block;
-    margin-bottom: 20px;
-    padding-right: 0px;
-    border-right: 1px solid #d7d7d7;
-  }
-  /* line 127, ../sass/tablet/_tablet-profile-registration.scss */
-  body.logged-in.page-user-edit div#main div#content fieldset:before,
-  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset:before,
-  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset:before {
-    width: 100%;
-    padding: 0px;
-  }
-
-  /* specific to registration*/
-  /* line 139, ../sass/tablet/_tablet-profile-registration.scss */
-  body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
-    border-bottom: 2px solid white;
-  }
-
   /**
    * Start iPad theming
    */
@@ -5721,5 +5476,268 @@ body.page-user-register:not(.node-type-event) {
     width: 95%;
     padding-top: 5px;
     padding-right: 0px;
+  }
+
+  /* line 10, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit,
+  body.not-logged-in.page-user-register:not(.node-type-event),
+  body.not-logged-in.page-anon-register:not(.node-type-event) {
+    /* tabs! */
+  }
+  /* line 15, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#edit-actions,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#edit-actions {
+    padding: 0px;
+    margin-top: -20px;
+    margin-bottom: -10px;
+    margin-left: 2.5%;
+  }
+  /* line 20, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#edit-actions input#edit-submit,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#edit-actions input#edit-submit,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#edit-actions input#edit-submit {
+    margin-left: 1.6%;
+  }
+  /* line 25, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs {
+    width: 100%;
+  }
+  /* line 27, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list {
+    padding-left: 0px;
+    background-color: transparent;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 10px !important;
+    text-align: left;
+  }
+  /* line 36, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child {
+    margin-left: 0px;
+  }
+  /* line 40, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a {
+    padding: 5px 10px !important;
+  }
+  /* line 42, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong {
+    font-size: 11px;
+  }
+  /* line 48, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0 {
+    width: 16%;
+  }
+  /* line 51, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1 {
+    width: 36%;
+  }
+  /* line 54, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2 {
+    width: 42%;
+  }
+  /* line 59, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
+    margin: 0px auto;
+  }
+  /* line 64, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div.bottom-footer div.disclaimer,
+  body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div.bottom-footer div.disclaimer {
+    padding: 0px;
+    margin-left: 8.5%;
+    width: 500px;
+  }
+  /* line 69, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#block-block-3,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#block-block-3 {
+    margin-left: 12px;
+  }
+  /* line 74, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation {
+    margin-top: 20px;
+  }
+  /* line 78, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
+  body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
+    display: none;
+  }
+  /* line 92, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
+    width: 96.8%;
+    padding-left: 0px;
+    padding-right: 0px;
+    border: 0px;
+  }
+  /* line 97, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content form#user-register-form,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content form#user-register-form,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content form#user-register-form {
+    width: 100%;
+    margin: 0px auto;
+  }
+  /* line 101, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content ul.tabs-primary,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content ul.tabs-primary,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content ul.tabs-primary {
+    width: 97%;
+    margin: 0px auto;
+    margin-bottom: 20px;
+  }
+  /* line 106, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content input#edit-cancel.form-submit,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit {
+    margin-left: 10px;
+    text-align: center;
+  }
+  /* line 110, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content div#title-section,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section {
+    margin-left: 2.5%;
+  }
+  /* line 112, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content div#title-section h1#page-title.page__title,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title {
+    background-position: 8px 0px;
+    font-size: 34px;
+    padding-left: 60px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  /* line 122, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content #block-block-3,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content #block-block-3,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content #block-block-3 {
+    width: 95%;
+  }
+  /* line 126, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content fieldset,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset {
+    width: 92%;
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 20px;
+    padding-right: 0px;
+    border-right: 1px solid #d7d7d7;
+  }
+  /* line 133, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content fieldset:before,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content fieldset:before,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content fieldset:before {
+    width: 100%;
+    padding: 0px;
+  }
+
+  /* specific to registration*/
+  /* line 145, ../sass/tablet/_tablet-profile-registration.scss */
+  body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
+    border-bottom: 2px solid white;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+  /* line 10, ../sass/tablet/_tablet-extensible.scss */
+  .tablet-before-style, body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed:before {
+    display: block;
+    background-color: #577785;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: -5px;
+    margin-left: -1px;
+    padding-left: 2px;
+  }
+
+  /* line 24, ../sass/tablet/_tablet-extensible.scss */
+  .tablet-noselect {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* specific to profile */
+  /* line 3, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit div ul li a {
+    white-space: nowrap;
+  }
+  /* line 6, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit div#main div#content {
+    width: 100%;
+  }
+  /* line 11, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
+    margin: 0px auto;
+    padding: 0px;
+    height: 0px;
+    background-color: transparent;
+  }
+  /* line 18, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-timezone {
+    margin-left: 0px;
+  }
+  /* line 22, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed > div {
+    margin-right: 20px;
+    margin-left: 20px;
+    width: 95%;
+  }
+  /* line 28, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed {
+    padding-left: 0px;
+  }
+  /* line 30, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane.fieldgroup-effects-processed:before {
+    width: 100%;
+    padding-left: 20px;
+    display: block;
+    border-left: 1px solid #577785;
+    border-right: 1px solid #577785;
+  }
+  /* line 42, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper {
+    border: 1px solid transparent;
+  }
+  /* line 44, ../sass/tablet/_tablet-profile-panel.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset div.fieldset-wrapper .form-item label:not(.option) {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
   }
 }
