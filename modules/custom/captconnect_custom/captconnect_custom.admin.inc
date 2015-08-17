@@ -33,13 +33,6 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_other_flag', 'registration'),
     );
 
-  $form['captconnect_custom_proxy_display'] = array(
-    '#type' => 'radios',
-    '#options' => array('node' => t('Node'), 'registration' => t('Registration Page')),
-    '#title' => t("Where to display the 'Register someone else' button"),
-    '#default_value' => variable_get('captconnect_custom_proxy_display', 'registration'),
-    );
-
   $form['captconnect_custom_proxy_register_text'] = array(
     '#type' => 'textfield',
     '#title' => t('Text for "Register another" button'),
@@ -134,7 +127,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_other_flag']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
     );
 
   $rows[] = array(
@@ -277,7 +270,7 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#maxlength' => 256,
     '#title' => t('Successful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_registered',
-      '@user is now @action for "@event" at @time.'),
+      '@user is now @action "@event" at @time.'),
     '#description' => t('When someone is registered or participated by someone
       else (proxy), this message indicates that the registration has succeeded.')
       . '<br/>'
