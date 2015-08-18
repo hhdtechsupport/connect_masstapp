@@ -80,14 +80,31 @@ body.node-type-event {
     float: none;
   }
   // panel-specific 
+  div#block-views-materials-block {
+    margin-bottom: 0px;
+ 
+  }
+  div.view-display-id-block {
+    
+       margin-left: 0px;
+  }
+
   .ds-2col-stacked > .group-right {
     div.field-name-materials.field-type-ds {
-      border-top: 1px solid $capt-midgrey;
       padding-bottom: 0px;
+      background-color: white;
+      padding-top: 0px;
       h2 {
-        @extend .show-hide-button;
+       @extend .show-hide-header;
+       background-color: $capt-lightgrey;
         border-bottom: 0px;
-        margin-left: $panel-margin-left;
+        margin-left: 0px;
+        padding-left: $panel-margin-left + 20px;
+        padding-top: 16px;
+        background-position: 20px 24px;
+      }
+      div.view-materials {
+        border-top: 1px solid $capt-midgrey;
       }
       &:before {
         height: 0px;
@@ -105,24 +122,36 @@ body.node-type-event {
   .ds-2col-stacked > .group-left {
     div.group-audience,
     div.group-presenter {
+     @extend .event-show-hide;
       width: 100%;
+      background-color: white;
+      padding-bottom: 0px;
+      div.field-name-presenters {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 10px;
+        border-bottom: 0px;
+      }
+      div.field-type-text-long {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 10px;
+      }
+
     }
 
     div.group-audience {
       &:before {
         @extend .before-style;
       }
-      @extend .event-show-hide;
       p {
-        width: 95%;
+         width: 95%;
       }
+
     }
     div.group-presenter {
-      @extend .event-show-hide;
-      border-top: 1px solid $capt-midgrey;
       p {
         width: 95%;
       }
+
 
     }
 
