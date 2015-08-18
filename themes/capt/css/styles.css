@@ -3748,8 +3748,9 @@ body.page-anon-register #block-block-3 p {
   }
 
   /* line 63, ../sass/phone/_extensible-phone.scss */
-  .show-hide-appearance, .show-hide-button, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1 h2,
-  body.page-events.section-events div#block-views-dashboard-block-2 h2 {
+  .show-hide-appearance, .show-hide-button, .show-hide-header, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#block-views-dashboard-block-1 h2,
+  body.page-events.section-events div#block-views-dashboard-block-2 h2, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title {
     cursor: pointer;
     background-image: url("../images/icons/show.png");
     background-position: 0px 8px;
@@ -3757,8 +3758,10 @@ body.page-anon-register #block-block-3 p {
   }
 
   /* line 70, ../sass/phone/_extensible-phone.scss */
-  .show-hide-text, .show-hide-button, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1 h2,
-  body.page-events.section-events div#block-views-dashboard-block-2 h2, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span {
+  .show-hide-text, .show-hide-button, .show-hide-header, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#block-views-dashboard-block-1 h2,
+  body.page-events.section-events div#block-views-dashboard-block-2 h2, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, .event-show-hide h4 span, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4 span,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 span {
     color: black;
     font-weight: normal;
     font-size: 20px;
@@ -3790,33 +3793,62 @@ body.page-anon-register #block-block-3 p {
     user-select: none;
   }
 
-  /* line 87, ../sass/phone/_extensible-phone.scss */
-  .show-hide-button, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title, body.page-events.section-events div#block-views-dashboard-block-1 h2,
-  body.page-events.section-events div#block-views-dashboard-block-2 h2 {
+  /* line 88, ../sass/phone/_extensible-phone.scss */
+  .show-hide-button, .show-hide-header, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#block-views-dashboard-block-1 h2,
+  body.page-events.section-events div#block-views-dashboard-block-2 h2, .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4, body.page-events.section-events div#main div#content div#title-section h1#page-title.page__title {
     padding-left: 20px;
     background-repeat: no-repeat;
   }
 
-  /* line 94, ../sass/phone/_extensible-phone.scss */
-  .show-hide-panel, .event-show-hide, body.node-type-event .ds-2col-stacked > .group-left div.group-audience, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter, body.page-events.section-events div#content > div.view-dashboard {
+  /* line 95, ../sass/phone/_extensible-phone.scss */
+  .show-hide-header, body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2, body.page-events.section-events div#block-views-dashboard-block-1 h2,
+  body.page-events.section-events div#block-views-dashboard-block-2 h2 {
+    padding-left: 30px;
+    padding-bottom: 16px;
+    margin: 0px;
+    background-position: 8px 8px;
+  }
+
+  /* line 102, ../sass/phone/_extensible-phone.scss */
+  .show-hide-panel, .event-show-hide, body.node-type-event .ds-2col-stacked > .group-left div.group-audience,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
     background-color: #eef1f3;
     padding-bottom: 10px;
     border: 1px solid #d7d7d7;
     border-top: 0px;
   }
 
+  /* line 108, ../sass/phone/_extensible-phone.scss */
+  .show-hide-content, body.page-events.section-events div#content > div.view-dashboard, body.page-events.section-events div#block-views-dashboard-block-1 div.view.view-dashboard,
+  body.page-events.section-events div#block-views-dashboard-block-2 div.view.view-dashboard {
+    background-color: white;
+    padding-top: 20px;
+    margin-top: 0px;
+    border-top: 1px solid #d7d7d7;
+    padding-bottom: 10px;
+  }
+
   /* event primitive */
-  /* line 103, ../sass/phone/_extensible-phone.scss */
-  .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 {
+  /* line 119, ../sass/phone/_extensible-phone.scss */
+  .event-show-hide h4, body.node-type-event .ds-2col-stacked > .group-left div.group-audience h4,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter h4 {
     margin-top: 0px;
     margin-bottom: 10px;
     border-top: 0px;
-    margin-left: 20px;
-    background-position: 0px 34px;
+    margin-left: 0px;
+    padding-left: 38px;
+    background-color: #eef1f3;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    padding-top: 22px;
+    background-position: 20px 28px;
   }
-  /* line 116, ../sass/phone/_extensible-phone.scss */
-  .event-show-hide div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-items {
-    margin-left: 20px;
+  /* line 137, ../sass/phone/_extensible-phone.scss */
+  .event-show-hide div.field-items, body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-items,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-items {
+    margin-left: 0px;
+    padding-left: 20px;
     margin-bottom: 20px;
   }
 
@@ -4265,50 +4297,78 @@ body.page-anon-register #block-block-3 p {
     margin: 0px;
     float: none;
   }
-  /* line 84, ../sass/phone/_phone-event-detail.scss */
+  /* line 83, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event div#block-views-materials-block {
+    margin-bottom: 0px;
+  }
+  /* line 87, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event div.view-display-id-block {
+    margin-left: 0px;
+  }
+  /* line 93, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds {
-    border-top: 1px solid #d7d7d7;
     padding-bottom: 0px;
+    background-color: white;
+    padding-top: 0px;
     padding-left: 0px;
     padding-right: 0px;
     width: 100%;
   }
-  /* line 87, ../sass/phone/_phone-event-detail.scss */
+  /* line 97, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds h2 {
+    background-color: #eef1f3;
     border-bottom: 0px;
-    margin-left: 20px;
+    margin-left: 0px;
+    padding-left: 40px;
+    padding-top: 16px;
+    background-position: 20px 24px;
   }
-  /* line 92, ../sass/phone/_phone-event-detail.scss */
+  /* line 106, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds div.view-materials {
+    border-top: 1px solid #d7d7d7;
+  }
+  /* line 109, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds:before {
     height: 0px;
   }
-  /* line 95, ../sass/phone/_phone-event-detail.scss */
+  /* line 112, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials.field-type-ds div.item-list {
     margin-left: 20px;
     border-top-width: 0px;
   }
-  /* line 105, ../sass/phone/_phone-event-detail.scss */
+  /* line 122, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left {
     /* make an extensible class?*/
   }
-  /* line 106, ../sass/phone/_phone-event-detail.scss */
+  /* line 123, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
     width: 100%;
+    background-color: white;
+    padding-bottom: 0px;
   }
-  /* line 116, ../sass/phone/_phone-event-detail.scss */
+  /* line 129, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-name-presenters,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-name-presenters {
+    border-top: 1px solid #d7d7d7;
+    padding-top: 10px;
+    border-bottom: 0px;
+  }
+  /* line 134, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-type-text-long,
+  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-type-text-long {
+    border-top: 1px solid #d7d7d7;
+    padding-top: 10px;
+  }
+  /* line 145, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience p {
     width: 95%;
   }
-  /* line 120, ../sass/phone/_phone-event-detail.scss */
-  body.node-type-event .ds-2col-stacked > .group-left div.group-presenter {
-    border-top: 1px solid #d7d7d7;
-  }
-  /* line 123, ../sass/phone/_phone-event-detail.scss */
+  /* line 151, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter p {
     width: 95%;
   }
-  /* line 129, ../sass/phone/_phone-event-detail.scss */
+  /* line 158, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- {
     /*br {
       display: none;
@@ -4318,15 +4378,15 @@ body.page-anon-register #block-block-3 p {
     background-color: white;
     border: 0px;
   }
-  /* line 142, ../sass/phone/_phone-event-detail.scss */
+  /* line 171, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- li.views-row > strong {
     display: list-item;
   }
-  /* line 145, ../sass/phone/_phone-event-detail.scss */
+  /* line 174, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul {
     padding-left: 13px;
   }
-  /* line 147, ../sass/phone/_phone-event-detail.scss */
+  /* line 176, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row {
     width: 90%;
     display: list-item;
@@ -4335,27 +4395,27 @@ body.page-anon-register #block-block-3 p {
     margin-bottom: 10px;
     padding-top: 0px;
   }
-  /* line 155, ../sass/phone/_phone-event-detail.scss */
+  /* line 184, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong {
     position: relative;
   }
-  /* line 159, ../sass/phone/_phone-event-detail.scss */
+  /* line 188, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row span.date-display-single {
     position: relative;
   }
-  /* line 165, ../sass/phone/_phone-event-detail.scss */
+  /* line 194, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.views-field.views-field-ops {
     margin-left: 0px;
     position: relative;
   }
-  /* line 171, ../sass/phone/_phone-event-detail.scss */
+  /* line 200, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.field-item h2.block-title {
     color: #8c1d18;
     font-size: 1.25em;
     font-weight: bold;
     margin-bottom: 1em;
   }
-  /* line 177, ../sass/phone/_phone-event-detail.scss */
+  /* line 206, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s-:before {
     background-color: white;
     height: 0px;
@@ -4388,7 +4448,7 @@ body.page-anon-register #block-block-3 p {
     background: url("../images/icons/create-event-showhide.png") right 10px top 6px no-repeat;
     background-size: 44px 45px;
     top: 104px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
     padding-top: 10px;
     height: 50px;
     background-color: #eef1f3;
@@ -4421,28 +4481,33 @@ body.page-anon-register #block-block-3 p {
     float: none;
     margin-top: -50px;
     padding-top: 60px;
-    border-bottom: 1px solid #d7d7d7;
+    background-color: white;
+    padding-top: 20px;
+    margin-top: 0px;
+    border-top: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
   }
-  /* line 75, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 80, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#content > div.view-dashboard div.item-list {
     margin-left: 10px;
     width: 90%;
   }
-  /* line 79, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 84, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#content > div.view-dashboard:before {
     height: 0px;
   }
-  /* line 88, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 93, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 {
     border-bottom: 0px;
   }
-  /* line 91, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 96, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events .views-exposed-widgets {
     margin-bottom: 0.5em;
     float: right;
     margin-right: -12px;
   }
-  /* line 96, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 101, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1,
   body.page-events.section-events div#block-views-dashboard-block-2 {
     width: 100%;
@@ -4451,23 +4516,20 @@ body.page-anon-register #block-block-3 p {
     background-position: right -6px top 8px;
     background-size: 60px 45px;
     border-top: 1px solid #d7d7d7;
+    padding-bottom: 0px;
   }
-  /* line 106, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 113, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 h2,
   body.page-events.section-events div#block-views-dashboard-block-2 h2 {
     width: 90%;
-    padding-left: 30px;
-    margin-left: 0px;
-    background-position: 8px 8px;
-    margin-bottom: 0px;
   }
-  /* line 114, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 120, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1:before,
   body.page-events.section-events div#block-views-dashboard-block-2:before {
     height: 0px;
     background-color: transparent;
   }
-  /* line 118, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 124, ../sass/phone/_phone-event-dashboard.scss */
   body.page-events.section-events div#block-views-dashboard-block-1 div.view-empty, body.page-events.section-events div#block-views-dashboard-block-1 div.item-list,
   body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty,
   body.page-events.section-events div#block-views-dashboard-block-2 div.item-list {
@@ -4850,7 +4912,7 @@ body.page-anon-register #block-block-3 p {
   body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item a {
     width: 100%;
   }
-  /* line 30, ../sass/phone/_phone-navigation.scss */
+  /* line 31, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events div.header__region.region-header,
   body.page-user-edit.role-authenticated-user div.header__region.region-header,
   body.role-authenticated-user.node-type-event div.header__region.region-header {
@@ -4858,14 +4920,14 @@ body.page-anon-register #block-block-3 p {
     margin: 3px 0px -10px 0px;
     text-align: right;
   }
-  /* line 39, ../sass/phone/_phone-navigation.scss */
+  /* line 40, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events #block-responsive-dropdown-menus-main-menu,
   body.page-user-edit.role-authenticated-user #block-responsive-dropdown-menus-main-menu,
   body.role-authenticated-user.node-type-event #block-responsive-dropdown-menus-main-menu {
     width: 100%;
     margin: 0px auto;
   }
-  /* line 48, ../sass/phone/_phone-navigation.scss */
+  /* line 49, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events #block-views-exp-dashboard-page-1,
   body.page-user-edit.role-authenticated-user #block-views-exp-dashboard-page-1,
   body.role-authenticated-user.node-type-event #block-views-exp-dashboard-page-1 {
@@ -4874,7 +4936,7 @@ body.page-anon-register #block-block-3 p {
     float: right;
     width: 100%;
   }
-  /* line 54, ../sass/phone/_phone-navigation.scss */
+  /* line 55, ../sass/phone/_phone-navigation.scss */
   body.page-events.section-events div#main div#content,
   body.page-user-edit.role-authenticated-user div#main div#content,
   body.role-authenticated-user.node-type-event div#main div#content {
