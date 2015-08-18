@@ -8,15 +8,13 @@
  * Settings form.
  */
 function workflow_notify_settings_form($form, $form_state, $workflow) {
-//  dpm($workflow, 'workflow');
-//  return array(array('#markup' => 'Okay'));
   // If we don't have a workflow that goes with this, return to the admin pg.
   if ($workflow) {
     // Let's get a better page title.
-//    drupal_set_title(t('@name Notifications', array('@name' => ucwords($workflow->name))));
+    drupal_set_title(t('@name Notifications', array('@name' => ucwords($workflow->name))));
 
     // Let's add some breadcrumbs.
-//    workflow_admin_ui_breadcrumbs($workflow);
+    workflow_admin_ui_breadcrumbs($workflow);
 
     $noyes = array(t('No'), t('Yes'));
 
@@ -24,8 +22,6 @@ function workflow_notify_settings_form($form, $form_state, $workflow) {
     $form['#workflow'] = $workflow;
 
     // Get all the states for this workflow, except the (creation) state.
-//    $states = workflow_get_workflow_states_by_wid($workflow->wid,
-//      array('status' => 1, 'sysid' => 0));
     $states = array();
     foreach ($workflow->states as $sid => $state) {
       if (!$state->sysid) {
