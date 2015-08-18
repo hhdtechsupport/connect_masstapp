@@ -30,6 +30,7 @@ var iPh6W = 375;
   var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
   var dashPanels = [ev,reg,arch];
   var panels_activated = false;
+  var currentWinWidth;
 
   (function ($, Drupal, window, document, undefined) {
 
@@ -40,7 +41,7 @@ Drupal.behaviors.my_custom_behavior = {
    *  Menu Logic
    */
    function init () {
-      
+    currentWinWidth = window.innerWidth;
     $('span.toggle-help').click();
     $('a.menu-toggle').hide();
     if ($('body').hasClass('node-type-event')) {
@@ -116,9 +117,10 @@ Drupal.behaviors.my_custom_behavior = {
     panels_activated = true;
   }
 
-  //make this only for certain pages 
+  
   $(window).resize(function(){
         // TO DO: if this is an event page 
+
 
         if ($('body').hasClass('node-type-event') ) {
           checkDates();
@@ -127,6 +129,7 @@ Drupal.behaviors.my_custom_behavior = {
         else if ($('body').hasClass('page-events')) {
           adjust_panels(dashPanels);
         }
+        currentWinWidth = window.innerWidth;
 
       });
   
@@ -200,7 +203,7 @@ function isPhone () {
        else
        {
           // mobile
-            if ($(header).attr('id') != 'page-title')
+            if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide)
               $(body).hide();
 
                showHideIcons(header, body)
