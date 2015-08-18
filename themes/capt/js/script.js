@@ -480,14 +480,8 @@ function otherSelectbox ($field, $fieldPrev) {
       $field.find('input').val('');
       $field.css('display','none');
       // Special case: when "CAPT Staff or Consultant" is selected for the "Role" question
-      if ($field.is('#edit-field-other-role') && selection != 'CAPT Staff or Consultant') {
-        $field.next().css('display','none');
-        $field.next().find('label:contains("N/A ")').prev().attr('checked',true);
-      }
-      else {
-        $field.next().css('display','block');
-        $field.find('input').removeClass('other-required');
-      }
+      $field.next().css('display','block');
+      $field.find('input').removeClass('other-required');
     }
     // Otherwise, show the "other" field
     else {
