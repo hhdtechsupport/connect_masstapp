@@ -47,11 +47,24 @@ function workflow_access_menu() {
 function workflow_access_help($path, $arg) {
   switch ($path) {
     case 'admin/config/workflow/workflow/manage/%/access':
-      return t("WARNING: Use of the 'Edit any', 'Edit own', and even 'View
+      $help = '<p>' . t("WARNING: Use of the 'Edit any', 'Edit own', and even 'View
         published content' permissions for the content type may override these
         access settings. You may need to <a href='!url'>alter the priority of
         the Workflow access module</a>.", array('!url' => url('admin/config/workflow/workflow/access'))
-      );
+      ) . '</p>';
+
+      if (module_exists('og')) {
+        $help .= '<p>'
+          . t('Organic Groups (OG) is present and may interfere with these settings.');
+        if (variable_get('og_node_access_strict', TRUE)) {
+          $help .= ' '
+            . t('In particular, <a href="!url">Strict node access permissions</a> is enabled and
+            may override Workflow access settings.',
+            array('!url' => url('admin/config/group/settings')));
+        }
+        $help .= '</p>';
+      }
+      return $help;
   }
 }
 
