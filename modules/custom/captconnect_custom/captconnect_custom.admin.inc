@@ -170,7 +170,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_registration_successful'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Registration Successful'),
     '#default_value' => variable_get('captconnect_custom_registration_successful',
       'You are now registered for "@title" on @when.'),
@@ -186,7 +185,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_registration_failed'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Registration Failed'),
     '#default_value' => variable_get('captconnect_custom_registration_failed',
       'Your registration for "@title" failed; please try again now that you are logged in.'),
@@ -201,7 +199,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_must_change_password'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Must Change Password'),
     '#default_value' => variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
@@ -212,7 +209,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_completion_email_sent'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Completion Email Sent'),
     '#default_value' => variable_get('captconnect_custom_completion_email_sent',
       'An email has been sent with a link to complete the registration process.'),
@@ -223,7 +219,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_reset_pass_head'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Reset password heading'),
     '#default_value' => variable_get('captconnect_custom_reset_pass_head',
       'Reset Password'),
@@ -233,7 +228,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_reset_pass_welcome'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Reset password explanation'),
     '#default_value' => variable_get('captconnect_custom_reset_pass_welcome',
       'Click on this button to log in to the site and change your password. '
@@ -251,7 +245,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_anon_login'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Login invitation'),
     '#default_value' => variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
@@ -267,7 +260,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_proxy_registered'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Successful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_registered',
       '@user is now @action "@event" at @time.'),
@@ -286,7 +278,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_proxy_failed'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Unsuccessful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_failed',
       'Flagging for @user for "@event" at @time failed.'),
@@ -300,6 +291,28 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '<li>' . t('@time - the instance title (date and time).') . '</li>'
       . '<li>' . t('@action - the action taken.') . '</li>'
       . '</ul>',
+    );
+
+  $form['captconnect_custom_event_full'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 256,
+    '#title' => t('Unsuccessful proxy registration'),
+    '#default_value' => variable_get('captconnect_custom_event_full',
+      'We are sorry, but this event is full. You may try registering for another time or date.'),
+    '#description' => t('When someone tries to register for an event that is
+      already at capacity, this message is displayed and the registration
+      is denied.')
+    );
+
+  $form['captconnect_custom_already_registered'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 256,
+    '#title' => t('Already registered'),
+    '#default_value' => variable_get('captconnect_custom_already_registered',
+      'You do-do, you are already registered!'),
+    '#description' => t('When someone tries to register for an event for which
+      they have already registered, this message is displayed and the
+      registration is denied.')
     );
 
   $form['#theme'] = 'captconnect_custom_message_texts';
