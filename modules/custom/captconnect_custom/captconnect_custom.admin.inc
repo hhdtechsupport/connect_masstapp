@@ -299,9 +299,10 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Unsuccessful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_event_full',
       'We are sorry, but this event is full. You may try registering for another time or date.'),
-    '#description' => t('When someone tries to register for an event that is
-      already at capacity, this message is displayed and the registration
-      is denied.')
+    '#description' => t('When someone tries to register for an event that is '
+      . 'already at capacity, this message is displayed '
+      . '<br />'
+      . 'and the registration is denied.')
     );
 
   $form['captconnect_custom_already_registered'] = array(
@@ -310,9 +311,10 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Already registered'),
     '#default_value' => variable_get('captconnect_custom_already_registered',
       'You do-do, you are already registered!'),
-    '#description' => t('When someone tries to register for an event for which
-      they have already registered, this message is displayed and the
-      registration is denied.')
+    '#description' => t('When someone tries to register for an event for which '
+      . 'they have already registered, this message is displayed '
+      . '<br />'
+      . 'and the registration is denied.')
     );
 
   $form['#theme'] = 'captconnect_custom_message_texts';
@@ -363,6 +365,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
 //    array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_event_full']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_already_registered']), 'style' => $style),
     );
 
   $output .= theme('table', array(
