@@ -1,4 +1,4 @@
-sd/**
+/**
  * @file
  * A JavaScript file for the theme.
  *
