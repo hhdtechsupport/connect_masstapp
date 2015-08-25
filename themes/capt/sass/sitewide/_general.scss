@@ -136,12 +136,12 @@ a.button {
 }
 
 .group-right .button, .view-dashboard .button {
-  .flag-wrapper a, .field-content > a {
+  .flag-wrapper a, .field-content > a, &.certificate a {
     @include border-radius(3px);
     color: #ffffff;
     padding: 4px 12px;
     @extend .button-reset;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: normal;
   }
   &.register .flag-wrapper a, &.register .flag-wrapper a:visited {
@@ -159,7 +159,7 @@ a.button {
     background-color: lighten($capt-maroon, 10%);
   }
   &.participate {
-    margin: 5px 0;
+    margin: 7px 0;
     font-weight: normal;
     .flag-wrapper a, .field-content > a, .flag-wrapper a:visited, .field-content > a:visited {
       background: $capt-orange;
@@ -169,6 +169,20 @@ a.button {
     }
     .flag-wrapper a:hover, .field-content > a:hover {
       background-color: lighten($capt-orange, 10%);
+    }
+  }
+  &.certificate {
+    font-style: italic;
+    margin-bottom: 7px;
+    a, a:visited {
+      background: $capt-aqua;
+      font-weight: normal;
+      font-style: normal;
+      position: relative;
+      top: 7px;
+      &:hover, &:active {
+        background-color: lighten($capt-aqua, 10%);
+      }
     }
   }
 }
@@ -188,7 +202,8 @@ input[type="submit"] {
   border: none;
   /*font-weight: bold;*/
   margin-top: 1em;
-  padding: 8px 18px;
+  padding: 5px 16px;
+  font-size: 13px;
   text-transform: capitalize;
   background-color: $capt-orange;
   &:hover {
@@ -577,10 +592,7 @@ div#block-captconnect-blocks-user-info {
 fieldset {
   margin-top: 2em !important;
 }
- 
+
 fieldset legend {
   top: 0 !important;
 }*/
- 
-
-

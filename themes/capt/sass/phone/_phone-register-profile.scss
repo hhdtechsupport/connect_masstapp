@@ -24,7 +24,6 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
         margin-bottom: 13px;
         li.horizontal-tab-button {
           display: block;
-          // border: 1px solid red;
           width: 98%;
           text-align: center;
           margin: 0px auto;
@@ -38,9 +37,9 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
   div#page {
     margin-bottom: 0px;
     padding-bottom: 0px;
-    // padding-bottom: 1600px; /* 600px, 800px for other tabs 
+    // padding-bottom: 1600px; /* 600px, 800px for other tabs
     //margin-bottom: -50%;
- 
+
   }
   #footer {
     margin-top: -100px;
@@ -53,16 +52,16 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
             li#menu-item-1185,
             li#menu-item-589 {}
             // end items
-         
+
           }
           // end menu
-       
+
         }
         // end contextual links
-     
+
       }
       // end region nav
-   
+
     }
     div#content {
       div#title-section {
@@ -74,11 +73,10 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
         }
       }
       form#user-register-form {
-        // border: 2px dashed purple;
         div.horizontal-tabs-panes {
           // use media queries
           &:before {
-            width: 100.6%;
+            width: 100%;
             padding: 0px;
           }
           fieldset.form-wrapper.horizontal-tabs-pane {
@@ -97,7 +95,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
           }
         }
       }
-   
+
       fieldset.form-wrapper {
         div.fieldset-wrapper {
           margin-left: -15px;
@@ -120,7 +118,7 @@ body.logged-in.page-user-edit {
   div#main div#content div#title-section {
     h1#page-title.page__title {
       // padding-top: 20px;
-   
+
     }
   }
   form#user-profile-form {
@@ -139,12 +137,12 @@ body.logged-in.page-user-edit {
         margin-top: 0px;
       }
       div.form-item.form-type-textfield.form-item-mail  {
-        
+
         width: 100%;
         input.form-text,
         div.description,
         label:not(.option) {
-         
+
             width: 95%;
           }
         }
@@ -163,14 +161,14 @@ body.logged-in.page-user-edit {
       // label,  div.description
       fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
         margin-left: 0px !important;
-        width: 95%; 
+        width: 95%;
         padding: 0px 4px;
         margin-bottom: 15px;
       }
       fieldset#edit-timezone {
         width: 100%;
         padding: 0px;
-      
+
       }
       fieldset#edit-ckeditor {
         span.fieldset-legend {
@@ -188,7 +186,7 @@ body.logged-in.page-user-edit {
       fieldset {
         border-top: 1px solid $capt-midgrey;
       }
-    
+
       div.form-type-select {
         width: 100% !important;
         select#edit-timezone--2 {
@@ -197,15 +195,15 @@ body.logged-in.page-user-edit {
         // cleanup
         .chosen-single {
           width: 200px !important;
-      
+
           span {
             width: 200px !important;
           }
         }
-     
+
         div.chosen-container#edit_timezone__2_chosen {
           width: 80% !important;
-    
+
         }
       }
       div.form-item.form-type-radio {
@@ -213,7 +211,7 @@ body.logged-in.page-user-edit {
       }
       div.chosen-container-multi {
         max-width: 80% !important;
-   
+
       }
       input.form-radio,
       input.form-checkbox {}
@@ -235,12 +233,12 @@ body.logged-in.page-user-edit {
           div.description {
             margin-left: 15px;
           }
-     
+
           div.password-strength {
             display: none;
           }
 
-        
+
         }
       }
     }
@@ -250,6 +248,10 @@ body.logged-in.page-user-edit {
 // specific to registration
 body.page-user-register {
   ul.tabs-primary, ul.tabs-primary a {}
+}
+
+body.page-user-register #content {
+  border: none !important;
 }
 
 /* password reset - you get to it via email link */
