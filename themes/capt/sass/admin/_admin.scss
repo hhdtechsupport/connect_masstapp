@@ -22,6 +22,23 @@ body.page-administration {
       color: $capt-maroon;
     }
   }
+  fieldset {
+    background: rgba(0, 0, 0, 0.06);
+    margin: 20px 0;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    padding: 12px;
+    legend {
+      font-weight: bold;
+    }
+    .form-item {
+      clear: both;
+      float: left;
+      margin-top: 0;
+    }
+    input[type="submit"] {
+      margin: 0 0 0 15px;
+    }
+  }
   &.page-administration-event-report,
   &.page-administration-my-events {
     table.views-table {

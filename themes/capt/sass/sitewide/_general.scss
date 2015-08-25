@@ -7,6 +7,9 @@
   margin-top: 0px !important;
 }
 
+.form-item label:not(.option) {
+  font-weight: bold;
+}
 
 .chosen-container {
   display: block;
@@ -100,16 +103,27 @@ ul.main-menu a {
 /* submit & other buttons*/
 
 input[type="submit"],
-a.button {
-  @include border-radius(5px);
+a.button,
+.participate-others-button,
+.register-others-button,
+.participate-others-button:visited,
+.register-others-button:visited {
+  @include border-radius(3px);
   color: #ffffff;
   background: #292929;
-  padding: 8px 20px;
+  padding: 4px 16px;
   @extend .button-reset;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.participate-others-button:hover,
+.register-others-button:hover {
+  text-decoration: none;
 }
 
 .page-user-edit .button {
-  @include border-radius(5px);
+  @include border-radius(3px);
   color: #ffffff;
   padding: 4px 16px;
   @extend .button-reset;
@@ -206,6 +220,7 @@ input[type="submit"] {
   font-size: 13px;
   text-transform: capitalize;
   background-color: $capt-orange;
+  cursor: pointer;
   &:hover {
     background-color: lighten($capt-orange, 10%);
   }
@@ -300,6 +315,7 @@ a {
 
 table {
   width: 100%;
+  border-collapse: collapse;
   thead {
     tr {
       border-left: 1px solid #ccc;
@@ -340,6 +356,9 @@ table {
         }
         &.inline-entity-form-node-field_body {
           width: 400px;
+        }
+        &.active {
+          background: rgba(198, 206, 221, 0.31);
         }
       }
     }

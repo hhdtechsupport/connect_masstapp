@@ -47,7 +47,7 @@ form#event-node-form, form#event-notifications-node-form {
       legend {
         display: none;
         // I think this is fine because this isn't a public form
-     
+
       }
       table {
         margin-top: 0;
@@ -57,7 +57,7 @@ form#event-node-form, form#event-notifications-node-form {
       > div > label {
         display: none;
         // I think this is fine because this isn't a public form
-     
+
       }
       .form-item {
         margin-bottom: 0px;
@@ -83,6 +83,8 @@ form#event-node-form, form#event-notifications-node-form {
     }
     fieldset.ief-form, tr.ief-row-form {
       padding: 25px;
+      border: 1px solid $capt-black;
+      background: rgba(133, 133, 133, 0.17);
       > legend {
         display: block;
         font-weight: bold;
@@ -135,14 +137,27 @@ form#event-node-form, form#event-notifications-node-form {
       .end-date-wrapper {
         > div > label {
           float: left;
-          margin-top: 45px;
+          margin-top: 22px;
           margin-right: 15px;
           margin-left: 15px;
         }
       }
     }
+    .field-name-field-include-outlook-invitation label {
+      font-weight: bold;
+    }
   }
 }
+
+.entitytype-notification_test-form  #edit-field-notification-type {
+  float: left;
+  + * {
+    position: relative;
+    top: 21px;
+    left: 15px;
+  }
+}
+
 
 form#event-notifications-node-form {
   .panel {
@@ -152,7 +167,34 @@ form#event-notifications-node-form {
     top: 0 !important;
     margin-bottom: 0 !important;
   }
+  .group-group1 {
+    .field-name-field-days-before-event-to-send {
+      display: none;
+    }
+    .field-name-field-days-after-event-to-send {
+      display: none;
+    }
+  }
+  .group-group2 {
+    .field-name-field-days-before-event-to-send {
+      display: none;
+    }
+    .field-name-field-days-after-event-to-send {
+      display: none;
+    }
+  }
+  .group-group3 {
+    .field-name-field-days-after-event-to-send {
+      display: none;
+    }
+  }
+  .group-group4 {
+    .field-name-field-days-before-event-to-send {
+      display: none;
+    }
+  }
 }
+
 
 /* end create event form */
 /* overall page heights */

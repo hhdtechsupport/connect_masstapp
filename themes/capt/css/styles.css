@@ -157,22 +157,27 @@ ul.pager li.pager-last a {
   margin-top: 0px !important;
 }
 
-/* line 11, ../sass/sitewide/_general.scss */
+/* line 10, ../sass/sitewide/_general.scss */
+.form-item label:not(.option) {
+  font-weight: bold;
+}
+
+/* line 14, ../sass/sitewide/_general.scss */
 .chosen-container {
   display: block;
 }
 
-/* line 15, ../sass/sitewide/_general.scss */
+/* line 18, ../sass/sitewide/_general.scss */
 .field-container fieldset {
   border: 0px;
   padding-left: 0px;
 }
-/* line 19, ../sass/sitewide/_general.scss */
+/* line 22, ../sass/sitewide/_general.scss */
 .field-container legend,
 .field-container span.fieldset-legend {
   font-weight: bold;
 }
-/* line 23, ../sass/sitewide/_general.scss */
+/* line 26, ../sass/sitewide/_general.scss */
 .field-container input.form-submit {
   margin-top: 0px;
 }
@@ -181,7 +186,7 @@ ul.pager li.pager-last a {
  *  End inherited primitives
  */
 /* pager */
-/* line 33, ../sass/sitewide/_general.scss */
+/* line 36, ../sass/sitewide/_general.scss */
 .pager-clip {
   overflow: hidden;
   white-space: nowrap;
@@ -192,7 +197,7 @@ ul.pager li.pager-last a {
   height: 20px;
 }
 
-/* line 44, ../sass/sitewide/_general.scss */
+/* line 47, ../sass/sitewide/_general.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -201,7 +206,7 @@ body {
 }
 
 /* eliminate blue links */
-/* line 55, ../sass/sitewide/_general.scss */
+/* line 58, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a, #page div.view-content .panel-rule a, #page div.view-content .panel-rule-single a, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a, #page div.view-content .section-events #block-views-dashboard-block-1 a, .section-events #page div.view-content #block-views-dashboard-block-1 a,
 #page div.view-content .section-events #block-views-dashboard-block-2 a,
 .section-events #page div.view-content #block-views-dashboard-block-2 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a,
@@ -229,7 +234,7 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login a.flag
 body.not-logged-in.section-anon-login.page-anon-login #page div.view-content form#user-pass-reset a.flag-action {
   /* color: $capt-black;*/
 }
-/* line 58, ../sass/sitewide/_general.scss */
+/* line 61, ../sass/sitewide/_general.scss */
 #page div.view-content .panel .item-list h3, #page div.view-content .panel-rule .item-list h3, #page div.view-content .panel-rule-single .item-list h3, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 .item-list h3, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 .item-list h3, #page div.view-content .section-events #block-views-dashboard-block-1 .item-list h3, .section-events #page div.view-content #block-views-dashboard-block-1 .item-list h3,
 #page div.view-content .section-events #block-views-dashboard-block-2 .item-list h3,
 .section-events #page div.view-content #block-views-dashboard-block-2 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 .item-list h3,
@@ -245,7 +250,7 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login .item-
 body.not-logged-in.section-anon-login.page-anon-login #page div.view-content form#user-pass-reset .item-list h3 {
   font-size: 16px;
 }
-/* line 61, ../sass/sitewide/_general.scss */
+/* line 64, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a:hover, #page div.view-content .panel-rule a:hover, #page div.view-content .panel-rule-single a:hover, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a:hover, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a:hover, #page div.view-content .section-events #block-views-dashboard-block-1 a:hover, .section-events #page div.view-content #block-views-dashboard-block-1 a:hover,
 #page div.view-content .section-events #block-views-dashboard-block-2 a:hover,
 .section-events #page div.view-content #block-views-dashboard-block-2 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a:hover,
@@ -262,90 +267,106 @@ body.not-logged-in.section-anon-login.page-anon-login #page div.view-content for
   color: #8c1d18;
 }
 
-/* line 67, ../sass/sitewide/_general.scss */
+/* line 70, ../sass/sitewide/_general.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
   background: #86a9b5;
 }
 
-/* line 76, ../sass/sitewide/_general.scss */
+/* line 79, ../sass/sitewide/_general.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
 /* inherited class */
-/* line 82, ../sass/sitewide/_general.scss */
+/* line 85, ../sass/sitewide/_general.scss */
 .button-reset, ul.main-menu a, input[type="submit"],
-a.button, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a {
+a.button,
+.participate-others-button,
+.register-others-button,
+.participate-others-button:visited,
+.register-others-button:visited, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a {
   text-decoration: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: normal;
 }
 
-/* line 89, ../sass/sitewide/_general.scss */
+/* line 92, ../sass/sitewide/_general.scss */
 ul.main-menu a {
   color: #333333;
   background: #eef1f3;
   padding: 12px 20px 4px 20px;
   font-size: 15px;
 }
-/* line 95, ../sass/sitewide/_general.scss */
+/* line 98, ../sass/sitewide/_general.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit & other buttons*/
-/* line 102, ../sass/sitewide/_general.scss */
+/* line 105, ../sass/sitewide/_general.scss */
 input[type="submit"],
-a.button {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
+a.button,
+.participate-others-button,
+.register-others-button,
+.participate-others-button:visited,
+.register-others-button:visited {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
   color: #ffffff;
   background: #292929;
-  padding: 8px 20px;
+  padding: 4px 16px;
+  text-decoration: none;
+  font-weight: normal;
 }
 
-/* line 111, ../sass/sitewide/_general.scss */
+/* line 120, ../sass/sitewide/_general.scss */
+.participate-others-button:hover,
+.register-others-button:hover {
+  text-decoration: none;
+}
+
+/* line 125, ../sass/sitewide/_general.scss */
 .page-user-edit .button {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
   color: #ffffff;
   padding: 4px 16px;
   width: 50px;
 }
-/* line 117, ../sass/sitewide/_general.scss */
+/* line 131, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button {
   background: #c3791f;
 }
-/* line 119, ../sass/sitewide/_general.scss */
+/* line 133, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button:hover {
   background: #df9336;
 }
-/* line 123, ../sass/sitewide/_general.scss */
+/* line 137, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button {
   background: #334b56;
   margin-top: 10px;
 }
-/* line 126, ../sass/sitewide/_general.scss */
+/* line 140, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button:hover {
   background: #466776;
 }
-/* line 130, ../sass/sitewide/_general.scss */
+/* line 144, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button {
   background: #c3791f;
 }
-/* line 132, ../sass/sitewide/_general.scss */
+/* line 146, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button:hover {
   background: #df9336;
 }
 
-/* line 139, ../sass/sitewide/_general.scss */
+/* line 153, ../sass/sitewide/_general.scss */
 .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -356,46 +377,46 @@ a.button {
   font-size: 13px;
   font-weight: normal;
 }
-/* line 147, ../sass/sitewide/_general.scss */
+/* line 161, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a, .group-right .button.register .flag-wrapper a:visited, .view-dashboard .button.register .flag-wrapper a, .view-dashboard .button.register .flag-wrapper a:visited {
   background: #888a55;
   font-weight: normal;
 }
-/* line 151, ../sass/sitewide/_general.scss */
+/* line 165, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a:hover, .view-dashboard .button.register .flag-wrapper a:hover {
   background-color: #a3a56d;
 }
-/* line 154, ../sass/sitewide/_general.scss */
+/* line 168, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a, .group-right .button.cancel.flag-wrapper a:visited, .view-dashboard .button.cancel .flag-wrapper a, .view-dashboard .button.cancel.flag-wrapper a:visited {
   background: #8c1d18;
   font-weight: normal;
 }
-/* line 158, ../sass/sitewide/_general.scss */
+/* line 172, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a:hover, .view-dashboard .button.cancel .flag-wrapper a:hover {
   background-color: #b8261f;
 }
-/* line 161, ../sass/sitewide/_general.scss */
+/* line 175, ../sass/sitewide/_general.scss */
 .group-right .button.participate, .view-dashboard .button.participate {
   margin: 7px 0;
   font-weight: normal;
 }
-/* line 164, ../sass/sitewide/_general.scss */
+/* line 178, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a, .group-right .button.participate .field-content > a, .group-right .button.participate .flag-wrapper a:visited, .group-right .button.participate .field-content > a:visited, .view-dashboard .button.participate .flag-wrapper a, .view-dashboard .button.participate .field-content > a, .view-dashboard .button.participate .flag-wrapper a:visited, .view-dashboard .button.participate .field-content > a:visited {
   background: #c3791f;
   font-size: 13px;
   padding: 5px 16px;
   font-weight: normal;
 }
-/* line 170, ../sass/sitewide/_general.scss */
+/* line 184, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a:hover, .group-right .button.participate .field-content > a:hover, .view-dashboard .button.participate .flag-wrapper a:hover, .view-dashboard .button.participate .field-content > a:hover {
   background-color: #df9336;
 }
-/* line 174, ../sass/sitewide/_general.scss */
+/* line 188, ../sass/sitewide/_general.scss */
 .group-right .button.certificate, .view-dashboard .button.certificate {
   font-style: italic;
   margin-bottom: 7px;
 }
-/* line 177, ../sass/sitewide/_general.scss */
+/* line 191, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a, .group-right .button.certificate a:visited, .view-dashboard .button.certificate a, .view-dashboard .button.certificate a:visited {
   background: #577785;
   font-weight: normal;
@@ -403,23 +424,23 @@ a.button {
   position: relative;
   top: 7px;
 }
-/* line 183, ../sass/sitewide/_general.scss */
+/* line 197, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a:hover, .group-right .button.certificate a:active, .group-right .button.certificate a:visited:hover, .group-right .button.certificate a:visited:active, .view-dashboard .button.certificate a:hover, .view-dashboard .button.certificate a:active, .view-dashboard .button.certificate a:visited:hover, .view-dashboard .button.certificate a:visited:active {
   background-color: #6f91a0;
 }
 
 /*ul.main-menu a:hover, */
-/* line 192, ../sass/sitewide/_general.scss */
+/* line 206, ../sass/sitewide/_general.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 194, ../sass/sitewide/_general.scss */
+/* line 208, ../sass/sitewide/_general.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 200, ../sass/sitewide/_general.scss */
+/* line 214, ../sass/sitewide/_general.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -429,32 +450,33 @@ input[type="submit"] {
   font-size: 13px;
   text-transform: capitalize;
   background-color: #c3791f;
+  cursor: pointer;
 }
-/* line 209, ../sass/sitewide/_general.scss */
+/* line 224, ../sass/sitewide/_general.scss */
 input[type="submit"]:hover {
   background-color: #df9336;
 }
-/* line 212, ../sass/sitewide/_general.scss */
+/* line 227, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"], input[type="submit"][value="Remove"], input[type="submit"][value="Delete"], input[type="submit"][value="Reset"] {
   background-color: #577785;
 }
-/* line 214, ../sass/sitewide/_general.scss */
+/* line 229, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"]:hover, input[type="submit"][value="Remove"]:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Reset"]:hover {
   background-color: #6f91a0;
 }
 
-/* line 220, ../sass/sitewide/_general.scss */
+/* line 235, ../sass/sitewide/_general.scss */
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
 
-/* line 224, ../sass/sitewide/_general.scss */
+/* line 239, ../sass/sitewide/_general.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 229, ../sass/sitewide/_general.scss */
+/* line 244, ../sass/sitewide/_general.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -462,19 +484,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 236, ../sass/sitewide/_general.scss */
+/* line 251, ../sass/sitewide/_general.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 241, ../sass/sitewide/_general.scss */
+/* line 256, ../sass/sitewide/_general.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 246, ../sass/sitewide/_general.scss */
+/* line 261, ../sass/sitewide/_general.scss */
 h5 {
   font-size: 1.1em;
   margin-bottom: .5em;
@@ -482,70 +504,71 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 254, ../sass/sitewide/_general.scss */
+/* line 269, ../sass/sitewide/_general.scss */
 a {
   color: #c3791f;
 }
 
-/* line 258, ../sass/sitewide/_general.scss */
+/* line 273, ../sass/sitewide/_general.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
   color: white;
 }
 
-/* line 266, ../sass/sitewide/_general.scss */
+/* line 281, ../sass/sitewide/_general.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 270, ../sass/sitewide/_general.scss */
+/* line 285, ../sass/sitewide/_general.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 275, ../sass/sitewide/_general.scss */
+/* line 290, ../sass/sitewide/_general.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 280, ../sass/sitewide/_general.scss */
+/* line 295, ../sass/sitewide/_general.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 284, ../sass/sitewide/_general.scss */
+/* line 299, ../sass/sitewide/_general.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 289, ../sass/sitewide/_general.scss */
+/* line 304, ../sass/sitewide/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 294, ../sass/sitewide/_general.scss */
+/* line 309, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 296, ../sass/sitewide/_general.scss */
+/* line 311, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 301, ../sass/sitewide/_general.scss */
+/* line 316, ../sass/sitewide/_general.scss */
 table {
   width: 100%;
+  border-collapse: collapse;
 }
-/* line 304, ../sass/sitewide/_general.scss */
+/* line 320, ../sass/sitewide/_general.scss */
 table thead tr {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-/* line 307, ../sass/sitewide/_general.scss */
+/* line 323, ../sass/sitewide/_general.scss */
 table thead tr th {
   text-align: left;
   font-size: 1.2em;
@@ -555,42 +578,46 @@ table thead tr th {
   border-bottom: none;
   padding: 8px 8px;
 }
-/* line 315, ../sass/sitewide/_general.scss */
+/* line 331, ../sass/sitewide/_general.scss */
 table thead tr th:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 322, ../sass/sitewide/_general.scss */
+/* line 338, ../sass/sitewide/_general.scss */
 table tbody tr {
   border: 1px solid #ccc;
 }
-/* line 324, ../sass/sitewide/_general.scss */
+/* line 340, ../sass/sitewide/_general.scss */
 table tbody tr.odd {
   background-color: #F7F7F7;
 }
-/* line 328, ../sass/sitewide/_general.scss */
+/* line 344, ../sass/sitewide/_general.scss */
 table tbody tr td {
   padding: 3px 6px;
 }
-/* line 330, ../sass/sitewide/_general.scss */
+/* line 346, ../sass/sitewide/_general.scss */
 table tbody tr td:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 333, ../sass/sitewide/_general.scss */
+/* line 349, ../sass/sitewide/_general.scss */
 table tbody tr td a, table tbody tr td a:visited {
   color: #c3791f;
   text-decoration: none;
 }
-/* line 336, ../sass/sitewide/_general.scss */
+/* line 352, ../sass/sitewide/_general.scss */
 table tbody tr td a:hover, table tbody tr td a:visited:hover {
   text-decoration: none;
   color: #e39f4c;
 }
-/* line 341, ../sass/sitewide/_general.scss */
+/* line 357, ../sass/sitewide/_general.scss */
 table tbody tr td.inline-entity-form-node-field_body {
   width: 400px;
 }
+/* line 360, ../sass/sitewide/_general.scss */
+table tbody tr td.active {
+  background: rgba(198, 206, 221, 0.31);
+}
 
-/* line 349, ../sass/sitewide/_general.scss */
+/* line 368, ../sass/sitewide/_general.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -600,26 +627,26 @@ table tbody tr td.inline-entity-form-node-field_body {
   padding-left: 0;
 }
 
-/* line 359, ../sass/sitewide/_general.scss */
+/* line 378, ../sass/sitewide/_general.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: 1em 0 .5em;
 }
 
 /* end forms */
-/* line 367, ../sass/sitewide/_general.scss */
+/* line 386, ../sass/sitewide/_general.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/* line 371, ../sass/sitewide/_general.scss */
+/* line 390, ../sass/sitewide/_general.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 377, ../sass/sitewide/_general.scss */
+/* line 396, ../sass/sitewide/_general.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -632,7 +659,7 @@ body {
  *  Section_3 - Region-Specific Styles                    *
  *                                                        *
  **********************************************************/
-/* line 393, ../sass/sitewide/_general.scss */
+/* line 412, ../sass/sitewide/_general.scss */
 body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   padding-top: 80px;
 }
@@ -640,7 +667,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 /*
  *  Specific event page styling for the footer.
  */
-/* line 401, ../sass/sitewide/_general.scss */
+/* line 420, ../sass/sitewide/_general.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -648,7 +675,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 408, ../sass/sitewide/_general.scss */
+/* line 427, ../sass/sitewide/_general.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -656,12 +683,12 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   max-width: 1200px;
 }
 
-/* line 415, ../sass/sitewide/_general.scss */
+/* line 434, ../sass/sitewide/_general.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 419, ../sass/sitewide/_general.scss */
+/* line 438, ../sass/sitewide/_general.scss */
 .samhsa-logo {
   float: right;
 }
@@ -671,7 +698,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
     width: 600px;
     }*/
 /* treating this as the container for now */
-/* line 429, ../sass/sitewide/_general.scss */
+/* line 448, ../sass/sitewide/_general.scss */
 #main {
   width: 1000px;
   margin-left: 0px;
@@ -679,7 +706,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 }
 
 /* page */
-/* line 437, ../sass/sitewide/_general.scss */
+/* line 456, ../sass/sitewide/_general.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -688,24 +715,24 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   width: 1000px;
 }
 
-/* line 445, ../sass/sitewide/_general.scss */
+/* line 464, ../sass/sitewide/_general.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 450, ../sass/sitewide/_general.scss */
+/* line 469, ../sass/sitewide/_general.scss */
 .region-header {
   float: right;
   margin-top: 10px;
   margin-bottom: -10px;
 }
-/* line 454, ../sass/sitewide/_general.scss */
+/* line 473, ../sass/sitewide/_general.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 459, ../sass/sitewide/_general.scss */
+/* line 478, ../sass/sitewide/_general.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -715,18 +742,18 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   clear: both;
 }
 
-/* line 468, ../sass/sitewide/_general.scss */
+/* line 487, ../sass/sitewide/_general.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 472, ../sass/sitewide/_general.scss */
+/* line 491, ../sass/sitewide/_general.scss */
 body.node-type-event #title-section {
   width: auto;
   /*280px;*/
 }
 
-/* line 477, ../sass/sitewide/_general.scss */
+/* line 496, ../sass/sitewide/_general.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -740,7 +767,7 @@ body.node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 492, ../sass/sitewide/_general.scss */
+/* line 511, ../sass/sitewide/_general.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -749,36 +776,36 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 502, ../sass/sitewide/_general.scss */
+/* line 521, ../sass/sitewide/_general.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
   color: #c3791f;
 }
 
-/* line 508, ../sass/sitewide/_general.scss */
+/* line 527, ../sass/sitewide/_general.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 512, ../sass/sitewide/_general.scss */
+/* line 531, ../sass/sitewide/_general.scss */
 img.file-icon {
   position: relative;
   top: 4px;
 }
 
 /* form stuff */
-/* line 521, ../sass/sitewide/_general.scss */
+/* line 540, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 526, ../sass/sitewide/_general.scss */
+/* line 545, ../sass/sitewide/_general.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 530, ../sass/sitewide/_general.scss */
+/* line 549, ../sass/sitewide/_general.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -786,12 +813,12 @@ img.file-icon {
 
 /* new styles */
 /* not used yet */
-/* line 538, ../sass/sitewide/_general.scss */
+/* line 557, ../sass/sitewide/_general.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 542, ../sass/sitewide/_general.scss */
+/* line 561, ../sass/sitewide/_general.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -799,7 +826,7 @@ img.file-icon {
 }
 
 /* not used yet */
-/* line 550, ../sass/sitewide/_general.scss */
+/* line 569, ../sass/sitewide/_general.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -808,7 +835,7 @@ h4.black {
   margin-bottom: 9px;
 }
 
-/* line 560, ../sass/sitewide/_general.scss */
+/* line 579, ../sass/sitewide/_general.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -826,17 +853,17 @@ div#content {
   padding-top: 20px;
 }
 
-/* line 579, ../sass/sitewide/_general.scss */
+/* line 598, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info {
   color: white;
   top: 10px;
 }
-/* line 582, ../sass/sitewide/_general.scss */
+/* line 601, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
 
-/* line 586, ../sass/sitewide/_general.scss */
+/* line 605, ../sass/sitewide/_general.scss */
 .form-type-select .chosen-container {
   display: block !important;
 }
@@ -1915,8 +1942,10 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > di
 body.not-logged-in.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-login tr.ief-row-form, form#event-notifications-node-form > div > form.field-group-div#user-pass tr.ief-row-form, body.not-logged-in.section-user.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form,
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form {
   padding: 25px;
+  border: 1px solid #333333;
+  background: rgba(133, 133, 133, 0.17);
 }
-/* line 86, ../sass/main_pages/_create-event.scss */
+/* line 88, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form > legend, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form > legend, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form > legend, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form > legend,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form > legend,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form > legend, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form > legend,
@@ -1950,7 +1979,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-n
   font-style: italic;
   font-size: 1.25em;
 }
-/* line 96, ../sass/main_pages/_create-event.scss */
+/* line 98, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .form-item, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form .container-inline-date .form-item, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form .container-inline-date .form-item,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .form-item,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .form-item,
@@ -1978,7 +2007,7 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > fo
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form .container-inline-date .form-item {
   margin: 0;
 }
-/* line 99, ../sass/main_pages/_create-event.scss */
+/* line 101, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .container-inline-date .date-padding, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .container-inline-date .date-padding, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form .container-inline-date .date-padding, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form .container-inline-date .date-padding,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .date-padding,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .container-inline-date .date-padding, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .container-inline-date .date-padding,
@@ -2006,7 +2035,7 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > fo
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form .container-inline-date .date-padding {
   padding: 0;
 }
-/* line 103, ../sass/main_pages/_create-event.scss */
+/* line 105, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form .link-field-subrow .form-item, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form .link-field-subrow .form-item,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item,
@@ -2034,7 +2063,7 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > fo
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form .link-field-subrow .form-item {
   margin: .5em 0;
 }
-/* line 105, ../sass/main_pages/_create-event.scss */
+/* line 107, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .link-field-subrow .form-item label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .link-field-subrow .form-item label, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form .link-field-subrow .form-item label, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form .link-field-subrow .form-item label,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item label,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .link-field-subrow .form-item label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .link-field-subrow .form-item label,
@@ -2062,7 +2091,7 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > fo
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form .link-field-subrow .form-item label {
   font-size: .85em;
 }
-/* line 110, ../sass/main_pages/_create-event.scss */
+/* line 112, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule fieldset.ief-form .text-format-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single fieldset.ief-form .text-format-wrapper > div > label, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 fieldset.ief-form .text-format-wrapper > div > label, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 fieldset.ief-form .text-format-wrapper > div > label,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .text-format-wrapper > div > label,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 fieldset.ief-form .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 fieldset.ief-form .text-format-wrapper > div > label,
@@ -2090,7 +2119,7 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > fo
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset tr.ief-row-form .text-format-wrapper > div > label {
   display: block;
 }
-/* line 115, ../sass/main_pages/_create-event.scss */
+/* line 117, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule input.form-text, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 input.form-text, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 input.form-text,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 input.form-text,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 input.form-text, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 input.form-text,
@@ -2113,7 +2142,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-n
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 124, ../sass/main_pages/_create-event.scss */
+/* line 126, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule input.form-text:focus, form#event-node-form > div > .field-group-div.panel-rule-single input.form-text:focus, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 input.form-text:focus, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 input.form-text:focus,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 input.form-text:focus,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 input.form-text:focus, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 input.form-text:focus,
@@ -2130,7 +2159,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-n
   background: #F5FAFC;
   outline: none;
 }
-/* line 130, ../sass/main_pages/_create-event.scss */
+/* line 132, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .start-date-wrapper, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .start-date-wrapper, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 .field-type-datetime .start-date-wrapper, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 .field-type-datetime .start-date-wrapper,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .start-date-wrapper,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .start-date-wrapper, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-type-datetime .start-date-wrapper,
@@ -2160,7 +2189,7 @@ body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-n
   clear: none;
   float: left;
 }
-/* line 136, ../sass/main_pages/_create-event.scss */
+/* line 138, ../sass/main_pages/_create-event.scss */
 form#event-node-form > div > .field-group-div.panel-rule .field-type-datetime .end-date-wrapper > div > label, form#event-node-form > div > .field-group-div.panel-rule-single .field-type-datetime .end-date-wrapper > div > label, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 .field-type-datetime .end-date-wrapper > div > label, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 .field-type-datetime .end-date-wrapper > div > label,
 .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper > div > label,
 body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-type-datetime .end-date-wrapper > div > label,
@@ -2175,12 +2204,39 @@ body.not-logged-in.page-anon-login form#event-notifications-node-form > div > di
 body.not-logged-in.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-login .field-type-datetime .end-date-wrapper > div > label, form#event-notifications-node-form > div > form.field-group-div#user-pass .field-type-datetime .end-date-wrapper > div > label, body.not-logged-in.section-user.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-pass-reset .field-type-datetime .end-date-wrapper > div > label,
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset .field-type-datetime .end-date-wrapper > div > label {
   float: left;
-  margin-top: 45px;
+  margin-top: 22px;
   margin-right: 15px;
   margin-left: 15px;
 }
+/* line 146, ../sass/main_pages/_create-event.scss */
+form#event-node-form > div > .field-group-div.panel-rule .field-name-field-include-outlook-invitation label, form#event-node-form > div > .field-group-div.panel-rule-single .field-name-field-include-outlook-invitation label, .section-events form#event-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 .field-name-field-include-outlook-invitation label, .section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-1 .field-name-field-include-outlook-invitation label,
+.section-events form#event-node-form > div > .field-group-div#block-views-dashboard-block-2 .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-8 .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-8 .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > .field-group-div#block-block-9 .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-node-form > div > .field-group-div#block-block-9 .field-name-field-include-outlook-invitation label, body.node-type-event form#event-node-form > div > div.field-group-div.group-materials .field-name-field-include-outlook-invitation label, body.node-type-event .ds-2col-stacked > .group-right form#event-node-form > div > .field-group-div.field-type-ds .field-name-field-include-outlook-invitation label, form#event-node-form > div > .field-group-div.panel .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > div.field-group-div#title-section .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-node-form > div > div.field-group-div#title-section .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-login .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-node-form > div > form.field-group-div#user-login .field-name-field-include-outlook-invitation label, form#event-node-form > div > form.field-group-div#user-pass .field-name-field-include-outlook-invitation label, body.not-logged-in.section-user.page-user:not(.page-user-register) form#event-node-form > div > form.field-group-div#user-pass-reset .field-name-field-include-outlook-invitation label,
+body.not-logged-in.section-anon-login.page-anon-login form#event-node-form > div > form.field-group-div#user-pass-reset .field-name-field-include-outlook-invitation label, form#event-notifications-node-form > div > .field-group-div.panel-rule .field-name-field-include-outlook-invitation label, form#event-notifications-node-form > div > .field-group-div.panel-rule-single .field-name-field-include-outlook-invitation label, .section-events form#event-notifications-node-form > div > .field-group-div.view-dashboard.view-display-id-page_1 .field-name-field-include-outlook-invitation label, .section-events form#event-notifications-node-form > div > .field-group-div#block-views-dashboard-block-1 .field-name-field-include-outlook-invitation label,
+.section-events form#event-notifications-node-form > div > .field-group-div#block-views-dashboard-block-2 .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-8 .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-notifications-node-form > div > .field-group-div#block-block-8 .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > .field-group-div#block-block-9 .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-notifications-node-form > div > .field-group-div#block-block-9 .field-name-field-include-outlook-invitation label, body.node-type-event form#event-notifications-node-form > div > div.field-group-div.group-materials .field-name-field-include-outlook-invitation label, body.node-type-event .ds-2col-stacked > .group-right form#event-notifications-node-form > div > .field-group-div.field-type-ds .field-name-field-include-outlook-invitation label, form#event-notifications-node-form > div > .field-group-div.panel .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > div.field-group-div#title-section .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-notifications-node-form > div > div.field-group-div#title-section .field-name-field-include-outlook-invitation label, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-login .field-name-field-include-outlook-invitation label,
+body.not-logged-in.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-login .field-name-field-include-outlook-invitation label, form#event-notifications-node-form > div > form.field-group-div#user-pass .field-name-field-include-outlook-invitation label, body.not-logged-in.section-user.page-user:not(.page-user-register) form#event-notifications-node-form > div > form.field-group-div#user-pass-reset .field-name-field-include-outlook-invitation label,
+body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form > div > form.field-group-div#user-pass-reset .field-name-field-include-outlook-invitation label {
+  font-weight: bold;
+}
 
-/* line 148, ../sass/main_pages/_create-event.scss */
+/* line 152, ../sass/main_pages/_create-event.scss */
+.entitytype-notification_test-form #edit-field-notification-type {
+  float: left;
+}
+/* line 154, ../sass/main_pages/_create-event.scss */
+.entitytype-notification_test-form #edit-field-notification-type + * {
+  position: relative;
+  top: 21px;
+  left: 15px;
+}
+
+/* line 163, ../sass/main_pages/_create-event.scss */
 form#event-notifications-node-form .panel, form#event-notifications-node-form .panel-rule, form#event-notifications-node-form .panel-rule-single, form#event-notifications-node-form .section-events .view-dashboard.view-display-id-page_1, .section-events form#event-notifications-node-form .view-dashboard.view-display-id-page_1, form#event-notifications-node-form .section-events #block-views-dashboard-block-1, .section-events form#event-notifications-node-form #block-views-dashboard-block-1,
 form#event-notifications-node-form .section-events #block-views-dashboard-block-2,
 .section-events form#event-notifications-node-form #block-views-dashboard-block-2, form#event-notifications-node-form body.not-logged-in.page-user:not(.page-user-register) #block-block-8, body.not-logged-in.page-user:not(.page-user-register) form#event-notifications-node-form #block-block-8,
@@ -2196,23 +2252,47 @@ form#event-notifications-node-form body.not-logged-in.section-anon-login.page-an
 body.not-logged-in.section-anon-login.page-anon-login form#event-notifications-node-form form#user-pass-reset {
   margin-top: 0px !important;
 }
-/* line 151, ../sass/main_pages/_create-event.scss */
+/* line 166, ../sass/main_pages/_create-event.scss */
 form#event-notifications-node-form h3 {
   top: 0 !important;
   margin-bottom: 0 !important;
 }
+/* line 171, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group1 .field-name-field-days-before-event-to-send {
+  display: none;
+}
+/* line 174, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group1 .field-name-field-days-after-event-to-send {
+  display: none;
+}
+/* line 179, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group2 .field-name-field-days-before-event-to-send {
+  display: none;
+}
+/* line 182, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group2 .field-name-field-days-after-event-to-send {
+  display: none;
+}
+/* line 187, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group3 .field-name-field-days-after-event-to-send {
+  display: none;
+}
+/* line 192, ../sass/main_pages/_create-event.scss */
+form#event-notifications-node-form .group-group4 .field-name-field-days-before-event-to-send {
+  display: none;
+}
 
 /* end create event form */
 /* overall page heights */
-/* line 160, ../sass/main_pages/_create-event.scss */
+/* line 202, ../sass/main_pages/_create-event.scss */
 body.page-node-add-event.page-node-add.section-node-add {
   /* needed so that save button has space above border */
 }
-/* line 161, ../sass/main_pages/_create-event.scss */
+/* line 203, ../sass/main_pages/_create-event.scss */
 body.page-node-add-event.page-node-add.section-node-add #page {
   height: 95%;
 }
-/* line 165, ../sass/main_pages/_create-event.scss */
+/* line 207, ../sass/main_pages/_create-event.scss */
 body.page-node-add-event.page-node-add.section-node-add div#content {
   height: 100%;
   padding-bottom: 20px;
@@ -2955,28 +3035,49 @@ body.page-administration a, body.page-administration a:visited {
 body.page-administration a:hover, body.page-administration a:visited:hover {
   color: #8c1d18;
 }
-/* line 28, ../sass/admin/_admin.scss */
+/* line 25, ../sass/admin/_admin.scss */
+body.page-administration fieldset {
+  background: rgba(0, 0, 0, 0.06);
+  margin: 20px 0;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 12px;
+}
+/* line 30, ../sass/admin/_admin.scss */
+body.page-administration fieldset legend {
+  font-weight: bold;
+}
+/* line 33, ../sass/admin/_admin.scss */
+body.page-administration fieldset .form-item {
+  clear: both;
+  float: left;
+  margin-top: 0;
+}
+/* line 38, ../sass/admin/_admin.scss */
+body.page-administration fieldset input[type="submit"] {
+  margin: 0 0 0 15px;
+}
+/* line 45, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tbody, body.page-administration.page-administration-my-events table.views-table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 32, ../sass/admin/_admin.scss */
+/* line 49, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tr th, body.page-administration.page-administration-my-events table.views-table tr th {
   padding-right: 10px;
 }
-/* line 35, ../sass/admin/_admin.scss */
+/* line 52, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tr td:first-child, body.page-administration.page-administration-my-events table.views-table tr td:first-child {
   padding-left: 10px;
   width: 230px;
 }
-/* line 39, ../sass/admin/_admin.scss */
+/* line 56, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tr td:nth-child(2), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(2) {
   width: 220px;
 }
-/* line 42, ../sass/admin/_admin.scss */
+/* line 59, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tr td, body.page-administration.page-administration-my-events table.views-table tr td {
   padding-right: 10px;
 }
-/* line 45, ../sass/admin/_admin.scss */
+/* line 62, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report table.views-table tr td:nth-child(n+5), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(n+5) {
   text-align: center;
 }
@@ -2984,21 +3085,21 @@ body.page-administration.page-administration-event-report table.views-table tr t
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 56, ../sass/admin/_admin.scss */
+/* line 73, ../sass/admin/_admin.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 62, ../sass/admin/_admin.scss */
+/* line 79, ../sass/admin/_admin.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
   list-style-image: url("/misc/menu-collapsed.png");
 }
 
-/* line 68, ../sass/admin/_admin.scss */
+/* line 85, ../sass/admin/_admin.scss */
 div.group-audience, div.group-description, div.group-dates {
   /* h4 {
        margin-bottom: 0px;
@@ -3009,17 +3110,17 @@ div.group-audience, div.group-description, div.group-dates {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 79, ../sass/admin/_admin.scss */
+/* line 96, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
 }
-/* line 81, ../sass/admin/_admin.scss */
+/* line 98, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
   margin-right: 20px;
   border: 1px solid red;
 }
 
-/* line 87, ../sass/admin/_admin.scss */
+/* line 104, ../sass/admin/_admin.scss */
 div.views-field.views-field-field-presenter-image {
   margin: 5px 15px 0px 0px;
   /*16px 23px 0px 0px;*/
@@ -3029,19 +3130,19 @@ div.views-field.views-field-field-presenter-image {
 /**
  * Disclaimer Placement Section
  */
-/* line 97, ../sass/admin/_admin.scss */
+/* line 114, ../sass/admin/_admin.scss */
 body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
 }
 
-/* line 103, ../sass/admin/_admin.scss */
+/* line 120, ../sass/admin/_admin.scss */
 body.node-type-event #block-block-12 {
   /*border: 1px solid blue;*/
   display: block;
 }
-/* line 106, ../sass/admin/_admin.scss */
+/* line 123, ../sass/admin/_admin.scss */
 body.node-type-event #block-block-12 .disclaimer {
   padding: 0px 590px 20px 0px;
   left: 20px;
@@ -3051,12 +3152,12 @@ body.node-type-event #block-block-12 .disclaimer {
 }
 
 /* we are using this for the event edit pages*/
-/* line 120, ../sass/admin/_admin.scss */
+/* line 137, ../sass/admin/_admin.scss */
 body.node-type-event.page-node-edit .disclaimer {
   left: 0px;
 }
 
-/* line 125, ../sass/admin/_admin.scss */
+/* line 142, ../sass/admin/_admin.scss */
 body.page-user-edit div.disclaimer {
   margin-bottom: 40px;
 }
@@ -3064,7 +3165,7 @@ body.page-user-edit div.disclaimer {
 /*
  * page administration
  */
-/* line 135, ../sass/admin/_admin.scss */
+/* line 152, ../sass/admin/_admin.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
@@ -3072,7 +3173,7 @@ body.page-administration div#content div#title-section h2 {
 /**
  * Switch User
  */
-/* line 144, ../sass/admin/_admin.scss */
+/* line 161, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -3080,7 +3181,7 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 150, ../sass/admin/_admin.scss */
+/* line 167, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
@@ -3618,34 +3719,20 @@ form#user-profile-form .fieldset-wrapper {
   color: #8c1d18 !important;
 }
 
-/*** Register and Participate Others ***/
-/* line 163, ../sass/main_pages/_register.scss */
-.participate-others-button,
-.register-others-button {
-  border-radius: 15px !important;
-  color: white !important;
-}
-
-/* line 169, ../sass/main_pages/_register.scss */
-.participate-others-button a:visited,
-.register-others-button a:visited {
-  color: white !important;
-}
-
 /* Matt's styles for chosen container and field-widget-inline-entity-form */
-/* line 176, ../sass/main_pages/_register.scss */
+/* line 165, ../sass/main_pages/_register.scss */
 .chosen-container {
-  width: 400px !important;
+  width: 412px !important;
 }
-/* line 178, ../sass/main_pages/_register.scss */
+/* line 167, ../sass/main_pages/_register.scss */
 .chosen-container a {
   font-weight: normal;
 }
-/* line 181, ../sass/main_pages/_register.scss */
+/* line 170, ../sass/main_pages/_register.scss */
 .chosen-container .chosen-single {
   border-radius: 0px;
   font-size: 14px;
-  max-width: 400px;
+  max-width: 412px;
   display: block;
   border: 1px solid #b6b6b6;
   -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
@@ -3654,35 +3741,35 @@ form#user-profile-form .fieldset-wrapper {
   height: 28px;
   padding-top: 1px;
 }
-/* line 193, ../sass/main_pages/_register.scss */
+/* line 182, ../sass/main_pages/_register.scss */
 .chosen-container .chosen-drop {
   border-radius: 0px;
 }
-/* line 196, ../sass/main_pages/_register.scss */
+/* line 185, ../sass/main_pages/_register.scss */
 .chosen-container.chosen-container-multi .chosen-choices li.search-choice {
   border-radius: 0px;
 }
 
-/* line 201, ../sass/main_pages/_register.scss */
+/* line 190, ../sass/main_pages/_register.scss */
 .field-widget-inline-entity-form > div {
   margin-top: 20px;
 }
 
-/* line 207, ../sass/main_pages/_register.scss */
+/* line 196, ../sass/main_pages/_register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) div#title-section,
 body.not-logged-in.section-anon-login.page-anon-login div#title-section {
   margin: 0px auto;
   border-bottom: 0px;
   width: 360px;
 }
-/* line 212, ../sass/main_pages/_register.scss */
+/* line 201, ../sass/main_pages/_register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset,
 body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset {
   padding: 20px;
   margin: 0px auto;
   width: 320px;
 }
-/* line 217, ../sass/main_pages/_register.scss */
+/* line 206, ../sass/main_pages/_register.scss */
 body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset:before,
 body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:before {
   width: 360px;
@@ -3690,13 +3777,13 @@ body.not-logged-in.section-anon-login.page-anon-login form#user-pass-reset:befor
 }
 
 /* OMB Block; we may want to just use a form here */
-/* line 230, ../sass/main_pages/_register.scss */
+/* line 219, ../sass/main_pages/_register.scss */
 body.page-user-edit #block-block-3,
 body.page-user-register #block-block-3,
 body.page-anon-register #block-block-3 {
   margin: 30px 0px;
 }
-/* line 232, ../sass/main_pages/_register.scss */
+/* line 221, ../sass/main_pages/_register.scss */
 body.page-user-edit #block-block-3 p,
 body.page-user-register #block-block-3 p,
 body.page-anon-register #block-block-3 p {
