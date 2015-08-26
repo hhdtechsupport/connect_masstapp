@@ -84,7 +84,7 @@ function captconnect_custom_admin_settings($form, $form_state) {
   $form['captconnect_custom_presenters_list_limit'] = array(
     '#type' => 'radios',
     '#options' => array(5 => 5, 10 => 10, 15 => 15, 20 => 20, 25 => 25, 50 => 50),
-    '#title' => t('Number of presenters per page on the Presenters List page.'),
+    '#title' => t('Number of presenters per page on the Presenters List.'),
     '#default_value' => variable_get('captconnect_custom_presenters_list_limit', 10),
     );
 
@@ -127,17 +127,17 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_other_flag']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_proxy_display']), 'style' => $style),
-    );
-
-  $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_proxy_register_text']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
     );
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_dest']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_registrations_link_instance']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
+    array('data' => "&nbsp;", 'style' => $style),
     );
 
   $rows[] = array(
@@ -170,7 +170,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_registration_successful'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Registration Successful'),
     '#default_value' => variable_get('captconnect_custom_registration_successful',
       'You are now registered for "@title" on @when.'),
@@ -186,7 +185,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_registration_failed'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Registration Failed'),
     '#default_value' => variable_get('captconnect_custom_registration_failed',
       'Your registration for "@title" failed; please try again now that you are logged in.'),
@@ -201,7 +199,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_must_change_password'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Must Change Password'),
     '#default_value' => variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
@@ -212,7 +209,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_completion_email_sent'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Completion Email Sent'),
     '#default_value' => variable_get('captconnect_custom_completion_email_sent',
       'An email has been sent with a link to complete the registration process.'),
@@ -223,7 +219,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_reset_pass_head'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Reset password heading'),
     '#default_value' => variable_get('captconnect_custom_reset_pass_head',
       'Reset Password'),
@@ -233,7 +228,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_reset_pass_welcome'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Reset password explanation'),
     '#default_value' => variable_get('captconnect_custom_reset_pass_welcome',
       'Click on this button to log in to the site and change your password. '
@@ -251,7 +245,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_anon_login'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Login invitation'),
     '#default_value' => variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
@@ -267,7 +260,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_proxy_registered'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Successful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_registered',
       '@user is now @action "@event" at @time.'),
@@ -286,7 +278,6 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_proxy_failed'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#maxlength' => 256,
     '#title' => t('Unsuccessful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_failed',
       'Flagging for @user for "@event" at @time failed.'),
@@ -300,6 +291,18 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '<li>' . t('@time - the instance title (date and time).') . '</li>'
       . '<li>' . t('@action - the action taken.') . '</li>'
       . '</ul>',
+    );
+
+  $form['captconnect_custom_event_full'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 256,
+    '#title' => t('Unsuccessful proxy registration'),
+    '#default_value' => variable_get('captconnect_custom_event_full',
+      'We are sorry, but this event is full. You may try registering for another time or date.'),
+    '#description' => t('When someone tries to register for an event that is '
+      . 'already at capacity, this message is displayed '
+      . '<br />'
+      . 'and the registration is denied.')
     );
 
   $form['#theme'] = 'captconnect_custom_message_texts';
@@ -350,6 +353,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
 //    array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_event_full']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_already_registered']), 'style' => $style),
     );
 
   $output .= theme('table', array(
