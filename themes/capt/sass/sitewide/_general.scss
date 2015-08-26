@@ -322,9 +322,9 @@ table {
       border-right: 1px solid #ccc;
       th {
         text-align: left;
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: normal;
-        background-color: lighten($capt-aqua, 35%);
+        background-color: #E1E7E9;
         border-top: 5px solid $capt-aqua;
         border-bottom: none;
         padding: 8px 8px;
@@ -335,6 +335,7 @@ table {
     }
   }
   tbody {
+    border: 1px solid $capt-midgrey;
     tr {
       border: 1px solid #ccc;
       &.odd {
@@ -343,6 +344,7 @@ table {
       &.ief-row-form {}
       td {
         padding: 3px 6px;
+        font-size: .9em;
         &:last-child {
           border-right: 1px solid #ccc;
         }

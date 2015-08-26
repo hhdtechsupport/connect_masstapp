@@ -41,28 +41,8 @@ body.page-administration {
   }
   &.page-administration-event-report,
   &.page-administration-my-events {
-    table.views-table {
-      tbody {
-        border: 1px solid $capt-midgrey;
-      }
-      tr {
-        th {
-          padding-right: 10px;
-        }
-        td:first-child {
-          padding-left: 10px;
-          width: 230px;
-        }
-        td:nth-child(2) {
-          width: 220px;
-        }
-        td {
-          padding-right: 10px;
-        }
-        td:nth-child(n+5) {
-          text-align: center;
-        }
-      }
+    td.views-field-field-date-instance {
+      width: 220px;
     }
   }
 }
