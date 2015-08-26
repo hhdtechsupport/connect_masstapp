@@ -26,7 +26,7 @@ $header-pad-left: 20px;
     margin: 0px auto;
     float: none;
     width: 94%;
-   
+
     padding-left: 0px;
     background: no-repeat;
     background-color: $capt-lightgrey;
@@ -112,6 +112,13 @@ $header-pad-left: 20px;
      border-top: 1px solid $capt-midgrey;
      padding-bottom: 10px;
 }
+body.page-events.section-events div#block-views-dashboard-block-1 .views-field div.view.view-dashboard {
+  border-top: 0;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+
 /* event primitive */
 
 .event-show-hide {
@@ -126,13 +133,13 @@ $header-pad-left: 20px;
     padding-bottom: 20px;
     margin-bottom: 0px;
     padding-top: 22px;
-    
+
      @extend .show-hide-button;
     background-position: 20px 28px;
     span {
       @extend .show-hide-text;
     }
-  
+
  }
  div.field-items {
   margin-left: 0px;

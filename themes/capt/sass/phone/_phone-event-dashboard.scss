@@ -16,18 +16,12 @@ body.page-events.section-events {
  div.bottom-footer {
   margin-top: -100px;
 }
-input#edit-reset,
-input#edit-submit-dashboard {
-  width: 57px;
-  padding: 8px 10px;
-
-}
 div#main div#content div#title-section	{
   margin-top: -20px;
   width: 100%;
-  position: relative; 
-  background: url('../images/icons/create-event-showhide.png') right 10px top 6px no-repeat;
-  background-size: 44px 45px;
+  position: relative;
+  background: url('../images/icons/upcoming-events-iphone.png') right -7px top 6px no-repeat;
+  background-size: 60px 45px;
   top: $top-pad + 44px;
   padding-bottom: 0px;
   padding-top: $header-pos;
@@ -35,7 +29,7 @@ div#main div#content div#title-section	{
   background-color: $capt-lightgrey;
   border-right: 1px solid $capt-midgrey;
   border-left: 1px solid $capt-midgrey;
-
+	float: none;
   display: block;
   margin-bottom: $title-buffer;
   &:before {
@@ -46,7 +40,7 @@ div#main div#content div#title-section	{
  h1#page-title.page__title {
   max-width: 100%;
   @extend .show-hide-button;
- 
+
   padding-left: 30px;
   margin-left: 0px;
   background-position: 8px $header-pos + 6px;
@@ -61,29 +55,37 @@ div#main div#content div#title-section	{
 
 }
 
+
+#block-views-dashboard-block-1 > .view-dashboard > .view-content,
+#block-views-dashboard-block-2 > .view-dashboard > .view-content {
+	padding: 0 20px 0 30px;
+}
+
 /* only controls view-dashboard on left column */
 div#content > div.view-dashboard {
-        width: 100%; // include in prototype? 
+        width: 100%; // include in prototype?
         margin: 0px auto;
         float: none;
 
         margin-top: $top-pad - 6px - $title-buffer;
         padding-top: $top-pad;
-       
+
         background-color: white;
         padding-top: 20px;
         margin-top: 0px;
         border-top: 1px solid $capt-midgrey;
         @include side_borders($capt-midgrey);
         @extend .show-hide-content;
-   
+
         div.item-list {
         	margin-left: 10px;
-        	width: 90%;
         }
         &:before {
         	height: 0px;
         }
+				> .view-content {
+					padding: 0 20px;
+				}
 
 
       }
@@ -95,8 +97,9 @@ div#content > div.view-dashboard {
       }
       .views-exposed-widgets {
        margin-bottom: 0.5em;
-       float: right;
+       float: left;
        margin-right: -12px;
+			 margin-top: 12px;
       }
       div#block-views-dashboard-block-1,
       div#block-views-dashboard-block-2 {

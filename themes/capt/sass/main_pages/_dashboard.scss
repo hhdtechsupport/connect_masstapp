@@ -1,7 +1,13 @@
 @import '../headers/variables';
 @import '../headers/capt-mixins';
 @import '../headers/extensible';
+@import 'compass/css3/box-shadow';
 
+
+.page-events #title-section {
+  float: left;
+  width: 50%;
+}
 
 
 /* dashboard lists */
@@ -63,9 +69,8 @@ p {
     margin-top: 0px;
   }
   #block-views-exp-dashboard-page-1 {
-    position: absolute;
-    top: 15px;
-    right: 0;
+    float: right;
+    margin-bottom: 1em;
     .views-exposed-widget input[type="submit"] {
       margin-right: 0px;
     }
@@ -74,10 +79,8 @@ p {
       padding: 5px;
       max-width: 400px;
       display: block;
-      border: 1px solid #b6b6b6;
-      -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-      -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+      border: 1px solid #BCBCBC;
+      @include box-shadow(rgba(#000, 0.15) 1px 1px 5px 0px inset);
     }
     #edit-keys-wrapper {
       margin-top: -2px;
@@ -122,9 +125,9 @@ p {
     }
     .view-content {
       padding: 0 20px;
-    }
-    .view-dashboard .button.participate {
-      margin: 2px 0 12px;
+      .view-content {
+        padding: 0;
+      }
     }
     .pager {
       margin: 10px 0 0;
@@ -157,7 +160,7 @@ body.page-events.section-events {
   }
 
   .views-exposed-form .views-exposed-widget .form-submit {
-    margin-top: 1.6em;
+    margin-top: 1.4em;
   }
 
   div#block-views-dashboard-block-2 > div > div.item-list {
@@ -187,7 +190,7 @@ body.page-events.section-events {
       div.item-list {
         margin-left: 0px;
         ul {
-          padding-bottom: 6px;
+          padding-bottom: 20px;
         }
       }
     }
@@ -206,7 +209,7 @@ body.page-events.section-events {
   div.view.view-dashboard {
     padding-bottom: 0px;
     div.view-content {
-    
+
       padding-bottom: 0px;
       margin-bottom: 0px;
       ul {

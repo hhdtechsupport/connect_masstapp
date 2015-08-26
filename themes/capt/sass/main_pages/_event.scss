@@ -166,7 +166,7 @@ body.node-type-event {
       }
       div.views-field-ops {
         //display: inline;
-     
+
       }
     }
     .item-list h3 {
@@ -182,7 +182,7 @@ body.node-type-event {
       }
       div.button.register,
       div.button.cancel {
-        margin-top: 7px;
+        margin-top: 5px;
         display: block;
       }
 
@@ -190,18 +190,27 @@ body.node-type-event {
     }
     .field-type-ds.field-name-join-this-event, .field-type-ds.field-name-join-this-event-2 {
       padding-top: 25px;
+      background: lighten($capt-orange, 50%);
       &:before {
         margin-left: -27.5px;
         width: 320px;
         margin-top: 0px;
         left: 1px;
+        background: $capt-orange;
       }
       .views-field-field-date .field-content {
-        background: url("../images/icons/arrow-icons.png") no-repeat 0 8px;
+        background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
         padding-left: 14px;
       }
       .button {
         margin-left: 14px;
+      }
+      li {
+        line-height: 1.4em;
+        margin-bottom: 6px;
+      }
+      h2.block-title {
+        color: darken($capt-orange, 10%);
       }
     }
     /**

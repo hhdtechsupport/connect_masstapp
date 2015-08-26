@@ -7,8 +7,13 @@
 
    $login-title-margin: 16px;
   /*
-   *  iPhone Styles -- User Login Page 
+   *  iPhone Styles -- User Login Page
    */
+
+
+  .messages {
+    margin-bottom: 40px;
+  }
 
 
 
@@ -23,17 +28,20 @@
     /* reformatting panels for mobile */
     div#content {
       text-align: center;
+      .messages {
+        text-align: left;
+      }
     }
- 
+
     div#content div#title-section {
-   
+
      h1#page-title {
          padding: 0px;
          margin: 0px;
         font-size: 1.8em;
       }
     }
-   
+
         /* all blocks */
     form#user-login,
 
@@ -50,7 +58,7 @@
      h2 {
       margin-bottom: 6px;
     }
-    
+
 
   }
   /* specific styles for responsive panel tops  ---*/
@@ -89,14 +97,14 @@
      input#edit-name,
     input#edit-pass {
       width: 85%;
-     
+
     }
       div.form-item.form-item-name {
     padding-top: 0px;
     margin-top: -100px;
     clear: left;
 
-    
+
 
   }
     div#edit-actions input#edit-submit {
@@ -182,10 +190,10 @@
    body,html {
     width: 100%;
     max-width: 100%;
-   }  
+   }
    body.not-logged-in.page-user:not(.page-user-register),
-   body.not-logged-in.page-anon-login { 
-        
+   body.not-logged-in.page-anon-login {
+
     footer {
      width: 100%;
      max-width: 100%;
@@ -195,18 +203,16 @@
     }
     div.top-header {
       width: 100%;
-    } 
+    }
     div#page {
       max-width: 100%;
       margin-bottom: -110px;
       padding-bottom: 210px;
-      height: 550px !important;
       min-height: 550px;
       #main {
         width: 100%;
         @extend .reset-layout;
       }
     }
-   
-  }
 
+  }

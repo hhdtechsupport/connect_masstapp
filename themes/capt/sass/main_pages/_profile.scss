@@ -1,6 +1,7 @@
 @import '../headers/variables';
 @import '../headers/capt-mixins';
 @import '../headers/extensible';
+@import 'compass/css3/box-shadow';
 
 
 /**
@@ -120,9 +121,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     max-width: 400px;
     display: block;
     border: 1px solid #b6b6b6;
-    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    @include box-shadow(rgba(#000, 0.15) 1px 1px 5px 0px inset);
     &:focus {
       background: $capt-inputfocus;
       outline: none;

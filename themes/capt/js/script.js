@@ -117,9 +117,9 @@ Drupal.behaviors.my_custom_behavior = {
     panels_activated = true;
   }
 
-  
+
   $(window).resize(function(){
-        // TO DO: if this is an event page 
+        // TO DO: if this is an event page
 
 
         if ($('body').hasClass('node-type-event') ) {
@@ -132,7 +132,7 @@ Drupal.behaviors.my_custom_behavior = {
         currentWinWidth = window.innerWidth;
 
       });
-  
+
 function adjust_panels (arr) {
     for (var i = 0; i < 3; ++i) panel_respond(arr[i], arr);
 }
@@ -166,7 +166,7 @@ function isPhone () {
    var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
    var ph = isPhone();
    /* check size and if dates are not already where they should be*/
-   if (!ph && phoneDates != undefined) 
+   if (!ph && phoneDates != undefined)
      $('.group-right').prepend(datePanel);
    else if (ph && phoneDates ==undefined)
    {
@@ -220,7 +220,7 @@ function isPhone () {
 
   function showHideIcons (header, body) {
 
-      if ($(body).css('display') == 'none') 
+      if ($(body).css('display') == 'none')
          $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
       else
          $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');

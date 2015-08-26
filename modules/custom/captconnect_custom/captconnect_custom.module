@@ -599,6 +599,7 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 
 function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
 //  dpm($form, $form_id);
+
   $form['actions']['#weight'] = 100;
 
   $form['account']['#weight'] = 0;
@@ -1157,8 +1158,7 @@ function captconnect_custom_flag_link_type_info() {
       'provides form' => FALSE,
       ),
     );
-} /* */
-
+}
 /**
  * Implements hook_flag_link().
  * ATM, this is just like the flag module.
