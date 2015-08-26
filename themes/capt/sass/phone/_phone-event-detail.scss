@@ -20,7 +20,7 @@ footer {
   }
 
 }
-  // banner 
+  // banner
   /* banner title text */
   h1#site-name.header__site-name {
     margin-top: -35px;
@@ -28,7 +28,7 @@ footer {
 
     a {
       font-size: 1em;
-      
+
     }
   }
 
@@ -57,16 +57,16 @@ footer {
     }
   }
 
-  // general styles 
+  // general styles
   div#page {
     padding-bottom: 0px;
     margin-bottom: 0px;
 
-  } 
+  }
   div#main div#content div#title-section {
     margin-top: 0px;
   }
-  
+
   ul.tabs-primary {
     display: none;
   }
@@ -79,7 +79,7 @@ footer {
     margin: 0px;
     float: none;
   }
-  // panel-specific 
+  // panel-specific
   div#block-views-materials-block {
     margin-bottom: 0px;
 
@@ -121,7 +121,8 @@ footer {
 }
 .ds-2col-stacked > .group-left {
   div.group-audience,
-  div.group-presenter {
+  div.group-presenter,
+  div.group-description {
    .views-field-field-presenter-image {
     margin-right: -22px;
 
@@ -133,7 +134,7 @@ footer {
         height: 100%;
       }
 
-    } 
+    }
   }
   @extend .event-show-hide;
   width: 100%;
@@ -155,7 +156,7 @@ footer {
 
 }
 
-div.group-audience {
+div.group-description {
   &:before {
     @extend .before-style;
   }
@@ -229,4 +230,3 @@ div.field-type-ds.field-name-event-date-s- {
 
   }
 }
-
