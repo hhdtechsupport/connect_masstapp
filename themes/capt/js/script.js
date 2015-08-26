@@ -215,7 +215,7 @@ function isPhone () {
       }
 
   /*
-   *  End responsive show-hide functinality
+   *  End responsive show-hide functionality
    */
 
   function showHideIcons (header, body) {

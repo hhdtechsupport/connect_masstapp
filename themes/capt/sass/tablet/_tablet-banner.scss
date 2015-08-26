@@ -19,7 +19,7 @@ body.not-logged-in.page-anon-login  {
     }
     /* photo section */
     div#page div#main div#content {
-  
+
       background: url("../images/banners/banner-desktop-login-photos.png") 0 0 no-repeat;
       background-size: 100%;
       width: 100%;
@@ -30,20 +30,51 @@ body.not-logged-in.page-anon-login  {
     }
   }
 }
-body.logged-in {
-  h1#site-name.header__site-name a {
-    font-size: 35px;
+body.not-front {
+  header#header div#name-and-slogan {
+    padding: 70px 0 10px 0;
+    h1#site-name.header__site-name {
+      margin-left: -45px;
+      a {
+        font-size: 1em;
+      }
+    }
   }
-  div#block-block-13 {
-    font-size: 15px;
-    margin-top: 0px;
-    top: 0px;
+  header#header div.region-highlighted {
+    height: 50px;
+    div#block-block-13 {
+      font-size: 1em;
+      margin-top: 0px;
+      top: 0px;
+      overflow: visible;
+      line-height: 1em;
+      margin-left: -45px;
+    }
   }
-  div#block-block-13,
-  h1#site-name.header__site-name {
+  header#header div#name-and-slogan.category {
+    padding: 50px 0 15px 0;
+    h1#site-name.header__site-name {
+      margin-left: -45px;
+      a {
+        font-size: 1em;
+      }
+    }
+  }
+  header#header div.region-highlighted.category {
+    height: 80px;
     margin-left: -45px;
+    div#block-block-13 {
+      font-size: 1em;
+      margin-top: 0px;
+      top: 0px;
+      overflow: visible;
+      line-height: 1em;
+      margin-left: 0;
+    }
   }
 }
+
+
 /* specifics */
 body.page-anon-login,
 body.not-logged-in.page-user:not(.page-user-register) {
@@ -65,4 +96,46 @@ body.logged-in.node-type-event {
     margin-left: 0px;
   }
  }
+}
+
+body.not-logged-in:not(.node-type-event).page-anon-register {
+  header#header div#name-and-slogan {
+    padding-top: 40px;
+  }
+  header#header div.region-highlighted {
+    margin-left: 0px;
+    padding: 0px;
+    float: none;
+    clear: both;
+  }
+  header#header {
+    height: 132px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
+    margin-bottom: 0px;
+  }
+  /* photo section */
+  div#page div#main div#content {
+    padding-left: 15px;
+    padding-right: 15px;
+    border-bottom: 0;
+    background: url("../images/banners/banner-desktop-login-photos.png") 0 -1px no-repeat;
+    width: 100%;
+    background-size: 100%;
+    border-top: none;
+    border-bottom: none;
+    margin-top: 0;
+    padding-top: 24%;
+    margin-left: 0;
+    margin-right: 0;
+    top: 0;
+  }
+  div#page div#main {
+    width: 100%;
+  }
+  /* subtitle */
+  div#block-block-13 {
+    top: 60px;
+  }
 }
