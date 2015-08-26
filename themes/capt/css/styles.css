@@ -286,7 +286,7 @@ a.button,
 .participate-others-button,
 .register-others-button,
 .participate-others-button:visited,
-.register-others-button:visited, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a {
+.register-others-button:visited, .page-user-edit .button, .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .group-right .button .flag-wrapper .instance-full, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a, .view-dashboard .button .flag-wrapper .instance-full {
   text-decoration: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -325,12 +325,20 @@ a.button,
 }
 
 /* line 120, ../sass/sitewide/_general.scss */
+.participate-others-button,
+.register-others-button {
+  margin-top: 10px;
+  position: relative;
+  float: right;
+}
+
+/* line 127, ../sass/sitewide/_general.scss */
 .participate-others-button:hover,
 .register-others-button:hover {
   text-decoration: none;
 }
 
-/* line 125, ../sass/sitewide/_general.scss */
+/* line 132, ../sass/sitewide/_general.scss */
 .page-user-edit .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -340,34 +348,34 @@ a.button,
   padding: 4px 16px;
   width: 50px;
 }
-/* line 131, ../sass/sitewide/_general.scss */
+/* line 138, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button {
   background: #c3791f;
 }
-/* line 133, ../sass/sitewide/_general.scss */
+/* line 140, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button:hover {
   background: #df9336;
 }
-/* line 137, ../sass/sitewide/_general.scss */
+/* line 144, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button {
   background: #334b56;
   margin-top: 10px;
 }
-/* line 140, ../sass/sitewide/_general.scss */
+/* line 147, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button:hover {
   background: #466776;
 }
-/* line 144, ../sass/sitewide/_general.scss */
+/* line 151, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button {
   background: #c3791f;
 }
-/* line 146, ../sass/sitewide/_general.scss */
+/* line 153, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button:hover {
   background: #df9336;
 }
 
-/* line 153, ../sass/sitewide/_general.scss */
-.group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a {
+/* line 160, ../sass/sitewide/_general.scss */
+.group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .group-right .button .flag-wrapper .instance-full, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a, .view-dashboard .button .flag-wrapper .instance-full {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -377,46 +385,46 @@ a.button,
   font-size: 13px;
   font-weight: normal;
 }
-/* line 161, ../sass/sitewide/_general.scss */
+/* line 168, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a, .group-right .button.register .flag-wrapper a:visited, .view-dashboard .button.register .flag-wrapper a, .view-dashboard .button.register .flag-wrapper a:visited {
   background: #888a55;
   font-weight: normal;
 }
-/* line 165, ../sass/sitewide/_general.scss */
+/* line 172, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a:hover, .view-dashboard .button.register .flag-wrapper a:hover {
   background-color: #a3a56d;
 }
-/* line 168, ../sass/sitewide/_general.scss */
+/* line 175, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a, .group-right .button.cancel.flag-wrapper a:visited, .view-dashboard .button.cancel .flag-wrapper a, .view-dashboard .button.cancel.flag-wrapper a:visited {
   background: #8c1d18;
   font-weight: normal;
 }
-/* line 172, ../sass/sitewide/_general.scss */
+/* line 179, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a:hover, .view-dashboard .button.cancel .flag-wrapper a:hover {
   background-color: #b8261f;
 }
-/* line 175, ../sass/sitewide/_general.scss */
+/* line 182, ../sass/sitewide/_general.scss */
 .group-right .button.participate, .view-dashboard .button.participate {
   margin: 7px 0;
   font-weight: normal;
 }
-/* line 178, ../sass/sitewide/_general.scss */
+/* line 185, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a, .group-right .button.participate .field-content > a, .group-right .button.participate .flag-wrapper a:visited, .group-right .button.participate .field-content > a:visited, .view-dashboard .button.participate .flag-wrapper a, .view-dashboard .button.participate .field-content > a, .view-dashboard .button.participate .flag-wrapper a:visited, .view-dashboard .button.participate .field-content > a:visited {
   background: #c3791f;
   font-size: 13px;
   padding: 5px 16px;
   font-weight: normal;
 }
-/* line 184, ../sass/sitewide/_general.scss */
+/* line 191, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a:hover, .group-right .button.participate .field-content > a:hover, .view-dashboard .button.participate .flag-wrapper a:hover, .view-dashboard .button.participate .field-content > a:hover {
   background-color: #df9336;
 }
-/* line 188, ../sass/sitewide/_general.scss */
+/* line 195, ../sass/sitewide/_general.scss */
 .group-right .button.certificate, .view-dashboard .button.certificate {
   font-style: italic;
   margin-bottom: 7px;
 }
-/* line 191, ../sass/sitewide/_general.scss */
+/* line 198, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a, .group-right .button.certificate a:visited, .view-dashboard .button.certificate a, .view-dashboard .button.certificate a:visited {
   background: #577785;
   font-weight: normal;
@@ -424,23 +432,23 @@ a.button,
   position: relative;
   top: 7px;
 }
-/* line 197, ../sass/sitewide/_general.scss */
+/* line 204, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a:hover, .group-right .button.certificate a:active, .group-right .button.certificate a:visited:hover, .group-right .button.certificate a:visited:active, .view-dashboard .button.certificate a:hover, .view-dashboard .button.certificate a:active, .view-dashboard .button.certificate a:visited:hover, .view-dashboard .button.certificate a:visited:active {
   background-color: #6f91a0;
 }
 
 /*ul.main-menu a:hover, */
-/* line 206, ../sass/sitewide/_general.scss */
+/* line 213, ../sass/sitewide/_general.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 208, ../sass/sitewide/_general.scss */
+/* line 215, ../sass/sitewide/_general.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 214, ../sass/sitewide/_general.scss */
+/* line 221, ../sass/sitewide/_general.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -452,31 +460,31 @@ input[type="submit"] {
   background-color: #c3791f;
   cursor: pointer;
 }
-/* line 224, ../sass/sitewide/_general.scss */
+/* line 231, ../sass/sitewide/_general.scss */
 input[type="submit"]:hover {
   background-color: #df9336;
 }
-/* line 227, ../sass/sitewide/_general.scss */
+/* line 234, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"], input[type="submit"][value="Remove"], input[type="submit"][value="Delete"], input[type="submit"][value="Reset"] {
   background-color: #577785;
 }
-/* line 229, ../sass/sitewide/_general.scss */
+/* line 236, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"]:hover, input[type="submit"][value="Remove"]:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Reset"]:hover {
   background-color: #6f91a0;
 }
 
-/* line 235, ../sass/sitewide/_general.scss */
+/* line 242, ../sass/sitewide/_general.scss */
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
 
-/* line 239, ../sass/sitewide/_general.scss */
+/* line 246, ../sass/sitewide/_general.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 244, ../sass/sitewide/_general.scss */
+/* line 251, ../sass/sitewide/_general.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -484,19 +492,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 251, ../sass/sitewide/_general.scss */
+/* line 258, ../sass/sitewide/_general.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 256, ../sass/sitewide/_general.scss */
+/* line 263, ../sass/sitewide/_general.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 261, ../sass/sitewide/_general.scss */
+/* line 268, ../sass/sitewide/_general.scss */
 h5 {
   font-size: 1.1em;
   margin-bottom: .5em;
@@ -504,120 +512,125 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 269, ../sass/sitewide/_general.scss */
+/* line 276, ../sass/sitewide/_general.scss */
 a {
   color: #c3791f;
 }
 
-/* line 273, ../sass/sitewide/_general.scss */
+/* line 280, ../sass/sitewide/_general.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
   color: white;
 }
 
-/* line 281, ../sass/sitewide/_general.scss */
+/* line 288, ../sass/sitewide/_general.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 285, ../sass/sitewide/_general.scss */
+/* line 292, ../sass/sitewide/_general.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 290, ../sass/sitewide/_general.scss */
+/* line 297, ../sass/sitewide/_general.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 295, ../sass/sitewide/_general.scss */
+/* line 302, ../sass/sitewide/_general.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 299, ../sass/sitewide/_general.scss */
+/* line 306, ../sass/sitewide/_general.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 304, ../sass/sitewide/_general.scss */
+/* line 311, ../sass/sitewide/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 309, ../sass/sitewide/_general.scss */
+/* line 316, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 311, ../sass/sitewide/_general.scss */
+/* line 318, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 316, ../sass/sitewide/_general.scss */
+/* line 323, ../sass/sitewide/_general.scss */
 table {
   width: 100%;
   border-collapse: collapse;
 }
-/* line 320, ../sass/sitewide/_general.scss */
+/* line 327, ../sass/sitewide/_general.scss */
 table thead tr {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-/* line 323, ../sass/sitewide/_general.scss */
+/* line 330, ../sass/sitewide/_general.scss */
 table thead tr th {
   text-align: left;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: normal;
-  background-color: #bcccd3;
+  background-color: #E1E7E9;
   border-top: 5px solid #577785;
   border-bottom: none;
   padding: 8px 8px;
 }
-/* line 331, ../sass/sitewide/_general.scss */
+/* line 338, ../sass/sitewide/_general.scss */
 table thead tr th:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 338, ../sass/sitewide/_general.scss */
+/* line 344, ../sass/sitewide/_general.scss */
+table tbody {
+  border: 1px solid #d7d7d7;
+}
+/* line 346, ../sass/sitewide/_general.scss */
 table tbody tr {
   border: 1px solid #ccc;
 }
-/* line 340, ../sass/sitewide/_general.scss */
+/* line 348, ../sass/sitewide/_general.scss */
 table tbody tr.odd {
   background-color: #F7F7F7;
 }
-/* line 344, ../sass/sitewide/_general.scss */
+/* line 352, ../sass/sitewide/_general.scss */
 table tbody tr td {
   padding: 3px 6px;
+  font-size: .9em;
 }
-/* line 346, ../sass/sitewide/_general.scss */
+/* line 355, ../sass/sitewide/_general.scss */
 table tbody tr td:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 349, ../sass/sitewide/_general.scss */
+/* line 358, ../sass/sitewide/_general.scss */
 table tbody tr td a, table tbody tr td a:visited {
   color: #c3791f;
   text-decoration: none;
 }
-/* line 352, ../sass/sitewide/_general.scss */
+/* line 361, ../sass/sitewide/_general.scss */
 table tbody tr td a:hover, table tbody tr td a:visited:hover {
   text-decoration: none;
   color: #e39f4c;
 }
-/* line 357, ../sass/sitewide/_general.scss */
+/* line 366, ../sass/sitewide/_general.scss */
 table tbody tr td.inline-entity-form-node-field_body {
   width: 400px;
 }
-/* line 360, ../sass/sitewide/_general.scss */
+/* line 369, ../sass/sitewide/_general.scss */
 table tbody tr td.active {
   background: rgba(198, 206, 221, 0.31);
 }
 
-/* line 368, ../sass/sitewide/_general.scss */
+/* line 377, ../sass/sitewide/_general.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -627,26 +640,26 @@ table tbody tr td.active {
   padding-left: 0;
 }
 
-/* line 378, ../sass/sitewide/_general.scss */
+/* line 387, ../sass/sitewide/_general.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: 1em 0 .5em;
 }
 
 /* end forms */
-/* line 386, ../sass/sitewide/_general.scss */
+/* line 395, ../sass/sitewide/_general.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/* line 390, ../sass/sitewide/_general.scss */
+/* line 399, ../sass/sitewide/_general.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 396, ../sass/sitewide/_general.scss */
+/* line 405, ../sass/sitewide/_general.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -659,7 +672,7 @@ body {
  *  Section_3 - Region-Specific Styles                    *
  *                                                        *
  **********************************************************/
-/* line 412, ../sass/sitewide/_general.scss */
+/* line 421, ../sass/sitewide/_general.scss */
 body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   padding-top: 80px;
 }
@@ -667,7 +680,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 /*
  *  Specific event page styling for the footer.
  */
-/* line 420, ../sass/sitewide/_general.scss */
+/* line 429, ../sass/sitewide/_general.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -675,7 +688,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 427, ../sass/sitewide/_general.scss */
+/* line 436, ../sass/sitewide/_general.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -683,12 +696,12 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   max-width: 1200px;
 }
 
-/* line 434, ../sass/sitewide/_general.scss */
+/* line 443, ../sass/sitewide/_general.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 438, ../sass/sitewide/_general.scss */
+/* line 447, ../sass/sitewide/_general.scss */
 .samhsa-logo {
   float: right;
 }
@@ -698,7 +711,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
     width: 600px;
     }*/
 /* treating this as the container for now */
-/* line 448, ../sass/sitewide/_general.scss */
+/* line 457, ../sass/sitewide/_general.scss */
 #main {
   width: 1000px;
   margin-left: 0px;
@@ -706,7 +719,7 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
 }
 
 /* page */
-/* line 456, ../sass/sitewide/_general.scss */
+/* line 465, ../sass/sitewide/_general.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -715,24 +728,24 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   width: 1000px;
 }
 
-/* line 464, ../sass/sitewide/_general.scss */
+/* line 473, ../sass/sitewide/_general.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 469, ../sass/sitewide/_general.scss */
+/* line 478, ../sass/sitewide/_general.scss */
 .region-header {
   float: right;
   margin-top: 10px;
   margin-bottom: -10px;
 }
-/* line 473, ../sass/sitewide/_general.scss */
+/* line 482, ../sass/sitewide/_general.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 478, ../sass/sitewide/_general.scss */
+/* line 487, ../sass/sitewide/_general.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -742,18 +755,18 @@ body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
   clear: both;
 }
 
-/* line 487, ../sass/sitewide/_general.scss */
+/* line 496, ../sass/sitewide/_general.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 491, ../sass/sitewide/_general.scss */
+/* line 500, ../sass/sitewide/_general.scss */
 body.node-type-event #title-section {
   width: auto;
   /*280px;*/
 }
 
-/* line 496, ../sass/sitewide/_general.scss */
+/* line 505, ../sass/sitewide/_general.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -767,7 +780,7 @@ body.node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 511, ../sass/sitewide/_general.scss */
+/* line 520, ../sass/sitewide/_general.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -776,36 +789,36 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 521, ../sass/sitewide/_general.scss */
+/* line 530, ../sass/sitewide/_general.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
   color: #c3791f;
 }
 
-/* line 527, ../sass/sitewide/_general.scss */
+/* line 536, ../sass/sitewide/_general.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 531, ../sass/sitewide/_general.scss */
+/* line 540, ../sass/sitewide/_general.scss */
 img.file-icon {
   position: relative;
   top: 4px;
 }
 
 /* form stuff */
-/* line 540, ../sass/sitewide/_general.scss */
+/* line 549, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 545, ../sass/sitewide/_general.scss */
+/* line 554, ../sass/sitewide/_general.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 549, ../sass/sitewide/_general.scss */
+/* line 558, ../sass/sitewide/_general.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -813,12 +826,12 @@ img.file-icon {
 
 /* new styles */
 /* not used yet */
-/* line 557, ../sass/sitewide/_general.scss */
+/* line 566, ../sass/sitewide/_general.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 561, ../sass/sitewide/_general.scss */
+/* line 570, ../sass/sitewide/_general.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -826,7 +839,7 @@ img.file-icon {
 }
 
 /* not used yet */
-/* line 569, ../sass/sitewide/_general.scss */
+/* line 578, ../sass/sitewide/_general.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -835,7 +848,7 @@ h4.black {
   margin-bottom: 9px;
 }
 
-/* line 579, ../sass/sitewide/_general.scss */
+/* line 588, ../sass/sitewide/_general.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -853,17 +866,17 @@ div#content {
   padding-top: 20px;
 }
 
-/* line 598, ../sass/sitewide/_general.scss */
+/* line 607, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info {
   color: white;
   top: 10px;
 }
-/* line 601, ../sass/sitewide/_general.scss */
+/* line 610, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
 
-/* line 605, ../sass/sitewide/_general.scss */
+/* line 614, ../sass/sitewide/_general.scss */
 .form-type-select .chosen-container {
   display: block !important;
 }
@@ -877,6 +890,26 @@ fieldset {
 fieldset legend {
   top: 0 !important;
 }*/
+/* line 631, ../sass/sitewide/_general.scss */
+.feed-icon img[title="CSV"] {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
+  width: 32px;
+  height: 32px;
+  margin-left: -3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 640, ../sass/sitewide/_general.scss */
+.feed-icon img[title="XLS"] {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACtUlEQVRoQ+2ZTW7TUBSFz409QNgSLs4C0hWQroCyAtoVtF0B6RDVEUF2xRCzAsIKWlZAWAHpChLmMTJSjBg4veg5cYiq/Dj1s58HzsjK+7n3O8f32nombPg1PZM3jeX/n4dxHL0Kewjz7zXfgdSAiKhyYdSAMN+B6IVMGCUgcTw90DVjIBNGCcjEmZLVgyUTRhmIqBKZMEpBZMIoB5EFUwkQGTCVAckLUymQPDCVA3ksTCVBHgNTWZB9YSoNsg5m4kRH6150lYDkeXUXrzc1SB4FZa+tHZGtaN79akfyKih7fe2IbEXz7leMI4zvAAYAjkF4mSTJeM/ELQKdievFodO7hwAM/gnGLYFCJrQJeJ0FshAQBo8DJzq03acnRI0bMN9NulH7uWd0GqCPadCHh30MfA2c6UmaeNM1hRDflIGIwDHxUXgVDW3PDBnc++VEvu0ZIwK1NoGI4yCxVtfNm8RN8BCgtlIQBn8JnOjc9oz+TJv19FhvpequA2FGGHSnB/u4sApYyK2VlMQiMevaaM+dMfpJfQDY6cjykC6LF/M5hYEkMMQXwVXUF+dUmmaOiGBtA2FwP3Cii2S+bvgpeBacQkHuwZeiNqwPT1r6TB+lCW1yZD7O/sSJLsXVqou7YAoFibX4UCQQvv07brrmIG3F20ESmOXnBdEsCHimDCRtpbZr+EE36tjXxjkxfd52a60mm7q5KsA2mMIcYb4/Dbp/bsWzYrUVC3V3O/K/vpqe8SNLCy4EhIHfgTO10gciM39KXHENn4jeLEFcs5eqzIQOMcTD8JgbPBZNYp9WXAxImvii5S5b8aLo1wUVysfa7FTU06LQz8Dkp51OWY3sCix7vBBHZCeZZb8aJItKZc6pHSlT7SyxakeyqFTmnNqRMtXOEqt2JItKZc6pHSlT7SyxNjnyD4avTFESYk0LAAAAAElFTkSuQmCC");
+  width: 32px;
+  height: 32px;
+  margin-left: -3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /*
  *  Banners
  */
@@ -1168,8 +1201,9 @@ ul#main-menu.main-menu li.menu-item > a.active {
   padding: 0px;
   margin: 0px;
   display: block;
+  background: #efefef;
 }
-/* line 75, ../sass/sitewide/_navigation.scss */
+/* line 76, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a {
   display: block;
   margin: 0px;
@@ -1183,25 +1217,58 @@ ul#main-menu.main-menu li.menu-item > a.active {
   width: 165px;
   background: none;
 }
-/* line 88, ../sass/sitewide/_navigation.scss */
+/* line 89, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
   color: #333;
 }
-/* line 92, ../sass/sitewide/_navigation.scss */
+/* line 93, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a:hover {
   text-decoration: underline;
 }
-/* line 95, ../sass/sitewide/_navigation.scss */
+/* line 96, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li.last {
   padding-bottom: 15px;
 }
 /* line 100, ../sass/sitewide/_navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two:before, #main-menu li.menu-parent ul.sub-menu.tier-two:after {
+  position: absolute;
+  width: 49%;
+  height: 90px;
+  content: ' ';
+  left: 3px;
+  bottom: 5px;
+  background: transparent;
+  -webkit-transform: skew(-5deg) rotate(-5deg);
+  -moz-transform: skew(-5deg) rotate(-5deg);
+  -ms-transform: skew(-5deg) rotate(-5deg);
+  -o-transform: skew(-5deg) rotate(-5deg);
+  transform: skew(-5deg) rotate(-5deg);
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+/* line 118, ../sass/sitewide/_navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two:after {
+  left: auto;
+  right: 3px;
+  -webkit-transform: skew(5deg) rotate(5deg);
+  -moz-transform: skew(5deg) rotate(5deg);
+  -ms-transform: skew(5deg) rotate(5deg);
+  -o-transform: skew(5deg) rotate(5deg);
+  transform: skew(5deg) rotate(5deg);
+}
+/* line 128, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent.active-trail ul.sub-menu.tier-two {
   background: white;
 }
+/* line 130, ../sass/sitewide/_navigation.scss */
+#main-menu li.menu-parent.active-trail ul.sub-menu.tier-two li {
+  background: white;
+}
 
-/* line 109, ../sass/sitewide/_navigation.scss */
+/* line 140, ../sass/sitewide/_navigation.scss */
 body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a,
 body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
@@ -1211,7 +1278,7 @@ body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   height: 26px;
 }
 
-/* line 118, ../sass/sitewide/_navigation.scss */
+/* line 149, ../sass/sitewide/_navigation.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1219,13 +1286,13 @@ body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.
   color: #8c1d18;
   height: 26px;
 }
-/* line 122, ../sass/sitewide/_navigation.scss */
+/* line 153, ../sass/sitewide/_navigation.scss */
 body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
   display: block;
 }
 
 /* View | Edit | Manage Display | etc. tabs */
-/* line 130, ../sass/sitewide/_navigation.scss */
+/* line 161, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary,
 ul.tabs-secondary {
   background-image: -o-linear-gradient(bottom, black 1px, transparent 1px);
@@ -1234,17 +1301,17 @@ ul.tabs-secondary {
   background-image: linear-gradient(center bottom, black, 1px, transparent 1px);
   /*907px;*/
 }
-/* line 134, ../sass/sitewide/_navigation.scss */
+/* line 165, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li:first-child,
 ul.tabs-secondary li:first-child {
   margin-left: 10px;
 }
-/* line 137, ../sass/sitewide/_navigation.scss */
+/* line 168, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li,
 ul.tabs-secondary li {
   border: 0px;
 }
-/* line 139, ../sass/sitewide/_navigation.scss */
+/* line 170, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a, ul.tabs-primary li a:active, ul.tabs-primary li a.is-active,
 ul.tabs-secondary li a,
 ul.tabs-secondary li a:active,
@@ -1255,72 +1322,72 @@ ul.tabs-secondary li a.is-active {
   font-weight: 500;
   padding: 3px 20px;
 }
-/* line 146, ../sass/sitewide/_navigation.scss */
+/* line 177, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:not(.is-active),
 ul.tabs-secondary li a:not(.is-active) {
   border: 0px;
 }
-/* line 149, ../sass/sitewide/_navigation.scss */
+/* line 180, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:hover, ul.tabs-primary li a:active,
 ul.tabs-secondary li a:hover,
 ul.tabs-secondary li a:active {
   background-color: white;
 }
-/* line 153, ../sass/sitewide/_navigation.scss */
+/* line 184, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li.tabs-primary__tab.is-active,
 ul.tabs-secondary li.tabs-primary__tab.is-active {
   border-color: black;
   border-bottom-color: white;
 }
 
-/* line 159, ../sass/sitewide/_navigation.scss */
+/* line 190, ../sass/sitewide/_navigation.scss */
 div.vertical-tabs {
   margin-right: 0px;
 }
 
 /* used to be in mobile */
 @media screen and (max-width: 1024px) {
-  /* line 166, ../sass/sitewide/_navigation.scss */
+  /* line 197, ../sass/sitewide/_navigation.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 171, ../sass/sitewide/_navigation.scss */
+  /* line 202, ../sass/sitewide/_navigation.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 175, ../sass/sitewide/_navigation.scss */
+  /* line 206, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 177, ../sass/sitewide/_navigation.scss */
+  /* line 208, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 180, ../sass/sitewide/_navigation.scss */
+  /* line 211, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     margin: 0px auto;
     padding: 0px;
     /* hide admin*/
   }
-  /* line 186, ../sass/sitewide/_navigation.scss */
+  /* line 217, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
 
-  /* line 200, ../sass/sitewide/_navigation.scss */
+  /* line 231, ../sass/sitewide/_navigation.scss */
   body.role-administrator ul#main-menu.main-menu.responsive-menu {
     width: 95%;
   }
 
-  /* line 206, ../sass/sitewide/_navigation.scss */
+  /* line 237, ../sass/sitewide/_navigation.scss */
   body.role-authenticated-user ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
   }
@@ -2986,12 +3053,12 @@ body.node-type-event.not-logged-in div#content.column {
  *  Event Page -- Mozilla-specific fix for footer.
  */
 @-moz-document url-prefix() {
-  /* line 351, ../sass/main_pages/_event.scss */
+  /* line 349, ../sass/main_pages/_event.scss */
   body.node-type-event #page {
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 355, ../sass/main_pages/_event.scss */
+  /* line 353, ../sass/main_pages/_event.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: 20px;
     left: 20px;
@@ -2999,12 +3066,12 @@ body.node-type-event.not-logged-in div#content.column {
 }
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
-  /* line 364, ../sass/main_pages/_event.scss */
+  /* line 362, ../sass/main_pages/_event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     height: 192px;
   }
 }
-/* line 369, ../sass/main_pages/_event.scss */
+/* line 367, ../sass/main_pages/_event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
@@ -3056,50 +3123,33 @@ body.page-administration fieldset .form-item {
 body.page-administration fieldset input[type="submit"] {
   margin: 0 0 0 15px;
 }
-/* line 45, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tbody, body.page-administration.page-administration-my-events table.views-table tbody {
-  border: 1px solid #d7d7d7;
-}
-/* line 49, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tr th, body.page-administration.page-administration-my-events table.views-table tr th {
-  padding-right: 10px;
-}
-/* line 52, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tr td:first-child, body.page-administration.page-administration-my-events table.views-table tr td:first-child {
-  padding-left: 10px;
-  width: 230px;
-}
-/* line 56, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tr td:nth-child(2), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(2) {
+/* line 44, ../sass/admin/_admin.scss */
+body.page-administration.page-administration-event-report td.views-field-field-date-instance, body.page-administration.page-administration-my-events td.views-field-field-date-instance {
   width: 220px;
 }
-/* line 59, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tr td, body.page-administration.page-administration-my-events table.views-table tr td {
-  padding-right: 10px;
-}
-/* line 62, ../sass/admin/_admin.scss */
-body.page-administration.page-administration-event-report table.views-table tr td:nth-child(n+5), body.page-administration.page-administration-my-events table.views-table tr td:nth-child(n+5) {
-  text-align: center;
+/* line 47, ../sass/admin/_admin.scss */
+body.page-administration.page-administration-event-report td.views-field-field-date, body.page-administration.page-administration-my-events td.views-field-field-date {
+  width: 200px;
 }
 
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 73, ../sass/admin/_admin.scss */
+/* line 56, ../sass/admin/_admin.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 79, ../sass/admin/_admin.scss */
+/* line 62, ../sass/admin/_admin.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
   list-style-image: url("/misc/menu-collapsed.png");
 }
 
-/* line 85, ../sass/admin/_admin.scss */
+/* line 68, ../sass/admin/_admin.scss */
 div.group-audience, div.group-description, div.group-dates {
   /* h4 {
        margin-bottom: 0px;
@@ -3110,17 +3160,17 @@ div.group-audience, div.group-description, div.group-dates {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 96, ../sass/admin/_admin.scss */
+/* line 79, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
 }
-/* line 98, ../sass/admin/_admin.scss */
+/* line 81, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
   margin-right: 20px;
   border: 1px solid red;
 }
 
-/* line 104, ../sass/admin/_admin.scss */
+/* line 87, ../sass/admin/_admin.scss */
 div.views-field.views-field-field-presenter-image {
   margin: 5px 15px 0px 0px;
   /*16px 23px 0px 0px;*/
@@ -3130,19 +3180,19 @@ div.views-field.views-field-field-presenter-image {
 /**
  * Disclaimer Placement Section
  */
-/* line 114, ../sass/admin/_admin.scss */
+/* line 97, ../sass/admin/_admin.scss */
 body.node-type-event div.bottom-footer {
   /* border: 1px solid yellow;*/
   height: 50px;
   margin-bottom: 0px;
 }
 
-/* line 120, ../sass/admin/_admin.scss */
+/* line 103, ../sass/admin/_admin.scss */
 body.node-type-event #block-block-12 {
   /*border: 1px solid blue;*/
   display: block;
 }
-/* line 123, ../sass/admin/_admin.scss */
+/* line 106, ../sass/admin/_admin.scss */
 body.node-type-event #block-block-12 .disclaimer {
   padding: 0px 590px 20px 0px;
   left: 20px;
@@ -3152,12 +3202,12 @@ body.node-type-event #block-block-12 .disclaimer {
 }
 
 /* we are using this for the event edit pages*/
-/* line 137, ../sass/admin/_admin.scss */
+/* line 120, ../sass/admin/_admin.scss */
 body.node-type-event.page-node-edit .disclaimer {
   left: 0px;
 }
 
-/* line 142, ../sass/admin/_admin.scss */
+/* line 125, ../sass/admin/_admin.scss */
 body.page-user-edit div.disclaimer {
   margin-bottom: 40px;
 }
@@ -3165,7 +3215,7 @@ body.page-user-edit div.disclaimer {
 /*
  * page administration
  */
-/* line 152, ../sass/admin/_admin.scss */
+/* line 135, ../sass/admin/_admin.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
@@ -3173,7 +3223,7 @@ body.page-administration div#content div#title-section h2 {
 /**
  * Switch User
  */
-/* line 161, ../sass/admin/_admin.scss */
+/* line 144, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -3181,7 +3231,7 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 167, ../sass/admin/_admin.scss */
+/* line 150, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
@@ -3686,7 +3736,7 @@ form#user-profile-form .fieldset-wrapper {
 
 /* line 130, ../sass/main_pages/_register.scss */
 .access-information {
-  background-color: #F2F2F2;
+  background-color: #F8FBFD;
   font-size: 11px;
 }
 /* line 133, ../sass/main_pages/_register.scss */

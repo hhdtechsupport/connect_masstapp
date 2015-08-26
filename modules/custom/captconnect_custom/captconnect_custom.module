@@ -175,6 +175,10 @@ function captconnect_custom_theme() {
        'render element' => 'form',
        'file' => 'captconnect_custom.admin.inc',
        ),
+    'captconnect_custom_userprofile' => array(
+       'render element' => 'elements',
+       'template' => 'capt-user-profile',
+       ),
     );
 }
 
@@ -599,32 +603,37 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 
 function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
 //  dpm($form, $form_id);
-
   $form['actions']['#weight'] = 100;
 
   $form['account']['#weight'] = 0;
-//  $form['account']['#attributes'] = array('style' => 'background-color: #fff; padding: 0 5px !important;');
 
   if (isset($form['password_policy'])) {
     $form['password_policy']['#collapsible'] = TRUE;
     $form['password_policy']['#collapsed'] = TRUE;
     $form['password_policy']['#weight'] = 11;
-//    $form['password_policy']['#attributes'] = array('style' => 'background-color: #dfd;');
   }
 
   if (isset($form['timezone'])) {
-    $form['timezone']['#title'] = t('Time Zone');
-    $form['timezone']['#weight'] = 10;
-//    $form['timezone']['#attributes'] = array('style' => 'background-color: #fdd;');
+    // It is initially a fieldset, so let's just move the data up a level.
+    $timezone = $form['timezone']['timezone'];
+    unset($form['timezone']);
+    $form['timezone'] = $timezone;
+    $form['timezone']['#weight'] = 1;
   }
 
   if (isset($form['mimemail'])) {
-    $form['mimemail']['#weight'] = 12;
+    // It is initially a fieldset, so let's just move the data up a level.
+    $mimemail = $form['mimemail']['mimemail_textonly'];
+    unset($form['mimemail']);
+    $form['mimemail'] = $mimemail;
+    $form['mimemail']['#weight'] = 20;
   }
+
 //    $form['og_user_node']['#collapsible'] = TRUE;
 //    $form['og_user_node']['#collapsed'] = TRUE;
 //  dpm($form, $form_id);
 }
+
 /**
  * Implements hook_form_alter().
  * Note: we need to be very late in the form cycle so we can see all the fields.
@@ -1158,15 +1167,13 @@ function captconnect_custom_flag_link_type_info() {
       'provides form' => FALSE,
       ),
     );
-}
+} /* */
+
 /**
  * Implements hook_flag_link().
  * ATM, this is just like the flag module.
  */
 function captconnect_custom_flag_link($flag, $action, $entity_id) {
-  $css = ".instance-full {font-size:115%;font-weight:bold;color:white;background-color:red; padding: 3px 6px;)
-    ";
-  drupal_add_css($css, 'inline');
   $token = flag_get_token($entity_id);
 
   // Is the event instance at capacity yet?
@@ -1179,7 +1186,8 @@ function captconnect_custom_flag_link($flag, $action, $entity_id) {
   // How many registrtations do we have currently?
   $num_regs = $flag->get_count($entity_id);
 
-  if ($num_regs >= $capacity && $capacity > 0) {
+  // Are we at capacity, or are they already registered?
+  if ($num_regs >= $capacity && $capacity > 0 && !$flag->is_flagged($entity_id)) {
     // This instance is full.
     return array(
       'title' => t('Full'),
