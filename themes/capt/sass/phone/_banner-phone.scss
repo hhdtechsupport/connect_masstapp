@@ -29,13 +29,16 @@ body.role-authenticated-user.node-type-event {
 
 
     }
+    .region-highlighted.category div#block-block-13 {
+      font-size: 0.7em;
+    }
   }
   div#block-block-13 {
     color: white;
     font-size: 12px;
     top: -100;
     position: absolute;
-    margin-top: -8px;
+    margin-top: -14px;
     cursor: default;
   }
   // CAPT Connect and subtitle
@@ -43,11 +46,12 @@ body.role-authenticated-user.node-type-event {
   div#block-block-13 {
     margin-left: 0px;
     padding-left: 10px;
-    font-size: .5em;
+    font-size: .8em;
   }
   /* banner title text */
   h1#site-name.header__site-name {
-    margin-top: -30px;
+    margin-top: -50px;
+    font-size: 3em;
     a {
       font-size: 0.8em;
     }
@@ -58,6 +62,21 @@ body.not-logged-in {
   div#block-block-13 {
     margin-left: -236px;
     top: 72px;
+  }
+
+}
+
+body.not-logged-in:not(.node-type-event) {
+
+  header#header {
+
+    #name-and-slogan {
+      padding-top: 70px;
+    }
+    div#block-block-13 {
+      top: 75px;
+    }
+
   }
 
 }
