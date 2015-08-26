@@ -19,10 +19,11 @@ var iPh6W = 375;
   var why_reg_heights = ['191','130','34'];
 
     // event panel variables
+  var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
   var mater =['div#block-views-materials-block h2','div.view-materials'];
-  var eventPanels = [aud,pres,mater];
+  var eventPanels = [desc,aud,pres,mater];
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
   var ev = ['h1#page-title','div#content > .view-dashboard']
@@ -215,7 +216,7 @@ function isPhone () {
       }
 
   /*
-   *  End responsive show-hide functinality
+   *  End responsive show-hide functionality
    */
 
   function showHideIcons (header, body) {

@@ -20,7 +20,7 @@ footer {
   }
 
 }
-  // banner 
+  // banner
   /* banner title text */
   h1#site-name.header__site-name {
     margin-top: -35px;
@@ -28,7 +28,7 @@ footer {
 
     a {
       font-size: 1em;
-      
+
     }
   }
 
@@ -57,21 +57,18 @@ footer {
     }
   }
 
-  // general styles 
+  // general styles
   div#page {
     padding-bottom: 0px;
     margin-bottom: 0px;
 
-  } 
+  }
   div#main div#content div#title-section {
     margin-top: 0px;
   }
-  
+
   ul.tabs-primary {
     display: none;
-  }
-  h1.subtitle {
-    margin-top: 50px;
   }
   .ds-2col-stacked > .group-left,
   .ds-2col-stacked > .group-right {
@@ -79,7 +76,7 @@ footer {
     margin: 0px;
     float: none;
   }
-  // panel-specific 
+  // panel-specific
   div#block-views-materials-block {
     margin-bottom: 0px;
 
@@ -99,9 +96,9 @@ footer {
      background-color: $capt-lightgrey;
      border-bottom: 0px;
      margin-left: 0px;
-     padding-left: $panel-margin-left + 20px;
+     padding-left: 26px;
      padding-top: 16px;
-     background-position: 20px 24px;
+     background-position: 6px 24px;
    }
    div.view-materials {
     border-top: 1px solid $capt-midgrey;
@@ -121,7 +118,8 @@ footer {
 }
 .ds-2col-stacked > .group-left {
   div.group-audience,
-  div.group-presenter {
+  div.group-presenter,
+  div.group-description {
    .views-field-field-presenter-image {
     margin-right: -22px;
 
@@ -133,7 +131,7 @@ footer {
         height: 100%;
       }
 
-    } 
+    }
   }
   @extend .event-show-hide;
   width: 100%;
@@ -155,7 +153,8 @@ footer {
 
 }
 
-div.group-audience {
+div.group-description {
+  margin-top: 20px;
   &:before {
     @extend .before-style;
   }
@@ -229,4 +228,3 @@ div.field-type-ds.field-name-event-date-s- {
 
   }
 }
-

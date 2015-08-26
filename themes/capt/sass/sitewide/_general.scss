@@ -117,6 +117,13 @@ a.button,
   font-weight: normal;
 }
 
+.participate-others-button,
+.register-others-button {
+  margin-top: 10px;
+  position: relative;
+  float: right;
+}
+
 .participate-others-button:hover,
 .register-others-button:hover {
   text-decoration: none;
@@ -149,8 +156,13 @@ a.button,
   }
 }
 
+<<<<<<< HEAD
 .group-right .button, .view-dashboard .button {
+  .flag-wrapper a, .field-content > a, &.certificate a, .flag-wrapper .instance-full {
+=======
+.button {
   .flag-wrapper a, .field-content > a, &.certificate a {
+>>>>>>> matt
     @include border-radius(3px);
     color: #ffffff;
     padding: 4px 12px;
@@ -322,9 +334,9 @@ table {
       border-right: 1px solid #ccc;
       th {
         text-align: left;
-        font-size: 1.2em;
+        font-size: 1.1em;
         font-weight: normal;
-        background-color: lighten($capt-aqua, 35%);
+        background-color: #E1E7E9;
         border-top: 5px solid $capt-aqua;
         border-bottom: none;
         padding: 8px 8px;
@@ -335,6 +347,7 @@ table {
     }
   }
   tbody {
+    border: 1px solid $capt-midgrey;
     tr {
       border: 1px solid #ccc;
       &.odd {
@@ -343,6 +356,7 @@ table {
       &.ief-row-form {}
       td {
         padding: 3px 6px;
+        font-size: .9em;
         &:last-child {
           border-right: 1px solid #ccc;
         }
@@ -407,11 +421,6 @@ body {
  **********************************************************/
 
 
-
-
-body.not-front.not-logged-in.node-type-event header#header #name-and-slogan {
-  padding-top: 80px;
-}
 
 /*
  *  Specific event page styling for the footer.
@@ -615,3 +624,24 @@ fieldset {
 fieldset legend {
   top: 0 !important;
 }*/
+
+
+
+
+.feed-icon img[title="CSV"]{
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
+  width: 32px;
+  height: 32px;
+  margin-left: -3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.feed-icon img[title="XLS"]{
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACtUlEQVRoQ+2ZTW7TUBSFz409QNgSLs4C0hWQroCyAtoVtF0B6RDVEUF2xRCzAsIKWlZAWAHpChLmMTJSjBg4veg5cYiq/Dj1s58HzsjK+7n3O8f32nombPg1PZM3jeX/n4dxHL0Kewjz7zXfgdSAiKhyYdSAMN+B6IVMGCUgcTw90DVjIBNGCcjEmZLVgyUTRhmIqBKZMEpBZMIoB5EFUwkQGTCVAckLUymQPDCVA3ksTCVBHgNTWZB9YSoNsg5m4kRH6150lYDkeXUXrzc1SB4FZa+tHZGtaN79akfyKih7fe2IbEXz7leMI4zvAAYAjkF4mSTJeM/ELQKdievFodO7hwAM/gnGLYFCJrQJeJ0FshAQBo8DJzq03acnRI0bMN9NulH7uWd0GqCPadCHh30MfA2c6UmaeNM1hRDflIGIwDHxUXgVDW3PDBnc++VEvu0ZIwK1NoGI4yCxVtfNm8RN8BCgtlIQBn8JnOjc9oz+TJv19FhvpequA2FGGHSnB/u4sApYyK2VlMQiMevaaM+dMfpJfQDY6cjykC6LF/M5hYEkMMQXwVXUF+dUmmaOiGBtA2FwP3Cii2S+bvgpeBacQkHuwZeiNqwPT1r6TB+lCW1yZD7O/sSJLsXVqou7YAoFibX4UCQQvv07brrmIG3F20ESmOXnBdEsCHimDCRtpbZr+EE36tjXxjkxfd52a60mm7q5KsA2mMIcYb4/Dbp/bsWzYrUVC3V3O/K/vpqe8SNLCy4EhIHfgTO10gciM39KXHENn4jeLEFcs5eqzIQOMcTD8JgbPBZNYp9WXAxImvii5S5b8aLo1wUVysfa7FTU06LQz8Dkp51OWY3sCix7vBBHZCeZZb8aJItKZc6pHSlT7SyxakeyqFTmnNqRMtXOEqt2JItKZc6pHSlT7SyxNjnyD4avTFESYk0LAAAAAElFTkSuQmCC");
+  width: 32px;
+  height: 32px;
+  margin-left: -3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

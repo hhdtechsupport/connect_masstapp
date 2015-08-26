@@ -72,6 +72,7 @@ ul#main-menu.main-menu {
       padding: 0px;
       margin: 0px;
       display: block;
+      background: $capt-hovergrey;
       a {
         display: block;
         margin: 0px;
@@ -96,9 +97,39 @@ ul#main-menu.main-menu {
         padding-bottom: 15px;
       }
     }
+    &:before, &:after {
+      position: absolute;
+      width: 49%;
+      height: 90px;
+      content: ' ';
+      left: 3px;
+      bottom: 5px;
+      background: transparent;
+      -webkit-transform: skew(-5deg) rotate(-5deg);
+      -moz-transform: skew(-5deg) rotate(-5deg);
+      -ms-transform: skew(-5deg) rotate(-5deg);
+      -o-transform: skew(-5deg) rotate(-5deg);
+      transform: skew(-5deg) rotate(-5deg);
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      z-index: -1;
+    }
+    &:after {
+      left: auto;
+      right: 3px;
+      -webkit-transform: skew(5deg) rotate(5deg);
+      -moz-transform: skew(5deg) rotate(5deg);
+      -ms-transform: skew(5deg) rotate(5deg);
+      -o-transform: skew(5deg) rotate(5deg);
+      transform: skew(5deg) rotate(5deg);
+    }
   }
   &.active-trail ul.sub-menu.tier-two {
     background: white;
+    li {
+      background: white;
+    }
   }
 }
 
@@ -178,7 +209,7 @@ div.vertical-tabs {
           margin: 0px auto;
           width: 100%;
           ul#main-menu.main-menu.responsive-menu {
-        
+
             overflow: visible;
             margin: 0px auto;
             padding: 0px;
