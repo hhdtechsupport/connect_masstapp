@@ -93,8 +93,13 @@ function workflow_notify_workflow_operations($op, $workflow = NULL) {
  * Sene emails on workflow state transitions.
  */
 function workflow_notify_entity_insert($entity, $type) {
-  if ($type == 'node' && isset($entity->workflow_transitions)) {
-    _workflow_notify_send_notification($entity);
+  if ($type == 'node' && isset($entity->workflow_transitions)
+    && count($entity->workflow_transitions) > 0) {
+    // Check if there is actually a state change.
+    if ($entity->workflow_transitions['field_workflow_state']->new_sid <>
+      $entity->workflow_transitions['field_workflow_state']->old_sid) {
+      _workflow_notify_send_notification($entity);
+    }
   }
 }
 
@@ -103,7 +108,8 @@ function workflow_notify_entity_insert($entity, $type) {
  * Sene emails on workflow state transitions.
  */
 function workflow_notify_entity_update($entity, $type) {
-  if ($type == 'node' && isset($entity->workflow_transitions)) {
+  if ($type == 'node' && isset($entity->workflow_transitions)
+    && count($entity->workflow_transitions) > 0) {
     // Check if there is actually a state change.
     if ($entity->workflow_transitions['field_workflow_state']->new_sid <>
       $entity->workflow_transitions['field_workflow_state']->old_sid) {
