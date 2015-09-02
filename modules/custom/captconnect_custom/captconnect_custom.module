@@ -1076,7 +1076,6 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
 	$form['account'] = array (
 		'#type' => 'textfield',
 		'#title' => t('Select the user'),
-		'#required' => TRUE,
 		'#autocomplete_path' => 'user/autocomplete',
   	);
 
@@ -1084,44 +1083,66 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
     '#type' => 'radios',
     '#options' => $instance_list,
     '#title' => t('Select a time for "%event"', array('%event' => $event->title)),
-		'#required' => TRUE,
     );
+  if (count($instance_list)) {
+    $form['which_one']['#default_value'] = key($instance_list);
+  }
 
   $form ['actions'] = array('#type' => 'actions', '#weight' => 100);
   $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save my choices'));
   $form ['actions']['cancel'] = array('#type' => 'submit', '#value' => t('Changed my mind'));
 
+  $form['#validate'] = array('captconnect_custom_proxy_flag_form_validate');
   $form['#submit'] = array('captconnect_custom_proxy_flag_form_submit');
+}
+
+/**
+ * Validation handler.
+ */
+function captconnect_custom_proxy_flag_form_validate($form, $form_state) {
+  // Only check the fields if the "submit" button was clicked.
+  if ($form_state['triggering_element']['#parents'][0] == 'submit') {
+    if (empty($form_state['values']['account'])) {
+      form_set_error('account', t('Please select an account name.'));
+    }
+    if (empty($form_state['values']['which_one'])) {
+      form_set_error('which_one', t('Please select a time and date.'));
+    }
+  }
 }
 
 /**
  * Submit handler.
  */
 function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
-  $flags = flag_get_flags();
+  // Only process the data if the "submit" button was clicked.
+  if ($form_state['triggering_element']['#parents'][0] == 'submit') {
+    $flags = flag_get_flags();
 
-  $flag_action = $form['#flag_action'];
-  $flag_title = $flags[$flag_action]->title;
+    $flag_action = $form['#flag_action'];
+    $flag_title = $flags[$flag_action]->title;
 
-  $account = user_load_by_name($form_state['values']['account']);
+    $account = user_load_by_name($form_state['values']['account']);
 
-  $instance = $form['#instances'][$form_state['values']['which_one']];
+    $instance = $form['#instances'][$form_state['values']['which_one']];
 
-  // Okay, let's get 'er done.
-  $args = array(
-    '@event' => $form['#event']->title,
-    '@user' => format_username($account),
-    '@time' => $instance->title,
-    '@action' => ($flag_action == 'registration' ? 'registrered for' : 'participating in'),
-    );
+    // Okay, let's get 'er done.
+    $args = array(
+      '@event' => $form['#event']->title,
+      '@user' => format_username($account),
+      '@time' => $instance->title,
+      '@action' => ($flag_action == 'registration' ? 'registrered for' : 'participating in'),
+      );
 
-  // The flag function returns a boolean to indicate success or failure.
-  if (flag('flag', $flag_action, $instance->nid, $account)) {
-    drupal_set_message(t(variable_get('captconnect_custom_proxy_registered',
-      '@user is now @action "@event" at @time.'), $args));
-  }  else {
-    drupal_set_message(t(variable_get('captconnect_custom_proxy_failed',
-      'Flagging for @user for "@event" at @time failed.'), $args));
+    // The flag function returns a boolean to indicate success or failure.
+    if (flag('flag', $flag_action, $instance->nid, $account)) {
+      drupal_set_message(t(variable_get('captconnect_custom_proxy_registered',
+        '@user is now @action "@event" at @time.'), $args));
+    }
+    else {
+      drupal_set_message(t(variable_get('captconnect_custom_proxy_failed',
+        'Flagging for @user for "@event" at @time failed.'), $args));
+    }
   }
 }
 
