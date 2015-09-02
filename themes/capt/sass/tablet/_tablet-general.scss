@@ -9,6 +9,7 @@
   body.not-logged-in.page-anon-login,
   body.logged-in.page-user-edit,
   body.page-user-register {
+    width: 100%;
     div.bottom-footer div.disclaimer {
       width: 365px;
       padding: 0px;
@@ -20,11 +21,6 @@
       background-position: 80px 4px;
       padding-right: 20px;
     }
-    div#main,
-    div#content {
-      width: 98%;
-    }
-    width: 100%;
     /* login screen */
     div#page {
       width: 83.3333%;
@@ -39,4 +35,8 @@
         margin-right: 8%;
       }
     }
+  }
+
+  body.not-logged-in.node-type-event #content {
+    width: auto;
   }

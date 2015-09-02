@@ -156,7 +156,7 @@ a.button,
   }
 }
 
-.group-right .button, .view-dashboard .button {
+.group-right .button, .view-dashboard .button, body.node-type-event .view-instances .button {
   .flag-wrapper a, .field-content > a, &.certificate a, .flag-wrapper .instance-full {
     @include border-radius(3px);
     color: #ffffff;
@@ -407,6 +407,10 @@ body {
   display: block;
   top: 100px;
   position: relative;
+}
+
+.group-footer {
+  padding: 10px 0;
 }
 
 /**********************************************************

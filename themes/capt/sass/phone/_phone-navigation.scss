@@ -10,7 +10,7 @@ $title-buffer: 104px;
 
 body.page-events.section-events,
 body.page-user-edit.role-authenticated-user,
-body.role-authenticated-user.node-type-event {
+body.node-type-event {
 
 	// transfer to phone-navigation
         ul#main-menu.main-menu  {
@@ -63,5 +63,14 @@ body.role-authenticated-user.node-type-event {
            padding-top: 5px;
            padding-bottom: 20px;
         }
+        &.not-logged-in {
+          div#main div#content {
+            border-top: 1px;
+          }
+        }
 
+}
+
+body.section-events #navigation .links li {
+  padding-right: 7px;
 }
