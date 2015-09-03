@@ -56,7 +56,22 @@
 
     </div>
     <div class="header-photos">
-      
+      <div class="row-1 photo-1 photos"></div>
+      <div class="row-1 photo-2 photos"></div>
+      <div class="row-1 photo-3 photos"></div>
+      <div class="row-1 photo-4 photos"></div>
+      <div class="row-1 photo-5 photos"></div>
+      <div class="row-1 photo-6 photos"></div>
+      <div class="row-1 photo-7 photos"></div>
+      <div class="row-1 photo-8 photos"></div>
+      <div class="row-2 photo-1 photos"></div>
+      <div class="row-2 photo-2 photos"></div>
+      <div class="row-2 photo-3 photos"></div>
+      <div class="row-2 photo-4 photos"></div>
+      <div class="row-2 photo-5 photos"></div>
+      <div class="row-2 photo-6 photos"></div>
+      <div class="row-2 photo-7 photos"></div>
+      <div class="row-2 photo-8 photos"></div>
     </div>
 
   </header>

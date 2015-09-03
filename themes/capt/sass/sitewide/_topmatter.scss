@@ -6,43 +6,122 @@
  *  Banners
  */
 
+
+
 body {
   width: 100%;
   margin: 0px;
   &.front, &.not-logged-in:not(.node-type-event) {
     header#header {
-      height: 380px;
-      background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
-      padding-left: 100px;
-      margin-left: 0px;
-      #name-and-slogan {
-        padding-top: 55px;
-        float: left;
-        clear: none;
-        h1 {
-          font-size: 3em;
-          line-height: 1em;
-        }
-        a.header__site-link {
-          color: white;
-          text-decoration: none;
-          font-weight: normal;
-          &:hover {
-            text-decoration: none;
+      padding: 0px;
+      .header-blue {
+        height: 131px;
+        background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
+        padding-left: 100px;
+        margin-left: 0px;
+        #name-and-slogan {
+          padding-top: 55px;
+          float: left;
+          clear: none;
+          h1 {
+            font-size: 3em;
+            line-height: 1em;
+          }
+          a.header__site-link {
             color: white;
+            text-decoration: none;
+            font-weight: normal;
+            &:hover {
+              text-decoration: none;
+              color: white;
+            }
+          }
+          em {
+            font-weight: normal;
           }
         }
-        em {
-          font-weight: normal;
+        .region-highlighted {
+          padding: 70px 0 0 20px;
+          font-size: 1.25em;
+          text-transform: uppercase;
+          color: white;
+          float: left;
         }
       }
-      .region-highlighted {
-        padding: 70px 0 0 20px;
-        font-size: 1.25em;
-        text-transform: uppercase;
-        color: white;
-        float: left;
+      .header-photos {
+        clear: both;
+        width: 100%;
+        background: white;
+        div.photos {
+          float: left;
+          width: 12.5%;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding-left: 12.5%;
+          background-size: 100%;
+          margin-left: 2px;
+          margin-bottom: 2px;
+          &.photo-1 {
+            clear: both;
+            margin-left: 0px;
+          }
+          &.row-1 {
+            margin-top: 2px;
+            &.photo-1 {
+              background: url("../images/banner-photos/1.png") 0 0 no-repeat;
+            }
+            &.photo-2 {
+              background: url("../images/banner-photos/2.png");
+            }
+            &.photo-3 {
+              background: url("../images/banner-photos/3.png");
+            }
+            &.photo-4 {
+              background: url("../images/banner-photos/4.png");
+            }
+            &.photo-5 {
+              background: url("../images/banner-photos/5.png");
+            }
+            &.photo-6 {
+              background: url("../images/banner-photos/6.png");
+            }
+            &.photo-7 {
+              background: url("../images/banner-photos/7.png");
+            }
+            &.photo-8 {
+              background: url("../images/banner-photos/8.png");
+            }
+          }
+          &.row-2 {
+            margin-bottom: 0px;
+            &.photo-1 {
+              background: url("../images/banner-photos/9.png");
+            }
+            &.photo-2 {
+              background: url("../images/banner-photos/10.png");
+            }
+            &.photo-3 {
+              background: url("../images/banner-photos/11.png");
+            }
+            &.photo-4 {
+              background: url("../images/banner-photos/12.png");
+            }
+            &.photo-5 {
+              background: url("../images/banner-photos/13.png");
+            }
+            &.photo-6 {
+              background: url("../images/banner-photos/14.png");
+            }
+            &.photo-7 {
+              background: url("../images/banner-photos/15.png");
+            }
+            &.photo-8 {
+              background: url("../images/banner-photos/16.png");
+            }
+          }
+        }
       }
+
     }
   }
   &.not-front.logged-in, &.not-front.node-type-event {
