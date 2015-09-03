@@ -133,6 +133,7 @@ function capt_preprocess_block(&$variables, $hook) {
 
 
 
+
 // add roles to body
 function capt_preprocess_html(&$vars, $hook) {
     if ($vars['user']) {
@@ -143,14 +144,16 @@ function capt_preprocess_html(&$vars, $hook) {
     }
 }
 
-// add template suggestions based on node type
 function capt_preprocess_page(&$variables) {
+    // add template suggestions based on node type
     if (!empty($variables['node']) && !empty($variables['node']->type) && (arg(2) != 'edit')) {
         $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
     }
-    // prevent green message from showing up on login page
-    /*if (drupal_get_path_alias($_GET['q']) == 'user') drupal_get_messages('status');*/
- 
+    // Add page.tpl suggestion based on the URL alias
+    $alias = drupal_get_path_alias($_GET['q']);
+    if ($alias != $_GET['q']) {
+        $variables['theme_hook_suggestions'][] = 'page__'. str_replace('-', '_', $alias);
+    }
 }
 function capt_page_alter($page) {
    $meta_description = array(
@@ -161,7 +164,7 @@ function capt_page_alter($page) {
                 'content' =>  'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
             )
    );
-  
+
 drupal_add_html_head( $meta_description, 'meta_description' );
 
 }
