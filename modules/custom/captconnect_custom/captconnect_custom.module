@@ -187,6 +187,9 @@ function captconnect_custom_theme() {
  */
 function captconnect_custom_menu_alter(&$items) {
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
+  
+  // Change the permission on the "Manage display" tab.
+  $items['user/%user/display']['access arguments'] = array('admin_display_suite');
 
   // Get rid of the User View tab.
   // Make user.view not a default tab.
