@@ -614,15 +614,33 @@ div#block-captconnect-blocks-user-info {
    display: block !important;
 }
 
-/* Nancy 8/14*/
-/*
-fieldset {
-  margin-top: 2em !important;
-}
 
-fieldset legend {
-  top: 0 !important;
-}*/
+
+body.page-user-edit fieldset.collapsible,
+body.page-user-edit #og-user-node-add-more-wrapper fieldset {
+  margin: 30px 0px !important;
+  &.collapsed {
+    border: none !important;
+  }
+  &:not(.collapsed), &#edit-og-user-node-und {
+    background: darken($capt-lightgrey, 10%) !important;
+    &:before {
+      display: block;
+      background-color: $capt-aqua;
+      height: 5px;
+      width: 100%;
+      content: "";
+      position: relative;
+      top: -11px;
+      margin-left: 0px;
+      padding-left: 0px;
+    }
+    .fieldset-wrapper {
+      padding: 15px;
+      width: calc(100% - 30px);
+    }
+  }
+}
 
 
 
