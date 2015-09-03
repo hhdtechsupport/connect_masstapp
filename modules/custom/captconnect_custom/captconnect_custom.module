@@ -747,7 +747,7 @@ function captconnect_custom_anon_login($instance) {
   // Give them options.
   drupal_set_message(t(variable_get('captconnect_custom_anon_register',
       'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
-    array('!login_url' => url('anon_login/' . arg(1),
+    array('!create_url' => url('anon_register/' . arg(1),
     array('query' => drupal_get_destination())))),
     'status', FALSE);
 
@@ -764,7 +764,7 @@ function captconnect_custom_anon_register($instance) {
   // Give them options.
   drupal_set_message(t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
-    array('!create_url' => url('anon_register/' . arg(1),
+    array('!login_url' => url('anon_login/' . arg(1),
     array('query' => drupal_get_destination())))),
     'status', FALSE);
 
