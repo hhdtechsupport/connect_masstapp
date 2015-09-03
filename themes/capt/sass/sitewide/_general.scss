@@ -637,7 +637,10 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset {
     }
     .fieldset-wrapper {
       padding: 15px;
-      width: calc(100% - 30px);
+      width: 100%;
+      padding-left: 2px;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
     }
   }
 }

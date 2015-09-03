@@ -916,15 +916,18 @@ body.page-user-edit fieldset.collapsible:not(.collapsed) .fieldset-wrapper, body
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed) .fieldset-wrapper,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und .fieldset-wrapper {
   padding: 15px;
-  width: calc(100% - 30px);
+  width: 100%;
+  padding-left: 2px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* line 647, ../sass/sitewide/_general.scss */
+/* line 650, ../sass/sitewide/_general.scss */
 .feed-icon {
   float: left;
 }
 
-/* line 651, ../sass/sitewide/_general.scss */
+/* line 654, ../sass/sitewide/_general.scss */
 .feed-icon img[title="CSV"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
   width: 32px;
@@ -934,7 +937,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   margin-bottom: 10px;
 }
 
-/* line 660, ../sass/sitewide/_general.scss */
+/* line 663, ../sass/sitewide/_general.scss */
 .feed-icon img[title="XLS"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACtUlEQVRoQ+2ZTW7TUBSFz409QNgSLs4C0hWQroCyAtoVtF0B6RDVEUF2xRCzAsIKWlZAWAHpChLmMTJSjBg4veg5cYiq/Dj1s58HzsjK+7n3O8f32nombPg1PZM3jeX/n4dxHL0Kewjz7zXfgdSAiKhyYdSAMN+B6IVMGCUgcTw90DVjIBNGCcjEmZLVgyUTRhmIqBKZMEpBZMIoB5EFUwkQGTCVAckLUymQPDCVA3ksTCVBHgNTWZB9YSoNsg5m4kRH6150lYDkeXUXrzc1SB4FZa+tHZGtaN79akfyKih7fe2IbEXz7leMI4zvAAYAjkF4mSTJeM/ELQKdievFodO7hwAM/gnGLYFCJrQJeJ0FshAQBo8DJzq03acnRI0bMN9NulH7uWd0GqCPadCHh30MfA2c6UmaeNM1hRDflIGIwDHxUXgVDW3PDBnc++VEvu0ZIwK1NoGI4yCxVtfNm8RN8BCgtlIQBn8JnOjc9oz+TJv19FhvpequA2FGGHSnB/u4sApYyK2VlMQiMevaaM+dMfpJfQDY6cjykC6LF/M5hYEkMMQXwVXUF+dUmmaOiGBtA2FwP3Cii2S+bvgpeBacQkHuwZeiNqwPT1r6TB+lCW1yZD7O/sSJLsXVqou7YAoFibX4UCQQvv07brrmIG3F20ESmOXnBdEsCHimDCRtpbZr+EE36tjXxjkxfd52a60mm7q5KsA2mMIcYb4/Dbp/bsWzYrUVC3V3O/K/vpqe8SNLCy4EhIHfgTO10gciM39KXHENn4jeLEFcs5eqzIQOMcTD8JgbPBZNYp9WXAxImvii5S5b8aLo1wUVysfa7FTU06LQz8Dkp51OWY3sCix7vBBHZCeZZb8aJItKZc6pHSlT7SyxakeyqFTmnNqRMtXOEqt2JItKZc6pHSlT7SyxNjnyD4avTFESYk0LAAAAAElFTkSuQmCC");
   width: 32px;
@@ -947,93 +950,191 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
 /*
  *  Banners
  */
-/* line 9, ../sass/sitewide/_topmatter.scss */
+/* line 11, ../sass/sitewide/_topmatter.scss */
 body {
   width: 100%;
   margin: 0px;
 }
-/* line 13, ../sass/sitewide/_topmatter.scss */
+/* line 15, ../sass/sitewide/_topmatter.scss */
 body.front header#header, body.not-logged-in:not(.node-type-event) header#header {
-  height: 380px;
-  background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
+  padding: 0px;
+}
+/* line 17, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-blue, body.not-logged-in:not(.node-type-event) header#header .header-blue {
+  height: 131px;
+  background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
   padding-left: 100px;
   margin-left: 0px;
 }
-/* line 18, ../sass/sitewide/_topmatter.scss */
-body.front header#header #name-and-slogan, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan {
+/* line 22, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-blue #name-and-slogan, body.not-logged-in:not(.node-type-event) header#header .header-blue #name-and-slogan {
   padding-top: 55px;
   float: left;
   clear: none;
 }
-/* line 22, ../sass/sitewide/_topmatter.scss */
-body.front header#header #name-and-slogan h1, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan h1 {
+/* line 26, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-blue #name-and-slogan h1, body.not-logged-in:not(.node-type-event) header#header .header-blue #name-and-slogan h1 {
   font-size: 3em;
   line-height: 1em;
 }
-/* line 26, ../sass/sitewide/_topmatter.scss */
-body.front header#header #name-and-slogan a.header__site-link, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link {
-  color: white;
-  text-decoration: none;
-  font-weight: normal;
-}
 /* line 30, ../sass/sitewide/_topmatter.scss */
-body.front header#header #name-and-slogan a.header__site-link:hover, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan a.header__site-link:hover {
+body.front header#header .header-blue #name-and-slogan a.header__site-link, body.not-logged-in:not(.node-type-event) header#header .header-blue #name-and-slogan a.header__site-link {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+}
+/* line 34, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-blue #name-and-slogan a.header__site-link:hover, body.not-logged-in:not(.node-type-event) header#header .header-blue #name-and-slogan a.header__site-link:hover {
   text-decoration: none;
   color: white;
-}
-/* line 35, ../sass/sitewide/_topmatter.scss */
-body.front header#header #name-and-slogan em, body.not-logged-in:not(.node-type-event) header#header #name-and-slogan em {
-  font-weight: normal;
 }
 /* line 39, ../sass/sitewide/_topmatter.scss */
-body.front header#header .region-highlighted, body.not-logged-in:not(.node-type-event) header#header .region-highlighted {
+body.front header#header .header-blue #name-and-slogan em, body.not-logged-in:not(.node-type-event) header#header .header-blue #name-and-slogan em {
+  font-weight: normal;
+}
+/* line 43, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-blue .region-highlighted, body.not-logged-in:not(.node-type-event) header#header .header-blue .region-highlighted {
   padding: 70px 0 0 20px;
   font-size: 1.25em;
   text-transform: uppercase;
   color: white;
   float: left;
 }
-/* line 49, ../sass/sitewide/_topmatter.scss */
+/* line 51, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos, body.not-logged-in:not(.node-type-event) header#header .header-photos {
+  clear: both;
+  width: 100%;
+  background: white;
+}
+/* line 55, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos {
+  float: left;
+  width: 12.5%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-left: 12.5%;
+  background-size: 100%;
+  margin-left: 2px;
+  margin-bottom: 2px;
+}
+/* line 64, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.photo-1, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.photo-1 {
+  clear: both;
+  margin-left: 0px;
+}
+/* line 68, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1 {
+  margin-top: 2px;
+}
+/* line 70, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-1, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-1 {
+  background: url("../images/banner-photos/1.png") 0 0 no-repeat;
+}
+/* line 73, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-2, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-2 {
+  background: url("../images/banner-photos/2.png");
+}
+/* line 76, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-3, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-3 {
+  background: url("../images/banner-photos/3.png");
+}
+/* line 79, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-4, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-4 {
+  background: url("../images/banner-photos/4.png");
+}
+/* line 82, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-5, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-5 {
+  background: url("../images/banner-photos/5.png");
+}
+/* line 85, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-6, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-6 {
+  background: url("../images/banner-photos/6.png");
+}
+/* line 88, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-7, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-7 {
+  background: url("../images/banner-photos/7.png");
+}
+/* line 91, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-1.photo-8, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-1.photo-8 {
+  background: url("../images/banner-photos/8.png");
+}
+/* line 95, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2 {
+  margin-bottom: 0px;
+}
+/* line 97, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-1, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-1 {
+  background: url("../images/banner-photos/9.png");
+}
+/* line 100, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-2, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-2 {
+  background: url("../images/banner-photos/10.png");
+}
+/* line 103, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-3, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-3 {
+  background: url("../images/banner-photos/11.png");
+}
+/* line 106, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-4, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-4 {
+  background: url("../images/banner-photos/12.png");
+}
+/* line 109, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-5, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-5 {
+  background: url("../images/banner-photos/13.png");
+}
+/* line 112, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-6, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-6 {
+  background: url("../images/banner-photos/14.png");
+}
+/* line 115, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-7, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-7 {
+  background: url("../images/banner-photos/15.png");
+}
+/* line 118, ../sass/sitewide/_topmatter.scss */
+body.front header#header .header-photos div.photos.row-2.photo-8, body.not-logged-in:not(.node-type-event) header#header .header-photos div.photos.row-2.photo-8 {
+  background: url("../images/banner-photos/16.png");
+}
+/* line 128, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header, body.not-front.node-type-event header#header {
   height: 191px;
   background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
   padding-left: 360px;
 }
-/* line 53, ../sass/sitewide/_topmatter.scss */
+/* line 132, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan, body.not-front.node-type-event header#header #name-and-slogan {
   padding: 60px 0 8px 0;
 }
-/* line 55, ../sass/sitewide/_topmatter.scss */
+/* line 134, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan h1, body.not-front.node-type-event header#header #name-and-slogan h1 {
   font-size: 3.25em;
   line-height: 1em;
 }
-/* line 59, ../sass/sitewide/_topmatter.scss */
+/* line 138, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan a.header__site-link, body.not-front.node-type-event header#header #name-and-slogan a.header__site-link {
   color: white;
   text-decoration: none;
   font-weight: normal;
 }
-/* line 63, ../sass/sitewide/_topmatter.scss */
+/* line 142, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan a.header__site-link:hover, body.not-front.node-type-event header#header #name-and-slogan a.header__site-link:hover {
   text-decoration: none;
   color: white;
 }
-/* line 68, ../sass/sitewide/_topmatter.scss */
+/* line 147, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan em, body.not-front.node-type-event header#header #name-and-slogan em {
   font-weight: normal;
 }
-/* line 72, ../sass/sitewide/_topmatter.scss */
+/* line 151, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header #name-and-slogan.category h1, body.not-front.node-type-event header#header #name-and-slogan.category h1 {
   font-size: 2.25em;
 }
-/* line 77, ../sass/sitewide/_topmatter.scss */
+/* line 156, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header .region-highlighted, body.not-front.node-type-event header#header .region-highlighted {
   font-size: 1.25em;
   text-transform: uppercase;
   color: white;
 }
-/* line 81, ../sass/sitewide/_topmatter.scss */
+/* line 160, ../sass/sitewide/_topmatter.scss */
 body.not-front.logged-in header#header .region-highlighted.category, body.not-front.node-type-event header#header .region-highlighted.category {
   text-transform: none;
   font-weight: bold;
@@ -1046,7 +1147,7 @@ body.not-front.logged-in header#header .region-highlighted.category, body.not-fr
 }
 
 /*logos above header - move up to general area? */
-/* line 99, ../sass/sitewide/_topmatter.scss */
+/* line 178, ../sass/sitewide/_topmatter.scss */
 div.top-header {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 106px;
@@ -1060,13 +1161,13 @@ div.top-header {
 /*
 *  Logos
 */
-/* line 111, ../sass/sitewide/_topmatter.scss */
+/* line 190, ../sass/sitewide/_topmatter.scss */
 div.top-header-container {
   height: 100px;
   width: 1000px;
   /* logos */
 }
-/* line 115, ../sass/sitewide/_topmatter.scss */
+/* line 194, ../sass/sitewide/_topmatter.scss */
 div.top-header-container div.capt-logo {
   background: url("../images/logos/CAPT-logo-portal.png") 0 0 no-repeat;
   width: 340px;
@@ -1075,7 +1176,7 @@ div.top-header-container div.capt-logo {
   margin-bottom: 0px;
   top: 48px;
 }
-/* line 123, ../sass/sitewide/_topmatter.scss */
+/* line 202, ../sass/sitewide/_topmatter.scss */
 div.top-header-container div.samhsa-logo {
   background: url("../images/logos/SAMHSA-logo.png") 0 0 no-repeat;
   width: 295px;
@@ -1083,7 +1184,7 @@ div.top-header-container div.samhsa-logo {
   margin-right: 0px;
   top: 22px;
 }
-/* line 130, ../sass/sitewide/_topmatter.scss */
+/* line 209, ../sass/sitewide/_topmatter.scss */
 div.top-header-container div.capt-logo,
 div.top-header-container div.samhsa-logo {
   height: 115px;
@@ -1091,11 +1192,11 @@ div.top-header-container div.samhsa-logo {
 }
 
 /* Welcome line near search box on dashboard*/
-/* line 139, ../sass/sitewide/_topmatter.scss */
+/* line 218, ../sass/sitewide/_topmatter.scss */
 div#block-block-7 {
   color: white;
 }
-/* line 141, ../sass/sitewide/_topmatter.scss */
+/* line 220, ../sass/sitewide/_topmatter.scss */
 div#block-block-7 a {
   color: white;
   font-weight: normal;
@@ -1103,7 +1204,7 @@ div#block-block-7 a {
 }
 
 /* search */
-/* line 150, ../sass/sitewide/_topmatter.scss */
+/* line 229, ../sass/sitewide/_topmatter.scss */
 input#edit-search-block-form--2 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1119,7 +1220,7 @@ input#edit-search-block-form--2 {
   background-color: white;
 }
 
-/* line 164, ../sass/sitewide/_topmatter.scss */
+/* line 243, ../sass/sitewide/_topmatter.scss */
 form#search-block-form div#edit-actions input#edit-submit, form#search-block-form div#edit-actions input#edit-submit--2, form#search-block-form div#edit-actions--2 input#edit-submit, form#search-block-form div#edit-actions--2 input#edit-submit--2 {
   border: 1px solid white;
   background-color: transparent;
@@ -1129,13 +1230,13 @@ form#search-block-form div#edit-actions input#edit-submit, form#search-block-for
   margin-left: 8px;
 }
 
-/* line 175, ../sass/sitewide/_topmatter.scss */
+/* line 254, ../sass/sitewide/_topmatter.scss */
 div#edit-actions {
   padding-bottom: 10px;
 }
 
 /* hiding text in key areas! */
-/* line 181, ../sass/sitewide/_topmatter.scss */
+/* line 260, ../sass/sitewide/_topmatter.scss */
 div.samhsa-logo,
 div.capt-logo {
   text-indent: 100%;
@@ -1143,14 +1244,14 @@ div.capt-logo {
   overflow: hidden;
 }
 
-/* line 188, ../sass/sitewide/_topmatter.scss */
+/* line 267, ../sass/sitewide/_topmatter.scss */
 div.bottom-footer {
   background-image: url("../images/design-elements/rainbow-divider.png");
   background-position: -124px 0px;
   background-repeat: repeat-x;
 }
 
-/* line 195, ../sass/sitewide/_topmatter.scss */
+/* line 274, ../sass/sitewide/_topmatter.scss */
 div#block-block-12 {
   /*height: 100px;*/
   margin-bottom: 0px;
@@ -4462,11 +4563,6 @@ body.page-anon-register #block-block-3 p {
     width: 100%;
   }
 
-  /* line 303, ../sass/phone/_phone-register-profile.scss */
-  form#user-profile-form fieldset:before {
-    width: calc(100% - 7px) !important;
-  }
-
   /* event page styles */
   /* line 9, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event {
@@ -5498,17 +5594,6 @@ body.page-user-register:not(.node-type-event) {
     background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
     margin-bottom: 0px;
   }
-  /* line 21, ../sass/tablet/_tablet-banner.scss */
-  body.not-logged-in.page-user.front div#page div#main div#content, body.not-logged-in.page-user.not-logged-in:not(.node-type-event) div#page div#main div#content,
-  body.page-user-register.front div#page div#main div#content,
-  body.page-user-register.not-logged-in:not(.node-type-event) div#page div#main div#content,
-  body.not-logged-in.page-anon-login.front div#page div#main div#content,
-  body.not-logged-in.page-anon-login.not-logged-in:not(.node-type-event) div#page div#main div#content {
-    background: url("../images/banners/banner-desktop-login-photos.png") 0 0 no-repeat;
-    background-size: 100%;
-    width: 100%;
-    border: none;
-  }
   /* line 29, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in.page-user.front div#block-block-13, body.not-logged-in.page-user.not-logged-in:not(.node-type-event) div#block-block-13,
   body.page-user-register.front div#block-block-13,
@@ -5583,27 +5668,28 @@ body.page-user-register:not(.node-type-event) {
     margin-top: -9px;
     padding-top: 27%;
     margin-left: 0px;
+    width: auto;
   }
 
-  /* line 95, ../sass/tablet/_tablet-banner.scss */
+  /* line 96, ../sass/tablet/_tablet-banner.scss */
   body.logged-in.node-type-event div.region.region-highlighted.category {
     margin-left: -45px;
   }
-  /* line 97, ../sass/tablet/_tablet-banner.scss */
+  /* line 98, ../sass/tablet/_tablet-banner.scss */
   body.logged-in.node-type-event div.region.region-highlighted.category div#block-block-13 {
     margin-left: 0px;
   }
 
-  /* line 103, ../sass/tablet/_tablet-banner.scss */
+  /* line 104, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register {
     /* photo section */
     /* subtitle */
   }
-  /* line 104, ../sass/tablet/_tablet-banner.scss */
+  /* line 105, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register header#header div#name-and-slogan {
     padding-top: 55px;
   }
-  /* line 107, ../sass/tablet/_tablet-banner.scss */
+  /* line 108, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register header#header {
     height: 132px;
     padding-top: 0px;
@@ -5611,7 +5697,7 @@ body.page-user-register:not(.node-type-event) {
     background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
     margin-bottom: 0px;
   }
-  /* line 115, ../sass/tablet/_tablet-banner.scss */
+  /* line 116, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register div#page div#main div#content {
     padding-left: 15px;
     padding-right: 15px;
@@ -5627,11 +5713,11 @@ body.page-user-register:not(.node-type-event) {
     margin-right: 0;
     top: 0;
   }
-  /* line 130, ../sass/tablet/_tablet-banner.scss */
+  /* line 131, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register div#page div#main {
     width: 100%;
   }
-  /* line 134, ../sass/tablet/_tablet-banner.scss */
+  /* line 135, ../sass/tablet/_tablet-banner.scss */
   body.not-logged-in:not(.node-type-event).page-anon-register div#block-block-13 {
     top: 60px;
   }
@@ -5993,6 +6079,13 @@ body.page-user-register:not(.node-type-event) {
     padding-top: 5px;
   }
 
+  /* line 64, ../sass/tablet/_tablet-navigation.scss */
+  body.logged-in.page-user-edit div#main div#content {
+    border: 1px solid #d7d7d7 !important;
+    border-top: none !important;
+    margin: 17px auto 0px !important;
+  }
+
   /* line 10, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit,
   body.not-logged-in.page-user-register:not(.node-type-event),
@@ -6027,54 +6120,52 @@ body.page-user-register:not(.node-type-event) {
     padding-left: 0px;
     background-color: transparent;
     width: 95%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
     margin-bottom: 10px !important;
     text-align: left;
   }
-  /* line 36, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 34, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li:first-child {
     margin-left: 0px;
   }
-  /* line 40, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 38, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a {
     padding: 5px 10px !important;
   }
-  /* line 42, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 40, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button a strong {
     font-size: 0.9em;
   }
-  /* line 48, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 46, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-0 {
     width: 16%;
   }
-  /* line 51, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 49, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-1 {
     width: 36%;
   }
-  /* line 54, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 52, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs ul.horizontal-tabs-list li.horizontal-tab-button-2 {
     width: 42%;
   }
-  /* line 59, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 57, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.horizontal-tabs .horizontal-tabs-panes.horizontal-tabs-processed:before {
     margin: 0px auto;
   }
-  /* line 64, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 62, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div.bottom-footer div.disclaimer,
   body.not-logged-in.page-user-register:not(.node-type-event) div.bottom-footer div.disclaimer,
   body.not-logged-in.page-anon-register:not(.node-type-event) div.bottom-footer div.disclaimer {
@@ -6082,19 +6173,19 @@ body.page-user-register:not(.node-type-event) {
     margin-left: 8.5%;
     width: 500px;
   }
-  /* line 69, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 67, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#block-block-3,
   body.not-logged-in.page-user-register:not(.node-type-event) div#block-block-3,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#block-block-3 {
     margin-left: 12px;
   }
-  /* line 74, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 72, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 78, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 76, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.logged-in.page-user-edit div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
@@ -6102,6 +6193,13 @@ body.page-user-register:not(.node-type-event) {
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
+  }
+  /* line 90, ../sass/tablet/_tablet-profile-registration.scss */
+  body.logged-in.page-user-edit div#main div#content,
+  body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
+  body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
+    border: none;
+    margin-right: 0px;
   }
   /* line 93, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content form#user-register-form,
@@ -6112,9 +6210,11 @@ body.page-user-register:not(.node-type-event) {
     border: 1px solid #d7d7d7;
     border-top: none;
     border-bottom: none;
-    width: calc(100% - 2px);
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  /* line 101, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 104, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content ul.tabs-primary,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content ul.tabs-primary,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content ul.tabs-primary {
@@ -6122,14 +6222,14 @@ body.page-user-register:not(.node-type-event) {
     margin: 0px auto;
     margin-bottom: 20px;
   }
-  /* line 106, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 109, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content input#edit-cancel.form-submit,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content input#edit-cancel.form-submit {
     margin-left: 10px;
     text-align: center;
   }
-  /* line 110, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 113, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content div#title-section,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section {
@@ -6137,7 +6237,7 @@ body.page-user-register:not(.node-type-event) {
     border: 1px solid #d7d7d7;
     border-bottom: none;
   }
-  /* line 114, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 117, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content div#title-section h1#page-title.page__title,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#title-section h1#page-title.page__title {
@@ -6147,54 +6247,60 @@ body.page-user-register:not(.node-type-event) {
     margin-left: -11px;
     margin-top: 10px;
   }
-  /* line 123, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 126, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content div#edit-actions,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#edit-actions,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#edit-actions {
     margin-left: 15px;
   }
-  /* line 125, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 128, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content div#edit-actions input,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content div#edit-actions input,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content div#edit-actions input {
     margin-left: 0px;
   }
-  /* line 129, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 132, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content #block-block-3,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content #block-block-3,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content #block-block-3 {
-    width: calc(100% - 32px);
+    width: 100%;
     border: 1px solid #d7d7d7;
     border-top: none;
     margin: 0px;
     padding-top: 30px;
     padding-left: 15px;
     padding-right: 15px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  /* line 139, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 144, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content .horizontal-tabs-panes:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes:before {
-    width: calc(100% - 30px);
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
-  /* line 142, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 149, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content .horizontal-tabs-panes fieldset,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset {
-    width: calc(100% - 32px);
+    width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0px auto;
     display: block;
     padding: 0px;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 148, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 157, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content .horizontal-tabs-panes fieldset:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset:before {
     width: 100%;
     padding: 0px;
   }
-  /* line 154, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 163, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content .horizontal-tabs-panes fieldset .fieldset-wrapper .form-item,
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset .fieldset-wrapper .form-item,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content .horizontal-tabs-panes fieldset .fieldset-wrapper .form-item {
@@ -6202,34 +6308,38 @@ body.page-user-register:not(.node-type-event) {
   }
 
   /* specific to registration*/
-  /* line 166, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 175, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-register ul.tabs-primary, body.page-user-register ul.tabs-primary a {
     border-bottom: 2px solid white;
   }
+  /* line 178, ../sass/tablet/_tablet-profile-registration.scss */
+  body.page-user-register .horizontal-tabs-panes {
+    margin: 0 15px !important;
+  }
 
   /* specific to user edit */
-  /* line 173, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 185, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-edit div#title-section {
     border: none !important;
     margin-left: -12px !important;
   }
-  /* line 177, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 189, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-edit div#block-block-3 {
     border: none !important;
     padding: 20px 0px 10px 0px !important;
     margin-top: 10px !important;
     width: 100% !important;
   }
-  /* line 183, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 195, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-edit fieldset {
     margin-left: 0px !important;
     width: 100% !important;
   }
-  /* line 187, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 199, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-edit div#edit-actions {
     margin-left: 0px !important;
   }
-  /* line 191, ../sass/tablet/_tablet-profile-registration.scss */
+  /* line 203, ../sass/tablet/_tablet-profile-registration.scss */
   body.page-user-edit .fieldset-wrapper .form-item {
     padding: 0px !important;
   }
