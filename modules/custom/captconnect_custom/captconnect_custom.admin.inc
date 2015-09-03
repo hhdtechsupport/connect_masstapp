@@ -257,6 +257,21 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '</ul>'
     );
 
+  $form['captconnect_custom_anon_register'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Register invitation'),
+    '#default_value' => variable_get('captconnect_custom_anon_register',
+      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
+    '#description' => t('When an anonymous user tries to register, this message
+      is shown to invite an account creation rather than a login.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('!create_url - the URL for creating an account.') . '</li>'
+      . '</ul>'
+    );
+
   $form['captconnect_custom_proxy_registered'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
@@ -281,8 +296,7 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Unsuccessful proxy registration'),
     '#default_value' => variable_get('captconnect_custom_proxy_failed',
       'Flagging for @user for "@event" at @time failed.'),
-    '#description' => t('When someone is registered or participated by someone
-      else (proxy), this message indicates that the registration has failed.')
+    '#description' => t('When someone is registered or participated by someone else (proxy), this message indicates that the registration has failed.')
       . '<br/>'
       . t('You may use these tokens:')
       . '<ul>'
@@ -296,7 +310,7 @@ function captconnect_custom_message_texts($form, $form_state) {
   $form['captconnect_custom_event_full'] = array(
     '#type' => 'textfield',
     '#maxlength' => 256,
-    '#title' => t('Unsuccessful proxy registration'),
+    '#title' => t('Event is full'),
     '#default_value' => variable_get('captconnect_custom_event_full',
       'We are sorry, but this event is full. You may try registering for another time or date.'),
     '#description' => t('When someone tries to register for an event that is '
@@ -352,7 +366,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_reset_pass_welcome']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_anon_register']), 'style' => $style),
     );
 
   $rows[] = array(

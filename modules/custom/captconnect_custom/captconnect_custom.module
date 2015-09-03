@@ -189,7 +189,7 @@ function captconnect_custom_theme() {
  */
 function captconnect_custom_menu_alter(&$items) {
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
-  
+
   // Change the permission on the "Manage display" tab.
   $items['user/%user/display']['access arguments'] = array('admin_display_suite');
 
@@ -744,6 +744,13 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
  * @param $instance - nid of the instance node for which registration is desired.
  */
 function captconnect_custom_anon_login($instance) {
+  // Give them options.
+  drupal_set_message(t(variable_get('captconnect_custom_anon_register',
+      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
+    array('!login_url' => url('anon_login/' . arg(1),
+    array('query' => drupal_get_destination())))),
+    'status', FALSE);
+
   // So just redirect to the normal registration page.
   menu_execute_active_handler('user', TRUE);
 }
@@ -757,7 +764,7 @@ function captconnect_custom_anon_register($instance) {
   // Give them options.
   drupal_set_message(t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
-    array('!login_url' => url('anon_login/' . arg(1),
+    array('!create_url' => url('anon_register/' . arg(1),
     array('query' => drupal_get_destination())))),
     'status', FALSE);
 
