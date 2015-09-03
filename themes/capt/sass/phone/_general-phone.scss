@@ -1,7 +1,7 @@
 @import "../headers/variables";
 @import "../headers/capt-mixins";
 @import "../headers/extensible";
-@import "extensible-phone"; 
+@import "extensible-phone";
 
 html,
 body {
@@ -9,13 +9,13 @@ body {
   min-width: 320px;
   overflow-x: visible;
   height: 100%;
-  
+
   div#block-captconnect-blocks-user-info {
     display: none;
   }
   div.top-header {
-    height: $header-height;
-    @include rainbow-bar($header-height - $rainbow-height);
+    height: 61px;
+    @include rainbow-bar(61px - $rainbow-height);
     div.top-header-container {
       width: 100%;
       div.capt-logo {
