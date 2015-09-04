@@ -646,6 +646,53 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
+
+  // BANNER IMAGE SWAP START //
+
+  $headerPhotos = $('.header-photos');
+
+  function rand(min, max) {
+	   return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  function timeout_init() {
+    setTimeout(function(){
+      var rand_position = Math.floor(Math.random() * (16)) + 1;
+      var rand_photo = Math.floor(Math.random() * (16)) + 1;
+      var rand_photo2 = Math.floor(Math.random() * (16)) + 1;
+
+      $photo_current = $('.header-photos .photos:nth-child(' + rand_position + ') .photo-inner:nth-child(1)');
+      $photo_replace = $('.header-photos .photos:nth-child(' + rand_position + ') .photo-inner:nth-child(2)');
+
+      $photo_replace
+        .css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + rand_photo + '.png")')
+        .css('opacity', 0);
+
+      $photo_replace.animate({
+        opacity: 1
+      }, 1700);
+
+      $photo_current.animate({
+        opacity: 0
+      }, 2000, function(){
+        $(this).css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + rand_photo2 + '.png")');
+      });
+
+      timeout_init();
+
+    }, rand(1,5) * 1000);
+  }
+
+
+
+
+  if ($('body').hasClass('front')) {
+    timeout_init();
+  }
+
+
+
 }
 };
 
