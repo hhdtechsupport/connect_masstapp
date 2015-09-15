@@ -656,40 +656,75 @@ function otherSelectbox ($field, $fieldPrev) {
 	   return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  function timeout_init() {
+  function makeArray(min, max) {
+    var list = [];
+    for (var i = min; i <= max; i++) {
+        list.push(i);
+    }
+    return list;
+  }
+
+  var photos = makeArray(1,16);
+
+  function timeout_init(photos) {
     setTimeout(function(){
-      var rand_position = Math.floor(Math.random() * (16)) + 1;
-      var rand_photo = Math.floor(Math.random() * (16)) + 1;
-      var rand_photo2 = Math.floor(Math.random() * (16)) + 1;
 
-      $photo_current = $('.header-photos .photos:nth-child(' + rand_position + ') .photo-inner:nth-child(1)');
-      $photo_replace = $('.header-photos .photos:nth-child(' + rand_position + ') .photo-inner:nth-child(2)');
+      var rand_position = rand(1,16);
 
-      $photo_replace
-        .css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + rand_photo + '.png")')
-        .css('opacity', 0);
+      var new_photo = rand(1,32);
 
-      $photo_replace.animate({
-        opacity: 1
-      }, 1700);
+      // make sure that the photo to replace the existing one isn't already in the grid
+      do {
+        var new_photo = rand(1,32);
+      } while (photos.indexOf(new_photo) != -1);
 
-      $photo_current.animate({
-        opacity: 0
-      }, 2000, function(){
-        $(this).css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + rand_photo2 + '.png")');
+      // add that number to the array
+      photos.push(new_photo);
+
+      var $photo_cell = $('.header-photos .photos:nth-child(' + rand_position + ')');
+
+      var $photo_current = $photo_cell.find('.photo-inner').filter(function(){
+        return $(this).css('opacity') == '1';
       });
 
-      timeout_init();
+      var $photo_replace = $photo_cell.find('.photo-inner').filter(function(){
+        return $(this).css('opacity') == '0';
+      });
+
+
+      if ($photo_current.css('background-image') != null) {
+        path = $photo_current.css('background-image').replace('url(','').replace(')','');
+        file_number = path.replace(/^.*[\\\/]/, '').replace(/\.[^\.]+$/, '');
+        photos.splice(photos.indexOf(parseInt(file_number)),1);
+
+        cl(photos);
+
+        $photo_replace.css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + new_photo + '.png")');
+
+        $photo_replace.animate({
+          opacity: 1
+        }, 2000);
+
+        $photo_current.animate({
+          opacity: 0
+        }, 2000);
+      }
+
+      timeout_init(photos);
 
     }, rand(1,5) * 1000);
   }
 
 
-
-
   if ($('body').hasClass('front')) {
-    timeout_init();
+    $('.header-photos .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
+    $('.header-photos .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
+    timeout_init(photos);
   }
+
+
+
+  // BANNER IMAGE SWAP END //
 
 
 
