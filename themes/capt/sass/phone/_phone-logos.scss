@@ -4,21 +4,24 @@
 @import 'capt-mixins-phone';
 
 
-
-
-    div.top-header {
-     height: $mobile-header-height;
-      @include rainbow-bar($mobile-header-height - $rainbow-height);
-      div.top-header-container {
-        div.capt-logo {
-          top: $top-margin + 2px;
-
-          @include logosize($capt-logo-width, $capt-logo-height, $capt-iPh6-scale);
-        }
-        div.samhsa-logo {
-          top: $top-margin;
-
-          @include logosize($samhsa-logo-width, $samhsa-logo-height, $samhsa-iPh6-scale);
-        }
+body {
+  div.top-header {
+    width: 100%;
+    height: $mobile-header-height;
+    @include rainbow-bar($mobile-header-height - $rainbow-height);
+    div.top-header-container {
+      width: 100%;
+      height: $mobile-header-height;
+      div.capt-logo {
+        top: $top-margin + 8px;
+        @include logosize($capt-logo-width, $capt-logo-height, $capt-iPh6-scale);
+        margin-left: 4%;
+      }
+      div.samhsa-logo {
+        top: $top-margin;
+        @include logosize($samhsa-logo-width, $samhsa-logo-height, $samhsa-iPh6-scale);
+        margin-right: 4%;
       }
     }
+  }
+}
