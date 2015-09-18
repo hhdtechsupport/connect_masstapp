@@ -11,6 +11,70 @@
 body {
   width: 100%;
   margin: 0px;
+  &.node-type-event, &.logged-in {
+    header#header {
+      padding: 0px;
+      .header-blue-2 {
+        height: 100%;
+        background: url("../images/banners/event-and-logged-in-blue.png") 0 0 no-repeat;
+        width: 715px;
+        margin-left: 290px;
+      }
+      .header-photos-2 {
+        height: 100%;
+        width: 290px;
+        float: left;
+        background: white;
+        div.photos {
+          float: left;
+          width: 32.35%;
+          display: inline-block;
+          background-position: 50% 50%;
+          vertical-align: middle;
+          margin-right: 1%;
+          margin-bottom: 1%;
+          &.photo-1 {
+            clear: both;
+          }
+          &.photo-3 {
+            margin-right: 0;
+          }
+          .photo-inner {
+            display: block;
+            height: 0;
+            padding-top: 100%;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+            &:nth-child(2) {
+              margin-top: -100%;
+            }
+          }
+          &.row-1 {
+            &.photo-1 .photo-inner {
+              background: url("../images/banner-photos/1.png");
+            }
+            &.photo-2 .photo-inner {
+              background: url("../images/banner-photos/2.png");
+            }
+            &.photo-3 .photo-inner {
+              background: url("../images/banner-photos/3.png");
+            }
+          }
+          &.row-2 {
+            &.photo-1 .photo-inner {
+              background: url("../images/banner-photos/9.png");
+            }
+            &.photo-2 .photo-inner {
+              background: url("../images/banner-photos/10.png");
+            }
+            &.photo-3 .photo-inner {
+              background: url("../images/banner-photos/11.png");
+            }
+          }
+        }
+      }
+    }
+  }
   &.front, &.not-logged-in:not(.node-type-event) {
     header#header {
       padding: 0px;
@@ -137,8 +201,6 @@ body {
   &.not-front.logged-in, &.not-front.node-type-event {
     header#header {
       height: 191px;
-      background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
-      padding-left: 360px;
       #name-and-slogan {
         padding: 60px 0 8px 0;
         h1 {
