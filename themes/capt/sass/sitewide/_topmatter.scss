@@ -6,46 +6,135 @@
  *  Banners
  */
 
+
+
 body {
   width: 100%;
   margin: 0px;
   &.front, &.not-logged-in:not(.node-type-event) {
     header#header {
-      height: 380px;
-      background: url("../images/banners/login-banner-desktop.png") 0 0 no-repeat;
-      padding-left: 100px;
-      margin-left: 0px;
-      #name-and-slogan {
-        padding-top: 55px;
-        float: left;
-        clear: none;
-        h1 {
-          font-size: 3em;
-          line-height: 1em;
-        }
-        a.header__site-link {
-          color: white;
-          text-decoration: none;
-          font-weight: normal;
-          &:hover {
-            text-decoration: none;
+      padding: 0px;
+      .header-blue {
+        height: 131px;
+        background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
+        padding-left: 100px;
+        margin-left: 0px;
+        #name-and-slogan {
+          padding-top: 55px;
+          float: left;
+          clear: none;
+          h1 {
+            font-size: 3em;
+            line-height: 1em;
+          }
+          a.header__site-link {
             color: white;
+            text-decoration: none;
+            font-weight: normal;
+            &:hover {
+              text-decoration: none;
+              color: white;
+            }
+          }
+          em {
+            font-weight: normal;
           }
         }
-        em {
-          font-weight: normal;
+        .region-highlighted {
+          padding: 70px 0 0 20px;
+          font-size: 1.25em;
+          text-transform: uppercase;
+          color: white;
+          float: left;
+          margin-bottom: -10px;
         }
       }
-      .region-highlighted {
-        padding: 70px 0 0 20px;
-        font-size: 1.25em;
-        text-transform: uppercase;
-        color: white;
-        float: left;
+      .header-photos {
+        clear: both;
+        width: 100%;
+        background: white;
+        div.photos {
+          float: left;
+          width: 12.28%;
+          display: inline-block;
+          background-position: 50% 50%;
+          vertical-align: middle;
+          margin-top: .25%;
+          margin-right: .25%;
+          &.photo-1 {
+            clear: both;
+          }
+          &.photo-8 {
+            margin-right: 0;
+          }
+          .photo-inner {
+            display: block;
+            height: 0;
+            padding-top: 100%;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+            &:nth-child(2) {
+              margin-top: -100%;
+            }
+          }
+          &.row-1 {
+            &.photo-1 .photo-inner {
+              background: url("../images/banner-photos/1.png");
+            }
+            &.photo-2 .photo-inner {
+              background: url("../images/banner-photos/2.png");
+            }
+            &.photo-3 .photo-inner {
+              background: url("../images/banner-photos/3.png");
+            }
+            &.photo-4 .photo-inner {
+              background: url("../images/banner-photos/4.png");
+            }
+            &.photo-5 .photo-inner {
+              background: url("../images/banner-photos/5.png");
+            }
+            &.photo-6 .photo-inner {
+              background: url("../images/banner-photos/6.png");
+            }
+            &.photo-7 .photo-inner {
+              background: url("../images/banner-photos/7.png");
+            }
+            &.photo-8 .photo-inner {
+              background: url("../images/banner-photos/8.png");
+            }
+          }
+          &.row-2 {
+            &.photo-1 .photo-inner {
+              background: url("../images/banner-photos/9.png");
+            }
+            &.photo-2 .photo-inner {
+              background: url("../images/banner-photos/10.png");
+            }
+            &.photo-3 .photo-inner {
+              background: url("../images/banner-photos/11.png");
+            }
+            &.photo-4 .photo-inner {
+              background: url("../images/banner-photos/12.png");
+            }
+            &.photo-5 .photo-inner {
+              background: url("../images/banner-photos/13.png");
+            }
+            &.photo-6 .photo-inner {
+              background: url("../images/banner-photos/14.png");
+            }
+            &.photo-7 .photo-inner {
+              background: url("../images/banner-photos/15.png");
+            }
+            &.photo-8 .photo-inner {
+              background: url("../images/banner-photos/16.png");
+            }
+          }
+        }
       }
+
     }
   }
-  &.not-front {
+  &.not-front.logged-in, &.not-front.node-type-event {
     header#header {
       height: 191px;
       background: url("../images/banners/blank-banner-desktop.png") 0 0 no-repeat;
@@ -84,9 +173,9 @@ body {
           font-size: 3em;
           opacity: 0.5;
           overflow: hidden;
-          height: 70px;
-          line-height: 1.5em;
-          margin-top: -10px;
+          height: auto;
+          line-height: 1em;
+          margin-top: 0px;
         }
       }
     }

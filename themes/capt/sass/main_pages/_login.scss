@@ -25,6 +25,9 @@ body.not-logged-in.page-anon-login {
     margin-top: 0;
     padding-top: 0;
   }
+  &.section-anon-login div#content {
+    margin-top: 20px;
+  }
   form#user-login,
   div#title-section {
     margin-left: 85px;
@@ -34,7 +37,7 @@ body.not-logged-in.page-anon-login {
   &.section-anon-login form#user-login {
     margin: 0 auto;
     float: none;
-    width: 360px;
+    width: 95%;
   }
   div#title-section {
     @extend .panel-rule;
@@ -115,7 +118,7 @@ body.not-logged-in.page-anon-login {
       font-size: 1.8em;
     }
     margin-top: -83px;
-  
+
     /* join today*/
     a {
       color: $capt-orange;

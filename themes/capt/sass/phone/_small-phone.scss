@@ -6,11 +6,7 @@
 /* test*/
 
 /* logos */
-body.logged-in.page-user-edit,
-body.not-logged-in.page-user-register:not(.node-type-event),
-body.not-logged-in.page-user:not(.page-user-register),
-body.role-authenticated-user.node-type-event,
-body.page-events.section-events  {
+body {
   div.top-header {
     height: $mobile-header-height;
     @include rainbow-bar($mobile-header-height - $rainbow-height);
@@ -26,14 +22,7 @@ body.page-events.section-events  {
     }
   }
 }
-body.logged-in.page-user-edit,
-body.page-events.section-events {
-
- div.header__region.region-header {
-  width: 320px;
-
-
-}
+body {
 h1#site-name.header__site-name,
 div#block-block-13 {
   margin-left: 0px;
@@ -55,17 +44,16 @@ ul#main-menu.main-menu {
 }
 
 
-input#edit-submit-dashboard, 
+input#edit-submit-dashboard,
 input#edit-reset {
   padding: 8px 4px;
   width: 47px;
   margin-left: -5px;
-  
+
 }
 
 }
-body.page-events.section-events,
-body.page-user-edit.role-authenticated-user {
+body.role-authenticated-user {
   ul#main-menu.main-menu {
     li.menu-item {
       width: 39%;
@@ -76,7 +64,7 @@ body.page-user-edit.role-authenticated-user {
     font-size: 0.9em;
   }
 }
-body.not-logged-in.front {
+body {
 
   div#block-block-13 {
     margin-left: -236px;

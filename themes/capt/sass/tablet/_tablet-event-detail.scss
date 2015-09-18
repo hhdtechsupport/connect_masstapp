@@ -5,7 +5,6 @@
 
 $panel-margin-left: 20px;
 $header-pad-left: 20px;
-$header-margin-left: 10px;
 
 
 body.node-type-event {
@@ -22,23 +21,18 @@ body.node-type-event {
   }
    div.view-content {
       h1.subtitle,h2.views-field {
-        margin-left: $header-margin-left;
         padding-left: 0px;
       }
     }
   div#main div#content div#title-section  {
     h1#page-title.page__title {
-      margin-left: $header-margin-left;
       padding-left:  0px;
+      margin-top: 15px;
     }
 
   }
   div.group-right {
     position: relative;
-    left: -10px;
-  }
-  div.group-left {
-    margin-left: 10px;
   }
   ul.tabs-primary {
     display: none;

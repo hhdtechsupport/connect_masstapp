@@ -76,10 +76,20 @@
     div#block-block-12 {
       padding-top: 20px;
     }
+
+  }
+
+  body.not-logged-in:not(.node-type-event) {
     // subtitle
     div#block-block-13 {
       margin-top: 25px;
       margin-left: -280px;
     }
-
   }
+
+body.not-logged-in.page-anon-login {
+  form#user-login {
+    margin: 0px auto !important;
+    width: 360px !important;
+  }
+}

@@ -646,6 +646,111 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
+
+  // BANNER IMAGE SWAP START //
+
+  $headerPhotos = $('.header-photos');
+
+  // Real random number generator
+  function rand(min, max) {
+	   return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Creating an array of consequtive numbers of any length
+  function makeArray(min, max) {
+    var list = [];
+    for (var i = min; i <= max; i++) {
+        list.push(i);
+    }
+    return list;
+  }
+
+  // Initially, the grid uses the first 16 photos, with numbered filenames
+  var photos = makeArray(1,16);
+
+  // The function that calls itself at the end to keep the loop going, and which has a delay
+  function timeout_init(photos) {
+    setTimeout(function(){
+
+      // Which photo cell in the grid should be swapped
+      var rand_position = rand(1,16);
+
+      // Which photo (by numbered filename) should be swapped into that spot
+      var new_photo = rand(1,32);
+
+      // Make sure that the photo to replace the existing one isn't already in the grid
+      do {
+        var new_photo = rand(1,32);
+      } while (photos.indexOf(new_photo) != -1);
+
+      // Add that number to the array
+      photos.push(new_photo);
+
+      // Wrap the photo cell with jQuery
+      var $photo_cell = $('.header-photos .photos:nth-child(' + rand_position + ')');
+
+      // The photo cell includes both a visible and an invisible photo --
+      // one on top of the other. Here we identify which is which and wrap in jQuery
+      var $photo_current = $photo_cell.find('.photo-inner').filter(function(){
+        return $(this).css('opacity') == '1';
+      });
+      var $photo_replace = $photo_cell.find('.photo-inner').filter(function(){
+        return $(this).css('opacity') == '0';
+      });
+
+      // Not sure why we need to do this, but sometimes we get a "null" for the
+      // background image and better just to skip and re-run the timeout_init function
+      if ($photo_current.css('background-image') != null) {
+
+        // Get the background image path of the visible image
+        path = $photo_current.css('background-image').replace('url(','').replace(')','');
+
+        // Get the numbered filename (without extension) from the visible image
+        file_number = path.replace(/^.*[\\\/]/, '').replace(/\.[^\.]+$/, '');
+
+        // Make sure to remove that number from the list of visible photos so that
+        // it can be shown on the next function cycle if need be
+        photos.splice(photos.indexOf(parseInt(file_number)),1);
+
+        // Set the url of the photo to be used as a replacement
+        $photo_replace.css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + new_photo + '.png")');
+
+        // Fade in the replacement photo
+        $photo_replace.animate({
+          opacity: 1
+        }, 2000);
+
+        // Fade out the existing photo
+        $photo_current.animate({
+          opacity: 0
+        }, 2000);
+      }
+
+      // Run the function again, passing in the array of current numbered filenames
+      timeout_init(photos);
+
+    }, rand(1,5) * 1000);
+  }
+
+
+  // On page load (for a few specific pages), set the opacity of each initial photo
+  // in each cell and run the timeout_init function
+  if ($('body').hasClass('front')              ||
+      $('body').hasClass('page-user-password') ||
+      $('body').hasClass('page-user-register') ||
+      $('body').hasClass('page-anon-login')    ||
+      $('body').hasClass('page-anon-register')) {
+    $('.header-photos .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
+    $('.header-photos .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
+    timeout_init(photos);
+  }
+
+
+  // BANNER IMAGE SWAP END //
+
+
+
 }
 };
 

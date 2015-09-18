@@ -4,79 +4,102 @@
 @import "capt-mixins-phone";
 @import "extensible-phone";
 
-$login-title-margin: 16px;
 
-body.not-logged-in,
-body.not-front.logged-in,
-body.role-authenticated-user.node-type-event {
-  div.header__region.region-header {
-    width: 375px;
-    margin: 3px 0px -10px 0px;
-    text-align: right;
-    height: 15px;
-    padding-bottom: 0px;
-  }
-  header#header.header {
-    padding-left: 0px;
-   div#name-and-slogan.category {
-          padding-bottom: 0px;
-          margin-bottom: -20px;
-
-    }
-    .name-and-slogan h1 {
-      height: 15px;
-
-
-
-    }
-    .region-highlighted.category div#block-block-13 {
-      font-size: 0.7em;
-    }
-  }
-  div#block-block-13 {
-    color: white;
-    font-size: 12px;
-    top: -100;
-    position: absolute;
-    margin-top: -14px;
-    cursor: default;
-  }
-  // CAPT Connect and subtitle
-  h1#site-name.header__site-name,
-  div#block-block-13 {
-    margin-left: 0px;
-    padding-left: 10px;
-    font-size: .8em;
-  }
-  /* banner title text */
-  h1#site-name.header__site-name {
-    margin-top: -50px;
-    font-size: 3em;
-    a {
-      font-size: 0.8em;
+body {
+  div#page {
+    header#header {
+      #name-and-slogan {
+        padding-top: 55px;
+        h1#site-name.header__site-name {
+          margin-left: 0px;
+          margin-top: -50px;
+          font-size: 3em;
+          padding-left: 0px;
+          a {
+            font-size: 0.8em;
+          }
+        }
+      }
+      .region-highlighted {
+        padding-left: 0px;
+        width: 95%;
+        margin: 0 2.5%;
+        div#block-block-13 {
+          font-size: 12px;
+          top: 75px;
+          position: absolute;
+          margin-top: -14px;
+          cursor: default;
+          font-size: .8em;
+          margin-left: 0px;
+          padding-left: 0px;
+        }
+      }
     }
   }
 }
 
-body.not-logged-in {
-  div#block-block-13 {
-    margin-left: -236px;
-    top: 72px;
-  }
 
+
+body.front,
+body.page-user-register,
+body.page-user-password,
+body.page-anon-register,
+body.page-anon-login {
+  div#page {
+    header#header {
+      .header-blue {
+        height: 110px;
+        background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
+        padding-left: 1px;
+        .header__name-and-slogan {
+          width: 95%;
+          margin: 10px 2.5% 0;
+        }
+      }
+      .header-photos {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+      }
+    }
+  }
 }
 
-body.not-logged-in:not(.node-type-event) {
 
-  header#header {
-
-    #name-and-slogan {
-      padding-top: 70px;
+body.role-authenticated-user,
+body.node-type-event {
+  div#page {
+    header#header {
+      height: 110px;
+      background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
+      padding-left: 0px;
+      .header__name-and-slogan {
+        width: 95%;
+        margin: 10px 2.5% 0;
+      }
     }
-    div#block-block-13 {
-      top: 75px;
-    }
-
   }
+}
 
+
+
+body.node-type-event {
+  div#page {
+    header#header {
+      div#name-and-slogan.category {
+        h1#site-name.header__site-name {
+          font-size: 2.1em;
+          margin-top: -60px;
+        }
+      }
+      .region-highlighted.category {
+        div#block-block-13 {
+          margin-top: 0px;
+          top: 35px;
+          line-height: .85em;
+        }
+      }
+    }
+  }
 }
