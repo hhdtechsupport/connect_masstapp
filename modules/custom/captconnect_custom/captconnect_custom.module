@@ -572,55 +572,6 @@ function captconnect_custom_form_node_form_alter(&$form, &$form_state, $form_id)
 }
 
 /**
- * Implements hook_username_alter().
- * Invoked by format_username();
- */
-function captconnect_custom_username_alter(&$name, $account) {
-  static $names = array();
-
-  if (!is_object($account)) {
-    return t('Invalid User');
-  }
-
-  // If the uid is 0 or not present, assume the user is anonymous.
-  // Also, new users don't have a profile built yet, so just go away.
-  if (empty($account->uid) || (isset($account->is_new) && $account->is_new)) {
-    return variable_get('anonymous', t('Anonymous'));
-  }
-
-  if (isset($names[$account->uid])) {
-    $name = $names[$account->uid];
-    return;
-  }
-
-  // Sometimes we don't get a full user object.
-  if (!isset($account->field_first_name)) {
-    $account = user_load($account->uid);
-  }
-
-  // Get their first name. It will be FALSE if not given.
-  $first = field_get_items('user', $account, 'field_first_name');
-  if ($first) {
-    $first = $first[0]['value'];
-  }
-  else {
-    $first = t('unknown');
-  }
-  // Likewise, the last name.
-  $last = field_get_items('user', $account, 'field_last_name');
-  if ($last) {
-    $last = $last[0]['value'];
-  }
-  else {
-    $last = t('unknown');
-  }
-
-  // Save it and return.
-  $name = $first . ' ' . $last;
-  $names[$account->uid] = $name;
-}
-
-/**
  * Implements hook_form_FORM_ID_alter().
  * Put a class wrapper on the workflow_transition_form.
  * See https://www.drupal.org/node/2510958
