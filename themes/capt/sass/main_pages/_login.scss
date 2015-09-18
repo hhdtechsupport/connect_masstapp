@@ -2,15 +2,9 @@
 @import '../headers/capt-mixins';
 @import '../headers/extensible';
 
-/*
- *  Start Login Page
- */
-
 body.not-logged-in.page-user:not(.page-user-register),
 body.not-logged-in.page-anon-login {
   height: 100%;
-
-
   ul.tabs-primary {
     display: none;
   }
@@ -102,13 +96,12 @@ body.not-logged-in.page-anon-login {
       text-decoration: none;
     }
   }
-  /* RIGHT */
-  /* new to capt connect */
   #block-block-8 {
     @extend .panel-rule-single;
     padding-bottom: 20px;
     background-image: none;
     background-repeat: no-repeat;
+    margin-top: -83px;
     h2.block-title {
       display: none;
     }
@@ -117,9 +110,6 @@ body.not-logged-in.page-anon-login {
       margin-left: $newto-margin-left;
       font-size: 1.8em;
     }
-    margin-top: -83px;
-
-    /* join today*/
     a {
       color: $capt-orange;
       font-size: 20px;
@@ -130,7 +120,6 @@ body.not-logged-in.page-anon-login {
       margin-left: $newto-margin-left;
     }
   }
-  /* why register */
   #block-block-9 {
     @extend .panel-rule-single;
     background-image: url("../images/icons/register.png");
@@ -151,12 +140,10 @@ body.not-logged-in.page-anon-login {
       }
     }
     a {
-      /* color needed? */
       color: $capt-black;
       font-weight: normal;
     }
   }
-  /* both right panels*/
   #block-block-9,
   #block-block-8 {
     @extend .panel-rule-single;
@@ -172,7 +159,13 @@ body.not-logged-in.page-anon-login {
   }
 }
 
-body.not-logged-in.page-user.page-user-password h1#page-title {
-  margin-left: 27px;
-  text-transform: capitalize;
+body.not-logged-in.page-user.page-user-password {
+  h1#page-title {
+    margin-left: 27px;
+    text-transform: capitalize;
+  }
+  label[for="edit-name"] {
+    font-weight: normal !important;
+    font-size: 16px !important;
+  }
 }
