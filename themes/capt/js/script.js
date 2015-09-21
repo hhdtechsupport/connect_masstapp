@@ -740,7 +740,9 @@ function otherSelectbox ($field, $fieldPrev) {
       $('body').hasClass('page-user-password') ||
       $('body').hasClass('page-user-register') ||
       $('body').hasClass('page-anon-login')    ||
-      $('body').hasClass('page-anon-register')) {
+      $('body').hasClass('page-anon-register') ||
+      $('body').hasClass('page-403')           ||
+      $('body').hasClass('page-404')) {
     $('.header-photos .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
     $('.header-photos .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
     timeout_init(photos);
