@@ -142,17 +142,32 @@ function capt_preprocess_html(&$vars, $hook) {
             $vars['classes_array'][] = $role_class;
         }
     }
+    $header = drupal_get_http_header("status");
+    if($header == "404 Not Found") {
+      $vars['classes_array'][] = 'page-404';
+    }
+    if($header == "403 Forbidden") {
+      $vars['classes_array'][] = 'page-403';
+    }
 }
 
-function capt_preprocess_page(&$variables) {
+function capt_preprocess_page(&$vars) {
     // add template suggestions based on node type
-    if (!empty($variables['node']) && !empty($variables['node']->type) && (arg(2) != 'edit')) {
-        $variables['theme_hook_suggestions'][] = 'page__node__' . $variables['node']->type;
+    if (!empty($vars['node']) && !empty($vars['node']->type) && (arg(2) != 'edit')) {
+        $vars['theme_hook_suggestions'][] = 'page__node__' . $vars['node']->type;
     }
     // Add page.tpl suggestion based on the URL alias
     $alias = drupal_get_path_alias($_GET['q']);
     if ($alias != $_GET['q']) {
-        $variables['theme_hook_suggestions'][] = 'page__'. str_replace('-', '_', $alias);
+        $vars['theme_hook_suggestions'][] = 'page__'. str_replace('-', '_', $alias);
+    }
+    // 403 and 404
+    $header = drupal_get_http_header("status");
+    if($header == "404 Not Found") {
+      $vars['theme_hook_suggestions'][] = 'page__404';
+    }
+    if($header == "403 Forbidden") {
+      $vars['theme_hook_suggestions'][] = 'page__403';
     }
 }
 function capt_page_alter($page) {

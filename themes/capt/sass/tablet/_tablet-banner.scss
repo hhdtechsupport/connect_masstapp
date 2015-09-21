@@ -1,15 +1,12 @@
 @import '../headers/variables';
 @import '../headers/capt-mixins';
 @import '../headers/extensible';
-/**
- * Start iPad theming
- */
+
 
 body.not-logged-in.page-user,
 body.page-user-register,
 body.not-logged-in.page-anon-login  {
   &.front, &.not-logged-in:not(.node-type-event) {
-    /* blue section */
     header#header {
       height: 132px;
       padding-top: 0px;
@@ -17,15 +14,6 @@ body.not-logged-in.page-anon-login  {
       background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
       margin-bottom: 0px;
     }
-    /* photo section */
-    // div#page div#main div#content {
-    //
-    //   background: url("../images/banners/banner-desktop-login-photos.png") 0 0 no-repeat;
-    //   background-size: 100%;
-    //   width: 100%;
-    //   border: none;
-    // }
-    /* subtitle */
     div#block-block-13 {
       top: 60px;
     }
@@ -76,12 +64,12 @@ body.not-front.logged-in, body.not-front.node-type-event {
 }
 
 
-/* specifics */
 body.page-anon-login,
 body.not-logged-in.page-user:not(.page-user-register) {
   div#page div#main div#content {
      padding-top: 30%;
      margin-top: -48px;
+     margin-bottom: 30px;
   }
 }
 body.page-user-register {
@@ -99,40 +87,4 @@ body.logged-in.node-type-event {
     margin-left: 0px;
   }
  }
-}
-
-body.not-logged-in:not(.node-type-event).page-anon-register {
-  header#header div#name-and-slogan {
-    padding-top: 55px;
-  }
-  header#header {
-    height: 132px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    background: url("../images/banners/banner-desktop-login-blue.png") 0 0 no-repeat;
-    margin-bottom: 0px;
-  }
-  /* photo section */
-  div#page div#main div#content {
-    padding-left: 15px;
-    padding-right: 15px;
-    border-bottom: 0;
-    background: url("../images/banners/banner-desktop-login-photos.png") 0 -1px no-repeat;
-    width: 100%;
-    background-size: 100%;
-    border-top: none;
-    border-bottom: none;
-    margin-top: 0;
-    padding-top: 24%;
-    margin-left: 0;
-    margin-right: 0;
-    top: 0;
-  }
-  div#page div#main {
-    width: 100%;
-  }
-  /* subtitle */
-  div#block-block-13 {
-    top: 60px;
-  }
 }

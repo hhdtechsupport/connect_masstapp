@@ -41,11 +41,13 @@
 @media screen and (min-width: $small-phone-width + 1px) and (max-width: $phone-tablet-divide) {
    @import 'capt-mixins-phone';
    @import 'phone-logos';
+   @import 'banner-phone';
 }
 @media screen and (max-width: $small-phone-width) {
   @import 'small-phone';
+  @import 'banner-phone';
 }
- 
+
 @media all and (max-width: 479px) {
   #main {
     /* Move all the children of #main down to make room. */
@@ -60,7 +62,7 @@
     width: 100%;
   }
 }
-@media screen and (-webkit-min-device-pixel-ratio: 0) 
+@media screen and (-webkit-min-device-pixel-ratio: 0)
                 and (max-width: $phone-tablet-divide) {
     form#user-profile-form,
     body.page-user-edit {
@@ -86,7 +88,4 @@
   }
 }
 
-// iPhone 4 
-
-
-
+// iPhone 4

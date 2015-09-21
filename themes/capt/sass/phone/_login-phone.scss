@@ -5,214 +5,129 @@
 @import 'extensible-phone';
 
 
-   $login-title-margin: 16px;
-  /*
-   *  iPhone Styles -- User Login Page
-   */
 
 
-  .messages {
-    margin-bottom: 40px;
-  }
-
-
-
-  .reset-mylayout {
-    width: 100%;
-    margin: 0px;
-    padding: 0px;
-  }
-
-   body.not-logged-in.page-user:not(.page-user-register),
-   body.not-logged-in.page-anon-login {
-    /* reformatting panels for mobile */
-    div#content {
-      text-align: center;
-      .messages {
-        text-align: left;
-      }
-    }
-
-    div#content div#title-section {
-
-     h1#page-title {
-         padding: 0px;
-         margin: 0px;
-        font-size: 1.8em;
-      }
-    }
-
-        /* all blocks */
-    form#user-login,
-
-    div#block-block-8,
-    div#block-block-9 {
-      @extend .noselect;
-
-      @include side_borders($capt-midgrey);
-      // headers for form and blocks.
-      h1, h2 {
-       // @extend .show-hide;
-       @extend .noselect;
-     }
-     h2 {
-      margin-bottom: 6px;
-    }
-
-
-  }
-  /* specific styles for responsive panel tops  ---*/
-  form#user-login {
-    @extend .mobile-panel-rule;
-  }
-  /* lower two blocks */
-  div#block-block-8,
-  div#block-block-9 {
-    @extend .mobile-login-lower-panel;
-    border-top: 1px solid $capt-midgrey;
-    &:before {
-      height: 0px;
-    }
-  }
-  div#title-section {
-    background-color: transparent;
-    border: 0px;
-    width: 70px;
-    float: left;
-    margin-left: 2.5%;
-    padding-left: 4%;
-    cursor: default;
-    &:before {
-      height: 0px;
-      background-color: none;
-    }
-  }
-
-  /* individual panel styles */
-  form#user-login {
-    padding-top: 0px;
-    margin-top: 40px;
-    padding-bottom: 0px;
-    height: 300px;
-     input#edit-name,
-    input#edit-pass {
-      width: 85%;
-
-    }
-      div.form-item.form-item-name {
-    padding-top: 0px;
-    margin-top: -100px;
-    clear: left;
-
-
-
-  }
-    div#edit-actions input#edit-submit {
-      display: block;
-    }
-  }
-  div#block-block-8 {
-    .panel-body {
-      h2 {
-        margin-left: $login-title-margin;
-      }
-      p {
-        margin-left: -14px;
-      }
-    }
-  }
-  div#block-block-9 {
-    height: 130px;
-    margin-bottom: -60px;
-    h2.block-title {
-      margin-left: $login-title-margin;
-    }
-    ul {
-      margin-left: 0px;
-      padding-left: 30px;
-    }
-  }
-
-}
-  // end body
-  div.bottom-footer {
-    height: 50px;
-    width: 100%;
-    /*border-color: red;*/
-    div.bottom-footer-container {
-      text-align: center;
-      width: 100%;
-      div.disclaimer {
-        width: 95%;
-        max-width: 360px;
-        margin-left: 3%;
-        border: 0px solid transparent;
-        height: 100px;
-        text-align: left;
-        padding: 0px;
-      }
-    }
-  }
-  div.bottom-footer,
-  div.bottom-footer-container,
-  div.disclaimer {
-    @extend .reset-layout;
-    max-width: 100%;
-    text-align: left;
-    display: block;
-    margin: 0px;
-  }
-  /* merge with styles below? */
-  body.admin-menu {
-    div#navigation {
-      ul#main-menu.main-menu.responsive-menu {
-        overflow: visible;
-        /* admin*/
-        li#menu-item-1185,
-        li#menu-item-589 {
-          display: none;
+ body.not-logged-in.page-user:not(.page-user-register),
+ body.not-logged-in.page-anon-login {
+  overflow-x: hidden;
+  div#page {
+    div#main {
+      margin-top: -30px !important;
+      div#content {
+        .messages {
+          text-align: left;
+          margin-bottom: 40px;
+          &+ #title-section {
+            padding-top: 50px;
+          }
         }
-        li#menu-item-591 {
-          overflow: visible;
-          a {
-            border-bottom: 1px solid white;
+        div#title-section {
+          margin-left: 16px;
+          background-color: transparent;
+          border: 0px;
+          float: left;
+          padding-left: 4%;
+          cursor: default;
+          &:before {
+            height: 0px;
+            background-color: none;
+          }
+          h1#page-title {
+            padding: 0px;
+            margin: -20px 0 0 0;
+            font-size: 1.8em;
           }
         }
       }
-    }
-    div#content {
-      margin-top: 50px;
-    }
-  }
-   body {
-    overflow-x: hidden;
-   }
-   body,html {
-    width: 100%;
-    max-width: 100%;
-   }
-   body.not-logged-in.page-user:not(.page-user-register),
-   body.not-logged-in.page-anon-login {
 
-    footer {
-     width: 100%;
-     max-width: 100%;
-       .disclaimer {
-         padding: 0px;
-       }
-    }
-    div.top-header {
-      width: 100%;
-    }
-    div#page {
-      max-width: 100%;
-      margin-bottom: -110px;
-      padding-bottom: 210px;
-      min-height: 550px;
-      #main {
-        width: 100%;
-        @extend .reset-layout;
+      form#user-login,
+      div#block-block-8,
+      div#block-block-9 {
+        @extend .noselect;
+        @include side_borders($capt-midgrey);
+        h1, h2 {
+          @extend .noselect;
+        }
+        h2 {
+          margin-bottom: 6px;
+        }
+      }
+
+      form#user-login {
+        @extend .mobile-panel-rule;
+        padding-top: 0px;
+        margin-top: 0px;
+        padding-bottom: 0px;
+        height: 300px;
+        input#edit-name,
+        input#edit-pass {
+          width: 85%;
+        }
+        div.form-item.form-item-name {
+          padding-top: 0px;
+          margin-top: -100px;
+          clear: left;
+        }
+        div#edit-actions input#edit-submit {
+          display: block;
+        }
+      }
+      div#block-block-8,
+      div#block-block-9 {
+        @extend .mobile-login-lower-panel;
+        border-top: 1px solid $capt-midgrey;
+        margin-top: -15px;
+        padding: 20px 0;
+        &:before {
+          height: 0px;
+        }
+        h2 {
+          margin-left: 16px !important;
+        }
+        p {
+          margin-left: -14px;
+        }
+        ul {
+          margin-left: 0px;
+          padding-left: 30px;
+        }
+      }
+      div#block-block-9 {
+        height: 130px;
+        margin-bottom: -60px;
       }
     }
-
   }
+}
+
+div.bottom-footer {
+  @extend .reset-layout;
+  height: 50px;
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  display: block;
+  margin: 0px;
+  div.bottom-footer-container {
+    @extend .reset-layout;
+    text-align: left;
+    width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 0px;
+    footer#footer {
+      width: 100%;
+      max-width: 100%;
+      div.disclaimer {
+        @extend .reset-layout;
+        width: 95%;
+        max-width: 360px;
+        border: none;
+        height: 100px;
+        text-align: left;
+        padding: 0px;
+        margin: 0 0 0 3%;
+      }
+    }
+  }
+}
