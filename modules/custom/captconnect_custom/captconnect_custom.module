@@ -462,6 +462,13 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
 }
 
 /**
+ * Submit handler for requesting a new password.
+ */
+function captconnect_custom_request_password(&$form, &$form_state) {
+  $form_state['redirect'] = 'user/password';
+}
+
+/**
  * Implements hook_form_alter().
  * Note: we need to be very late in the form cycle so we can see all the fields.
  */
@@ -473,6 +480,30 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       // Add our submit handler.
       $form['#submit'][] = 'captconnect_custom_user_register_submit';
 
+      // This value depends on whether a new user or an admin is here.
+      if (!$form['administer_users']['#value']) {
+        $form['actions']['request_password'] = array(
+          '#type' => 'submit',
+          '#value' => variable_get('captconnect_custom_request_password_text',
+            'Request a new password'),
+          '#submit' => array('captconnect_custom_request_password'),
+          '#weight' => 20,
+           );
+        $css = '.step-through-text {font-size: 133%; color: #3366ee; margin: -3.25em 0 2em 6em;}
+          ';
+        drupal_add_css($css, 'inline');
+        $form['actions']['step_through'] = array(
+          '#type' => 'markup',
+          '#markup' => '<p class="step-through-text">'
+            . t('You must step through each page to complete the sign up process.')
+            . '<br />'
+            . t('Do not click on the "create" button until all pages are complete.')            
+            . '</p>',
+          '#weight' => -100,
+          );
+      }
+
+      break;
       // Yes, there is no break, we want to fall through.
 
     case 'user_login':
@@ -486,20 +517,13 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         $form_state['#captconnect_anon_instance'] = $parts[2];
       }
 
-      $form['request_password'] = array(
-       '#theme' => 'link',
-       '#text' => variable_get('captconnect_custom_request_password_text',
+      $form['actions']['request_password'] = array(
+       '#type' => 'submit',
+       '#value' => variable_get('captconnect_custom_request_password_text',
          'Request a new password'),
-       '#path' => 'user/password',
-       '#prefix' => '<div class="request-new-password">',
-       '#suffix' => '</div>',
-       '#options' => array(
-         'attributes' => array(
-           'title' => 'Request a new password',
-           'alt' => 'Request new password'),
-         'html' => FALSE,
-        ),
-      );
+        '#submit' => array('captconnect_custom_request_password'),
+        '#weight' => 20,
+        );
 
       $form['actions']['#weight'] = 100;
 
