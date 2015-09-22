@@ -31,12 +31,30 @@
       div.capt-logo {
         margin-left: 8%;
       }
-      div.samhsa-logo {
-        margin-right: 8%;
-      }
     }
   }
 
   body.not-logged-in.node-type-event #content {
     width: auto;
   }
+
+body {
+  .top-header {
+    height: 100px;
+    background-position: -124px 90px;
+    .top-header-container {
+      .capt-logo, .samhsa-logo {
+        background-size: 85% !important;
+        height: 100px;
+      }
+      .samhsa-logo {
+        margin-right: 3% !important;
+      }
+    }
+  }
+  &.page-user-edit {
+    #page-title {
+      margin-left: 10px !important;
+    }  
+  }
+}
