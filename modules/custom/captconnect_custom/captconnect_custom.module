@@ -497,7 +497,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
           '#markup' => '<p class="step-through-text">'
             . t('You must step through each page to complete the sign up process.')
             . '<br />'
-            . t('Do not click on the "create" button until all pages are complete.')            
+            . t('Do not click on the "create" button until all pages are complete.')
             . '</p>',
           '#weight' => -100,
           );
@@ -588,7 +588,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 }
 
 /**
- * Implements hook_form_alter().
+ * Implements hook_form_FORMID_alter().
  * Load node.pages.inc from Node module.
  */
 function captconnect_custom_form_node_form_alter(&$form, &$form_state, $form_id) {
@@ -824,10 +824,8 @@ function captconnect_custom_user_login(&$edit, $account) {
       ->execute();
 
     // The redirect method is not working, so fall back on good ol' drupal_goto().
-//    $_GET['destination'] = 'node/' . $event_nid;
     $edit['redirect'] = 'node/' . $event_nid;
     $GLOBALS['destination'] = 'node/' . $event_nid;
-//    drupal_goto('node/' . $event_nid);
   }
 }
 
@@ -871,6 +869,9 @@ function captconnect_custom_participate_other($form, $form_state) {
  * @param $form - the form array (by reference).
  */
 function captconnect_custom_proxy_flag_form($event, &$form) {
+  // Note, on entry $form['#flag_action'] is available.
+  $reg_flag = flag_get_flag('registration');
+
   $instances = array();
   foreach (field_get_items('node', $event, 'field_date_instance') as $instance) {
     $instances[] = $instance['target_id'];
@@ -880,6 +881,22 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
   $instance_list = array();
   foreach ($form['#instances'] as $nid => $instance) {
     $instance_list[$nid] = $instance->title;
+
+    // Is the instance full?
+    if ($reg_flag->get_count($instance->nid) >= $instance->field_max_registration[LANGUAGE_NONE][0]['value']) {
+      $instance_list[$nid] .= ' [' . t('full') . ']';
+    }
+    else {
+      // Find first instance with capacity to be the default.
+      if (!isset($default)) {
+        $default = $instance->nid;
+      }
+    }
+  }
+
+  if (empty($instance_list)) {
+    drupal_set_message(t('There are no instances available for which to register.'), 'warning');
+    $instance_list[0] = t('* None *');
   }
 
 	$form['account'] = array (
@@ -892,10 +909,8 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
     '#type' => 'radios',
     '#options' => $instance_list,
     '#title' => t('Select a time for "%event"', array('%event' => $event->title)),
+    '#default_value' => (isset($default) ? $default : key($instance_list)),
     );
-  if (count($instance_list)) {
-    $form['which_one']['#default_value'] = key($instance_list);
-  }
 
   $form ['actions'] = array('#type' => 'actions', '#weight' => 100);
   $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save my choices'));
@@ -926,16 +941,15 @@ function captconnect_custom_proxy_flag_form_validate($form, $form_state) {
 function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
   // Only process the data if the "submit" button was clicked.
   if ($form_state['triggering_element']['#parents'][0] == 'submit') {
-    $flags = flag_get_flags();
-
     $flag_action = $form['#flag_action'];
-    $flag_title = $flags[$flag_action]->title;
-
-    $account = user_load_by_name($form_state['values']['account']);
+    $flag = flag_get_flag($flag_action);
+    $flag_title = $flag->title;
 
     $instance = $form['#instances'][$form_state['values']['which_one']];
 
-    // Okay, let's get 'er done.
+    $account = user_load_by_name($form_state['values']['account']);
+    
+    // Set up arguments for messages.
     $args = array(
       '@event' => $form['#event']->title,
       '@user' => format_username($account),
@@ -943,6 +957,12 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
       '@action' => ($flag_action == 'registration' ? 'registrered for' : 'participating in'),
       );
 
+    if ($flag->is_flagged($instance->nid, $account->uid)) {
+      drupal_set_message(t('@user is already @action for this event.', $args));
+      return;
+    }
+
+    // Okay, let's get 'er done.
     // The flag function returns a boolean to indicate success or failure.
     if (flag('flag', $flag_action, $instance->nid, $account)) {
       drupal_set_message(t(variable_get('captconnect_custom_proxy_registered',
@@ -977,6 +997,7 @@ function captconnect_custom_flag_validate($action, $flag, $entity_id, $account, 
     // How many registrtations do we have currently?
     $num_regs = $flag->get_count($entity_id);
     if ($num_regs >= $capacity && $capacity > 0) {
+      drupal_set_message('Yep, I did it.');
       return array('event-full' => t(variable_get('captconnect_custom_event_full',
         'We are sorry, but this event is full. You may try registering for another time or date.')));
     }
