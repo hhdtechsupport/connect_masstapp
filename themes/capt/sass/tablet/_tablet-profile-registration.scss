@@ -35,6 +35,8 @@ div.horizontal-tabs  {
       margin-left: 0px;
     }
     li.horizontal-tab-button {
+      float: none;
+      clear: both;
      a {
       padding: 5px 10px !important;
       strong {
@@ -44,13 +46,13 @@ div.horizontal-tabs  {
     }
   }
   li.horizontal-tab-button-0 {
-    width: 16%;
+    width: 50%;
   }
   li.horizontal-tab-button-1 {
-    width: 36%;
+    width: 50%;
   }
   li.horizontal-tab-button-2 {
-    width: 42%;
+    width: 50%;
   }
 }
 .horizontal-tabs-panes.horizontal-tabs-processed {
@@ -84,6 +86,7 @@ div#main {
       div#content {
         border: none;
         margin-right: 0px;
+        width: 95%;
         form#user-register-form {
           width: 100%;
           margin: 0px auto;
@@ -149,6 +152,9 @@ div#main {
           .fieldset-wrapper {
             .form-item {
               padding: 0 20px;
+              &.form-type-radio, &.form-type-checkbox {
+                padding: 0 0px;
+              }
             }
           }
 

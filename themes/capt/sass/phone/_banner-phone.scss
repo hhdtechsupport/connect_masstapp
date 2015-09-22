@@ -8,98 +8,50 @@
 body {
   div#page {
     header#header {
-      #name-and-slogan {
-        padding-top: 55px;
-        h1#site-name.header__site-name {
-          margin-left: 0px;
-          margin-top: -50px;
-          font-size: 3em;
+      height: 90px;
+      .header-blue, .header-blue-2 {
+        height: 90px;
+        background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
+        padding-left: 0px;
+        width: 100%;
+        margin-left: 0px;
+        .region-header {
+
+        }
+        #name-and-slogan {
+          top: 30px;
+          font-size: .65em;
+          position: absolute;
+          left: 10px;
+          padding-top: 0px;
+          &.category {
+
+          }
+        }
+        .region-highlighted {
+          top: 60px;
+          position: absolute;
+          left: 10px;
+          padding-top: 0px;
           padding-left: 0px;
-          a {
-            font-size: 0.8em;
+          font-size: 1em;
+          &.category {
+            top: 50px;
+            font-size: 2em;
           }
         }
       }
-      .region-highlighted {
-        padding-left: 0px;
-        width: 95%;
-        margin: 0 2.5%;
-        div#block-block-13 {
-          font-size: 12px;
-          top: 75px;
-          position: absolute;
-          margin-top: -14px;
-          cursor: default;
-          font-size: .8em;
-          margin-left: 0px;
-          padding-left: 0px;
-        }
-      }
-    }
-  }
-}
-
-
-
-body.front,
-body.page-user-register,
-body.page-user-password,
-body.page-anon-register,
-body.page-anon-login {
-  div#page {
-    header#header {
-      .header-blue {
-        height: 110px;
-        background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
-        padding-left: 1px;
-        .header__name-and-slogan {
-          width: 95%;
-          margin: 10px 2.5% 0;
-        }
-      }
-      .header-photos {
+      .header-photos, .header-photos-2 {
         position: absolute !important;
         top: -9999px !important;
         left: -9999px !important;
       }
     }
   }
-}
-
-
-body.role-authenticated-user,
-body.node-type-event {
-  div#page {
-    header#header {
-      height: 110px;
-      background: url("../images/banners/banner-iphone.png") 0 0 no-repeat;
-      padding-left: 0px;
-      .header__name-and-slogan {
-        width: 95%;
-        margin: 10px 2.5% 0;
-      }
-    }
-  }
-}
-
-
-
-body.node-type-event {
-  div#page {
-    header#header {
-      div#name-and-slogan.category {
-        h1#site-name.header__site-name {
-          font-size: 2.1em;
-          margin-top: -60px;
-        }
-      }
-      .region-highlighted.category {
-        div#block-block-13 {
-          margin-top: 0px;
-          top: 35px;
-          line-height: .85em;
-        }
-      }
+  &.not-logged-in.page-user-register,
+  &.not-logged-in.page-anon-register {
+    #name-and-slogan, .region-highlighted {
+      left: 20px !important;
     }
   }
 }
