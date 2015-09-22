@@ -666,15 +666,21 @@ function otherSelectbox ($field, $fieldPrev) {
     return list;
   }
 
-  // Initially, the grid uses the first 16 photos, with numbered filenames
-  var photos = makeArray(1,16);
+  var photo_count = 0;
+
+  $('.photos').each(function(){
+    photo_count = photo_count + 1;
+  });
+
+  // Initially, the grid uses the first 16 photos (or 6 of on logged in or event pages), with numbered filenames
+  var photos = makeArray(1,photo_count);
 
   // The function that calls itself at the end to keep the loop going, and which has a delay
-  function timeout_init(photos) {
+  function timeout_init(photos, photo_count) {
     setTimeout(function(){
 
       // Which photo cell in the grid should be swapped
-      var rand_position = rand(1,16);
+      var rand_position = rand(1,photo_count);
 
       // Which photo (by numbered filename) should be swapped into that spot
       var new_photo = rand(1,32);
@@ -688,7 +694,7 @@ function otherSelectbox ($field, $fieldPrev) {
       photos.push(new_photo);
 
       // Wrap the photo cell with jQuery
-      var $photo_cell = $('.header-photos .photos:nth-child(' + rand_position + ')');
+      var $photo_cell = $('.photos:nth-child(' + rand_position + ')');
 
       // The photo cell includes both a visible and an invisible photo --
       // one on top of the other. Here we identify which is which and wrap in jQuery
@@ -728,7 +734,7 @@ function otherSelectbox ($field, $fieldPrev) {
       }
 
       // Run the function again, passing in the array of current numbered filenames
-      timeout_init(photos);
+      timeout_init(photos, photo_count);
 
     }, rand(1,5) * 1000);
   }
@@ -745,8 +751,17 @@ function otherSelectbox ($field, $fieldPrev) {
       $('body').hasClass('page-404')) {
     $('.header-photos .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
     $('.header-photos .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
-    timeout_init(photos);
+    timeout_init(photos, photo_count);
   }
+
+
+  if ($('body').hasClass('logged-in') ||
+      $('body').hasClass('.page-events')) {
+        $('.header-photos-2 .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
+        $('.header-photos-2 .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
+        timeout_init(photos, photo_count);
+      }
+
 
 
   // BANNER IMAGE SWAP END //

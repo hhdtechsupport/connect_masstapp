@@ -18,8 +18,9 @@ body {
       padding-top: 0px;
       div#content {
         border: none;
-        width: 100%;
-        margin: 0px;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 70px;
         padding: 0px;
         padding-left: 16px;
         padding-right: 16px;
@@ -27,11 +28,49 @@ body {
           padding-right: 0px;
         }
       }
+      div#navigation {
+        #main-menu {
+          width: 95%;
+        }
+      }
     }
   }
   &.node-type-event {
     div#main {
       margin-bottom: 15px;
+    }
+  }
+  &.front,
+  &.page-anon-register,
+  &.page-anon-login,
+  &.page-user-register,
+  &.page-user-password {
+    div#page div#main div#content {
+      margin-top: 60px !important;
+    }
+  }
+  &.not-logged-in {
+    div#page div#main div#content {
+      margin-top: 0px;
+    }
+  }
+  &.logged-in {
+    div#page div#main div#content {
+      margin-top: 55px !important;
+      border: 1px solid $capt-midgrey;
+      border-top: none;
+      padding-top: 10px;
+      margin-bottom: 20px;
+    }
+    &.logged-in.page-user-edit {
+      div#page div#main div#content {
+        #title-section {
+          margin-top: 20px;
+        }
+        .horizontal-tabs-pane::before {
+          padding-left: 13px;
+        }
+      }
     }
   }
 }
