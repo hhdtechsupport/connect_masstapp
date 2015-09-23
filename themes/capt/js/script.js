@@ -581,6 +581,20 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+  /*
+   * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (I.E. NO "UPCOMING EVENTS" PAGE)
+   */
+
+   if ($('body').hasClass('section-events') && !$('body').hasClass('page-events')) {
+     $block1 = $('#block-views-dashboard-block-1');
+     $block2 = $('#block-views-dashboard-block-2');
+     max = Math.max($block1.height(),$block2.height());
+     $block1.height(max - 50);
+     $block2.height(max - 50);
+   }
+
+
+
 
  /*
   * START: VARIOUS FORM FIELD CONTROLS
