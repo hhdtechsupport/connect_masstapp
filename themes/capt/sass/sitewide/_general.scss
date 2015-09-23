@@ -650,6 +650,15 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset {
   float: left;
 }
 
+.view-admin-content, #block-block-16 {
+  width: 25%;
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 .feed-icon img[title="CSV"]{
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
   width: 32px;
@@ -666,4 +675,33 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset {
   margin-left: -3px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+
+
+.page-403:not(.section-login),
+.page-404:not(.section-login),
+.section-404:not(.section-login),
+.section-403:not(.section-login) {
+  div#content {
+    border: none;
+  }
+  h1#page-title {
+    padding-top: 7px;
+    color: #8c1d18;
+    min-height: 44px;
+    font-size: 26pt;
+    margin-top: 36px;
+    margin-bottom: 21px;
+    margin-top: 0px;
+    text-align: center;
+  }
+  .node-page {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    a {
+      color: #8c1d18;
+    }
+  }
 }
