@@ -162,12 +162,22 @@ function capt_preprocess_page(&$vars) {
         $vars['theme_hook_suggestions'][] = 'page__'. str_replace('-', '_', $alias);
     }
     // 403 and 404
+    $authenticated = '';
+
+    if ($vars['user']) {
+        foreach($vars['user']->roles as $key => $role){
+            if (drupal_clean_css_identifier($role) == 'authenticated-user') {
+              $authenticated = '_a';
+            }
+        }
+    }
+
     $header = drupal_get_http_header("status");
     if($header == "404 Not Found") {
-      $vars['theme_hook_suggestions'][] = 'page__404';
+      $vars['theme_hook_suggestions'][] = 'page__404' . $authenticated;
     }
     if($header == "403 Forbidden") {
-      $vars['theme_hook_suggestions'][] = 'page__403';
+      $vars['theme_hook_suggestions'][] = 'page__403' . $authenticated;
     }
 }
 function capt_page_alter($page) {
