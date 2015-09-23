@@ -22,14 +22,14 @@ var iPh6W = 375;
   var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
-  var mater =['div#block-views-materials-block h2','div.view-materials'];
+  var mater =['div#block-views-materials-block h2','div.view-material'];
   var eventPanels = [desc,aud,pres,mater];
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
-  var ev = ['h1#page-title','div#content > .view-dashboard']
+  //var ev = ['h1#page-title','div#content > .view-dashboard'] ** THIS IS IF UPCOMING EVENTS ARE USED
   var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
   var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
-  var dashPanels = [ev,reg,arch];
+  var dashPanels = [/*ev,*/reg,arch]; // HERE TOO
   var panels_activated = false;
   var currentWinWidth;
 
@@ -49,7 +49,7 @@ Drupal.behaviors.my_custom_behavior = {
       checkDates();
       if (!panels_activated) activatePanels(eventPanels);
     }
-    else if ($('body').hasClass('page-events')) {
+    else if ($('body').hasClass('section-events')) {
 
       if (isPhone()) {
         hide_panels(dashPanels);
@@ -127,7 +127,7 @@ Drupal.behaviors.my_custom_behavior = {
           checkDates();
           adjust_panels(eventPanels);
         }
-        else if ($('body').hasClass('page-events')) {
+        else if ($('body').hasClass('section-events')) {
           adjust_panels(dashPanels);
         }
         currentWinWidth = window.innerWidth;
@@ -675,6 +675,8 @@ function otherSelectbox ($field, $fieldPrev) {
   // Initially, the grid uses the first 16 photos (or 6 of on logged in or event pages), with numbered filenames
   var photos = makeArray(1,photo_count);
 
+  var counter = 0;
+
   // The function that calls itself at the end to keep the loop going, and which has a delay
   function timeout_init(photos, photo_count) {
     setTimeout(function(){
@@ -733,8 +735,12 @@ function otherSelectbox ($field, $fieldPrev) {
         }, 2000);
       }
 
-      // Run the function again, passing in the array of current numbered filenames
-      timeout_init(photos, photo_count);
+      counter = counter + 1;
+
+      if (counter < 30) {
+        // Run the function again, passing in the array of current numbered filenames
+        timeout_init(photos, photo_count);
+      }
 
     }, rand(1,5) * 1000);
   }
