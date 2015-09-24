@@ -8,6 +8,19 @@ $header-pad-left: 20px;
 
 
 body.node-type-event {
+  .ds-2col-stacked {
+    .group-left {
+      padding-right: 290px;
+    }
+    .group-right {
+      position: relative;
+      width: 260px;
+      margin-left: -260px;
+      .field-type-ds {
+        width: 205px;
+      }
+    }
+  }
   footer {
     left: 0px;
     margin-left: -30px;
@@ -15,26 +28,20 @@ body.node-type-event {
       padding-right: 0px !important;
     }
   }
-
-  div#block-block-13 {
-
-  }
-   div.view-content {
-      h1.subtitle,h2.views-field {
-        padding-left: 0px;
+  div#main div#content {
+    div#title-section  {
+      h1#page-title.page__title {
+        padding-left:  0px;
+        margin-top: 15px;
       }
     }
-  div#main div#content div#title-section  {
-    h1#page-title.page__title {
-      padding-left:  0px;
-      margin-top: 15px;
+    ul.tabs-primary {
+      display: none;
     }
-
-  }
-  div.group-right {
-    position: relative;
-  }
-  ul.tabs-primary {
-    display: none;
+    div.view-content {
+     h1.subtitle,h2.views-field {
+       padding-left: 0px;
+     }
+   }
   }
 }

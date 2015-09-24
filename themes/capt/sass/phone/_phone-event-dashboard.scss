@@ -8,7 +8,101 @@ $top-pad: 60px;
 $header-pos: 10px;
 $title-buffer: 104px;
 
-body.page-events.section-events {
+
+body.section-events {
+	div#main div#content div#title-section {
+
+	}
+	#block-views-dashboard-block-1 > .view-dashboard > .view-content,
+	#block-views-dashboard-block-2 > .view-dashboard > .view-content {
+		padding: 0 20px 0 26px;
+	}
+
+	/* only controls view-dashboard on left column */
+	div#content > div.view-dashboard {
+	        width: 100%; // include in prototype?
+	        margin: 0px auto;
+	        float: none;
+
+	        margin-top: $top-pad - 6px - $title-buffer;
+	        padding-top: $top-pad;
+
+	        background-color: white;
+	        padding-top: 20px;
+	        margin-top: 0px;
+	        border-top: 1px solid $capt-midgrey;
+	        @include side_borders($capt-midgrey);
+	        @extend .show-hide-content;
+
+	        div.item-list {
+	        	margin-left: 10px;
+	        }
+	        &:before {
+	        	height: 0px;
+	        }
+					> .view-content {
+						padding: 0 20px;
+					}
+
+
+	      }
+	      div.view-dashboard div.view-content {
+
+	      }
+	      div#block-views-dashboard-block-1 {
+	        border-bottom: 0px;
+					.view-empty {
+						margin-left: 26px;
+					}
+	      }
+	      .views-exposed-widgets {
+	       margin-bottom: 0.5em;
+	       float: left;
+	       margin-right: -12px;
+				 margin-top: 12px;
+	      }
+	      div#block-views-dashboard-block-1,
+	      div#block-views-dashboard-block-2 {
+	        width: 100%;
+	        margin: 0px;
+	        float: none;
+	        // identical to tablet; perhaps make a prototype style
+	        background-position: right -6px top 10px;
+	        background-size: 53px 40px;
+	        border-top: 1px solid $capt-midgrey;
+	        padding-bottom: 0px;
+					padding-top: 16px;
+	        h2 {
+	         width: 90%;
+	         @extend .show-hide-header;
+					 font-size: 20px !important;
+					 padding-left: 26px !important;
+	       }
+	       div.view.view-dashboard {
+	        @extend .show-hide-content;
+	       }
+	       &:before {
+	         height: 0px;
+	         background-color: transparent;
+	       }
+	       div.view-empty, div.item-list {
+	         margin-top: 10px;
+	       }
+	       div.view-content {
+
+	       }
+	       h2.block-title.block__title {
+					 margin-bottom: 0px;
+					 padding-bottom: 16px;
+	       }
+	       div.view-empty {
+
+	       }
+
+	     }
+}
+
+body.section-events.page-events {
 	div#page {
    margin-bottom: 0px !important;
    padding-bottom: 0px !important;
@@ -35,7 +129,6 @@ div#main div#content div#title-section	{
   &:before {
    @extend .before-style;
    top: -15px;
-
  }
  h1#page-title.page__title {
   max-width: 100%;
@@ -53,90 +146,5 @@ div#main div#content div#title-section	{
   }
 }
 
-
 }
-
-
-#block-views-dashboard-block-1 > .view-dashboard > .view-content,
-#block-views-dashboard-block-2 > .view-dashboard > .view-content {
-	padding: 0 20px 0 30px;
 }
-
-/* only controls view-dashboard on left column */
-div#content > div.view-dashboard {
-        width: 100%; // include in prototype?
-        margin: 0px auto;
-        float: none;
-
-        margin-top: $top-pad - 6px - $title-buffer;
-        padding-top: $top-pad;
-
-        background-color: white;
-        padding-top: 20px;
-        margin-top: 0px;
-        border-top: 1px solid $capt-midgrey;
-        @include side_borders($capt-midgrey);
-        @extend .show-hide-content;
-
-        div.item-list {
-        	margin-left: 10px;
-        }
-        &:before {
-        	height: 0px;
-        }
-				> .view-content {
-					padding: 0 20px;
-				}
-
-
-      }
-      div.view-dashboard div.view-content {
-
-      }
-      div#block-views-dashboard-block-1 {
-        border-bottom: 0px;
-      }
-      .views-exposed-widgets {
-       margin-bottom: 0.5em;
-       float: left;
-       margin-right: -12px;
-			 margin-top: 12px;
-      }
-      div#block-views-dashboard-block-1,
-      div#block-views-dashboard-block-2 {
-        width: 100%;
-        margin: 0px;
-        float: none;
-        // identical to tablet; perhaps make a prototype style
-        background-position: right -6px top 8px;
-        background-size: 60px 45px;
-        border-top: 1px solid $capt-midgrey;
-        padding-bottom: 0px;
-
-
-        h2 {
-         width: 90%;
-         @extend .show-hide-header;
-       }
-       div.view.view-dashboard {
-        @extend .show-hide-content;
-       }
-       &:before {
-         height: 0px;
-         background-color: transparent;
-       }
-       div.view-empty, div.item-list {
-         margin-top: 10px;
-       }
-       div.view-content {
-
-       }
-       h2.block-title.block__title {
-
-       }
-       div.view-empty {
-
-       }
-
-     }
-   }
