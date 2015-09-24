@@ -22,7 +22,7 @@ var iPh6W = 375;
   var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
-  var mater =['div#block-views-materials-block h2','div.view-material'];
+  var mater =['div#block-views-materials-block h2','div#block-views-materials-block div.view-id-materials'];
   var eventPanels = [desc,aud,pres,mater];
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
@@ -70,7 +70,10 @@ Drupal.behaviors.my_custom_behavior = {
   function addShowHide(arr) {
    var myButton = arr[0];
    var myBody = arr[1];
+
+   console.log(myBody);
    $(myButton).click(function () {
+
     togglePanel(myButton,myBody);
 
 
@@ -87,17 +90,20 @@ Drupal.behaviors.my_custom_behavior = {
 
     var retval = 'default';
     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
+    console.log($(body).css('display'));
     if (mql.matches)
     {
 
       switch($(body).css('display')) {
         case 'none':
+
         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
         $(body).slideDown("fast", function () { $(body).show()});
         retval= 'open';
         break;
 
         default:
+        console.log('moving');
         $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
         $(body).slideUp("fast",function () {$(body).hide()});
         retval='closed';
@@ -111,7 +117,8 @@ Drupal.behaviors.my_custom_behavior = {
 
   function activatePanels (arr) {
 
-    for (var i = 0; i < 3; ++i) {
+    for (var i = 0; i < arr.length; ++i) {
+
       addShowHide(arr[i]);
 
     }
@@ -139,7 +146,7 @@ function adjust_panels (arr) {
 }
 
 function hide_panels (arr) {
-  for (var i = 0; i < 3; ++i)  {
+  for (var i = 0; i < arr.length; ++i)  {
 
     if ($(arr[i][0]).attr('id') != 'page-title')
     $(arr[i][1]).hide();
