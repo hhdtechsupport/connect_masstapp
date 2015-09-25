@@ -6,7 +6,7 @@ $tablet-margin-gutter: 15px;
 $right-column-width: 45%;
 $left-column-width: 48%;
 
-body.page-events.section-events {
+body.section-events {
 	div#main div#content div#title-section {
 		margin-top: 10px;
 	    h1#page-title.page__title {
@@ -20,9 +20,18 @@ body.page-events.section-events {
 
 	}
 	/* only controls view-dashboard on left column */
-	div#content > div.view-dashboard {
-		width: $left-column-width;
-		clear: both;
+	div#content {
+		width: auto;
+		top: 0px;
+		margin-left: 2.5%;
+		margin-right: 2.5%;
+		> div.view-dashboard {
+			width: $left-column-width;
+			clear: both;
+		}
+	}
+	#navigation ul#main-menu.main-menu {
+		width: 95%;
 	}
 	div.view-dashboard div.view-content {
         margin-left: 0px;
@@ -35,8 +44,8 @@ body.page-events.section-events {
 
 	div#block-views-dashboard-block-1,
 	div#block-views-dashboard-block-2 {
-		margin-right: $tablet-margin-gutter;
-		width: $right-column-width;
+		width: 48%;
+		// width: $right-column-width;
 		background-position: right -10px top 8px;
 		background-size: 60px 45px;
 
@@ -55,6 +64,10 @@ body.page-events.section-events {
 		}
 
 
+	}
+
+	div#block-views-dashboard-block-1 {
+		float: left;
 	}
 
 

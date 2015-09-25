@@ -22,14 +22,14 @@ var iPh6W = 375;
   var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
-  var mater =['div#block-views-materials-block h2','div.view-materials'];
+  var mater =['div#block-views-materials-block h2','div#block-views-materials-block div.view-id-materials'];
   var eventPanels = [desc,aud,pres,mater];
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
-  var ev = ['h1#page-title','div#content > .view-dashboard']
+  //var ev = ['h1#page-title','div#content > .view-dashboard'] ** THIS IS IF UPCOMING EVENTS ARE USED
   var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
   var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
-  var dashPanels = [ev,reg,arch];
+  var dashPanels = [/*ev,*/reg,arch]; // HERE TOO
   var panels_activated = false;
   var currentWinWidth;
 
@@ -49,7 +49,7 @@ Drupal.behaviors.my_custom_behavior = {
       checkDates();
       if (!panels_activated) activatePanels(eventPanels);
     }
-    else if ($('body').hasClass('page-events')) {
+    else if ($('body').hasClass('section-events')) {
 
       if (isPhone()) {
         hide_panels(dashPanels);
@@ -70,7 +70,10 @@ Drupal.behaviors.my_custom_behavior = {
   function addShowHide(arr) {
    var myButton = arr[0];
    var myBody = arr[1];
+
+   console.log(myBody);
    $(myButton).click(function () {
+
     togglePanel(myButton,myBody);
 
 
@@ -87,17 +90,20 @@ Drupal.behaviors.my_custom_behavior = {
 
     var retval = 'default';
     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
+    console.log($(body).css('display'));
     if (mql.matches)
     {
 
       switch($(body).css('display')) {
         case 'none':
+
         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
         $(body).slideDown("fast", function () { $(body).show()});
         retval= 'open';
         break;
 
         default:
+        console.log('moving');
         $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
         $(body).slideUp("fast",function () {$(body).hide()});
         retval='closed';
@@ -111,7 +117,8 @@ Drupal.behaviors.my_custom_behavior = {
 
   function activatePanels (arr) {
 
-    for (var i = 0; i < 3; ++i) {
+    for (var i = 0; i < arr.length; ++i) {
+
       addShowHide(arr[i]);
 
     }
@@ -127,7 +134,7 @@ Drupal.behaviors.my_custom_behavior = {
           checkDates();
           adjust_panels(eventPanels);
         }
-        else if ($('body').hasClass('page-events')) {
+        else if ($('body').hasClass('section-events')) {
           adjust_panels(dashPanels);
         }
         currentWinWidth = window.innerWidth;
@@ -139,7 +146,7 @@ function adjust_panels (arr) {
 }
 
 function hide_panels (arr) {
-  for (var i = 0; i < 3; ++i)  {
+  for (var i = 0; i < arr.length; ++i)  {
 
     if ($(arr[i][0]).attr('id') != 'page-title')
     $(arr[i][1]).hide();
@@ -581,6 +588,20 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+  /*
+   * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (I.E. NO "UPCOMING EVENTS" PAGE)
+   */
+
+   if ($('body').hasClass('section-events') && !$('body').hasClass('page-events')) {
+     $block1 = $('#block-views-dashboard-block-1');
+     $block2 = $('#block-views-dashboard-block-2');
+     max = Math.max($block1.height(),$block2.height());
+     $block1.height(max - 50);
+     $block2.height(max - 50);
+   }
+
+
+
 
  /*
   * START: VARIOUS FORM FIELD CONTROLS
@@ -666,15 +687,23 @@ function otherSelectbox ($field, $fieldPrev) {
     return list;
   }
 
-  // Initially, the grid uses the first 16 photos, with numbered filenames
-  var photos = makeArray(1,16);
+  var photo_count = 0;
+
+  $('.photos').each(function(){
+    photo_count = photo_count + 1;
+  });
+
+  // Initially, the grid uses the first 16 photos (or 6 of on logged in or event pages), with numbered filenames
+  var photos = makeArray(1,photo_count);
+
+  var counter = 0;
 
   // The function that calls itself at the end to keep the loop going, and which has a delay
-  function timeout_init(photos) {
+  function timeout_init(photos, photo_count) {
     setTimeout(function(){
 
       // Which photo cell in the grid should be swapped
-      var rand_position = rand(1,16);
+      var rand_position = rand(1,photo_count);
 
       // Which photo (by numbered filename) should be swapped into that spot
       var new_photo = rand(1,32);
@@ -688,7 +717,7 @@ function otherSelectbox ($field, $fieldPrev) {
       photos.push(new_photo);
 
       // Wrap the photo cell with jQuery
-      var $photo_cell = $('.header-photos .photos:nth-child(' + rand_position + ')');
+      var $photo_cell = $('.photos:nth-child(' + rand_position + ')');
 
       // The photo cell includes both a visible and an invisible photo --
       // one on top of the other. Here we identify which is which and wrap in jQuery
@@ -727,8 +756,12 @@ function otherSelectbox ($field, $fieldPrev) {
         }, 2000);
       }
 
-      // Run the function again, passing in the array of current numbered filenames
-      timeout_init(photos);
+      counter = counter + 1;
+
+      if (counter < 30) {
+        // Run the function again, passing in the array of current numbered filenames
+        timeout_init(photos, photo_count);
+      }
 
     }, rand(1,5) * 1000);
   }
@@ -745,8 +778,17 @@ function otherSelectbox ($field, $fieldPrev) {
       $('body').hasClass('page-404')) {
     $('.header-photos .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
     $('.header-photos .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
-    timeout_init(photos);
+    timeout_init(photos, photo_count);
   }
+
+
+  if ($('body').hasClass('logged-in') ||
+      $('body').hasClass('.page-events')) {
+        $('.header-photos-2 .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
+        $('.header-photos-2 .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
+        timeout_init(photos, photo_count);
+      }
+
 
 
   // BANNER IMAGE SWAP END //

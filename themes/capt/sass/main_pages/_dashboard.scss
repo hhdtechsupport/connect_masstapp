@@ -23,7 +23,7 @@ li.views-row:last-child {
 
 div.view-content div.item-list {
   padding-left: 0px;
-  padding-top: 14px;
+  padding-top: 25px;
   &:first-of-type {
     padding-top: 0;
   }
@@ -125,10 +125,21 @@ p {
     }
     .view-content {
       padding: 0 20px;
+      & > .item-list {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 20px;
+        padding-bottom: 30px;
+      }
       .view-content {
         padding: 0;
       }
     }
+     .view-empty {
+       border-top: 1px solid $capt-midgrey;
+       padding-top: 20px;
+       padding-bottom: 30px;
+       margin-right: 20px;
+     }
     .pager {
       margin: 10px 0 0;
     }
@@ -138,6 +149,9 @@ p {
   }
   #block-block-15 {
     clear: both;
+  }
+  #block-views-dashboard-block-1 {
+    float: left;
   }
 }
 
