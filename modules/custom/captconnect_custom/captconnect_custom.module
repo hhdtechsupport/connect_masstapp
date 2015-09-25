@@ -428,6 +428,10 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
   }
 }
 
+/**
+ * Implements hook_form_FORMID_alter().
+ * Mess with the account edit form.
+ */
 function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
 //  dpm($form, $form_id);
   $form['actions']['#weight'] = 100;
@@ -455,10 +459,6 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
     $form['mimemail'] = $mimemail;
     $form['mimemail']['#weight'] = 20;
   }
-
-//    $form['og_user_node']['#collapsible'] = TRUE;
-//    $form['og_user_node']['#collapsed'] = TRUE;
-//  dpm($form, $form_id);
 }
 
 /**
@@ -476,33 +476,37 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
   switch ($form_id) {
+    // Create a new account form.
     case 'user_register_form':
-      // Add our submit handler.
-      $form['#submit'][] = 'captconnect_custom_user_register_submit';
-
-      // This value depends on whether a new user or an admin is here.
-      if (!$form['administer_users']['#value']) {
-        $form['actions']['request_password'] = array(
-          '#type' => 'submit',
-          '#value' => variable_get('captconnect_custom_request_password_text',
-            'Request a new password'),
-          '#submit' => array('captconnect_custom_request_password'),
-          '#weight' => 20,
-           );
-        $css = '.step-through-text {font-size: 133%; color: #3366ee; margin: -3.25em 0 2em 6em;}
-          ';
-        drupal_add_css($css, 'inline');
-        $form['actions']['step_through'] = array(
-          '#type' => 'markup',
-          '#markup' => '<p class="step-through-text">'
-            . t('You must step through each page to complete the sign up process.')
-            . '<br />'
-            . t('Do not click on the "create" button until all pages are complete.')
-            . '</p>',
-          '#weight' => -100,
-          );
+      // We sort of need to cheat.
+      // We will override the multitab settings to become multipage.
+      foreach ($form['#groups'] as $group_name => $stuff) {
+        if ($group_name == 'group_tabs') {
+          $form['#fieldgroups']['group_tabs']->format_type = 'multipage-group';
+          $form['#fieldgroups']['group_tabs']->format_settings = array(
+            'formatter' => '',
+            'instance_settings' => array(
+              'classes' => '',
+              'page_header' => 1,
+              'move_additional' => 1,
+              'page_counter' => 1,
+              'move_button' => 1,
+              ),
+            );
+        }
+        else {
+          $groups[$group_name] = $stuff->label;
+          $form['#fieldgroups'][$group_name]->format_type = 'multipage';
+          $form['#fieldgroups'][$group_name]->format_settings = array(
+            'formatter' => 'no-start',
+            'instance_settings' => array(
+              'description' => '',
+              'classes' => '',
+              'required_fields' => 1,
+              ),
+            );
+        }
       }
-
       break;
       // Yes, there is no break, we want to fall through.
 
@@ -948,7 +952,7 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
     $instance = $form['#instances'][$form_state['values']['which_one']];
 
     $account = user_load_by_name($form_state['values']['account']);
-    
+
     // Set up arguments for messages.
     $args = array(
       '@event' => $form['#event']->title,
