@@ -2825,37 +2825,69 @@ body.not-logged-in.page-anon-login #block-block-8 a {
 /* line 123, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9,
 body.not-logged-in.page-anon-login #block-block-9 {
-  background-image: url("../images/icons/register.png");
-  background-position: 270px 30px;
-  background-repeat: no-repeat;
-  height: 193px;
+  height: auto;
+  min-height: 193px;
   margin-top: 9px;
 }
-/* line 130, ../sass/main_pages/_login.scss */
+/* line 128, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-9 #why-register-icon,
+body.not-logged-in.page-anon-login #block-block-9 #why-register-icon {
+  background-image: url("../images/icons/register.png");
+  background-repeat: no-repeat;
+  height: 125px;
+  width: 125px;
+  float: right;
+  background-position: 12px 10px;
+}
+/* line 136, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-9 #why-register,
+body.not-logged-in.page-anon-login #block-block-9 #why-register {
+  padding-right: 25px;
+}
+/* line 139, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2.block-title,
 body.not-logged-in.page-anon-login #block-block-9 h2.block-title {
   margin-left: 30px;
   font-size: 1.8em;
 }
-/* line 134, ../sass/main_pages/_login.scss */
+/* line 143, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul,
 body.not-logged-in.page-anon-login #block-block-9 ul {
   margin-left: 4px;
 }
-/* line 136, ../sass/main_pages/_login.scss */
+/* line 145, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li,
 body.not-logged-in.page-anon-login #block-block-9 ul li {
   list-style-image: url("../images/icons/arrow-icons-aqua.png");
-  font-size: 16px;
   font-weight: normal;
 }
-/* line 142, ../sass/main_pages/_login.scss */
+/* line 148, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li .section-head,
+body.not-logged-in.page-anon-login #block-block-9 ul li .section-head {
+  color: #334b56;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* line 153, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li .section-detail,
+body.not-logged-in.page-anon-login #block-block-9 ul li .section-detail {
+  font-size: 14px;
+  margin-top: 4px;
+  display: block;
+  display: none;
+}
+/* line 159, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-9 ul li:not(:nth-child(1)),
+body.not-logged-in.page-anon-login #block-block-9 ul li:not(:nth-child(1)) {
+  margin-top: 12px;
+}
+/* line 164, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 a,
 body.not-logged-in.page-anon-login #block-block-9 a {
-  color: #333333;
+  color: #c3791f;
   font-weight: normal;
 }
-/* line 147, ../sass/main_pages/_login.scss */
+/* line 169, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8,
 body.not-logged-in.page-anon-login #block-block-9,
@@ -2865,7 +2897,7 @@ body.not-logged-in.page-anon-login #block-block-8 {
   float: right;
   background-repeat: no-repeat;
 }
-/* line 154, ../sass/main_pages/_login.scss */
+/* line 176, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-9 h2,
 body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2,
 body.not-logged-in.page-anon-login #block-block-9 h2,
@@ -2875,12 +2907,12 @@ body.not-logged-in.page-anon-login #block-block-8 h2 {
   margin-left: 28px;
 }
 
-/* line 163, ../sass/main_pages/_login.scss */
+/* line 185, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user.page-user-password h1#page-title {
   margin-left: 27px;
   text-transform: capitalize;
 }
-/* line 167, ../sass/main_pages/_login.scss */
+/* line 189, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user.page-user-password label[for="edit-name"] {
   font-weight: normal !important;
   font-size: 16px !important;
@@ -3369,10 +3401,11 @@ body.node-type-event.not-logged-in div#content.column {
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
   /* line 367, ../sass/main_pages/_event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
-    height: 192px;
+    min-height: 192px;
+    height: auto;
   }
 }
-/* line 372, ../sass/main_pages/_event.scss */
+/* line 373, ../sass/main_pages/_event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
@@ -5249,11 +5282,17 @@ body.page-anon-register #block-block-3 p {
   /* line 96, ../sass/phone/_login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-9,
   body.not-logged-in.page-anon-login div#page div#main div#block-block-9 {
-    height: 130px;
-    margin-bottom: -60px;
+    height: auto;
+    margin-bottom: -30px;
+  }
+  /* line 99, ../sass/phone/_login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-9 #why-register-icon,
+  body.not-logged-in.page-anon-login div#page div#main div#block-block-9 #why-register-icon {
+    width: 115px;
+    background-position: 5px;
   }
 
-  /* line 104, ../sass/phone/_login-phone.scss */
+  /* line 108, ../sass/phone/_login-phone.scss */
   div.bottom-footer {
     height: 50px;
     width: 100%;
@@ -5262,7 +5301,7 @@ body.page-anon-register #block-block-3 p {
     display: block;
     margin: 0px;
   }
-  /* line 112, ../sass/phone/_login-phone.scss */
+  /* line 116, ../sass/phone/_login-phone.scss */
   div.bottom-footer div.bottom-footer-container {
     text-align: left;
     width: 100%;
@@ -5270,12 +5309,12 @@ body.page-anon-register #block-block-3 p {
     display: block;
     margin: 0px;
   }
-  /* line 119, ../sass/phone/_login-phone.scss */
+  /* line 123, ../sass/phone/_login-phone.scss */
   div.bottom-footer div.bottom-footer-container footer#footer {
     width: 100%;
     max-width: 100%;
   }
-  /* line 122, ../sass/phone/_login-phone.scss */
+  /* line 126, ../sass/phone/_login-phone.scss */
   div.bottom-footer div.bottom-footer-container footer#footer div.disclaimer {
     width: 95%;
     max-width: 360px;
