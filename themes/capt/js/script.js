@@ -795,6 +795,18 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
+
+  // FRONT PAGE SHOW/HIDE QUESTIONS
+
+  $('.section-head').each(function(){
+    $(this).on('click',function(){
+      $(this).next('.section-detail').slideToggle();
+    });
+  });
+
+
+
 }
 };
 
