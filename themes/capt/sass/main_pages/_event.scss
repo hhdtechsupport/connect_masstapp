@@ -365,7 +365,8 @@ body.node-type-event.not-logged-in {
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
   body.not-logged-in.page-user:not(.page-user-register) {
     #block-block-9 {
-      height: 192px;
+      min-height: 192px;
+      height: auto;
     }
   }
 }

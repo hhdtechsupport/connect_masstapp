@@ -318,132 +318,6 @@ function isPhone () {
    */
 
 
-
-
-  // /*
-  //  * START: "MY PROFILE" EDIT/VIEW FUNCTIONALITY
-  //  */
-  //
-  // // Grabbing form data, printing those data, and showing/hiding individual form fieldsets
-  //
-  // // Create pseudo Save, Cancel, and Edit buttons
-  // var saveButton = '<div class="button save-button">Save</div>';
-  // var cancelButton = '<div class="button cancel-button">Cancel</div>';
-  // var editButton = '<div class="button edit-button">Edit</div>';
-  // // And hide the "real" Save button
-  // $('#user-profile-form input[value="Save"]').css('display','none');
-  // // We are going to allow editing of each fieldset's form fields separately, so iterate over each fieldset grouping
-  // $('#user-profile-form > div > fieldset').each(function(){
-  //   var formData = '';
-  //   var $section = $(this);
-  //   // Create the variable that will collect the form data in a structured html string
-  //   var $dataView = $('<div class="data-view">');
-  //   var $formFields = $section.children('.fieldset-wrapper');
-  //   // Add the cancel and save buttons to the form edit version of each section
-  //   $formFields.css('display','none').prepend(cancelButton).prepend(saveButton);
-  //   $formFields.append(saveButton).append(cancelButton);
-  //   // Add the edit buttons to the data view version of the each section
-  //   $dataView.prepend(editButton);
-  //   // Move the temporarily empty data view div into the section below the legend
-  //   $section.children('legend').after($dataView);
-  //   // Start grabbing the labels and values of each form element
-  //   $section.find('.form-item').each(function(){
-  //     // Grab labels and values from text fields
-  //     if ($(this).hasClass('form-type-textfield')){
-  //       var label = $(this).find('label').clone().children().remove().end().text().trim();
-  //       var input = $(this).find('input').val();
-  //       // Only add colon if the label doesn't end with a question mark
-  //       if (label.substr(label.length-1) != '?') {
-  //         label = label + ':';
-  //       }
-  //       // Remove the empty "please specify" fields
-  //       if (!((label == 'Please specify:') && (input == ''))) {
-  //         formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
-  //       }
-  //     }
-  //     // Create a generic password line
-  //     if ($(this).hasClass('password-parent')) {
-  //       formData = formData + '<div class="item"><span class="label">Password: </span><span class="value">********</span></div>';
-  //       $(this).find('input').val();
-  //     }
-  //     // Grab labels and values from the select fields
-  //     if ($(this).hasClass('form-type-select')) {
-  //       var label = $(this).find('label').clone().children().remove().end().text().trim();
-  //       var input = $(this).find('option:selected').text().trim();
-  //       // Only add colon if the label doesn't end with a question mark
-  //       if (label.substr(label.length-1) != '?') {
-  //         label = label + ':';
-  //       }
-  //       formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
-  //     }
-  //     // Grab labels and selected values from the radio buttons
-  //     if ($(this).hasClass('form-type-radios')) {
-  //       var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim();
-  //       var input = $(this).find('input:checked').next().text().trim();
-  //       // Only add colon if the label doesn't end with a question mark
-  //       if (label.substr(label.length-1) != '?') {
-  //         label = label + ':';
-  //       }
-  //       // Special case (see below as well) for when CAPT Staff or Consultant is "N/A"
-  //       if (input != '') {
-  //         formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
-  //       }
-  //     }
-  //     // Grab labels and selected values from the checkboxes
-  //     if ($(this).hasClass('form-type-checkboxes')) {
-  //       var label = $(this).find('input:checked').parent().parent().prev().clone().children().remove().end().text().trim().split(' (choose all that apply)').join('');
-  //       var input = '';
-  //       // Only add colon if the label doesn't end with a question mark
-  //       if (label.substr(label.length-1) != '?') {
-  //         label = label + ':';
-  //       }
-  //       // If multiple selections, add commas between them
-  //       $(this).find('input:checked').each(function(){
-  //         input = input + ', ' + $(this).next().text().trim();
-  //       });
-  //       formData = formData + '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input.substr(2) + '</span></div>';
-  //     }
-  //   });
-  //   // Move the form data into the awaiting data view div
-  //   $(formData).appendTo($dataView);
-  //   // Remove parts of the form data that we don't want to show
-  //   $dataView.find('.item').each(function(){
-  //     // Make sure to remove the colon/question mark and space
-  //     var labelText = $(this).children('.label').text().slice(0, -2);
-  //     // Check whether the label matches any of the "bad" fields we don't want to display
-  //     if (labelText == 'Status' ||
-  //       labelText == 'Roles' ||
-  //       labelText == 'Default state' ||
-  //       labelText == 'Show the disable/enable rich text editor toggle' ||
-  //       labelText == 'Editor width' ||
-  //       labelText == 'Language' ||
-  //       labelText == 'Auto-detect language') {
-  //       // And remove them from the dataView if they do
-  //     $(this).remove();
-  //   }
-  // });
-  //   // Action to take when edit button is clicked
-  //   $section.find('.button.edit-button').on('click',function(){
-  //     $section.siblings('fieldset').each(function(){
-  //       if ($(this).children('.fieldset-wrapper').is(':visible')) {
-  //         $(this).children('.fieldset-wrapper').toggle();
-  //         $(this).find('.data-view').toggle();
-  //       }
-  //     });
-  //     $formFields.toggle();
-  //     $section.find('.data-view').toggle();
-  //     $('html, body').scrollTop($section.offset().top - 50);
-  //   });
-  //   // Action to take when save button is clicked
-  //   $section.find('.button.save-button').on('click', function(){
-  //     $('#user-profile-form input[value="Save"]').trigger('click');
-  //   });
-  //   // Action to take when cancel button is clicked
-  //   $section.find('.button.cancel-button').on('click', function(){
-  //     location.reload();
-  //   });
-  // });
-
   // Controlling the special selections, like "Other" and "I prefer not to answer"
 
   // When a "Please specify" textfield is detected
@@ -699,11 +573,11 @@ function otherSelectbox ($field, $fieldPrev) {
       var rand_position = rand(1,photo_count);
 
       // Which photo (by numbered filename) should be swapped into that spot
-      var new_photo = rand(1,32);
+      var new_photo = rand(1,55);
 
       // Make sure that the photo to replace the existing one isn't already in the grid
       do {
-        var new_photo = rand(1,32);
+        var new_photo = rand(1,55);
       } while (photos.indexOf(new_photo) != -1);
 
       // Add that number to the array
@@ -736,7 +610,7 @@ function otherSelectbox ($field, $fieldPrev) {
         photos.splice(photos.indexOf(parseInt(file_number)),1);
 
         // Set the url of the photo to be used as a replacement
-        $photo_replace.css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + new_photo + '.png")');
+        $photo_replace.css('background-image', 'url("/sites/captconnect.edc.org/themes/capt/images/banner-photos/' + new_photo + '.jpg")');
 
         // Fade in the replacement photo
         $photo_replace.animate({
@@ -748,6 +622,10 @@ function otherSelectbox ($field, $fieldPrev) {
           opacity: 0
         }, 2000);
       }
+      else {
+        // Remove the recently added photo from the list if there was an error
+        photos.splice(photos.indexOf(new_photo),1);
+      }
 
       counter = counter + 1;
 
@@ -756,7 +634,7 @@ function otherSelectbox ($field, $fieldPrev) {
         timeout_init(photos, photo_count);
       }
 
-    }, rand(1,5) * 1000);
+    }, rand(1,4) * 1000);
   }
 
 
@@ -785,6 +663,18 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
   // BANNER IMAGE SWAP END //
+
+
+
+
+
+  // FRONT PAGE SHOW/HIDE QUESTIONS
+
+  $('.section-head').each(function(){
+    $(this).on('click',function(){
+      $(this).next('.section-detail').slideToggle();
+    });
+  });
 
 
 
