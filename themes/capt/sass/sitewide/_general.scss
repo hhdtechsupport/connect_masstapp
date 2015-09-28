@@ -116,6 +116,27 @@ a.button,
   font-weight: normal;
 }
 
+#user-login {
+  #edit-actions {
+    position: relative;
+    input#edit-submit {
+      position: absolute;
+      top: 20px;
+    }
+    input#edit-request-password {
+      padding: 0px;
+      margin-top: 0px;
+      font-size: 12px;
+      background: none;
+      color: $capt-maroon;
+      position: absolute;
+      left: 20px;
+      top: -15px;
+      text-transform: none;
+    }
+  }
+}
+
 .participate-others-button,
 .register-others-button {
   margin-top: 10px;

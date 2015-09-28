@@ -224,3 +224,34 @@ body.page-anon-register {
     }
   }
 }
+
+
+
+
+/* Multipage Panes */
+body.page-user-register, body.page-anon-register {
+  .multipage-panes {
+    .multipage-pane {
+      h2 {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+      }
+      .multipage-pane-wrapper {
+        @extend .panel-rule;
+        padding: 20px !important;
+        margin-left: 0px !important;
+        margin-top: 0px;
+        &:before {
+          margin-left: -21px;
+          margin-right: -21px;
+          padding: 0px;
+          width: auto;
+        }
+      }
+    }
+  }
+}
