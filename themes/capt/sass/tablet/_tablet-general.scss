@@ -24,9 +24,6 @@
     div#page {
       width: 83.3333%;
       margin-top: -2px;
-      div#content {
-        border: 1px solid $capt-midgrey;
-      }
     }
     div.top-header-container {
       width: 100%;
@@ -58,5 +55,11 @@ body {
     #page-title {
       margin-left: 10px !important;
     }
+  }
+}
+
+body.page-user-register, body.page-anon-register {
+  div#content {
+    border: 1px solid $capt-midgrey;
   }
 }

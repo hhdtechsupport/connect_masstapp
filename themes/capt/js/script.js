@@ -685,6 +685,70 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
+  // CREATE NEW ACCOUNT Multipage
+
+  // Toggles which heading to highlight when Prev or Next buttons clicked below
+  function paneToggle($paneLink) {
+    $paneLink.parent().parent().find('.pane-item').each(function(){
+      $(this).removeClass('active');
+    });
+    $paneLink.addClass('active');
+  }
+
+  // When page loads, trigger the first heading to highlight
+  paneToggle($('.pane-1'));
+
+  // Checks to make sure form fields are completed on the current pane
+  function checkFields($pane, direction) { // Just added "direction" which should be submitted because we need to know whether to revert forward or backward if there are errors (back to the originating pane)
+
+    // Not sure, but i think here (or at end) we need to clear out the errors for the page before proceeding
+
+    var errorsText = '<ul></ul>';
+    var errorsCount = 0;
+
+    // Check inputs
+    $pane.find('input').each(function(){
+      if (input.val().length === 0) {
+        errorsCount = errorsCount + 1;
+        // Here we need to insert error text into the UL as an LI
+        // And we need to highlight the error box
+      }
+    });
+
+    // Check selects
+
+    // Check radios
+
+    // Check checkboxes
+
+
+    if (errorsCount > 0) {
+      // Go forward or back to the originaitng pane -- using the "direction" variable
+    }
+  }
+
+  // Action when Prev or Next buttons are clicked
+  $('.multipage-pane').each(function(){
+    var $pane = $(this);
+    var paneNumber = $('.multipage-pane').index($pane) + 1;
+    $(this).find('.multipage-controls-list input[type="button"]').each(function(){
+      $(this).on('click',function(){
+        if ($(this).hasClass('multipage-link-previous')) {
+          paneToggle($('.pane-' + (paneNumber - 1).toString()));
+        }
+        else if ($(this).hasClass('multipage-link-next')) {
+          // Need to summon the "checkFields" function here to know whether to allow the change of panes or to revert to the originating pane
+
+
+          paneToggle($('.pane-' + (paneNumber + 1).toString()));
+        }
+      });
+    });
+  });
+
+
+
 }
 };
 

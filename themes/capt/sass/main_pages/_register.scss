@@ -230,6 +230,30 @@ body.page-anon-register {
 
 /* Multipage Panes */
 body.page-user-register, body.page-anon-register {
+  #block-block-17 {
+    ul {
+      padding-left: 0px;
+      li {
+        list-style-type: none;
+        font-size: 17px;
+        color: $capt-midgrey;
+        text-transform: uppercase;
+        font-weight: bold;
+        &.active {
+          color: $capt-aqua;
+        }
+        .pane-link {
+          .step {
+            font-size: 24px;
+            vertical-align: middle;
+          }
+          .title {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
   .multipage-panes {
     .multipage-pane {
       h2 {
