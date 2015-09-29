@@ -432,16 +432,6 @@ function otherSelectbox ($field, $fieldPrev) {
     }
   }
 
-  // If any required fields are not completed, then expand the corresponding fieldsets
-  $('.section-user input.error').each(function(){
-    var $section = $(this).closest('fieldset');
-    $section.children('.fieldset-wrapper').css('display', 'block');
-    $section.children('.data-view').css('display','none');
-    if ($(this).hasClass('form-radio') || $(this).hasClass('form-checkbox')) {
-      cl($(this).closest('.form-wrapper'));
-      $(this).closest('.form-wrapper').children('div').children('div').css('border', '2px solid red');
-    }
-  });
 
 
 
@@ -688,7 +678,7 @@ function otherSelectbox ($field, $fieldPrev) {
 
   // CREATE NEW ACCOUNT Multipage
 
-  // Toggles which heading to highlight when Prev or Next buttons clicked below
+  // Toggles which heading to highlight when Prev or Next buttons clicked (see below))
   function paneToggle($paneLink) {
     $paneLink.parent().parent().find('.pane-item').each(function(){
       $(this).removeClass('active');
@@ -700,32 +690,76 @@ function otherSelectbox ($field, $fieldPrev) {
   paneToggle($('.pane-1'));
 
   // Checks to make sure form fields are completed on the current pane
-  function checkFields($pane, direction) { // Just added "direction" which should be submitted because we need to know whether to revert forward or backward if there are errors (back to the originating pane)
+  function checkFields($pane) {
 
-    // Not sure, but i think here (or at end) we need to clear out the errors for the page before proceeding
+    $('.messages').remove();
 
-    var errorsText = '<ul></ul>';
+    var errorsList = '';
     var errorsCount = 0;
+    var requiredStatus = 0;
 
-    // Check inputs
-    $pane.find('input').each(function(){
-      if (input.val().length === 0) {
-        errorsCount = errorsCount + 1;
-        // Here we need to insert error text into the UL as an LI
-        // And we need to highlight the error box
+    $pane.find('.form-wrapper > .form-item > label, .form-wrapper > div > .form-item > label').each(function(){
+      // Get label text
+      var label = $(this).contents().filter(function() { return this.nodeType == 3; }).text().trim();
+      // First check: required?
+      if ($(this).find('span').text().trim() == '*') {
+        // Second check: "Other" field?
+        if (label == 'Please specify') {
+          $controllingField = $(this).parent().parent().parent().prev();
+          if ($controllingField.hasClass('field-name-field-role')) {
+            if ($controllingField.find('select').val() == 117 || $controllingField.find('select').val() == 20) { // 117 seems to work but the 20 doesn't for "primary focus"
+              errorsCount = errorsCount + 1;
+              errorsList += '<li class="messages__item">' + label + '</li>';
+            }
+          }
+          else if ($controllingField.hasClass('field-name-field-tribal-affiliation')) {
+            $controllingField.find('input[type="checkbox"]:checked').each(function(){
+              if ($(this).val() == 'Other') {
+                errorsCount = errorsCount + 1;
+                errorsList += '<li class="messages__item">' + label + '</li>';
+              }
+            });
+          }
+        }
+        else {
+          // Third check: type of field?
+          if ($(this).parent('div').hasClass('form-type-textfield')) {
+            // Fourth check: error?
+            if (!$(this).next('input').val()) {
+              errorsCount = errorsCount + 1;
+              errorsList += '<li class="messages__item">' + label + '</li>';
+            }
+          }
+          else if ($(this).parent('div').hasClass('form-type-select')) {
+            if ($(this).next('select').val() == '_none') {
+              errorsCount = errorsCount + 1;
+              errorsList += '<li class="messages__item">' + label + '</li>';
+            }
+          }
+          else if ($(this).parent('div').hasClass('form-type-radios')) {
+            if (!$(this).next().find('input[type="radio"]:checked').val()) {
+              errorsCount = errorsCount + 1;
+              errorsList += '<li class="messages__item">' + label + '</li>';
+            }
+          }
+          else if ($(this).parent('div').hasClass('form-type-checkboxes')) {
+            if (!$(this).next().find('input[type="checkbox"]:checked').val()) {
+              errorsCount = errorsCount + 1;
+              errorsList += '<li class="messages__item">' + label + '</li>';
+            }
+          }
+        }
       }
+
     });
 
-    // Check selects
-
-    // Check radios
-
-    // Check checkboxes
-
-
+    // Need intro text here
     if (errorsCount > 0) {
-      // Go forward or back to the originaitng pane -- using the "direction" variable
+      $('<div class="messages--error messages error"><h2 class="element-invisible">Error message</h2><ul class="messages__list"></ul></div>').insertAfter('#main-content');
+      $('.messages__list').append(errorsList);
+      // Need to backtrack because there are errors and force user to stay on originating page
     }
+
   }
 
   // Action when Prev or Next buttons are clicked
@@ -735,11 +769,12 @@ function otherSelectbox ($field, $fieldPrev) {
     $(this).find('.multipage-controls-list input[type="button"]').each(function(){
       $(this).on('click',function(){
         if ($(this).hasClass('multipage-link-previous')) {
+          checkFields($pane); /* just for testing radios and such - to be removed */
+
           paneToggle($('.pane-' + (paneNumber - 1).toString()));
         }
         else if ($(this).hasClass('multipage-link-next')) {
-          // Need to summon the "checkFields" function here to know whether to allow the change of panes or to revert to the originating pane
-
+          checkFields($pane);
 
           paneToggle($('.pane-' + (paneNumber + 1).toString()));
         }
