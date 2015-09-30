@@ -242,6 +242,11 @@ function isPhone () {
     }
   }
 
+  // ScrollToLocation function
+  function scrollToLocation(id){
+    $('html, body').animate({ scrollTop: $("#"+id).offset().top },'slow');
+  }
+
 
 
   // Submenu hover fix
@@ -665,6 +670,7 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
   // FRONT PAGE SHOW/HIDE QUESTIONS
 
   $('.section-head').each(function(){
@@ -706,8 +712,8 @@ function otherSelectbox ($field, $fieldPrev) {
         // Second check: "Other" field?
         if (label == 'Please specify') {
           $controllingField = $(this).parent().parent().parent().prev();
-          if ($controllingField.hasClass('field-name-field-role')) {
-            if ($controllingField.find('select').val() == 117 || $controllingField.find('select').val() == 20) { // 117 seems to work but the 20 doesn't for "primary focus"
+          if ($controllingField.hasClass('field-name-field-role') || $controllingField.hasClass('field-name-field-organizational-affiliation')) {
+            if ($controllingField.find('select').val() == 117 || $controllingField.find('select').val() == 20) {
               errorsCount = errorsCount + 1;
               errorsList += '<li class="messages__item">' + label + '</li>';
             }
@@ -753,11 +759,10 @@ function otherSelectbox ($field, $fieldPrev) {
 
     });
 
-    // Need intro text here
     if (errorsCount > 0) {
-      $('<div class="messages--error messages error"><h2 class="element-invisible">Error message</h2><ul class="messages__list"></ul></div>').insertAfter('#main-content');
+      $('<div class="messages--error messages error"><h2 class="element-invisible">Error message</h2>The following fields are required: <ul class="messages__list"></ul></div>').insertAfter('#main-content');
       $('.messages__list').append(errorsList);
-      // Need to backtrack because there are errors and force user to stay on originating page
+      $pane.next().find('.multipage-link-previous').click();
     }
 
   }
@@ -769,15 +774,13 @@ function otherSelectbox ($field, $fieldPrev) {
     $(this).find('.multipage-controls-list input[type="button"]').each(function(){
       $(this).on('click',function(){
         if ($(this).hasClass('multipage-link-previous')) {
-          checkFields($pane); /* just for testing radios and such - to be removed */
-
           paneToggle($('.pane-' + (paneNumber - 1).toString()));
         }
         else if ($(this).hasClass('multipage-link-next')) {
-          checkFields($pane);
-
           paneToggle($('.pane-' + (paneNumber + 1).toString()));
+          checkFields($pane);
         }
+        scrollToLocation('main');
       });
     });
   });
