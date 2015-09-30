@@ -51,11 +51,15 @@ function captconnect_custom_view_registrations($node) {
     foreach ($instances as $instance_data) {
       $instance = $instance_data['instance'];
       $dates = $instance->field_date->value();
+      $limit = $instance->field_max_registration->value();
       $start_time = $instance_data['start'];
       $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
 
       // Is the event instance past?
       $instance_is_past = ($instance_data['end'] < REQUEST_TIME);
+
+      // Is the instance at max capacity?
+      $instance_is_full = ($reg_flag->get_count($instance->nid->value()) >= $limit);
 
       // We can link the instance title to its node if the setting says so
       // and the user has permission.
@@ -72,6 +76,10 @@ function captconnect_custom_view_registrations($node) {
 
       if ($instance_is_past) {
         $title_link .= ' <span class="instance-complete">' . t('Complete') . '</span>';
+      }
+
+      if ($instance_is_full) {
+        $title_link .= ' <span class="instance-full">' . t('Full') . '</span>';
       }
 
       $table['rows'][] = array(array(
