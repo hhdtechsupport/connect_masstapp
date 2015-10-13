@@ -269,11 +269,34 @@ body.page-user-register, body.page-anon-register {
         padding: 20px !important;
         margin-left: 0px !important;
         margin-top: 0px;
+        margin-bottom: 10px;
         &:before {
           margin-left: -21px;
           margin-right: -21px;
           padding: 0px;
           width: auto;
+        }
+        .multipage-counter {
+          right: -2em;
+          top: 2.2em;
+        }
+      }
+      .multipage-controls-list {
+        .multipage-button input[type="button"] {
+          cursor: pointer;
+          margin-right: 0.5em;
+        }
+        #edit-actions {
+          left: 130px;
+          position: relative;
+          margin-top: 0px !important;
+          input {
+            margin-top: 0px;
+          }
+          &+ .multipage-button {
+            position: relative;
+            left: -155px;
+          }
         }
       }
     }

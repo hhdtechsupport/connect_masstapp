@@ -4234,16 +4234,42 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper
   padding: 20px !important;
   margin-left: 0px !important;
   margin-top: 0px;
+  margin-bottom: 10px;
 }
-/* line 272, ../sass/main_pages/_register.scss */
+/* line 273, ../sass/main_pages/_register.scss */
 body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before {
   margin-left: -21px;
   margin-right: -21px;
   padding: 0px;
   width: auto;
 }
-
+/* line 279, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter {
+  right: -2em;
+  top: 2.2em;
+}
 /* line 285, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"], body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"] {
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+/* line 289, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions {
+  left: 130px;
+  position: relative;
+  margin-top: 0px !important;
+}
+/* line 293, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input {
+  margin-top: 0px;
+}
+/* line 296, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button {
+  position: relative;
+  left: -155px;
+}
+
+/* line 308, ../sass/main_pages/_register.scss */
 .chosen-container.error .chosen-single {
   border: 1px solid #b6b6b6;
 }
