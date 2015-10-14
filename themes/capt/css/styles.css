@@ -4234,16 +4234,42 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper
   padding: 20px !important;
   margin-left: 0px !important;
   margin-top: 0px;
+  margin-bottom: 10px;
 }
-/* line 272, ../sass/main_pages/_register.scss */
+/* line 273, ../sass/main_pages/_register.scss */
 body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before {
   margin-left: -21px;
   margin-right: -21px;
   padding: 0px;
   width: auto;
 }
-
+/* line 279, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter {
+  right: -2em;
+  top: 2.2em;
+}
 /* line 285, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"], body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"] {
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+/* line 289, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions {
+  left: 130px;
+  position: relative;
+  margin-top: 0px !important;
+}
+/* line 293, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input {
+  margin-top: 0px;
+}
+/* line 296, ../sass/main_pages/_register.scss */
+body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button {
+  position: relative;
+  left: -155px;
+}
+
+/* line 308, ../sass/main_pages/_register.scss */
 .chosen-container.error .chosen-single {
   border: 1px solid #b6b6b6;
 }
@@ -5877,9 +5903,27 @@ body.page-user-register:not(.node-type-event) {
   }
 
   /* line 91, ../sass/tablet/_tablet-login.scss */
-  body.not-logged-in.page-anon-login form#user-login {
+  body.not-logged-in.page-anon-login.section-anon-login form#user-login {
     margin: 0px auto !important;
     width: 360px !important;
+  }
+  /* line 95, ../sass/tablet/_tablet-login.scss */
+  body.not-logged-in.page-anon-login.section-anon-login div#content {
+    margin: 10px 2% 0;
+    width: 96%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    border: 1px solid #d7d7d7;
+    padding-bottom: 40px;
+  }
+  /* line 104, ../sass/tablet/_tablet-login.scss */
+  body.not-logged-in.page-anon-login.section-anon-login .messages {
+    margin: 1.5em 0;
+  }
+  /* line 107, ../sass/tablet/_tablet-login.scss */
+  body.not-logged-in.page-anon-login.section-anon-login #main {
+    padding-top: 0px;
   }
 
   /* line 12, ../sass/tablet/_tablet-event-detail.scss */
@@ -5929,52 +5973,51 @@ body.page-user-register:not(.node-type-event) {
   }
   /* line 12, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#main div#content div#title-section h1#page-title.page__title {
-    padding-left: 75px;
-    background-position: 16px 0px;
+    padding-left: 60px;
   }
-  /* line 18, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 17, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div.view-content, body.section-events div.view-dashboard {
     margin-left: 15px;
   }
-  /* line 23, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 22, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#content {
     width: auto;
-    top: 0px;
+    top: 7px;
     margin-left: 2.5%;
     margin-right: 2.5%;
   }
-  /* line 28, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 27, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#content > div.view-dashboard {
     width: 48%;
     clear: both;
   }
-  /* line 33, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 32, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events #navigation ul#main-menu.main-menu {
     width: 95%;
   }
-  /* line 36, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 35, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div.view-dashboard div.view-content {
     margin-left: 0px;
   }
-  /* line 40, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 39, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events .views-exposed-widgets {
     float: right;
     margin-top: -50px;
   }
-  /* line 45, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 44, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1,
   body.section-events div#block-views-dashboard-block-2 {
     width: 48%;
     background-position: right -10px top 8px;
     background-size: 60px 45px;
   }
-  /* line 52, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 51, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 div.view-content,
   body.section-events div#block-views-dashboard-block-2 div.view-content {
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 56, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 55, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 h2.block-title.block__title,
   body.section-events div#block-views-dashboard-block-2 h2.block-title.block__title {
     margin-left: 12px;
@@ -5982,12 +6025,12 @@ body.page-user-register:not(.node-type-event) {
     font-size: 21px;
     margin-top: 0px;
   }
-  /* line 62, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 61, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 div.view-empty,
   body.section-events div#block-views-dashboard-block-2 div.view-empty {
     margin-left: 0px;
   }
-  /* line 69, ../sass/tablet/_tablet-event-dashboard.scss */
+  /* line 68, ../sass/tablet/_tablet-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 {
     float: left;
   }
@@ -6018,49 +6061,56 @@ body.page-user-register:not(.node-type-event) {
 
   /* line 10, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events,
+  body.section-events,
   body.logged-in.page-user-edit,
   body.role-authenticated-user.node-type-event {
     /* put in banner region */
   }
-  /* line 15, ../sass/tablet/_tablet-navigation.scss */
+  /* line 16, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu,
+  body.section-events ul#main-menu.main-menu,
   body.logged-in.page-user-edit ul#main-menu.main-menu,
   body.role-authenticated-user.node-type-event ul#main-menu.main-menu {
     width: 95%;
     margin: 0px auto;
     overflow: visible;
   }
-  /* line 19, ../sass/tablet/_tablet-navigation.scss */
+  /* line 20, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item,
+  body.section-events ul#main-menu.main-menu li.menu-item,
   body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item,
   body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item {
     width: 45%;
     max-width: 200px;
     margin-right: 10px;
   }
-  /* line 23, ../sass/tablet/_tablet-navigation.scss */
+  /* line 24, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events ul#main-menu.main-menu li.menu-item a,
+  body.section-events ul#main-menu.main-menu li.menu-item a,
   body.logged-in.page-user-edit ul#main-menu.main-menu li.menu-item a,
   body.role-authenticated-user.node-type-event ul#main-menu.main-menu li.menu-item a {
     width: 100%;
   }
-  /* line 29, ../sass/tablet/_tablet-navigation.scss */
+  /* line 30, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events div.header__region.region-header,
+  body.section-events div.header__region.region-header,
   body.logged-in.page-user-edit div.header__region.region-header,
   body.role-authenticated-user.node-type-event div.header__region.region-header {
     width: 375px;
     margin: 3px 0px -10px 0px;
     text-align: right;
   }
-  /* line 36, ../sass/tablet/_tablet-navigation.scss */
+  /* line 37, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events #block-responsive-dropdown-menus-main-menu,
+  body.section-events #block-responsive-dropdown-menus-main-menu,
   body.logged-in.page-user-edit #block-responsive-dropdown-menus-main-menu,
   body.role-authenticated-user.node-type-event #block-responsive-dropdown-menus-main-menu {
     width: 100%;
     margin: 0px auto;
   }
-  /* line 45, ../sass/tablet/_tablet-navigation.scss */
+  /* line 46, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events #block-views-exp-dashboard-page-1,
+  body.section-events #block-views-exp-dashboard-page-1,
   body.logged-in.page-user-edit #block-views-exp-dashboard-page-1,
   body.role-authenticated-user.node-type-event #block-views-exp-dashboard-page-1 {
     margin-top: -25px;
@@ -6069,8 +6119,9 @@ body.page-user-register:not(.node-type-event) {
     padding-left: 3%;
     margin-bottom: 30px;
   }
-  /* line 53, ../sass/tablet/_tablet-navigation.scss */
+  /* line 54, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.section-events div#main div#content,
+  body.section-events div#main div#content,
   body.logged-in.page-user-edit div#main div#content,
   body.role-authenticated-user.node-type-event div#main div#content {
     border: 1px solid #d7d7d7;
@@ -6081,14 +6132,14 @@ body.page-user-register:not(.node-type-event) {
     padding-top: 5px;
   }
 
-  /* line 64, ../sass/tablet/_tablet-navigation.scss */
+  /* line 65, ../sass/tablet/_tablet-navigation.scss */
   body.logged-in.page-user-edit div#main div#content {
     border: 1px solid #d7d7d7 !important;
     border-top: none !important;
     margin: 17px auto 0px !important;
   }
 
-  /* line 71, ../sass/tablet/_tablet-navigation.scss */
+  /* line 72, ../sass/tablet/_tablet-navigation.scss */
   body.page-events.logged-in #content {
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -6214,7 +6265,7 @@ body.page-user-register:not(.node-type-event) {
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
     margin: 10px 2% 0;
-    width: 96%;
+    width: 95%;
   }
   /* line 89, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content form#user-register-form,
