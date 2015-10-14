@@ -87,9 +87,24 @@
     }
   }
 
-body.not-logged-in.page-anon-login {
+body.not-logged-in.page-anon-login.section-anon-login {
   form#user-login {
     margin: 0px auto !important;
     width: 360px !important;
+  }
+  div#content {
+    margin: 10px 2% 0;
+    width: 96%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    border: 1px solid #d7d7d7;
+    padding-bottom: 40px;
+  }
+  .messages {
+    margin: 1.5em 0;
+  }
+  #main {
+    padding-top: 0px;
   }
 }
