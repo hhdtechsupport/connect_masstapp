@@ -19,8 +19,10 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
+/* mimemail-message__workflow-notify.tpl.php */
 <html>
   <head>
+    <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <?php if ($css): ?>
     <style type="text/css">
@@ -36,7 +38,8 @@
 
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="[ics-class:value]">
           <tr>
-            <td background="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/pattern.png" valign="top" bgcolor="#E3E3DF">
+            <td style='background:"http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/pattern.png"'
+              valign="top" bgcolor="#E3E3DF">
             <!--[if gte mso 9]>
             <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;">
               <v:fill type="tile" src="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/pattern.png" color="#E3E3DF" />
@@ -64,7 +67,8 @@
 
                       <table class="colorband">
                         <tr>
-                          <td background="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
+                          <td style='background:"http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png"' 
+                            bgcolor="#E4E3E1" width="580" height="6" valign="top">
                           <!--[if gte mso 9]>
                           <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:580px;height:6px;">
                             <v:fill type="tile" src="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" color="#E4E3E1" />
@@ -103,7 +107,8 @@
 
                       <table class="colorband">
                         <tr>
-                          <td background="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
+                          <td style='background:"http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png"'
+                            bgcolor="#E4E3E1" width="580" height="6" valign="top">
                           <!--[if gte mso 9]>
                           <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:580px;height:6px;">
                           <v:fill type="tile" src="http://dev.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" color="#E4E3E1" />
