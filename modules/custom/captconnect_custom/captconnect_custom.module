@@ -1109,6 +1109,48 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
+  
+  $flag = flag_get_flag('registration');
+  $now = format_date(strtotime('0600', REQUEST_TIME), 'custom', 'Y-m-d h:i:s');
+  $output .= '<p>Looking for stuff as of ' . $now . '.</p>';
+  
+  $query = db_select('node', 'n');
+  $query->join('field_data_field_date', 'd', 'd.entity_id = n.nid');
+  $query->join('field_data_field_related_events', 're', 're.entity_id = n.nid');
+  $query->join('node', 'ren', 'ren.nid = re.field_related_events_target_id');
+  $query->join('field_data_field_related_notifications', 'rn', 'rn.entity_id = re.field_related_events_target_id');
+  $query->join('field_data_field_event_reminder', 'rm', 'rm.entity_id = rn.field_related_notifications_target_id');
+  $query->join('field_data_field_days_before_event_to_send', 'be', 'be.entity_id = rm.field_event_reminder_target_id');
+  $query->join('field_data_field_prevent_notification', 'pn', 'pn.entity_id = rm.field_event_reminder_target_id');
+  $query->join('flagging', 'f', 'f.entity_id = n.nid');
+  $query->join('users', 'u', 'u.uid = f.uid');
+  $query->addField('n', 'nid', 'instance');
+  $query->addField('ren', 'nid', 'event');
+  $query->addField('ren', 'title');
+  $query->addField('d', 'field_date_value', 'event_date');
+  $query->addField('u', 'uid');
+  $query->condition('n.status', 1);
+  $query->condition('n.type', 'instance');
+  $query->condition('d.field_date_value', $now, '>');
+  $query->condition('pn.field_prevent_notification_value', 0);
+  $query->condition('f.fid', $flag->fid);
+  $query->where('be.field_days_before_event_to_send_value = DATEDIFF(d.field_date_value, :now)', array(':now' => $now));
+  $result = $query->execute();
+//  dpq($query);
+  
+  $rows = array();
+  foreach ($result as $row) {
+    $account = user_load($row->uid);
+    $rows[] = array(
+      l(drupal_get_path_alias("node/$row->instance"), "node/$row->instance"),
+      l($row->title, "node/$row->event"),
+      $row->event_date,
+      l(format_username($account), "user/$row->uid"),
+      );
+  }
+  $output .= theme('table', array('rows' => $rows));
+
+  return $output;
 
   dpm($_GET, 'GET');
   dpm($_SERVER, 'SERVER');
