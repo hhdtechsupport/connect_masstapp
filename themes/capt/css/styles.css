@@ -1496,15 +1496,17 @@ ul#main-menu.main-menu li.menu-item > a.active {
   padding-right: 0px;
   background: #efefef;
   width: 200px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-/* line 71, ../sass/sitewide/_navigation.scss */
+/* line 73, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li {
   padding: 0px;
   margin: 0px;
   display: block;
   background: #efefef;
 }
-/* line 76, ../sass/sitewide/_navigation.scss */
+/* line 78, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a {
   display: block;
   margin: 0px;
@@ -1518,58 +1520,38 @@ ul#main-menu.main-menu li.menu-item > a.active {
   width: 165px;
   background: none;
 }
-/* line 89, ../sass/sitewide/_navigation.scss */
+/* line 91, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a.active {
   background-color: white;
   color: #333;
 }
-/* line 93, ../sass/sitewide/_navigation.scss */
+/* line 95, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li a:hover {
   text-decoration: underline;
 }
-/* line 96, ../sass/sitewide/_navigation.scss */
+/* line 98, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent ul.sub-menu.tier-two li.last {
   padding-bottom: 15px;
 }
-/* line 100, ../sass/sitewide/_navigation.scss */
-#main-menu li.menu-parent ul.sub-menu.tier-two:before, #main-menu li.menu-parent ul.sub-menu.tier-two:after {
-  position: absolute;
-  width: 49%;
-  height: 90px;
-  content: ' ';
-  left: 3px;
-  bottom: 5px;
-  background: transparent;
-  -webkit-transform: skew(-5deg) rotate(-5deg);
-  -moz-transform: skew(-5deg) rotate(-5deg);
-  -ms-transform: skew(-5deg) rotate(-5deg);
-  -o-transform: skew(-5deg) rotate(-5deg);
-  transform: skew(-5deg) rotate(-5deg);
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  z-index: -1;
+/* line 101, ../sass/sitewide/_navigation.scss */
+#main-menu li.menu-parent ul.sub-menu.tier-two li.first {
+  border-top: 3px solid #efefef;
+  margin-top: -1px;
 }
-/* line 118, ../sass/sitewide/_navigation.scss */
-#main-menu li.menu-parent ul.sub-menu.tier-two:after {
-  left: auto;
-  right: 3px;
-  -webkit-transform: skew(5deg) rotate(5deg);
-  -moz-transform: skew(5deg) rotate(5deg);
-  -ms-transform: skew(5deg) rotate(5deg);
-  -o-transform: skew(5deg) rotate(5deg);
-  transform: skew(5deg) rotate(5deg);
-}
-/* line 128, ../sass/sitewide/_navigation.scss */
+/* line 107, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent.active-trail ul.sub-menu.tier-two {
   background: white;
 }
-/* line 130, ../sass/sitewide/_navigation.scss */
+/* line 109, ../sass/sitewide/_navigation.scss */
 #main-menu li.menu-parent.active-trail ul.sub-menu.tier-two li {
   background: white;
 }
+/* line 111, ../sass/sitewide/_navigation.scss */
+#main-menu li.menu-parent.active-trail ul.sub-menu.tier-two li.first {
+  border-top: 3px solid white;
+}
 
-/* line 140, ../sass/sitewide/_navigation.scss */
+/* line 122, ../sass/sitewide/_navigation.scss */
 body.page-user-edit ul#main-menu.main-menu li#menu-item-591 a,
 body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   background-color: white;
@@ -1579,7 +1561,7 @@ body.page-user ul#main-menu.main-menu li#menu-item-591 a {
   height: 26px;
 }
 
-/* line 149, ../sass/sitewide/_navigation.scss */
+/* line 131, ../sass/sitewide/_navigation.scss */
 body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.menu-parent.last > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -1587,13 +1569,13 @@ body.admin-menu.section-administration li#menu-item-1185.menu-item.active-trail.
   color: #8c1d18;
   height: 26px;
 }
-/* line 153, ../sass/sitewide/_navigation.scss */
+/* line 135, ../sass/sitewide/_navigation.scss */
 body.admin-menu.section-administration li#menu-item-1185:hover ul.sub-menu.tier-two {
   display: block;
 }
 
 /* View | Edit | Manage Display | etc. tabs */
-/* line 161, ../sass/sitewide/_navigation.scss */
+/* line 143, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary,
 ul.tabs-secondary {
   background-image: -o-linear-gradient(bottom, black 1px, transparent 1px);
@@ -1602,17 +1584,17 @@ ul.tabs-secondary {
   background-image: linear-gradient(center bottom, black, 1px, transparent 1px);
   /*907px;*/
 }
-/* line 165, ../sass/sitewide/_navigation.scss */
+/* line 147, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li:first-child,
 ul.tabs-secondary li:first-child {
   margin-left: 10px;
 }
-/* line 168, ../sass/sitewide/_navigation.scss */
+/* line 150, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li,
 ul.tabs-secondary li {
   border: 0px;
 }
-/* line 170, ../sass/sitewide/_navigation.scss */
+/* line 152, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a, ul.tabs-primary li a:active, ul.tabs-primary li a.is-active,
 ul.tabs-secondary li a,
 ul.tabs-secondary li a:active,
@@ -1623,72 +1605,75 @@ ul.tabs-secondary li a.is-active {
   font-weight: 500;
   padding: 3px 20px;
 }
-/* line 177, ../sass/sitewide/_navigation.scss */
+/* line 159, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:not(.is-active),
 ul.tabs-secondary li a:not(.is-active) {
   border: 0px;
 }
-/* line 180, ../sass/sitewide/_navigation.scss */
+/* line 162, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:hover, ul.tabs-primary li a:active,
 ul.tabs-secondary li a:hover,
 ul.tabs-secondary li a:active {
   background-color: white;
 }
-/* line 184, ../sass/sitewide/_navigation.scss */
+/* line 166, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li.tabs-primary__tab.is-active,
 ul.tabs-secondary li.tabs-primary__tab.is-active {
   border-color: black;
   border-bottom-color: white;
 }
 
-/* line 190, ../sass/sitewide/_navigation.scss */
+/* line 172, ../sass/sitewide/_navigation.scss */
 div.vertical-tabs {
   margin-right: 0px;
 }
 
 /* used to be in mobile */
 @media screen and (max-width: 1024px) {
-  /* line 197, ../sass/sitewide/_navigation.scss */
+  /* line 179, ../sass/sitewide/_navigation.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 202, ../sass/sitewide/_navigation.scss */
+  /* line 184, ../sass/sitewide/_navigation.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 206, ../sass/sitewide/_navigation.scss */
+  /* line 188, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 208, ../sass/sitewide/_navigation.scss */
+  /* line 190, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 211, ../sass/sitewide/_navigation.scss */
+  /* line 193, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     margin: 0px auto;
     padding: 0px;
+  }
+  /* line 204, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu {
     /* hide admin*/
   }
-  /* line 217, ../sass/sitewide/_navigation.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
+  /* line 206, ../sass/sitewide/_navigation.scss */
+  div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
+  div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589 {
     display: none;
   }
 
-  /* line 231, ../sass/sitewide/_navigation.scss */
+  /* line 216, ../sass/sitewide/_navigation.scss */
   body.role-administrator ul#main-menu.main-menu.responsive-menu {
     width: 95%;
   }
 
-  /* line 237, ../sass/sitewide/_navigation.scss */
+  /* line 222, ../sass/sitewide/_navigation.scss */
   body.role-authenticated-user ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
   }
