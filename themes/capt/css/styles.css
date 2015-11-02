@@ -4300,7 +4300,8 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   }
 
   /* line 23, ../sass/phone/_extensible-phone.scss */
-  .mobile-panel, .mobile-panel-rule, body.not-logged-in.section-user.page-user-password form#user-pass, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login,
+  .mobile-panel, .mobile-panel-rule, body.not-logged-in.section-user.page-user-password form#user-pass,
+  body.not-logged-in.section-user.page-user-reset form#user-pass, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login,
   body.not-logged-in.page-anon-login div#page div#main form#user-login, .mobile-login-lower-panel, body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-8,
   body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-9,
   body.not-logged-in.page-anon-login div#page div#main div#block-block-8,
@@ -4315,7 +4316,8 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-color: #eef1f3;
   }
   /* line 33, ../sass/phone/_extensible-phone.scss */
-  .mobile-panel:before, .mobile-panel-rule:before, body.not-logged-in.section-user.page-user-password form#user-pass:before, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login:before,
+  .mobile-panel:before, .mobile-panel-rule:before, body.not-logged-in.section-user.page-user-password form#user-pass:before,
+  body.not-logged-in.section-user.page-user-reset form#user-pass:before, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login:before,
   body.not-logged-in.page-anon-login div#page div#main form#user-login:before, .mobile-login-lower-panel:before, body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-8:before,
   body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-9:before,
   body.not-logged-in.page-anon-login div#page div#main div#block-block-8:before,
@@ -4324,7 +4326,8 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   }
 
   /* line 38, ../sass/phone/_extensible-phone.scss */
-  .before-style, .mobile-panel-rule:before, body.not-logged-in.section-user.page-user-password form#user-pass:before, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login:before,
+  .before-style, .mobile-panel-rule:before, body.not-logged-in.section-user.page-user-password form#user-pass:before,
+  body.not-logged-in.section-user.page-user-reset form#user-pass:before, body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login:before,
   body.not-logged-in.page-anon-login div#page div#main form#user-login:before, body.node-type-event .ds-2col-stacked > .group-left div.group-description:before, body.section-events.page-events div#main div#content div#title-section:before {
     display: block;
     background-color: #577785;
@@ -4513,21 +4516,22 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.node-type-event div#main {
     margin-bottom: 15px;
   }
-  /* line 48, ../sass/phone/_general-phone.scss */
-  html.front div#page div#main div#content, html.page-anon-register div#page div#main div#content, html.page-anon-login div#page div#main div#content, html.page-user-register div#page div#main div#content, html.page-user-password div#page div#main div#content,
+  /* line 49, ../sass/phone/_general-phone.scss */
+  html.front div#page div#main div#content, html.page-anon-register div#page div#main div#content, html.page-anon-login div#page div#main div#content, html.page-user-register div#page div#main div#content, html.page-user-password div#page div#main div#content, html.page-user-reset div#page div#main div#content,
   body.front div#page div#main div#content,
   body.page-anon-register div#page div#main div#content,
   body.page-anon-login div#page div#main div#content,
   body.page-user-register div#page div#main div#content,
-  body.page-user-password div#page div#main div#content {
+  body.page-user-password div#page div#main div#content,
+  body.page-user-reset div#page div#main div#content {
     margin-top: 60px !important;
   }
-  /* line 53, ../sass/phone/_general-phone.scss */
+  /* line 54, ../sass/phone/_general-phone.scss */
   html.not-logged-in div#page div#main div#content,
   body.not-logged-in div#page div#main div#content {
     margin-top: 0px;
   }
-  /* line 58, ../sass/phone/_general-phone.scss */
+  /* line 59, ../sass/phone/_general-phone.scss */
   html.logged-in div#page div#main div#content,
   body.logged-in div#page div#main div#content {
     margin-top: 55px !important;
@@ -4536,31 +4540,31 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-top: 10px;
     margin-bottom: 20px;
   }
-  /* line 67, ../sass/phone/_general-phone.scss */
+  /* line 68, ../sass/phone/_general-phone.scss */
   html.logged-in.logged-in.page-user-edit div#page div#main div#content #title-section,
   body.logged-in.logged-in.page-user-edit div#page div#main div#content #title-section {
     margin-top: 20px;
   }
-  /* line 70, ../sass/phone/_general-phone.scss */
+  /* line 71, ../sass/phone/_general-phone.scss */
   html.logged-in.logged-in.page-user-edit div#page div#main div#content .horizontal-tabs-pane::before,
   body.logged-in.logged-in.page-user-edit div#page div#main div#content .horizontal-tabs-pane::before {
     padding-left: 13px;
   }
 
   /* switch user block */
-  /* line 85, ../sass/phone/_general-phone.scss */
+  /* line 86, ../sass/phone/_general-phone.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 89, ../sass/phone/_general-phone.scss */
+  /* line 90, ../sass/phone/_general-phone.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
   }
 
-  /* line 94, ../sass/phone/_general-phone.scss */
+  /* line 95, ../sass/phone/_general-phone.scss */
   body .horizontal-tabs ul.horizontal-tabs-list li {
     clear: both;
   }
@@ -5209,50 +5213,59 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     left: 20px !important;
   }
 
-  /* line 2, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password div#content {
+  /* line 3, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password div#content,
+  body.not-logged-in.section-user.page-user-reset div#content {
     margin-top: -20px !important;
   }
-  /* line 5, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password div#title-section {
+  /* line 6, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password div#title-section,
+  body.not-logged-in.section-user.page-user-reset div#title-section {
     margin-left: 0px;
     max-width: 90%;
     padding-left: 0px !important;
   }
-  /* line 9, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password div#title-section h1#page-title.page__title {
+  /* line 10, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password div#title-section h1#page-title.page__title,
+  body.not-logged-in.section-user.page-user-reset div#title-section h1#page-title.page__title {
     text-align: left;
     margin-left: 10px !important;
     padding: 0px;
   }
-  /* line 15, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass {
+  /* line 16, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass,
+  body.not-logged-in.section-user.page-user-reset form#user-pass {
     margin-top: 20px;
     padding: 0px;
     width: 95%;
   }
-  /* line 20, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass div.form-item {
+  /* line 21, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass div.form-item,
+  body.not-logged-in.section-user.page-user-reset form#user-pass div.form-item {
     padding: 0 7px;
   }
-  /* line 23, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass input.form-text {
+  /* line 24, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass input.form-text,
+  body.not-logged-in.section-user.page-user-reset form#user-pass input.form-text {
     width: 90%;
     margin-left: 10px;
   }
-  /* line 27, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass label {
+  /* line 28, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass label,
+  body.not-logged-in.section-user.page-user-reset form#user-pass label {
     margin-left: 10px;
     font-weight: normal;
     font-size: 16px;
   }
-  /* line 32, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass div#edit-actions {
+  /* line 33, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass div#edit-actions,
+  body.not-logged-in.section-user.page-user-reset form#user-pass div#edit-actions {
     margin-left: 10px;
     padding: 0 7px 30px;
   }
-  /* line 36, ../sass/phone/_phone-user-password.scss */
-  body.not-logged-in.section-user.page-user-password form#user-pass:before {
+  /* line 37, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass:before,
+  body.not-logged-in.section-user.page-user-reset form#user-pass:before {
     width: 100%;
   }
 
