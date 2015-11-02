@@ -5243,9 +5243,9 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.not-logged-in.section-user.page-user-password form#user-pass-reset,
   body.not-logged-in.section-user.page-user-reset form#user-pass,
   body.not-logged-in.section-user.page-user-reset form#user-pass-reset {
-    margin-top: 20px;
-    padding: 0px;
-    width: 95%;
+    margin-top: 20px !important;
+    padding: 0px !important;
+    width: 95% !important;
   }
   /* line 22, ../sass/phone/_phone-user-password.scss */
   body.not-logged-in.section-user.page-user-password form#user-pass div.form-item,
@@ -5284,7 +5284,22 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.not-logged-in.section-user.page-user-password form#user-pass-reset:before,
   body.not-logged-in.section-user.page-user-reset form#user-pass:before,
   body.not-logged-in.section-user.page-user-reset form#user-pass-reset:before {
-    width: 100%;
+    width: 100% !important;
+    margin-left: 0px !important;
+  }
+  /* line 42, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass .click-message,
+  body.not-logged-in.section-user.page-user-password form#user-pass-reset .click-message,
+  body.not-logged-in.section-user.page-user-reset form#user-pass .click-message,
+  body.not-logged-in.section-user.page-user-reset form#user-pass-reset .click-message {
+    clear: both;
+  }
+  /* line 45, ../sass/phone/_phone-user-password.scss */
+  body.not-logged-in.section-user.page-user-password form#user-pass > div,
+  body.not-logged-in.section-user.page-user-password form#user-pass-reset > div,
+  body.not-logged-in.section-user.page-user-reset form#user-pass > div,
+  body.not-logged-in.section-user.page-user-reset form#user-pass-reset > div {
+    padding: 15px;
   }
 
   /* line 10, ../sass/phone/_login-phone.scss */
