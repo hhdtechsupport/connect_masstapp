@@ -522,10 +522,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       }
 
       $form['actions']['request_password'] = array(
-       '#type' => 'submit',
-       '#value' => variable_get('captconnect_custom_request_password_text',
-         'Request a new password'),
-        '#submit' => array('captconnect_custom_request_password'),
+        '#markup' => '<a href="/user/password">' . variable_get('captconnect_custom_request_password_text', 'Request a new password') . '</a>',
         '#weight' => 20,
         );
 
