@@ -4512,17 +4512,22 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body div#page div#main div#content .ds-2col-stacked > .group-left {
     padding-right: 0px;
   }
-  /* line 32, ../sass/phone/_general-phone.scss */
+  /* line 30, ../sass/phone/_general-phone.scss */
+  html div#page div#main div#content .node-page,
+  body div#page div#main div#content .node-page {
+    width: 90%;
+  }
+  /* line 35, ../sass/phone/_general-phone.scss */
   html div#page div#main div#navigation #main-menu,
   body div#page div#main div#navigation #main-menu {
     width: 95%;
   }
-  /* line 39, ../sass/phone/_general-phone.scss */
+  /* line 42, ../sass/phone/_general-phone.scss */
   html.node-type-event div#main,
   body.node-type-event div#main {
     margin-bottom: 15px;
   }
-  /* line 49, ../sass/phone/_general-phone.scss */
+  /* line 52, ../sass/phone/_general-phone.scss */
   html.front div#page div#main div#content, html.page-anon-register div#page div#main div#content, html.page-anon-login div#page div#main div#content, html.page-user-register div#page div#main div#content, html.page-user-password div#page div#main div#content, html.page-user-reset div#page div#main div#content,
   body.front div#page div#main div#content,
   body.page-anon-register div#page div#main div#content,
@@ -4532,12 +4537,12 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.page-user-reset div#page div#main div#content {
     margin-top: 60px !important;
   }
-  /* line 54, ../sass/phone/_general-phone.scss */
+  /* line 57, ../sass/phone/_general-phone.scss */
   html.not-logged-in div#page div#main div#content,
   body.not-logged-in div#page div#main div#content {
     margin-top: 0px;
   }
-  /* line 59, ../sass/phone/_general-phone.scss */
+  /* line 62, ../sass/phone/_general-phone.scss */
   html.logged-in div#page div#main div#content,
   body.logged-in div#page div#main div#content {
     margin-top: 55px !important;
@@ -4546,31 +4551,31 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-top: 10px;
     margin-bottom: 20px;
   }
-  /* line 68, ../sass/phone/_general-phone.scss */
+  /* line 71, ../sass/phone/_general-phone.scss */
   html.logged-in.logged-in.page-user-edit div#page div#main div#content #title-section,
   body.logged-in.logged-in.page-user-edit div#page div#main div#content #title-section {
     margin-top: 20px;
   }
-  /* line 71, ../sass/phone/_general-phone.scss */
+  /* line 74, ../sass/phone/_general-phone.scss */
   html.logged-in.logged-in.page-user-edit div#page div#main div#content .horizontal-tabs-pane::before,
   body.logged-in.logged-in.page-user-edit div#page div#main div#content .horizontal-tabs-pane::before {
     padding-left: 13px;
   }
 
   /* switch user block */
-  /* line 86, ../sass/phone/_general-phone.scss */
+  /* line 89, ../sass/phone/_general-phone.scss */
   div.block-devel#block-devel-switch-user {
     margin: 0px auto;
     text-align: left;
   }
 
-  /* line 90, ../sass/phone/_general-phone.scss */
+  /* line 93, ../sass/phone/_general-phone.scss */
   div.block-devel#block-devel-switch-user {
     width: 50%;
     margin-top: 40px;
   }
 
-  /* line 95, ../sass/phone/_general-phone.scss */
+  /* line 98, ../sass/phone/_general-phone.scss */
   body .horizontal-tabs ul.horizontal-tabs-list li {
     clear: both;
   }
@@ -5842,6 +5847,15 @@ body.page-user-register:not(.node-type-event) {
     border: 1px solid #d7d7d7;
   }
 
+  /* line 67, ../sass/tablet/_tablet-general.scss */
+  div#content {
+    width: 100%;
+  }
+  /* line 69, ../sass/tablet/_tablet-general.scss */
+  div#content .node-page {
+    width: 60%;
+  }
+
   /* line 9, ../sass/tablet/_tablet-login.scss */
   body.not-logged-in.page-user:not(.page-user-register) .messages,
   body.not-logged-in.page-anon-login .messages {
@@ -6311,7 +6325,7 @@ body.page-user-register:not(.node-type-event) {
   body.not-logged-in.page-user-register:not(.node-type-event) div#main div#content,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#main div#content {
     margin: 10px 2% 0;
-    width: 95%;
+    width: 96%;
   }
   /* line 89, ../sass/tablet/_tablet-profile-registration.scss */
   body.logged-in.page-user-edit div#main div#content form#user-register-form,
