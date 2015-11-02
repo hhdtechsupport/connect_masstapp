@@ -523,16 +523,17 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
-
-  $('.section-events .block-views .view-filters').css('display','none');
-
-
-  $('.view-empty').each(function(){
-    if($('#edit-keys-wrapper input[type="text"]').val() != "") {
-      $(this).text("No events match your search terms.");
-    }
-  });
-
+  // commented out until we add back in the exposed search terms filters in dashbaord 
+  //
+  // $('.section-events .block-views .view-filters').css('display','none');
+  //
+  //
+  // $('.view-empty').each(function(){
+  //   if($('#edit-keys-wrapper input[type="text"]').val() != "") {
+  //     $(this).text("No events match your search terms.");
+  //   }
+  // });
+  //
 
 
 
