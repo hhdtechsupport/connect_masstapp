@@ -507,7 +507,9 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
             );
         }
       }
-      break;
+
+      $form['#submit'][] = 'captconnect_custom_user_register_submit';
+//      break;
       // Yes, there is no break, we want to fall through.
 
     case 'user_login':
@@ -521,17 +523,21 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         $form_state['#captconnect_anon_instance'] = $parts[2];
       }
 
-      $form['actions']['request_password'] = array(
-       '#type' => 'submit',
-       '#value' => variable_get('captconnect_custom_request_password_text',
-         'Request a new password'),
-        '#submit' => array('captconnect_custom_request_password'),
-        '#weight' => 20,
-        );
+      if ($form_id != 'user_register_form') {
+        $text = variable_get('captconnect_custom_request_password_text',
+          'Request a new password');
+
+        $form['request_password'] = array(
+          '#type' => 'markup',
+          '#markup' => l($text, '/user/password',
+            array('attributes' => array('class' => array('request-password-link')))),
+          '#weight' => 20,
+          );
+      }
 
       $form['actions']['#weight'] = 100;
 
-      break; /* */
+      break;
 
     case 'user_pass_reset':
       // Borrowed and cleaned up from user.pages.inc.
@@ -828,8 +834,9 @@ function captconnect_custom_user_login(&$edit, $account) {
       ->execute();
 
     // The redirect method is not working, so fall back on good ol' drupal_goto().
-    $edit['redirect'] = 'node/' . $event_nid;
-    $GLOBALS['destination'] = 'node/' . $event_nid;
+//    $edit['redirect'] = 'node/' . $event_nid;
+//    $GLOBALS['destination'] = 'node/' . $event_nid;
+    drupal_goto('node/' . $event_nid);
   }
 }
 
@@ -1109,11 +1116,11 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
-  
+
   $flag = flag_get_flag('registration');
   $now = format_date(strtotime('0600', REQUEST_TIME), 'custom', 'Y-m-d h:i:s');
   $output .= '<p>Looking for stuff as of ' . $now . '.</p>';
-  
+
   $query = db_select('node', 'n');
   $query->join('field_data_field_date', 'd', 'd.entity_id = n.nid');
   $query->join('field_data_field_related_events', 're', 're.entity_id = n.nid');
@@ -1137,7 +1144,7 @@ function captconnect_custom_nancy() {
   $query->where('be.field_days_before_event_to_send_value = DATEDIFF(d.field_date_value, :now)', array(':now' => $now));
   $result = $query->execute();
 //  dpq($query);
-  
+
   $rows = array();
   foreach ($result as $row) {
     $account = user_load($row->uid);
