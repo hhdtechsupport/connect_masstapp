@@ -19,9 +19,9 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
+<!-- mimemail-message__workflow-notify.tpl.php -->
 
 <?php $base_url = $GLOBALS['base_url']; ?>
-
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

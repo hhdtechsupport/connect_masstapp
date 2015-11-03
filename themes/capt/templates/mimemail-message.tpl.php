@@ -19,6 +19,7 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
+<!-- mimemail-message.tpl.php -->
 
 <?php $base_url = $GLOBALS['base_url']; ?>
 
