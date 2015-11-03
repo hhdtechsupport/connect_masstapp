@@ -459,6 +459,28 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
     $form['mimemail'] = $mimemail;
     $form['mimemail']['#weight'] = 20;
   }
+
+  $form['#validate'][] = 'captconnect_custom_user_profile_validation';
+}
+
+/**
+ * Submit handler for requesting a new password.
+ */
+function captconnect_custom_user_profile_validation(&$form, &$form_state) {
+  // Get all user roles.
+  // Then remove "authenticated" and "administrator".
+  $all_roles = user_roles();
+  unset($all_roles[DRUPAL_AUTHENTICATED_RID]);
+  unset($all_roles[array_search('administrator', $all_roles)]);
+
+  // Okay, do they have a role other than authen. or admin?
+  $roles_selected = array_intersect_key($all_roles, array_filter($form_state['values']['roles']));
+  if (count($roles_selected)) {
+    // So, if they have a role, then they need a group too.
+    if (empty($form_state['values']['og_user_node'][LANGUAGE_NONE])) {
+      form_set_error('og_user_node', t('Special roles require an RT group selection.'));
+    }
+  }
 }
 
 /**
