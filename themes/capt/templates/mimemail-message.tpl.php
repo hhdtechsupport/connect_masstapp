@@ -19,7 +19,7 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
-/* mimemail-message.tpl.php */
+<!-- mimemail-message.tpl.php -->
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

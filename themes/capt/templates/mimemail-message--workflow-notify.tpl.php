@@ -19,7 +19,7 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
-/* mimemail-message__workflow-notify.tpl.php */
+<!-- mimemail-message__workflow-notify.tpl.php -->
 <html>
   <head>
     <title></title>
