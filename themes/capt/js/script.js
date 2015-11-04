@@ -523,7 +523,7 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
-  // commented out until we add back in the exposed search terms filters in dashbaord 
+  // commented out until we add back in the exposed search terms filters in dashbaord
   //
   // $('.section-events .block-views .view-filters').css('display','none');
   //
@@ -785,6 +785,14 @@ function otherSelectbox ($field, $fieldPrev) {
       });
     });
   });
+
+
+
+  // Change the "Administration" title on create user page
+  $('.page-admin-people-create h1#page-title').text('Create User');
+
+  // Capitalize the mail log title
+  $('.page-admin-reports-mail-logger h1#page-title').text('Outgoing Mail Log');
 
 
 
