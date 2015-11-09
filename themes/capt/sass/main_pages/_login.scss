@@ -28,11 +28,6 @@ body.not-logged-in.page-anon-login {
     width: 320px;
     margin-top: 0px;
   }
-  &.section-anon-login form#user-login {
-    margin: 0 auto;
-    float: none;
-    width: 95%;
-  }
   div#title-section {
     @extend .panel-rule;
     margin-bottom: 0px;
@@ -96,7 +91,7 @@ body.not-logged-in.page-anon-login {
       text-decoration: underline;
     }
   }
-  #block-block-8 {
+  #block-block-8, #block-block-18 {
     @extend .panel-rule-single;
     padding-bottom: 20px;
     background-image: none;
@@ -110,7 +105,7 @@ body.not-logged-in.page-anon-login {
       margin-left: $newto-margin-left;
       font-size: 1.8em;
     }
-    a {
+    a.arrow-link {
       color: $capt-orange;
       font-size: 20px;
       background: url("../images/icons/right-arrow-orange.png") 103px 1px no-repeat;
@@ -118,6 +113,7 @@ body.not-logged-in.page-anon-login {
       width: 150px;
       display: block;
       margin-left: $newto-margin-left;
+      cursor: pointer;
     }
   }
   #block-block-9 {
@@ -147,8 +143,11 @@ body.not-logged-in.page-anon-login {
         font-weight: normal;
         .section-head {
           color: $capt-darkblue;
-          font-size: 20px;
+          font-size: 17px;
           cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
         }
         .section-detail {
           font-size: 14px;
@@ -167,7 +166,8 @@ body.not-logged-in.page-anon-login {
     }
   }
   #block-block-9,
-  #block-block-8 {
+  #block-block-8,
+  #block-block-18 {
     @extend .panel-rule-single;
     margin-right: 85px;
     width: 390px;
@@ -177,6 +177,30 @@ body.not-logged-in.page-anon-login {
       font-weight: normal;
       color: $capt-darkblue;
       margin-left: 28px;
+    }
+  }
+  #block-block-18 {
+    h2.custom_block_title {
+      font-size: 2.2em;
+    }
+    .description {
+      margin: 0 30px;
+      a {
+        color: $capt-orange;
+        font-weight: normal;
+        &:hover {
+          text-decoration: underline;
+        }
+        &.arrow-link {
+          background: url("../images/icons/right-arrow-orange.png") 0px 1px no-repeat;
+          width: 250px;
+          padding-left: 25px;
+          margin-left: 0;
+        }
+      }
+      p:nth-child(2) {
+        margin-top: 25px;
+      }
     }
   }
 }
