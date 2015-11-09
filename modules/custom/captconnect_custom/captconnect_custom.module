@@ -10,9 +10,6 @@
     'Your password has expired. You must change your password to proceed on the site.' =>
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
-    'A welcome message with further instructions has been sent to your e-mail address.' =>
-      variable_get('captconnect_custom_completion_email_sent',
-      'An email has been sent with a link to complete the registration process.'),
     );
 
 /**
@@ -540,9 +537,12 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         // We can get the instance nid from the original URI.
         $x = drupal_parse_url($_SERVER['REQUEST_URI']);
         $parts = explode('/', $x['path']);
-        // It's $parts[2] because there is a leading slash.
-        $form['#captconnect_anon_instance'] = $parts[2];
-        $form_state['#captconnect_anon_instance'] = $parts[2];
+        // Only set this up if it's an anonymous registration.
+        if ($parts[1] == 'anon_register') {
+          // It's $parts[2] because there is a leading slash.
+          $form['#captconnect_anon_instance'] = $parts[2];
+          $form_state['#captconnect_anon_instance'] = $parts[2];
+        }
       }
 
       if ($form_id != 'user_register_form') {
@@ -800,7 +800,18 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     $get_rid_of = t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
       array('!login_url' => url('anon_login/' . arg(1), array('query' => drupal_get_destination()))));
+    $register_msg = t('A welcome message with further instructions has been sent to your e-mail address.');
+
     foreach ($msgs['status'] as $msg) {
+      // Is it the user_register message?
+      if ($msg == $register_msg) {
+        // Okay, use our version.
+        $our_msg = (isset($form['#captconnect_anon_instance']) ?
+          'captconnect_custom_completion_email_anon' : 'captconnect_custom_completion_email_normal');
+        $msg = variable_get($our_msg,
+          'An email has been sent with a link to complete the registration process.');
+      }
+
       if ($msg != $get_rid_of) {
         drupal_set_message($msg);
       }
