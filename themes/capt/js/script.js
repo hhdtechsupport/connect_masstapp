@@ -71,7 +71,6 @@ Drupal.behaviors.my_custom_behavior = {
    var myButton = arr[0];
    var myBody = arr[1];
 
-   console.log(myBody);
    $(myButton).click(function () {
 
     togglePanel(myButton,myBody);
@@ -573,7 +572,7 @@ function otherSelectbox ($field, $fieldPrev) {
     setTimeout(function(){
 
       // Which photo cell in the grid should be swapped
-      var rand_position = rand(1,photo_count);
+      rand_position = rand(1,photo_count);
 
       // Which photo (by numbered filename) should be swapped into that spot
       var new_photo = rand(1,55);
@@ -637,7 +636,7 @@ function otherSelectbox ($field, $fieldPrev) {
         timeout_init(photos, photo_count);
       }
 
-    }, rand(1,4) * 1000);
+    }, rand(2,5) * 1000);
   }
 
 
@@ -793,6 +792,11 @@ function otherSelectbox ($field, $fieldPrev) {
 
   // Capitalize the mail log title
   $('.page-admin-reports-mail-logger h1#page-title').text('Outgoing Mail Log');
+
+  // Change title of anon_login and anon_register
+  $('.page-anon-login h1#page-title').text('Log in to complete your registration');
+
+
 
 
 
