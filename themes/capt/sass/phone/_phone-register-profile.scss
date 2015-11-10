@@ -10,6 +10,12 @@ $reg-margin-left: 1.6%;
 body.logged-in.page-user-edit,
 body.not-logged-in.page-user-register:not(.node-type-event),
 body.not-logged-in.page-anon-register:not(.node-type-event) {
+  input.form-text {
+    width: 95%;
+  }
+  .chosen-container {
+    width: 96% !important;
+  }
   form#user-profile-form .form-item .description {
     line-height: 1.5em;
   }

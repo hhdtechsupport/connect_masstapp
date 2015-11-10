@@ -18,7 +18,7 @@
           text-align: left;
           margin-bottom: 40px;
           &+ #title-section {
-            padding-top: 50px;
+            padding-top: 20px;
           }
         }
         div#title-section {
@@ -59,7 +59,7 @@
         padding-top: 0px;
         margin-top: 0px;
         padding-bottom: 0px;
-        height: 300px;
+        height: 320px;
         input#edit-name,
         input#edit-pass {
           width: 85%;
@@ -74,7 +74,8 @@
         }
       }
       div#block-block-8,
-      div#block-block-9 {
+      div#block-block-9,
+      div#block-block-18 {
         @extend .mobile-login-lower-panel;
         border-top: 1px solid $capt-midgrey;
         margin-top: -15px;
@@ -99,6 +100,15 @@
         #why-register-icon {
           width: 115px;
           background-position: 5px;
+        }
+      }
+      div#block-block-18 {
+        h2 {
+          font-size: 1.8em;
+        }
+        a.arrow-link {
+          max-width: 335px;
+          width: 100%;
         }
       }
     }
