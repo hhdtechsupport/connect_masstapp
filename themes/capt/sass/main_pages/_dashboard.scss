@@ -100,11 +100,13 @@ p {
     }
   }
   #block-views-dashboard-block-1 {
-    background: url("../images/icons/registered.png") 380px 17px no-repeat #eef1f3;
+    background: url("../images/icons/registered.png") 386px 17px no-repeat #eef1f3;
+    background-size: 60px;
   }
   #block-views-dashboard-block-2 {
-    background: url("../images/icons/archived.png") 380px 17px no-repeat #eef1f3;
+    background: url("../images/icons/archived.png") 386px 17px no-repeat #eef1f3;
     clear: right;
+    background-size: 60px;
   }
   #block-views-dashboard-block-1,
   #block-views-dashboard-block-2 {
@@ -127,8 +129,35 @@ p {
       padding: 0 20px;
       & > .item-list {
         border-top: 1px solid $capt-midgrey;
-        padding-top: 20px;
-        padding-bottom: 30px;
+        border-bottom: 1px solid $capt-midgrey;
+        padding: 20px 10px 20px;
+        overflow: hidden;
+        &:not(:nth-child(1)) {
+          border-top: none;
+        }
+        ul {
+          padding-left: 15px;
+          & > .views-row > .views-field {
+            &.views-field-field-date {
+              .date-display-range {
+                display: inline;
+              }
+            }
+            &.views-field-ops {
+              margin-top: 8px;
+              a {
+                font-weight: normal;
+                color: $capt-darkblue;
+                text-decoration: underline;
+              }
+            }
+            &.views-field-view, &.views-field-view-1 {
+              float: right;
+              margin-top: -10px;
+              margin-right: -13px;
+            }
+          }
+        }
       }
       .view-content {
         padding: 0;

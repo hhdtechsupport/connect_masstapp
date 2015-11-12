@@ -11,228 +11,237 @@
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 
-var iPh6H = 667;
-var iPh6W = 375;
+  var iPh6H = 667;
+  var iPh6W = 375;
+
   // new variable to account for the division between phone and tablet styles
   var phone_tablet_divide = 767;
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34'];
 
-    // event panel variables
+  // event panel variables
+  var dates = ['div.field-name-event-date-s- h2','div.field-name-event-date-s- .view-instances']
   var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
   var mater =['div#block-views-materials-block h2','div#block-views-materials-block div.view-id-materials'];
-  var eventPanels = [desc,aud,pres,mater];
+  var eventPanels = [desc,aud,pres,mater,dates];
+
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
-  //var ev = ['h1#page-title','div#content > .view-dashboard'] ** THIS IS IF UPCOMING EVENTS ARE USED
   var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
   var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
-  var dashPanels = [/*ev,*/reg,arch]; // HERE TOO
+  var dashPanels = [reg,arch];
+
+  // Other settings and variables
   var panels_activated = false;
   var currentWinWidth;
 
+
+
   (function ($, Drupal, window, document, undefined) {
-
-// To understand behaviors, see https://drupal.org/node/756722#behaviors
-Drupal.behaviors.my_custom_behavior = {
+  // To understand behaviors, see https://drupal.org/node/756722#behaviors
+  Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
-  /**
-   *  Menu Logic
-   */
-   function init () {
-    currentWinWidth = window.innerWidth;
-    $('span.toggle-help').click();
-    $('a.menu-toggle').hide();
-    if ($('body').hasClass('node-type-event')) {
-      checkDates();
-      if (!panels_activated) activatePanels(eventPanels);
-    }
-    else if ($('body').hasClass('section-events')) {
 
-      if (isPhone()) {
-        hide_panels(dashPanels);
-        if (!panels_activated) activatePanels(dashPanels);
+
+
+    // Function to check if we're dealing with a phone
+    function isPhone () {
+      var min = phone_tablet_divide;
+      return window.innerWidth < min;
+    }
+
+
+
+    /**
+    *  Menu Logic
+    */
+    function init () {
+      currentWinWidth = window.innerWidth;
+      $('span.toggle-help').click();
+      $('a.menu-toggle').hide();
+      if ($('body').hasClass('node-type-event')) {
+        if (!panels_activated) {
+          if (isPhone()){
+            hide_panels(eventPanels);
+          };
+          activatePanels(eventPanels);
+        }
       }
-
-    }
-  }
-
-
-  // currently not used - replaced with phone_tablet_divide
-
-  $(document).ready(function () {
-   init();
- });
-
-
-  function addShowHide(arr) {
-   var myButton = arr[0];
-   var myBody = arr[1];
-
-   $(myButton).click(function () {
-
-    togglePanel(myButton,myBody);
-
-
-
-
-
-  });
-   /**
-   *  Responsive Show - Hides
-   */
-  // function for toggling a panel on click of header
-  function togglePanel(header, body, panel, compact, expanded)
-  {
-
-    var retval = 'default';
-    var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
-    console.log($(body).css('display'));
-    if (mql.matches)
-    {
-
-      switch($(body).css('display')) {
-        case 'none':
-
-        $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-        $(body).slideDown("fast", function () { $(body).show()});
-        retval= 'open';
-        break;
-
-        default:
-        console.log('moving');
-        $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-        $(body).slideUp("fast",function () {$(body).hide()});
-        retval='closed';
-
-        break;
+      else if ($('body').hasClass('section-events')) {
+        if (isPhone()) {
+          hide_panels(dashPanels);
+          if (!panels_activated) {
+            activatePanels(dashPanels);
+          }
+        }
       }
     }
-    return retval;
-  }
-}
-
-  function activatePanels (arr) {
-
-    for (var i = 0; i < arr.length; ++i) {
-
-      addShowHide(arr[i]);
-
-    }
-    panels_activated = true;
-  }
 
 
-  $(window).resize(function(){
-        // TO DO: if this is an event page
+    $(document).ready(function () {
+     init();
+    });
 
 
-        if ($('body').hasClass('node-type-event') ) {
-          checkDates();
-          adjust_panels(eventPanels);
-        }
-        else if ($('body').hasClass('section-events')) {
-          adjust_panels(dashPanels);
-        }
-        currentWinWidth = window.innerWidth;
+    // Function for converting a pair of headers and body into show-hides
+    function addShowHide(arr) {
+      var myButton = arr[0];
+      var myBody = arr[1];
 
+      // If clicking the header, then toggle body
+      $(myButton).click(function() {
+        togglePanel(myButton,myBody);
       });
 
-function adjust_panels (arr) {
-    for (var i = 0; i < 3; ++i) panel_respond(arr[i], arr);
-}
+      // Function for toggling a panel on click of header
+      function togglePanel(header, body, panel, compact, expanded) {
+        var retval = 'default';
+        var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
+        if (mql.matches) {
+          switch($(body).css('display')) {
+            case 'none':
+              $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+              $(body).slideDown("fast", function () { $(body).show()});
+              retval= 'open';
+              break;
+            default:
+              $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+              $(body).slideUp("fast",function () {$(body).hide()});
+              retval='closed';
+              break;
+          }
+        }
+        return retval;
+      }
+    }
 
-function hide_panels (arr) {
-  for (var i = 0; i < arr.length; ++i)  {
 
-    if ($(arr[i][0]).attr('id') != 'page-title')
-    $(arr[i][1]).hide();
+    // Function for applying the show/hide panels functionality to each header/body pair in an array
+    function activatePanels (arr) {
+      for (var i = 0; i < arr.length; ++i) {
+        addShowHide(arr[i]);
+      }
+      panels_activated = true;
+    }
 
-     showHideIcons(arr[i][0], arr[i][1])
-  }
-}
+
+    // Run code whenever window is resized
+    $(window).resize(function(){
+
+      // If we're dealing with an event then run this code
+      if ($('body').hasClass('node-type-event') ) {
+        if (isPhone()) {
+          hide_panels(eventPanels);
+        }
+        adjust_panels(eventPanels);
+      }
+
+      // If we're dealing with the events dashboard then run this code
+      else if ($('body').hasClass('section-events')) {
+        adjust_panels(dashPanels);
+      }
+
+      currentWinWidth = window.innerWidth;
+
+    });
+
+
+
+
+
+    // NOT SURE WHAT THESE DO
+    function adjust_panels (arr) {
+      for (var i = 0; i < 3; ++i) {
+        panel_respond(arr[i], arr);
+      }
+    }
+
+    function hide_panels (arr) {
+      for (var i = 0; i < arr.length; ++i)  {
+        if ($(arr[i][0]).attr('id') != 'page-title') {
+          $(arr[i][1]).hide();
+        }
+        showHideIcons(arr[i][0], arr[i][1])
+      }
+    }
+
+
 
 /* date box logic for events page */
 var datePanel = $('div.field-name-event-date-s-');
 
 
-/* handler for date movement */
 
-function isPhone () {
-  var min = phone_tablet_divide;
 
-    // var mql = window.matchMedia("screen and (max-width:"+min+"px)");
-    return window.innerWidth < min;
-  }
-
-  function checkDates() {
-
-   /* make into a function perhaps*/
-   var phoneDates = ($('.group-left').find(datePanel).css('backgroundColor'));
-   var ph = isPhone();
-   /* check size and if dates are not already where they should be*/
-   if (!ph && phoneDates != undefined)
-     $('.group-right').prepend(datePanel);
-   else if (ph && phoneDates ==undefined)
-   {
-     $(datePanel).insertBefore($('.group-description'));
-     hide_panels(eventPanels);
-   }
-   // alert (ph + ',' + phoneDates);
-
- }
   // correct styles when browser is resized
   // this function is flexible so keep it
-  function panel_respond(arr, panels)
+  function panel_respond(arr, panels) {
 
-  {
     var header = arr[0];
     var body = arr[1];
     var min = phone_tablet_divide+1;
     var mql = window.matchMedia("screen and (min-width:"+min+"px)");
-    if (mql.matches)
-    {
-          // laptop
-         // show body
-         if ($(body).css('display') == 'none') $(body).show();
 
-         if ($(header).attr('id') == 'page-title')
-           $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
-        else
-           $(header).css('backgroundImage','none');
+    // LAPTOP
+    if (mql.matches) {
 
-
-         if (arguments.length == 5)
-           $(panel).css('height',laptop_height)
-       }
-       else
-       {
-          // mobile
-            if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide)
-              $(body).hide();
-
-               showHideIcons(header, body)
-          // if resizing to mobile for the first time
-           if (!panels_activated)
-             activatePanels(panels);
-
-        }
+      if ($(body).css('display') == 'none') {
+        $(body).show();
       }
 
-  /*
-   *  End responsive show-hide functionality
-   */
+      if ($(header).attr('id') == 'page-title') {
+        $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
+      }
+      else {
+        $(header).css('backgroundImage','none');
+      }
+
+      if (arguments.length == 5) {
+        $(panel).css('height',laptop_height);
+      }
+
+    }
+
+    // MOBILE
+    else {
+
+      if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
+        $(body).hide();
+        showHideIcons(header, body)
+
+        // if resizing to mobile for the first time
+        if (!panels_activated) {
+          activatePanels(panels);
+        }
+
+      }
+    }
+  }
+
+
+
+
+
+
 
   function showHideIcons (header, body) {
-
-      if ($(body).css('display') == 'none')
-         $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-      else
-         $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-
+    $(header).css('background-repeat','no-repeat');
+      if ($(body).css('display') == 'none') {
+        $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+      }
+      else {
+        $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+      }
    }
+
+
+
+
+
+
+
 
   // Print to console log for bug testing
   function cl(thing){

@@ -87,7 +87,7 @@ body.node-type-event {
     color: $capt-orange;
   }
   div.group-right a {
-    color: $capt-orange;
+    color: #333333;
     font-weight: normal;
     text-decoration: underline;
   }
@@ -146,6 +146,9 @@ body.node-type-event {
   .ds-2col-stacked > .group-right {
     width: 323px;
     margin-left: -323px;
+    h4 {
+      font-size: 13px;
+    }
     .view-content .field-content .views-row div {
       margin-left: 0px;
       display: inline;
@@ -155,20 +158,21 @@ body.node-type-event {
         clear: left;
       }
       div.views-field-field-date {
+        border-top: 1px solid $capt-midgrey;
         margin-right: 3px;
-        /*border: 1px solid red;*/
+        padding: 0px 10px;
         a.unflag-action {
           font-weight: normal;
         }
       }
       div.views-field-field-date-1 {
-        /*border: 1px solid blue;*/
         margin-right: 4px;
-        /*10px;*/
       }
-      div.views-field-ops {
-        //display: inline;
-
+      div.views-field-field-access-information {
+        border-top: 1px solid $capt-midgrey;
+        border-bottom: 1px solid $capt-midgrey;
+        clear: both;
+        padding: 0px 10px;
       }
     }
     .item-list h3 {
@@ -195,27 +199,30 @@ body.node-type-event {
     }
     .field-type-ds.field-name-join-this-event, .field-type-ds.field-name-join-this-event-2 {
       padding-top: 25px;
-      background: lighten($capt-orange, 50%);
       &:before {
-        margin-left: -27.5px;
-        width: 320px;
-        margin-top: 0px;
-        left: 1px;
-        background: $capt-orange;
+        margin-left: -27px;
+        padding-left: 54px;
       }
       .views-field-field-date .field-content {
         background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
         padding-left: 14px;
       }
       .button {
-        margin-left: 14px;
+        margin: 15px 0 25px;
+        float: right;
       }
-      li {
-        line-height: 1.4em;
-        margin-bottom: 6px;
+      ul {
+        padding-left: 0px;
+        li {
+          line-height: 1.4em;
+          margin-bottom: 6px;
+          list-style-type: none;
+          background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
+          padding-left: 14px;
+        }
       }
       h2.block-title {
-        color: darken($capt-orange, 10%);
+
       }
     }
     /**
@@ -269,9 +276,11 @@ body.node-type-event {
           li.views-row {
             list-style: none;
             background: url("../images/icons/arrow-icons.png") no-repeat 0px 8px;
-            /* list-style-image: url('../images/icons/down-arrow.png'); */
             margin-bottom: 15px;
+            padding-bottom: 15px;
             padding-left: 12px;
+            border-bottom: 1px solid $capt-midgrey;
+            overflow: hidden;
             div.field-content {
               a {
                 display: inline;
@@ -284,6 +293,10 @@ body.node-type-event {
                 text-decoration: none;
                 color: $capt-maroon;
               }
+            }
+            .button {
+              float: right;
+              margin: 13px 0px 10px;
             }
           }
         }
