@@ -1105,7 +1105,8 @@ function captconnect_custom_flag_link($flag, $action, $entity_id) {
  * Requires local patch, see https://www.drupal.org/node/2527594.
  */
 function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
-  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
+//  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
+  $tokens['[anon_register]'] = check_url(url('anon_login/' . $link_options['entity_id'], $link_options));
 }
 
 /*
