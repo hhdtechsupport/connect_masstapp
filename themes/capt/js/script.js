@@ -20,12 +20,14 @@
   var why_reg_heights = ['191','130','34'];
 
   // event panel variables
-  var dates = ['div.field-name-event-date-s- h2','div.field-name-event-date-s- .view-instances']
+  var part_1 = ['div#block-views-instances-join-this-event h2','div.view-display-id-join_this_event'];
+  var part_2 = ['div#block-views-instances-join-this-event-2 h2','div.view-display-id-join_this_event_2'];
+  var dates = ['div.field-name-event-date-s- h2','div.field-name-event-date-s- .view-instances'];
   var desc = ['div.group-description h4','div.field-name-field-body'];
   var aud = ['div.group-audience h4','div.field-name-field-audience'];
   var pres = ['div.group-presenter h4','div.field-name-presenters'];
   var mater =['div#block-views-materials-block h2','div#block-views-materials-block div.view-id-materials'];
-  var eventPanels = [desc,aud,pres,mater,dates];
+  var eventPanels = [part_1,part_2,dates,desc,aud,pres,mater];
 
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
@@ -46,131 +48,129 @@
 
 
 
-    // Function to check if we're dealing with a phone
-    function isPhone () {
-      var min = phone_tablet_divide;
-      return window.innerWidth < min;
-    }
+  // Function to check if we're dealing with a phone
+  function isPhone () {
+    var min = phone_tablet_divide;
+    return window.innerWidth < min;
+  }
 
 
 
-    /**
-    *  Menu Logic
-    */
-    function init () {
-      currentWinWidth = window.innerWidth;
-      $('span.toggle-help').click();
-      $('a.menu-toggle').hide();
-      if ($('body').hasClass('node-type-event')) {
-        if (!panels_activated) {
-          if (isPhone()){
-            hide_panels(eventPanels);
-          };
-          activatePanels(eventPanels);
-        }
-      }
-      else if ($('body').hasClass('section-events')) {
-        if (isPhone()) {
-          hide_panels(dashPanels);
-          if (!panels_activated) {
-            activatePanels(dashPanels);
-          }
-        }
-      }
-    }
-
-
-    $(document).ready(function () {
-     init();
-    });
-
-
-    // Function for converting a pair of headers and body into show-hides
-    function addShowHide(arr) {
-      var myButton = arr[0];
-      var myBody = arr[1];
-
-      // If clicking the header, then toggle body
-      $(myButton).click(function() {
-        togglePanel(myButton,myBody);
-      });
-
-      // Function for toggling a panel on click of header
-      function togglePanel(header, body, panel, compact, expanded) {
-        var retval = 'default';
-        var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
-        if (mql.matches) {
-          switch($(body).css('display')) {
-            case 'none':
-              $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-              $(body).slideDown("fast", function () { $(body).show()});
-              retval= 'open';
-              break;
-            default:
-              $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-              $(body).slideUp("fast",function () {$(body).hide()});
-              retval='closed';
-              break;
-          }
-        }
-        return retval;
-      }
-    }
-
-
-    // Function for applying the show/hide panels functionality to each header/body pair in an array
-    function activatePanels (arr) {
-      for (var i = 0; i < arr.length; ++i) {
-        addShowHide(arr[i]);
-      }
-      panels_activated = true;
-    }
-
-
-    // Run code whenever window is resized
-    $(window).resize(function(){
-
-      // If we're dealing with an event then run this code
-      if ($('body').hasClass('node-type-event') ) {
-        if (isPhone()) {
+  /**
+  *  Menu Logic
+  */
+  function init () {
+    currentWinWidth = window.innerWidth;
+    $('span.toggle-help').click();
+    $('a.menu-toggle').hide();
+    if ($('body').hasClass('node-type-event')) {
+      if (!panels_activated) {
+        if (isPhone()){
           hide_panels(eventPanels);
+        };
+        activatePanels(eventPanels);
+      }
+    }
+    else if ($('body').hasClass('section-events')) {
+      if (isPhone()) {
+        hide_panels(dashPanels);
+        if (!panels_activated) {
+          activatePanels(dashPanels);
         }
-        adjust_panels(eventPanels);
       }
+    }
+  }
 
-      // If we're dealing with the events dashboard then run this code
-      else if ($('body').hasClass('section-events')) {
-        adjust_panels(dashPanels);
-      }
 
-      currentWinWidth = window.innerWidth;
+  $(document).ready(function () {
+   init();
+  });
 
+
+  // Function for converting a pair of headers and body into show-hides
+  function addShowHide(arr) {
+    var myButton = arr[0];
+    var myBody = arr[1];
+
+    // If clicking the header, then toggle body
+    $(myButton).click(function() {
+      togglePanel(myButton,myBody);
     });
 
-
-
-
-
-    // NOT SURE WHAT THESE DO
-    function adjust_panels (arr) {
-      for (var i = 0; i < 3; ++i) {
-        panel_respond(arr[i], arr);
-      }
-    }
-
-    function hide_panels (arr) {
-      for (var i = 0; i < arr.length; ++i)  {
-        if ($(arr[i][0]).attr('id') != 'page-title') {
-          $(arr[i][1]).hide();
+    // Function for toggling a panel on click of header
+    function togglePanel(header, body, panel, compact, expanded) {
+      var retval = 'default';
+      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
+      if (mql.matches) {
+        switch($(body).css('display')) {
+          case 'none':
+            $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+            $(body).slideDown("fast", function () { $(body).show()});
+            retval= 'open';
+            break;
+          default:
+            $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+            $(body).slideUp("fast",function () {$(body).hide()});
+            retval='closed';
+            break;
         }
-        showHideIcons(arr[i][0], arr[i][1])
       }
+      return retval;
+    }
+  }
+
+
+  // Function for applying the show/hide panels functionality to each header/body pair in an array
+  function activatePanels (arr) {
+    for (var i = 0; i < arr.length; ++i) {
+      addShowHide(arr[i]);
+    }
+    panels_activated = true;
+  }
+
+
+  // Run code whenever window is resized
+  $(window).resize(function(){
+
+    // If we're dealing with an event then run this code
+    if ($('body').hasClass('node-type-event') ) {
+      if (isPhone()) {
+        hide_panels(eventPanels);
+      }
+      adjust_panels(eventPanels);
     }
 
+    // If we're dealing with the events dashboard then run this code
+    else if ($('body').hasClass('section-events')) {
+      adjust_panels(dashPanels);
+    }
+
+    currentWinWidth = window.innerWidth;
+
+  });
 
 
-/* date box logic for events page */
-var datePanel = $('div.field-name-event-date-s-');
+
+
+
+  // The "i" counter needs to run up to 6 because we could have that many panels (if participate exists)
+  function adjust_panels (arr) {
+    for (var i = 0; i < 7; ++i) {
+      panel_respond(arr[i], arr);
+    }
+  }
+
+  function hide_panels (arr) {
+    // don't hide the first in the array
+    for (var i = 1; i < arr.length; ++i)  {
+      if ($(arr[i][0]).attr('id') != 'page-title') {
+        $(arr[i][1]).hide();
+      }
+      showHideIcons(arr[i][0], arr[i][1])
+    }
+    $(arr[0][0]).click();
+  }
+
 
 
 
@@ -182,11 +182,20 @@ var datePanel = $('div.field-name-event-date-s-');
     var header = arr[0];
     var body = arr[1];
     var min = phone_tablet_divide+1;
-    var mql = window.matchMedia("screen and (min-width:"+min+"px)");
 
-    // LAPTOP
-    if (mql.matches) {
 
+    // MOBILE
+    if (isPhone()) {
+      if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
+        $(body).hide();
+        showHideIcons(header, body)
+        // if resizing to mobile for the first time
+        if (!panels_activated) {
+          activatePanels(panels);
+        }
+      }
+    }
+    else {
       if ($(body).css('display') == 'none') {
         $(body).show();
       }
@@ -200,22 +209,6 @@ var datePanel = $('div.field-name-event-date-s-');
 
       if (arguments.length == 5) {
         $(panel).css('height',laptop_height);
-      }
-
-    }
-
-    // MOBILE
-    else {
-
-      if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
-        $(body).hide();
-        showHideIcons(header, body)
-
-        // if resizing to mobile for the first time
-        if (!panels_activated) {
-          activatePanels(panels);
-        }
-
       }
     }
   }
