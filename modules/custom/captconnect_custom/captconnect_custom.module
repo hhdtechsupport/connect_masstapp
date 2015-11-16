@@ -495,6 +495,37 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
   switch ($form_id) {
+    // Add/Edit Event.
+    case 'event_node_form':
+      // Provide a complete user object.
+      $user = user_load($user->uid);
+
+      // If they are not allowed to set the group, then prepopulate it.
+      if (isset($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'])) {
+        $groups = array();
+        foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+          $groups[$grp['target_id']] = $grp['target_id'];
+        }
+
+        if (count($groups) > 1) {
+          // Filter the groups options by which groups they are in.
+          $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] =
+            array_intersect_key($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'], $groups);
+
+          // Not sure why I have to do this.
+          $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
+        }
+        else {
+          // They only have one group, so let's set it as the default 
+          // get rid of the containing group.
+          unset($form['#groups'][$form['#group_children']['og_group_ref']]);
+          unset($form['#group_children']['og_group_ref']);
+          $form['og_group_ref']['#access'] = FALSE;
+        }
+      }
+
+      break;
+
     // Create a new account form.
     case 'user_register_form':
       // We sort of need to cheat.
