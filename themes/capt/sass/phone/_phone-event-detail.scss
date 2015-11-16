@@ -8,25 +8,21 @@
 /* event page styles */
 body.node-type-event {
 
- div.bottom-footer {
-  margin-top: -100px;
-}
-footer {
-  left: 0px;
-  margin-left: -30px;
-  .disclaimer {
-
-    padding-right: 0px !important;
+  div.bottom-footer {
+    margin-top: -100px;
   }
-
-}
-
+  footer {
+    left: 0px;
+    margin-left: -30px;
+    .disclaimer {
+      padding-right: 0px !important;
+    }
+  }
 
   /* banner subtitle text */
   @media screen and (max-width: 512px) {
     div#block-block-7 {
       display: block;
-      /* width: 100px;*/
     }
   }
 
@@ -34,7 +30,6 @@ footer {
   div#page {
     padding-bottom: 0px;
     margin-bottom: 0px;
-
   }
   div#main div#content div#title-section {
     margin-top: 0px;
@@ -55,105 +50,101 @@ footer {
   .ds-2col-stacked > .group-left {
     padding-right: 0px !important;
   }
+
   // panel-specific
   div#block-views-materials-block {
     margin-bottom: 0px;
-
   }
   div.view-display-id-block {
-
-   margin-left: 0px;
- }
-
- .ds-2col-stacked > .group-right {
-  div.field-name-materials.field-type-ds,
-  div.field-type-ds.field-name-event-date-s-,
-  div.field-type-ds.field-name-join-this-event,
-  div.field-type-ds.field-name-join-this-event-2 {
-    padding-bottom: 0px;
-    background-color: white;
-    padding-top: 0px;
-    h2 {
-     @extend .show-hide-header;
-     background-color: $capt-lightgrey;
-     border-bottom: 0px;
-     margin-left: 0px;
-     padding-left: 26px;
-     padding-top: 16px;
-     background-position: 6px 24px;
-   }
-   div.view-materials {
-    border-top: 1px solid $capt-midgrey;
+    margin-left: 0px;
   }
-  &:before {
-    height: 0px;
-  }
-  div.item-list {
-    margin-left: $panel-margin-left;
-    border-top-width: 0px;
-  }
-  padding-left: 0px;
-  padding-right: 0px;
-  width: 100%;
 
-}
-}
-.ds-2col-stacked > .group-left {
-  div.group-audience,
-  div.group-presenter,
-  div.group-description {
-   .views-field-field-presenter-image {
-    margin-right: -22px;
-
-    div.field-content {
-      width: 75%;
-      height: 75%;
-      img {
-        width: 100%;
-        height: 100%;
+  .ds-2col-stacked > .group-right {
+    div.field-name-materials.field-type-ds,
+    div.field-type-ds.field-name-event-date-s-,
+    div.field-type-ds.field-name-join-this-event,
+    div.field-type-ds.field-name-join-this-event-2 {
+      padding-bottom: 0px;
+      background-color: white;
+      padding-top: 0px;
+      padding-left: 0px;
+      padding-right: 0px;
+      width: 100%;
+      h2 {
+        @extend .show-hide-header;
+        background-color: $capt-lightgrey;
+        border-bottom: 0px;
+        margin-left: 0px;
+        padding-left: 26px;
+        padding-top: 16px;
+        background-position: 6px 24px;
       }
-
+      div.view-materials {
+        border-top: 1px solid $capt-midgrey;
+      }
+      &:before {
+        height: 0px;
+      }
+      div.item-list {
+        margin-left: $panel-margin-left;
+        border-top-width: 0px;
+      }
     }
   }
-  @extend .event-show-hide;
-  width: 100%;
-  background-color: white;
-  padding-bottom: 0px;
-  .views-row {
-    min-height: 120px;
-  }
+  .ds-2col-stacked > .group-left {
+    @extend .event-show-hide;
+    width: 100%;
+    background-color: white;
+    padding-bottom: 0px;
+    div.group-audience,
+    div.group-presenter,
+    div.group-description {
+      .views-field-field-presenter-image {
+        margin-right: -22px;
+        div.field-content {
+          width: 75%;
+          height: 75%;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      .views-row {
+        min-height: 120px;
+      }
+      div.field-name-presenters {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 10px;
+        border-bottom: 0px;
+      }
+      div.field-type-text-long {
+        border-top: 1px solid $capt-midgrey;
+        padding-top: 10px;
+      }
+    }
+    & > div:nth-child(1) {
+      margin-top: 20px;
+      &:before {
+        @extend .before-style;
+      }
+      p {
+        width: 95%;
+      }
+    }
+    & > div:not(:nth-child(1)) {
+      h4 {
+        margin-top: 0px;        
+      }
+    }
+    div.group-presenter {
+      p {
+        width: 95%;
+      }
+    }
 
-  div.field-name-presenters {
-    border-top: 1px solid $capt-midgrey;
-    padding-top: 10px;
-    border-bottom: 0px;
-  }
-  div.field-type-text-long {
-    border-top: 1px solid $capt-midgrey;
-    padding-top: 10px;
-  }
 
-}
-
-div.group-description {
-  margin-top: 20px;
-  &:before {
-    @extend .before-style;
-  }
-  p {
-   width: 95%;
- }
-
-}
-div.group-presenter {
-  p {
-    width: 95%;
-  }
-
-
-}
-
-div.field-type-ds.field-name-event-date-s- {
+    div.field-type-ds.field-name-event-date-s- {
 
         width: 100%;
         padding: 0px;
