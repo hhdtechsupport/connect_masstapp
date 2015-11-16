@@ -10,12 +10,15 @@ $title-buffer: 104px;
 
 
 body.section-events {
-	div#main div#content div#title-section {
 
-	}
-	#block-views-dashboard-block-1 > .view-dashboard > .view-content,
-	#block-views-dashboard-block-2 > .view-dashboard > .view-content {
-		padding: 0 20px 0 26px;
+	#block-views-dashboard-block-1,
+	#block-views-dashboard-block-2 {
+		div.view.view-dashboard {
+			border-top: none !important;
+			& > .view-content {
+					padding: 0 20px 0 26px;
+			}
+		}
 	}
 
 	/* only controls view-dashboard on left column */
@@ -87,6 +90,7 @@ body.section-events {
 	       }
 	       div.view-empty, div.item-list {
 	         margin-top: 10px;
+					 border-top: none;
 	       }
 	       div.view-content {
 

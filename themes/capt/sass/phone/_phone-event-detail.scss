@@ -49,6 +49,37 @@ body.node-type-event {
   }
   .ds-2col-stacked > .group-left {
     padding-right: 0px !important;
+    .field > div.field-items {
+      padding-left: 0px;
+      margin-bottom: 0px;
+      .block {
+        margin-bottom: 0px;
+        h2 {
+          margin-bottom: 0px;
+        }
+        .views-field-field-date {
+          margin-right: 3px;
+          padding: 0px 10px;
+        }
+        .views-field-field-access-information {
+          clear: both;
+          border-top: 1px solid #d7d7d7;
+          margin-right: 3px;
+          padding: 0px 10px;
+        }
+        .button.participate {
+          margin: 15px 0 25px;
+          float: right;
+        }
+        h4 {
+          color: #8c1d18;
+          font-weight: bold;
+          font-size: 13px;
+          cursor: text;
+          margin: 1.33em 0 0.5em;
+        }
+      }
+    }
   }
 
   // panel-specific
@@ -58,8 +89,46 @@ body.node-type-event {
   div.view-display-id-block {
     margin-left: 0px;
   }
+  div.view-display-id-join_this_event,
+  div.view-display-id-join_this_event_2 {
+    padding: 10px 26px;
+    .views-field-field-date .field-content {
+      background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
+      padding-left: 14px;
+    }
+    .views-field-field-access-information ul {
+      padding-left: 0px;
+      li {
+        line-height: 1.4em;
+        margin-bottom: 6px;
+        list-style-type: none;
+        background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
+        padding-left: 14px;
+        a {
+          font-weight: normal;
+          text-decoration: underline;
+          color: #333;
+        }
+      }
+    }
+  }
+  div.view-display-id-event_dates {
+    padding: 16px 0px;
+    overflow: hidden;
+    ul li.views-row {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      padding-left: 17px;
+      border-bottom: 1px solid #d7d7d7;
+      overflow: hidden;
+      .button {
+        float: right;
+        margin: 13px 0px 10px;
+      }
+    }
+  }
 
-  .ds-2col-stacked > .group-right {
+  .ds-2col-stacked {
     div.field-name-materials.field-type-ds,
     div.field-type-ds.field-name-event-date-s-,
     div.field-type-ds.field-name-join-this-event,
@@ -70,17 +139,16 @@ body.node-type-event {
       padding-left: 0px;
       padding-right: 0px;
       width: 100%;
+      margin-bottom: 0px;
       h2 {
         @extend .show-hide-header;
         background-color: $capt-lightgrey;
         border-bottom: 0px;
         margin-left: 0px;
         padding-left: 26px;
-        padding-top: 16px;
+        padding-top: 17px;
         background-position: 6px 24px;
-      }
-      div.view-materials {
-        border-top: 1px solid $capt-midgrey;
+        font-size: 20px !important;
       }
       &:before {
         height: 0px;
@@ -88,6 +156,28 @@ body.node-type-event {
       div.item-list {
         margin-left: $panel-margin-left;
         border-top-width: 0px;
+      }
+      h4 {
+        margin-top: auto;
+        margin-bottom: auto;
+        border-top: none;
+        margin-left: auto;
+        padding-left: 0px;
+        background-color: transparent;
+        padding-bottom: 0px;
+        margin-bottom: auto;
+        padding-top: 0px;
+      }
+    }
+    div.field-name-materials {
+      border-top: 1px solid $capt-midgrey;
+      h2.block-title {
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+      }
+      div.item-list {
+        margin-left: 26px !important;
+        margin-top: 0px;
       }
     }
   }
@@ -117,24 +207,28 @@ body.node-type-event {
         border-top: 1px solid $capt-midgrey;
         padding-top: 10px;
         border-bottom: 0px;
+        padding: 14px 26px;
       }
       div.field-type-text-long {
         border-top: 1px solid $capt-midgrey;
-        padding-top: 10px;
+        padding: 14px 26px;
       }
     }
     & > div:nth-child(1) {
       margin-top: 20px;
       &:before {
         @extend .before-style;
+        height: 5px;
       }
       p {
         width: 95%;
       }
     }
     & > div:not(:nth-child(1)) {
-      h4 {
-        margin-top: 0px;        
+      h4, h2 {
+        margin-top: 0px;
+        padding-top: 17px;
+        border-top: 1px solid $capt-midgrey;
       }
     }
     div.group-presenter {
@@ -179,12 +273,6 @@ body.node-type-event {
             position: relative;
           }
         }
-      }
-      div.field-item h2.block-title {
-        color: $capt-maroon;
-        font-size: 1.25em;
-        font-weight: bold;
-        margin-bottom: 1em;
       }
       &:before {
         background-color: white;

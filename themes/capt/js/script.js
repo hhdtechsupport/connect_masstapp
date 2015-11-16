@@ -136,6 +136,16 @@
     if ($('body').hasClass('node-type-event') ) {
       if (isPhone()) {
         hide_panels(eventPanels);
+        // Reorder
+        $('.field-name-event-date-s-').prependTo('.group-left');
+        $('.field-name-join-this-event').prependTo('.group-left');
+        $('.field-name-join-this-event-2').prependTo('.group-left');
+      }
+      else {
+        // Reorder
+        $('.field-name-event-date-s-').prependTo('.group-right');
+        $('.field-name-join-this-event').prependTo('.group-right');
+        $('.field-name-join-this-event-2').prependTo('.group-right');
       }
       adjust_panels(eventPanels);
     }
@@ -168,7 +178,6 @@
       }
       showHideIcons(arr[i][0], arr[i][1])
     }
-    $(arr[0][0]).click();
   }
 
 
