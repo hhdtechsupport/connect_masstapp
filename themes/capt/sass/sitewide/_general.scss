@@ -106,14 +106,24 @@ a.button,
 .participate-others-button,
 .register-others-button,
 .participate-others-button:visited,
-.register-others-button:visited {
+.register-others-button:visited,
+.multipage-controls-list input.form-submit {
   @include border-radius(3px);
   color: #ffffff;
   background: #292929;
-  padding: 4px 16px;
+  padding: 12px 14px;
   @extend .button-reset;
   text-decoration: none;
   font-weight: normal;
+  font-size: 13px;
+  text-shadow: none;
+}
+
+.multipage-controls-list input.form-submit:hover {
+  color: #fff;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-color: transparent;
 }
 
 #user-login {
@@ -180,11 +190,32 @@ a.button,
   }
 }
 
+.multipage-controls-list input.form-submit[value="Next page"] {
+  background: $capt-aqua;
+  &:hover {
+    background: lighten($capt-aqua, 10%);
+  }
+}
+
+.multipage-controls-list input.form-submit[value="Previous page"] {
+  background: $capt-orange;
+  &:hover {
+    background: lighten($capt-orange, 10%);
+  }
+}
+
+.multipage-controls-list input.form-submit[value="Create new account"] {
+  background: $capt-green !important;
+  &:hover {
+    background: lighten($capt-green, 10%) !important;
+  }
+}
+
 .group-right .button, .view-dashboard .button, body.node-type-event .view-instances .button {
   .flag-wrapper a, .field-content > a, &.certificate a, .flag-wrapper .instance-full {
     @include border-radius(3px);
     color: #ffffff;
-    padding: 4px 12px;
+    padding: 12px 14px;
     @extend .button-reset;
     font-size: 13px;
     font-weight: normal;
@@ -247,9 +278,8 @@ ul.sub-menu {
 input[type="submit"] {
   margin-right: 1em;
   border: none;
-  /*font-weight: bold;*/
   margin-top: 1em;
-  padding: 5px 16px;
+  padding: 12px 14px;
   font-size: 13px;
   text-transform: capitalize;
   background-color: $capt-orange;
