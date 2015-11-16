@@ -206,14 +206,24 @@ function captconnect_custom_message_texts($form, $form_state) {
       logged into in the anonymous registration process'),
     );
 
-  $form['captconnect_custom_completion_email_sent'] = array(
+  $form['captconnect_custom_completion_email_anon'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#title' => t('Completion Email Sent'),
-    '#default_value' => variable_get('captconnect_custom_completion_email_sent',
+    '#title' => t('Completion Email Sent (Anonymous)'),
+    '#default_value' => variable_get('captconnect_custom_completion_email_anon',
       'An email has been sent with a link to complete the registration process.'),
     '#description' => t('This message is displayed when an account is created
       in the anonymous registration process'),
+    );
+
+  $form['captconnect_custom_completion_email_normal'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Completion Email Sent (Normal)'),
+    '#default_value' => variable_get('captconnect_custom_completion_email_normal',
+      'A welcome message with further instructions has been sent to your e-mail address.'),
+    '#description' => t('This message is displayed when an account is created
+      in the manual registration process'),
     );
 
   $form['captconnect_custom_reset_pass_head'] = array(
@@ -351,7 +361,12 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_must_change_password']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_completion_email_sent']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_event_full']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_completion_email_anon']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_completion_email_normal']), 'style' => $style),
     );
 
   $rows[] = array(
@@ -367,11 +382,6 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_anon_register']), 'style' => $style),
-    );
-
-  $rows[] = array(
-    array('data' => drupal_render($form['captconnect_custom_event_full']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_already_registered']), 'style' => $style),
     );
 
   $output .= theme('table', array(

@@ -10,9 +10,6 @@
     'Your password has expired. You must change your password to proceed on the site.' =>
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
-    'A welcome message with further instructions has been sent to your e-mail address.' =>
-      variable_get('captconnect_custom_completion_email_sent',
-      'An email has been sent with a link to complete the registration process.'),
     );
 
 /**
@@ -459,6 +456,28 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
     $form['mimemail'] = $mimemail;
     $form['mimemail']['#weight'] = 20;
   }
+
+  $form['#validate'][] = 'captconnect_custom_user_profile_validation';
+}
+
+/**
+ * Submit handler for requesting a new password.
+ */
+function captconnect_custom_user_profile_validation(&$form, &$form_state) {
+  // Get all user roles.
+  // Then remove "authenticated" and "administrator".
+  $all_roles = user_roles();
+  unset($all_roles[DRUPAL_AUTHENTICATED_RID]);
+  unset($all_roles[array_search('administrator', $all_roles)]);
+
+  // Okay, do they have a role other than authen. or admin?
+  $roles_selected = array_intersect_key($all_roles, array_filter($form_state['values']['roles']));
+  if (count($roles_selected)) {
+    // So, if they have a role, then they need a group too.
+    if (empty($form_state['values']['og_user_node'][LANGUAGE_NONE])) {
+      form_set_error('og_user_node', t('Special roles require an RT group selection.'));
+    }
+  }
 }
 
 /**
@@ -476,6 +495,37 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
   switch ($form_id) {
+    // Add/Edit Event.
+    case 'event_node_form':
+      // Provide a complete user object.
+      $user = user_load($user->uid);
+
+      // If they are not allowed to set the group, then prepopulate it.
+      if (isset($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'])) {
+        $groups = array();
+        foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+          $groups[$grp['target_id']] = $grp['target_id'];
+        }
+
+        if (count($groups) > 1) {
+          // Filter the groups options by which groups they are in.
+          $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] =
+            array_intersect_key($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'], $groups);
+
+          // Not sure why I have to do this.
+          $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
+        }
+        else {
+          // They only have one group, so let's set it as the default 
+          // get rid of the containing group.
+          unset($form['#groups'][$form['#group_children']['og_group_ref']]);
+          unset($form['#group_children']['og_group_ref']);
+          $form['og_group_ref']['#access'] = FALSE;
+        }
+      }
+
+      break;
+
     // Create a new account form.
     case 'user_register_form':
       // We sort of need to cheat.
@@ -518,9 +568,12 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         // We can get the instance nid from the original URI.
         $x = drupal_parse_url($_SERVER['REQUEST_URI']);
         $parts = explode('/', $x['path']);
-        // It's $parts[2] because there is a leading slash.
-        $form['#captconnect_anon_instance'] = $parts[2];
-        $form_state['#captconnect_anon_instance'] = $parts[2];
+        // Only set this up if it's an anonymous registration.
+        if ($parts[1] == 'anon_register') {
+          // It's $parts[2] because there is a leading slash.
+          $form['#captconnect_anon_instance'] = $parts[2];
+          $form_state['#captconnect_anon_instance'] = $parts[2];
+        }
       }
 
       if ($form_id != 'user_register_form') {
@@ -778,7 +831,18 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     $get_rid_of = t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
       array('!login_url' => url('anon_login/' . arg(1), array('query' => drupal_get_destination()))));
+    $register_msg = t('A welcome message with further instructions has been sent to your e-mail address.');
+
     foreach ($msgs['status'] as $msg) {
+      // Is it the user_register message?
+      if ($msg == $register_msg) {
+        // Okay, use our version.
+        $our_msg = (isset($form['#captconnect_anon_instance']) ?
+          'captconnect_custom_completion_email_anon' : 'captconnect_custom_completion_email_normal');
+        $msg = variable_get($our_msg,
+          'An email has been sent with a link to complete the registration process.');
+      }
+
       if ($msg != $get_rid_of) {
         drupal_set_message($msg);
       }
@@ -1072,7 +1136,8 @@ function captconnect_custom_flag_link($flag, $action, $entity_id) {
  * Requires local patch, see https://www.drupal.org/node/2527594.
  */
 function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
-  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
+//  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
+  $tokens['[anon_register]'] = check_url(url('anon_login/' . $link_options['entity_id'], $link_options));
 }
 
 /*
