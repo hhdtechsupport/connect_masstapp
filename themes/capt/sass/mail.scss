@@ -17,8 +17,16 @@ h1, h2, h3, h4, h5, h6, p, td {
   word-break: normal;
 }
 
+li {
+  font-size: 14px;
+}
+
 #date {
   display: none;
+}
+
+.date-display-range {
+  display: inline;
 }
 
 p {
@@ -26,15 +34,20 @@ p {
   font-size: 14px;
   margin-bottom: 10px;
   &.ics, &.orange-button {
-    margin-top: 10px;
+    margin-top: 20px;
     a {
       margin-top: 10px;
+      font-weight: normal;
+      font-size: 14px;
       width: 260px;
       background: #C47E28;
-      border: 1px solid #915B19;
-      padding: 5px 30px;
+      padding: 12px 14px;
       color: white;
       text-decoration: none;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      border-radius: 3px;
       &:hover {
         background: #E7942F !important;
       }
