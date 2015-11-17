@@ -3031,21 +3031,19 @@ body.not-logged-in.page-anon-login #block-block-18 .description {
 /* line 192, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description a,
 body.not-logged-in.page-anon-login #block-block-18 .description a {
-  color: #c3791f;
+  color: #333;
   font-weight: normal;
-}
-/* line 195, ../sass/main_pages/_login.scss */
-body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description a:hover,
-body.not-logged-in.page-anon-login #block-block-18 .description a:hover {
   text-decoration: underline;
 }
-/* line 198, ../sass/main_pages/_login.scss */
+/* line 196, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description a.arrow-link,
 body.not-logged-in.page-anon-login #block-block-18 .description a.arrow-link {
   background: url("../images/icons/right-arrow-orange.png") 0px 1px no-repeat;
   width: 250px;
   padding-left: 25px;
   margin-left: 0;
+  color: #c3791f;
+  text-decoration: none;
 }
 /* line 205, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description p:nth-child(2),
@@ -4866,146 +4864,150 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-top: -100px;
   }
 
-  /* line 92, ../sass/phone/_phone-register-profile.scss */
+  /* line 90, ../sass/phone/_phone-register-profile.scss */
+  body.logged-in.page-user-edit div#page div#main div#content .messages {
+    margin: 10px 0 0;
+  }
+  /* line 95, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit ul#main-menu li.menu-item a {
     width: 150px;
   }
-  /* line 98, ../sass/phone/_phone-register-profile.scss */
+  /* line 101, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form input[type="password"].form-text {
     width: 105%;
   }
-  /* line 101, ../sass/phone/_phone-register-profile.scss */
+  /* line 104, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form select#edit-field-organizational-affiliation-und.chosen-enable.form-select.required.chosen-processed {
     display: block;
   }
-  /* line 104, ../sass/phone/_phone-register-profile.scss */
+  /* line 107, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form input.form-text {
     width: 95%;
   }
-  /* line 107, ../sass/phone/_phone-register-profile.scss */
+  /* line 110, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper {
     margin-left: 15px;
   }
-  /* line 111, ../sass/phone/_phone-register-profile.scss */
+  /* line 114, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item .form-item.form-type-radio, body.logged-in.page-user-edit form#user-profile-form div.form-item .form-item.form-type-checkbox,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper .form-item.form-type-radio,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper .form-item.form-type-checkbox {
     margin-left: 0px;
   }
-  /* line 115, ../sass/phone/_phone-register-profile.scss */
+  /* line 118, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.password-confirm {
     margin-top: 0px;
   }
-  /* line 118, ../sass/phone/_phone-register-profile.scss */
+  /* line 121, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail {
     width: 100%;
   }
-  /* line 120, ../sass/phone/_phone-register-profile.scss */
+  /* line 123, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail input.form-text,
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail div.description,
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail label:not(.option) {
     width: 95%;
   }
-  /* line 126, ../sass/phone/_phone-register-profile.scss */
+  /* line 129, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form label:not(.option) {
     font-weight: bold;
   }
-  /* line 130, ../sass/phone/_phone-register-profile.scss */
+  /* line 133, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container {
     width: 94% !important;
   }
-  /* line 133, ../sass/phone/_phone-register-profile.scss */
+  /* line 136, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 137, ../sass/phone/_phone-register-profile.scss */
+  /* line 140, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
     margin-left: 0px !important;
     width: 95%;
     padding: 0px 4px;
     margin-bottom: 15px;
   }
-  /* line 143, ../sass/phone/_phone-register-profile.scss */
+  /* line 146, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-timezone {
     width: 100%;
     padding: 0px;
   }
-  /* line 148, ../sass/phone/_phone-register-profile.scss */
+  /* line 151, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-ckeditor span.fieldset-legend {
     width: 200%;
   }
-  /* line 152, ../sass/phone/_phone-register-profile.scss */
+  /* line 155, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) {
     margin-top: 30px;
   }
-  /* line 154, ../sass/phone/_phone-register-profile.scss */
+  /* line 157, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) legend {
     position: relative;
     top: 0px;
     left: 0px;
   }
-  /* line 160, ../sass/phone/_phone-register-profile.scss */
+  /* line 163, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 163, ../sass/phone/_phone-register-profile.scss */
+  /* line 166, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select {
     width: 100% !important;
   }
-  /* line 165, ../sass/phone/_phone-register-profile.scss */
+  /* line 168, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select select#edit-timezone--2 {
     width: 100%;
   }
-  /* line 168, ../sass/phone/_phone-register-profile.scss */
+  /* line 171, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select .chosen-single {
     width: 100% !important;
   }
-  /* line 170, ../sass/phone/_phone-register-profile.scss */
+  /* line 173, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select .chosen-single span {
     width: 250px !important;
   }
-  /* line 174, ../sass/phone/_phone-register-profile.scss */
+  /* line 177, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select div.chosen-container#edit_timezone__2_chosen {
     width: 80% !important;
   }
-  /* line 178, ../sass/phone/_phone-register-profile.scss */
+  /* line 181, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-item.form-type-radio {
     white-space: nowrap;
   }
-  /* line 181, ../sass/phone/_phone-register-profile.scss */
+  /* line 184, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container-multi {
     max-width: 80% !important;
   }
-  /* line 184, ../sass/phone/_phone-register-profile.scss */
+  /* line 187, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed label {
     whitespace: no-wrap;
   }
-  /* line 188, ../sass/phone/_phone-register-profile.scss */
+  /* line 191, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass {
     width: 90% !important;
     margin: 0px;
     width: 10px;
   }
-  /* line 192, ../sass/phone/_phone-register-profile.scss */
+  /* line 195, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-password {
     width: 100% !important;
   }
-  /* line 195, ../sass/phone/_phone-register-profile.scss */
+  /* line 198, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-radio {
     display: none;
   }
-  /* line 198, ../sass/phone/_phone-register-profile.scss */
+  /* line 201, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.description {
     margin-left: 15px;
   }
-  /* line 201, ../sass/phone/_phone-register-profile.scss */
+  /* line 204, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength {
     display: none;
   }
 
-  /* line 211, ../sass/phone/_phone-register-profile.scss */
+  /* line 214, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register #content {
     border: none !important;
   }
@@ -5418,36 +5420,48 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 20px !important;
     padding-left: 26px !important;
   }
-  /* line 87, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 86, ../sass/phone/_phone-event-dashboard.scss */
+  body.section-events div#block-views-dashboard-block-1 div.view.view-dashboard.view-display-id-block_1, body.section-events div#block-views-dashboard-block-1 div.view.view-dashboard.view-display-id-block_2,
+  body.section-events div#block-views-dashboard-block-2 div.view.view-dashboard.view-display-id-block_1,
+  body.section-events div#block-views-dashboard-block-2 div.view.view-dashboard.view-display-id-block_2 {
+    padding-bottom: 30px;
+  }
+  /* line 91, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1:before,
   body.section-events div#block-views-dashboard-block-2:before {
     height: 0px;
     background-color: transparent;
   }
-  /* line 91, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 95, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 div.view-empty, body.section-events div#block-views-dashboard-block-1 div.item-list,
   body.section-events div#block-views-dashboard-block-2 div.view-empty,
   body.section-events div#block-views-dashboard-block-2 div.item-list {
     margin-top: 10px;
     border-top: none;
   }
-  /* line 98, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 99, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 h2.block-title.block__title,
   body.section-events div#block-views-dashboard-block-2 h2.block-title.block__title {
     margin-bottom: 0px;
     padding-bottom: 16px;
   }
+  /* line 104, ../sass/phone/_phone-event-dashboard.scss */
+  body.section-events div#block-views-dashboard-block-1:before {
+    height: 5px;
+    background-color: #577785;
+    top: -20px;
+  }
 
-  /* line 110, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 113, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#page {
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
   }
-  /* line 114, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 117, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div.bottom-footer {
     margin-top: -100px;
   }
-  /* line 117, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 120, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section {
     margin-top: -20px;
     width: 100%;
@@ -5465,11 +5479,11 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     display: block;
     margin-bottom: 104px;
   }
-  /* line 133, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 136, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section:before {
     top: -15px;
   }
-  /* line 137, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 140, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section h1#page-title.page__title {
     max-width: 100%;
     padding-top: 5px;
@@ -5479,7 +5493,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-bottom: 0px;
     height: 30px;
   }
-  /* line 148, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 151, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section h1#page-title.page__title:before {
     content: 'Upcoming\00a0';
   }
@@ -5682,7 +5696,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-top: 0px;
     margin-top: 0px;
     padding-bottom: 0px;
-    height: 320px;
+    height: 350px;
   }
   /* line 63, ../sass/phone/_login-phone.scss */
   body.not-logged-in.page-user:not(.page-user-register) div#page div#main form#user-login input#edit-name,
