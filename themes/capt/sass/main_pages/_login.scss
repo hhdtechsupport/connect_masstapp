@@ -190,16 +190,16 @@ body.not-logged-in.page-anon-login {
     .description {
       margin: 0 30px;
       a {
-        color: $capt-orange;
+        color: #333;
         font-weight: normal;
-        &:hover {
-          text-decoration: underline;
-        }
+        text-decoration: underline;
         &.arrow-link {
           background: url("../images/icons/right-arrow-orange.png") 0px 1px no-repeat;
           width: 250px;
           padding-left: 25px;
           margin-left: 0;
+          color: $capt-orange;
+          text-decoration: none;
         }
       }
       p:nth-child(2) {

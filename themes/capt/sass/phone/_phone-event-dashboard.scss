@@ -76,35 +76,38 @@ body.section-events {
 	        padding-bottom: 0px;
 					padding-top: 16px;
 	        h2 {
-	         width: 90%;
-	         @extend .show-hide-header;
-					 font-size: 20px !important;
-					 padding-left: 26px !important;
-	       }
-	       div.view.view-dashboard {
-	        @extend .show-hide-content;
-	       }
-	       &:before {
-	         height: 0px;
-	         background-color: transparent;
-	       }
-	       div.view-empty, div.item-list {
-	         margin-top: 10px;
-					 border-top: none;
-	       }
-	       div.view-content {
-
-	       }
-	       h2.block-title.block__title {
-					 margin-bottom: 0px;
-					 padding-bottom: 16px;
-	       }
-	       div.view-empty {
-
-	       }
-
-	     }
-}
+						width: 90%;
+						@extend .show-hide-header;
+						font-size: 20px !important;
+						padding-left: 26px !important;
+	       	}
+	       	div.view.view-dashboard {
+	        	@extend .show-hide-content;
+						&.view-display-id-block_1,
+						&.view-display-id-block_2 {
+							padding-bottom: 30px;
+						}
+	       	}
+	       	&:before {
+						height: 0px;
+						background-color: transparent;
+	       	}
+					div.view-empty, div.item-list {
+						margin-top: 10px;
+						border-top: none;
+					}
+					h2.block-title.block__title {
+						margin-bottom: 0px;
+						padding-bottom: 16px;
+					}
+	     	}
+				div#block-views-dashboard-block-1:before {
+					// Just temporary while we only have two blocks on the dashboard page
+					height: 5px;
+					background-color: $capt-aqua;
+					top: -20px;
+				}
+			}
 
 body.section-events.page-events {
 	div#page {

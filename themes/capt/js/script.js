@@ -155,8 +155,7 @@
         $('.field-name-join-this-event-2').prependTo('.group-left');
         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
-        $('.group-left .views-field-view .view-instances').css('display','block');
-      }
+        $('.group-left .views-field-view .view-instances').css('display','block');      }
       else {
         // Reorder
         $('.field-name-event-date-s-').prependTo('.group-right');
