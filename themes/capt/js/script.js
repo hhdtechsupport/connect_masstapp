@@ -67,7 +67,20 @@
       if (!panels_activated) {
         if (isPhone()){
           hide_panels(eventPanels);
-        };
+          // Reorder
+          $('.field-name-event-date-s-').prependTo('.group-left');
+          $('.field-name-join-this-event').prependTo('.group-left');
+          $('.field-name-join-this-event-2').prependTo('.group-left');
+          $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
+          $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
+          $('.group-left .views-field-view .view-instances').css('display','block');
+        }
+        else {
+          // Reorder
+          $('.field-name-event-date-s-').prependTo('.group-right');
+          $('.field-name-join-this-event').prependTo('.group-right');
+          $('.field-name-join-this-event-2').prependTo('.group-right');
+        }
         activatePanels(eventPanels);
       }
     }
@@ -140,6 +153,9 @@
         $('.field-name-event-date-s-').prependTo('.group-left');
         $('.field-name-join-this-event').prependTo('.group-left');
         $('.field-name-join-this-event-2').prependTo('.group-left');
+        $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
+        $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
+        $('.group-left .views-field-view .view-instances').css('display','block');
       }
       else {
         // Reorder
@@ -153,6 +169,8 @@
     // If we're dealing with the events dashboard then run this code
     else if ($('body').hasClass('section-events')) {
       adjust_panels(dashPanels);
+      $('#block-views-dashboard-block-1 > .view').css('display','block');
+      $('#block-views-dashboard-block-1 h2').css('backgroundImage','url('+imagePath+'icons/hide.png)'); // Not working
     }
 
     currentWinWidth = window.innerWidth;

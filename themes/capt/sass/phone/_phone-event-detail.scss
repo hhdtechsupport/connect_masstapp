@@ -186,6 +186,10 @@ body.node-type-event {
     width: 100%;
     background-color: white;
     padding-bottom: 0px;
+    &:before {
+      @extend .before-style;
+      height: 5px;
+    }
     div.group-audience,
     div.group-presenter,
     div.group-description {
@@ -216,10 +220,6 @@ body.node-type-event {
     }
     & > div:nth-child(1) {
       margin-top: 20px;
-      &:before {
-        @extend .before-style;
-        height: 5px;
-      }
       p {
         width: 95%;
       }
