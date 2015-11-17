@@ -8,7 +8,7 @@ body {
 }
 
 /* line 9, ../sass/mail.scss */
-h1, h2, h3, h4, h5, h6, p, td {
+h1, h2, h3, h4, h5, h6, td {
   color: #222222;
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: normal;
@@ -26,14 +26,20 @@ h1, h2, h3, h4, h5, h6, p, td {
 
 /* line 24, ../sass/mail.scss */
 p {
-  margin-bottom: 6px;
+  color: #222222;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-weight: normal;
+  padding: 0px;
+  margin: 0px 0px 10px 0px;
+  text-align: left;
+  line-height: 1.3;
   font-size: 14px;
 }
-/* line 27, ../sass/mail.scss */
+/* line 33, ../sass/mail.scss */
 p.ics, p.orange-button {
   margin-top: 10px;
 }
-/* line 29, ../sass/mail.scss */
+/* line 35, ../sass/mail.scss */
 p.ics a, p.orange-button a {
   margin-top: 10px;
   width: 260px;
@@ -43,7 +49,7 @@ p.ics a, p.orange-button a {
   color: white;
   text-decoration: none;
 }
-/* line 37, ../sass/mail.scss */
+/* line 43, ../sass/mail.scss */
 p.ics a:hover, p.orange-button a:hover {
   background: #E7942F !important;
 }
@@ -52,37 +58,62 @@ p a {
   word-break: break-all;
 }
 
+<<<<<<< HEAD
 /* line 47, ../sass/mail.scss */
+=======
+/* line 50, ../sass/mail.scss */
+>>>>>>> matt
 .hide-ics p.ics {
   display: none;
 }
 
+<<<<<<< HEAD
 /* line 51, ../sass/mail.scss */
+=======
+/* line 54, ../sass/mail.scss */
+>>>>>>> matt
 a {
   font-weight: bold;
   color: #C47E28;
   text-decoration: none;
+  word-break: break-all;
 }
+<<<<<<< HEAD
 /* line 55, ../sass/mail.scss */
+=======
+/* line 59, ../sass/mail.scss */
+>>>>>>> matt
 a:hover {
   color: #E7942F;
 }
 
+<<<<<<< HEAD
 /* line 60, ../sass/mail.scss */
+=======
+/* line 64, ../sass/mail.scss */
+>>>>>>> matt
 h1 {
   font-size: 36px;
   font-weight: bold;
   color: #888a55;
 }
 
+<<<<<<< HEAD
 /* line 66, ../sass/mail.scss */
+=======
+/* line 70, ../sass/mail.scss */
+>>>>>>> matt
 h2 {
   font-size: 30px;
   font-weight: normal;
   color: #577785;
 }
 
+<<<<<<< HEAD
 /* line 72, ../sass/mail.scss */
+=======
+/* line 76, ../sass/mail.scss */
+>>>>>>> matt
 h3 {
   font-size: 24px;
   font-style: italic;
@@ -90,7 +121,11 @@ h3 {
   color: #333333;
 }
 
+<<<<<<< HEAD
 /* line 79, ../sass/mail.scss */
+=======
+/* line 83, ../sass/mail.scss */
+>>>>>>> matt
 h4 {
   font-size: 18px;
   color: #8C1D18;
@@ -99,19 +134,31 @@ h4 {
   padding-bottom: 5px;
 }
 
+<<<<<<< HEAD
 /* line 87, ../sass/mail.scss */
+=======
+/* line 91, ../sass/mail.scss */
+>>>>>>> matt
 h5 {
   font-size: 16px;
   font-weight: bold;
   padding-bottom: 5px;
 }
 
+<<<<<<< HEAD
 /* line 93, ../sass/mail.scss */
+=======
+/* line 97, ../sass/mail.scss */
+>>>>>>> matt
 h6 {
   font-size: 20px;
 }
 
+<<<<<<< HEAD
 /* line 97, ../sass/mail.scss */
+=======
+/* line 101, ../sass/mail.scss */
+>>>>>>> matt
 table, tbody, tr, td {
   border-collapse: collapse;
   border-spacing: 0;
@@ -119,21 +166,34 @@ table, tbody, tr, td {
   margin: 0;
   padding: 0;
 }
+<<<<<<< HEAD
 /* line 103, ../sass/mail.scss */
+=======
+/* line 107, ../sass/mail.scss */
+>>>>>>> matt
 table.center, tbody.center, tr.center, td.center {
   background: white;
   width: 600px;
   margin: 0 auto;
 }
+<<<<<<< HEAD
 /* line 108, ../sass/mail.scss */
 table.header, table.footer, tbody.header, tbody.footer, tr.header, tr.footer, td.header, td.footer {
   width: 100%;
 }
 /* line 111, ../sass/mail.scss */
+=======
+/* line 112, ../sass/mail.scss */
+table.header, table.footer, tbody.header, tbody.footer, tr.header, tr.footer, td.header, td.footer {
+  width: 100%;
+}
+/* line 115, ../sass/mail.scss */
+>>>>>>> matt
 table.logos, tbody.logos, tr.logos, td.logos {
   background: transparent;
   height: 80px;
 }
+<<<<<<< HEAD
 /* line 114, ../sass/mail.scss */
 table.logos .capt-logo, tbody.logos .capt-logo, tr.logos .capt-logo, td.logos .capt-logo {
   width: 330px;
@@ -143,33 +203,61 @@ table.logos .samhsa-logo, tbody.logos .samhsa-logo, tr.logos .samhsa-logo, td.lo
   width: 250px;
 }
 /* line 121, ../sass/mail.scss */
+=======
+/* line 118, ../sass/mail.scss */
+table.logos .capt-logo, tbody.logos .capt-logo, tr.logos .capt-logo, td.logos .capt-logo {
+  width: 330px;
+}
+/* line 121, ../sass/mail.scss */
+table.logos .samhsa-logo, tbody.logos .samhsa-logo, tr.logos .samhsa-logo, td.logos .samhsa-logo {
+  width: 250px;
+}
+/* line 125, ../sass/mail.scss */
+>>>>>>> matt
 table.colorband, tbody.colorband, tr.colorband, td.colorband {
   width: 100%;
   height: 8px;
 }
+<<<<<<< HEAD
 /* line 125, ../sass/mail.scss */
+=======
+/* line 129, ../sass/mail.scss */
+>>>>>>> matt
 table.banner > tr > td > div, tbody.banner > tr > td > div, tr.banner > tr > td > div, td.banner > tr > td > div {
   margin-bottom: -1000px;
   margin-left: 30px;
   color: white;
   font-weight: bold;
 }
+<<<<<<< HEAD
 /* line 131, ../sass/mail.scss */
+=======
+/* line 135, ../sass/mail.scss */
+>>>>>>> matt
 table.mailing, tbody.mailing, tr.mailing, td.mailing {
   background: transparent;
   height: 100px;
 }
+<<<<<<< HEAD
 /* line 134, ../sass/mail.scss */
+=======
+/* line 138, ../sass/mail.scss */
+>>>>>>> matt
 table.mailing td, tbody.mailing td, tr.mailing td, td.mailing td {
   vertical-align: top;
   padding-top: 15px;
 }
+<<<<<<< HEAD
 /* line 137, ../sass/mail.scss */
+=======
+/* line 141, ../sass/mail.scss */
+>>>>>>> matt
 table.mailing td p, tbody.mailing td p, tr.mailing td p, td.mailing td p {
   text-align: center;
   font-size: 11px;
   margin-bottom: 5px;
 }
+<<<<<<< HEAD
 /* line 144, ../sass/mail.scss */
 table.section td, tbody.section td, tr.section td, td.section td {
   padding: 10px;
@@ -207,27 +295,82 @@ table.box p, tbody.box p, tr.box p, td.box p {
   font-size: 12px;
 }
 /* line 170, ../sass/mail.scss */
+=======
+/* line 148, ../sass/mail.scss */
+table.section td, tbody.section td, tr.section td, td.section td {
+  padding: 10px;
+}
+/* line 151, ../sass/mail.scss */
+table.rule h4, tbody.rule h4, tr.rule h4, td.rule h4 {
+  border-top: 1px solid #C8D9E0;
+}
+/* line 154, ../sass/mail.scss */
+table.box, tbody.box, tr.box, td.box {
+  width: 100%;
+}
+/* line 156, ../sass/mail.scss */
+table.box.gray, tbody.box.gray, tr.box.gray, td.box.gray {
+  background: #E3E4E0;
+}
+/* line 159, ../sass/mail.scss */
+table.box.green, tbody.box.green, tr.box.green, td.box.green {
+  background: #D8E2C8;
+}
+/* line 162, ../sass/mail.scss */
+table.box.red, tbody.box.red, tr.box.red, td.box.red {
+  background: #8C1D18;
+}
+/* line 164, ../sass/mail.scss */
+table.box.red p, table.box.red h4, tbody.box.red p, tbody.box.red h4, tr.box.red p, tr.box.red h4, td.box.red p, td.box.red h4 {
+  color: white !important;
+}
+/* line 168, ../sass/mail.scss */
+table.box.yellow, tbody.box.yellow, tr.box.yellow, td.box.yellow {
+  background: #F3E2B5;
+}
+/* line 171, ../sass/mail.scss */
+table.box p, tbody.box p, tr.box p, td.box p {
+  font-size: 12px;
+}
+/* line 174, ../sass/mail.scss */
+>>>>>>> matt
 table.box h4, tbody.box h4, tr.box h4, td.box h4 {
   margin: 0px;
   padding: 0px;
   font-size: 14px;
   padding-top: 5px;
 }
+<<<<<<< HEAD
 /* line 176, ../sass/mail.scss */
+=======
+/* line 180, ../sass/mail.scss */
+>>>>>>> matt
 table.box.center p, table.box.center h4, tbody.box.center p, tbody.box.center h4, tr.box.center p, tr.box.center h4, td.box.center p, td.box.center h4 {
   text-align: center;
 }
 
+<<<<<<< HEAD
 /* line 183, ../sass/mail.scss */
+=======
+/* line 187, ../sass/mail.scss */
+>>>>>>> matt
 .views-row {
   clear: both;
   padding-top: 10px;
 }
+<<<<<<< HEAD
 /* line 186, ../sass/mail.scss */
 .views-row.views-row-first {
   padding-top: 0px;
 }
 /* line 189, ../sass/mail.scss */
+=======
+/* line 190, ../sass/mail.scss */
+.views-row.views-row-first {
+  padding-top: 0px;
+}
+/* line 193, ../sass/mail.scss */
+>>>>>>> matt
 .views-row img {
   margin-left: 0px;
   margin-top: 0px;
@@ -237,7 +380,11 @@ table.box.center p, table.box.center h4, tbody.box.center p, tbody.box.center h4
   height: 120px;
 }
 
+<<<<<<< HEAD
 /* line 199, ../sass/mail.scss */
+=======
+/* line 203, ../sass/mail.scss */
+>>>>>>> matt
 img {
   outline: none;
   text-decoration: none;
