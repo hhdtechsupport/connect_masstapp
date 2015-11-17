@@ -17,8 +17,11 @@ h1, h2, h3, h4, h5, h6, p, td {
   word-break: normal;
 }
 
-ul li {
-  font-size: 14px;
+ul {
+  margin-top: 0px;
+  li {
+    font-size: 14px;
+  }
 }
 
 #date {
@@ -60,12 +63,12 @@ p {
 }
 
 a {
-  font-weight: bold;
-  color: #C47E28;
-  text-decoration: none;
+  font-weight: normal;
+  color: #222;
+  text-decoration: underline;
   word-break: break-word;
   &:hover {
-    color: #E7942F;
+    color: #474747;
   }
 }
 
@@ -93,13 +96,13 @@ h4 {
   color: #8C1D18;
   font-weight: bold;
   padding-top: 20px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 h6 {
@@ -163,6 +166,9 @@ table, tbody, tr, td {
     width: 100%;
     &.gray {
       background: #E3E4E0;
+      p {
+        font-size: 12px;
+      }
     }
     &.green {
       background: #D8E2C8;
@@ -175,9 +181,6 @@ table, tbody, tr, td {
     }
     &.yellow {
       background: #F3E2B5;
-    }
-    p {
-      font-size: 12px;
     }
     h4 {
       margin: 0px;
