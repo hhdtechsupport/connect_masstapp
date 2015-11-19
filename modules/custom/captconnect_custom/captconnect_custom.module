@@ -10,6 +10,8 @@
     'Your password has expired. You must change your password to proceed on the site.' =>
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
+    'A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.' =>
+       "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used to alert you to upcoming events, those for which you have registered, and other communications."
     );
 
 /**
@@ -417,10 +419,8 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 
   // Make our hook_user_login() fire last so we can drupal_goto().
   if ($hook == 'user_login' && isset($implementations['captconnect_custom'])) {
-//    $group = $implementations ['captconnect_custom'];
     $group = array('captconnect_custom' => $implementations['captconnect_custom']);
     unset($implementations['captconnect_custom']);
-//    $implementations['captconnect_custom'] = $group;
     $implementations = $group + $implementations;
   }
 }
@@ -501,12 +501,13 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       $user = user_load($user->uid);
 
       // If they are not allowed to set the group, then prepopulate it.
-      if (isset($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'])) {
-        $groups = array();
-        foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
-          $groups[$grp['target_id']] = $grp['target_id'];
-        }
+      $groups = array();
+      foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+        $groups[$grp['target_id']] = $grp['target_id'];
+      }
 
+      // One would hope that OG is prepopulating this.
+      if (isset($form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'])) {
         if (count($groups) > 1) {
           // Filter the groups options by which groups they are in.
           $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] =
@@ -516,8 +517,9 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
           $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
         }
         else {
-          // They only have one group, so let's set it as the default 
-          // get rid of the containing group.
+          // They only have one group, so let's set it as the default
+          // and get rid of the containing group.
+          $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = $groups;
           unset($form['#groups'][$form['#group_children']['og_group_ref']]);
           unset($form['#group_children']['og_group_ref']);
           $form['og_group_ref']['#access'] = FALSE;
@@ -738,7 +740,7 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'label' => t('Presenter image'),
       'weight' => 3,
       'settings' => array(
-        'image_style' => 'presenter_image_for_email'
+        'image_style' => variable_get('captconnect_custom_presenters_list_style', 'presenter_image'),
         )
       );
   }
