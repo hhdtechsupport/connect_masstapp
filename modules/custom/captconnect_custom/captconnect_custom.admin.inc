@@ -48,12 +48,6 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_participate_lead_time', 1800),
     '#description' => t('After this much time before the start of an event, show a "Participate" link.'),
     );
-/*
-  $form['captconnect_custom_proxy_participate_text'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Text for "Participate another" button'),
-    '#default_value' => variable_get('captconnect_custom_proxy_participate_text', 'Participate Someone Else'),
-    ); /* */
 
   $form['captconnect_custom_login_dest'] = array(
     '#type' => 'textfield',
@@ -78,7 +72,7 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#type' => 'radios',
     '#options' => $styles,
     '#title' => t('Image style for Presenter image on the Presenters List page.'),
-    '#default_value' => variable_get('captconnect_custom_presenters_list_style', 'presenter_image'),
+    '#default_value' => variable_get('captconnect_custom_presenters_list_style', 'thumbnail'),
     );
 
   $form['captconnect_custom_presenters_list_limit'] = array(
