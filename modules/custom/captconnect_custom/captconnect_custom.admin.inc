@@ -323,6 +323,16 @@ function captconnect_custom_message_texts($form, $form_state) {
       . 'and the registration is denied.')
     );
 
+  $form['captconnect_custom_login_email_help'] = array(
+    '#type' => 'textarea',
+    '#rows' => 2,
+    '#title' => t('Account Email Help'),
+    '#default_value' => variable_get('captconnect_custom_login_email_help',
+      "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used to alert you to upcoming events, those for which you have registered, and other communications."),
+    '#description' => t('When someone edits or adds a user account, '
+      . 'this text will be displayed below the "Email" field.'),
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -376,6 +386,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_anon_login']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_anon_register']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_login_email_help']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_anon_register']), 'style' => $style),
     );
 
   $output .= theme('table', array(

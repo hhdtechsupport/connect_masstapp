@@ -11,7 +11,8 @@
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
     'A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.' =>
-       "A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used to alert you to upcoming events, those for which you have registered, and other communications."
+       variable_get('captconnect_custom_login_email_help',
+         "A valid e-mail address. All e-mails from the system will be sent to this address.")
     );
 
 /**
