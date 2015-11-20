@@ -1,0 +1,82 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+
+
+
+body.section-portal {
+  .ds-2col > .group-right {
+    .field-type-ds {
+      margin-top: 0px;
+      &:before {
+        margin-left: -27px;
+        padding-left: 54px;
+        top: -15px;
+      }
+      .view-portals {
+        &.view-display-id-block_1,
+        &.view-display-id-block_3 {
+          .view-header {
+
+
+          }
+          & > .view-content {
+            & > .views-row {
+              padding: 15px 0;
+              border-top: 1px solid #d7d7d7;
+              & > .views-field-title {
+                & > .field-content {
+                  & > a {
+                    text-decoration: none;
+                    background-image: url("../images/icons/right-arrow-aqua.png");
+                    background-position: 0px 8px;
+                    background-repeat: no-repeat;
+                    color: $capt-aqua;
+                    padding: 8px 22px 8px 22px;
+                    font-size: 1.25em;
+                    &:hover {
+                      background-image: url("../images/icons/right-arrow-orange.png");
+                      color: $capt-orange;
+                    }
+                    &.active {
+                      background-image: url("../images/icons/down-arrow-orange.png");
+                      color: $capt-orange;
+                      &:hover {
+                        background-image: url("../images/icons/down-arrow-orange.png");
+                      }
+                    }
+                    &.active.parent:hover {
+                      background-image: url("../images/icons/down-arrow-orange.png");
+                    }
+                  }
+                }
+              }
+              .views-field-view {
+                margin-top: 2px;
+                margin-left: 22px;
+                .view-portals {
+                  .view-content {
+                    .views-row {
+                      padding: 3px 0px;
+                      a {
+                        background: url("../images/icons/arrow-icons.png") no-repeat 0px 5px;
+                        padding-left: 12px;
+                        text-decoration: none;
+                        &:hover {
+                          text-decoration: underline;
+                        }
+                        &.active {
+                          text-decoration: underline;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

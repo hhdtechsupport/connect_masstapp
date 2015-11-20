@@ -828,6 +828,15 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+
+  // PORTALS
+
+  $('.section-portal .views-field-view a.active').closest('.views-field-view').prev().find('.field-content a').addClass('active').addClass('parent'); // Trying to add "active" to the parent view item
+
+
+
+
+
 }
 };
 
