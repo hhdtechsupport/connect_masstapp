@@ -1,0 +1,25 @@
+@import "../headers/variables";
+@import "../headers/capt-mixins";
+@import "../headers/extensible";
+@import 'capt-mixins-phone';
+@import 'extensible-phone';
+
+
+body.section-portal {
+  .ds-2col {
+    .group-left {
+      float: none;
+      width: 100%;
+      padding-right: 0px;
+    }
+    .group-right {
+      float: none;
+      width: 100%;
+      margin-left: 0px;
+      margin-top: 30px;
+      .field-type-ds {
+        width: auto;
+      }
+    }
+  }
+}

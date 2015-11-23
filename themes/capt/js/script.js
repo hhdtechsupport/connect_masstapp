@@ -172,6 +172,12 @@
       $('#block-views-dashboard-block-1 h2').css('backgroundImage','url('+imagePath+'icons/hide.png)'); // Not working
     }
 
+    else if ($('body').hasClass('section-portal')) {
+      var containerWidth = $('.embedded-video').width();
+      $('iframe').attr('width',containerWidth);
+      $('iframe').attr('height',containerWidth * 0.5625);
+    }
+
     currentWinWidth = window.innerWidth;
 
   });
