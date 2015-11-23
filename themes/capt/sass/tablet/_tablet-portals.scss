@@ -7,6 +7,9 @@
 
 
 body.section-portal {
+  div#main div#navigation div.region.region-navigation #block-views-portals-block-4 {
+    margin: 30px 0 0 35px;
+  }
   .ds-2col .group-right {
     width: 260px;
     margin-left: -260px;
@@ -16,5 +19,21 @@ body.section-portal {
   }
   .ds-2col .group-left {
     padding-right: 300px;
+  }
+}
+
+body.section-portals {
+  #content {
+    top: 0px;
+    width: 96%;
+    margin-left: 16px;
+  }
+  ul#main-menu.main-menu {
+    width: 96% !important;
+    li.menu-item {
+      width: 45%;
+      max-width: 200px;
+      margin-right: 10px;
+    }
   }
 }
