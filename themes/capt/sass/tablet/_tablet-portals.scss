@@ -1,0 +1,20 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+@import 'tablet-variables';
+
+
+
+
+body.section-portal {
+  .ds-2col .group-right {
+    width: 260px;
+    margin-left: -260px;
+    .field-type-ds {
+      width: 205px;
+    }
+  }
+  .ds-2col .group-left {
+    padding-right: 300px;
+  }
+}
