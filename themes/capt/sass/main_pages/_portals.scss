@@ -24,6 +24,15 @@ body.section-portal {
       }
     }
   }
+  #navigation {
+    .view-portals {
+      .breadcrumb-arrow {
+        background: url("../images/icons/arrow-icons.png") no-repeat 0px 5px;
+        padding-right: 15px;
+        margin-left: 5px;
+      }
+    }
+  }
   #content {
     padding-top: 35px !important;
     padding-bottom: 20px !important;
@@ -109,6 +118,31 @@ body.section-portal {
       color: #333;
       text-decoration: underline;
       font-weight: normal;
+    }
+  }
+  #content {
+    .view-materials {
+      ul {
+        padding-left: 30px;
+        li {
+          margin: 15px 0;
+          a {
+            text-decoration: none;
+            font-weight: bold;
+            color: $capt-maroon;
+          }
+          .views-field-field-resource {
+            a {
+              background: url("../images/icons/arrow-icons.png") no-repeat 0px 0px; // NEED TO ADD IN A LINK ICON HERE
+              padding-left: 20px;
+              padding-bottom: 1px;
+            }
+          }
+          .views-field-field-body {
+            font-style: italic;
+          }
+        }
+      }
     }
   }
 }

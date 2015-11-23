@@ -6,6 +6,9 @@
 
 
 body.section-portal {
+  div#main div#navigation div.region.region-navigation #block-views-portals-block-4 {
+    margin: 30px 0 0 30px;
+  }
   .ds-2col {
     .group-left {
       float: none;
@@ -20,6 +23,16 @@ body.section-portal {
       .field-type-ds {
         width: auto;
       }
+    }
+  }
+}
+
+body.role-authenticated-user {
+  ul#main-menu.main-menu {
+    li.menu-item {
+      width: 30%;
+      max-width: 200px;
+      margin-right: 5px;
     }
   }
 }
