@@ -458,6 +458,8 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
   }
 
   $form['#validate'][] = 'captconnect_custom_user_profile_validation';
+
+  $form['field_last_account_edit']['#access'] = FALSE;
 }
 
 /**
@@ -860,6 +862,23 @@ function captconnect_custom_user_register_submit($form, $form_state) {
 function captconnect_custom_user_login(&$edit, $account) {
   // Default redirect should be the front page.
   $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
+
+  $last_edit = field_get_items('user', $account, 'field_last_account_edit');
+  $last_edit = (empty($last_edit) ? 0 : $last_edit[0]['value']);
+
+  $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
+  if (REQUEST_TIME - $last_edit > $check_interval) {
+    $edit['redirect'] = 'user/' . $account->uid . '/edit';
+    drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
+      "Check your personal information, please.")));
+    $account->field_last_account_edit = array(LANGUAGE_NONE => array(0 => array(
+      'value' => REQUEST_TIME,
+      'timezone' => 'UTC',
+      'timezone_db' => 'UTC',
+      'date_type' => 'datestamp',
+      )));
+    user_save($account);
+  }
 
   // Find out if the user is mid-registration (anon user).
   if (isset($edit['#captconnect_anon_instance'])) {
