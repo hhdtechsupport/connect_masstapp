@@ -4,7 +4,7 @@
 
 /* form elements for Edit & Create Event */
 
-form#event-node-form, form#event-notifications-node-form {
+form#event-node-form, form#event-notifications-node-form, form#portal-node-form {
   a:not(.chosen-single) {
     font-weight: normal;
     color: $capt-maroon;
@@ -152,9 +152,9 @@ form#event-node-form, form#event-notifications-node-form {
 .entitytype-notification_test-form  #edit-field-notification-type {
   float: left;
   + * {
-    position: relative;
-    top: 21px;
-    left: 15px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 15px;
   }
 }
 
