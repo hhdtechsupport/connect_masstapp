@@ -45,7 +45,7 @@ body.page-administration {
       width: 220px;
     }
     td.views-field-field-date {
-      width: 200px;
+      min-width: 200px;
     }
   }
 }
@@ -149,5 +149,21 @@ div.block-devel#block-devel-switch-user {
   width: 400px;
   input.form-submit {
     background-color: $capt-orange;
+  }
+}
+
+
+
+.section-administration .view-admin-content {
+  width: 100%;
+}
+
+body.section-administration {
+  line-height: 1.5em;
+  a, a:visited {
+    color: $capt-black;
+    &:hover {
+      color: $capt-maroon;
+    }
   }
 }

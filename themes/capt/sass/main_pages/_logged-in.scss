@@ -17,11 +17,38 @@ h1#page-title {
   }
 }
 
-/*recently removed node-type event on 6/2; keep an eye out for issues */
-
-body.not-logged-in.page-user-register {
-  
+body.page-node-revisions {
+  h1#page-title {
+    font-style: italic;
+    color: #333333 !important;
+    font-size: 27px !important;
+    display: block;
+    font-weight: normal !important;
+    line-height: 1.4;
+    em {
+      font-weight: bold;
+      color: $capt-green;
+      font-style: normal;
+      font-size: 36px;
+    }
+  }
+  .region-help {
+    display: none;
+  }
+  .diff-revision.error {
+    color: $capt-black;
+    td.revision-current {
+      background: #F0F8FF;
+    }
+  }
+  .diff-revision.selected {
+    td {
+      background: #CEEAF8 !important;
+    }
+  }
 }
+
+
 body.logged-in {
   h1#page-title {
     /* variable? deviate from spec and reduce? */

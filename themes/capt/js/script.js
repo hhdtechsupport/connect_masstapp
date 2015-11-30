@@ -830,7 +830,9 @@ function otherSelectbox ($field, $fieldPrev) {
   // Change title of anon_login and anon_register
   $('.page-anon-login h1#page-title').text('Log in to complete your registration');
 
-
+  // Change the "Please review your submission" page elements
+  $('div.messages:contains("Please review your submission")').removeClass('status').addClass('warning').text('Please review your pending email below. If you are satisfied with the recipients selected and content entered, then click "Send Message" to confirm.');
+  $('.entityform .content .submitted').remove();
 
 
 
