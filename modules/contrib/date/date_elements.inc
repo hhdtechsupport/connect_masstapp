@@ -546,10 +546,7 @@ function date_combo_validate($element, &$form_state) {
       return;
     }
   }
-  // Don't look for further errors if errors are already flagged
-  // because otherwise we'll show errors on the nested elements
-  // more than once.
-  elseif (!form_get_errors()) {
+  else {
 
     $timezone = !empty($item[$tz_field]) ? $item[$tz_field] : $element['#date_timezone'];
     $timezone_db = date_get_timezone_db($field['settings']['tz_handling']);
@@ -625,7 +622,10 @@ function date_combo_validate($element, &$form_state) {
       }
     }
   }
-  if (!empty($errors)) {
+  // Don't show further errors if errors are already flagged
+  // because otherwise we'll show errors on the nested elements
+  // more than once.
+  if (!form_get_errors() && !empty($errors)) {
     if ($field['cardinality']) {
       form_error($element, t('There are errors in @field_name value #@delta:', array('@field_name' => $instance['label'], '@delta' => $delta + 1)) . theme('item_list', array('items' => $errors)));
     }

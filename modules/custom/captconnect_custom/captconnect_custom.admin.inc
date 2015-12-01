@@ -89,6 +89,21 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_presenters_list_show_past', 1),
     );
 
+  $form['captconnect_custom_account_check_interval'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      0 => t('Always'),
+      1209600 => t('2 weeks'),
+      2592000 => t('1 month'),
+      5184000 => t('2 months'),
+      7776000 => t('3 months'),
+      15552000 => t('6 months'),
+      31536000 => t('1 year'),
+      ),
+    '#title' => t('Ask users to check their accounts this often.'),
+    '#default_value' => variable_get('captconnect_custom_account_check_interval', 7776000),
+    );
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -141,7 +156,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_presenters_list_show_past']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_presenters_list_limit']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -333,6 +348,15 @@ function captconnect_custom_message_texts($form, $form_state) {
       . 'this text will be displayed below the "Email" field.'),
     );
 
+  $form['captconnect_custom_account_check_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 2,
+    '#title' => t('Account Check Reminder'),
+    '#default_value' => variable_get('captconnect_custom_account_check_msg',
+      "Check your personal information, please."),
+    '#description' => t("When someone logs in, check if it's been a while."),
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -390,7 +414,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_email_help']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_anon_register']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
     );
 
   $output .= theme('table', array(
