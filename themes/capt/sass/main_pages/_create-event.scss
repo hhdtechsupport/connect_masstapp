@@ -4,7 +4,7 @@
 
 /* form elements for Edit & Create Event */
 
-form#event-node-form, form#event-notifications-node-form, form#portal-node-form {
+form.node-form {
   a:not(.chosen-single) {
     font-weight: normal;
     color: $capt-maroon;
@@ -207,5 +207,16 @@ body.page-node-add-event.page-node-add.section-node-add {
   div#content {
     height: 100%;
     padding-bottom: 20px;
+  }
+}
+
+
+form#portal-section-node-form,
+form#portal-node-form,
+form#portal-page-node-form {
+  .field-widget-entityreference-autocomplete {
+    thead {
+      display: none;
+    }
   }
 }

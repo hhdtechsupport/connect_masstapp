@@ -854,7 +854,9 @@ input.form-text {
   }
 }
 
-
+.warning {
+  background-color: transparent;
+}
 
 
 .entityform .content {
@@ -886,4 +888,25 @@ input.form-text {
   float: right;
   width: 323px;
   text-align: center;
+  margin-top: -60px;
+}
+
+
+
+.page-node-reorder-pages,
+.page-node-reorder-sections {
+  .views-table.draggable {
+    tr {
+      height: 40px;
+      a:not(.tabledrag-handle) {
+        vertical-align: sub;
+      }
+    }
+  }
+  .tabledrag-toggle-weight-wrapper {
+    a {
+      color: $capt-maroon;
+      font-weight: normal;
+    }
+  }
 }
