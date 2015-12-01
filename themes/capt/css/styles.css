@@ -1217,14 +1217,30 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   color: #8c1d18;
 }
 
-/* line 782, ../sass/sitewide/_general.scss */
+/* line 783, ../sass/sitewide/_general.scss */
+.page-403.logged-in div#content,
+.page-404.logged-in div#content,
+.section-404.logged-in div#content,
+.section-403.logged-in div#content {
+  border: 1px solid #d7d7d7;
+}
+
+/* line 790, ../sass/sitewide/_general.scss */
+.page-404:not(.section-login) .node,
+.section-404:not(.section-login) .node {
+  height: 350px;
+  background: url("../images/not_found.png") no-repeat center;
+  background-size: 50%;
+}
+
+/* line 800, ../sass/sitewide/_general.scss */
 .panelize {
   background: #eef1f3;
   border: 1px solid #d7d7d7;
   border-top: 0px;
   padding: 20px 0px;
 }
-/* line 787, ../sass/sitewide/_general.scss */
+/* line 805, ../sass/sitewide/_general.scss */
 .panelize:before {
   display: block;
   background-color: #577785;
@@ -1236,17 +1252,17 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   margin-left: -1px;
   padding-left: 2px;
 }
-/* line 798, ../sass/sitewide/_general.scss */
+/* line 816, ../sass/sitewide/_general.scss */
 .panelize > div:not(.contextual-links-wrapper) {
   padding: 0px 10px;
 }
-/* line 801, ../sass/sitewide/_general.scss */
+/* line 819, ../sass/sitewide/_general.scss */
 .panelize h2 {
   color: #577785;
   padding: 0px 10px;
 }
 
-/* line 809, ../sass/sitewide/_general.scss */
+/* line 827, ../sass/sitewide/_general.scss */
 input.form-text {
   font-size: 14px;
   padding: 5px;
@@ -1257,74 +1273,74 @@ input.form-text {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 818, ../sass/sitewide/_general.scss */
+/* line 836, ../sass/sitewide/_general.scss */
 input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
 
-/* line 827, ../sass/sitewide/_general.scss */
+/* line 845, ../sass/sitewide/_general.scss */
 .text-format-wrapper a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 831, ../sass/sitewide/_general.scss */
+/* line 849, ../sass/sitewide/_general.scss */
 .text-format-wrapper > div > label {
   display: none;
 }
-/* line 834, ../sass/sitewide/_general.scss */
+/* line 852, ../sass/sitewide/_general.scss */
 .text-format-wrapper .form-item {
   margin-bottom: 0px;
 }
-/* line 837, ../sass/sitewide/_general.scss */
+/* line 855, ../sass/sitewide/_general.scss */
 .text-format-wrapper .ckeditor_links {
   font-size: .85em;
 }
-/* line 840, ../sass/sitewide/_general.scss */
+/* line 858, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper {
   border: 1px solid #d4d5d5;
   background-color: #F6F8FA;
   padding: 15px 0;
 }
-/* line 844, ../sass/sitewide/_general.scss */
+/* line 862, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .form-type-select {
   margin-top: 0px;
 }
-/* line 847, ../sass/sitewide/_general.scss */
+/* line 865, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines {
   font-size: .85em;
   line-height: 1.25em;
 }
-/* line 850, ../sass/sitewide/_general.scss */
+/* line 868, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines .tips {
   padding-left: 15px;
 }
 
-/* line 857, ../sass/sitewide/_general.scss */
+/* line 875, ../sass/sitewide/_general.scss */
 .warning {
   background-color: transparent;
 }
 
-/* line 863, ../sass/sitewide/_general.scss */
+/* line 881, ../sass/sitewide/_general.scss */
 .entityform .content a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 867, ../sass/sitewide/_general.scss */
+/* line 885, ../sass/sitewide/_general.scss */
 .entityform .content .field {
   margin: 10px 0;
   background: #F7F7F7;
   overflow: hidden;
   clear: both;
 }
-/* line 872, ../sass/sitewide/_general.scss */
+/* line 890, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-label {
   width: 130px;
   padding: 2px 5px;
   background: #E4E4E4;
   float: left;
 }
-/* line 878, ../sass/sitewide/_general.scss */
+/* line 896, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-items {
   float: none;
   height: 100%;
@@ -1332,7 +1348,7 @@ input.form-text:focus {
   padding: 2px 5px;
 }
 
-/* line 887, ../sass/sitewide/_general.scss */
+/* line 905, ../sass/sitewide/_general.scss */
 #block-block-19 {
   float: right;
   width: 323px;
@@ -1340,17 +1356,17 @@ input.form-text:focus {
   margin-top: -60px;
 }
 
-/* line 899, ../sass/sitewide/_general.scss */
+/* line 917, ../sass/sitewide/_general.scss */
 .page-node-reorder-pages .views-table.draggable tr,
 .page-node-reorder-sections .views-table.draggable tr {
   height: 40px;
 }
-/* line 901, ../sass/sitewide/_general.scss */
+/* line 919, ../sass/sitewide/_general.scss */
 .page-node-reorder-pages .views-table.draggable tr a:not(.tabledrag-handle),
 .page-node-reorder-sections .views-table.draggable tr a:not(.tabledrag-handle) {
   vertical-align: sub;
 }
-/* line 907, ../sass/sitewide/_general.scss */
+/* line 925, ../sass/sitewide/_general.scss */
 .page-node-reorder-pages .tabledrag-toggle-weight-wrapper a,
 .page-node-reorder-sections .tabledrag-toggle-weight-wrapper a {
   color: #8c1d18;

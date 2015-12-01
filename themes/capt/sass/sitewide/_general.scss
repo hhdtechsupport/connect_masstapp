@@ -776,6 +776,24 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset {
   }
 }
 
+.page-403.logged-in,
+.page-404.logged-in,
+.section-404.logged-in,
+.section-403.logged-in {
+  div#content {
+    border: 1px solid $capt-midgrey;
+  }
+}
+
+.page-404:not(.section-login),
+.section-404:not(.section-login) {
+  .node {
+    height: 350px;
+    background: url('../images/not_found.png') no-repeat center;
+    background-size: 50%;
+  }
+}
+
 
 
 
