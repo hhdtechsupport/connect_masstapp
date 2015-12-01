@@ -842,9 +842,10 @@ function otherSelectbox ($field, $fieldPrev) {
   // Adds "active" to the parent section on a portal page
   $('.section-portal .views-field-view a.active').closest('.views-field-view').prev().find('.field-content a').addClass('active').addClass('parent');
 
-  // Removing "reorder sections" and "reorder pages"  if not appropriate
-  $('body:not(.node-type-portal):not(.page-node-reorder-sections) .tabs-primary__tab:contains("Reorder sections")').remove();
+  // Removing panel-specific local tasks on non-panel pages
+  $('body:not(.node-type-portal):not(.page-node-reorder-sections):not(.page-node-access) .tabs-primary__tab:contains("Reorder sections")').remove();
   $('body:not(.node-type-portal-section):not(.page-node-reorder-pages) .tabs-primary__tab:contains("Reorder pages")').remove();
+  $('body:not(.node-type-portal):not(.page-node-reorder-sections):not(.page-node-access) .tabs-primary__tab:contains("Access")').remove();
 
 
 
