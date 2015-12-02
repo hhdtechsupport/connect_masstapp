@@ -4,6 +4,42 @@
 
 
 
+body.page-portals.page-views {
+  h1#page-title {
+    background: url("../images/icons/portals.png") 0 0 no-repeat;
+    padding-left: 63px;
+  }
+  #content {
+    margin: 24px auto;
+  }
+  .view-content {
+    overflow: auto;
+    margin-bottom: 20px;
+    .views-row {
+      clear: both;
+      &:not(:nth-child(1)) {
+        padding-top: 15px;
+      }
+      .views-field-field-portal-image {
+        float: left;
+      }
+      .views-field-title {
+        margin-left: 10px;
+        a {
+          font-size: 20px;
+          color: $capt-black;
+          &:hover {
+            color: $capt-maroon;
+          }
+        }
+      }
+      .views-field-field-brief-introduction {
+        margin-left: 170px;
+      }
+    }
+  }
+}
+
 body.section-portal {
   #block-views-portals-block-4 {
     clear: both;
@@ -184,6 +220,7 @@ body.section-portal {
 .page-node-access {
   #content {
     overflow: hidden;
+    padding-bottom: 200px;
   }
   .view-portals {
     margin-bottom: 30px;
