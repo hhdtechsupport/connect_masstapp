@@ -102,6 +102,9 @@ function captconnect_custom_admin_settings($form, $form_state) {
       ),
     '#title' => t('Ask users to check their accounts this often.'),
     '#default_value' => variable_get('captconnect_custom_account_check_interval', 7776000),
+    '#description' => t('If the user has not updated their information in this
+      length of time, force them to do so.<br>If the value is "always," we will
+      not prevent them from going to other pages.'),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';

@@ -202,6 +202,46 @@ function captconnect_custom_menu_alter(&$items) {
 }
 
 /**
+ * Implements hook_init().
+ *
+ * Prevent leaving the login page when they need to update their data.
+ */
+function captconnect_custom_init() {
+  // Note that the $user object does not contain fields.
+  global $user;
+
+  // Check if they are logged in.
+  if ($user->uid == 0) {
+    // Nope, just leave.
+    return;
+  }
+
+  // Have they updated their account since we started this?
+  $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
+  if (isset($user->data['last_account_edit'])) {
+    // Has the account been updated in our required time?
+    if ((REQUEST_TIME - $user->data['last_account_edit']) <= $check_interval) {
+      // They are okay, let them do whatever they want.
+      return;
+    }
+    else {
+      // Are we in test mode?
+      if ($check_interval == 0) {
+        return;
+      }
+    }
+  }
+
+  // They need to update their data.
+  $msg_level = ($check_interval == 0 ? 'status' : 'warning');
+  drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
+    "Check your personal information, please.")), $msg_level, FALSE);
+  if (arg(0) != 'user' || arg(2) != 'edit') {
+    drupal_goto("user/$user->uid/edit");
+  }
+}
+
+/**
  * Implements hook_node_access().
  *
  * Exceptions to normal Drupal access rules.
@@ -459,11 +499,13 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
 
   $form['#validate'][] = 'captconnect_custom_user_profile_validation';
 
-  $form['field_last_account_edit']['#access'] = FALSE;
+  // Set the last edit time to now in case they save it.
+  // We use the user data since fields are not available in hook_init.
+  $form['#user']->data['last_account_edit'] = REQUEST_TIME;
 }
 
 /**
- * Submit handler for requesting a new password.
+ * Validation handler for requesting a new password.
  */
 function captconnect_custom_user_profile_validation(&$form, &$form_state) {
   // Get all user roles.
@@ -863,21 +905,16 @@ function captconnect_custom_user_login(&$edit, $account) {
   // Default redirect should be the front page.
   $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
 
-  $last_edit = field_get_items('user', $account, 'field_last_account_edit');
-  $last_edit = (empty($last_edit) ? 0 : $last_edit[0]['value']);
+  $last_edit = (empty($account->data['last_account_edit']) ?
+    0 : $account->data['last_account_edit']);
 
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
   if (REQUEST_TIME - $last_edit > $check_interval) {
     $edit['redirect'] = 'user/' . $account->uid . '/edit';
+    $msg_level = ($check_interval == 0 ? 'status' : 'warning');
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
-      "Check your personal information, please.")));
-    $account->field_last_account_edit = array(LANGUAGE_NONE => array(0 => array(
-      'value' => REQUEST_TIME,
-      'timezone' => 'UTC',
-      'timezone_db' => 'UTC',
-      'date_type' => 'datestamp',
-      )));
-    user_save($account);
+      "Check your personal information, please.")), $msg_level, FALSE);
+    $account->data['last_account_edit'] = REQUEST_TIME;
   }
 
   // Find out if the user is mid-registration (anon user).
