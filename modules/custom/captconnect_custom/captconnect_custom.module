@@ -218,26 +218,27 @@ function captconnect_custom_init() {
 
   // Have they updated their account since we started this?
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
-  if (isset($user->data['last_account_edit'])) {
-    // Has the account been updated in our required time?
-    if ((REQUEST_TIME - $user->data['last_account_edit']) <= $check_interval) {
-      // They are okay, let them do whatever they want.
-      return;
-    }
-    else {
-      // Are we in test mode?
-      if ($check_interval == 0) {
-        return;
-      }
-    }
+  $grace = 3600;
+  $how_long_ago = (isset($user->data['last_account_edit']) ?
+    (REQUEST_TIME - $user->data['last_account_edit']) : $check_interval + 1);
+
+  // Has the account been updated in our required time?
+  // Give an hour's grace even for 0.
+  if ($how_long_ago <= $check_interval) {
+    // They are okay, let them do whatever they want.
+    return;
   }
 
   // They need to update their data.
-  $msg_level = ($check_interval == 0 ? 'status' : 'warning');
-  drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
-    "Check your personal information, please.")), $msg_level, FALSE);
-  if (arg(0) != 'user' || arg(2) != 'edit') {
-    drupal_goto("user/$user->uid/edit");
+  if (arg(0) == 'user' && arg(2) == 'edit') {
+    $msg_level = ($check_interval == 0 ? 'status' : 'warning');
+    $msg = variable_get('captconnect_custom_account_check_msg',
+      "Check your personal information, please.");
+    drupal_set_message(t($msg), $msg_level, FALSE);
+    if ($check_interval > 0 || $how_long_ago > $grace) {
+//      drupal_set_message("You can't go anywhere.", $msg_level);
+      drupal_goto("user/$user->uid/edit");
+    }
   }
 }
 
@@ -905,15 +906,20 @@ function captconnect_custom_user_login(&$edit, $account) {
   // Default redirect should be the front page.
   $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
 
+  // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
     0 : $account->data['last_account_edit']);
 
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
-  if (REQUEST_TIME - $last_edit > $check_interval) {
+  $how_long_ago = REQUEST_TIME - $user->data['last_account_edit'];
+  // Give an hour's grace.
+  if ($how_long_ago > $check_interval && $how_long_ago > 3600) {
     $edit['redirect'] = 'user/' . $account->uid . '/edit';
     $msg_level = ($check_interval == 0 ? 'status' : 'warning');
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")), $msg_level, FALSE);
+
+    // Reset it to now in case they do save.
     $account->data['last_account_edit'] = REQUEST_TIME;
   }
 
