@@ -397,19 +397,22 @@
   });
 
 function otherSelectbox ($field, $fieldPrev) {
-  var selection = $fieldPrev.find('option:selected').text();
+  var selection = $fieldPrev.find('option:selected').text().trim();
     // Empty and hide the "other" field if any option except for "Other" is selected
     if (selection != 'Other') {
       $field.find('input').val('');
       $field.css('display','none');
-      // Special case: when "CAPT Staff or Consultant" is selected for the "Role" question
-      $field.next().css('display','block');
       $field.find('input').removeClass('other-required');
     }
     // Otherwise, show the "other" field
     else {
       $field.css('display','block');
       $field.find('input').addClass('other-required');
+
+        // Special -- "please specify" for role is sorta broken, so faking it
+        $field.find('label').append('<span class="form-required" title="This field is required.">*</span>');
+        $field.find('input').addClass('required');
+
     }
   }
 
@@ -748,8 +751,11 @@ function otherSelectbox ($field, $fieldPrev) {
           $controllingField = $(this).parent().parent().parent().prev();
           if ($controllingField.hasClass('field-name-field-role') || $controllingField.hasClass('field-name-field-organizational-affiliation')) {
             if ($controllingField.find('select').val() == 117 || $controllingField.find('select').val() == 20) {
-              errorsCount = errorsCount + 1;
-              errorsList += '<li class="messages__item">' + label + '</li>';
+              // Check if there's a value in there
+              if ($(this).next('input').val() == '') {
+                errorsCount = errorsCount + 1;
+                errorsList += '<li class="messages__item">' + label + '</li>';
+              }
             }
           }
           else if ($controllingField.hasClass('field-name-field-tribal-affiliation')) {
@@ -842,11 +848,27 @@ function otherSelectbox ($field, $fieldPrev) {
   // Adds "active" to the parent section on a portal page
   $('.section-portal .views-field-view a.active').closest('.views-field-view').prev().find('.field-content a').addClass('active').addClass('parent');
 
-  // Removing panel-specific local tasks on non-panel pages
-  $('body:not(.node-type-portal):not(.page-node-reorder-sections):not(.page-node-access) .tabs-primary__tab:contains("Reorder sections")').remove();
-  $('body:not(.node-type-portal-section):not(.page-node-reorder-pages) .tabs-primary__tab:contains("Reorder pages")').remove();
-  $('body:not(.node-type-portal):not(.page-node-reorder-sections):not(.page-node-access) .tabs-primary__tab:contains("Access")').remove();
 
+  // Problem with the "role" field and triggering (other)...
+
+  $('#edit-field-role select').chosen().change(function(){
+    var selected;
+    $chosen_single_selected = $(this).next('.chosen-container').find('a.chosen-single span');
+    $(this).next('.chosen-container').find('ul.chosen-results li.result-selected').each(function(){
+      if ($(this).text() == $chosen_single_selected.text()) {
+        selected = $(this).text();
+      }
+    });
+    $(this).find('option').each(function(){
+      if (($(this).text() == selected) && ($(this).val() == '117')) {
+        $('#edit-field-other-role').css('display','block');
+      }
+    });
+  });
+
+  if ($('#edit-field-role select option[selected="selected"]').val() == '117') {
+    $('#edit-field-role select').trigger('chosen:updated');
+  }
 
 
 }

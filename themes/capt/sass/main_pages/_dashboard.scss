@@ -135,6 +135,9 @@ p {
         &:not(:nth-child(1)) {
           border-top: none;
         }
+        &:last-child {
+          border-bottom: none;
+        }
         ul {
           padding-left: 15px;
           & > .views-row > .views-field {

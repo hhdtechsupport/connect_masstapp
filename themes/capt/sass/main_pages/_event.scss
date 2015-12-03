@@ -246,12 +246,26 @@ body.page-node-access {
           margin-bottom: 0px;
           li.views-row {
             list-style: none;
-            background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
             margin-bottom: 0px;
             margin-top: 0px;
-            padding-left: 23px;
-            min-height: 29px;
-            padding-top: 3px;
+            padding-left: 0px;
+            padding-top: 12px;
+            padding-bottom: 15px;
+            background: none;
+            &:nth-child(1) {
+              padding-top: 0px;
+            }
+            .views-field-field-material {
+              background: url("../images/icons/down-arrow-orange.png") no-repeat 0px 3px;
+              padding-left: 23px;
+              padding-bottom: 3px;
+            }
+            .views-field-field-resource {
+              background: url("../images/icons/link-bullet.png") no-repeat 0px 4px;
+              padding-left: 23px;
+              padding-bottom: 3px;
+              padding-top: 5px;
+            }
           }
         }
       }
@@ -284,6 +298,9 @@ body.page-node-access {
             padding-left: 12px;
             border-bottom: 1px solid $capt-midgrey;
             overflow: hidden;
+            &:last-child {
+              border-bottom: 0px;
+            }
             div.field-content {
               a {
                 display: inline;
