@@ -20,21 +20,23 @@ body.page-portals.page-views {
       &:not(:nth-child(1)) {
         padding-top: 15px;
       }
-      .views-field-field-portal-image {
-        float: left;
-      }
-      .views-field-title {
-        margin-left: 10px;
-        a {
-          font-size: 20px;
-          color: $capt-black;
-          &:hover {
-            color: $capt-maroon;
+      .views-field {
+        .field-content {
+          div:nth-child(1) {
+            float: left;
+            margin-right: 10px;
+          }
+          div:nth-child(2) {
+            margin-left: 10px;
+            a {
+              font-size: 20px;
+              color: $capt-black;
+              &:hover {
+                color: $capt-maroon;
+              }
+            }
           }
         }
-      }
-      .views-field-field-brief-introduction {
-        margin-left: 170px;
       }
     }
   }
@@ -169,7 +171,7 @@ body.section-portal {
           }
           .views-field-field-resource {
             a {
-              background: url("../images/icons/arrow-icons.png") no-repeat 0px 0px; // NEED TO ADD IN A LINK ICON HERE
+              background: url("../images/icons/link-icon.png") no-repeat 0px 0px; // NEED TO ADD IN A LINK ICON HERE
               padding-left: 20px;
               padding-bottom: 1px;
             }
@@ -179,6 +181,12 @@ body.section-portal {
           }
         }
       }
+    }
+    .views-field-field-embedded-video-video-url {
+      margin-bottom: 30px;
+    }
+    .views-field-field-embedded-file {
+      margin-bottom: 30px;
     }
   }
 }
