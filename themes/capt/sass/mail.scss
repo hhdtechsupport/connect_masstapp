@@ -8,7 +8,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, td {
-  color: #222222;
+  color: #333;
   font-family: "Helvetica", "Arial", sans-serif;
   font-weight: normal;
   padding: 0px;
@@ -35,14 +35,13 @@ ul {
 
 p {
   word-break: break-word;
-  font-size: 16px;
+  font-size: 10pt;
   margin-bottom: 10px;
   &.ics, &.orange-button {
     margin-top: 20px;
     a {
       margin-top: 10px;
       font-weight: normal;
-      font-size: 18px;
       background: #C47E28;
       padding: 16px 20px;
       color: white;
@@ -77,26 +76,27 @@ a {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 23pt;
   font-weight: bold;
   color: #888a55;
+  padding-bottom: 12px;
 }
 
 h2 {
-  font-size: 32px;
+  font-size: 18px;
   font-weight: normal;
   color: #577785;
 }
 
 h3 {
-  font-size:26px;
+  font-size:16pt;
   font-style: italic;
   font-weight: bold;
   color: #333333;
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 13pt;
   color: #8C1D18;
   font-weight: bold;
   padding-top: 20px;
@@ -104,13 +104,9 @@ h4 {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 11pt;
   font-weight: bold;
   padding-bottom: 10px;
-}
-
-h6 {
-  font-size: 20px;
 }
 
 table, tbody, tr, td {
@@ -161,7 +157,7 @@ table, tbody, tr, td {
     }
   }
   &.section td {
-    padding: 10px;
+    padding: 10px 25px;
   }
   &.rule h4 {
     border-top: 1px solid #C8D9E0;
