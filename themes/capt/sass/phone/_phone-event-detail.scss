@@ -283,3 +283,44 @@ body.node-type-event {
 
   }
 }
+
+.field-name-already-registered-please-login {
+  margin: 30px 0px;
+  border: 1px solid $capt-midgrey;
+  @extend .mobile-panel-rule;
+  width: 100%;
+  &:before {
+    top: -15px;
+  }
+  .field-label {
+    padding-left: 20px;
+    font-size: 20px;
+    color: $capt-darkblue;
+    font-weight: normal;
+  }
+  .field-items {
+    padding-left: 20px;
+    padding-bottom: 30px;
+    input.form-text {
+      width: 220px;
+    }
+    .description {
+      display: none;
+    }
+    a.request-password-link {
+      font-weight: normal;
+      color: $capt-maroon;
+      text-decoration: none;
+      font-size: 11px;
+      top: -5px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    #edit-actions {
+      float: right;
+      top: -40px;
+      right: 65px;
+    }
+  }
+}

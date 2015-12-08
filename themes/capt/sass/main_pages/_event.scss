@@ -321,6 +321,38 @@ body.page-node-access {
           }
         }
       }
+      &.field-name-already-registered-please-login {
+        padding-bottom: 50px;
+        &:before {
+          margin-left: -27px;
+          padding-left: 54px;
+          top: -15px;
+        }
+        .field-label {
+          font-size: 23px;
+          font-weight: normal;
+          color: $capt-darkblue;
+        }
+        a.request-password-link {
+          color: $capt-maroon;
+          font-size: 11px;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        input.form-text {
+          width: 260px;
+        }
+        #edit-actions {
+          float: right;
+          top: -30px;
+          right: 65px;
+        }
+        .description {
+          display: none;
+        }
+      }
     }
   }
   /* home button on event page */

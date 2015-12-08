@@ -71,6 +71,7 @@
           $('.field-name-event-date-s-').prependTo('.group-left');
           $('.field-name-join-this-event').prependTo('.group-left');
           $('.field-name-join-this-event-2').prependTo('.group-left');
+          $('.field-name-already-registered-please-login').prependTo('.group-header');
           $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
           $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
           $('.group-left .views-field-view .view-instances').css('display','block');
@@ -80,6 +81,7 @@
           $('.field-name-event-date-s-').prependTo('.group-right');
           $('.field-name-join-this-event').prependTo('.group-right');
           $('.field-name-join-this-event-2').prependTo('.group-right');
+          $('.field-name-already-registered-please-login').prependTo('.group-right');
         }
         activatePanels(eventPanels);
       }
@@ -153,6 +155,7 @@
         $('.field-name-event-date-s-').prependTo('.group-left');
         $('.field-name-join-this-event').prependTo('.group-left');
         $('.field-name-join-this-event-2').prependTo('.group-left');
+        $('.field-name-already-registered-please-login').prependTo('.group-header');
         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
         $('.group-left .views-field-view .view-instances').css('display','block');      }
@@ -161,6 +164,7 @@
         $('.field-name-event-date-s-').prependTo('.group-right');
         $('.field-name-join-this-event').prependTo('.group-right');
         $('.field-name-join-this-event-2').prependTo('.group-right');
+        $('.field-name-already-registered-please-login').prependTo('.group-right');
       }
       adjust_panels(eventPanels);
     }
@@ -850,21 +854,22 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
   // Problem with the "role" field and triggering (other)...
-
-  $('#edit-field-role select').chosen().change(function(){
-    var selected;
-    $chosen_single_selected = $(this).next('.chosen-container').find('a.chosen-single span');
-    $(this).next('.chosen-container').find('ul.chosen-results li.result-selected').each(function(){
-      if ($(this).text() == $chosen_single_selected.text()) {
-        selected = $(this).text();
-      }
+  if ($(body).hasClass('page-user-register') || $(body).hasClass('page-anon-register') || $(body).hasClass('page-user')) {
+    $('#edit-field-role select').chosen().change(function(){
+      var selected;
+      $chosen_single_selected = $(this).next('.chosen-container').find('a.chosen-single span');
+      $(this).next('.chosen-container').find('ul.chosen-results li.result-selected').each(function(){
+        if ($(this).text() == $chosen_single_selected.text()) {
+          selected = $(this).text();
+        }
+      });
+      $(this).find('option').each(function(){
+        if (($(this).text() == selected) && ($(this).val() == '117')) {
+          $('#edit-field-other-role').css('display','block');
+        }
+      });
     });
-    $(this).find('option').each(function(){
-      if (($(this).text() == selected) && ($(this).val() == '117')) {
-        $('#edit-field-other-role').css('display','block');
-      }
-    });
-  });
+  }
 
   if ($('#edit-field-role select option[selected="selected"]').val() == '117') {
     $('#edit-field-role select').trigger('chosen:updated');
