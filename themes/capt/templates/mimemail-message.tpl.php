@@ -101,7 +101,7 @@
                   </tr>
                 </table>
 
-                <table class="center">
+                <table class="center content">
                   <tr>
                     <td bgcolor="#FFFFFF">
                       <?php print $body; ?>

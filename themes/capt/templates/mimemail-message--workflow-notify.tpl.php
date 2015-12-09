@@ -100,10 +100,10 @@
                   </tr>
                 </table>
 
-                <table class="center">
+                <table class="center content">
                   <tr>
                     <td bgcolor="#FFFFFF">
-                      <div style="padding: 15px"><?php print $body; ?></div>
+                      <div style="padding: 25px"><?php print $body; ?></div>
                     </td>
                   </tr>
                 </table>

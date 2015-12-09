@@ -830,6 +830,8 @@ function otherSelectbox ($field, $fieldPrev) {
   });
 
 
+  // Change button text from "Create New Account" to "Done"
+  $('input[value="Create new account"]').val('Done');
 
   // Change the "Administration" title on create user page
   $('.page-admin-people-create h1#page-title').text('Create User');
@@ -853,8 +855,9 @@ function otherSelectbox ($field, $fieldPrev) {
   $('.section-portal .views-field-view a.active').closest('.views-field-view').prev().find('.field-content a').addClass('active').addClass('parent');
 
 
+
   // Problem with the "role" field and triggering (other)...
-  if ($(body).hasClass('page-user-register') || $(body).hasClass('page-anon-register') || $(body).hasClass('page-user')) {
+  if ($('body').hasClass('page-user-register') || $('body').hasClass('page-anon-register') || $('body').hasClass('page-user')) {
     $('#edit-field-role select').chosen().change(function(){
       var selected;
       $chosen_single_selected = $(this).next('.chosen-container').find('a.chosen-single span');
