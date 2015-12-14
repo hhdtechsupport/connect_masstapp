@@ -623,7 +623,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
         $x = drupal_parse_url($_SERVER['REQUEST_URI']);
         $parts = explode('/', $x['path']);
         // Only set this up if it's an anonymous registration.
-        if ($parts[1]  'anon_register') {
+        if (in_array($parts[1], array('anon_register', 'anon_login'))) {
           // It's $parts[2] because there is a leading slash.
           $form['#captconnect_anon_instance'] = $parts[2];
           $form_state['#captconnect_anon_instance'] = $parts[2];
