@@ -249,8 +249,9 @@ a.button,
     background-color: lighten($capt-maroon, 10%);
   }
   &.participate {
-    margin: 7px 0;
+    margin: 25px 0 15px;
     font-weight: normal;
+    text-align: right;
     .flag-wrapper a, .field-content > a, .flag-wrapper a:visited, .field-content > a:visited {
       background: $capt-orange;
       font-size: 14px;
@@ -266,11 +267,14 @@ a.button,
     margin-bottom: 10px;
     a, a:visited {
       font-weight: normal;
-      color: $capt-maroon;
+      color: $capt-black;
       font-style: normal;
       position: relative;
       padding: 0px;
       text-decoration: underline;
+      &:hover {
+        color: $capt-maroon;
+      }
     }
   }
 }

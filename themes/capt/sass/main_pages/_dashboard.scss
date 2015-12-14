@@ -147,17 +147,54 @@ p {
               }
             }
             &.views-field-ops {
-              margin-top: 8px;
               a {
                 font-weight: normal;
-                color: $capt-darkblue;
+                color: $capt-black;
                 text-decoration: underline;
+                &:hover {
+                  color: $capt-maroon;
+                }
               }
             }
             &.views-field-view, &.views-field-view-1 {
               float: right;
               margin-top: -10px;
               margin-right: -13px;
+            }
+          }
+          & .view-dashboard.view-display-id-attachment_1,
+          & .view-dashboard.view-display-id-attachment_2 {
+            margin-left: 0px;
+            .views-row {
+              background: darken($capt-lightgrey, 10%);
+              padding: 10px;
+              margin-top: 25px;
+              margin-bottom: 20px;
+              .views-field-field-access-information {
+                h4 {
+                  font-size: 1em;
+                  color: $capt-maroon;
+                  margin-top: 0px;
+                }
+                .field-content {
+                  font-size: 0.9em;
+                  a {
+                    color: $capt-black;
+                    font-weight: normal;
+                    text-decoration: underline;
+                    &:hover {
+                      color: $capt-maroon;
+                    }
+                  }
+                  ul {
+                    list-style-type: disc;
+                    li {
+                      list-style-image: none;
+                      padding-bottom: 6px;
+                    }
+                  }
+                }
+              }
             }
           }
         }

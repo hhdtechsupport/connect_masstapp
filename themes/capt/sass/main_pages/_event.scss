@@ -24,6 +24,7 @@ body.page-node-access {
       font-size: 36px;
       background-image: none;
       padding-left: 0px;
+      margin-bottom: 10px;
     }
     h2, h3 {
       color: $capt-black;
@@ -95,6 +96,16 @@ body.page-node-access {
   div#content {
     border-top: 1px solid $capt-midgrey;
     padding-top: 20px;
+    line-height: 1.6em;
+    div.node-event {
+      margin-top: 20px;
+      ul {
+        li {
+          line-height: 1.6em;
+          margin-bottom: 0.5em;
+        }
+      }
+    }
   }
   // block with two buttons (edit notif, view reg)
   .region-help #block-block-1 {
@@ -120,6 +131,41 @@ body.page-node-access {
   }
   h4 span {
     color: $capt-maroon;
+  }
+  .field-name-all-followup-materials {
+    h2 {
+      color: $capt-maroon;
+      margin-top: 0px;
+      font-size: 1.25em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    }
+    .view-instances {
+      ul {
+        padding-left: 30px;
+        li {
+          margin: 15px 0;
+          a {
+            text-decoration: underline;
+            font-weight: normal;
+            color: $capt-black;
+          }
+          &:hover {
+            color: $capt-maroon;
+          }
+          .views-field-field-resource {
+            a {
+              background: url("../images/icons/link-icon.png") no-repeat 0px 0px; // NEED TO ADD IN A LINK ICON HERE
+              padding-left: 20px;
+              padding-bottom: 1px;
+            }
+          }
+          .views-field-field-body {
+            font-style: italic;
+          }
+        }
+      }
+    }
   }
   .views-field {
     h4 {
@@ -320,6 +366,10 @@ body.page-node-access {
                 text-decoration: none;
                 color: $capt-maroon;
               }
+            }
+            .views-field-field-body {
+              font-style: italic;
+              padding-left: 23px;
             }
             .button {
               float: right;
