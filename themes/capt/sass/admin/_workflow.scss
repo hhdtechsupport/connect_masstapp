@@ -18,8 +18,9 @@
   display: none;
 }
 
-.node-event .group-left .field-group-html-element {
-  &:not(:first-child) h4 {
+.node-event .group-left .field-group-html-element,
+.node-event .group-left .field-name-all-followup-materials {
+  &:not(:first-child) h2, &:not(:first-child) h4 {
     border-top: 1px solid #d7d7d7;
     padding-top: 1.4em;
     margin-top: 1.6em;

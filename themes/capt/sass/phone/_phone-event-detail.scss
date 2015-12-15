@@ -47,7 +47,11 @@ body.node-type-event {
     margin: 0px;
     float: none;
   }
+  .ds-2col-stacked > .group-right {
+    border-bottom: 1px solid $capt-midgrey;
+  }
   .ds-2col-stacked > .group-left {
+    border-bottom: 0px;
     padding-right: 0px !important;
     .field > div.field-items {
       padding-left: 0px;
@@ -135,20 +139,44 @@ body.node-type-event {
     div.field-type-ds.field-name-join-this-event-2 {
       padding-bottom: 0px;
       background-color: white;
-      padding-top: 0px;
+      padding-top: 0px !important;
       padding-left: 0px;
       padding-right: 0px;
       width: 100%;
       margin-bottom: 0px;
+      border: 0px;
+      .view-instances {
+        border-left: 1px solid $capt-midgrey;
+        border-right: 1px solid $capt-midgrey;
+        &.view-display-id-join_this_event,
+        &.view-display-id-join_this_event_2 {
+          padding: 15px 20px 10px 10px !important;
+          .views-field {
+            border-top: 0px;
+            h4 {
+              font-size: 1.25em;
+              margin: 5px 0px;
+            }
+            li {
+              line-height: 1.2em;
+            }
+          }
+        }
+        &.view-display-id-event_dates {
+          padding: 10px 20px 0px 0px;
+        }
+      }
       h2 {
         @extend .show-hide-header;
         background-color: $capt-lightgrey;
+        border: 1px solid $capt-midgrey;
         border-bottom: 0px;
         margin-left: 0px;
         padding-left: 26px;
         padding-top: 17px;
         background-position: 6px 24px;
         font-size: 20px !important;
+        margin-bottom: 0px !important;
       }
       &:before {
         height: 0px;
@@ -168,6 +196,9 @@ body.node-type-event {
         margin-bottom: auto;
         padding-top: 0px;
       }
+    }
+    div.field-type-ds.field-name-event-date-s- h2 {
+      margin-top: 10px !important;
     }
     div.field-name-materials {
       border-top: 1px solid $capt-midgrey;
@@ -208,18 +239,17 @@ body.node-type-event {
         min-height: 120px;
       }
       div.field-name-presenters {
-        border-top: 1px solid $capt-midgrey;
+        border-top: 0px;
         padding-top: 10px;
         border-bottom: 0px;
         padding: 14px 26px;
       }
       div.field-type-text-long {
-        border-top: 1px solid $capt-midgrey;
+        border-top: 0px;
         padding: 14px 26px;
       }
     }
     & > div:nth-child(1) {
-      margin-top: 20px;
       p {
         width: 95%;
       }
@@ -237,6 +267,32 @@ body.node-type-event {
       }
     }
 
+    div.field-name-all-followup-materials {
+      h2 {
+        margin-top: 0px;
+        padding-top: 17px;
+        border-top: 1px solid $capt-midgrey;
+        margin-left: 0px;
+        padding-left: 26px;
+        padding-bottom: 16px;
+        background-color: #eef1f3;
+        background-position: 6px 24px;
+        color: $capt-darkblue;
+        font-size: 20px;
+        font-weight: normal;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        margin-bottom: 0px;
+      }
+      li {
+        margin-top: 0px;
+        padding-top: 15px;
+        margin-bottom: 0px !important;
+        &:last-child {
+          padding-bottom: 15px;
+        }
+      }
+    }
 
     div.field-type-ds.field-name-event-date-s- {
 
@@ -322,5 +378,30 @@ body.node-type-event {
       top: -40px;
       right: 65px;
     }
+  }
+}
+
+
+
+.accordion {
+  border: 0px;
+  .header {
+    background-image: url('../images/icons/hide.png') !important;
+    &.closed {
+      background-image: url('../images/icons/show.png') !important;
+    }
+  }
+  .body {
+    background: #fff;
+    &.closed {
+
+    }
+  }
+}
+
+.section-events .block-views .view-content {
+  padding: 0px !important;
+  > .item-list:first-child {
+    border-top: 0px !important;
   }
 }

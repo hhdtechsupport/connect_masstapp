@@ -19,16 +19,6 @@
   var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
   var why_reg_heights = ['191','130','34'];
 
-  // event panel variables
-  var part_1 = ['div#block-views-instances-join-this-event h2','div.view-display-id-join_this_event'];
-  var part_2 = ['div#block-views-instances-join-this-event-2 h2','div.view-display-id-join_this_event_2'];
-  var dates = ['div.field-name-event-date-s- h2','div.field-name-event-date-s- .view-instances'];
-  var desc = ['div.group-description h4','div.field-name-field-body'];
-  var aud = ['div.group-audience h4','div.field-name-field-audience'];
-  var pres = ['div.group-presenter h4','div.field-name-presenters'];
-  var mater =['div#block-views-materials-block h2','div#block-views-materials-block div.view-id-materials'];
-  var eventPanels = [part_1,part_2,dates,desc,aud,pres,mater];
-
   // dashboard variables
   var dashblock = 'div#block-views-dashboard-block-';
   var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
@@ -47,223 +37,316 @@
   attach: function(context, settings) {
 
 
+  // Need this because of the repeating slide animations
+  var currentDevice;
+  var newDevice;
+  if (window.innerWidth < phone_tablet_divide) { currentDevice = 1; }
+  else { currentDevice = 0; }
 
-  // Function to check if we're dealing with a phone
-  function isPhone () {
-    var min = phone_tablet_divide;
-    return window.innerWidth < min;
-  }
-
-
-
-  /**
-  *  Menu Logic
-  */
-  function init () {
-    currentWinWidth = window.innerWidth;
-    $('span.toggle-help').click();
-    $('a.menu-toggle').hide();
-    if ($('body').hasClass('node-type-event')) {
-      if (!panels_activated) {
-        if (isPhone()){
-          hide_panels(eventPanels);
-          // Reorder
-          $('.field-name-event-date-s-').prependTo('.group-left');
-          $('.field-name-join-this-event').prependTo('.group-left');
-          $('.field-name-join-this-event-2').prependTo('.group-left');
-          $('.field-name-already-registered-please-login').prependTo('.group-header');
-          $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
-          $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
-          $('.group-left .views-field-view .view-instances').css('display','block');
-        }
-        else {
-          // Reorder
-          $('.field-name-event-date-s-').prependTo('.group-right');
-          $('.field-name-join-this-event').prependTo('.group-right');
-          $('.field-name-join-this-event-2').prependTo('.group-right');
-          $('.field-name-already-registered-please-login').prependTo('.group-right');
-        }
-        activatePanels(eventPanels);
-      }
-    }
-    else if ($('body').hasClass('section-events')) {
-      if (isPhone()) {
-        hide_panels(dashPanels);
-        if (!panels_activated) {
-          activatePanels(dashPanels);
-        }
-      }
-    }
-  }
-
-
-  $(document).ready(function () {
-   init();
-  });
-
-
-  // Function for converting a pair of headers and body into show-hides
-  function addShowHide(arr) {
-    var myButton = arr[0];
-    var myBody = arr[1];
-
-    // If clicking the header, then toggle body
-    $(myButton).click(function() {
-      togglePanel(myButton,myBody);
-    });
-
-    // Function for toggling a panel on click of header
-    function togglePanel(header, body, panel, compact, expanded) {
-      var retval = 'default';
-      var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
-      if (mql.matches) {
-        switch($(body).css('display')) {
-          case 'none':
-            $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-            $(body).slideDown("fast", function () { $(body).show()});
-            retval= 'open';
-            break;
-          default:
-            $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-            $(body).slideUp("fast",function () {$(body).hide()});
-            retval='closed';
-            break;
-        }
-      }
-      return retval;
-    }
-  }
-
-
-  // Function for applying the show/hide panels functionality to each header/body pair in an array
-  function activatePanels (arr) {
-    for (var i = 0; i < arr.length; ++i) {
-      addShowHide(arr[i]);
-    }
-    panels_activated = true;
-  }
-
-
-  // Run code whenever window is resized
   $(window).resize(function(){
 
-    // If we're dealing with an event then run this code
-    if ($('body').hasClass('node-type-event') ) {
-      if (isPhone()) {
-        hide_panels(eventPanels);
-        // Reorder
-        $('.field-name-event-date-s-').prependTo('.group-left');
-        $('.field-name-join-this-event').prependTo('.group-left');
-        $('.field-name-join-this-event-2').prependTo('.group-left');
-        $('.field-name-already-registered-please-login').prependTo('.group-header');
-        $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
-        $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
-        $('.group-left .views-field-view .view-instances').css('display','block');      }
-      else {
-        // Reorder
-        $('.field-name-event-date-s-').prependTo('.group-right');
-        $('.field-name-join-this-event').prependTo('.group-right');
-        $('.field-name-join-this-event-2').prependTo('.group-right');
-        $('.field-name-already-registered-please-login').prependTo('.group-right');
-      }
-      adjust_panels(eventPanels);
-    }
+    // Are we dealing with a phone?
+    if (window.innerWidth < phone_tablet_divide) {
 
-    // If we're dealing with the events dashboard then run this code
-    else if ($('body').hasClass('section-events')) {
-      adjust_panels(dashPanels);
-      $('#block-views-dashboard-block-1 > .view').css('display','block');
-      $('#block-views-dashboard-block-1 h2').css('backgroundImage','url('+imagePath+'icons/hide.png)'); // Not working
-    }
+      newDevice = 1;
 
-    else if ($('body').hasClass('section-portal')) {
-      var containerWidth = $('.embedded-video').width();
-      $('iframe').attr('width',containerWidth);
-      $('iframe').attr('height',containerWidth * 0.5625);
-    }
+      // Add appropriate classes
+      $('.field-group-html-element').each(function(){
+        $(this).addClass('accordion');
+        $(this).children('h4').addClass('header');
+        $(this).children('.field').addClass('body');
 
-    currentWinWidth = window.innerWidth;
+      });
+      $('.field-type-ds, .section-events .block-views').each(function(){
+        $(this).addClass('accordion');
+        $(this).find('h2.block-title').addClass('header');
+        $(this).find('h2.block-title ~ div:not(.contextual-links-wrapper)').addClass('body');
+      });
+
+      $('.field-name-event-date-s-').prependTo('.group-left');
+      $('.field-name-join-this-event').prependTo('.group-left');
+      $('.field-name-join-this-event-2').prependTo('.group-left');
+
+      // Turn into panels and add on-click functionality
+      $('.accordion').each(function(index){
+
+        // Set panels closed initially unless first
+        if (index != 0) {
+          $(this).addClass('closed');
+          $(this).find('.header').addClass('closed');
+          $(this).find('.body').addClass('closed').css('display','none');
+        }
+
+        // Add show/hide functionality
+        $(this).on('click', function(){
+
+          // Set the header and body
+          $header = $(this).find('.header');
+          $body = $(this).find('.body');
+
+          // Change state
+          if ($(this).hasClass('closed')) {
+
+            // See above about needing to limit the duplicative animation
+            if (currentDevice == newDevice) {
+              $body.stop(true, true).slideDown('fast');
+            }
+            else {
+              $body.stop(true, true, true).slideDown('fast');
+            }
+            $(this).removeClass('closed');
+            $header.removeClass('closed');
+            $body.removeClass('closed');
+          }
+          else {
+
+            // See above about needing to limit the duplicative animation
+            if (currentDevice == newDevice) {
+              $body.stop(true, true).slideUp('fast');
+            }
+            else {
+              $body.stop(true, true, true).slideUp('fast');
+            }
+            $(this).addClass('closed');
+            $header.addClass('closed');
+            $body.addClass('closed');
+          }
+        });
+      });
+
+      currentDevice = 1;
+
+    }
+    else {
+
+      newDevice = 0;
+
+      // Remove the show/hide functionality and reveal the body content
+      $('.accordion').each(function(){
+        $(this).removeClass('accordion').removeClass('closed').unbind();
+        $(this).find('.header').removeClass('header').removeClass('closed');
+        $(this).find('.body').removeClass('body').removeClass('closed').show();
+      });
+
+      $('.field-name-event-date-s-').prependTo('.group-right');
+      $('.field-name-join-this-event').prependTo('.group-right');
+      $('.field-name-join-this-event-2').prependTo('.group-right');
+
+      currentDevice = 0;
+
+    }
 
   });
 
-
-
-
-
-  // The "i" counter needs to run up to 6 because we could have that many panels (if participate exists)
-  function adjust_panels (arr) {
-    for (var i = 0; i < 7; ++i) {
-      panel_respond(arr[i], arr);
-    }
-  }
-
-  function hide_panels (arr) {
-    // don't hide the first in the array
-    for (var i = 1; i < arr.length; ++i)  {
-      if ($(arr[i][0]).attr('id') != 'page-title') {
-        $(arr[i][1]).hide();
-      }
-      showHideIcons(arr[i][0], arr[i][1])
-    }
-  }
-
-
-
-
-
-  // correct styles when browser is resized
-  // this function is flexible so keep it
-  function panel_respond(arr, panels) {
-
-    var header = arr[0];
-    var body = arr[1];
-    var min = phone_tablet_divide+1;
-
-
-    // MOBILE
-    if (isPhone()) {
-      if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
-        $(body).hide();
-        showHideIcons(header, body)
-        // if resizing to mobile for the first time
-        if (!panels_activated) {
-          activatePanels(panels);
-        }
-      }
-    }
-    else {
-      if ($(body).css('display') == 'none') {
-        $(body).show();
-      }
-
-      if ($(header).attr('id') == 'page-title') {
-        $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
-      }
-      else {
-        $(header).css('backgroundImage','none');
-      }
-
-      if (arguments.length == 5) {
-        $(panel).css('height',laptop_height);
-      }
-    }
-  }
-
-
-
-
-
-
-
-  function showHideIcons (header, body) {
-    $(header).css('background-repeat','no-repeat');
-      if ($(body).css('display') == 'none') {
-        $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-      }
-      else {
-        $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-      }
-   }
+  //
+  // /**
+  // *  Menu Logic
+  // */
+  // function init () {
+  //   currentWinWidth = window.innerWidth;
+  //   $('span.toggle-help').click();
+  //   $('a.menu-toggle').hide();
+  //   if ($('body').hasClass('node-type-event')) {
+  //     if (!panels_activated) {
+  //       if (isPhone()){
+  //         hide_panels(eventPanels);
+  //         // Reorder
+  //         $('.field-name-event-date-s-').prependTo('.group-left');
+  //         $('.field-name-join-this-event').prependTo('.group-left');
+  //         $('.field-name-join-this-event-2').prependTo('.group-left');
+  //         $('.field-name-already-registered-please-login').prependTo('.group-header');
+  //         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
+  //         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
+  //         $('.group-left .views-field-view .view-instances').css('display','block');
+  //       }
+  //       else {
+  //         // Reorder
+  //         $('.field-name-event-date-s-').prependTo('.group-right');
+  //         $('.field-name-join-this-event').prependTo('.group-right');
+  //         $('.field-name-join-this-event-2').prependTo('.group-right');
+  //         $('.field-name-already-registered-please-login').prependTo('.group-right');
+  //       }
+  //       activatePanels(eventPanels);
+  //     }
+  //   }
+  //   else if ($('body').hasClass('section-events')) {
+  //     if (isPhone()) {
+  //       hide_panels(dashPanels);
+  //       if (!panels_activated) {
+  //         activatePanels(dashPanels);
+  //       }
+  //     }
+  //   }
+  // }
+  //
+  //
+  // $(document).ready(function () {
+  //  init();
+  // });
+  //
+  //
+  // // Function for converting a pair of headers and body into show-hides
+  // function addShowHide(arr) {
+  //   var myButton = arr[0];
+  //   var myBody = arr[1];
+  //
+  //   // If clicking the header, then toggle body
+  //   $(myButton).click(function() {
+  //     togglePanel(myButton,myBody);
+  //   });
+  //
+  //   // Function for toggling a panel on click of header
+  //   function togglePanel(header, body, panel, compact, expanded) {
+  //     var retval = 'default';
+  //     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
+  //     if (mql.matches) {
+  //       switch($(body).css('display')) {
+  //         case 'none':
+  //           $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+  //           $(body).slideDown("fast", function () { $(body).show()});
+  //           retval= 'open';
+  //           break;
+  //         default:
+  //           $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+  //           $(body).slideUp("fast",function () {$(body).hide()});
+  //           retval='closed';
+  //           break;
+  //       }
+  //     }
+  //     return retval;
+  //   }
+  // }
+  //
+  //
+  // // Function for applying the show/hide panels functionality to each header/body pair in an array
+  // function activatePanels (arr) {
+  //   for (var i = 0; i < arr.length; ++i) {
+  //     addShowHide(arr[i]);
+  //   }
+  //   panels_activated = true;
+  // }
+  //
+  //
+  // // Run code whenever window is resized
+  // $(window).resize(function(){
+  //
+  //   // If we're dealing with an event then run this code
+  //   if ($('body').hasClass('node-type-event') ) {
+  //     if (isPhone()) {
+  //       hide_panels(eventPanels);
+  //       // Reorder
+  //       $('.field-name-event-date-s-').prependTo('.group-left');
+  //       $('.field-name-join-this-event').prependTo('.group-left');
+  //       $('.field-name-join-this-event-2').prependTo('.group-left');
+  //       $('.field-name-already-registered-please-login').prependTo('.group-header');
+  //       $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
+  //       $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
+  //       $('.group-left .views-field-view .view-instances').css('display','block');      }
+  //     else {
+  //       // Reorder
+  //       $('.field-name-event-date-s-').prependTo('.group-right');
+  //       $('.field-name-join-this-event').prependTo('.group-right');
+  //       $('.field-name-join-this-event-2').prependTo('.group-right');
+  //       $('.field-name-already-registered-please-login').prependTo('.group-right');
+  //     }
+  //     adjust_panels(eventPanels);
+  //   }
+  //
+  //   // If we're dealing with the events dashboard then run this code
+  //   else if ($('body').hasClass('section-events')) {
+  //     adjust_panels(dashPanels);
+  //     $('#block-views-dashboard-block-1 > .view').css('display','block');
+  //     $('#block-views-dashboard-block-1 h2').css('backgroundImage','url('+imagePath+'icons/hide.png)'); // Not working
+  //   }
+  //
+  //   else if ($('body').hasClass('section-portal')) {
+  //     var containerWidth = $('.embedded-video').width();
+  //     $('iframe').attr('width',containerWidth);
+  //     $('iframe').attr('height',containerWidth * 0.5625);
+  //   }
+  //
+  //   currentWinWidth = window.innerWidth;
+  //
+  // });
+  //
+  //
+  //
+  //
+  //
+  // // The "i" counter needs to run up to 6 because we could have that many panels (if participate exists)
+  // function adjust_panels (arr) {
+  //   for (var i = 0; i < 7; ++i) {
+  //     panel_respond(arr[i], arr);
+  //   }
+  // }
+  //
+  // function hide_panels (arr) {
+  //   // don't hide the first in the array
+  //   for (var i = 1; i < arr.length; ++i)  {
+  //     if ($(arr[i][0]).attr('id') != 'page-title') {
+  //       $(arr[i][1]).hide();
+  //     }
+  //     showHideIcons(arr[i][0], arr[i][1])
+  //   }
+  // }
+  //
+  //
+  //
+  //
+  //
+  // // correct styles when browser is resized
+  // // this function is flexible so keep it
+  // function panel_respond(arr, panels) {
+  //
+  //   var header = arr[0];
+  //   var body = arr[1];
+  //   var min = phone_tablet_divide+1;
+  //
+  //
+  //   // MOBILE
+  //   if (isPhone()) {
+  //     if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
+  //       $(body).hide();
+  //       showHideIcons(header, body)
+  //       // if resizing to mobile for the first time
+  //       if (!panels_activated) {
+  //         activatePanels(panels);
+  //       }
+  //     }
+  //   }
+  //   else {
+  //     if ($(body).css('display') == 'none') {
+  //       $(body).show();
+  //     }
+  //
+  //     if ($(header).attr('id') == 'page-title') {
+  //       $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
+  //     }
+  //     else {
+  //       $(header).css('backgroundImage','none');
+  //     }
+  //
+  //     if (arguments.length == 5) {
+  //       $(panel).css('height',laptop_height);
+  //     }
+  //   }
+  // }
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  // function showHideIcons (header, body) {
+  //   $(header).css('background-repeat','no-repeat');
+  //     if ($(body).css('display') == 'none') {
+  //       $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
+  //     }
+  //     else {
+  //       $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
+  //     }
+  //  }
 
 
 

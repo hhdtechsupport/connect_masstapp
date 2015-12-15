@@ -132,7 +132,8 @@ body.page-node-access {
   h4 span {
     color: $capt-maroon;
   }
-  .field-name-all-followup-materials {
+  div.field-name-all-followup-materials {
+    clear: both;
     h2 {
       color: $capt-maroon;
       margin-top: 0px;
@@ -149,9 +150,9 @@ body.page-node-access {
             text-decoration: underline;
             font-weight: normal;
             color: $capt-black;
-          }
-          &:hover {
-            color: $capt-maroon;
+            &:hover {
+              color: $capt-maroon;
+            }
           }
           .views-field-field-resource {
             a {
