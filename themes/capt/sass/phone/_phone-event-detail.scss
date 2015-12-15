@@ -146,8 +146,7 @@ body.node-type-event {
       margin-bottom: 0px;
       border: 0px;
       .view-instances {
-        border-left: 1px solid $capt-midgrey;
-        border-right: 1px solid $capt-midgrey;
+        overflow: hidden;
         &.view-display-id-join_this_event,
         &.view-display-id-join_this_event_2 {
           padding: 15px 20px 10px 10px !important;
@@ -197,6 +196,10 @@ body.node-type-event {
         padding-top: 0px;
       }
     }
+    div.field-type-ds.field-name-join-this-event,
+    div.field-type-ds.field-name-join-this-event-2 {
+      margin-bottom: -10px;
+    }
     div.field-type-ds.field-name-event-date-s- h2 {
       margin-top: 10px !important;
     }
@@ -209,6 +212,29 @@ body.node-type-event {
       div.item-list {
         margin-left: 26px !important;
         margin-top: 0px;
+      }
+    }
+    div.field-type-ds.field-name-event-date-s- {
+      div.item-list {
+        margin-left: 0px !important;
+        padding: 15px !important;
+        li {
+          width: 100% !important;
+        }
+      }
+    }
+    .group-right {
+      .view-instances {
+        border-left: 1px solid $capt-midgrey;
+        border-right: 1px solid $capt-midgrey;
+      }
+    }
+    .group-left {
+      .block-views, .field-type-ds {
+        h2 {
+          border-left: 0px !important;
+          border-right: 0px !important;
+        }
       }
     }
   }
