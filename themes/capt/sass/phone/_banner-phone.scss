@@ -7,8 +7,8 @@
 
 body {
   .top-header {
-    height: 54px;
-    background-position: -124px 47px;
+    height: 54px !important;
+    background-position: -124px 47px !important;
     .top-header-container {
       width: auto;
       padding: 0px 5px;
@@ -65,7 +65,6 @@ body {
   &.not-logged-in.page-user-register,
   &.not-logged-in.page-anon-register {
     #name-and-slogan, .region-highlighted {
-      left: 20px !important;
     }
   }
 }
