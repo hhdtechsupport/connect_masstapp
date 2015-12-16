@@ -37,18 +37,10 @@
   attach: function(context, settings) {
 
 
-  // Need this because of the repeating slide animations
-  var currentDevice;
-  var newDevice;
-  if (window.innerWidth < phone_tablet_divide) { currentDevice = 1; }
-  else { currentDevice = 0; }
-
-  $(window).resize(function(){
+  function showHide() {
 
     // Are we dealing with a phone?
     if (window.innerWidth < phone_tablet_divide) {
-
-      newDevice = 1;
 
       // Add appropriate classes
       $('.field-group-html-element').each(function(){
@@ -59,13 +51,14 @@
       });
       $('.field-type-ds, .section-events .block-views').each(function(){
         $(this).addClass('accordion');
-        $(this).find('h2.block-title').addClass('header');
-        $(this).find('h2.block-title ~ div:not(.contextual-links-wrapper)').addClass('body');
+        $(this).find('h2.block-title, > div.field-label').addClass('header');
+        $(this).find('h2.block-title ~ div:not(.contextual-links-wrapper), > div.field-label ~ div.field-items').addClass('body');
       });
 
       $('.field-name-event-date-s-').prependTo('.group-left');
       $('.field-name-join-this-event').prependTo('.group-left');
       $('.field-name-join-this-event-2').prependTo('.group-left');
+      $('.field-name-already-registered-please-login').prependTo('.group-left');
 
       // Turn into panels and add on-click functionality
       $('.accordion').each(function(index){
@@ -78,48 +71,31 @@
         }
 
         // Add show/hide functionality
-        $(this).on('click', function(){
+        $(this).find('.header').on('click', function(){
 
-          // Set the header and body
-          $header = $(this).find('.header');
-          $body = $(this).find('.body');
+          // Set the header, body, and accordion grouping
+          $header = $(this);
+          $body = $(this).closest('.accordion').find('.body');
+          $accordion = $(this).closest('.accordion');
 
           // Change state
-          if ($(this).hasClass('closed')) {
-
-            // See above about needing to limit the duplicative animation
-            if (currentDevice == newDevice) {
-              $body.stop(true, true).slideDown('fast');
-            }
-            else {
-              $body.stop(true, true, true).slideDown('fast');
-            }
-            $(this).removeClass('closed');
+          if ($accordion.hasClass('closed')) {
+            $body.stop(true,true).slideDown('fast');
+            $accordion.removeClass('closed');
             $header.removeClass('closed');
             $body.removeClass('closed');
           }
           else {
-
-            // See above about needing to limit the duplicative animation
-            if (currentDevice == newDevice) {
-              $body.stop(true, true).slideUp('fast');
-            }
-            else {
-              $body.stop(true, true, true).slideUp('fast');
-            }
-            $(this).addClass('closed');
+            $body.stop(true,true).slideUp('fast');
+            $accordion.addClass('closed');
             $header.addClass('closed');
             $body.addClass('closed');
           }
         });
       });
 
-      currentDevice = 1;
-
     }
     else {
-
-      newDevice = 0;
 
       // Remove the show/hide functionality and reveal the body content
       $('.accordion').each(function(){
@@ -131,12 +107,22 @@
       $('.field-name-event-date-s-').prependTo('.group-right');
       $('.field-name-join-this-event').prependTo('.group-right');
       $('.field-name-join-this-event-2').prependTo('.group-right');
-
-      currentDevice = 0;
+      $('.field-name-already-registered-please-login').prependTo('.group-right');
 
     }
 
+  }
+
+  // window-resize seems to fire on page load if logged in only -- so we need to run the show-hide function if not logged in
+  if ($('body').hasClass('not-logged-in')) {
+    showHide();
+  }
+
+  $(window).resize(function(){
+    showHide();
   });
+
+
 
   //
   // /**

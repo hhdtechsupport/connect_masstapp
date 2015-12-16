@@ -18,12 +18,12 @@ body {
       padding-top: 0px;
       div#content {
         border: none;
-        width: 95%;
+        width: auto;
         margin: 0 auto;
         margin-top: 70px;
         padding: 0px;
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
         .ds-2col-stacked > .group-left {
           padding-right: 0px;
         }
@@ -80,6 +80,11 @@ body {
 }
 
 
+body.logged-in #title-section h1#page-title {
+  padding-left: 55px;
+  background-size: 60px auto;
+  background-position: 0px 4px;
+}
 
 
 
@@ -97,4 +102,9 @@ div.block-devel#block-devel-switch-user {
 
 body .horizontal-tabs ul.horizontal-tabs-list li {
   clear: both;
+}
+
+
+ul.tabs-primary {
+  display: none;
 }
