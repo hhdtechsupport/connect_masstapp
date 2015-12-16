@@ -10,18 +10,30 @@ $title-buffer: 104px;
 
 body.role-authenticated-user {
 
-	// transfer to phone-navigation
+  #navigation {
+    margin: 0px 10px;
+    .region-navigation {
+      margin: 20px 10px !important;
+    }
+  }
         ul#main-menu.main-menu  {
-            width: 95%;
+            width: auto !important;
             margin-top: 10px;
             margin: 0px auto;
             overflow: visible;
             li.menu-item {
-               width: 45%;
+               width: auto !important;
                max-width: 200px;
 							 top: 1px;
+               padding: 0px !important;
+               margin-right: 17px !important;
                a {
                   width: 100%;
+                  font-size: 1em;
+                  padding: 14px 5px 2px;
+               }
+               &.last {
+                 margin-right: 0px;
                }
             }
         }

@@ -130,8 +130,11 @@ body.page-user-register, body.page-user-edit, body.page-anon-register {
 
 // specific to profile
 body.logged-in.page-user-edit {
-  div#page div#main div#content .messages {
-    margin: 10px 0 0;
+  div#page div#main div#content {
+    margin-top: 56px !important;
+    .messages {
+      margin: 10px 0 0;
+    }
   }
   ul#main-menu {
     li.menu-item {
@@ -180,11 +183,15 @@ body.logged-in.page-user-edit {
         margin: 0px auto;
         width: 100%;
       }
-      fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
-        margin-left: 0px !important;
-        width: 95%;
-        padding: 0px 4px;
-        margin-bottom: 15px;
+      fieldset.form-wrapper {
+        margin: 0px;
+        padding: 0px;
+        .horizontal-tabs-pane div.fieldset-wrapper {
+          margin-left: 0px !important;
+          width: 95%;
+          padding: 0px 4px;
+          margin-bottom: 15px;
+        }
       }
       fieldset#edit-timezone {
         width: 100%;
