@@ -264,3 +264,45 @@ body.logged-in.page-user-edit {
 body.page-user-register #content {
   border: none !important;
 }
+
+
+body.page-user-edit {
+  fieldset div.fieldset-wrapper {
+    padding-top: 0px !important;
+    margin-left: 0px !important;
+    width: 95%;
+    margin-right: -12px;
+  }
+  form#user-profile-form {
+    div.horizontal-tabs-panes.horizontal-tabs-processed {
+      div.form-type-select {
+        margin-left: 0px;
+        width: auto !important;
+      }
+      &:before {
+        padding-left: 0px !important;
+      }
+      input[name="mail"] {
+        width: 90% !important;
+      }
+      input#edit-pass-pass1 {
+        width: 100% !important;
+      }
+      input#edit-pass-pass2 {
+        width: 100% !important;
+      }
+      .password-suggestions.description {
+        width: 95%;
+      }
+      .password-confirm {
+        margin-bottom: 10px;
+        margin-top: 0px;
+        float: right;
+        width: 55%;
+      }
+      .confirm-parent label[for="edit-pass-pass2"] {
+        clear: both;
+      }
+    }
+  }
+}

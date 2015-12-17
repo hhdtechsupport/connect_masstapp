@@ -14,20 +14,6 @@
   var iPh6H = 667;
   var iPh6W = 375;
 
-  // new variable to account for the division between phone and tablet styles
-  var phone_tablet_divide = 767;
-  var imagePath = '../../../sites/captconnect.edc.org/themes/capt/images/';
-  var why_reg_heights = ['191','130','34'];
-
-  // dashboard variables
-  var dashblock = 'div#block-views-dashboard-block-';
-  var reg = [dashblock+'1 h2',dashblock+'1 > .view-dashboard']
-  var arch = [dashblock+'2 h2',dashblock+'2 > .view-dashboard']
-  var dashPanels = [reg,arch];
-
-  // Other settings and variables
-  var panels_activated = false;
-  var currentWinWidth;
 
 
 
@@ -36,6 +22,17 @@
   Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
+
+  // new variable to account for the division between phone and tablet styles
+  var phone_tablet_divide = 767;
+
+  // Initial setting
+  var oldDevice = 0;
+
+  // Check if phone
+  if (window.innerWidth < phone_tablet_divide) {
+    oldDevice = 1;
+  }
 
   function showHide() {
 
@@ -113,226 +110,46 @@
 
   }
 
-  // window-resize seems to fire on page load if logged in only -- so we need to run the show-hide function if not logged in
-  if ($('body').hasClass('not-logged-in')) {
-    showHide();
-  }
+  var newDevice = 0;
 
   $(window).resize(function(){
-    showHide();
+
+    // Check if changing from one device to another
+    if (window.innerWidth < phone_tablet_divide) {
+      newDevice = 1;
+    }
+    else {
+      newDevice = 0;
+    }
+
+    // If changing devices, then run the show-hide function
+    if (newDevice != oldDevice) {
+      showHide();
+    }
+
+    // Set the old device to the current device
+    oldDevice = newDevice;
+
   });
 
+  // Run show-hide on initial page load
+  showHide();
 
 
-  //
-  // /**
-  // *  Menu Logic
-  // */
-  // function init () {
-  //   currentWinWidth = window.innerWidth;
-  //   $('span.toggle-help').click();
-  //   $('a.menu-toggle').hide();
-  //   if ($('body').hasClass('node-type-event')) {
-  //     if (!panels_activated) {
-  //       if (isPhone()){
-  //         hide_panels(eventPanels);
-  //         // Reorder
-  //         $('.field-name-event-date-s-').prependTo('.group-left');
-  //         $('.field-name-join-this-event').prependTo('.group-left');
-  //         $('.field-name-join-this-event-2').prependTo('.group-left');
-  //         $('.field-name-already-registered-please-login').prependTo('.group-header');
-  //         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
-  //         $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
-  //         $('.group-left .views-field-view .view-instances').css('display','block');
-  //       }
-  //       else {
-  //         // Reorder
-  //         $('.field-name-event-date-s-').prependTo('.group-right');
-  //         $('.field-name-join-this-event').prependTo('.group-right');
-  //         $('.field-name-join-this-event-2').prependTo('.group-right');
-  //         $('.field-name-already-registered-please-login').prependTo('.group-right');
-  //       }
-  //       activatePanels(eventPanels);
-  //     }
-  //   }
-  //   else if ($('body').hasClass('section-events')) {
-  //     if (isPhone()) {
-  //       hide_panels(dashPanels);
-  //       if (!panels_activated) {
-  //         activatePanels(dashPanels);
-  //       }
-  //     }
-  //   }
-  // }
-  //
-  //
-  // $(document).ready(function () {
-  //  init();
-  // });
-  //
-  //
-  // // Function for converting a pair of headers and body into show-hides
-  // function addShowHide(arr) {
-  //   var myButton = arr[0];
-  //   var myBody = arr[1];
-  //
-  //   // If clicking the header, then toggle body
-  //   $(myButton).click(function() {
-  //     togglePanel(myButton,myBody);
-  //   });
-  //
-  //   // Function for toggling a panel on click of header
-  //   function togglePanel(header, body, panel, compact, expanded) {
-  //     var retval = 'default';
-  //     var mql = window.matchMedia("screen and (max-width:"+phone_tablet_divide+"px)");
-  //     if (mql.matches) {
-  //       switch($(body).css('display')) {
-  //         case 'none':
-  //           $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-  //           $(body).slideDown("fast", function () { $(body).show()});
-  //           retval= 'open';
-  //           break;
-  //         default:
-  //           $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-  //           $(body).slideUp("fast",function () {$(body).hide()});
-  //           retval='closed';
-  //           break;
-  //       }
-  //     }
-  //     return retval;
-  //   }
-  // }
-  //
-  //
-  // // Function for applying the show/hide panels functionality to each header/body pair in an array
-  // function activatePanels (arr) {
-  //   for (var i = 0; i < arr.length; ++i) {
-  //     addShowHide(arr[i]);
-  //   }
-  //   panels_activated = true;
-  // }
-  //
-  //
-  // // Run code whenever window is resized
-  // $(window).resize(function(){
-  //
-  //   // If we're dealing with an event then run this code
-  //   if ($('body').hasClass('node-type-event') ) {
-  //     if (isPhone()) {
-  //       hide_panels(eventPanels);
-  //       // Reorder
-  //       $('.field-name-event-date-s-').prependTo('.group-left');
-  //       $('.field-name-join-this-event').prependTo('.group-left');
-  //       $('.field-name-join-this-event-2').prependTo('.group-left');
-  //       $('.field-name-already-registered-please-login').prependTo('.group-header');
-  //       $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').next().css('display','block');
-  //       $('.group-left > div:nth-child(1) h2, .group-left > div:nth-child(1) h4').css('backgroundImage','url('+imagePath+'icons/hide.png)');
-  //       $('.group-left .views-field-view .view-instances').css('display','block');      }
-  //     else {
-  //       // Reorder
-  //       $('.field-name-event-date-s-').prependTo('.group-right');
-  //       $('.field-name-join-this-event').prependTo('.group-right');
-  //       $('.field-name-join-this-event-2').prependTo('.group-right');
-  //       $('.field-name-already-registered-please-login').prependTo('.group-right');
-  //     }
-  //     adjust_panels(eventPanels);
-  //   }
-  //
-  //   // If we're dealing with the events dashboard then run this code
-  //   else if ($('body').hasClass('section-events')) {
-  //     adjust_panels(dashPanels);
-  //     $('#block-views-dashboard-block-1 > .view').css('display','block');
-  //     $('#block-views-dashboard-block-1 h2').css('backgroundImage','url('+imagePath+'icons/hide.png)'); // Not working
-  //   }
-  //
-  //   else if ($('body').hasClass('section-portal')) {
-  //     var containerWidth = $('.embedded-video').width();
-  //     $('iframe').attr('width',containerWidth);
-  //     $('iframe').attr('height',containerWidth * 0.5625);
-  //   }
-  //
-  //   currentWinWidth = window.innerWidth;
-  //
-  // });
-  //
-  //
-  //
-  //
-  //
-  // // The "i" counter needs to run up to 6 because we could have that many panels (if participate exists)
-  // function adjust_panels (arr) {
-  //   for (var i = 0; i < 7; ++i) {
-  //     panel_respond(arr[i], arr);
-  //   }
-  // }
-  //
-  // function hide_panels (arr) {
-  //   // don't hide the first in the array
-  //   for (var i = 1; i < arr.length; ++i)  {
-  //     if ($(arr[i][0]).attr('id') != 'page-title') {
-  //       $(arr[i][1]).hide();
-  //     }
-  //     showHideIcons(arr[i][0], arr[i][1])
-  //   }
-  // }
-  //
-  //
-  //
-  //
-  //
-  // // correct styles when browser is resized
-  // // this function is flexible so keep it
-  // function panel_respond(arr, panels) {
-  //
-  //   var header = arr[0];
-  //   var body = arr[1];
-  //   var min = phone_tablet_divide+1;
-  //
-  //
-  //   // MOBILE
-  //   if (isPhone()) {
-  //     if ($(header).attr('id') != 'page-title' && currentWinWidth > phone_tablet_divide) {
-  //       $(body).hide();
-  //       showHideIcons(header, body)
-  //       // if resizing to mobile for the first time
-  //       if (!panels_activated) {
-  //         activatePanels(panels);
-  //       }
-  //     }
-  //   }
-  //   else {
-  //     if ($(body).css('display') == 'none') {
-  //       $(body).show();
-  //     }
-  //
-  //     if ($(header).attr('id') == 'page-title') {
-  //       $(header).css('backgroundImage','url('+imagePath+'icons/dashboard.png)');
-  //     }
-  //     else {
-  //       $(header).css('backgroundImage','none');
-  //     }
-  //
-  //     if (arguments.length == 5) {
-  //       $(panel).css('height',laptop_height);
-  //     }
-  //   }
-  // }
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  // function showHideIcons (header, body) {
-  //   $(header).css('background-repeat','no-repeat');
-  //     if ($(body).css('display') == 'none') {
-  //       $(header).css('backgroundImage','url('+imagePath+'icons/show.png)');
-  //     }
-  //     else {
-  //       $(header).css('backgroundImage','url('+imagePath+'icons/hide.png)');
-  //     }
-  //  }
+
+
+    /*
+     * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (I.E. NO "UPCOMING EVENTS" PAGE)
+     */
+
+    //  if ($('body').hasClass('section-events') && !$('body').hasClass('page-events')) {
+    //    $block1 = $('#block-views-dashboard-block-1');
+    //    $block2 = $('#block-views-dashboard-block-2');
+    //    max = Math.max($block1.height(),$block2.height());
+    //    $block1.height(max - 50);
+    //    $block2.height(max - 50);
+    //  }
+
 
 
 
@@ -563,20 +380,6 @@ function otherSelectbox ($field, $fieldPrev) {
     $('#name-and-slogan').addClass('category');
     $('.region-highlighted').addClass('category');
   }
-
-
-
-  /*
-   * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (I.E. NO "UPCOMING EVENTS" PAGE)
-   */
-
-  //  if ($('body').hasClass('section-events') && !$('body').hasClass('page-events')) {
-  //    $block1 = $('#block-views-dashboard-block-1');
-  //    $block2 = $('#block-views-dashboard-block-2');
-  //    max = Math.max($block1.height(),$block2.height());
-  //    $block1.height(max - 50);
-  //    $block2.height(max - 50);
-  //  }
 
 
 
