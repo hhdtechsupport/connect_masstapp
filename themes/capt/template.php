@@ -136,12 +136,6 @@ function capt_preprocess_block(&$variables, $hook) {
 
 // add roles to body
 function capt_preprocess_html(&$vars, $hook) {
-
-    $options = array(
-      'group' => JS_THEME,
-    );
-    drupal_add_js('http://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js', $options);
-
     if ($vars['user']) {
         foreach($vars['user']->roles as $key => $role){
             $role_class = 'role-' . drupal_clean_css_identifier($role);
