@@ -23,16 +23,17 @@
   attach: function(context, settings) {
 
 
-    $.ajax({
-        type: "POST",
-        url: "/sites/captconnect.edc.org/themes/capt/tz.php",
-        data: 'timezone=' + jstz.determine().name(),
-        success: function(data){
-          if (data == 'reload') {
-            location.reload();
-          }
+  // Get browser's timezone
+  $.ajax({
+      type: "POST",
+      url: "/sites/captconnect.edc.org/themes/capt/tz.php",
+      data: 'timezone=' + jstz.determine().name(),
+      success: function(data){
+        if (data == 'reload') {
+          location.reload();
         }
-    });
+      }
+  });
 
 
   // new variable to account for the division between phone and tablet styles

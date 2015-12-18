@@ -1,14 +1,29 @@
 <?php
 
-session_start();
+// display all errors
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
-// If browser's timezone has already been added to the session, then return nothing
+$currdir = getcwd();
+
+chdir($_SERVER['DOCUMENT_ROOT']);
+
+define('DRUPAL_ROOT', $_SERVER['DOCUMENT_ROOT']);
+require_once("./includes/bootstrap.inc");
+drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
+
+chdir($currdir);
+
+if (!isset($_SESSION)){
+    session_start();
+}
+
 if (isset($_SESSION['tz'])) {
     exit;
 }
-// If timezone needs to be added, then return instructions to reload
+
 if (isset($_POST['timezone'])) {
     $_SESSION['tz'] = $_POST['timezone'];
-    print 'reload';
+    echo 'reload';
     exit;
 }

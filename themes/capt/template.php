@@ -134,8 +134,8 @@ function capt_preprocess_block(&$variables, $hook) {
 
 
 
-// add roles to body
 function capt_preprocess_html(&$vars, $hook) {
+    // add roles to body
     if ($vars['user']) {
         foreach($vars['user']->roles as $key => $role){
             $role_class = 'role-' . drupal_clean_css_identifier($role);
