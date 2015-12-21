@@ -22,7 +22,7 @@
   Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
-  // Get browser's timezone
+  // Get browser's timezone - NOT DOING ANYTHING WITH THIS RIGHT NOW
   jstz.determine().name();
 
 
@@ -752,6 +752,15 @@ function otherSelectbox ($field, $fieldPrev) {
   if ($('#edit-field-role select option[selected="selected"]').val() == '117') {
     $('#edit-field-role select').trigger('chosen:updated');
   }
+
+
+
+
+
+
+
+
+
 
 
 }
