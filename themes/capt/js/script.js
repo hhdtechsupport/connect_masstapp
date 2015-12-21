@@ -22,18 +22,8 @@
   Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
-
   // Get browser's timezone
-  $.ajax({
-      type: "POST",
-      url: "/sites/captconnect.edc.org/themes/capt/tz.php",
-      data: 'timezone=' + jstz.determine().name(),
-      success: function(data){
-        if (data == 'reload') {
-          location.reload();
-        }
-      }
-  });
+  jstz.determine().name();
 
 
   // new variable to account for the division between phone and tablet styles
