@@ -147,6 +147,11 @@ body.logged-in.page-user-edit {
     }
   }
   form#user-profile-form {
+    div.form-item.form-item-status,
+    div.form-item-mimemail,
+    div.form-item-timezone {
+      clear: both;
+    }
     input[type="password"].form-text {
       width: 105%;
     }
@@ -206,7 +211,7 @@ body.logged-in.page-user-edit {
           margin-bottom: 15px;
         }
       }
-      .form-item-timezone {
+      div.form-type-select.form-item-timezone {
         margin-left: 15px;
         width: 90% !important;
         fieldset#edit-timezone {
@@ -235,6 +240,12 @@ body.logged-in.page-user-edit {
             position: relative !important;
             top: -10px !important;
           }
+          #edit-og-user-node {
+            margin-left: 0px !important;
+          }
+        }
+        &#edit-og-user-node-und {
+          margin-left: 0px !important;
         }
       }
       div.field-type-entityreference {
@@ -265,13 +276,15 @@ body.logged-in.page-user-edit {
         whitespace: no-wrap;
       }
       div#edit-account {
+        div.form-item.form-type-password-confirm .form-item.password-parent,
+        div.form-item.form-type-password-confirm .form-item.confirm-parent {
+          width: auto !important;
+        }
         div.form-item.form-type-password-confirm.form-item-pass {
           width: 100% !important;
           margin: 0px;
           width: 10px;
           div.form-type-password {
-            float: left;
-            width: 40% !important;
             &.confirm-parent {
               padding-left: 10px;
               margin-right: -10px;
@@ -286,26 +299,29 @@ body.logged-in.page-user-edit {
           }
           div.description {
             margin-left: 15px;
-            float: left;
-            width: 40%;
             margin-top: 30px;
-            clear: left;
             margin-bottom: 40px;
           }
           div.password-strength {
             display: none;
           }
           div.password-confirm {
-            float: left;
             width: 100%;
-            position: absolute;
-            margin-top: 85px;
             margin-left: -10px;
+            input {
+              width: 90% !important;
+            }
+          }
+          input.password-confirm {
+            float: none !important;
+            margin-left: -10px;
+            width: 90% !important;
+          }
+          input#edit-pass-pass1,
+          input#edit-pass-pass2 {
+            width: 90% !important;
           }
           div.password-suggestions {
-            width: 43%;
-            float: right;
-            margin-top: -140px;
             background: rgba(255, 182, 0, 0.13);
             ul {
               padding-left: 15px;
@@ -314,9 +330,6 @@ body.logged-in.page-user-edit {
               }
             }
           }
-        }
-        div.form-item.form-item-status {
-          clear: both;
         }
       }
     }
