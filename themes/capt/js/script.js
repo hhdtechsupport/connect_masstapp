@@ -23,7 +23,7 @@
   attach: function(context, settings) {
 
   // Get browser's timezone - NOT DOING ANYTHING WITH THIS RIGHT NOW
-  jstz.determine().name();
+  cl(jstz.determine().name());
 
 
   // new variable to account for the division between phone and tablet styles
@@ -37,7 +37,7 @@
     oldDevice = 1;
   }
 
-  function showHide() {
+  function deviceSwitch() {
 
     // Are we dealing with a phone?
     if (window.innerWidth < phone_tablet_divide) {
@@ -60,46 +60,13 @@
       $('.field-name-join-this-event-2').prependTo('.group-left');
       $('.field-name-already-registered-please-login').prependTo('.group-left');
 
-      // Turn into panels and add on-click functionality
-      $('.accordion').each(function(index){
-
-        // Set panels closed initially unless first
-        if (index != 0) {
-          $(this).addClass('closed');
-          $(this).find('.header').addClass('closed');
-          $(this).find('.body').addClass('closed').css('display','none');
-        }
-
-        // Add show/hide functionality
-        $(this).find('.header').on('click', function(){
-
-          // Set the header, body, and accordion grouping
-          $header = $(this);
-          $body = $(this).closest('.accordion').find('.body');
-          $accordion = $(this).closest('.accordion');
-
-          // Change state
-          if ($accordion.hasClass('closed')) {
-            $body.stop(true,true).slideDown('fast');
-            $accordion.removeClass('closed');
-            $header.removeClass('closed');
-            $body.removeClass('closed');
-          }
-          else {
-            $body.stop(true,true).slideUp('fast');
-            $accordion.addClass('closed');
-            $header.addClass('closed');
-            $body.addClass('closed');
-          }
-        });
-      });
-
     }
+
     else {
 
       // Remove the show/hide functionality and reveal the body content
       $('.accordion').each(function(){
-        $(this).removeClass('accordion').removeClass('closed').unbind();
+        $(this).removeClass('accordion').removeClass('closed');
         $(this).find('.header').removeClass('header').removeClass('closed');
         $(this).find('.body').removeClass('body').removeClass('closed').show();
       });
@@ -112,6 +79,48 @@
     }
 
   }
+
+
+  // Show-Hide
+  function showHide($accordion, index) {
+
+    // Added this check so that the show/hide is only added once (getting jittery animations)
+    if (!$accordion.hasClass('accordion-processed')) {
+      // Set panels closed initially unless first
+      if (index != 0) {
+        $accordion.addClass('closed');
+        $accordion.find('.header').addClass('closed');
+        $accordion.find('.body').addClass('closed').css('display','none');
+      }
+
+      // Add show/hide functionality
+      $accordion.find('.header').on('click', function(){
+
+        // Set the header, body, and accordion grouping
+        $header = $(this);
+        $body = $(this).closest('.accordion').find('.body');
+        $accordion = $(this).closest('.accordion');
+
+        // Change state
+        if ($accordion.hasClass('closed')) {
+          $body.stop(true,true).slideDown('fast');
+          $accordion.removeClass('closed');
+          $header.removeClass('closed');
+          $body.removeClass('closed');
+        }
+        else {
+          $body.stop(true,true).slideUp('fast');
+          $accordion.addClass('closed');
+          $header.addClass('closed');
+          $body.addClass('closed');
+        }
+      });
+
+      $accordion.addClass('accordion-processed');
+    }
+
+  }
+
 
   var newDevice = 0;
 
@@ -127,7 +136,14 @@
 
     // If changing devices, then run the show-hide function
     if (newDevice != oldDevice) {
-      showHide();
+      deviceSwitch();
+      // Only add show/hide functionality if it's a phone
+      if (newDevice == 1) {
+        // Turn into panels and add on-click functionality
+        $('.accordion').each(function(index){
+          showHide($(this), index);
+        });
+      }
     }
 
     // Set the old device to the current device
@@ -136,7 +152,10 @@
   });
 
   // Run show-hide on initial page load
-  showHide();
+  deviceSwitch();
+  $('.accordion').each(function(index){
+    showHide($(this), index);
+  });
 
 
 
