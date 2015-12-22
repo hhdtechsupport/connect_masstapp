@@ -916,7 +916,7 @@ function captconnect_custom_user_login(&$edit, $account) {
     0 : $account->data['last_account_edit']);
 
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
-  $how_long_ago = REQUEST_TIME - $account->data['last_account_edit'];
+  $how_long_ago = REQUEST_TIME - $last_edit;
   $grace = ($check_interval == 0 ?
     variable_get('captconnect_custom_account_check_grace', 3600) : 0);
   // Give an hour's grace.
@@ -975,6 +975,18 @@ function captconnect_custom_user_login(&$edit, $account) {
 //    $GLOBALS['destination'] = 'node/' . $event_nid;
     drupal_goto('node/' . $event_nid);
   }
+}
+
+/**
+ * Implements hook_user_update().
+ */
+function captconnect_custom_user_update(&$edit, $account, $category) {
+  watchdog('User updated',
+    'User account updated by @user.',
+    array('@user' => format_username($account)),
+    WATCHDOG_INFO,
+    l(t('View'), "user/$account->uid")
+    );
 }
 
 /**
