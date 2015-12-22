@@ -2219,54 +2219,58 @@ div.view-content div.item-list h3 {
   padding-top: 0px;
   line-height: 16px;
   margin-top: 0;
+  font-size: 1.25em;
+  font-weight: normal;
 }
-/* line 35, ../sass/main_pages/_dashboard.scss */
-div.view-content div.item-list h3 a:hover {
-  text-decoration: none;
+/* line 37, ../sass/main_pages/_dashboard.scss */
+div.view-content div.item-list h3 a {
+  color: #333333;
+  text-decoration: underline;
+  font-weight: normal;
 }
-/* line 39, ../sass/main_pages/_dashboard.scss */
+/* line 46, ../sass/main_pages/_dashboard.scss */
 div.view-content div.item-list ul {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-/* line 46, ../sass/main_pages/_dashboard.scss */
+/* line 53, ../sass/main_pages/_dashboard.scss */
 p {
   margin: 0 0 1em 0;
   line-height: 1.6em;
 }
 
-/* line 52, ../sass/main_pages/_dashboard.scss */
+/* line 59, ../sass/main_pages/_dashboard.scss */
 .pager-ellipsis {
   font-weight: bold;
   color: #c3791f;
 }
 
-/* line 60, ../sass/main_pages/_dashboard.scss */
+/* line 67, ../sass/main_pages/_dashboard.scss */
 .section-events h3,
 .section-events span.date-display-single {
   font-style: normal;
   font-size: 14px;
 }
-/* line 64, ../sass/main_pages/_dashboard.scss */
+/* line 71, ../sass/main_pages/_dashboard.scss */
 .section-events h3 a,
 .section-events span.date-display-single a {
   color: black;
 }
-/* line 68, ../sass/main_pages/_dashboard.scss */
+/* line 75, ../sass/main_pages/_dashboard.scss */
 .section-events h3 {
   margin-top: 0px;
 }
-/* line 71, ../sass/main_pages/_dashboard.scss */
+/* line 78, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 {
   float: right;
   margin-bottom: 1em;
 }
-/* line 74, ../sass/main_pages/_dashboard.scss */
+/* line 81, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="submit"] {
   margin-right: 0px;
 }
-/* line 77, ../sass/main_pages/_dashboard.scss */
+/* line 84, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="text"] {
   font-size: 14px;
   padding: 5px;
@@ -2277,11 +2281,11 @@ p {
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 0px inset;
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 0px inset;
 }
-/* line 85, ../sass/main_pages/_dashboard.scss */
+/* line 92, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 #edit-keys-wrapper {
   margin-top: -2px;
 }
-/* line 89, ../sass/main_pages/_dashboard.scss */
+/* line 96, ../sass/main_pages/_dashboard.scss */
 .section-events .view-dashboard.view-display-id-page_1 {
   background-color: white;
   border-width: 0px;
@@ -2290,23 +2294,23 @@ p {
   margin-top: 10px;
   float: left;
 }
-/* line 97, ../sass/main_pages/_dashboard.scss */
+/* line 104, ../sass/main_pages/_dashboard.scss */
 .section-events .view-dashboard.view-display-id-page_1:before {
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 102, ../sass/main_pages/_dashboard.scss */
+/* line 109, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 {
   background: url("../images/icons/registered.png") 386px 17px no-repeat #eef1f3;
   background-size: 60px;
 }
-/* line 106, ../sass/main_pages/_dashboard.scss */
+/* line 113, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-2 {
   background: url("../images/icons/archived.png") 386px 17px no-repeat #eef1f3;
   clear: right;
   background-size: 60px;
 }
-/* line 111, ../sass/main_pages/_dashboard.scss */
+/* line 118, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1,
 .section-events #block-views-dashboard-block-2 {
   float: right;
@@ -2316,7 +2320,7 @@ p {
   margin-right: 0px;
   padding-left: 0px;
 }
-/* line 120, ../sass/main_pages/_dashboard.scss */
+/* line 127, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 h2.block-title,
 .section-events #block-views-dashboard-block-2 h2.block-title {
   font-weight: normal;
@@ -2326,12 +2330,12 @@ p {
   padding: 0 20px;
   color: #334b56;
 }
-/* line 128, ../sass/main_pages/_dashboard.scss */
+/* line 135, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content,
 .section-events #block-views-dashboard-block-2 .view-content {
   padding: 0 20px;
 }
-/* line 130, ../sass/main_pages/_dashboard.scss */
+/* line 137, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list {
   border-top: 1px solid #d7d7d7;
@@ -2339,39 +2343,39 @@ p {
   padding: 20px 10px 20px;
   overflow: hidden;
 }
-/* line 135, ../sass/main_pages/_dashboard.scss */
+/* line 142, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list:not(:nth-child(1)),
 .section-events #block-views-dashboard-block-2 .view-content > .item-list:not(:nth-child(1)) {
   border-top: none;
 }
-/* line 138, ../sass/main_pages/_dashboard.scss */
+/* line 145, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list:last-child,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list:last-child {
   border-bottom: none;
 }
-/* line 141, ../sass/main_pages/_dashboard.scss */
+/* line 148, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul {
   padding-left: 15px;
 }
-/* line 145, ../sass/main_pages/_dashboard.scss */
+/* line 152, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-field-date .date-display-range,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-field-date .date-display-range {
   display: inline;
 }
-/* line 150, ../sass/main_pages/_dashboard.scss */
+/* line 157, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a {
   font-weight: normal;
   color: #333333;
   text-decoration: underline;
 }
-/* line 154, ../sass/main_pages/_dashboard.scss */
+/* line 161, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a:hover {
   color: #8c1d18;
 }
-/* line 159, ../sass/main_pages/_dashboard.scss */
+/* line 166, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-view, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-view-1,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-view,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-view-1 {
@@ -2379,13 +2383,13 @@ p {
   margin-top: -10px;
   margin-right: -13px;
 }
-/* line 165, ../sass/main_pages/_dashboard.scss */
+/* line 172, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 {
   margin-left: 0px;
 }
-/* line 168, ../sass/main_pages/_dashboard.scss */
+/* line 175, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row {
@@ -2396,7 +2400,7 @@ p {
   margin-bottom: 20px;
   margin-right: 3px;
 }
-/* line 176, ../sass/main_pages/_dashboard.scss */
+/* line 183, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information h4, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information h4,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information h4,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information h4 {
@@ -2404,13 +2408,13 @@ p {
   color: #8c1d18;
   margin-top: 0px;
 }
-/* line 181, ../sass/main_pages/_dashboard.scss */
+/* line 188, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content {
   font-size: 0.9em;
 }
-/* line 183, ../sass/main_pages/_dashboard.scss */
+/* line 190, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a {
@@ -2418,31 +2422,31 @@ p {
   font-weight: normal;
   text-decoration: underline;
 }
-/* line 187, ../sass/main_pages/_dashboard.scss */
+/* line 194, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a:hover, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a:hover {
   color: #8c1d18;
 }
-/* line 191, ../sass/main_pages/_dashboard.scss */
+/* line 198, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul {
   list-style-type: disc;
 }
-/* line 193, ../sass/main_pages/_dashboard.scss */
+/* line 200, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul li, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul li,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul li,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul li {
   list-style-image: none;
   padding-bottom: 6px;
 }
-/* line 204, ../sass/main_pages/_dashboard.scss */
+/* line 211, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content .view-content,
 .section-events #block-views-dashboard-block-2 .view-content .view-content {
   padding: 0;
 }
-/* line 208, ../sass/main_pages/_dashboard.scss */
+/* line 215, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-empty,
 .section-events #block-views-dashboard-block-2 .view-empty {
   border-top: 1px solid #d7d7d7;
@@ -2450,21 +2454,21 @@ p {
   padding-bottom: 30px;
   margin-right: 20px;
 }
-/* line 214, ../sass/main_pages/_dashboard.scss */
+/* line 221, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .pager,
 .section-events #block-views-dashboard-block-2 .pager {
   margin: 10px 0 0;
 }
-/* line 217, ../sass/main_pages/_dashboard.scss */
+/* line 224, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-empty,
 .section-events #block-views-dashboard-block-2 .view-empty {
   margin-left: 20px;
 }
-/* line 221, ../sass/main_pages/_dashboard.scss */
+/* line 228, ../sass/main_pages/_dashboard.scss */
 .section-events #block-block-15 {
   clear: both;
 }
-/* line 224, ../sass/main_pages/_dashboard.scss */
+/* line 231, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 {
   float: left;
 }
@@ -2474,87 +2478,87 @@ NK (7/30): dashboard update.
 we may deprecate field-name-upcoming-events selector
 
 */
-/* line 242, ../sass/main_pages/_dashboard.scss */
+/* line 249, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-exp-dashboard-page-1 div#edit-keys-wrapper {
   margin-top: 2px;
 }
-/* line 247, ../sass/main_pages/_dashboard.scss */
+/* line 254, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1.4em;
 }
-/* line 251, ../sass/main_pages/_dashboard.scss */
+/* line 258, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list {
   margin: 0px auto;
 }
-/* line 253, ../sass/main_pages/_dashboard.scss */
+/* line 260, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list ul.pager {
   margin-left: 0px;
 }
-/* line 258, ../sass/main_pages/_dashboard.scss */
+/* line 265, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard {
   /* min-height: 170px;*/
 }
-/* line 260, ../sass/main_pages/_dashboard.scss */
+/* line 267, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard div.view-empty {
   margin-top: 20px;
 }
-/* line 268, ../sass/main_pages/_dashboard.scss */
+/* line 275, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .views-field-flagged {
   font-size: 12px;
   line-height: 1em;
   font-style: italic;
   margin-bottom: 6px;
 }
-/* line 275, ../sass/main_pages/_dashboard.scss */
+/* line 282, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 277, ../sass/main_pages/_dashboard.scss */
+/* line 284, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list ul {
   padding-bottom: 20px;
 }
-/* line 282, ../sass/main_pages/_dashboard.scss */
+/* line 289, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 h2.block-title {
   font-weight: normal;
 }
-/* line 285, ../sass/main_pages/_dashboard.scss */
+/* line 292, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty {
   margin-top: 30px;
 }
-/* line 288, ../sass/main_pages/_dashboard.scss */
+/* line 295, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 ul.pager {
   /*margin-bottom: -30px;*/
   padding-bottom: 0px;
 }
-/* line 293, ../sass/main_pages/_dashboard.scss */
+/* line 300, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events,
 body.page-events.section-events div.view.view-dashboard {
   padding-bottom: 0px;
 }
-/* line 296, ../sass/main_pages/_dashboard.scss */
+/* line 303, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content,
 body.page-events.section-events div.view.view-dashboard div.view-content {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
-/* line 300, ../sass/main_pages/_dashboard.scss */
+/* line 307, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content ul,
 body.page-events.section-events div.view.view-dashboard div.view-content ul {
   padding-left: 14px;
   border-bottom: 1px solid #d7d7d7;
   padding-bottom: 14px;
 }
-/* line 304, ../sass/main_pages/_dashboard.scss */
+/* line 311, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content ul li,
 body.page-events.section-events div.view.view-dashboard div.view-content ul li {
   margin-bottom: 5px;
 }
-/* line 308, ../sass/main_pages/_dashboard.scss */
+/* line 315, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 311, ../sass/main_pages/_dashboard.scss */
+/* line 318, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list:last-child ul,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list:last-child ul {
   border-bottom: none;
@@ -2563,7 +2567,7 @@ body.page-events.section-events div.view.view-dashboard div.view-content div.ite
 /* *
  * Pager styles
  */
-/* line 322, ../sass/main_pages/_dashboard.scss */
+/* line 329, ../sass/main_pages/_dashboard.scss */
 ul.pager {
   text-align: center;
   text-overflow: visible;
@@ -2572,15 +2576,15 @@ ul.pager {
   /* first & previous on left */
   /* next & last on right */
 }
-/* line 325, ../sass/main_pages/_dashboard.scss */
+/* line 332, ../sass/main_pages/_dashboard.scss */
 ul.pager a:hover {
   text-decoration: none;
 }
-/* line 329, ../sass/main_pages/_dashboard.scss */
+/* line 336, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-ellipsis {
   padding: 0px;
 }
-/* line 332, ../sass/main_pages/_dashboard.scss */
+/* line 339, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item {
   background-color: #eef1f3;
   color: #c3791f;
@@ -2588,69 +2592,69 @@ ul.pager li.pager-item {
   /*padding: 8px 0px 8px 0px;*/
   width: 50px;
 }
-/* line 338, ../sass/main_pages/_dashboard.scss */
+/* line 345, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item a {
   color: #c3791f;
   /*padding: 4px 7px;*/
 }
-/* line 344, ../sass/main_pages/_dashboard.scss */
+/* line 351, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-current {
   background-color: #c3791f;
   width: 60px;
   color: #eef1f3;
 }
-/* line 349, ../sass/main_pages/_dashboard.scss */
+/* line 356, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 33px 8px;
 }
-/* line 353, ../sass/main_pages/_dashboard.scss */
+/* line 360, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-first,
 ul.pager li.pager-previous {
   padding: 0px;
   margin: 0px 4px 0px 0px;
 }
-/* line 357, ../sass/main_pages/_dashboard.scss */
+/* line 364, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-first a,
 ul.pager li.pager-previous a {
   background-image: url("../images/icons/left-arrow-orange.png");
   background-position: 0 8px;
   padding: 8px 0px 8px 20px;
 }
-/* line 365, ../sass/main_pages/_dashboard.scss */
+/* line 372, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-next,
 ul.pager li.pager-last {
   padding: 0px;
   margin: 0px 0px 0px 4px;
 }
-/* line 369, ../sass/main_pages/_dashboard.scss */
+/* line 376, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow-orange.png");
   background-position: 33px 7px;
   padding: 8px 24px 8px 0px;
 }
-/* line 376, ../sass/main_pages/_dashboard.scss */
+/* line 383, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 30px 7px;
 }
-/* line 379, ../sass/main_pages/_dashboard.scss */
+/* line 386, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-current {
   margin-left: 3px;
   margin-right: 3px;
   padding: 6px 9px;
 }
-/* line 384, ../sass/main_pages/_dashboard.scss */
+/* line 391, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item {
   /* not sure why we need vert padding but not horiz padding.*/
   padding: 6px 0px;
   margin-right: 3px;
   margin-left: 3px;
 }
-/* line 389, ../sass/main_pages/_dashboard.scss */
+/* line 396, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item a {
   padding: 6px 9px;
 }
-/* line 395, ../sass/main_pages/_dashboard.scss */
+/* line 402, ../sass/main_pages/_dashboard.scss */
 ul.pager div.ajax-progress {
   float: right;
   display: inline;
@@ -2659,7 +2663,7 @@ ul.pager div.ajax-progress {
   position: relative;
   margin-left: -20px;
 }
-/* line 403, ../sass/main_pages/_dashboard.scss */
+/* line 410, ../sass/main_pages/_dashboard.scss */
 ul.pager #page {
   height: 100%;
   margin-bottom: -200px;
@@ -4599,7 +4603,17 @@ body.page-node-reorder-pages .views-field .date-display-single,
 body.page-node-access .views-field .date-display-single {
   font-weight: normal;
 }
-/* line 183, ../sass/main_pages/_event.scss */
+/* line 181, ../sass/main_pages/_event.scss */
+body.node-type-event .views-field .date-display-single .date-display-range,
+body.node-type-portal .views-field .date-display-single .date-display-range,
+body.node-type-portal-section .views-field .date-display-single .date-display-range,
+body.node-type-portal-page .views-field .date-display-single .date-display-range,
+body.page-node-reorder-sections .views-field .date-display-single .date-display-range,
+body.page-node-reorder-pages .views-field .date-display-single .date-display-range,
+body.page-node-access .views-field .date-display-single .date-display-range {
+  display: inline;
+}
+/* line 186, ../sass/main_pages/_event.scss */
 body.node-type-event h2.element-invisible,
 body.node-type-portal h2.element-invisible,
 body.node-type-portal-section h2.element-invisible,
@@ -4609,7 +4623,7 @@ body.page-node-reorder-pages h2.element-invisible,
 body.page-node-access h2.element-invisible {
   display: none;
 }
-/* line 187, ../sass/main_pages/_event.scss */
+/* line 190, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-left,
 body.node-type-event .ds-2col > .group-left,
 body.node-type-portal .ds-2col-stacked > .group-left,
@@ -4629,7 +4643,7 @@ body.page-node-access .ds-2col > .group-left {
   box-sizing: border-box;
   padding-right: 383px;
 }
-/* line 196, ../sass/main_pages/_event.scss */
+/* line 199, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right,
 body.node-type-event .ds-2col > .group-right,
 body.node-type-portal .ds-2col-stacked > .group-right,
@@ -4651,7 +4665,7 @@ body.page-node-access .ds-2col > .group-right {
   * Materials portion of event page
   */
 }
-/* line 200, ../sass/main_pages/_event.scss */
+/* line 203, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right h4,
 body.node-type-event .ds-2col > .group-right h4,
 body.node-type-portal .ds-2col-stacked > .group-right h4,
@@ -4668,7 +4682,7 @@ body.page-node-access .ds-2col-stacked > .group-right h4,
 body.page-node-access .ds-2col > .group-right h4 {
   font-size: 13px;
 }
-/* line 203, ../sass/main_pages/_event.scss */
+/* line 206, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .view-content .field-content .views-row div,
 body.node-type-event .ds-2col > .group-right .view-content .field-content .views-row div,
 body.node-type-portal .ds-2col-stacked > .group-right .view-content .field-content .views-row div,
@@ -4686,7 +4700,7 @@ body.page-node-access .ds-2col > .group-right .view-content .field-content .view
   margin-left: 0px;
   display: inline;
 }
-/* line 208, ../sass/main_pages/_event.scss */
+/* line 211, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event .block-views, body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event-2 .block-views,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event .block-views,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event-2 .block-views,
@@ -4716,7 +4730,7 @@ body.page-node-access .ds-2col > .group-right .field-name-join-this-event .block
 body.page-node-access .ds-2col > .group-right .field-name-join-this-event-2 .block-views {
   margin-bottom: -10px;
 }
-/* line 211, ../sass/main_pages/_event.scss */
+/* line 214, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event .views-row, body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event-2 .views-row,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event .views-row,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event-2 .views-row,
@@ -4746,7 +4760,7 @@ body.page-node-access .ds-2col > .group-right .field-name-join-this-event .views
 body.page-node-access .ds-2col > .group-right .field-name-join-this-event-2 .views-row {
   overflow: hidden;
 }
-/* line 216, ../sass/main_pages/_event.scss */
+/* line 219, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.field-content,
 body.node-type-event .ds-2col > .group-right .views-row div.field-content,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.field-content,
@@ -4763,7 +4777,7 @@ body.page-node-access .ds-2col-stacked > .group-right .views-row div.field-conte
 body.page-node-access .ds-2col > .group-right .views-row div.field-content {
   clear: left;
 }
-/* line 219, ../sass/main_pages/_event.scss */
+/* line 222, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date,
@@ -4782,7 +4796,7 @@ body.page-node-access .ds-2col > .group-right .views-row div.views-field-field-d
   margin-right: 3px;
   padding: 0px 10px 15px;
 }
-/* line 223, ../sass/main_pages/_event.scss */
+/* line 226, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date a.unflag-action,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action,
@@ -4799,7 +4813,7 @@ body.page-node-access .ds-2col-stacked > .group-right .views-row div.views-field
 body.page-node-access .ds-2col > .group-right .views-row div.views-field-field-date a.unflag-action {
   font-weight: normal;
 }
-/* line 227, ../sass/main_pages/_event.scss */
+/* line 230, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date-1,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1,
@@ -4816,7 +4830,7 @@ body.page-node-access .ds-2col-stacked > .group-right .views-row div.views-field
 body.page-node-access .ds-2col > .group-right .views-row div.views-field-field-date-1 {
   margin-right: 4px;
 }
-/* line 230, ../sass/main_pages/_event.scss */
+/* line 233, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-access-information,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-access-information,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-access-information,
@@ -4835,7 +4849,7 @@ body.page-node-access .ds-2col > .group-right .views-row div.views-field-field-a
   clear: both;
   padding: 0px 10px;
 }
-/* line 236, ../sass/main_pages/_event.scss */
+/* line 239, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .item-list h3,
 body.node-type-event .ds-2col > .group-right .item-list h3,
 body.node-type-portal .ds-2col-stacked > .group-right .item-list h3,
@@ -4852,7 +4866,7 @@ body.page-node-access .ds-2col-stacked > .group-right .item-list h3,
 body.page-node-access .ds-2col > .group-right .item-list h3 {
   font-size: 16px;
 }
-/* line 240, ../sass/main_pages/_event.scss */
+/* line 243, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s-,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-,
@@ -4869,7 +4883,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-event-date-s- {
   padding-top: 25px;
 }
-/* line 243, ../sass/main_pages/_event.scss */
+/* line 246, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s-:before,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before,
@@ -4887,7 +4901,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-event-da
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 247, ../sass/main_pages/_event.scss */
+/* line 250, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.register,
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.cancel,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s- div.button.register,
@@ -4919,7 +4933,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-event-da
   margin-top: 5px;
   display: block;
 }
-/* line 252, ../sass/main_pages/_event.scss */
+/* line 255, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- .field-items,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s- .field-items,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- .field-items,
@@ -4936,7 +4950,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-event-date-s- .field-items {
   margin-top: -5px;
 }
-/* line 258, ../sass/main_pages/_event.scss */
+/* line 261, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2,
@@ -4966,7 +4980,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 {
   padding-top: 25px;
 }
-/* line 260, ../sass/main_pages/_event.scss */
+/* line 263, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2:before,
@@ -4997,7 +5011,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 264, ../sass/main_pages/_event.scss */
+/* line 267, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content,
@@ -5028,7 +5042,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
   background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
   padding-left: 14px;
 }
-/* line 268, ../sass/main_pages/_event.scss */
+/* line 271, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .button, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 .button,
@@ -5059,7 +5073,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
   margin: 15px 0 25px;
   float: right;
 }
-/* line 272, ../sass/main_pages/_event.scss */
+/* line 275, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event ul, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul,
@@ -5089,7 +5103,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul {
   padding-left: 0px;
 }
-/* line 274, ../sass/main_pages/_event.scss */
+/* line 277, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event ul li, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 ul li,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event ul li,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul li,
@@ -5123,7 +5137,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-join-thi
   background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
   padding-left: 14px;
 }
-/* line 289, ../sass/main_pages/_event.scss */
+/* line 292, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials,
 body.node-type-event .ds-2col > .group-right div.field-name-materials,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials,
@@ -5140,7 +5154,7 @@ body.page-node-access .ds-2col-stacked > .group-right div.field-name-materials,
 body.page-node-access .ds-2col > .group-right div.field-name-materials {
   padding-top: 25px;
 }
-/* line 291, ../sass/main_pages/_event.scss */
+/* line 294, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before,
 body.node-type-event .ds-2col > .group-right div.field-name-materials:before,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials:before,
@@ -5158,7 +5172,7 @@ body.page-node-access .ds-2col > .group-right div.field-name-materials:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 295, ../sass/main_pages/_event.scss */
+/* line 298, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title,
 body.node-type-event .ds-2col > .group-right div.field-name-materials h2.block-title,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials h2.block-title,
@@ -5175,7 +5189,7 @@ body.page-node-access .ds-2col-stacked > .group-right div.field-name-materials h
 body.page-node-access .ds-2col > .group-right div.field-name-materials h2.block-title {
   margin-top: -5px;
 }
-/* line 299, ../sass/main_pages/_event.scss */
+/* line 302, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul,
@@ -5193,7 +5207,7 @@ body.page-node-access .ds-2col > .group-right div.field-name-materials div#block
   padding-left: 0px;
   margin-bottom: 0px;
 }
-/* line 302, ../sass/main_pages/_event.scss */
+/* line 305, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
@@ -5216,7 +5230,7 @@ body.page-node-access .ds-2col > .group-right div.field-name-materials div#block
   padding-bottom: 15px;
   background: none;
 }
-/* line 310, ../sass/main_pages/_event.scss */
+/* line 313, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
@@ -5233,7 +5247,7 @@ body.page-node-access .ds-2col-stacked > .group-right div.field-name-materials d
 body.page-node-access .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1) {
   padding-top: 0px;
 }
-/* line 313, ../sass/main_pages/_event.scss */
+/* line 316, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
@@ -5252,7 +5266,7 @@ body.page-node-access .ds-2col > .group-right div.field-name-materials div#block
   padding-left: 23px;
   padding-bottom: 3px;
 }
-/* line 318, ../sass/main_pages/_event.scss */
+/* line 321, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
@@ -5272,7 +5286,7 @@ body.page-node-access .ds-2col > .group-right div.field-name-materials div#block
   padding-bottom: 3px;
   padding-top: 5px;
 }
-/* line 328, ../sass/main_pages/_event.scss */
+/* line 331, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds,
 body.node-type-event .ds-2col > .group-right .field-type-ds,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds,
@@ -5295,7 +5309,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 335, ../sass/main_pages/_event.scss */
+/* line 338, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title,
 body.node-type-event .ds-2col > .group-right .field-type-ds h2.block-title,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds h2.block-title,
@@ -5316,7 +5330,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds h2.block-title {
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 342, ../sass/main_pages/_event.scss */
+/* line 345, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list,
@@ -5335,7 +5349,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list {
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 346, ../sass/main_pages/_event.scss */
+/* line 349, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul,
@@ -5352,7 +5366,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds div.item-li
 body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul {
   padding-left: 0px;
 }
-/* line 348, ../sass/main_pages/_event.scss */
+/* line 351, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row,
@@ -5375,7 +5389,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li
   border-bottom: 1px solid #d7d7d7;
   overflow: hidden;
 }
-/* line 356, ../sass/main_pages/_event.scss */
+/* line 359, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
@@ -5392,7 +5406,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds div.item-li
 body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row:last-child {
   border-bottom: 0px;
 }
-/* line 359, ../sass/main_pages/_event.scss */
+/* line 362, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
@@ -5409,7 +5423,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds div.item-li
 body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
   /* general rule?*/
 }
-/* line 360, ../sass/main_pages/_event.scss */
+/* line 363, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
@@ -5429,7 +5443,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li
   padding-bottom: 10px;
   color: #333333;
 }
-/* line 367, ../sass/main_pages/_event.scss */
+/* line 370, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
@@ -5447,7 +5461,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 372, ../sass/main_pages/_event.scss */
+/* line 375, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
@@ -5465,7 +5479,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li
   font-style: italic;
   padding-left: 23px;
 }
-/* line 376, ../sass/main_pages/_event.scss */
+/* line 379, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row .button,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .button,
@@ -5483,7 +5497,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds div.item-list ul li
   float: right;
   margin: 13px 0px 10px;
 }
-/* line 383, ../sass/main_pages/_event.scss */
+/* line 386, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login,
@@ -5500,7 +5514,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login {
   padding-bottom: 50px;
 }
-/* line 385, ../sass/main_pages/_event.scss */
+/* line 388, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login:before,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login:before,
@@ -5519,7 +5533,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-
   padding-left: 54px;
   top: -15px;
 }
-/* line 390, ../sass/main_pages/_event.scss */
+/* line 393, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
@@ -5538,7 +5552,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-
   font-weight: normal;
   color: #334b56;
 }
-/* line 395, ../sass/main_pages/_event.scss */
+/* line 398, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
@@ -5557,7 +5571,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-
   font-size: 11px;
   text-decoration: none;
 }
-/* line 399, ../sass/main_pages/_event.scss */
+/* line 402, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
@@ -5574,7 +5588,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover {
   text-decoration: underline;
 }
-/* line 403, ../sass/main_pages/_event.scss */
+/* line 406, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
@@ -5591,7 +5605,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text {
   width: 260px;
 }
-/* line 406, ../sass/main_pages/_event.scss */
+/* line 409, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
@@ -5610,7 +5624,7 @@ body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-
   top: -30px;
   right: 65px;
 }
-/* line 411, ../sass/main_pages/_event.scss */
+/* line 414, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .description,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .description,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .description,
@@ -5627,7 +5641,7 @@ body.page-node-access .ds-2col-stacked > .group-right .field-type-ds.field-name-
 body.page-node-access .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .description {
   display: none;
 }
-/* line 418, ../sass/main_pages/_event.scss */
+/* line 421, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11,
 body.node-type-portal div#block-block-11,
 body.node-type-portal-section div#block-block-11,
@@ -5642,7 +5656,7 @@ body.page-node-access div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 424, ../sass/main_pages/_event.scss */
+/* line 427, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p,
 body.node-type-portal div#block-block-11 p,
 body.node-type-portal-section div#block-block-11 p,
@@ -5654,7 +5668,7 @@ body.page-node-access div#block-block-11 p {
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 428, ../sass/main_pages/_event.scss */
+/* line 431, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home,
 body.node-type-portal div#block-block-11 p a.anonymous_home,
 body.node-type-portal-section div#block-block-11 p a.anonymous_home,
@@ -5674,7 +5688,7 @@ body.page-node-access div#block-block-11 p a.anonymous_home {
   float: left;
   margin-left: -18px;
 }
-/* line 442, ../sass/main_pages/_event.scss */
+/* line 445, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover,
 body.node-type-portal div#block-block-11 p a.anonymous_home:hover,
 body.node-type-portal-section div#block-block-11 p a.anonymous_home:hover,
@@ -5688,18 +5702,18 @@ body.page-node-access div#block-block-11 p a.anonymous_home:hover {
 /**
  *  Event Page, not logged in
  */
-/* line 455, ../sass/main_pages/_event.scss */
+/* line 458, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in #main {
   padding-top: 0;
 }
-/* line 458, ../sass/main_pages/_event.scss */
+/* line 461, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in h3 {
   font-weight: normal;
   color: #577785;
   margin-top: 0px;
   /*margin-bottom: 40px;*/
 }
-/* line 464, ../sass/main_pages/_event.scss */
+/* line 467, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in div#content.column {
   border-top-color: #d7d7d7;
   margin-top: 10px;
@@ -5709,12 +5723,12 @@ body.node-type-event.not-logged-in div#content.column {
  *  Event Page -- Mozilla-specific fix for footer.
  */
 @-moz-document url-prefix() {
-  /* line 478, ../sass/main_pages/_event.scss */
+  /* line 481, ../sass/main_pages/_event.scss */
   body.node-type-event #page {
     margin-bottom: -100px;
     padding-bottom: 100px;
   }
-  /* line 482, ../sass/main_pages/_event.scss */
+  /* line 485, ../sass/main_pages/_event.scss */
   body.node-type-event #block-block-12 .disclaimer {
     top: 20px;
     left: 20px;
@@ -5722,13 +5736,13 @@ body.node-type-event.not-logged-in div#content.column {
 }
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
-  /* line 491, ../sass/main_pages/_event.scss */
+  /* line 494, ../sass/main_pages/_event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     min-height: 192px;
     height: auto;
   }
 }
-/* line 497, ../sass/main_pages/_event.scss */
+/* line 500, ../sass/main_pages/_event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
@@ -7779,90 +7793,94 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-left: 0px;
     padding-left: 0px;
   }
-  /* line 16, ../sass/phone/_phone-event-detail.scss */
+  /* line 15, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event .field-type-text-long ul {
+    margin-left: 20px;
+  }
+  /* line 19, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .body {
     padding: 20px 25px 20px 20px;
   }
-  /* line 20, ../sass/phone/_phone-event-detail.scss */
+  /* line 23, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer {
     margin-top: -100px;
   }
-  /* line 23, ../sass/phone/_phone-event-detail.scss */
+  /* line 26, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event footer {
     left: 0px;
     margin-left: -30px;
   }
-  /* line 26, ../sass/phone/_phone-event-detail.scss */
+  /* line 29, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event footer .disclaimer {
     padding-right: 0px !important;
   }
 }
 @media screen and (max-width: 767px) and (max-width: 512px) {
-  /* line 33, ../sass/phone/_phone-event-detail.scss */
+  /* line 36, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#block-block-7 {
     display: block;
   }
 }
 @media screen and (max-width: 767px) {
-  /* line 39, ../sass/phone/_phone-event-detail.scss */
+  /* line 42, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page {
     padding-bottom: 0px;
     margin-bottom: 0px;
   }
-  /* line 43, ../sass/phone/_phone-event-detail.scss */
+  /* line 46, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#main div#content div#title-section {
     margin-top: 0px;
   }
-  /* line 45, ../sass/phone/_phone-event-detail.scss */
+  /* line 48, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#main div#content div#title-section h1 {
     font-size: 32px;
     padding-left: 0px;
   }
-  /* line 51, ../sass/phone/_phone-event-detail.scss */
+  /* line 54, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event ul.tabs-primary {
     display: none;
   }
-  /* line 54, ../sass/phone/_phone-event-detail.scss */
+  /* line 57, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left,
   body.node-type-event .ds-2col-stacked > .group-right {
     width: 100%;
     margin: 0px;
     float: none;
   }
-  /* line 60, ../sass/phone/_phone-event-detail.scss */
+  /* line 63, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-right {
     border-bottom: 1px solid #d7d7d7;
   }
-  /* line 63, ../sass/phone/_phone-event-detail.scss */
+  /* line 66, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left {
     border-bottom: 0px;
     padding-right: 0px !important;
   }
-  /* line 66, ../sass/phone/_phone-event-detail.scss */
+  /* line 69, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items {
     padding-left: 0px;
     margin-bottom: 0px;
   }
-  /* line 69, ../sass/phone/_phone-event-detail.scss */
+  /* line 72, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items .block {
     margin-bottom: 0px;
   }
-  /* line 71, ../sass/phone/_phone-event-detail.scss */
+  /* line 74, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items .block h2 {
     margin-bottom: 0px;
   }
-  /* line 74, ../sass/phone/_phone-event-detail.scss */
+  /* line 77, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items .block .views-field-field-access-information {
     clear: both;
     border-top: 1px solid #d7d7d7;
     margin-top: 20px;
   }
-  /* line 79, ../sass/phone/_phone-event-detail.scss */
+  /* line 82, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items .block .button.participate {
     margin: 15px 0 25px;
     float: right;
   }
-  /* line 83, ../sass/phone/_phone-event-detail.scss */
+  /* line 86, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left .field > div.field-items .block h4 {
     color: #8c1d18;
     font-weight: bold;
@@ -7870,26 +7888,26 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     cursor: text;
     margin: 1.33em 0 0.5em;
   }
-  /* line 95, ../sass/phone/_phone-event-detail.scss */
+  /* line 98, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#block-views-materials-block {
     margin-bottom: 0px;
   }
-  /* line 98, ../sass/phone/_phone-event-detail.scss */
+  /* line 101, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-block {
     margin-left: 0px;
   }
-  /* line 103, ../sass/phone/_phone-event-detail.scss */
+  /* line 106, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-join_this_event .views-field-field-date .field-content,
   body.node-type-event div.view-display-id-join_this_event_2 .views-field-field-date .field-content {
     background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
     padding-left: 14px;
   }
-  /* line 107, ../sass/phone/_phone-event-detail.scss */
+  /* line 110, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-join_this_event .views-field-field-access-information ul,
   body.node-type-event div.view-display-id-join_this_event_2 .views-field-field-access-information ul {
     padding-left: 0px;
   }
-  /* line 109, ../sass/phone/_phone-event-detail.scss */
+  /* line 112, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-join_this_event .views-field-field-access-information ul li,
   body.node-type-event div.view-display-id-join_this_event_2 .views-field-field-access-information ul li {
     line-height: 1.4em !important;
@@ -7898,18 +7916,18 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
     padding-left: 14px;
   }
-  /* line 115, ../sass/phone/_phone-event-detail.scss */
+  /* line 118, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-join_this_event .views-field-field-access-information ul li a,
   body.node-type-event div.view-display-id-join_this_event_2 .views-field-field-access-information ul li a {
     font-weight: normal;
     text-decoration: underline;
     color: #333;
   }
-  /* line 123, ../sass/phone/_phone-event-detail.scss */
+  /* line 126, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-event_dates {
     overflow: hidden;
   }
-  /* line 125, ../sass/phone/_phone-event-detail.scss */
+  /* line 128, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-event_dates ul li.views-row {
     margin-bottom: 15px;
     padding-bottom: 15px;
@@ -7917,12 +7935,16 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     border-bottom: 1px solid #d7d7d7;
     overflow: hidden;
   }
-  /* line 131, ../sass/phone/_phone-event-detail.scss */
+  /* line 134, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.view-display-id-event_dates ul li.views-row .button {
     float: right;
     margin: 13px 0px 10px;
   }
-  /* line 139, ../sass/phone/_phone-event-detail.scss */
+  /* line 138, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event div.view-display-id-event_dates ul li.views-row.views-row-last {
+    border-bottom: 0px;
+  }
+  /* line 145, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s-,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event,
@@ -7936,14 +7958,14 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-bottom: 0px;
     border: 0px;
   }
-  /* line 151, ../sass/phone/_phone-event-detail.scss */
+  /* line 157, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event .view-instances,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 .view-instances {
     overflow: hidden;
   }
-  /* line 155, ../sass/phone/_phone-event-detail.scss */
+  /* line 161, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event .views-field, body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event_2 .views-field,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event .views-field,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event_2 .views-field,
@@ -7953,7 +7975,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 .view-instances.view-display-id-join_this_event_2 .views-field {
     border-top: 0px;
   }
-  /* line 157, ../sass/phone/_phone-event-detail.scss */
+  /* line 163, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event .views-field h4, body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event_2 .views-field h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event .views-field h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event_2 .views-field h4,
@@ -7964,7 +7986,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 1.25em;
     margin: 5px 0px;
   }
-  /* line 161, ../sass/phone/_phone-event-detail.scss */
+  /* line 167, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event .views-field li, body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds .view-instances.view-display-id-join_this_event_2 .views-field li,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event .views-field li,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- .view-instances.view-display-id-join_this_event_2 .views-field li,
@@ -7974,7 +7996,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 .view-instances.view-display-id-join_this_event_2 .views-field li {
     line-height: 1.2em;
   }
-  /* line 167, ../sass/phone/_phone-event-detail.scss */
+  /* line 173, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event h2,
@@ -7989,14 +8011,14 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 20px !important;
     margin-bottom: 0px !important;
   }
-  /* line 179, ../sass/phone/_phone-event-detail.scss */
+  /* line 185, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s-:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2:before {
     height: 0px;
   }
-  /* line 182, ../sass/phone/_phone-event-detail.scss */
+  /* line 188, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds div.item-list,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event div.item-list,
@@ -8004,7 +8026,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-left: 20px;
     border-top-width: 0px;
   }
-  /* line 186, ../sass/phone/_phone-event-detail.scss */
+  /* line 192, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event h4,
@@ -8019,140 +8041,140 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-bottom: auto;
     padding-top: 0px;
   }
-  /* line 198, ../sass/phone/_phone-event-detail.scss */
+  /* line 204, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h2 {
     margin-top: 0px !important;
   }
-  /* line 201, ../sass/phone/_phone-event-detail.scss */
+  /* line 207, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 {
     margin-bottom: -10px;
   }
-  /* line 204, ../sass/phone/_phone-event-detail.scss */
+  /* line 210, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event ~ div.field-type-ds.field-name-event-date-s- h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 ~ div.field-type-ds.field-name-event-date-s- h2 {
     margin-top: 10px !important;
   }
-  /* line 208, ../sass/phone/_phone-event-detail.scss */
+  /* line 214, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 210, ../sass/phone/_phone-event-detail.scss */
+  /* line 216, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials h2.block-title {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
   }
-  /* line 214, ../sass/phone/_phone-event-detail.scss */
+  /* line 220, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials div.item-list {
     margin-left: 26px !important;
     margin-top: 0px;
   }
-  /* line 220, ../sass/phone/_phone-event-detail.scss */
+  /* line 226, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list {
     margin-left: 0px !important;
   }
-  /* line 222, ../sass/phone/_phone-event-detail.scss */
+  /* line 228, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list li {
     width: auto !important;
   }
-  /* line 228, ../sass/phone/_phone-event-detail.scss */
+  /* line 234, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked .group-right .view-instances {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 235, ../sass/phone/_phone-event-detail.scss */
+  /* line 241, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked .group-left .block-views h2, body.node-type-event .ds-2col-stacked .group-left .field-type-ds h2 {
     border-left: 0px !important;
     border-right: 0px !important;
   }
-  /* line 242, ../sass/phone/_phone-event-detail.scss */
+  /* line 248, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left {
     width: 100%;
     background-color: white;
     padding-bottom: 0px;
     /* make an extensible class?*/
   }
-  /* line 247, ../sass/phone/_phone-event-detail.scss */
+  /* line 253, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left:before {
     height: 5px;
   }
-  /* line 254, ../sass/phone/_phone-event-detail.scss */
+  /* line 260, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image {
     margin-right: -22px;
   }
-  /* line 256, ../sass/phone/_phone-event-detail.scss */
+  /* line 262, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image div.field-content,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image div.field-content,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image div.field-content {
     width: 75%;
     height: 75%;
   }
-  /* line 259, ../sass/phone/_phone-event-detail.scss */
+  /* line 265, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image div.field-content img,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image div.field-content img,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image div.field-content img {
     width: 100%;
     height: 100%;
   }
-  /* line 265, ../sass/phone/_phone-event-detail.scss */
+  /* line 271, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-row,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-row,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-row {
     min-height: 120px;
   }
-  /* line 268, ../sass/phone/_phone-event-detail.scss */
+  /* line 274, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-name-presenters,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-name-presenters,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-name-presenters {
     border-top: 0px;
     border-bottom: 0px;
   }
-  /* line 271, ../sass/phone/_phone-event-detail.scss */
+  /* line 277, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-name-presenters .view-presenters .views-row:last-child,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-name-presenters .view-presenters .views-row:last-child,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-name-presenters .view-presenters .views-row:last-child {
     margin-bottom: 0px;
   }
-  /* line 275, ../sass/phone/_phone-event-detail.scss */
+  /* line 281, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-type-text-long,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-type-text-long,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-type-text-long {
     border-top: 0px;
   }
-  /* line 280, ../sass/phone/_phone-event-detail.scss */
+  /* line 286, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left > div:nth-child(1) p {
     width: 95%;
   }
-  /* line 285, ../sass/phone/_phone-event-detail.scss */
+  /* line 291, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left > div:not(:nth-child(1)) h4, body.node-type-event .ds-2col-stacked > .group-left > div:not(:nth-child(1)) h2 {
     margin-top: 0px;
     padding-top: 17px;
     border-top: 1px solid #d7d7d7;
   }
-  /* line 292, ../sass/phone/_phone-event-detail.scss */
+  /* line 298, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter p {
     width: 95%;
   }
-  /* line 297, ../sass/phone/_phone-event-detail.scss */
+  /* line 303, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials {
     padding-top: 0px;
   }
-  /* line 299, ../sass/phone/_phone-event-detail.scss */
+  /* line 305, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul {
     padding-left: 15px;
   }
-  /* line 301, ../sass/phone/_phone-event-detail.scss */
+  /* line 307, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul li {
     margin-top: 0px;
     margin-bottom: 0px !important;
   }
-  /* line 304, ../sass/phone/_phone-event-detail.scss */
+  /* line 310, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul li:last-child {
     padding-bottom: 15px;
   }
-  /* line 309, ../sass/phone/_phone-event-detail.scss */
+  /* line 315, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials h2 {
     margin-top: 0px;
     padding-top: 17px;
@@ -8169,18 +8191,18 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-repeat: no-repeat;
     margin-bottom: 0px;
   }
-  /* line 327, ../sass/phone/_phone-event-detail.scss */
+  /* line 333, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- {
     width: 100%;
     padding: 0px;
     background-color: white;
     border: 0px;
   }
-  /* line 334, ../sass/phone/_phone-event-detail.scss */
+  /* line 340, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- li.views-row > strong {
     display: list-item;
   }
-  /* line 338, ../sass/phone/_phone-event-detail.scss */
+  /* line 344, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row {
     width: 90%;
     display: list-item;
@@ -8189,35 +8211,35 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-bottom: 10px;
     padding-top: 0px;
   }
-  /* line 346, ../sass/phone/_phone-event-detail.scss */
+  /* line 352, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong {
     position: relative;
   }
-  /* line 350, ../sass/phone/_phone-event-detail.scss */
+  /* line 356, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row span.date-display-single {
     position: relative;
   }
-  /* line 356, ../sass/phone/_phone-event-detail.scss */
+  /* line 362, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.views-field.views-field-ops {
     margin-left: 0px;
     position: relative;
   }
-  /* line 362, ../sass/phone/_phone-event-detail.scss */
+  /* line 368, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s-:before {
     background-color: white;
     height: 0px;
   }
 
-  /* line 372, ../sass/phone/_phone-event-detail.scss */
+  /* line 378, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login {
     padding-top: 0px;
     width: 100%;
   }
-  /* line 375, ../sass/phone/_phone-event-detail.scss */
+  /* line 381, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login:before {
     top: -15px;
   }
-  /* line 378, ../sass/phone/_phone-event-detail.scss */
+  /* line 384, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-label {
     font-size: 20px;
     color: #334b56;
@@ -8232,20 +8254,20 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-position: 6px 22px;
     cursor: pointer;
   }
-  /* line 392, ../sass/phone/_phone-event-detail.scss */
+  /* line 398, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items {
     background: #fff;
     padding: 0px 25px 40px 20px !important;
   }
-  /* line 395, ../sass/phone/_phone-event-detail.scss */
+  /* line 401, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items input.form-text {
     width: 220px;
   }
-  /* line 398, ../sass/phone/_phone-event-detail.scss */
+  /* line 404, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items .description {
     display: none;
   }
-  /* line 401, ../sass/phone/_phone-event-detail.scss */
+  /* line 407, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items a.request-password-link {
     font-weight: normal;
     color: #8c1d18;
@@ -8253,101 +8275,101 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 11px;
     top: -5px;
   }
-  /* line 407, ../sass/phone/_phone-event-detail.scss */
+  /* line 413, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items a.request-password-link:hover {
     text-decoration: underline;
   }
-  /* line 411, ../sass/phone/_phone-event-detail.scss */
+  /* line 417, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items #edit-actions {
     float: right;
     top: -40px;
     right: 65px;
   }
 
-  /* line 422, ../sass/phone/_phone-event-detail.scss */
+  /* line 428, ../sass/phone/_phone-event-detail.scss */
   .accordion {
     border: 0px;
   }
-  /* line 424, ../sass/phone/_phone-event-detail.scss */
+  /* line 430, ../sass/phone/_phone-event-detail.scss */
   .accordion .header {
     background-image: url("../images/icons/hide.png") !important;
   }
-  /* line 426, ../sass/phone/_phone-event-detail.scss */
+  /* line 432, ../sass/phone/_phone-event-detail.scss */
   .accordion .header.closed {
     background-image: url("../images/icons/show.png") !important;
   }
-  /* line 430, ../sass/phone/_phone-event-detail.scss */
+  /* line 436, ../sass/phone/_phone-event-detail.scss */
   .accordion .body {
     background: #fff;
   }
 
-  /* line 438, ../sass/phone/_phone-event-detail.scss */
+  /* line 444, ../sass/phone/_phone-event-detail.scss */
   .section-events .block-views .view-content {
     padding: 0px !important;
   }
-  /* line 440, ../sass/phone/_phone-event-detail.scss */
+  /* line 446, ../sass/phone/_phone-event-detail.scss */
   .section-events .block-views .view-content > .item-list:first-child {
     border-top: 0px !important;
   }
 
-  /* line 447, ../sass/phone/_phone-event-detail.scss */
+  /* line 453, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page {
     padding-bottom: 20px;
   }
-  /* line 451, ../sass/phone/_phone-event-detail.scss */
+  /* line 457, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 #name-and-slogan {
     top: 0px;
     left: 0px;
     position: relative;
   }
-  /* line 455, ../sass/phone/_phone-event-detail.scss */
+  /* line 461, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 #name-and-slogan.category {
     top: 0px;
   }
-  /* line 459, ../sass/phone/_phone-event-detail.scss */
+  /* line 465, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted {
     top: 0px;
     font-size: inherit;
   }
-  /* line 462, ../sass/phone/_phone-event-detail.scss */
+  /* line 468, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted.category {
     top: 0px;
   }
-  /* line 464, ../sass/phone/_phone-event-detail.scss */
+  /* line 470, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted.category #block-block-13 {
     font-size: 0.8em;
   }
-  /* line 471, ../sass/phone/_phone-event-detail.scss */
+  /* line 477, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page h1#page-title {
     font-size: 28px !important;
     margin-top: 10px;
   }
-  /* line 475, ../sass/phone/_phone-event-detail.scss */
+  /* line 481, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page #user-login #edit-actions input#edit-submit {
     top: 30px;
   }
 
-  /* line 480, ../sass/phone/_phone-event-detail.scss */
+  /* line 486, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer {
     margin-top: -103px;
   }
-  /* line 481, ../sass/phone/_phone-event-detail.scss */
+  /* line 487, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer footer#footer {
     margin-left: 0px;
   }
-  /* line 485, ../sass/phone/_phone-event-detail.scss */
+  /* line 491, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer #block-block-12 .disclaimer {
     left: 0px;
     width: auto !important;
     padding: 5px;
   }
 
-  /* line 493, ../sass/phone/_phone-event-detail.scss */
+  /* line 499, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 496, ../sass/phone/_phone-event-detail.scss */
+  /* line 502, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials div.item-list {
     margin-left: 0px !important;
   }
@@ -8395,8 +8417,14 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.section-events #block-views-dashboard-block-2 div.view.view-dashboard .view-content .view-display-id-attachment_1 .views-row,
   body.section-events #block-views-dashboard-block-2 div.view.view-dashboard .view-content .view-display-id-attachment_2 .views-row {
     margin-bottom: 20px;
+    margin-right: 15px !important;
   }
-  /* line 44, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 40, ../sass/phone/_phone-event-dashboard.scss */
+  body.section-events #block-views-dashboard-block-1 div.view.view-dashboard .view-content .views-field-view,
+  body.section-events #block-views-dashboard-block-2 div.view.view-dashboard .view-content .views-field-view {
+    float: none !important;
+  }
+  /* line 48, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#content > div.view-dashboard {
     width: 100%;
     margin: 0px auto;
@@ -8410,26 +8438,26 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 59, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 63, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#content > div.view-dashboard div.item-list {
     margin-left: 10px;
   }
-  /* line 62, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 66, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#content > div.view-dashboard:before {
     height: 0px;
   }
-  /* line 65, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 69, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#content > div.view-dashboard > .view-content {
     padding: 0 20px;
   }
-  /* line 71, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 75, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events .views-exposed-widgets {
     margin-bottom: 0.5em;
     float: left;
     margin-right: -12px;
     margin-top: 12px;
   }
-  /* line 77, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 81, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1,
   body.section-events div#block-views-dashboard-block-2 {
     width: 100%;
@@ -8441,26 +8469,26 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-bottom: 0px;
     padding-top: 16px;
   }
-  /* line 88, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 92, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 h2,
   body.section-events div#block-views-dashboard-block-2 h2 {
     width: 90%;
     font-size: 20px !important;
     padding-left: 26px !important;
   }
-  /* line 96, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 100, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 div.view.view-dashboard.view-display-id-block_1, body.section-events div#block-views-dashboard-block-1 div.view.view-dashboard.view-display-id-block_2,
   body.section-events div#block-views-dashboard-block-2 div.view.view-dashboard.view-display-id-block_1,
   body.section-events div#block-views-dashboard-block-2 div.view.view-dashboard.view-display-id-block_2 {
     padding: 25px 20px 25px;
   }
-  /* line 102, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 106, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1:before,
   body.section-events div#block-views-dashboard-block-2:before {
     height: 0px;
     background-color: transparent;
   }
-  /* line 106, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 110, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 div.view-empty,
   body.section-events div#block-views-dashboard-block-2 div.view-empty {
     border-top: 0px;
@@ -8468,33 +8496,33 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-left: 0px;
     margin-right: 0px;
   }
-  /* line 115, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 119, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 h2.block-title.block__title,
   body.section-events div#block-views-dashboard-block-2 h2.block-title.block__title {
     margin-bottom: 0px;
     padding-bottom: 16px;
   }
-  /* line 120, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 124, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1 {
     border-bottom: 0px !important;
   }
-  /* line 122, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 126, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events div#block-views-dashboard-block-1:before {
     height: 5px;
     background-color: #577785;
     top: -20px;
   }
 
-  /* line 132, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 136, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#page {
     margin-bottom: 0px !important;
     padding-bottom: 0px !important;
   }
-  /* line 136, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 140, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div.bottom-footer {
     margin-top: -100px;
   }
-  /* line 139, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 143, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section {
     margin-top: -20px;
     width: 100%;
@@ -8512,11 +8540,11 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     display: block;
     margin-bottom: 104px;
   }
-  /* line 155, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 159, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section:before {
     top: -15px;
   }
-  /* line 159, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 163, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section h1#page-title.page__title {
     max-width: 100%;
     padding-top: 5px;
@@ -8526,7 +8554,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-bottom: 0px;
     height: 30px;
   }
-  /* line 170, ../sass/phone/_phone-event-dashboard.scss */
+  /* line 174, ../sass/phone/_phone-event-dashboard.scss */
   body.section-events.page-events div#main div#content div#title-section h1#page-title.page__title:before {
     content: 'Upcoming\00a0';
   }

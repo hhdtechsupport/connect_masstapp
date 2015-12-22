@@ -32,8 +32,15 @@ div.view-content div.item-list {
     padding-top: 0px;
     line-height: 16px;
     margin-top: 0;
-    a:hover {
-      text-decoration: none;
+    font-size: 1.25em;
+    font-weight: normal;
+    a {
+      color: $capt-black;
+      text-decoration: underline;
+      font-weight: normal;
+      &:hover {
+        //text-decoration: none;
+      }
     }
   }
   ul {
