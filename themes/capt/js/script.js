@@ -775,13 +775,6 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
-
-
-
-
-
-
-
 }
 };
 
