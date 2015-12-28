@@ -912,3 +912,57 @@ input.form-text {
     }
   }
 }
+
+
+
+body.section-terms-of-use {
+  div#content {
+    padding: 20px 150px !important;
+    h1 {
+      text-align: center;
+    }
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.5em;
+      margin: 20px 0px 10px !important;
+    }
+    a {
+      color: $capt-black;
+      font-weight: normal;
+      text-decoration: underline;
+    }
+    ol, li {
+      line-height: 1.6em;
+    }
+    ol {
+      padding-left: 1.5em;
+      li {
+        margin-bottom: 1em;
+        ul {
+          margin-top: 1em;
+        }
+      }
+    }
+  }
+  &.not-logged-in {
+    div#main {
+      padding-top: 0px !important;
+      div#content {
+        border: 0px !important;
+      }
+    }
+  }
+}
+
+body.node-type-page {
+  h1#page-title {
+    padding-top: 7px;
+    color: #8c1d18;
+    min-height: 44px;
+    font-size: 26pt;
+    margin-top: 36px;
+    margin-bottom: 21px;
+    margin-top: 0px;
+    font-weight: normal;
+  }
+}

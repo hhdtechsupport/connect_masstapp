@@ -67,9 +67,18 @@ body.page-user-register, body.page-anon-register {
   }
 }
 
-div#content {
-  width: 100%;
-  .node-page {
-    width: 60%;
+body:not(.node-type-page) {
+  div#content {
+    width: 100%;
+    .node-page {
+      width: 60%;
+    }
+  }
+}
+body.node-type-page {
+  div#content {
+    width: auto;
+    padding-left: 100px !important;
+    padding-right: 100px !important;
   }
 }

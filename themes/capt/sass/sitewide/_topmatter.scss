@@ -11,7 +11,7 @@
 body {
   width: 100%;
   margin: 0px;
-  &.node-type-event, &.logged-in {
+  &.node-type-event, &.logged-in, &.node-type-page {
     header#header {
       padding: 0px;
       .header-blue-2 {
@@ -199,7 +199,7 @@ body {
 
     }
   }
-  &.not-front.logged-in, &.not-front.node-type-event {
+  &.not-front.logged-in, &.not-front.node-type-event, &.not-front.node-type-page {
     header#header {
       .region-header {
         position: absolute;
