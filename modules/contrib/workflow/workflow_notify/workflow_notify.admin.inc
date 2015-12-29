@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Admin UI to Notify roles for Workfllow state transitions.
+ * Admin UI to Notify roles for Workflow state transitions.
  */
 
 /**
@@ -22,6 +22,8 @@ function workflow_notify_settings_form($form, $form_state, $workflow) {
     $form['#workflow'] = $workflow;
 
     // Get all the states for this workflow, except the (creation) state.
+//    $states = workflow_get_workflow_states_by_wid($workflow->wid,
+//      array('status' => 1, 'sysid' => 0));
     $states = array();
     foreach ($workflow->states as $sid => $state) {
       if (!$state->sysid) {
