@@ -206,6 +206,7 @@ function captconnect_custom_menu_alter(&$items) {
  *
  * Prevent leaving the login page when they need to update their data.
  */
+/*
 function captconnect_custom_init() {
   // Note that the $user object does not contain fields.
   global $user;
@@ -245,7 +246,7 @@ function captconnect_custom_init() {
       drupal_goto("user/$user->uid/edit");
     }
   }
-}
+} /* */
 
 /**
  * Implements hook_node_access().
@@ -300,7 +301,7 @@ function captconnect_custom_node_access($node, $op, $account) {
 
 /**
  * Menu access callback.
- * Decide whether or not to show the "Login" tabe.
+ * Decide whether or not to show the "Login" tab.
  */
 function captconnect_custom_login_access() {
   if ($_GET['q'] == 'user/register') {
@@ -475,6 +476,7 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
  */
 function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
 //  dpm($form, $form_id);
+  $account = $form['#user'];
   $form['actions']['#weight'] = 100;
 
   $form['account']['#weight'] = 0;
@@ -503,11 +505,19 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
     $form['mimemail']['#weight'] = 20;
   }
 
-  $form['#validate'][] = 'captconnect_custom_user_profile_validation';
+  if (isset($account->data['last_account_edit'])) {
+    $msg = t('This account was last edited on @date.',
+      array('@date' => format_date($account->data['last_account_edit'], 'long')));
+  }
+  else {
+    $msg = t('This account has never been edited.');
+  }
+  $form['last_account_edit'] = array(
+    '#type' => 'markup',
+    '#markup' => $msg,
+    );
 
-  // Set the last edit time to now in case they save it.
-  // We use the user data since fields are not available in hook_init.
-  $form['#user']->data['last_account_edit'] = REQUEST_TIME;
+  $form['#validate'][] = 'captconnect_custom_user_profile_validation';
 }
 
 /**
@@ -525,7 +535,8 @@ function captconnect_custom_user_profile_validation(&$form, &$form_state) {
   if (count($roles_selected)) {
     // So, if they have a role, then they need a group too.
     if (empty($form_state['values']['og_user_node'][LANGUAGE_NONE])) {
-      form_set_error('og_user_node', t('Special roles require an RT group selection.'));
+      form_set_error('og_user_node', t(variable_get('captconnect_custom_require_group_msg',
+        "Special roles require an RT group selection.")));
     }
   }
 }
@@ -903,6 +914,15 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     }
   }
 }
+/*
+function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+//  $http_response_code = '302';
+  dpm($http_response_code, 'http_response_code');
+  dpm($path, 'path');
+  dpm($options, 'options');
+//  dpm($_GET['q'], 'q');
+  dpm($_SERVER['REQUEST_URI'], 'REQUEST_URI');
+} /* */
 
 /**
  * Implementation of hook_user_login().
@@ -914,7 +934,7 @@ function captconnect_custom_user_login(&$edit, $account) {
   // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
     0 : $account->data['last_account_edit']);
-
+/*
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
   $how_long_ago = REQUEST_TIME - $last_edit;
   $grace = ($check_interval == 0 ?
@@ -925,10 +945,10 @@ function captconnect_custom_user_login(&$edit, $account) {
     $msg_level = ($check_interval == 0 ? 'status' : 'warning');
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")), $msg_level, FALSE);
-
     // Reset it to now in case they do save.
     $account->data['last_account_edit'] = REQUEST_TIME;
   }
+/* */
 
   // Find out if the user is mid-registration (anon user).
   if (isset($edit['#captconnect_anon_instance'])) {
@@ -978,11 +998,23 @@ function captconnect_custom_user_login(&$edit, $account) {
 }
 
 /**
- * Implements hook_user_update().
+ * Implements hook_user_delete().
+ * If user is in login table, remove it.
  */
-function captconnect_custom_user_update(&$edit, $account, $category) {
+function captconnect_custom_user_delete($account) {
+  db_delete('captconnect_custom_anon_register')
+    ->condition('uid', $account->uid)
+    ->execute();
+}
+
+/**
+ * Implements hook_user_presave().
+ * Make sure the account is marked as updated and log it.
+ */
+function captconnect_custom_user_presave(&$edit, $account, $category) {
+  $edit['data']['last_account_edit'] = REQUEST_TIME;
   watchdog('User updated',
-    'User account updated by @user.',
+    'User account updated for @user.',
     array('@user' => format_username($account)),
     WATCHDOG_INFO,
     l(t('View'), "user/$account->uid")
