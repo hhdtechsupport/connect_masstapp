@@ -59,7 +59,7 @@ function captconnect_custom_view_registrations($node) {
       $instance_is_past = ($instance_data['end'] < REQUEST_TIME);
 
       // Is the instance at max capacity?
-      $instance_is_full = ($reg_flag->get_count($instance->nid->value()) >= $limit);
+      $instance_is_full = ($reg_flag->get_count($instance->nid->value()) >= $limit && $limit > 0);
 
       // We can link the instance title to its node if the setting says so
       // and the user has permission.

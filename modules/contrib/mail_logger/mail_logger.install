@@ -91,8 +91,6 @@ function mail_logger_install() {
  */
 function mail_logger_uninstall() {
   variable_del('mail_logger_log_maximum_age');
-  variable_del('mail_logger_log_date_format');
-  variable_del('mail_logger_log_lines_per_page');
 }
 
 /**
@@ -103,4 +101,18 @@ function mail_logger_enable() {
   // the final mail parameters by setting the weight of mail_logger to something large.
   $max_weight = db_query("SELECT max(weight) FROM {system} WHERE name <> 'mail_logger'")->fetchField();
   db_query("UPDATE {system} SET weight = :max_weight WHERE name = 'mail_logger'", array(':max_weight' => $max_weight + 100));
+}
+
+/**
+ * Expand 'mailto' column.
+ */
+function mail_logger_update_7000() {
+  db_change_field('mail_logger', 'mailto', 'mailto',
+    array(
+      'description' => 'to whom this mail is going',
+      'type' => 'varchar',
+      'length' => 2047,
+       'not null' => TRUE,
+      )
+    );
 }

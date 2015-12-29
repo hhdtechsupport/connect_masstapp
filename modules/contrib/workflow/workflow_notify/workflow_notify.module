@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Notify roles for Workfllow state transitions.
+ * Notify roles for Workflow state transitions.
  */
 
 /**
@@ -42,7 +42,7 @@ function workflow_notify_menu() {
     );
 
   return $items;
-} /* */
+}
 
 /**
  * Implements hook_theme().
@@ -73,10 +73,12 @@ function workflow_notify_hook_info() {
 function workflow_notify_workflow_operations($op, $workflow = NULL) {
   switch ($op) {
     case 'workflow':
+      $wid = $workflow->getWorkflowId();
+
       $actions = array(
         'workflow_notify_settings' => array(
           'title' => t('Notifications'),
-          'href' => "admin/config/workflow/workflow/notify/$workflow->wid",
+          'href' => "admin/config/workflow/workflow/notify/$wid",
           'attributes' => array('alt' => t('Notify users about state changes.')),
           ),
         );
@@ -89,158 +91,148 @@ function workflow_notify_workflow_operations($op, $workflow = NULL) {
 }
 
 /**
- * Implements hook_entity_insert().
- * Sene emails on workflow state transitions.
+ * Implements hook_workflow().
+ *
+ * @param $op
+ *   The current workflow operation: 'transition permitted', 'transition pre', or 'transition post'.
+ * @param $old_state
+ *   The state ID of the current state.
+ * @param $new_state
+ *   The state ID of the new state.
+ * @param $node
+ *   The node whose workflow state is changing.
+ * @param $force
+ *   The caller indicated that the transition should be forced. (bool).
+ *   This is only available on the "pre" and "post" calls.
  */
-function workflow_notify_entity_insert($entity, $type) {
-  if ($type == 'node' && isset($entity->workflow_transitions)
-    && count($entity->workflow_transitions) > 0) {
-    // Check if there is actually a state change.
-    if ($entity->workflow_transitions['field_workflow_state']->new_sid <>
-      $entity->workflow_transitions['field_workflow_state']->old_sid) {
-      _workflow_notify_send_notification($entity);
-    }
-  }
-}
-
-/**
- * Implements hook_entity_update().
- * Sene emails on workflow state transitions.
- */
-function workflow_notify_entity_update($entity, $type) {
-  if ($type == 'node' && isset($entity->workflow_transitions)
-    && count($entity->workflow_transitions) > 0) {
-    // Check if there is actually a state change.
-    if ($entity->workflow_transitions['field_workflow_state']->new_sid <>
-      $entity->workflow_transitions['field_workflow_state']->old_sid) {
-      _workflow_notify_send_notification($entity);
-    }
-  }
-}
-
-/**
- * React to a transition after it's done.
- */
-function _workflow_notify_send_notification($node) {
+function workflow_notify_workflow($op, $old_state, $new_state, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
   global $user;
-  // See if this is a state that we notify for.
-  $notify = variable_get('workflow_notify_roles', array());
+  switch ($op) {
+    // React to a transition after it's done.
+    case 'transition post':
+      // See if this is a state that we notify for.
+      $notify = variable_get('workflow_notify_roles', array());
 
-  // Get the new state from the transition object.
-  // @TODO: It could be possible to have more than one transition object?
-  // foreach ($node->workflow_transitions as $field_name => $transition).
-  $transition = array_pop($node->workflow_transitions);
-  $new_state = $transition->new_sid;
+      if (isset($notify[$new_state])) {
+        // List of content types.
+        $node_types = node_type_get_names();
 
-  if (isset($notify[$new_state])) {
-    // Okay, we are notifying someone of this change.
-    // So let's get the workflow object.
-    $workflow = workflow_get_workflows_by_type($node->type, 'node');
+        // The name of the person making the change.
+        $changer = format_username($user);
+        $changer_mail = $user->mail;
 
-    // Get the specific roles to notify.
-    $notify = $notify[$new_state];
+        list($entity_id, , $entity_bundle) = entity_extract_ids($entity_type, $entity);
 
-    // See if we want to notify the author too?
-    $notify_author = in_array(-1, $notify);
-    unset($notify[-1]);
+        // Okay, we are notifying someone of this change.
+        // So let's get the workflow object.
+        /* @var $workflow Workflow */
+        $workflow = workflow_get_workflows_by_type($entity_bundle, $entity_type);
+        $wid = $workflow->getWorkflowId();
 
-    // There could be no roles set.
-    if ($notify) {
-      // Get all the user accounts in those roles.
-      $query = "SELECT DISTINCT ur.uid FROM {users_roles} ur "
-        . "INNER JOIN {users} u ON u.uid = ur.uid "
-        . "WHERE ur.rid IN (:rids) AND u.status = 1 ";
-      $users = db_query($query, array(':rids' => $notify))->fetchCol();
-    }
-    else {
-      $users = array();
-    }
+        // And all the states.
+        $states = $workflow->getStates(TRUE);
 
-    // Add the author back in, if needed.
-    if ($notify_author) {
-      $users[] = $node->uid;
-    }
+        // Get the specific roles to notify.
+        $notify = $notify[$new_state];
 
-    // Load all the user entities, making sure there are no duplicates.
-    $accounts = entity_load('user', array_unique($users, SORT_NUMERIC));
+        // See if we want to notify the author too?
+        $notify_author = in_array(-1, $notify);
+        unset($notify[-1]);
 
-    // Call all modules that want to limit the list.
-    $args = array(
-      'users' => $accounts,
-      'node' => $node,
-      'state' => $new_state,
-      'roles' => $notify,
-      'workflow' => $workflow,
-      );
-    foreach (module_implements('workflow_notify') as $module) {
-      $function = $module . '_workflow_notify';
-      $function('users', $args);
-    }
+        // There could be no roles set.
+        if ($notify) {
+          // Get all the user accounts in those roles.
+          $query = "SELECT DISTINCT ur.uid "
+            . "FROM {users_roles} ur "
+            . "INNER JOIN {users} u ON u.uid = ur.uid "
+            . "WHERE ur.rid IN (:rids) "
+            . "AND u.status = 1 "
+            ;
+          $users = db_query($query, array(':rids' => $notify))->fetchCol();
+        }
+        else {
+          $users = array();
+        }
 
-    // Retrieve the remaining list without duplicates.
-    $accounts = $args['users'];
-    $addr_list = array();
+        // Some entities (like Term) have no Author.
+        if ($notify_author && isset($entity->uid)) {
+          $users[] = $entity->uid;
+        }
 
-    // Just quit if there are no users.
-    if (empty($accounts)) {
-      watchdog('workflow_notify', 'No recipients - email skipped.', array(),
-        WATCHDOG_DEBUG, l(t('view'), 'node/' . $node->nid));
-      return;
-    }
+        // Load all the user entities, making sure there are no duplicates.
+        $accounts = entity_load('user', array_unique($users, SORT_NUMERIC));
 
-    foreach ($accounts as $uid => $account) {
-      $addr_list[] = format_username($account) . '<' . $account->mail . '>';
-    }
+        // Call all modules that want to limit the list.
+        $args = array(
+          'users' => $accounts,
+          'node' => $entity,
+          'entity' => $entity, // Preparing for entities, keeping backward compatibility.
+          'entity_type' => $entity_type,
+          'state' => $new_state,
+          'roles' => $notify,
+          'workflow' => $workflow,
+          );
+        foreach (module_implements('workflow_notify') as $module) {
+          $function = $module . '_workflow_notify';
+          $function('users', $args);
+        }
 
-    $params = array(
-      'clear' => TRUE,
-      'sanitize' => FALSE,
-      'data' => array(
-        'node' => $node,
-        'user' => $user,
-        ),
-      'filter' => variable_get('workflow_notify_filter_format_' . $workflow->wid, 'filtered_html'),
-      'callback' => 'workflow_notify_token_callback',
-      );
+        // Retrieve the remaining list without duplicates.
+        $accounts = $args['users'];
+        $addr_list = array();
 
-    // Build the subject and body of the mail.
-    // Token replacement occurs in hook_mail().
-    // @TODO: Currently no translation occurs.
-    $params['context']['subject'] = variable_get("workflow_notify_subject_$new_state",
-      '[node:title] is now "[workflow:workflow-current-state-name]"');
+        // Just quit if there are no users.
+        if (empty($accounts)) {
+          watchdog('workflow_notify', 'No recipients - email skipped.', array(),
+            WATCHDOG_DEBUG, l(t('view'), 'node/' . $entity_id)); // @todo: other entity types.
+          return;
+        }
 
-    $params['context']['body'] = variable_get("workflow_notify_body_$new_state",
-      '<a href="[node:url:absolute]">[node:title]</a> is now "@state".');
+        foreach ($accounts as $uid => $account) {
+          $addr_list[] = format_username($account) . '<' . $account->mail . '>';
+        }
 
-    switch (variable_get('workflow_notify_from_address_' . $workflow->wid, 'site')) {
-      case 'site':
-        $from = variable_get('site_mail', ini_get('sendmail_from'));
-        break;
+        $params = array(
+          'clear' => TRUE,
+          'sanitize' => FALSE,
+          'data' => array(
+            'node' => $entity,
+            'entity' => $entity, // Preparing for entities, keeping backward compatibility.
+            'entity_type' => $entity_type,
+            'user' => $user,
+            ),
+          'filter' => variable_get('workflow_notify_filter_format_' . $wid, 'filtered_html'),
+          );
 
-      case 'changer':
-        $from = $user->mail;
-        break;
-    }
+        // Build the subject and body of the mail.
+        // Token replacement occurs in hook_mail().
+        // @TODO: Currently no translation occurs.
+        $params['context']['subject'] = variable_get("workflow_notify_subject_$new_state",
+          '[node:title] is now "[workflow:workflow-current-state-name]"');
 
-    // Send the email.
-    drupal_mail('workflow_notify',
-      'workflow_notify',
-      implode(';', $addr_list),
-      language_default(),
-      $params,
-      $from);
-  }
-}
+        $params['context']['body'] = variable_get("workflow_notify_body_$new_state",
+          '<a href="[node:url:absolute]">[node:title]</a> is now "@state".');
 
-/**
- * Token_replace callback.
- * For some strange reason, sometimes the workflow state is empty.
- */
-function workflow_notify_token_callback(&$replacements, $data, $options) {
-  if (isset($replacements['[node:field_workflow_state:new-state:label]'])
-  && empty($replacements['[node:field_workflow_state:new-state:label]'])) {
-    $replacements['[node:field_workflow_state:new-state:label]'] =
-      workflow_get_sid_label($data['node']->field_workflow_state[LANGUAGE_NONE][0]['value']);
+        switch (variable_get('workflow_notify_from_address_' . $wid, 'site')) {
+          case 'site':
+            $from = variable_get('site_mail', ini_get('sendmail_from'));
+            break;
+
+          case 'changer':
+            $from = $user->mail;
+            break;
+        }
+
+        // Send the email.
+        drupal_mail('workflow_notify',
+          'workflow_notify',
+          implode(';', $addr_list),
+          language_default(),
+          $params,
+          $from);
+      }
+
+    return;
   }
 }
 
@@ -253,12 +245,18 @@ function workflow_notify_mail($key, &$message, $params) {
     case 'workflow_notify':
       $filter = $params['filter'];
       $message['send'] = TRUE;
-//      dpm(token_replace($params['context']['body'], $params['data'], $params), 'body token replace');
 
-      $message['subject'] = filter_xss(token_replace($params['context']['subject'],
-        $params['data'], $params));
-      $message['body'][] = check_markup(token_replace($params['context']['body'],
-        $params['data'], $params), $filter);
+      $message['subject'] = filter_xss(token_replace($params['context']['subject'], $params['data'], $params));
+      $message['body'][] = check_markup(token_replace($params['context']['body'], $params['data'], $params), $filter);
+
+      watchdog('workflow_notify',
+        '<ul><li>Subject: @subject</li><li>Body: @body</li><li>To: @to</li><li>From: @from</li></ul>', array(
+          '@subject' => $message['subject'],
+          '@body' => implode('<br />', $message['body']),
+          '@to' => $message['to'],
+          '@from' => $message['from'],
+          ),
+        WATCHDOG_INFO, l(t('view'), 'node/' . $params['data']['node']->nid));
       return;
   }
 }

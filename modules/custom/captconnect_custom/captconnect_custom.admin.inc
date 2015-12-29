@@ -103,8 +103,31 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#title' => t('Ask users to check their accounts this often.'),
     '#default_value' => variable_get('captconnect_custom_account_check_interval', 7776000),
     '#description' => t('If the user has not updated their information in this
-      length of time, force them to do so.<br>If the value is "always," we will
+      length of time, force them to do so. If the value is "always," we will
       not prevent them from going to other pages.'),
+    );
+
+  $form['captconnect_custom_account_check_grace'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      300 => t('5 minutes'),
+      600 => t('10 minutes'),
+      900 => t('15 minutes'),
+      1800 => t('30 minutes'),
+      3600 => t('1 hour'),
+      7200 => t('2 hours'),
+      ),
+    '#title' => t('Grace period for checking their accounts.'),
+    '#default_value' => variable_get('captconnect_custom_account_check_grace', 3600),
+    '#description' => t('When the account check interval is "always", it can be rather
+      annoying to require it right after they\'ve just saved the account.
+      This is a minimum interval for bypassing the check.'),
+    '#states' => array(
+      // Only show when previous field is "Always".
+      'visible' => array(
+        ':input[name="captconnect_custom_account_check_interval"]' => array('value' => 0),
+        ),
+      ),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
@@ -121,7 +144,9 @@ function captconnect_custom_admin_settings($form, $form_state) {
  */
 function theme_captconnect_custom_admin_settings($variables) {
   $css = '#captconnect-custom-admin-settings {font-size: 100%;}
-  ';
+    table th, table td {width: 49%;}
+    .description {white-space: normal !important;}
+    ';
   drupal_add_css($css, 'inline');
 
   $output = '';
@@ -149,17 +174,18 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_participate_lead_time']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
-    );
-
-  $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_presenters_list_style']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_presenters_list_limit']), 'style' => $style),
     );
 
   $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_presenters_list_limit']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_presenters_list_show_past']), 'style' => $style),
+    );
+
+  $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
+//    array('data' => "&nbsp;", 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -360,6 +386,16 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#description' => t("When someone logs in, check if it's been a while."),
     );
 
+  $form['captconnect_custom_require_group_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 2,
+    '#title' => t('Require Group Membership'),
+    '#default_value' => variable_get('captconnect_custom_require_group_msg',
+      "Special roles require an RT group selection."),
+    '#description' => t("When someone is assigned to a content role,
+      membership in a group."),
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -418,6 +454,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_email_help']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_require_group_msg']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
     );
 
   $output .= theme('table', array(
