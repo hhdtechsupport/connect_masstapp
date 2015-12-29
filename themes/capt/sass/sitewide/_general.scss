@@ -966,3 +966,99 @@ body.node-type-page {
     font-weight: normal;
   }
 }
+
+
+
+div.krumo-preview {
+  color: #E5E4E4;
+  background: #323232;
+  font-size: 15px;
+}
+
+div.vertical-tabs {
+  background: $capt-lightgrey;
+  ul.vertical-tabs-list {
+    //margin-top: -6px;
+    li.vertical-tab-button {
+      color: $capt-aqua;
+      background: #fff;
+      a {
+        color: $capt-black;
+        &:hover {
+          outline: none;
+          color: $capt-maroon;
+        }
+      }
+      &.selected {
+        background: $capt-lightgrey !important;
+        border-top: 5px solid $capt-aqua !important;
+      }
+      &:not(.selected) {
+        padding-top: 5px;
+      }
+    }
+  }
+  .vertical-tabs-panes {
+    border-top: 5px solid $capt-aqua;
+  }
+
+}
+
+#event-notifications-node-form {
+  margin-bottom: 20px;
+  .field-type-list-boolean label {
+    font-weight: bold;
+  }
+  .field-widget-inline-entity-form-single {
+    &> div > fieldset {
+      border: 0px;
+      &>legend {
+        display: none;
+        & .field-name-field-prevent-notification > .form-item {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  #edit-field-days-before-event-to-send,
+  #edit-field-days-after-event-to-send {
+    margin: -15px 15px 0;
+  }
+  #edit-field-send-test-notification,
+  #edit-field-send-event-announcement {
+    padding: 15px 20px;
+  }
+  #edit-field-send-event-announcement {
+    .form-type-date-combo {
+      margin-top: 2em;
+      .form-item {
+        margin: 0.25em 0;
+        label:not(.option) {
+          font-weight: normal;
+        }
+      }
+    }
+    .form-type-checkboxes .form-item {
+      margin: 0px;
+    }
+  }
+  input[value="Change"] {
+    background-color: $capt-maroon;
+    &:hover {
+      background-color: lighten($capt-maroon, 10%);
+    }
+  }
+  input[value="Send message"] {
+    background-color: $capt-green;
+    &:hover {
+      background-color: lighten($capt-green, 10%);
+    }
+    float: right;
+  }
+  input[value="Send test message"] {
+    background-color: $capt-green;
+    &:hover {
+      background-color: lighten($capt-green, 10%);
+    }
+  }
+}

@@ -205,74 +205,7 @@
 
 
 
-  /*
-   * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
-   */
 
-  // Limit default template options and hide notification fields if "Do not send this type of notification" selected
-  var subject = '';
-  var body = '';
-
-  $('#event-notifications-node-form > div > .panel').each(function(){
-    // Store the contents of the fieldset in a variable
-    var $notificationFieldset = $(this);
-    // Get the "do not send this type of notification" checkbox
-    var $preventCheckbox = $notificationFieldset.find('.field-name-field-prevent-notification');
-    // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
-    if ($preventCheckbox.find('input').prop('checked')) {
-      $notificationFieldset.find('.group-form').css('display','none').next().css('display','none');
-    }
-
-    // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
-    $preventCheckbox.find('input').change(function(){
-      $notificationFieldset.find('.group-form').slideToggle().next().toggle();
-    });
-
-    // Limit the available default templates to those that match the category of notification, based on taxonomy
-    $notificationFieldset.find('.field-name-field-use-a-default-template select option').each(function(){
-      // Get this option's value
-      var optionValue = $(this).text().trim();
-      // Split the option so that we get the category of the template (we can have many different templates of a particular category)
-      var optionCategory = optionValue.split('|');
-      // Grab this fieldset's label so we can compare
-      var notificationLabel = $notificationFieldset.find('legend').text().trim();
-      // Compare the category of the template with the fieldset's label and only keep if they match
-      if ((optionCategory[0] != notificationLabel) && (optionCategory[0] != '- None -')) {
-        $(this).remove();
-      }
-      else {
-        $(this).text(optionCategory[0]);
-      }
-    });
-    $templateSelect = $notificationFieldset.find('.field-name-field-use-a-default-template select');
-
-    $templateSelect.chosen();
-
-    $('.field-type-text input, .field-type-text-long')
-    if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
-      $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
-      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
-    }
-    else {
-      $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
-      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
-    }
-
-    $templateSelect.change(function(){
-      if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
-        $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
-        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
-      }
-      else {
-        $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
-        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
-      }
-    });
-  });
-
-  /*
-   * END OF: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
-   */
 
 
   // Controlling the special selections, like "Other" and "I prefer not to answer"
@@ -740,6 +673,151 @@ function otherSelectbox ($field, $fieldPrev) {
   // Change the "Please review your submission" page elements
   $('div.messages:contains("Please review your submission")').removeClass('status').addClass('warning').text('Please review your pending email below. If you are satisfied with the recipients selected and content entered, then click "Send Message" to confirm.');
   $('.entityform .content .submitted').remove();
+
+
+
+
+
+  /*
+   * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
+   */
+
+  // Limit default template options and hide notification fields if "Do not send this type of notification" selected
+  var subject = '';
+  var body = '';
+
+  $('#event-notifications-node-form .vertical-tabs-panes .field-widget-inline-entity-form-single').each(function(){
+    // Store the contents of the fieldset in a variable
+    var $notificationFieldset = $(this);
+    // Get the "do not send this type of notification" checkbox
+    var $preventCheckbox = $notificationFieldset.find('.field-name-field-prevent-notification');
+    // Hide fieldset contents if "do not send this type of notification" is checked when form is loaded
+    if ($preventCheckbox.find('input').prop('checked')) {
+      $notificationFieldset.find('.group-form').css('display','none').next().css('display','none');
+    }
+
+    // Show or hide fieldset contents if "do not send this type of notification" checkbox is changed
+    $preventCheckbox.find('input').change(function(){
+      $notificationFieldset.find('.group-form').toggle().next().toggle();
+    });
+
+    // Limit the available default templates to those that match the category of notification, based on taxonomy
+    $notificationFieldset.find('.field-name-field-use-a-default-template select option').each(function(){
+      // Get this option's value
+      var optionValue = $(this).text().trim();
+      // Split the option so that we get the category of the template (we can have many different templates of a particular category)
+      var optionCategory = optionValue.split('|');
+      // Grab this fieldset's label so we can compare
+      var notificationLabel = $notificationFieldset.find('legend').text().trim();
+      // Compare the category of the template with the fieldset's label and only keep if they match
+      if ((optionCategory[0] != notificationLabel) && (optionCategory[0] != '- None -')) {
+        $(this).remove();
+      }
+      else {
+        $(this).text(optionCategory[0]);
+      }
+    });
+
+    $templateSelect = $notificationFieldset.find('.field-name-field-use-a-default-template select');
+    $templateSelect.chosen();
+
+    $('.field-type-text input, .field-type-text-long')
+    if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+    }
+    else {
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+      $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+    }
+
+    $templateSelect.change(function(){
+      if($templateSelect.next().find('a.chosen-single').text() == "- None -") {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().show();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().show();
+      }
+      else {
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().hide();
+        $notificationFieldset.find('.field-name-field-use-a-default-template').next().next().hide();
+      }
+    });
+  });
+
+
+  // If pending notification being sent, then skip down that tab and update message
+  if ($('.messages.warning:contains("Please review your pending email below")').length) {
+    $warningMessage = $('.messages.warning');
+    pendingFormTitle = $('#edit-change').closest('.entity-entityform-type').find('h2').text().trim();
+    $('.vertical-tab-button').each(function(){
+      if ($(this).find('> a > strong').text() == pendingFormTitle) {
+        $(this).find('> a').click();
+      }
+    });
+  }
+  else {
+    $('input[value="Send message"]').val('Review Message & Send');
+  }
+
+  /*
+   * END OF: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
+   */
+
+
+
+
+
+  // Pseudo Vertical tabs
+
+  // USER ACCOUNT AND PROFILE SINGLE FORM
+
+  $('#user-profile-form').each(function(){
+
+  	$(this).find('> div > fieldset:first-of-type').before('<div class="vertical-tabs clearfix"><ul class="vertical-tabs-list"></ul><div class="vertical-tabs-panes vertical-tabs-processed"></div></div>');
+  	$tabs_list = $('.vertical-tabs-list');
+  	$tabs_panes = $('.vertical-tabs-panes');
+
+  	$(this).find('> div > fieldset , #edit-field-feedback-und-0').each(function(){
+
+  		tab_label = $(this).find('> legend > .fieldset-legend').text();
+  		$tabs_list.append('<li class="vertical-tab-button"><a href="#"><strong>' + tab_label + '</strong></a></li>');
+  		$(this).addClass('vertical-tabs-pane').appendTo($tabs_panes);
+
+  	});
+
+  	$first_tab = $tabs_list.find('> li:nth-child(1)');
+  	$first_tab.addClass('first').addClass('selected');
+  	reveal_panes($first_tab);
+
+  	$tabs_list.find('> li').on('click',function(){
+  		reveal_panes($(this));
+  	});
+
+  	// Move available fields into the user settings group
+  	$('#edit-profile-main-field-available').appendTo('.group-user-settings > .fieldset-wrapper');
+  	$('#edit-profile-main-field-reason-unavailable').appendTo('.group-user-settings > .fieldset-wrapper');
+  	$('#edit-profile-main-field-comments-if-not-available').appendTo('.group-user-settings > .fieldset-wrapper');
+
+  });
+
+  $('.page-user .field-name-field-available').appendTo('.group-user-settings > .fieldset-wrapper');
+  $('.page-user .field-name-field-reason-unavailable').appendTo('.group-user-settings > .fieldset-wrapper');
+  $('.page-user .field-name-field-comments-if-not-available').appendTo('.group-user-settings > .fieldset-wrapper');
+
+
+
+  function reveal_panes($tab) {
+  	index = $('ul.vertical-tabs-list li').index($tab) + 1;
+  	$('.vertical-tabs-panes > fieldset').css('display','none');
+  	$('.vertical-tab-button').each(function(){
+  		$(this).removeClass('selected');
+  	});
+  	$('.vertical-tabs-panes > fieldset:nth-child(' + index + ')').css('display','block');
+  	$tab.addClass('selected');
+  }
+
+
+
+
 
 
 
