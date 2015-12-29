@@ -6,7 +6,7 @@
  * Contains workflow\includes\Entity\WorkflowController.
  */
 
-class Workflow extends Entity implements WorkflowInterface {
+class Workflow extends Entity {
   public $wid = 0;
   public $name = '';
   public $tab_roles = array();
@@ -247,16 +247,6 @@ class Workflow extends Entity implements WorkflowInterface {
   /**
    * Property functions.
    */
-
-  /**
-   * Returns the workflow id.
-   *
-   * @return int
-   *   $wid
-   */
-  public function getWorkflowId() {
-    return $this->wid;
-  }
 
   /**
    * Create a new state for this workflow.
