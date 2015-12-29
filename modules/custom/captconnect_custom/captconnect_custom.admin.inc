@@ -386,6 +386,16 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#description' => t("When someone logs in, check if it's been a while."),
     );
 
+  $form['captconnect_custom_require_group_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 2,
+    '#title' => t('Require Group Membership'),
+    '#default_value' => variable_get('captconnect_custom_require_group_msg',
+      "Special roles require an RT group selection."),
+    '#description' => t("When someone is assigned to a content role,
+      membership in a group."),
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -444,6 +454,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_login_email_help']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_require_group_msg']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
     );
 
   $output .= theme('table', array(
