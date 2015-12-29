@@ -150,6 +150,17 @@ function captconnect_custom_menu() {
     'file' => 'captconnect_custom.pages.inc',
     );
 
+  $items['administration/anon_pending'] = array(
+    'title' => 'Pending Anonymous Log Ins',
+    'description' => 'Anonymous Log Ins not yet completed.',
+    'page callback' => 'captconnect_custom_anon_pending',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+    'menu_name' => 'main-menu',
+    'file' => 'captconnect_custom.pages.inc',
+    );
+
   $items['nancy'] = array(
     'title' => 'Nancy',
     'description' => 'Stuff that needs a menu item',
