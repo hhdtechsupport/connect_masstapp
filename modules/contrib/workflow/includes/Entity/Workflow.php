@@ -6,6 +6,10 @@
  * Contains workflow\includes\Entity\WorkflowController.
  */
 
+interface WorkflowInterface
+{
+
+} 
 class Workflow extends Entity implements WorkflowInterface {
   public $wid = 0;
   public $name = '';
