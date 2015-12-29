@@ -658,7 +658,7 @@ function admin_menu_theme_settings() {
     '#default_value' => variable_get('admin_menu_tweak_modules', 0),
   );
   if (module_exists('util')) {
-    $form['tweaks']['admin_menu_tweak_modules']['#description'] .= '<br /><strong>' . t('If the Utility module was installed for this purpose, it can be safely disabled and uninstalled.') . '</strong>';
+    $form['tweaks']['admin_menu_tweak_modules']['#description'] = '<br /><strong>' . t('If the Utility module was installed for this purpose, it can be safely disabled and uninstalled.') . '</strong>';
   }
   $form['tweaks']['admin_menu_tweak_permissions'] = array(
     '#type' => 'checkbox',
