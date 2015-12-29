@@ -41,7 +41,7 @@ function mail_logger_admin_settings_form($form, &$form_state) {
   $form['mail_logger_log_lines_per_page'] = array(
     '#type' => 'radios',
     '#options' => array(10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 75 => 75, 100 => 100),
-    '#title' => t('LLines per page'),
+    '#title' => t('Lines per page'),
     '#default_value' => variable_get('mail_logger_log_lines_per_page', 50),
     '#description' => t('This is the number of lines that will appear on the log display page.'),
     );
