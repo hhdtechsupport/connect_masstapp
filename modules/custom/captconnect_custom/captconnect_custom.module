@@ -217,7 +217,7 @@ function captconnect_custom_menu_alter(&$items) {
  *
  * Prevent leaving the login page when they need to update their data.
  */
-/*
+
 function captconnect_custom_init() {
   // Note that the $user object does not contain fields.
   global $user;
@@ -232,7 +232,7 @@ function captconnect_custom_init() {
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
   $grace = ($check_interval == 0 ?
     variable_get('captconnect_custom_account_check_grace', 3600) : 60);
-  $grace = 3600;
+
   $how_long_ago = (isset($user->data['last_account_edit']) ?
     (REQUEST_TIME - $user->data['last_account_edit']) : $check_interval + 1);
 
@@ -253,8 +253,11 @@ function captconnect_custom_init() {
     drupal_set_message(t($msg), $msg_level, FALSE);
   }
   else {
+    // Make them stay here.
     if ($check_interval > 0 || $how_long_ago >= $grace) {
-      drupal_goto("user/$user->uid/edit");
+      // We'll be nice and save where they want to go.
+      $dest = array('query' => array('destination' => $_GET['q']));
+      drupal_goto("user/$user->uid/edit", $dest);
     }
   }
 } /* */
@@ -945,21 +948,20 @@ function captconnect_custom_user_login(&$edit, $account) {
   // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
     0 : $account->data['last_account_edit']);
-/*
+
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
   $how_long_ago = REQUEST_TIME - $last_edit;
+
+  // Give an hour's grace.
   $grace = ($check_interval == 0 ?
     variable_get('captconnect_custom_account_check_grace', 3600) : 0);
-  // Give an hour's grace.
+
   if ($how_long_ago > $check_interval && $how_long_ago > $grace) {
     $edit['redirect'] = 'user/' . $account->uid . '/edit';
     $msg_level = ($check_interval == 0 ? 'status' : 'warning');
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")), $msg_level, FALSE);
-    // Reset it to now in case they do save.
-    $account->data['last_account_edit'] = REQUEST_TIME;
   }
-/* */
 
   // Find out if the user is mid-registration (anon user).
   if (isset($edit['#captconnect_anon_instance'])) {
