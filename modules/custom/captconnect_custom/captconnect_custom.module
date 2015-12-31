@@ -7,6 +7,7 @@
 // OPEN CODE.
   global $conf;
   $conf['locale_custom_strings_en'][''] = array(
+    // This message comes from the Password Policy module.
     'Your password has expired. You must change your password to proceed on the site.' =>
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
@@ -928,18 +929,9 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     }
   }
 }
-/*
-function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response_code) {
-//  $http_response_code = '302';
-  dpm($http_response_code, 'http_response_code');
-  dpm($path, 'path');
-  dpm($options, 'options');
-//  dpm($_GET['q'], 'q');
-  dpm($_SERVER['REQUEST_URI'], 'REQUEST_URI');
-} /* */
 
 /**
- * Implementation of hook_user_login().
+ * Implements hook_user_login().
  */
 function captconnect_custom_user_login(&$edit, $account) {
   // Default redirect should be the front page.
@@ -1086,9 +1078,14 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
   $instance_list = array();
   foreach ($form['#instances'] as $nid => $instance) {
     $instance_list[$nid] = $instance->title;
+    if (!isset($instance->field_max_registration[LANGUAGE_NONE][0]['value'])) {
+      $instance->field_max_registration[LANGUAGE_NONE][0]['value'] = 0;
+    }
+    $max_registration = $instance->field_max_registration[LANGUAGE_NONE][0]['value'];
 
     // Is the instance full?
-    if ($reg_flag->get_count($instance->nid) >= $instance->field_max_registration[LANGUAGE_NONE][0]['value']) {
+    if ($max_registration > 0
+    && $reg_flag->get_count($instance->nid) >= $max_registration) {
       $instance_list[$nid] .= ' [' . t('full') . ']';
     }
     else {
