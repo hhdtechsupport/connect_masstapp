@@ -130,8 +130,9 @@
                       <table class="mailing center">
                         <tr>
                           <td>
+                            <p style="padding-bottom: 15px;">You are receiving this message because you chose to receive notifications by creating a user account. If you no longer wish to receive such emails, you must <a href="<?php print $base_url; ?>/user">log in</a> and then cancel your account.</p>
                             <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | 43 Foundry Ave | Waltham, MA 02453-8313</p>
-                            <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a> | <a href="<?php print $base_url; ?>">Unsubscribe</a></p>
+                            <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
                           </td>
                         </tr>
                       </table>

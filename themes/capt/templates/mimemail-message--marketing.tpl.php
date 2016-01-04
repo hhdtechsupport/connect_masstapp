@@ -19,9 +19,9 @@
  * @see template_preprocess_mimemail_message()
  */
 ?>
-<!-- mimemail-message__registration-confirmation.tpl.php -->
-<?php $base_url = $GLOBALS['base_url']; ?>
+<!-- mimemail-message__workflow-notify.tpl.php -->
 
+<?php $base_url = $GLOBALS['base_url']; ?>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -103,7 +103,31 @@
                 <table class="center content">
                   <tr>
                     <td bgcolor="#FFFFFF">
-                      <?php print $body; ?>
+                      <div style="padding: 25px"><?php print $body; ?></div>
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="center content">
+                  <tr>
+                    <td bgcolor="#FFFFFF">
+
+                      <table class="section center">
+                        <tr>
+                          <td>
+
+                            <table class="box gray">
+                              <tr>
+                                <td>
+                                  <p>You are receiving this email because your contact information was reported to SAMHSA through prevention grant applications or another source. We try our best to deliver emails only to those who have requested information about upcoming CAPT online offerings as well as those who would benefit most from such offerings. If you received this email inadvertently, you may <a href="<?php print $base_url; ?>/mailing-lists/unsubscribe">unsubscribe using this form</a>.</p>
+                                </td>
+                              </tr>
+                            </table>
+
+                          </td>
+                        </tr>
+                      </table>
+
                     </td>
                   </tr>
                 </table>
@@ -131,7 +155,7 @@
                         <tr>
                           <td>
                             <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | 43 Foundry Ave | Waltham, MA 02453-8313</p>
-                            <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
+                            <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a> | <a href="<?php print $base_url; ?>/mailing-lists/unsubscribe">Unsubscribe</a></p>
                           </td>
                         </tr>
                       </table>
