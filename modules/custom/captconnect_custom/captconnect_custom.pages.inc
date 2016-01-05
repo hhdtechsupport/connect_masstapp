@@ -287,6 +287,19 @@ function _captconnect_custom_link_events($a) {
  * Show a list of Pending Anon Log Ins.
  */
 function captconnect_custom_anon_pending() {
+  // See if we are to do cleanup.
+  if (isset($_GET['delete'])) {
+    $clean_up = $_GET['delete'];
+    drupal_set_message(t('Removing records older than @int days.', 
+      array('@int' => $clean_up)));
+    // Make it in seconds.
+    $clean_up = $clean_up * 86400;
+  }
+  else {
+    $clean_up = FALSE;
+  }
+
+  // Get the existing records.
   $query = "SELECT ar.uid, ar.nid, n.title AS instance, en.nid AS enid, "
     . "en.title AS event, rn.realname, u.name, u.created "
     . "FROM {captconnect_custom_anon_register} ar "
@@ -297,14 +310,24 @@ function captconnect_custom_anon_pending() {
     . "LEFT JOIN node en ON en.nid = ev.field_related_events_target_id "
     ;
   $result = db_query($query);
+
   $table = array(
     'header' => array(t('User'), t('Event'), t('Instance'), t('Created')),
     'rows' => array(),
     'attributes' => array('id' => 'anon-pending-table'),
     );
+
   foreach ($result as $row) {
     if (is_null($row->name)) {
-      drupal_set_message(t('User @uid is invalid.', array('@uid' => $row->uid)));
+      if ($clean_up) {
+        drupal_set_message(t('Deleting user @id', array('@id' => $row->uid)));
+        db_delete('captconnect_custom_anon_register')
+          ->condition('uid', $row->uid)
+          ->execute();
+      }
+      else {
+        drupal_set_message(t('User @uid is invalid.', array('@uid' => $row->uid)));
+      }
     }
     else {
       $name = filter_xss((empty($row->realname) ? $row->name : $row->realname))
@@ -315,6 +338,12 @@ function captconnect_custom_anon_pending() {
         l($row->instance, 'node/' . $row->nid),
         format_date($row->created),
         );
+      if ($clean_up && ((REQUEST_TIME - $row->created) > $clean_up)) {
+        drupal_set_message(t('Deleting user @id', array('@id' => $name)));
+        db_delete('captconnect_custom_anon_register')
+          ->condition('uid', $row->uid)
+          ->execute();
+      }
     }
   }
 
