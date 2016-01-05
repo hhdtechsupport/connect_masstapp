@@ -7,6 +7,7 @@
 // OPEN CODE.
   global $conf;
   $conf['locale_custom_strings_en'][''] = array(
+    // This message comes from the Password Policy module.
     'Your password has expired. You must change your password to proceed on the site.' =>
       variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
@@ -150,6 +151,17 @@ function captconnect_custom_menu() {
     'file' => 'captconnect_custom.pages.inc',
     );
 
+  $items['administration/anon_pending'] = array(
+    'title' => 'Pending Anonymous Log Ins',
+    'description' => 'Anonymous Log Ins not yet completed.',
+    'page callback' => 'captconnect_custom_anon_pending',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+    'menu_name' => 'main-menu',
+    'file' => 'captconnect_custom.pages.inc',
+    );
+
   $items['nancy'] = array(
     'title' => 'Nancy',
     'description' => 'Stuff that needs a menu item',
@@ -206,22 +218,28 @@ function captconnect_custom_menu_alter(&$items) {
  *
  * Prevent leaving the login page when they need to update their data.
  */
-/*
+
 function captconnect_custom_init() {
   // Note that the $user object does not contain fields.
   global $user;
 
-  // Check if they are logged in or trying to logout.
-  if ($user->uid == 0 || (arg(0) == 'user' && arg(1) == 'logout')) {
+  // Check if they are logged in or trying to logout
+  // or editing someone else's account.
+  $a0 = arg(0);
+  $a1 = arg(1);
+  if ($user->uid == 0
+  || ($a0 == 'user' && $a1 == 'logout')
+  || ($a0 == 'user' && $a1 != $user->uid)) {
     // Nope, just leave.
     return;
   }
 
   // Have they updated their account since we started this?
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
-  $grace = ($check_interval == 0 ?
-    variable_get('captconnect_custom_account_check_grace', 3600) : 60);
-  $grace = 3600;
+//  $grace = ($check_interval == 0 ?
+//    variable_get('captconnect_custom_account_check_grace', 3600) : 60);
+  $grace = variable_get('captconnect_custom_account_check_grace', 3600);
+
   $how_long_ago = (isset($user->data['last_account_edit']) ?
     (REQUEST_TIME - $user->data['last_account_edit']) : $check_interval + 1);
 
@@ -242,11 +260,48 @@ function captconnect_custom_init() {
     drupal_set_message(t($msg), $msg_level, FALSE);
   }
   else {
+    // Make them stay here.
     if ($check_interval > 0 || $how_long_ago >= $grace) {
-      drupal_goto("user/$user->uid/edit");
+      // We'll be nice and save where they want to go.
+      $dest = array('query' => array('destination' => $_GET['q']));
+      drupal_goto("user/$user->uid/edit", $dest);
     }
   }
 } /* */
+
+/**
+ * Implements hook_drupal_goto_alter().
+ */
+function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+  // Get all outstanding mesaages.
+  $msgs = drupal_get_messages();
+
+  // List of our bypasss-able messages.
+  $our_msgs = array(
+    variable_get('captconnect_custom_account_check_msg',
+      "Check your personal information, please."),
+    );
+
+  // Check them all.
+  foreach ($msgs as $sev => $list) {
+    foreach ($list as $msg) {
+      // If it is not one of our bypass-ables, save it.
+      if (!in_array($msg, $our_msgs)) {
+        drupal_set_message($msg, $sev);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_admin_paths_alter().
+ * Trying to eliminate Themekey.
+ */
+function captconnect_custom_admin_paths_alter(&$paths) {
+  // Treat all user pages as non-administrative.
+  $paths['user'] = FALSE;
+  $paths['user/*'] = FALSE;
+}
 
 /**
  * Implements hook_node_access().
@@ -889,6 +944,7 @@ function captconnect_custom_user_register_submit($form, $form_state) {
         );
       $success = drupal_write_record('captconnect_custom_anon_register', $record);
     }
+  }
 
     // This is embarrassing, but I couldn't figure out any other way
     // to prevent that message from coming out a second time.
@@ -912,20 +968,10 @@ function captconnect_custom_user_register_submit($form, $form_state) {
         drupal_set_message($msg);
       }
     }
-  }
 }
-/*
-function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response_code) {
-//  $http_response_code = '302';
-  dpm($http_response_code, 'http_response_code');
-  dpm($path, 'path');
-  dpm($options, 'options');
-//  dpm($_GET['q'], 'q');
-  dpm($_SERVER['REQUEST_URI'], 'REQUEST_URI');
-} /* */
 
 /**
- * Implementation of hook_user_login().
+ * Implements hook_user_login().
  */
 function captconnect_custom_user_login(&$edit, $account) {
   // Default redirect should be the front page.
@@ -934,21 +980,20 @@ function captconnect_custom_user_login(&$edit, $account) {
   // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
     0 : $account->data['last_account_edit']);
-/*
+
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
   $how_long_ago = REQUEST_TIME - $last_edit;
+
+  // Give an hour's grace.
   $grace = ($check_interval == 0 ?
     variable_get('captconnect_custom_account_check_grace', 3600) : 0);
-  // Give an hour's grace.
+
   if ($how_long_ago > $check_interval && $how_long_ago > $grace) {
     $edit['redirect'] = 'user/' . $account->uid . '/edit';
     $msg_level = ($check_interval == 0 ? 'status' : 'warning');
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")), $msg_level, FALSE);
-    // Reset it to now in case they do save.
-    $account->data['last_account_edit'] = REQUEST_TIME;
   }
-/* */
 
   // Find out if the user is mid-registration (anon user).
   if (isset($edit['#captconnect_anon_instance'])) {
@@ -1073,9 +1118,14 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
   $instance_list = array();
   foreach ($form['#instances'] as $nid => $instance) {
     $instance_list[$nid] = $instance->title;
+    if (!isset($instance->field_max_registration[LANGUAGE_NONE][0]['value'])) {
+      $instance->field_max_registration[LANGUAGE_NONE][0]['value'] = 0;
+    }
+    $max_registration = $instance->field_max_registration[LANGUAGE_NONE][0]['value'];
 
     // Is the instance full?
-    if ($reg_flag->get_count($instance->nid) >= $instance->field_max_registration[LANGUAGE_NONE][0]['value']) {
+    if ($max_registration > 0
+    && $reg_flag->get_count($instance->nid) >= $max_registration) {
       $instance_list[$nid] .= ' [' . t('full') . ']';
     }
     else {
@@ -1298,6 +1348,38 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
+
+  $query = "SELECT u.uid, u.data, r.realname, u.created FROM {users} u "
+    . "LEFT JOIN realname r ON r.uid = u.uid "
+    . "WHERE u.uid > 0 "
+    ;
+  $result = db_query($query);
+  $table = array(
+    'header' => array(t('User'), t('Last Edit'), t('Created')),
+    'rows' => array(),
+    );
+  foreach ($result as $row) {
+    $data = unserialize($row->data);
+    if (isset($data['last_account_edit'])) {
+      $lae = format_date($data['last_account_edit']);
+    }
+    else {
+      $lae = 'never';
+      $data['last_account_edit'] = $row->created;
+      $num_updated = db_update('users')
+        ->fields(array('data' => serialize($data)))
+        ->condition('uid', $row->uid)
+        ->execute();
+    }
+    $table['rows'][] = array(
+      l($row->realname, "user/$row->uid/edit"),
+      $lae,
+      format_date($row->created),
+      );
+  }
+  $output .= theme('table', $table);
+
+  return $output;
 
   $flag = flag_get_flag('registration');
   $now = format_date(strtotime('0600', REQUEST_TIME), 'custom', 'Y-m-d h:i:s');
