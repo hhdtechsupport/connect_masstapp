@@ -207,7 +207,13 @@ function mail_logger_form_overview_validate($form, &$form_state) {
     return;
   }
 
-  if ($form_state['values']['to_date'] < $form_state['values']['from_date']) {
+  $from_date = strtotime($form_state['values']['from_date']['year'] 
+    . $form_state['values']['from_date']['month']
+    . $form_state['values']['from_date']['day']);
+  $to_date = strtotime($form_state['values']['to_date']['year'] 
+    . $form_state['values']['to_date']['month']
+    . $form_state['values']['to_date']['day']);
+  if ($to_date < $from_date) {
     form_set_error('to_date', 'The To Date must be after the From Date.');
   }
   if (!empty($form_state['values']['search_value']) && empty($form_state['values']['search_field'])) {

@@ -6,7 +6,10 @@
  * Contains workflow\includes\Entity\WorkflowController.
  */
 
-class Workflow extends Entity {
+// Include file to avoid drush upgrade errors.
+include_once('WorkflowInterface.php');
+
+class Workflow extends Entity implements WorkflowInterface {
   public $wid = 0;
   public $name = '';
   public $tab_roles = array();

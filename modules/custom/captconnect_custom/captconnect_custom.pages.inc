@@ -248,7 +248,7 @@ function captconnect_custom_presenter_list() {
 }
 
 /**
- * Helper functio for linking events.
+ * Helper function for linking events.
  */
 function _captconnect_custom_link_events($a) {
   $instance_list = db_select('field_data_field_date_instance', 'd');
@@ -280,4 +280,43 @@ function _captconnect_custom_link_events($a) {
   }
 
   return $ret;
+}
+
+/**
+ * Menu Callback
+ * Show a list of Pending Anon Log Ins.
+ */
+function captconnect_custom_anon_pending() {
+  $query = "SELECT ar.uid, ar.nid, n.title AS instance, en.nid AS enid, "
+    . "en.title AS event, rn.realname, u.name, u.created "
+    . "FROM {captconnect_custom_anon_register} ar "
+    . "LEFT JOIN {node} n ON n.nid = ar.nid "
+    . "LEFT JOIN {realname} rn ON rn.uid = ar.uid "
+    . "LEFT JOIN {users} u ON u.uid = ar.uid "
+    . "LEFT JOIN field_data_field_related_events ev ON ev.entity_id = ar.nid "
+    . "LEFT JOIN node en ON en.nid = ev.field_related_events_target_id "
+    ;
+  $result = db_query($query);
+  $table = array(
+    'header' => array(t('User'), t('Event'), t('Instance'), t('Created')),
+    'rows' => array(),
+    'attributes' => array('id' => 'anon-pending-table'),
+    );
+  foreach ($result as $row) {
+    if (is_null($row->name)) {
+      drupal_set_message(t('User @uid is invalid.', array('@uid' => $row->uid)));
+    }
+    else {
+      $name = filter_xss((empty($row->realname) ? $row->name : $row->realname))
+        . ' (' . $row->uid . ')';
+      $table['rows'][] = array(
+        l($name, 'user/' . $row->uid . '/edit'),
+        l($row->event, 'node/' . $row->enid),
+        l($row->instance, 'node/' . $row->nid),
+        format_date($row->created),
+        );
+    }
+  }
+
+  return theme('table', $table);
 }
