@@ -103,31 +103,18 @@
                 <table class="center content">
                   <tr>
                     <td bgcolor="#FFFFFF">
-                      <div style="padding: 25px"><?php print $body; ?></div>
+                      <div><?php print $body; ?></div>
                     </td>
                   </tr>
-                </table>
-
-                <table class="center content">
                   <tr>
-                    <td bgcolor="#FFFFFF">
-
-                      <table class="section center">
+                    <td style="padding: 25px">
+                      <table class="box disclaimer">
                         <tr>
                           <td>
-
-                            <table class="box gray">
-                              <tr>
-                                <td>
-                                  <p>You are receiving this email because your contact information was reported to SAMHSA through prevention grant applications or another source. We try our best to deliver emails only to those who have requested information about upcoming CAPT online offerings as well as those who would benefit most from such offerings. If you received this email inadvertently, you may <a href="<?php print $base_url; ?>/mailing-lists/unsubscribe">unsubscribe using this form</a>.</p>
-                                </td>
-                              </tr>
-                            </table>
-
+                            <p>You are receiving this email because your contact information was reported to SAMHSA through prevention grant applications or another source. We try our best to deliver emails only to those who have requested information about upcoming CAPT online offerings as well as those who would benefit most from such offerings. If you received this email inadvertently, you may <a href="<?php print $base_url; ?>/mailing-lists/unsubscribe">unsubscribe using this form</a>.</p>
                           </td>
                         </tr>
                       </table>
-
                     </td>
                   </tr>
                 </table>

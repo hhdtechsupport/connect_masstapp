@@ -48,9 +48,24 @@ p {
       -moz-border-radius: 3px;
       -ms-border-radius: 3px;
       border-radius: 3px;
-      &:hover {
-        background: #E7942F !important;
-      }
+    }
+  }
+  &.green-button {
+    float: right;
+    position: absolute;
+    right: 25px;
+    top: 60px;
+    a {
+      margin-top: 10px;
+      font-weight: normal;
+      background: #888a55;
+      padding: 12px 16px;
+      color: white;
+      text-decoration: none;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      border-radius: 3px;
     }
   }
 }
@@ -223,7 +238,7 @@ table, tbody, tr, td {
     margin-left: 0px;
     margin-top: 0px;
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     width: 160px;
     height: 120px;
   }
@@ -259,18 +274,34 @@ table.content {
     font-style: normal;
     font-weight: normal;
     color: #577785;
-    font-size: 14pt;
-    margin: 15px 0 5px;
-    & + .views-row {
-      padding-left: 10px;
+    font-size: 12pt;
+    div {
+      margin: 15px 0 5px;
+      &.row-0 {
+        margin-top: 0px;
+      }
     }
   }
   div.view-instances .views-row div {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     &.views-field {
-      padding-bottom: 0;
-      padding-top: 0;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
     }
   }
+}
+
+.disclaimer {
+  border: 3px solid #DDDDDD;
+  p {
+    margin-bottom: 0px;
+    font-size: 8pt;
+    text-align: center;
+  }
+}
+
+.announcement {
+  margin-top: -20px;
+  position: relative;
 }

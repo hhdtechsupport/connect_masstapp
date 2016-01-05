@@ -336,11 +336,21 @@ body.node-type-event {
         padding: 0px;
         background-color: white;
         border: 0px;
-
+        & > .field-items > .field-item > .view-instances > .view-content > .views-row {
+          &:not(:nth-child(1)) {
+            border-top: 1px solid $capt-midgrey;
+            padding-top: 20px;
+          }
+          & > .views-field-view {
+            line-height: 3;
+          }
+        }
         li.views-row > strong {
           display: list-item;
         }
         div.item-list ul {
+          background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
+          padding-left: 14px;
           li.views-row {
             width: 90%;
             display: list-item;
@@ -348,6 +358,16 @@ body.node-type-event {
             top: 0px;
             margin-bottom: 10px;
             padding-top: 0px;
+            padding-left: 0px;
+            & > .views-field {
+              margin-left: 0px;
+              & > .field-content {
+                margin-left: 0px;
+                .date-display-range {
+                  margin-left: 0px;
+                }
+              }
+            }
           // is there a better way?
           strong {
             position: relative;

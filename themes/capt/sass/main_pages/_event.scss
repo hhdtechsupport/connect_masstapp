@@ -500,3 +500,28 @@ body.node-type-event.not-logged-in {
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
+
+.view-email-certificates p {
+  font-weight: normal;
+  text-decoration: underline;
+  color: $capt-black;
+}
+
+
+.field-name-event-date-s- {
+  & > .field-items > .field-item > .view-instances {
+    & > .view-content > .views-row {
+      & > .views-field-view {
+        & > .field-content > .view-instances > .view-content {
+          text-align: right;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+
+.role-administrator .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-2 {
+  display: none;
+}

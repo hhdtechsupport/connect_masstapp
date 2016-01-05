@@ -1070,3 +1070,34 @@ div.vertical-tabs {
     }
   }
 }
+
+
+.page-node-add .node-form {
+  .form-item {
+    label:not(.option) {
+      margin-bottom: 5px;
+    }
+    .description {
+      color: #858282;
+      margin-top: 2px;
+      max-width: 400px;
+      line-height: 1.1em;
+    }
+  }
+  .panel > .description {
+    color: #858282;
+    line-height: 1.1em;
+    margin-top: 15px;
+  }
+}
+
+form.node-form {
+  .form-item {
+    &.form-type-textarea {
+      margin-bottom: 0px;
+    }
+  }
+  a.ckeditor_links {
+    display: none !important;
+  }
+}
