@@ -453,6 +453,12 @@ function captconnect_custom_participate_someone_else($instance, $account) {
     $action = ($part_flag->is_flagged($instance->nid, $account->uid) ? 'unflag' : 'flag');
 
     if (!flag($action, 'participate', $instance->nid, $account)) {
+      if (isset($part_flag->errors)) {
+        foreach ($part_flag->errors as $id => $msg) {
+          $text = _captconnect_custom_wrap_message($msg, $id);
+          drupal_set_message($text, 'error');
+        }
+      }
       drupal_set_message(t('@name @action participation in "@title" failed,',
       array(
         '@name' => format_username($account),
@@ -473,7 +479,7 @@ function captconnect_custom_participate_someone_else($instance, $account) {
 function captconnect_custom_unregister_someone_else($instance, $account) {
   $token = $_GET['token'];
   if ($token == flag_get_token($instance->nid)) {
-    $part_flag = flag_get_flag('registrtation');
+    $registration = flag_get_flag('registrtation');
 
     if (!flag('unflag', 'registration', $instance->nid, $account)) {
       drupal_set_message(t('@name unregister in "@title" failed,',
@@ -1061,9 +1067,9 @@ function captconnect_custom_user_login(&$edit, $account) {
           drupal_set_message($text, 'error');
         }
       }
-      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
-        'Your registration for "@title" failed; please try again now that you are logged in.'),
-        array('@title' => $event->title)), 'error');
+//      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
+//        'Your registration for "@title" failed; please try again now that you are logged in.'),
+//        array('@title' => $event->title)), 'error');
     }
 
     // Delete the record and then go to the event.
