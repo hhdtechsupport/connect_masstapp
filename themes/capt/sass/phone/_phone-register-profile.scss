@@ -27,7 +27,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
       div#content {
         margin-top: 20px !important;
         .messages {
-          margin: -30px 0 60px;
+          margin: -10px 0 20px;
         }
         div#title-section {
           margin-top: 0px !important;
@@ -343,8 +343,12 @@ body.logged-in.page-user-edit {
 }
 
 
-body.page-user-register #content {
+body.page-user-register #content,
+body.page-anon-register #content {
   border: none !important;
+  .form-item {
+    width: 100%;
+  }
   div.password-strength {
     display: none;
   }
@@ -354,8 +358,9 @@ body.page-user-register #content {
     }
     & > div:first-of-type {
       position: absolute;
-      margin-top: -56px;
+      margin-top: -63px;
       margin-left: 115px !important;
+      width: auto;
     }
   }
   div.password-suggestions {
@@ -372,7 +377,11 @@ body.page-user-register #content {
   }
   input#edit-pass-pass1,
   input#edit-pass-pass2 {
-    width: 52% !important;
+    width: 95% !important;
+  }
+  label[for="edit-pass-pass1"],
+  label[for="edit-pass-pass2"] {
+    font-size: 14px !important;
   }
   div.password-confirm {
     margin-top: 0px;
@@ -398,6 +407,27 @@ body.page-user-register #content {
   }
   label[for="edit-pass-pass2"] {
     margin-top: 12px;
+  }
+  .multipage-counter {
+    right: 0em !important;
+  }
+  .multipage-controls-list {
+    margin-left: 1.6em;
+  }
+  #multipage-panes-list {
+    margin-left: 1.6em;
+  }
+  .messages.error {
+    margin: -5px 25px 20px !important;
+  }
+  #block-block-17 ul li {
+    font-size: 15px;
+    .step {
+      font-size: 21px;
+    }
+  }
+  #block-block-3 {
+    margin: 30px 20px !important;
   }
 }
 
@@ -442,8 +472,9 @@ body.page-user-edit {
         }
         & > div:first-of-type {
           position: absolute;
-          margin-top: -62px;
+          margin-top: -63px;
           margin-left: 94px !important;
+          width: auto;
         }
       }
     }

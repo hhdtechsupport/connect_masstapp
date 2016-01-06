@@ -132,7 +132,8 @@
                           <td>
                             <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | 43 Foundry Ave | Waltham, MA 02453-8313</p>
                             <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
-                            <p style="border-top: 1px solid black; padding: 10px 0px 10px; margin: 10px 0px 10px;">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such notifications, you must <a href="<?php print $base_url; ?>/user">log in and cancel your account to unsubscribe</a>.</p>                          </td>
+                            <p class="unsubscribe">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such notifications, you must <a href="<?php print $base_url; ?>/user">log in and cancel your account to unsubscribe</a>.</p>                          </td>
+                          </td>
                         </tr>
                       </table>
 
