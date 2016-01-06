@@ -315,6 +315,7 @@ function captconnect_custom_anon_pending() {
     'header' => array(t('User'), t('Event'), t('Instance'), t('Created')),
     'rows' => array(),
     'attributes' => array('id' => 'anon-pending-table'),
+    'empty' => t('No pending anonymous logins.'),
     );
 
   foreach ($result as $row) {
