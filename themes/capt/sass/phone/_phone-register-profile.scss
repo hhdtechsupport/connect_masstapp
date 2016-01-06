@@ -17,7 +17,8 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
     width: 96% !important;
   }
   form#user-profile-form .form-item .description {
-    line-height: 1.5em;
+    line-height: 1.35em;
+    font-size: 8pt;
   }
   div#page {
     margin-bottom: 0px;
@@ -74,7 +75,7 @@ body.not-logged-in.page-anon-register:not(.node-type-event) {
                 margin-right: -2px;
               }
               .chosen-container {
-                width: 94% !important;
+                width: 100% !important;
               }
               div.fieldset-wrapper {
                 margin-left: -15px;
@@ -195,7 +196,7 @@ body.logged-in.page-user-edit {
         }
     div.horizontal-tabs-panes.horizontal-tabs-processed {
       div.chosen-container {
-        width: 94% !important;
+        width: 100% !important;
       }
       &:before {
         margin: 0px auto;
@@ -248,7 +249,7 @@ body.logged-in.page-user-edit {
           margin-left: 0px !important;
         }
       }
-      div.field-type-entityreference {
+      div.field-type-entityreference:not(.field-widget-options-buttons) {
         margin-left: 15px;
       }
       div.form-type-select {
@@ -290,7 +291,7 @@ body.logged-in.page-user-edit {
               margin-right: -10px;
               label[for="edit-pass-pass2"] {
                 margin-left: -10px;
-                margin-top: 20px;
+                margin-top: 12px;
               }
             }
           }
@@ -301,6 +302,9 @@ body.logged-in.page-user-edit {
             margin-left: 15px;
             margin-top: 30px;
             margin-bottom: 40px;
+          }
+          & > div:last-of-type {
+            display: none;
           }
           div.password-strength {
             display: none;
@@ -319,10 +323,12 @@ body.logged-in.page-user-edit {
           }
           input#edit-pass-pass1,
           input#edit-pass-pass2 {
-            width: 90% !important;
+            width: 95% !important;
           }
           div.password-suggestions {
-            background: rgba(255, 182, 0, 0.13);
+            background: #FFFFFF;
+            border: 2px solid #DBBCBC;
+            margin-top: 0px;
             ul {
               padding-left: 15px;
               li {
@@ -339,6 +345,60 @@ body.logged-in.page-user-edit {
 
 body.page-user-register #content {
   border: none !important;
+  div.password-strength {
+    display: none;
+  }
+  .confirm-parent {
+    label[for="edit-pass-pass2"] {
+      clear: both;
+    }
+    & > div:first-of-type {
+      position: absolute;
+      margin-top: -56px;
+      margin-left: 115px !important;
+    }
+  }
+  div.password-suggestions {
+    background: #FFFFFF;
+    border: 2px solid #DBBCBC;
+    margin-top: 0px;
+    width: 89% !important;
+    ul {
+      padding-left: 15px;
+      li {
+        padding-bottom: 5px;
+      }
+    }
+  }
+  input#edit-pass-pass1,
+  input#edit-pass-pass2 {
+    width: 52% !important;
+  }
+  div.password-confirm {
+    margin-top: 0px;
+    .ok {
+      background: #234600;
+      color: #f8fff0;
+      padding: 5px;
+    }
+    .error {
+      background: #8c2e0b;
+      color: #fef5f1;
+      padding: 5px;
+    }
+  }
+  div.form-item.form-type-password-confirm.form-item-pass {
+    & > div:last-of-type {
+      display: none;
+    }
+  }
+  .form-item .description {
+    line-height: 1.35em;
+    font-size: 8pt;
+  }
+  label[for="edit-pass-pass2"] {
+    margin-top: 12px;
+  }
 }
 
 
@@ -347,7 +407,7 @@ body.page-user-edit {
     padding-top: 0px !important;
     margin-left: 0px !important;
     width: 95%;
-    margin-right: -12px;
+    margin-right: -27px !important;
   }
   form#user-profile-form {
     div.horizontal-tabs-panes.horizontal-tabs-processed {
@@ -368,16 +428,23 @@ body.page-user-edit {
         width: 100% !important;
       }
       .password-suggestions.description {
-        width: 95%;
+        width: 85%;
       }
       .password-confirm {
         margin-bottom: 10px;
-        margin-top: 0px;
+        margin-top: 5px;
         float: right;
-        width: 55%;
+        width: 59% !important;
       }
-      .confirm-parent label[for="edit-pass-pass2"] {
-        clear: both;
+      .confirm-parent {
+        label[for="edit-pass-pass2"] {
+          clear: both;
+        }
+        & > div:first-of-type {
+          position: absolute;
+          margin-top: -62px;
+          margin-left: 94px !important;
+        }
       }
     }
   }

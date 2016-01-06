@@ -13,6 +13,12 @@
 
 .chosen-container {
   display: block;
+  &.chosen-container-multi .chosen-choices {
+    min-height: 30px;
+    input.default {
+      margin: 6px !important;
+    }
+  }
 }
 .field-container {
   fieldset {
@@ -25,6 +31,13 @@
   }
   input.form-submit {
     margin-top: 0px;
+  }
+}
+
+#edit-og-group-ref {
+  .form-item.form-type-checkbox {
+    display: inline;
+    margin-right: 40px;
   }
 }
 
@@ -1099,5 +1112,14 @@ form.node-form {
   }
   a.ckeditor_links {
     display: none !important;
+  }
+}
+
+
+.form-checkboxes .form-type-checkbox,
+.form-radios .form-type-radio {
+  margin-left: 18px !important;
+  input[type="checkbox"], input[type="radio"] {
+    margin-left:-18px;
   }
 }

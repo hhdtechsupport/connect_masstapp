@@ -289,27 +289,41 @@ ul.pager li.pager-last a {
 .chosen-container {
   display: block;
 }
-
+/* line 16, ../sass/sitewide/_general.scss */
+.chosen-container.chosen-container-multi .chosen-choices {
+  min-height: 30px;
+}
 /* line 18, ../sass/sitewide/_general.scss */
+.chosen-container.chosen-container-multi .chosen-choices input.default {
+  margin: 6px !important;
+}
+
+/* line 24, ../sass/sitewide/_general.scss */
 .field-container fieldset {
   border: 0px;
   padding-left: 0px;
 }
-/* line 22, ../sass/sitewide/_general.scss */
+/* line 28, ../sass/sitewide/_general.scss */
 .field-container legend,
 .field-container span.fieldset-legend {
   font-weight: bold;
 }
-/* line 26, ../sass/sitewide/_general.scss */
+/* line 32, ../sass/sitewide/_general.scss */
 .field-container input.form-submit {
   margin-top: 0px;
+}
+
+/* line 38, ../sass/sitewide/_general.scss */
+#edit-og-group-ref .form-item.form-type-checkbox {
+  display: inline;
+  margin-right: 40px;
 }
 
 /*
  *  End inherited primitives
  */
 /* pager */
-/* line 36, ../sass/sitewide/_general.scss */
+/* line 49, ../sass/sitewide/_general.scss */
 .pager-clip {
   overflow: hidden;
   white-space: nowrap;
@@ -320,7 +334,7 @@ ul.pager li.pager-last a {
   height: 20px;
 }
 
-/* line 47, ../sass/sitewide/_general.scss */
+/* line 60, ../sass/sitewide/_general.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -329,7 +343,7 @@ body {
 }
 
 /* eliminate blue links */
-/* line 58, ../sass/sitewide/_general.scss */
+/* line 71, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a, #page div.view-content .panel-rule a, #page div.view-content .panel-rule-single a, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a, #page div.view-content .section-events #block-views-dashboard-block-1 a, .section-events #page div.view-content #block-views-dashboard-block-1 a,
 #page div.view-content .section-events #block-views-dashboard-block-2 a,
 .section-events #page div.view-content #block-views-dashboard-block-2 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 a,
@@ -433,7 +447,7 @@ body.not-logged-in.page-anon-login #page div.view-content div#title-section a.fl
 body.not-logged-in.page-anon-login #page div.view-content form#user-login a.flag-action, #page div.view-content form#user-pass a.flag-action, #page div.view-content body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset a.flag-action, body.not-logged-in.section-user.page-user:not(.page-user-register) #page div.view-content form#user-pass-reset a.flag-action {
   /* color: $capt-black;*/
 }
-/* line 61, ../sass/sitewide/_general.scss */
+/* line 74, ../sass/sitewide/_general.scss */
 #page div.view-content .panel .item-list h3, #page div.view-content .panel-rule .item-list h3, #page div.view-content .panel-rule-single .item-list h3, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 .item-list h3, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 .item-list h3, #page div.view-content .section-events #block-views-dashboard-block-1 .item-list h3, .section-events #page div.view-content #block-views-dashboard-block-1 .item-list h3,
 #page div.view-content .section-events #block-views-dashboard-block-2 .item-list h3,
 .section-events #page div.view-content #block-views-dashboard-block-2 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 .item-list h3,
@@ -487,7 +501,7 @@ body.not-logged-in.page-anon-login #page div.view-content div#title-section .ite
 body.not-logged-in.page-anon-login #page div.view-content form#user-login .item-list h3, #page div.view-content form#user-pass .item-list h3, #page div.view-content body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset .item-list h3, body.not-logged-in.section-user.page-user:not(.page-user-register) #page div.view-content form#user-pass-reset .item-list h3 {
   font-size: 16px;
 }
-/* line 64, ../sass/sitewide/_general.scss */
+/* line 77, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a:hover, #page div.view-content .panel-rule a:hover, #page div.view-content .panel-rule-single a:hover, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a:hover, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a:hover, #page div.view-content .section-events #block-views-dashboard-block-1 a:hover, .section-events #page div.view-content #block-views-dashboard-block-1 a:hover,
 #page div.view-content .section-events #block-views-dashboard-block-2 a:hover,
 .section-events #page div.view-content #block-views-dashboard-block-2 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 a:hover,
@@ -542,19 +556,19 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login a:hove
   color: #8c1d18;
 }
 
-/* line 70, ../sass/sitewide/_general.scss */
+/* line 83, ../sass/sitewide/_general.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
 }
 
-/* line 78, ../sass/sitewide/_general.scss */
+/* line 91, ../sass/sitewide/_general.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
 /* inherited class */
-/* line 84, ../sass/sitewide/_general.scss */
+/* line 97, ../sass/sitewide/_general.scss */
 .button-reset, ul.main-menu a, input[type="submit"],
 a.button,
 .participate-others-button,
@@ -568,20 +582,20 @@ a.button,
   appearance: normal;
 }
 
-/* line 91, ../sass/sitewide/_general.scss */
+/* line 104, ../sass/sitewide/_general.scss */
 ul.main-menu a {
   color: #333333;
   background: #eef1f3;
   padding: 12px 20px 4px 20px;
   font-size: 15px;
 }
-/* line 97, ../sass/sitewide/_general.scss */
+/* line 110, ../sass/sitewide/_general.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit & other buttons*/
-/* line 104, ../sass/sitewide/_general.scss */
+/* line 117, ../sass/sitewide/_general.scss */
 input[type="submit"],
 a.button,
 .participate-others-button,
@@ -602,18 +616,18 @@ a.button,
   text-shadow: none;
 }
 
-/* line 122, ../sass/sitewide/_general.scss */
+/* line 135, ../sass/sitewide/_general.scss */
 #block-block-19 a.button {
   color: #ffffff !important;
 }
-/* line 124, ../sass/sitewide/_general.scss */
+/* line 137, ../sass/sitewide/_general.scss */
 #block-block-19 a.button:hover {
   color: #ffffff;
   text-decoration: none;
   background: #df9336;
 }
 
-/* line 131, ../sass/sitewide/_general.scss */
+/* line 144, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit:hover {
   color: #fff;
   box-shadow: none;
@@ -621,16 +635,16 @@ a.button,
   border-color: transparent;
 }
 
-/* line 139, ../sass/sitewide/_general.scss */
+/* line 152, ../sass/sitewide/_general.scss */
 #user-login #edit-actions {
   position: relative;
 }
-/* line 141, ../sass/sitewide/_general.scss */
+/* line 154, ../sass/sitewide/_general.scss */
 #user-login #edit-actions input#edit-submit {
   position: absolute;
   top: 20px;
 }
-/* line 145, ../sass/sitewide/_general.scss */
+/* line 158, ../sass/sitewide/_general.scss */
 #user-login #edit-actions a {
   padding: 0px;
   margin-top: 0px;
@@ -643,12 +657,12 @@ a.button,
   text-transform: none;
   font-weight: normal;
 }
-/* line 156, ../sass/sitewide/_general.scss */
+/* line 169, ../sass/sitewide/_general.scss */
 #user-login #edit-actions a:hover {
   text-decoration: underline;
 }
 
-/* line 163, ../sass/sitewide/_general.scss */
+/* line 176, ../sass/sitewide/_general.scss */
 .participate-others-button,
 .register-others-button {
   margin-top: 10px;
@@ -656,13 +670,13 @@ a.button,
   float: right;
 }
 
-/* line 170, ../sass/sitewide/_general.scss */
+/* line 183, ../sass/sitewide/_general.scss */
 .participate-others-button:hover,
 .register-others-button:hover {
   text-decoration: none;
 }
 
-/* line 175, ../sass/sitewide/_general.scss */
+/* line 188, ../sass/sitewide/_general.scss */
 .page-user-edit .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -672,62 +686,62 @@ a.button,
   padding: 4px 16px;
   width: 50px;
 }
-/* line 181, ../sass/sitewide/_general.scss */
+/* line 194, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button {
   background: #c3791f;
 }
-/* line 183, ../sass/sitewide/_general.scss */
+/* line 196, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button:hover {
   background: #df9336;
 }
-/* line 187, ../sass/sitewide/_general.scss */
+/* line 200, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button {
   background: #334b56;
   margin-top: 10px;
 }
-/* line 190, ../sass/sitewide/_general.scss */
+/* line 203, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button:hover {
   background: #466776;
 }
-/* line 194, ../sass/sitewide/_general.scss */
+/* line 207, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button {
   background: #c3791f;
 }
-/* line 196, ../sass/sitewide/_general.scss */
+/* line 209, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button:hover {
   background: #df9336;
 }
 
-/* line 202, ../sass/sitewide/_general.scss */
+/* line 215, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Next page"] {
   background: #577785;
 }
-/* line 204, ../sass/sitewide/_general.scss */
+/* line 217, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Next page"]:hover {
   background: #6f91a0;
 }
 
-/* line 209, ../sass/sitewide/_general.scss */
+/* line 222, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Previous page"] {
   background: #c3791f;
 }
-/* line 211, ../sass/sitewide/_general.scss */
+/* line 224, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Previous page"]:hover {
   background: #df9336;
 }
 
-/* line 216, ../sass/sitewide/_general.scss */
+/* line 229, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Create new account"],
 .multipage-controls-list input.form-submit[value="Done"] {
   background: #888a55 !important;
 }
-/* line 219, ../sass/sitewide/_general.scss */
+/* line 232, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Create new account"]:hover,
 .multipage-controls-list input.form-submit[value="Done"]:hover {
   background: #a3a56d !important;
 }
 
-/* line 225, ../sass/sitewide/_general.scss */
+/* line 238, ../sass/sitewide/_general.scss */
 .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .group-right .button .flag-wrapper .instance-full, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a, .view-dashboard .button .flag-wrapper .instance-full, body.node-type-event .view-instances .button .flag-wrapper a, body.node-type-event .view-instances .button .field-content > a, body.node-type-event .view-instances .button.certificate a, body.node-type-event .view-instances .button .flag-wrapper .instance-full {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -738,51 +752,51 @@ a.button,
   font-size: 13px;
   font-weight: normal;
 }
-/* line 233, ../sass/sitewide/_general.scss */
+/* line 246, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a, .group-right .button.register .flag-wrapper a:visited, .view-dashboard .button.register .flag-wrapper a, .view-dashboard .button.register .flag-wrapper a:visited, body.node-type-event .view-instances .button.register .flag-wrapper a, body.node-type-event .view-instances .button.register .flag-wrapper a:visited {
   background: #888a55;
   font-weight: normal;
   padding: 12px 14px;
   font-size: 14px;
 }
-/* line 239, ../sass/sitewide/_general.scss */
+/* line 252, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a:hover, .view-dashboard .button.register .flag-wrapper a:hover, body.node-type-event .view-instances .button.register .flag-wrapper a:hover {
   background-color: #a3a56d;
 }
-/* line 242, ../sass/sitewide/_general.scss */
+/* line 255, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a, .group-right .button.cancel.flag-wrapper a:visited, .view-dashboard .button.cancel .flag-wrapper a, .view-dashboard .button.cancel.flag-wrapper a:visited, body.node-type-event .view-instances .button.cancel .flag-wrapper a, body.node-type-event .view-instances .button.cancel.flag-wrapper a:visited {
   background: #8c1d18;
   font-weight: normal;
   padding: 12px 14px;
   font-size: 14px;
 }
-/* line 248, ../sass/sitewide/_general.scss */
+/* line 261, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a:hover, .view-dashboard .button.cancel .flag-wrapper a:hover, body.node-type-event .view-instances .button.cancel .flag-wrapper a:hover {
   background-color: #b8261f;
 }
-/* line 251, ../sass/sitewide/_general.scss */
+/* line 264, ../sass/sitewide/_general.scss */
 .group-right .button.participate, .view-dashboard .button.participate, body.node-type-event .view-instances .button.participate {
   margin: 25px 0 15px;
   font-weight: normal;
   text-align: right;
 }
-/* line 255, ../sass/sitewide/_general.scss */
+/* line 268, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a, .group-right .button.participate .field-content > a, .group-right .button.participate .flag-wrapper a:visited, .group-right .button.participate .field-content > a:visited, .view-dashboard .button.participate .flag-wrapper a, .view-dashboard .button.participate .field-content > a, .view-dashboard .button.participate .flag-wrapper a:visited, .view-dashboard .button.participate .field-content > a:visited, body.node-type-event .view-instances .button.participate .flag-wrapper a, body.node-type-event .view-instances .button.participate .field-content > a, body.node-type-event .view-instances .button.participate .flag-wrapper a:visited, body.node-type-event .view-instances .button.participate .field-content > a:visited {
   background: #c3791f;
   font-size: 14px;
   padding: 12px 14px;
   font-weight: normal;
 }
-/* line 261, ../sass/sitewide/_general.scss */
+/* line 274, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a:hover, .group-right .button.participate .field-content > a:hover, .view-dashboard .button.participate .flag-wrapper a:hover, .view-dashboard .button.participate .field-content > a:hover, body.node-type-event .view-instances .button.participate .flag-wrapper a:hover, body.node-type-event .view-instances .button.participate .field-content > a:hover {
   background-color: #df9336;
 }
-/* line 265, ../sass/sitewide/_general.scss */
+/* line 278, ../sass/sitewide/_general.scss */
 .group-right .button.certificate, .view-dashboard .button.certificate, body.node-type-event .view-instances .button.certificate {
   font-style: normal;
   margin-bottom: 10px;
 }
-/* line 268, ../sass/sitewide/_general.scss */
+/* line 281, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a, .group-right .button.certificate a:visited, .view-dashboard .button.certificate a, .view-dashboard .button.certificate a:visited, body.node-type-event .view-instances .button.certificate a, body.node-type-event .view-instances .button.certificate a:visited {
   font-weight: normal;
   color: #333333;
@@ -791,23 +805,23 @@ a.button,
   padding: 0px;
   text-decoration: underline;
 }
-/* line 275, ../sass/sitewide/_general.scss */
+/* line 288, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a:hover, .group-right .button.certificate a:visited:hover, .view-dashboard .button.certificate a:hover, .view-dashboard .button.certificate a:visited:hover, body.node-type-event .view-instances .button.certificate a:hover, body.node-type-event .view-instances .button.certificate a:visited:hover {
   color: #8c1d18;
 }
 
 /*ul.main-menu a:hover, */
-/* line 284, ../sass/sitewide/_general.scss */
+/* line 297, ../sass/sitewide/_general.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 286, ../sass/sitewide/_general.scss */
+/* line 299, ../sass/sitewide/_general.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 292, ../sass/sitewide/_general.scss */
+/* line 305, ../sass/sitewide/_general.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -818,31 +832,31 @@ input[type="submit"] {
   background-color: #c3791f;
   cursor: pointer;
 }
-/* line 301, ../sass/sitewide/_general.scss */
+/* line 314, ../sass/sitewide/_general.scss */
 input[type="submit"]:hover {
   background-color: #df9336;
 }
-/* line 304, ../sass/sitewide/_general.scss */
+/* line 317, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"], input[type="submit"][value="Remove"], input[type="submit"][value="Delete"], input[type="submit"][value="Reset"] {
   background-color: #577785;
 }
-/* line 306, ../sass/sitewide/_general.scss */
+/* line 319, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"]:hover, input[type="submit"][value="Remove"]:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Reset"]:hover {
   background-color: #6f91a0;
 }
 
-/* line 312, ../sass/sitewide/_general.scss */
+/* line 325, ../sass/sitewide/_general.scss */
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
 
-/* line 316, ../sass/sitewide/_general.scss */
+/* line 329, ../sass/sitewide/_general.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 321, ../sass/sitewide/_general.scss */
+/* line 334, ../sass/sitewide/_general.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -850,19 +864,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 328, ../sass/sitewide/_general.scss */
+/* line 341, ../sass/sitewide/_general.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 333, ../sass/sitewide/_general.scss */
+/* line 346, ../sass/sitewide/_general.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 338, ../sass/sitewide/_general.scss */
+/* line 351, ../sass/sitewide/_general.scss */
 h5 {
   font-size: 1.1em;
   margin-bottom: .5em;
@@ -870,71 +884,71 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 346, ../sass/sitewide/_general.scss */
+/* line 359, ../sass/sitewide/_general.scss */
 a {
   color: #c3791f;
 }
 
-/* line 350, ../sass/sitewide/_general.scss */
+/* line 363, ../sass/sitewide/_general.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
   color: white;
 }
 
-/* line 358, ../sass/sitewide/_general.scss */
+/* line 371, ../sass/sitewide/_general.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 362, ../sass/sitewide/_general.scss */
+/* line 375, ../sass/sitewide/_general.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 367, ../sass/sitewide/_general.scss */
+/* line 380, ../sass/sitewide/_general.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 372, ../sass/sitewide/_general.scss */
+/* line 385, ../sass/sitewide/_general.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 376, ../sass/sitewide/_general.scss */
+/* line 389, ../sass/sitewide/_general.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 381, ../sass/sitewide/_general.scss */
+/* line 394, ../sass/sitewide/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 386, ../sass/sitewide/_general.scss */
+/* line 399, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 388, ../sass/sitewide/_general.scss */
+/* line 401, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 393, ../sass/sitewide/_general.scss */
+/* line 406, ../sass/sitewide/_general.scss */
 table {
   width: 100%;
   border-collapse: collapse;
 }
-/* line 397, ../sass/sitewide/_general.scss */
+/* line 410, ../sass/sitewide/_general.scss */
 table thead tr {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-/* line 400, ../sass/sitewide/_general.scss */
+/* line 413, ../sass/sitewide/_general.scss */
 table thead tr th {
   text-align: left;
   font-size: 1.1em;
@@ -944,52 +958,52 @@ table thead tr th {
   border-bottom: none;
   padding: 8px 8px;
 }
-/* line 408, ../sass/sitewide/_general.scss */
+/* line 421, ../sass/sitewide/_general.scss */
 table thead tr th:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 414, ../sass/sitewide/_general.scss */
+/* line 427, ../sass/sitewide/_general.scss */
 table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 416, ../sass/sitewide/_general.scss */
+/* line 429, ../sass/sitewide/_general.scss */
 table tbody tr {
   border: 1px solid #ccc;
 }
-/* line 418, ../sass/sitewide/_general.scss */
+/* line 431, ../sass/sitewide/_general.scss */
 table tbody tr.odd {
   background-color: #F7F7F7;
 }
-/* line 422, ../sass/sitewide/_general.scss */
+/* line 435, ../sass/sitewide/_general.scss */
 table tbody tr td {
   padding: 3px 6px;
   font-size: .9em;
 }
-/* line 425, ../sass/sitewide/_general.scss */
+/* line 438, ../sass/sitewide/_general.scss */
 table tbody tr td:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 428, ../sass/sitewide/_general.scss */
+/* line 441, ../sass/sitewide/_general.scss */
 table tbody tr td a, table tbody tr td a:visited {
   color: #333333;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 432, ../sass/sitewide/_general.scss */
+/* line 445, ../sass/sitewide/_general.scss */
 table tbody tr td a:hover, table tbody tr td a:visited:hover {
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 437, ../sass/sitewide/_general.scss */
+/* line 450, ../sass/sitewide/_general.scss */
 table tbody tr td.inline-entity-form-node-field_body {
   width: 400px;
 }
-/* line 440, ../sass/sitewide/_general.scss */
+/* line 453, ../sass/sitewide/_general.scss */
 table tbody tr td.active {
   background: rgba(198, 206, 221, 0.31);
 }
 
-/* line 448, ../sass/sitewide/_general.scss */
+/* line 461, ../sass/sitewide/_general.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -999,26 +1013,26 @@ table tbody tr td.active {
   padding-left: 0;
 }
 
-/* line 458, ../sass/sitewide/_general.scss */
+/* line 471, ../sass/sitewide/_general.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: 1em 0 .5em;
 }
 
 /* end forms */
-/* line 466, ../sass/sitewide/_general.scss */
+/* line 479, ../sass/sitewide/_general.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/* line 470, ../sass/sitewide/_general.scss */
+/* line 483, ../sass/sitewide/_general.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 476, ../sass/sitewide/_general.scss */
+/* line 489, ../sass/sitewide/_general.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -1026,7 +1040,7 @@ body {
   position: relative;
 }
 
-/* line 483, ../sass/sitewide/_general.scss */
+/* line 496, ../sass/sitewide/_general.scss */
 .group-footer {
   padding: 10px 0;
 }
@@ -1039,7 +1053,7 @@ body {
 /*
  *  Specific event page styling for the footer.
  */
-/* line 499, ../sass/sitewide/_general.scss */
+/* line 512, ../sass/sitewide/_general.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
@@ -1047,7 +1061,7 @@ body {
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 506, ../sass/sitewide/_general.scss */
+/* line 519, ../sass/sitewide/_general.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -1055,12 +1069,12 @@ body {
   max-width: 1200px;
 }
 
-/* line 513, ../sass/sitewide/_general.scss */
+/* line 526, ../sass/sitewide/_general.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 517, ../sass/sitewide/_general.scss */
+/* line 530, ../sass/sitewide/_general.scss */
 .samhsa-logo {
   float: right;
 }
@@ -1070,7 +1084,7 @@ body {
     width: 600px;
     }*/
 /* treating this as the container for now */
-/* line 527, ../sass/sitewide/_general.scss */
+/* line 540, ../sass/sitewide/_general.scss */
 #main {
   width: 1000px;
   margin-left: 0px;
@@ -1078,7 +1092,7 @@ body {
 }
 
 /* page */
-/* line 535, ../sass/sitewide/_general.scss */
+/* line 548, ../sass/sitewide/_general.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -1087,24 +1101,24 @@ body {
   width: 1000px;
 }
 
-/* line 543, ../sass/sitewide/_general.scss */
+/* line 556, ../sass/sitewide/_general.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 548, ../sass/sitewide/_general.scss */
+/* line 561, ../sass/sitewide/_general.scss */
 .region-header {
   float: right;
   margin-top: 10px;
   margin-bottom: -10px;
 }
-/* line 552, ../sass/sitewide/_general.scss */
+/* line 565, ../sass/sitewide/_general.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 557, ../sass/sitewide/_general.scss */
+/* line 570, ../sass/sitewide/_general.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -1114,18 +1128,18 @@ body {
   clear: both;
 }
 
-/* line 566, ../sass/sitewide/_general.scss */
+/* line 579, ../sass/sitewide/_general.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 570, ../sass/sitewide/_general.scss */
+/* line 583, ../sass/sitewide/_general.scss */
 body.node-type-event #title-section {
   width: auto;
   /*280px;*/
 }
 
-/* line 575, ../sass/sitewide/_general.scss */
+/* line 588, ../sass/sitewide/_general.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -1139,7 +1153,7 @@ body.node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 590, ../sass/sitewide/_general.scss */
+/* line 603, ../sass/sitewide/_general.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -1148,36 +1162,36 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 600, ../sass/sitewide/_general.scss */
+/* line 613, ../sass/sitewide/_general.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
   color: #c3791f;
 }
 
-/* line 606, ../sass/sitewide/_general.scss */
+/* line 619, ../sass/sitewide/_general.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 610, ../sass/sitewide/_general.scss */
+/* line 623, ../sass/sitewide/_general.scss */
 img.file-icon {
   position: relative;
   top: 4px;
 }
 
 /* form stuff */
-/* line 619, ../sass/sitewide/_general.scss */
+/* line 632, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 624, ../sass/sitewide/_general.scss */
+/* line 637, ../sass/sitewide/_general.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 628, ../sass/sitewide/_general.scss */
+/* line 641, ../sass/sitewide/_general.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -1185,12 +1199,12 @@ img.file-icon {
 
 /* new styles */
 /* not used yet */
-/* line 636, ../sass/sitewide/_general.scss */
+/* line 649, ../sass/sitewide/_general.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 640, ../sass/sitewide/_general.scss */
+/* line 653, ../sass/sitewide/_general.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -1198,7 +1212,7 @@ img.file-icon {
 }
 
 /* not used yet */
-/* line 648, ../sass/sitewide/_general.scss */
+/* line 661, ../sass/sitewide/_general.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -1207,7 +1221,7 @@ h4.black {
   margin-bottom: 9px;
 }
 
-/* line 658, ../sass/sitewide/_general.scss */
+/* line 671, ../sass/sitewide/_general.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -1225,32 +1239,32 @@ div#content {
   padding-top: 20px;
 }
 
-/* line 677, ../sass/sitewide/_general.scss */
+/* line 690, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info {
   color: white;
   top: 10px;
 }
-/* line 680, ../sass/sitewide/_general.scss */
+/* line 693, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
 
-/* line 684, ../sass/sitewide/_general.scss */
+/* line 697, ../sass/sitewide/_general.scss */
 .form-type-select .chosen-container {
   display: block !important;
 }
 
-/* line 690, ../sass/sitewide/_general.scss */
+/* line 703, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset {
   margin: 30px 0px !important;
 }
-/* line 693, ../sass/sitewide/_general.scss */
+/* line 706, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible.collapsed,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   border: none !important;
 }
-/* line 696, ../sass/sitewide/_general.scss */
+/* line 709, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed), body.page-user-edit fieldset.collapsible#edit-og-user-node-und,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed),
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und {
@@ -1258,7 +1272,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   border: 1px solid #b2c0c9 !important;
   padding: 0px;
 }
-/* line 700, ../sass/sitewide/_general.scss */
+/* line 713, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed):before, body.page-user-edit fieldset.collapsible#edit-og-user-node-und:before,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed):before,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und:before {
@@ -1272,7 +1286,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 711, ../sass/sitewide/_general.scss */
+/* line 724, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed) .fieldset-wrapper, body.page-user-edit fieldset.collapsible#edit-og-user-node-und .fieldset-wrapper,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed) .fieldset-wrapper,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und .fieldset-wrapper {
@@ -1281,33 +1295,33 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-un
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 718, ../sass/sitewide/_general.scss */
+/* line 731, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible.collapsed,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   padding: 0px;
 }
 
-/* line 725, ../sass/sitewide/_general.scss */
+/* line 738, ../sass/sitewide/_general.scss */
 .feed-icon {
   float: left;
 }
 
-/* line 729, ../sass/sitewide/_general.scss */
+/* line 742, ../sass/sitewide/_general.scss */
 .view-admin-content, #block-block-16 {
   width: 50%;
 }
-/* line 731, ../sass/sitewide/_general.scss */
+/* line 744, ../sass/sitewide/_general.scss */
 .view-admin-content:after, #block-block-16:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 736, ../sass/sitewide/_general.scss */
+/* line 749, ../sass/sitewide/_general.scss */
 .view-admin-content .item-list ul, #block-block-16 .item-list ul {
   padding-left: 15px;
 }
 
-/* line 741, ../sass/sitewide/_general.scss */
+/* line 754, ../sass/sitewide/_general.scss */
 .feed-icon img[title="CSV"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
   width: 32px;
@@ -1317,7 +1331,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   margin-bottom: 10px;
 }
 
-/* line 750, ../sass/sitewide/_general.scss */
+/* line 763, ../sass/sitewide/_general.scss */
 .feed-icon img[title="XLS"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACtUlEQVRoQ+2ZTW7TUBSFz409QNgSLs4C0hWQroCyAtoVtF0B6RDVEUF2xRCzAsIKWlZAWAHpChLmMTJSjBg4veg5cYiq/Dj1s58HzsjK+7n3O8f32nombPg1PZM3jeX/n4dxHL0Kewjz7zXfgdSAiKhyYdSAMN+B6IVMGCUgcTw90DVjIBNGCcjEmZLVgyUTRhmIqBKZMEpBZMIoB5EFUwkQGTCVAckLUymQPDCVA3ksTCVBHgNTWZB9YSoNsg5m4kRH6150lYDkeXUXrzc1SB4FZa+tHZGtaN79akfyKih7fe2IbEXz7leMI4zvAAYAjkF4mSTJeM/ELQKdievFodO7hwAM/gnGLYFCJrQJeJ0FshAQBo8DJzq03acnRI0bMN9NulH7uWd0GqCPadCHh30MfA2c6UmaeNM1hRDflIGIwDHxUXgVDW3PDBnc++VEvu0ZIwK1NoGI4yCxVtfNm8RN8BCgtlIQBn8JnOjc9oz+TJv19FhvpequA2FGGHSnB/u4sApYyK2VlMQiMevaaM+dMfpJfQDY6cjykC6LF/M5hYEkMMQXwVXUF+dUmmaOiGBtA2FwP3Cii2S+bvgpeBacQkHuwZeiNqwPT1r6TB+lCW1yZD7O/sSJLsXVqou7YAoFibX4UCQQvv07brrmIG3F20ESmOXnBdEsCHimDCRtpbZr+EE36tjXxjkxfd52a60mm7q5KsA2mMIcYb4/Dbp/bsWzYrUVC3V3O/K/vpqe8SNLCy4EhIHfgTO10gciM39KXHENn4jeLEFcs5eqzIQOMcTD8JgbPBZNYp9WXAxImvii5S5b8aLo1wUVysfa7FTU06LQz8Dkp51OWY3sCix7vBBHZCeZZb8aJItKZc6pHSlT7SyxakeyqFTmnNqRMtXOEqt2JItKZc6pHSlT7SyxNjnyD4avTFESYk0LAAAAAElFTkSuQmCC");
   width: 32px;
@@ -1327,14 +1341,14 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   margin-bottom: 10px;
 }
 
-/* line 765, ../sass/sitewide/_general.scss */
+/* line 778, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) div#content,
 .page-404:not(.section-login) div#content,
 .section-404:not(.section-login) div#content,
 .section-403:not(.section-login) div#content {
   border: none;
 }
-/* line 768, ../sass/sitewide/_general.scss */
+/* line 781, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) h1#page-title,
 .page-404:not(.section-login) h1#page-title,
 .section-404:not(.section-login) h1#page-title,
@@ -1348,7 +1362,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   margin-top: 0px;
   text-align: center;
 }
-/* line 778, ../sass/sitewide/_general.scss */
+/* line 791, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) .node-page,
 .page-404:not(.section-login) .node-page,
 .section-404:not(.section-login) .node-page,
@@ -1357,7 +1371,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   margin: 0 auto;
   text-align: center;
 }
-/* line 782, ../sass/sitewide/_general.scss */
+/* line 795, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) .node-page a,
 .page-404:not(.section-login) .node-page a,
 .section-404:not(.section-login) .node-page a,
@@ -1365,7 +1379,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   color: #8c1d18;
 }
 
-/* line 792, ../sass/sitewide/_general.scss */
+/* line 805, ../sass/sitewide/_general.scss */
 .page-403.logged-in div#content,
 .page-404.logged-in div#content,
 .section-404.logged-in div#content,
@@ -1373,7 +1387,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   border: 1px solid #d7d7d7;
 }
 
-/* line 799, ../sass/sitewide/_general.scss */
+/* line 812, ../sass/sitewide/_general.scss */
 .page-404:not(.section-login) .node,
 .section-404:not(.section-login) .node {
   height: 350px;
@@ -1381,14 +1395,14 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   background-size: 50%;
 }
 
-/* line 809, ../sass/sitewide/_general.scss */
+/* line 822, ../sass/sitewide/_general.scss */
 .panelize {
   background: #eef1f3;
   border: 1px solid #d7d7d7;
   border-top: 0px;
   padding: 20px 0px;
 }
-/* line 814, ../sass/sitewide/_general.scss */
+/* line 827, ../sass/sitewide/_general.scss */
 .panelize:before {
   display: block;
   background-color: #577785;
@@ -1400,11 +1414,11 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   margin-left: -1px;
   padding-left: 2px;
 }
-/* line 825, ../sass/sitewide/_general.scss */
+/* line 838, ../sass/sitewide/_general.scss */
 .panelize > div:not(.contextual-links-wrapper) {
   padding: 0px 10px;
 }
-/* line 828, ../sass/sitewide/_general.scss */
+/* line 841, ../sass/sitewide/_general.scss */
 .panelize h2 {
   color: #577785;
   padding: 0px 10px;
@@ -1412,7 +1426,7 @@ body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed {
   font-size: 24px;
 }
 
-/* line 838, ../sass/sitewide/_general.scss */
+/* line 851, ../sass/sitewide/_general.scss */
 input.form-text {
   font-size: 14px;
   padding: 5px;
@@ -1423,74 +1437,74 @@ input.form-text {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 847, ../sass/sitewide/_general.scss */
+/* line 860, ../sass/sitewide/_general.scss */
 input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
 
-/* line 856, ../sass/sitewide/_general.scss */
+/* line 869, ../sass/sitewide/_general.scss */
 .text-format-wrapper a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 860, ../sass/sitewide/_general.scss */
+/* line 873, ../sass/sitewide/_general.scss */
 .text-format-wrapper > div > label {
   display: none;
 }
-/* line 863, ../sass/sitewide/_general.scss */
+/* line 876, ../sass/sitewide/_general.scss */
 .text-format-wrapper .form-item {
   margin-bottom: 0px;
 }
-/* line 866, ../sass/sitewide/_general.scss */
+/* line 879, ../sass/sitewide/_general.scss */
 .text-format-wrapper .ckeditor_links {
   font-size: .85em;
 }
-/* line 869, ../sass/sitewide/_general.scss */
+/* line 882, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper {
   border: 1px solid #d4d5d5;
   background-color: #F6F8FA;
   padding: 15px 0;
 }
-/* line 873, ../sass/sitewide/_general.scss */
+/* line 886, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .form-type-select {
   margin-top: 0px;
 }
-/* line 876, ../sass/sitewide/_general.scss */
+/* line 889, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines {
   font-size: .85em;
   line-height: 1.25em;
 }
-/* line 879, ../sass/sitewide/_general.scss */
+/* line 892, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines .tips {
   padding-left: 15px;
 }
 
-/* line 886, ../sass/sitewide/_general.scss */
+/* line 899, ../sass/sitewide/_general.scss */
 .warning {
   background-color: transparent;
 }
 
-/* line 892, ../sass/sitewide/_general.scss */
+/* line 905, ../sass/sitewide/_general.scss */
 .entityform .content a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 896, ../sass/sitewide/_general.scss */
+/* line 909, ../sass/sitewide/_general.scss */
 .entityform .content .field {
   margin: 10px 0;
   background: #F7F7F7;
   overflow: hidden;
   clear: both;
 }
-/* line 901, ../sass/sitewide/_general.scss */
+/* line 914, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-label {
   width: 130px;
   padding: 2px 5px;
   background: #E4E4E4;
   float: left;
 }
-/* line 907, ../sass/sitewide/_general.scss */
+/* line 920, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-items {
   float: none;
   height: 100%;
@@ -1498,68 +1512,68 @@ input.form-text:focus {
   padding: 2px 5px;
 }
 
-/* line 920, ../sass/sitewide/_general.scss */
+/* line 933, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content,
 body.section-mailing-lists div#content {
   padding: 20px 150px !important;
 }
-/* line 922, ../sass/sitewide/_general.scss */
+/* line 935, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content h1,
 body.section-mailing-lists div#content h1 {
   text-align: center;
 }
-/* line 925, ../sass/sitewide/_general.scss */
+/* line 938, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content h2,
 body.section-mailing-lists div#content h2 {
   text-transform: uppercase;
   font-size: 1.5em;
   margin: 20px 0px 10px !important;
 }
-/* line 930, ../sass/sitewide/_general.scss */
+/* line 943, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content a,
 body.section-mailing-lists div#content a {
   color: #333333;
   font-weight: normal;
   text-decoration: underline;
 }
-/* line 935, ../sass/sitewide/_general.scss */
+/* line 948, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content ol, body.section-terms-of-use div#content li,
 body.section-mailing-lists div#content ol,
 body.section-mailing-lists div#content li {
   line-height: 1.6em;
 }
-/* line 938, ../sass/sitewide/_general.scss */
+/* line 951, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content ol,
 body.section-mailing-lists div#content ol {
   padding-left: 1.5em;
 }
-/* line 940, ../sass/sitewide/_general.scss */
+/* line 953, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content ol li,
 body.section-mailing-lists div#content ol li {
   margin-bottom: 1em;
 }
-/* line 942, ../sass/sitewide/_general.scss */
+/* line 955, ../sass/sitewide/_general.scss */
 body.section-terms-of-use div#content ol li ul,
 body.section-mailing-lists div#content ol li ul {
   margin-top: 1em;
 }
-/* line 949, ../sass/sitewide/_general.scss */
+/* line 962, ../sass/sitewide/_general.scss */
 body.section-terms-of-use.not-logged-in div#main,
 body.section-mailing-lists.not-logged-in div#main {
   padding-top: 0px !important;
 }
-/* line 951, ../sass/sitewide/_general.scss */
+/* line 964, ../sass/sitewide/_general.scss */
 body.section-terms-of-use.not-logged-in div#main div#content,
 body.section-mailing-lists.not-logged-in div#main div#content {
   border: 0px !important;
 }
 
-/* line 959, ../sass/sitewide/_general.scss */
+/* line 972, ../sass/sitewide/_general.scss */
 body.section-mailing-lists div#content h1 {
   text-align: left;
 }
 
-/* line 966, ../sass/sitewide/_general.scss */
+/* line 979, ../sass/sitewide/_general.scss */
 body.node-type-page h1#page-title {
   padding-top: 7px;
   color: #8c1d18;
@@ -1571,129 +1585,129 @@ body.node-type-page h1#page-title {
   font-weight: normal;
 }
 
-/* line 980, ../sass/sitewide/_general.scss */
+/* line 993, ../sass/sitewide/_general.scss */
 div.krumo-preview {
   color: #E5E4E4;
   background: #323232;
   font-size: 15px;
 }
 
-/* line 986, ../sass/sitewide/_general.scss */
+/* line 999, ../sass/sitewide/_general.scss */
 div.vertical-tabs {
   background: #eef1f3;
 }
-/* line 990, ../sass/sitewide/_general.scss */
+/* line 1003, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button {
   color: #577785;
   background: #fff;
 }
-/* line 993, ../sass/sitewide/_general.scss */
+/* line 1006, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button a {
   color: #333333;
 }
-/* line 995, ../sass/sitewide/_general.scss */
+/* line 1008, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button a:hover {
   outline: none;
   color: #8c1d18;
 }
-/* line 1000, ../sass/sitewide/_general.scss */
+/* line 1013, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button.selected {
   background: #eef1f3 !important;
   border-top: 5px solid #577785 !important;
 }
-/* line 1004, ../sass/sitewide/_general.scss */
+/* line 1017, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button:not(.selected) {
   padding-top: 5px;
 }
-/* line 1009, ../sass/sitewide/_general.scss */
+/* line 1022, ../sass/sitewide/_general.scss */
 div.vertical-tabs .vertical-tabs-panes {
   border-top: 5px solid #577785;
 }
 
-/* line 1015, ../sass/sitewide/_general.scss */
+/* line 1028, ../sass/sitewide/_general.scss */
 #event-notifications-node-form {
   margin-bottom: 20px;
 }
-/* line 1017, ../sass/sitewide/_general.scss */
+/* line 1030, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-type-list-boolean label {
   font-weight: bold;
 }
-/* line 1021, ../sass/sitewide/_general.scss */
+/* line 1034, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset {
   border: 0px;
 }
-/* line 1023, ../sass/sitewide/_general.scss */
+/* line 1036, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset > legend {
   display: none;
 }
-/* line 1025, ../sass/sitewide/_general.scss */
+/* line 1038, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset > legend .field-name-field-prevent-notification > .form-item {
   cursor: pointer;
 }
-/* line 1031, ../sass/sitewide/_general.scss */
+/* line 1044, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-days-before-event-to-send,
 #event-notifications-node-form #edit-field-days-after-event-to-send {
   margin: -15px 15px 0;
 }
-/* line 1035, ../sass/sitewide/_general.scss */
+/* line 1048, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-test-notification,
 #event-notifications-node-form #edit-field-send-event-announcement {
   padding: 15px 20px;
 }
-/* line 1040, ../sass/sitewide/_general.scss */
+/* line 1053, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo {
   margin-top: 2em;
 }
-/* line 1042, ../sass/sitewide/_general.scss */
+/* line 1055, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo .form-item {
   margin: 0.25em 0;
 }
-/* line 1044, ../sass/sitewide/_general.scss */
+/* line 1057, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo .form-item label:not(.option) {
   font-weight: normal;
 }
-/* line 1049, ../sass/sitewide/_general.scss */
+/* line 1062, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-checkboxes .form-item {
   margin: 0px;
 }
-/* line 1053, ../sass/sitewide/_general.scss */
+/* line 1066, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Change"] {
   background-color: #8c1d18;
 }
-/* line 1055, ../sass/sitewide/_general.scss */
+/* line 1068, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Change"]:hover {
   background-color: #b8261f;
 }
-/* line 1059, ../sass/sitewide/_general.scss */
+/* line 1072, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send message"] {
   background-color: #888a55;
   float: right;
 }
-/* line 1061, ../sass/sitewide/_general.scss */
+/* line 1074, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send message"]:hover {
   background-color: #a3a56d;
 }
-/* line 1066, ../sass/sitewide/_general.scss */
+/* line 1079, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send test message"] {
   background-color: #888a55;
 }
-/* line 1068, ../sass/sitewide/_general.scss */
+/* line 1081, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send test message"]:hover {
   background-color: #a3a56d;
 }
 
-/* line 1077, ../sass/sitewide/_general.scss */
+/* line 1090, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .form-item label:not(.option) {
   margin-bottom: 5px;
 }
-/* line 1080, ../sass/sitewide/_general.scss */
+/* line 1093, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .form-item .description {
   color: #858282;
   margin-top: 2px;
   max-width: 400px;
   line-height: 1.1em;
 }
-/* line 1087, ../sass/sitewide/_general.scss */
+/* line 1100, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .panel > .description, .page-node-add .node-form .panel-rule > .description, .page-node-add .node-form .panel-rule-single > .description, .page-node-add .node-form .section-events .view-dashboard.view-display-id-page_1 > .description, .section-events .page-node-add .node-form .view-dashboard.view-display-id-page_1 > .description, .page-node-add .node-form .section-events #block-views-dashboard-block-1 > .description, .section-events .page-node-add .node-form #block-views-dashboard-block-1 > .description,
 .page-node-add .node-form .section-events #block-views-dashboard-block-2 > .description,
 .section-events .page-node-add .node-form #block-views-dashboard-block-2 > .description, .page-node-add .node-form body.not-logged-in.page-user:not(.page-user-register) #block-block-8 > .description, body.not-logged-in.page-user:not(.page-user-register) .page-node-add .node-form #block-block-8 > .description, .page-node-add .node-form body.not-logged-in.page-user:not(.page-user-register) #block-block-18 > .description, body.not-logged-in.page-user:not(.page-user-register) .page-node-add .node-form #block-block-18 > .description,
@@ -1750,13 +1764,25 @@ body.not-logged-in.page-anon-login .page-node-add .node-form form#user-login > .
   margin-top: 15px;
 }
 
-/* line 1096, ../sass/sitewide/_general.scss */
+/* line 1109, ../sass/sitewide/_general.scss */
 form.node-form .form-item.form-type-textarea {
   margin-bottom: 0px;
 }
-/* line 1100, ../sass/sitewide/_general.scss */
+/* line 1113, ../sass/sitewide/_general.scss */
 form.node-form a.ckeditor_links {
   display: none !important;
+}
+
+/* line 1119, ../sass/sitewide/_general.scss */
+.form-checkboxes .form-type-checkbox,
+.form-radios .form-type-radio {
+  margin-left: 18px !important;
+}
+/* line 1122, ../sass/sitewide/_general.scss */
+.form-checkboxes .form-type-checkbox input[type="checkbox"], .form-checkboxes .form-type-checkbox input[type="radio"],
+.form-radios .form-type-radio input[type="checkbox"],
+.form-radios .form-type-radio input[type="radio"] {
+  margin-left: -18px;
 }
 
 /*
@@ -2252,7 +2278,7 @@ ul#main-menu.main-menu li.menu-item > a.active {
   text-align: left;
   font-weight: normal;
   color: #333;
-  padding: 0px 0px 0px 35px;
+  padding: 0px 0px 0px 15px;
   font-size: 13px;
   height: 18px;
   width: 165px;
@@ -6764,16 +6790,6 @@ body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .descript
   color: #5c5c5c;
   max-width: 400px;
 }
-/* line 139, ../sass/main_pages/_profile.scss */
-form#user-profile-form .form-item .confirm-parent, form#user-profile-form .form-item .password-parent,
-form#user-register-form .form-item .confirm-parent,
-form#user-register-form .form-item .password-parent,
-body.not-logged-in.page-user-register:not(.node-type-event) .form-item .confirm-parent,
-body.not-logged-in.page-user-register:not(.node-type-event) .form-item .password-parent,
-body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .confirm-parent,
-body.not-logged-in.page-anon-register:not(.node-type-event) .form-item .password-parent {
-  width: 40em !important;
-}
 /* line 142, ../sass/main_pages/_profile.scss */
 form#user-profile-form .form-item div.password-suggestions,
 form#user-register-form .form-item div.password-suggestions,
@@ -7633,28 +7649,29 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.logged-in.page-user-edit form#user-profile-form .form-item .description,
   body.not-logged-in.page-user-register:not(.node-type-event) form#user-profile-form .form-item .description,
   body.not-logged-in.page-anon-register:not(.node-type-event) form#user-profile-form .form-item .description {
-    line-height: 1.5em;
+    line-height: 1.35em;
+    font-size: 8pt;
   }
-  /* line 22, ../sass/phone/_phone-register-profile.scss */
+  /* line 23, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page {
     margin-bottom: 0px;
     padding-bottom: 0px;
   }
-  /* line 26, ../sass/phone/_phone-register-profile.scss */
+  /* line 27, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content {
     margin-top: 20px !important;
   }
-  /* line 28, ../sass/phone/_phone-register-profile.scss */
+  /* line 29, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content .messages,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content .messages,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content .messages {
     margin: -30px 0 60px;
   }
-  /* line 31, ../sass/phone/_phone-register-profile.scss */
+  /* line 32, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content div#title-section,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content div#title-section,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content div#title-section {
@@ -7662,7 +7679,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     height: 65px;
     margin-bottom: -10px;
   }
-  /* line 35, ../sass/phone/_phone-register-profile.scss */
+  /* line 36, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content div#title-section h1,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content div#title-section h1,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content div#title-section h1 {
@@ -7672,25 +7689,25 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-left: 38px;
     background-position: 0px 0px;
   }
-  /* line 43, ../sass/phone/_phone-register-profile.scss */
+  /* line 44, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content div.horizontal-tabs-panes,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content div.horizontal-tabs-panes,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content div.horizontal-tabs-panes {
     margin-top: 10px;
   }
-  /* line 45, ../sass/phone/_phone-register-profile.scss */
+  /* line 46, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content div.horizontal-tabs-panes fieldset.horizontal-tabs-pane:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content div.horizontal-tabs-panes fieldset.horizontal-tabs-pane:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content div.horizontal-tabs-panes fieldset.horizontal-tabs-pane:before {
     padding-left: 0px;
   }
-  /* line 49, ../sass/phone/_phone-register-profile.scss */
+  /* line 50, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form {
     width: 100%;
   }
-  /* line 51, ../sass/phone/_phone-register-profile.scss */
+  /* line 52, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes {
@@ -7698,14 +7715,14 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     width: 100%;
     margin-bottom: 13px;
   }
-  /* line 55, ../sass/phone/_phone-register-profile.scss */
+  /* line 56, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes:before,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes:before,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes:before {
     width: 100%;
     padding: 0px;
   }
-  /* line 59, ../sass/phone/_phone-register-profile.scss */
+  /* line 60, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes li.horizontal-tab-button,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes li.horizontal-tab-button,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes li.horizontal-tab-button {
@@ -7715,13 +7732,13 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin: 0px auto;
     height: 25px;
   }
-  /* line 67, ../sass/phone/_phone-register-profile.scss */
+  /* line 68, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-text {
     width: 90%;
   }
-  /* line 70, ../sass/phone/_phone-register-profile.scss */
+  /* line 71, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-checkbox,
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-radio,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane input.form-checkbox,
@@ -7732,354 +7749,429 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-left: -5px;
     margin-right: -2px;
   }
-  /* line 76, ../sass/phone/_phone-register-profile.scss */
+  /* line 77, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane .chosen-container {
-    width: 94% !important;
+    width: 100% !important;
   }
-  /* line 79, ../sass/phone/_phone-register-profile.scss */
+  /* line 80, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper,
   body.not-logged-in.page-user-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper,
   body.not-logged-in.page-anon-register:not(.node-type-event) div#page div#main div#content form#user-register-form div.horizontal-tabs-panes fieldset.form-wrapper.horizontal-tabs-pane div.fieldset-wrapper {
     margin-left: -15px;
   }
-  /* line 88, ../sass/phone/_phone-register-profile.scss */
+  /* line 89, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit #footer,
   body.not-logged-in.page-user-register:not(.node-type-event) #footer,
   body.not-logged-in.page-anon-register:not(.node-type-event) #footer {
     margin-top: -100px;
   }
 
-  /* line 97, ../sass/phone/_phone-register-profile.scss */
+  /* line 98, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper, body.page-user-edit .multipage-panes .multipage-pane-wrapper, body.page-anon-register .multipage-panes .multipage-pane-wrapper {
     padding: 20px 10px !important;
   }
-  /* line 99, ../sass/phone/_phone-register-profile.scss */
+  /* line 100, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper:before, body.page-user-edit .multipage-panes .multipage-pane-wrapper:before, body.page-anon-register .multipage-panes .multipage-pane-wrapper:before {
     margin-left: -11px;
     margin-right: 0px;
     padding: 0px 11px;
     width: 100%;
   }
-  /* line 105, ../sass/phone/_phone-register-profile.scss */
+  /* line 106, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper .chosen-container, body.page-user-edit .multipage-panes .multipage-pane-wrapper .chosen-container, body.page-anon-register .multipage-panes .multipage-pane-wrapper .chosen-container {
     width: 100% !important;
   }
-  /* line 108, ../sass/phone/_phone-register-profile.scss */
+  /* line 109, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper .form-wrapper:first-child, body.page-user-edit .multipage-panes .multipage-pane-wrapper .form-wrapper:first-child, body.page-anon-register .multipage-panes .multipage-pane-wrapper .form-wrapper:first-child {
     margin-top: -15px;
   }
-  /* line 111, ../sass/phone/_phone-register-profile.scss */
+  /* line 112, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper .description, body.page-user-edit .multipage-panes .multipage-pane-wrapper .description, body.page-anon-register .multipage-panes .multipage-pane-wrapper .description {
     font-size: 0.75em;
     line-height: 1.5em;
     margin-left: 2px;
     margin-top: 2px;
   }
-  /* line 117, ../sass/phone/_phone-register-profile.scss */
+  /* line 118, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .multipage-panes .multipage-pane-wrapper .multipage-counter, body.page-user-edit .multipage-panes .multipage-pane-wrapper .multipage-counter, body.page-anon-register .multipage-panes .multipage-pane-wrapper .multipage-counter {
     right: -1em;
   }
-  /* line 122, ../sass/phone/_phone-register-profile.scss */
+  /* line 123, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .messages, body.page-user-edit .messages, body.page-anon-register .messages {
     margin: 0px 0px 30px;
     padding: 10px 10px 10px 37px;
     background-size: 26px auto;
   }
-  /* line 126, ../sass/phone/_phone-register-profile.scss */
+  /* line 127, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register .messages ul, body.page-user-edit .messages ul, body.page-anon-register .messages ul {
     padding-left: 20px;
   }
 
-  /* line 136, ../sass/phone/_phone-register-profile.scss */
+  /* line 137, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content {
     margin-top: 56px !important;
   }
-  /* line 138, ../sass/phone/_phone-register-profile.scss */
+  /* line 139, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit div#page div#main div#content .messages {
     margin: 10px 0 0;
   }
-  /* line 144, ../sass/phone/_phone-register-profile.scss */
+  /* line 145, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit ul#main-menu li.menu-item a {
     width: 150px;
   }
-  /* line 150, ../sass/phone/_phone-register-profile.scss */
+  /* line 151, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-item-status,
   body.logged-in.page-user-edit form#user-profile-form div.form-item-mimemail,
   body.logged-in.page-user-edit form#user-profile-form div.form-item-timezone {
     clear: both;
   }
-  /* line 155, ../sass/phone/_phone-register-profile.scss */
+  /* line 156, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form input[type="password"].form-text {
     width: 105%;
   }
-  /* line 158, ../sass/phone/_phone-register-profile.scss */
+  /* line 159, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form select#edit-field-organizational-affiliation-und.chosen-enable.form-select.required.chosen-processed {
     display: block;
   }
-  /* line 161, ../sass/phone/_phone-register-profile.scss */
+  /* line 162, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form input.form-text {
     width: 95%;
   }
-  /* line 164, ../sass/phone/_phone-register-profile.scss */
+  /* line 165, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper {
     margin-left: 15px;
   }
-  /* line 168, ../sass/phone/_phone-register-profile.scss */
+  /* line 169, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item .form-item.form-type-radio, body.logged-in.page-user-edit form#user-profile-form div.form-item .form-item.form-type-checkbox,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper .form-item.form-type-radio,
   body.logged-in.page-user-edit form#user-profile-form fieldset.collapsible.form-wrapper .form-item.form-type-checkbox {
     margin-left: 0px;
   }
-  /* line 172, ../sass/phone/_phone-register-profile.scss */
+  /* line 173, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.password-confirm {
     margin-top: 0px;
   }
-  /* line 174, ../sass/phone/_phone-register-profile.scss */
+  /* line 175, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.password-confirm .ok {
     background: #234600;
     color: #f8fff0;
     padding: 5px;
   }
-  /* line 179, ../sass/phone/_phone-register-profile.scss */
+  /* line 180, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.password-confirm .error {
     background: #8c2e0b;
     color: #fef5f1;
     padding: 5px;
   }
-  /* line 185, ../sass/phone/_phone-register-profile.scss */
+  /* line 186, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail {
     width: 100%;
   }
-  /* line 187, ../sass/phone/_phone-register-profile.scss */
+  /* line 188, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail input.form-text,
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail div.description,
   body.logged-in.page-user-edit form#user-profile-form div.form-item.form-type-textfield.form-item-mail label:not(.option) {
     width: 95%;
   }
-  /* line 193, ../sass/phone/_phone-register-profile.scss */
+  /* line 194, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form label:not(.option) {
     font-weight: bold;
   }
-  /* line 197, ../sass/phone/_phone-register-profile.scss */
+  /* line 198, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container {
-    width: 94% !important;
+    width: 100% !important;
   }
-  /* line 200, ../sass/phone/_phone-register-profile.scss */
+  /* line 201, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 204, ../sass/phone/_phone-register-profile.scss */
+  /* line 205, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper {
     margin: 0px;
     padding: 0px;
   }
-  /* line 207, ../sass/phone/_phone-register-profile.scss */
+  /* line 208, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper .horizontal-tabs-pane div.fieldset-wrapper {
     margin-left: 0px !important;
     width: 95%;
     padding: 0px 4px;
     margin-bottom: 15px;
   }
-  /* line 214, ../sass/phone/_phone-register-profile.scss */
+  /* line 215, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select.form-item-timezone {
     margin-left: 15px;
     width: 90% !important;
   }
-  /* line 217, ../sass/phone/_phone-register-profile.scss */
+  /* line 218, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select.form-item-timezone fieldset#edit-timezone {
     width: 100%;
     padding: 0px;
   }
-  /* line 223, ../sass/phone/_phone-register-profile.scss */
+  /* line 224, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-ckeditor span.fieldset-legend {
     width: 200%;
   }
-  /* line 227, ../sass/phone/_phone-register-profile.scss */
+  /* line 228, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) {
     margin-top: 30px;
   }
-  /* line 229, ../sass/phone/_phone-register-profile.scss */
+  /* line 230, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset.form-wrapper:not(.horizontal-tabs-pane) legend {
     position: relative;
     top: 0px;
     left: 0px;
   }
-  /* line 235, ../sass/phone/_phone-register-profile.scss */
+  /* line 236, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 237, ../sass/phone/_phone-register-profile.scss */
+  /* line 238, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset fieldset {
     margin-left: 15px !important;
   }
-  /* line 239, ../sass/phone/_phone-register-profile.scss */
+  /* line 240, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset fieldset > legend {
     position: relative !important;
     top: -10px !important;
   }
-  /* line 243, ../sass/phone/_phone-register-profile.scss */
+  /* line 244, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset fieldset #edit-og-user-node {
     margin-left: 0px !important;
   }
-  /* line 247, ../sass/phone/_phone-register-profile.scss */
+  /* line 248, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed fieldset#edit-og-user-node-und {
     margin-left: 0px !important;
   }
-  /* line 251, ../sass/phone/_phone-register-profile.scss */
-  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.field-type-entityreference {
+  /* line 252, ../sass/phone/_phone-register-profile.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.field-type-entityreference:not(.field-widget-options-buttons) {
     margin-left: 15px;
   }
-  /* line 254, ../sass/phone/_phone-register-profile.scss */
+  /* line 255, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select {
     width: 100% !important;
   }
-  /* line 256, ../sass/phone/_phone-register-profile.scss */
+  /* line 257, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select select#edit-timezone--2 {
     width: 100%;
   }
-  /* line 259, ../sass/phone/_phone-register-profile.scss */
+  /* line 260, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select .chosen-single {
     width: 100% !important;
   }
-  /* line 261, ../sass/phone/_phone-register-profile.scss */
+  /* line 262, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select .chosen-single span {
     width: 250px !important;
   }
-  /* line 265, ../sass/phone/_phone-register-profile.scss */
+  /* line 266, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select div.chosen-container#edit_timezone__2_chosen {
     width: 80% !important;
   }
-  /* line 269, ../sass/phone/_phone-register-profile.scss */
+  /* line 270, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-item.form-type-radio {
     white-space: nowrap;
   }
-  /* line 272, ../sass/phone/_phone-register-profile.scss */
+  /* line 273, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.chosen-container-multi {
     max-width: 80% !important;
   }
-  /* line 275, ../sass/phone/_phone-register-profile.scss */
+  /* line 276, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed label {
     whitespace: no-wrap;
   }
-  /* line 279, ../sass/phone/_phone-register-profile.scss */
+  /* line 280, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm .form-item.password-parent,
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm .form-item.confirm-parent {
     width: auto !important;
   }
-  /* line 283, ../sass/phone/_phone-register-profile.scss */
+  /* line 284, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass {
     width: 100% !important;
     margin: 0px;
     width: 10px;
   }
-  /* line 288, ../sass/phone/_phone-register-profile.scss */
+  /* line 289, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-password.confirm-parent {
     padding-left: 10px;
     margin-right: -10px;
   }
-  /* line 291, ../sass/phone/_phone-register-profile.scss */
+  /* line 292, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-password.confirm-parent label[for="edit-pass-pass2"] {
     margin-left: -10px;
-    margin-top: 20px;
+    margin-top: 12px;
   }
-  /* line 297, ../sass/phone/_phone-register-profile.scss */
+  /* line 298, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.form-type-radio {
     display: none;
   }
-  /* line 300, ../sass/phone/_phone-register-profile.scss */
+  /* line 301, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.description {
     margin-left: 15px;
     margin-top: 30px;
     margin-bottom: 40px;
   }
-  /* line 305, ../sass/phone/_phone-register-profile.scss */
+  /* line 306, ../sass/phone/_phone-register-profile.scss */
+  body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass > div:last-of-type {
+    display: none;
+  }
+  /* line 309, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-strength {
     display: none;
   }
-  /* line 308, ../sass/phone/_phone-register-profile.scss */
+  /* line 312, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-confirm {
     width: 100%;
     margin-left: -10px;
   }
-  /* line 311, ../sass/phone/_phone-register-profile.scss */
+  /* line 315, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-confirm input {
     width: 90% !important;
   }
-  /* line 315, ../sass/phone/_phone-register-profile.scss */
+  /* line 319, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass input.password-confirm {
     float: none !important;
     margin-left: -10px;
     width: 90% !important;
   }
-  /* line 320, ../sass/phone/_phone-register-profile.scss */
+  /* line 324, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass input#edit-pass-pass1,
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass input#edit-pass-pass2 {
-    width: 90% !important;
+    width: 95% !important;
   }
-  /* line 324, ../sass/phone/_phone-register-profile.scss */
+  /* line 328, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-suggestions {
-    background: rgba(255, 182, 0, 0.13);
+    background: #FFFFFF;
+    border: 2px solid #DBBCBC;
+    margin-top: 0px;
   }
-  /* line 326, ../sass/phone/_phone-register-profile.scss */
+  /* line 332, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-suggestions ul {
     padding-left: 15px;
   }
-  /* line 328, ../sass/phone/_phone-register-profile.scss */
+  /* line 334, ../sass/phone/_phone-register-profile.scss */
   body.logged-in.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div#edit-account div.form-item.form-type-password-confirm.form-item-pass div.password-suggestions ul li {
     padding-bottom: 5px;
   }
 
-  /* line 340, ../sass/phone/_phone-register-profile.scss */
+  /* line 346, ../sass/phone/_phone-register-profile.scss */
   body.page-user-register #content {
     border: none !important;
   }
+  /* line 348, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-strength {
+    display: none;
+  }
+  /* line 352, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content .confirm-parent label[for="edit-pass-pass2"] {
+    clear: both;
+  }
+  /* line 355, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content .confirm-parent > div:first-of-type {
+    position: absolute;
+    margin-top: -56px;
+    margin-left: 115px !important;
+  }
+  /* line 361, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-suggestions {
+    background: #FFFFFF;
+    border: 2px solid #DBBCBC;
+    margin-top: 0px;
+    width: 89% !important;
+  }
+  /* line 366, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-suggestions ul {
+    padding-left: 15px;
+  }
+  /* line 368, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-suggestions ul li {
+    padding-bottom: 5px;
+  }
+  /* line 373, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content input#edit-pass-pass1,
+  body.page-user-register #content input#edit-pass-pass2 {
+    width: 52% !important;
+  }
+  /* line 377, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-confirm {
+    margin-top: 0px;
+  }
+  /* line 379, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-confirm .ok {
+    background: #234600;
+    color: #f8fff0;
+    padding: 5px;
+  }
+  /* line 384, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.password-confirm .error {
+    background: #8c2e0b;
+    color: #fef5f1;
+    padding: 5px;
+  }
+  /* line 391, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content div.form-item.form-type-password-confirm.form-item-pass > div:last-of-type {
+    display: none;
+  }
+  /* line 395, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content .form-item .description {
+    line-height: 1.35em;
+    font-size: 8pt;
+  }
+  /* line 399, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-register #content label[for="edit-pass-pass2"] {
+    margin-top: 12px;
+  }
 
-  /* line 346, ../sass/phone/_phone-register-profile.scss */
+  /* line 406, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit fieldset div.fieldset-wrapper {
     padding-top: 0px !important;
     margin-left: 0px !important;
     width: 95%;
-    margin-right: -12px;
+    margin-right: -27px !important;
   }
-  /* line 354, ../sass/phone/_phone-register-profile.scss */
+  /* line 414, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed div.form-type-select {
     margin-left: 0px;
     width: auto !important;
   }
-  /* line 358, ../sass/phone/_phone-register-profile.scss */
+  /* line 418, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed:before {
     padding-left: 0px !important;
   }
-  /* line 361, ../sass/phone/_phone-register-profile.scss */
+  /* line 421, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed input[name="mail"] {
     width: 90% !important;
   }
-  /* line 364, ../sass/phone/_phone-register-profile.scss */
+  /* line 424, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed input#edit-pass-pass1 {
     width: 100% !important;
   }
-  /* line 367, ../sass/phone/_phone-register-profile.scss */
+  /* line 427, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed input#edit-pass-pass2 {
     width: 100% !important;
   }
-  /* line 370, ../sass/phone/_phone-register-profile.scss */
+  /* line 430, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed .password-suggestions.description {
-    width: 95%;
+    width: 85%;
   }
-  /* line 373, ../sass/phone/_phone-register-profile.scss */
+  /* line 433, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed .password-confirm {
     margin-bottom: 10px;
-    margin-top: 0px;
+    margin-top: 5px;
     float: right;
-    width: 55%;
+    width: 59% !important;
   }
-  /* line 379, ../sass/phone/_phone-register-profile.scss */
+  /* line 440, ../sass/phone/_phone-register-profile.scss */
   body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed .confirm-parent label[for="edit-pass-pass2"] {
     clear: both;
+  }
+  /* line 443, ../sass/phone/_phone-register-profile.scss */
+  body.page-user-edit form#user-profile-form div.horizontal-tabs-panes.horizontal-tabs-processed .confirm-parent > div:first-of-type {
+    position: absolute;
+    margin-top: -62px;
+    margin-left: 94px !important;
   }
 
   /* event page styles */
@@ -8789,8 +8881,8 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     width: 100%;
     margin: 0px;
     float: none;
-    background-position: right -6px top 10px;
-    background-size: 53px 40px;
+    background-position: right -6px top 15px;
+    background-size: 47px 36px;
     border-top: 1px solid #d7d7d7;
     padding-bottom: 0px;
     padding-top: 16px;
@@ -9245,13 +9337,13 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     max-width: 200px;
     top: 1px;
     padding: 0px !important;
-    margin-right: 17px !important;
+    margin-right: 20px !important;
   }
   /* line 30, ../sass/phone/_phone-navigation.scss */
   body.role-authenticated-user ul#main-menu.main-menu li.menu-item a {
     width: 100%;
     font-size: 1em;
-    padding: 14px 5px 2px;
+    padding: 14px 8px 2px;
   }
   /* line 35, ../sass/phone/_phone-navigation.scss */
   body.role-authenticated-user ul#main-menu.main-menu li.menu-item.last {
