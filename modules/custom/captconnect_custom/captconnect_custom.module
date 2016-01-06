@@ -586,17 +586,19 @@ function captconnect_custom_form_user_profile_form_alter(&$form, &$form_state, $
     $form['mimemail']['#weight'] = 20;
   }
 
-  if (isset($account->data['last_account_edit'])) {
-    $msg = t('This account was last edited on @date.',
-      array('@date' => format_date($account->data['last_account_edit'], 'long')));
+  if (user_access('administer users')) {
+    if (isset($account->data['last_account_edit'])) {
+      $msg = t('This account was last edited on @date.',
+        array('@date' => format_date($account->data['last_account_edit'], 'long')));
+    }
+    else {
+      $msg = t('This account has never been edited.');
+    }
+    $form['last_account_edit'] = array(
+      '#type' => 'markup',
+      '#markup' => $msg,
+      );
   }
-  else {
-    $msg = t('This account has never been edited.');
-  }
-  $form['last_account_edit'] = array(
-    '#type' => 'markup',
-    '#markup' => $msg,
-    );
 
   $form['#validate'][] = 'captconnect_custom_user_profile_validation';
 }
