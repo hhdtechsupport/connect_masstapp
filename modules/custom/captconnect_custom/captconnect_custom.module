@@ -278,8 +278,14 @@ function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response
 
   // List of our bypasss-able messages.
   $our_msgs = array(
-    variable_get('captconnect_custom_account_check_msg',
-      "Check your personal information, please."),
+    t(variable_get('captconnect_custom_account_check_msg',
+      "Check your personal information, please.")),
+//    t(variable_get('captconnect_custom_anon_register',
+//      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
+//      array('!create_url' => 'anon_register/')),  // @TODO: need a uid here.
+    );
+  $our_classes = array(
+    'anon-login',
     );
 
   // Check them all.
@@ -287,7 +293,21 @@ function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response
     foreach ($list as $msg) {
       // If it is not one of our bypass-ables, save it.
       if (!in_array($msg, $our_msgs)) {
-        drupal_set_message($msg, $sev);
+        // See if it has a class wrapper.
+        $where_class = strpos($msg, '<span class="');
+        if ($where_class === FALSE) {
+          // Nope, just show it.
+          drupal_set_message($msg, $sev);
+        }
+        else {
+          // Yes, it has a class, so let's check it.
+          // Start = 12 (<span class=").
+          $end = strpos($msg, '"', 13);
+          $class = substr($msg, 13, $end - 13);
+          if (!in_array($class, $our_classes)) {
+            drupal_set_message($msg, $sev);
+          }
+        }
       }
     }
   }
@@ -433,6 +453,12 @@ function captconnect_custom_participate_someone_else($instance, $account) {
     $action = ($part_flag->is_flagged($instance->nid, $account->uid) ? 'unflag' : 'flag');
 
     if (!flag($action, 'participate', $instance->nid, $account)) {
+      if (isset($part_flag->errors)) {
+        foreach ($part_flag->errors as $id => $msg) {
+          $text = _captconnect_custom_wrap_message($msg, $id);
+          drupal_set_message($text, 'error');
+        }
+      }
       drupal_set_message(t('@name @action participation in "@title" failed,',
       array(
         '@name' => format_username($account),
@@ -453,7 +479,7 @@ function captconnect_custom_participate_someone_else($instance, $account) {
 function captconnect_custom_unregister_someone_else($instance, $account) {
   $token = $_GET['token'];
   if ($token == flag_get_token($instance->nid)) {
-    $part_flag = flag_get_flag('registrtation');
+    $registration = flag_get_flag('registrtation');
 
     if (!flag('unflag', 'registration', $instance->nid, $account)) {
       drupal_set_message(t('@name unregister in "@title" failed,',
@@ -897,16 +923,26 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
 }
 
 /**
+ * Helper to wrap message in a class.
+ */
+function _captconnect_custom_wrap_message($msg, $class) {
+  return '<span class="'. drupal_html_class($class) . '">'
+    . $msg
+    . '</span>';
+}
+
+/**
  * Menu Callback.
  * Allow anonymous users to register for events.
  * @param $instance - nid of the instance node for which registration is desired.
  */
 function captconnect_custom_anon_login($instance) {
   // Give them options.
-  drupal_set_message(t(variable_get('captconnect_custom_anon_register',
+  $text = t(variable_get('captconnect_custom_anon_register',
       'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
     array('!create_url' => url('anon_register/' . arg(1),
-    array('query' => drupal_get_destination())))),
+    array('query' => drupal_get_destination()))));
+  drupal_set_message(_captconnect_custom_wrap_message($text, 'anon_login'),
     'status', FALSE);
 
   // So just redirect to the normal registration page.
@@ -1024,11 +1060,17 @@ function captconnect_custom_user_login(&$edit, $account) {
         array('@title' => $event->title, '@when' => $instance->title)));
     }
     else {
-      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
-        'Your registration for "@title" failed; please try again now that you are logged in.'),
-        array('@title' => $event->title)));
+      $registration = flag_get_flag('registration');
+      if (isset($registration->errors)) {
+        foreach ($registration->errors as $id => $msg) {
+          $text = _captconnect_custom_wrap_message($msg, $id);
+          drupal_set_message($text, 'error');
+        }
+      }
+//      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
+//        'Your registration for "@title" failed; please try again now that you are logged in.'),
+//        array('@title' => $event->title)), 'error');
     }
-
 
     // Delete the record and then go to the event.
     $num_deleted = db_delete('captconnect_custom_anon_register')
@@ -1239,7 +1281,6 @@ function captconnect_custom_flag_validate($action, $flag, $entity_id, $account, 
     // How many registrtations do we have currently?
     $num_regs = $flag->get_count($entity_id);
     if ($num_regs >= $capacity && $capacity > 0) {
-      drupal_set_message('Yep, I did it.');
       return array('event-full' => t(variable_get('captconnect_custom_event_full',
         'We are sorry, but this event is full. You may try registering for another time or date.')));
     }
