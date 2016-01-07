@@ -28,6 +28,7 @@ function captconnect_custom_view_registrations($node) {
       'empty' => t('There are currently no instances of this event.'),
       );
     $event = entity_metadata_wrapper('node', $node);
+    $date_format = variable_get('captconnect_custom_register_date_format', 'long_day_at_time');
 
     $reg_flag = flag_get_flag('registration');
     $part_flag = flag_get_flag('participate');
@@ -63,15 +64,18 @@ function captconnect_custom_view_registrations($node) {
 
       // We can link the instance title to its node if the setting says so
       // and the user has permission.
+      $instance_label = format_date($instance_data['start'], $date_format);
       if (variable_get('captconnect_custom_registrations_link_instance', 1)
       && (user_access('edit any instance content')
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid))) {
-        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
+//        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
+        $title_link = l($instance_label, 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
 
       }
       else {
-        $title_link = $instance->label();
+//        $title_link = $instance->label();
+        $title_link = $instance_label;
       }
 
       if ($instance_is_past) {

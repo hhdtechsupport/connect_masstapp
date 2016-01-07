@@ -130,6 +130,19 @@ function captconnect_custom_admin_settings($form, $form_state) {
       ),
     );
 
+  $date_types = array();
+  foreach (system_get_date_types() as $name => $info) {
+    $date_types[$name] = $info['title'] . ' <small>(' . format_date(REQUEST_TIME, $name) . ')</small>';
+  }
+  $form['captconnect_custom_register_date_format'] = array(
+    '#type' => 'radios',
+    '#options' => $date_types,
+    '#title' => t('Date format'),
+    '#default_value' => variable_get('captconnect_custom_register_date_format', 'long_day_at_time'),
+    '#description' => t('This format will be used in the "registration successful" message.'),
+    );
+
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
   return system_settings_form($form);
@@ -185,7 +198,11 @@ function theme_captconnect_custom_admin_settings($variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
-//    array('data' => "&nbsp;", 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_register_date_format']), 'style' => $style),
+    array('data' => "&nbsp;", 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -234,14 +251,31 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '</ul>',
     );
 
-  $form['captconnect_custom_must_change_password'] = array(
+  $form['captconnect_custom_duplicate_registration'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#title' => t('Must Change Password'),
-    '#default_value' => variable_get('captconnect_custom_must_change_password',
-      'In order to continue on this site, you need to change your password.'),
-    '#description' => t('This message is displayed when an account is initially
-      logged into in the anonymous registration process'),
+    '#title' => t('Duplicate Registration'),
+    '#default_value' => variable_get('captconnect_custom_duplicate_registration',
+      'You were already registered for "@title."'),
+    '#description' => t('When someone registers for an event anonymously,
+      and we find that they are already registered, display this message.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@title - the linked title of the event.') . '</li>'
+      . '</ul>',
+    );
+
+  $form['captconnect_custom_event_full'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 256,
+    '#title' => t('Event is full'),
+    '#default_value' => variable_get('captconnect_custom_event_full',
+      'We are sorry, but this event is full. You may try registering for another time or date.'),
+    '#description' => t('When someone tries to register for an event that is '
+      . 'already at capacity, this message is displayed '
+      . '<br />'
+      . 'and the registration is denied.')
     );
 
   $form['captconnect_custom_completion_email_anon'] = array(
@@ -270,7 +304,7 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Reset password heading'),
     '#default_value' => variable_get('captconnect_custom_reset_pass_head',
       'Reset Password'),
-//    '#description' => t(''),
+    '#description' => t('This is the heading for the page to request a new password'),
     );
 
   $form['captconnect_custom_reset_pass_welcome'] = array(
@@ -288,36 +322,6 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '<li>' . t('@title - the title of the event.') . '</li>'
       . '<li>' . t('@when - the title (date and time) of the instance.') . '</li>'
       . '</ul>',
-    );
-
-  $form['captconnect_custom_anon_login'] = array(
-    '#type' => 'textarea',
-    '#rows' => 1,
-    '#title' => t('Login invitation'),
-    '#default_value' => variable_get('captconnect_custom_anon_login',
-      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
-    '#description' => t('When an anonymous user tries to register, this message
-      is shown to invite a login rather than account creation.')
-      . '<br/>'
-      . t('You may use these tokens:')
-      . '<ul>'
-      . '<li>' . t('!login_url - the URL for logging in.') . '</li>'
-      . '</ul>'
-    );
-
-  $form['captconnect_custom_anon_register'] = array(
-    '#type' => 'textarea',
-    '#rows' => 1,
-    '#title' => t('Register invitation'),
-    '#default_value' => variable_get('captconnect_custom_anon_register',
-      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
-    '#description' => t('When an anonymous user tries to register, this message
-      is shown to invite an account creation rather than a login.')
-      . '<br/>'
-      . t('You may use these tokens:')
-      . '<ul>'
-      . '<li>' . t('!create_url - the URL for creating an account.') . '</li>'
-      . '</ul>'
     );
 
   $form['captconnect_custom_proxy_registered'] = array(
@@ -355,16 +359,34 @@ function captconnect_custom_message_texts($form, $form_state) {
       . '</ul>',
     );
 
-  $form['captconnect_custom_event_full'] = array(
-    '#type' => 'textfield',
-    '#maxlength' => 256,
-    '#title' => t('Event is full'),
-    '#default_value' => variable_get('captconnect_custom_event_full',
-      'We are sorry, but this event is full. You may try registering for another time or date.'),
-    '#description' => t('When someone tries to register for an event that is '
-      . 'already at capacity, this message is displayed '
-      . '<br />'
-      . 'and the registration is denied.')
+  $form['captconnect_custom_anon_login'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Login invitation'),
+    '#default_value' => variable_get('captconnect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
+    '#description' => t('When an anonymous user tries to register, this message
+      is shown to invite a login rather than account creation.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('!login_url - the URL for logging in.') . '</li>'
+      . '</ul>'
+    );
+
+  $form['captconnect_custom_anon_register'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Register invitation'),
+    '#default_value' => variable_get('captconnect_custom_anon_register',
+      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
+    '#description' => t('When an anonymous user tries to register, this message
+      is shown to invite an account creation rather than a login.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('!create_url - the URL for creating an account.') . '</li>'
+      . '</ul>'
     );
 
   $form['captconnect_custom_login_email_help'] = array(
@@ -388,12 +410,22 @@ function captconnect_custom_message_texts($form, $form_state) {
 
   $form['captconnect_custom_require_group_msg'] = array(
     '#type' => 'textarea',
-    '#rows' => 2,
+    '#rows' => 1,
     '#title' => t('Require Group Membership'),
     '#default_value' => variable_get('captconnect_custom_require_group_msg',
       "Special roles require an RT group selection."),
     '#description' => t("When someone is assigned to a content role,
-      membership in a group."),
+      require membership in a group."),
+    );
+
+  $form['captconnect_custom_must_change_password'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Must Change Password'),
+    '#default_value' => variable_get('captconnect_custom_must_change_password',
+      'In order to continue on this site, you need to change your password.'),
+    '#description' => t('This message is displayed when an account is initially
+      logged into in the anonymous registration process'),
     );
 
   $form['#theme'] = 'captconnect_custom_message_texts';
@@ -427,7 +459,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
     );
 
   $rows[] = array(
-    array('data' => drupal_render($form['captconnect_custom_must_change_password']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_duplicate_registration']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_event_full']), 'style' => $style),
     );
 
@@ -458,7 +490,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_require_group_msg']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_account_check_msg']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_must_change_password']), 'style' => $style),
     );
 
   $output .= theme('table', array(
