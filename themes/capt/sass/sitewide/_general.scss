@@ -932,34 +932,43 @@ input.form-text {
 
 
 body.section-terms-of-use,
-body.section-mailing-lists {
-  div#content {
-    padding: 20px 150px !important;
-    h1 {
-      text-align: center;
-    }
-    h2 {
-      text-transform: uppercase;
-      font-size: 1.5em;
-      margin: 20px 0px 10px !important;
-    }
-    a {
-      color: $capt-black;
-      font-weight: normal;
-      text-decoration: underline;
-    }
-    ol, li {
-      line-height: 1.6em;
-    }
-    ol {
-      padding-left: 1.5em;
-      li {
-        margin-bottom: 1em;
-        ul {
-          margin-top: 1em;
-        }
+body.section-mailing-lists,
+body.section-user .group-terms-of-use {
+  h1 {
+    text-align: center;
+  }
+  h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    margin: 20px 0px 10px !important;
+  }
+  a {
+    color: $capt-black;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+  ol, li {
+    line-height: 1.6em;
+  }
+  ol {
+    padding-left: 1.5em;
+    li {
+      margin-bottom: 1em;
+      ul {
+        margin-top: 1em;
       }
     }
+  }
+  #terms-scroll {
+    border: 1px solid $capt-midgrey;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 15px;
+    margin-top: 20px;
+    background: #F0F0F0;
+    -webkit-box-shadow: inset 5px 7px 18px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 5px 7px 18px -8px rgba(0,0,0,0.75);
+    box-shadow: inset 5px 7px 18px -8px rgba(0,0,0,0.75);
   }
   &.not-logged-in {
     div#main {
@@ -972,9 +981,15 @@ body.section-mailing-lists {
 }
 body.section-mailing-lists {
   div#content {
+      padding: 20px 150px !important;
     h1 {
       text-align: left;
     }
+  }
+}
+body.section-terms-of-use {
+  div#content {
+    padding: 20px 150px !important;
   }
 }
 

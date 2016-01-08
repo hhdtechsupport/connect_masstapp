@@ -39,7 +39,7 @@
 
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="[ics-class:value]">
           <tr>
-            <td background="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/pattern.png" valign="top" bgcolor="#E3E3DF">
+            <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/pattern.png" valign="top" bgcolor="#E3E3DF">
               <div>
 
                 <table class="header">
@@ -49,10 +49,10 @@
                       <table class="logos center">
                         <tr>
                           <td width="351" height="78" valign="bottom">
-                            <img src="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
+                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
                           </td>
                           <td width="250" height="78" valign="bottom">
-                            <img src="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
+                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
                           </td>
                         </tr>
                       </table>
@@ -65,7 +65,7 @@
 
                       <table class="colorband">
                         <tr>
-                          <td background="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
+                          <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
                             <div>
                             </div>
                           </td>
@@ -79,7 +79,7 @@
 
                 <table class="banner center">
                   <tr>
-                    <td background="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/banner.png" bgcolor="#567583" width="600" height="134" valign="top">
+                    <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/banner.png" bgcolor="#567583" width="600" height="134" valign="top">
                       <div>
 
                         <?php
@@ -114,7 +114,7 @@
 
                       <table class="colorband">
                         <tr>
-                          <td background="http://stage.captconnect.edc.org/sites/captconnect.edc.org/themes/capt/images/mail/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
+                          <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
                             <div>
                             </div>
                           </td>

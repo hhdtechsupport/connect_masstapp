@@ -23,7 +23,7 @@
   attach: function(context, settings) {
 
   // Get browser's timezone - NOT DOING ANYTHING WITH THIS RIGHT NOW
-  cl(jstz.determine().name());
+  // cl(jstz.determine().name());
 
 
   // new variable to account for the division between phone and tablet styles
@@ -820,10 +820,12 @@ function otherSelectbox ($field, $fieldPrev) {
 
   // Cancel account tweaks
   $form = $('form#user-cancel-confirm-form');
-  $form.children('div').contents().first()[0].textContent='Your account will be blocked and you will no longer be able to log in. This action cannot be undone.';
-  userURL = $form.attr('action').split('/');
-  $('a#edit-cancel').text('Changed my mind...').attr('href', '/' + userURL[1] + '/' + userURL[2] + '/edit');
-
+  $formContents = $form.children('div').contents().first()[0];
+  if ($formContents != undefined) {
+    $formContents.textContent='Your account will be blocked and you will no longer be able to log in. This action cannot be undone.';
+    userURL = $form.attr('action').split('/');
+    $('a#edit-cancel').text('Changed my mind...').attr('href', '/' + userURL[1] + '/' + userURL[2] + '/edit');
+  }
 
 
 
