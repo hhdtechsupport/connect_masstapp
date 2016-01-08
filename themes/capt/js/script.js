@@ -22,8 +22,36 @@
   Drupal.behaviors.my_custom_behavior = {
   attach: function(context, settings) {
 
+
+
   // Get browser's timezone - NOT DOING ANYTHING WITH THIS RIGHT NOW
   // cl(jstz.determine().name());
+
+
+  // TEMPORARY HIDING OF MAILING LIST AND OTHER STUFF
+  $('.page-node-notifications:not(.role-administrator) .vertical-tab-button').each(function(){
+    if ($(this).find('strong').text() == 'Event Announcement') {
+      $(this).next().children('a').click();
+      $(this).remove();
+      $('#edit-group_event_announcement').remove();
+    };
+  });
+
+  $('.page-node-notifications:not(.role-administrator) #block-views-send-message-block-1').remove();
+  $('.page-node-notifications:not(.role-administrator) #edit-field-notification-type select').val('126').trigger('chosen:updated');
+  $('.page-node-notifications:not(.role-administrator) #edit-field-notification-type select option[value="182"]').remove();
+  $('.page-node-notifications:not(.role-administrator) #edit-field-notification-type select').trigger('chosen:updated');
+
+
+
+  // POTENTIALLY TEMPORARY (ADDING OPT-GROUPS)
+  $('#edit-field-state-or-jurisdiction').each(function(){
+    $select = $(this).find('select');
+    $select.children('option').slice(0, 50).wrapAll('<optgroup label="States">');
+    $select.children('option').wrapAll('<optgroup label="Jurisdictions">');
+    $select.trigger('chosen:updated');
+  });
+
 
 
   // new variable to account for the division between phone and tablet styles
