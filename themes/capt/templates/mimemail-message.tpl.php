@@ -47,13 +47,21 @@
                   <tr>
                     <td>
 
-                      <table class="logos center">
+                      <table class="logos-wrapper">
                         <tr>
-                          <td width="351" height="78" valign="bottom">
-                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
-                          </td>
-                          <td width="250" height="78" valign="bottom">
-                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
+                          <td width="100%">
+
+                            <table class="logos center">
+                              <tr>
+                                <td width="351" height="78" valign="bottom">
+                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
+                                </td>
+                                <td width="250" height="78" valign="bottom">
+                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
+                                </td>
+                              </tr>
+                            </table>
+
                           </td>
                         </tr>
                       </table>
@@ -131,7 +139,7 @@
                       <table class="mailing center">
                         <tr>
                           <td>
-                            <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | 43 Foundry Ave | Waltham, MA 02453-8313</p>
+                            <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | <span class="appleLinks">43 Foundry Ave | Waltham, MA 02453-8313</span></p>
                             <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
                             <p class="unsubscribe">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such notifications, you must <a href="<?php print $base_url; ?>/user">log in and cancel your account to unsubscribe</a>.</p>                          </td>
                           </td>

@@ -119,10 +119,10 @@ ul.main-menu a {
 
 input[type="submit"],
 a.button,
-.participate-others-button,
-.register-others-button,
-.participate-others-button:visited,
-.register-others-button:visited,
+a.button.participate-others-button,
+a.button.register-others-button,
+a.button.participate-others-button:visited,
+a.button.register-others-button:visited,
 .multipage-controls-list input.form-submit {
   @include border-radius(3px);
   color: #ffffff;
@@ -133,6 +133,10 @@ a.button,
   font-weight: normal;
   font-size: 13px;
   text-shadow: none;
+}
+
+a.button.register-others-button:visited {
+  background: $capt-orange !important;
 }
 
 #block-block-19 a.button {

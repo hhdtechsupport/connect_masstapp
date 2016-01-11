@@ -46,13 +46,21 @@
                   <tr>
                     <td>
 
-                      <table class="logos center">
+                      <table class="logos-wrapper">
                         <tr>
-                          <td width="351" height="78" valign="bottom">
-                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
-                          </td>
-                          <td width="250" height="78" valign="bottom">
-                            <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
+                          <td width="100%">
+
+                            <table class="logos center">
+                              <tr>
+                                <td width="351" height="78" valign="bottom">
+                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
+                                </td>
+                                <td width="250" height="78" valign="bottom">
+                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
+                                </td>
+                              </tr>
+                            </table>
+
                           </td>
                         </tr>
                       </table>
