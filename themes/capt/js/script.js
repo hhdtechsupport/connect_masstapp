@@ -65,6 +65,7 @@
     oldDevice = 1;
   }
 
+
   function deviceSwitch() {
 
     // Are we dealing with a phone?
@@ -75,9 +76,8 @@
         $(this).addClass('accordion');
         $(this).children('h4').addClass('header');
         $(this).children('.field').addClass('body');
-
       });
-      $('.field-type-ds, .section-events .block-views').each(function(){
+      $('.field-type-ds:not(.field-name-portal-page-groupings):not(.field-name-resources), .section-events .block-views').each(function(){
         $(this).addClass('accordion');
         $(this).find('h2.block-title, > div.field-label').addClass('header');
         $(this).find('h2.block-title ~ div:not(.contextual-links-wrapper), > div.field-label ~ div.field-items').addClass('body');
@@ -93,7 +93,7 @@
     else {
 
       // Remove the show/hide functionality and reveal the body content
-      $('.accordion').each(function(){
+      $('.accordion:not(.views-row)').each(function(){
         $(this).removeClass('accordion').removeClass('closed');
         $(this).find('.header').removeClass('header').removeClass('closed');
         $(this).find('.body').removeClass('body').removeClass('closed').show();
@@ -184,6 +184,59 @@
   $('.accordion').each(function(index){
     showHide($(this), index);
   });
+
+
+
+
+  // Duplicating some of the above, but this is more straightforward
+  $('.views-accordion').each(function() {
+
+    $accordion = $(this);
+    $label = $(this).children('.portal-grouping-label');
+    $content = $(this).children('.portal-grouping-content');
+
+    $accordion.addClass('closed');
+    $label.addClass('closed');
+    $content.addClass('closed').css('display','none');
+
+    // Add show/hide functionality
+    $label.on('click', function(){
+
+      $label = $(this);
+      $accordion = $label.closest('.views-accordion');
+      $content = $accordion.children('.portal-grouping-content');
+
+      // Change state
+      if ($accordion.hasClass('closed')) {
+
+        // First roll-up all of the other accordion rows
+        $accordion.siblings().each(function(){
+          $otheraccordion = $(this);
+          $otherlabel = $(this).children('.portal-grouping-label');
+          $othercontent = $(this).children('.portal-grouping-content');
+          $otheraccordion.addClass('closed');
+          $otherlabel.addClass('closed');
+          $othercontent.addClass('closed').css('display','none');
+          $othercontent.stop(true,true).slideUp('fast');
+        });
+
+        $accordion.children('').stop(true,true).slideDown('fast');
+        $accordion.removeClass('closed');
+        $label.removeClass('closed');
+        $content.removeClass('closed');
+
+      }
+      else {
+        $content.stop(true,true).slideUp('fast');
+        $accordion.addClass('closed');
+        $label.addClass('closed');
+        $content.addClass('closed');
+      }
+    });
+
+  });
+
+
 
 
 
