@@ -514,10 +514,27 @@ body.node-type-event.not-logged-in {
 .field-name-event-date-s- {
   & > .field-items > .field-item > .view-instances {
     & > .view-content > .views-row {
-      & > .views-field-view {
+      position: relative;
+      & > .views-field-view, & > .views-field-view-1 {
         & > .field-content > .view-instances > .view-content {
           text-align: right;
           margin-bottom: 30px;
+        }
+      }
+      & > .views-field-view-4 {
+        & > .field-content > .view-instances > .view-content {
+          text-align: right;
+          margin-bottom: 30px;
+          position: absolute;
+          top: 5px;
+          height: 100%;
+          background: rgba(238, 241, 243, 0.6);
+          width: 100%;
+          margin-top: 2px;
+          font-weight: bold;
+          font-style: italic;
+          color: $capt-maroon;
+          font-size: 1.25em;
         }
       }
     }

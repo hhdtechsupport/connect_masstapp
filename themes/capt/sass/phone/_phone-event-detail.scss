@@ -341,8 +341,13 @@ body.node-type-event {
             border-top: 1px solid $capt-midgrey;
             padding-top: 20px;
           }
-          & > .views-field-view {
+          & > .views-field-view, & > .views-field-view-1 {
             line-height: 3;
+          }
+          & > .views-field-view-4 {
+            & > .field-content > .view-instances > .view-content {
+              background: rgba(255, 255, 255, 0.6);
+            }
           }
         }
         li.views-row > strong {
