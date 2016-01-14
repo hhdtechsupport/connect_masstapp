@@ -313,6 +313,17 @@ body.page-user-register, body.page-anon-register, body.page-admin-people-create 
   border: 1px solid #b6b6b6;
 }
 
-.multipage-pane-wrapper > .form-wrapper:before {
+.field-type-markup {
+  p:last-child {
+    margin-bottom: 0px;
+  }
+  &#edit-field-demographic-info-intro {
+    margin: 1em 0em 2em;
+  }
+}
 
+.field-type-list-boolean a {
+  font-weight: normal;
+  color: $capt-black;
+  text-decoration: underline;
 }

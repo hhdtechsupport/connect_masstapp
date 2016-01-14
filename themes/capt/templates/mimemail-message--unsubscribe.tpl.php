@@ -140,7 +140,7 @@
                         <tr>
                           <td>
                             <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | 43 Foundry Ave | Waltham, MA 02453-8313</p>
-                            <p><a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
+                            <p><a href="<?php print $base_url; ?>/terms">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
                           </td>
                         </tr>
                       </table>

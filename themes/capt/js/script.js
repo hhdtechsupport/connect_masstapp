@@ -47,8 +47,8 @@
   // POTENTIALLY TEMPORARY (ADDING OPT-GROUPS)
   $('#edit-field-state-or-jurisdiction').each(function(){
     $select = $(this).find('select');
-    $select.children('option').slice(0, 50).wrapAll('<optgroup label="States">');
-    $select.children('option').wrapAll('<optgroup label="Jurisdictions">');
+    $select.children('option').slice(1, 50).wrapAll('<optgroup label="States">');
+    $select.children('option[value!="_none"]').wrapAll('<optgroup label="Jurisdictions">');
     $select.trigger('chosen:updated');
   });
 
@@ -895,6 +895,11 @@ function otherSelectbox ($field, $fieldPrev) {
   	$('.vertical-tabs-panes > fieldset:nth-child(' + index + ')').css('display','block');
   	$tab.addClass('selected');
   }
+
+
+
+  // Open up the terms of use and link to SAMHSA's privacy policy in another window (not 508-compliant)
+  $('.field-type-list-boolean a').attr('target','_blank');
 
 
 
