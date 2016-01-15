@@ -537,6 +537,20 @@ body.node-type-event.not-logged-in {
           font-size: 1.25em;
         }
       }
+      & > .views-field-php {
+        text-decoration: underline;
+        margin-top: -22px;
+        margin-left: 14px;
+        margin-bottom: 20px;
+        a {
+          color: $capt-black !important;
+          font-weight: normal;
+          cursor: pointer;
+          &:hover {
+            color: $capt-maroon !important;
+          }
+        }
+      }
     }
   }
 }
