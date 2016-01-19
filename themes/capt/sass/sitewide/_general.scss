@@ -135,6 +135,7 @@ a.button.register-others-button:visited,
   text-shadow: none;
 }
 
+a.button.register-others-button,
 a.button.register-others-button:visited {
   background: $capt-orange !important;
 }
@@ -1119,7 +1120,7 @@ div.vertical-tabs {
 
 
 
-.page-node-add .node-form {
+.page-node-add .node-form, .page-node-edit .node-form {
   .form-item {
     label:not(.option) {
       margin-bottom: 5px;
@@ -1138,7 +1139,7 @@ div.vertical-tabs {
   }
 }
 
-form.node-form {
+form.node-form, form.entityform {
   .form-item {
     &.form-type-textarea {
       margin-bottom: 0px;

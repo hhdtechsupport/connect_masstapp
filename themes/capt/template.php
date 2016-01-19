@@ -132,8 +132,6 @@ function capt_preprocess_block(&$variables, $hook) {
 // */
 
 
-
-
 function capt_preprocess_html(&$vars, $hook) {
     // add roles to body
     if ($vars['user']) {
@@ -180,6 +178,7 @@ function capt_preprocess_page(&$vars) {
       $vars['theme_hook_suggestions'][] = 'page__403' . $authenticated;
     }
 }
+
 function capt_page_alter($page) {
    $meta_description = array(
             '#type' => 'html_tag',
@@ -189,7 +188,5 @@ function capt_page_alter($page) {
                 'content' =>  'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
             )
    );
-
 drupal_add_html_head( $meta_description, 'meta_description' );
-
 }
