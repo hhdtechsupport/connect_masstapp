@@ -857,14 +857,30 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       $notifications = TRUE;
     }
   }
+  $portalpagegroup = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'portal_page_group') {
+      $portalpagegroup = TRUE;
+    }
+  }
 
   // Replace fields shown for date instances
   if ($instances) {
     unset($fields['status']);
     $fields['field_max_registration'] = array(
       'type' => 'field',
-      'label' => t('Max Registrations'),
+      'label' => t('Max'),
       'weight' => 2
+      );
+    $fields['field_date_label'] = array(
+      'type' => 'field',
+      'label' => t('Label'),
+      'weight' => 3
+      );
+    $fields['field_related_material'] = array(
+      'type' => 'field',
+      'label' => t('Followup materials'),
+      'weight' => 4
       );
   }
 
@@ -908,6 +924,11 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'label' => t('Material'),
       'weight' => 4
       );
+    $fields['field_body'] = array(
+      'type' => 'field',
+      'label' => t('Description'),
+      'weight' => 5
+      );
   }
 
   // Replace fields shown for notifications
@@ -919,6 +940,11 @@ function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $con
       'label' => t('Body'),
       'weight' => 3
       );
+  }
+
+  // Replace fields shown for portal page groups
+  if ($portalpagegroup) {
+    unset($fields['status']);
   }
 }
 
