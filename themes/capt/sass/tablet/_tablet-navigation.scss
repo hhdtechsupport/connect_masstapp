@@ -11,7 +11,8 @@ body.page-events.section-events,
 body.section-events,
 body.logged-in.page-user-edit,
 body.role-authenticated-user.node-type-event,
-body.section-portal {
+body.section-portal,
+body.section-portals {
 
         ul#main-menu.main-menu  {
             width: 96% !important;
@@ -72,5 +73,14 @@ body.page-events.logged-in {
   #content {
     padding-left: 0px !important;
     padding-right: 0px !important;
+  }
+}
+
+.section-portals {
+  div#main div#content {
+    margin-top: 25px !important;
+    h1#page-title {
+      margin-top: 10px;
+    }
   }
 }
