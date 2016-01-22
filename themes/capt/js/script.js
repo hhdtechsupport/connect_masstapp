@@ -45,10 +45,18 @@
 
 
   // POTENTIALLY TEMPORARY (ADDING OPT-GROUPS)
-  $('#edit-field-state-or-jurisdiction').each(function(){
+  $('.page-user-register #edit-field-state-or-jurisdiction, .page-anon-register #edit-field-state-or-jurisdiction').each(function(){
     $select = $(this).find('select');
     $select.children('option').slice(1, 50).wrapAll('<optgroup label="States">');
     $select.children('option[value!="_none"]').wrapAll('<optgroup label="Jurisdictions">');
+    $select.trigger('chosen:updated');
+  });
+  $('.page-user-edit #edit-field-state-or-jurisdiction').each(function(){
+    $select = $(this).find('select');
+    $select.children('option').slice(1, 50).wrapAll('<optgroup label="States">');
+    $select.children('option').wrapAll('<optgroup label="Jurisdictions">');
+    $select.children('optgroup[label="Jurisdictions"]').children('option:first-child').prependTo($select.children('optgroup[label="States"]'));
+    $select.children('optgroup[label="States"]').insertBefore($select.children('optgroup[label="Jurisdictions"]'));
     $select.trigger('chosen:updated');
   });
 
