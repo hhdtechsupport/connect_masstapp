@@ -90,7 +90,9 @@ body.section-portal {
   }
   .ds-2col > .group-right {
     float: right;
-    .field-type-ds {
+  }
+  .ds-2col {
+    .field-type-ds.field-name-portal-navigation-1 {
       margin-top: 0px;
       padding-top: 25px;
       &:before {
@@ -107,13 +109,13 @@ body.section-portal {
               color: $capt-aqua;
               font-weight: bold;
               &:hover {
-                color: $capt-maroon;
+                color: $capt-orange;
               }
               &.active {
                 cursor: default;
-                color: $capt-maroon;
+                color: $capt-orange;
                 &:hover {
-                  color: $capt-maroon;
+                  color: $capt-orange;
                 }
               }
             }
@@ -182,11 +184,12 @@ body.section-portal {
   }
   .ds-2col > .group-left {
     a {
-      color: $capt-maroon;
-      text-decoration: none;
+      color: $capt-black;
+      text-decoration: underline;
       font-weight: normal;
       &:hover {
         text-decoration: underline !important;
+        color: $capt-orange;
       }
     }
     ul {
