@@ -92,6 +92,7 @@
       });
 
       $('.field-name-portal-navigation-1').prependTo('.group-left');
+      $('.field-name-portal-navigation-3').prependTo('.group-left');
       $('.field-name-event-date-s-').prependTo('.group-left');
       $('.field-name-join-this-event').prependTo('.group-left');
       $('.field-name-join-this-event-2').prependTo('.group-left');
@@ -109,6 +110,7 @@
       });
 
       $('.field-name-portal-navigation-1').prependTo('.group-right');
+      $('.field-name-portal-navigation-3').prependTo('.group-right');
       $('.field-name-event-date-s-').prependTo('.group-right');
       $('.field-name-join-this-event').prependTo('.group-right');
       $('.field-name-join-this-event-2').prependTo('.group-right');
@@ -125,7 +127,7 @@
     // Added this check so that the show/hide is only added once (getting jittery animations)
     if (!$accordion.hasClass('accordion-processed')) {
       // Set panels closed initially unless first
-      if (index != 0 || $accordion.hasClass('field-name-portal-navigation-1')) {
+      if (index != 0 || $accordion.hasClass('field-name-portal-navigation-1') || $accordion.hasClass('field-name-portal-navigation-3')) {
         $accordion.addClass('closed');
         $accordion.find('.header').addClass('closed');
         $accordion.find('.body').addClass('closed').css('display','none');
