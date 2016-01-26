@@ -947,10 +947,9 @@ input.form-text {
 
 
 
-body.section-terms,
-body.section-mailing-lists,
+body.node-type-page:not(.section-events):not(.section-administration),
 body.section-user .group-terms-of-use {
-  h1 {
+  h1:not(#site-name) {
     text-align: center;
   }
   h2 {
@@ -1201,4 +1200,18 @@ input#edit-cancel {
 
 .form-field-type-text-long > div > div.text-format-wrapper > div.filter-wrapper {
   display: none;
+}
+
+
+
+
+.not-logged-in {
+  &.page-views {
+    #main {
+      padding-top: 0px;
+      #content {
+        border: 0px;
+      }
+    }
+  }
 }

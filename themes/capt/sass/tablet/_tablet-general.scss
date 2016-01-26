@@ -75,12 +75,14 @@ body:not(.node-type-page) {
     }
   }
 }
-body.node-type-page.section-terms-of-use,
-body.node-type-page.section-mailing-lists {
+body.node-type-page:not(.section-events):not(.section-administration) {
   div#content {
     width: auto;
     padding-left: 100px !important;
     padding-right: 100px !important;
+    margin-left: 13px;
+    margin-right: 13px;
+    margin-top: 17px;
   }
 }
 

@@ -11,7 +11,7 @@
 body {
   width: 100%;
   margin: 0px;
-  &.node-type-event, &.logged-in, &.node-type-page {
+  &.node-type-event, &.logged-in, &.node-type-page, &.page-views {
     header#header {
       padding: 0px;
       .header-blue-2 {
@@ -76,7 +76,7 @@ body {
       }
     }
   }
-  &.front, &.not-logged-in:not(.node-type-event) {
+  &.front, &.not-logged-in:not(.node-type-event):not(.page-views) {
     header#header {
       padding: 0px;
       .header-blue {
@@ -199,7 +199,7 @@ body {
 
     }
   }
-  &.not-front.logged-in, &.not-front.node-type-event, &.not-front.node-type-page {
+  &.not-front.logged-in, &.not-front.node-type-event, &.not-front.node-type-page, &.not-front.page-views {
     header#header {
       .region-header {
         position: absolute;
