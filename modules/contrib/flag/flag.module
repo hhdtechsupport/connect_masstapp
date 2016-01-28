@@ -148,7 +148,13 @@ function flagging_save($flagging) {
   $result = $flag->flag('flag', $flagging->entity_id, $account, FALSE, $flagging);
 
   if (!$result) {
-    throw new Exception('Flag action not allowed for given flagging entity properties.');
+    if (empty($flag->errors)) {
+      throw new Exception('Flag action not allowed for given flagging entity properties.');
+    }
+    else {
+      $msg = array_unshift($flag->errors);
+      throw new Exception($msg);
+    }
   }
 }
 

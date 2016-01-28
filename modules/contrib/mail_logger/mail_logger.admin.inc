@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Admin stuff for the Mail Logger module.
+ */
 
 /**
  * Mail Logger admin form.
