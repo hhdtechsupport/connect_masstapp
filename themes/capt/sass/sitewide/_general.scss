@@ -1215,3 +1215,61 @@ input#edit-cancel {
     }
   }
 }
+
+
+
+
+
+.documentation {
+  font-family: 'Helvetica', sans-serif !important;
+  font-size: 14px !important;
+  line-height: 1.25em !important;
+  h2 {
+    font-size: 1.5em !important;
+    text-transform: none !important;
+  }
+  a {
+    &:hover {
+      color: $capt-maroon !important;
+    }
+  }
+  .multilevel {
+    ol {
+      list-style-type: upper-roman;
+      padding-left: 30px !important;
+      line-height: 1.25em !important;
+      li {
+        padding-left: 20px !important;
+        margin-top: 15px !important;
+        font-weight: bold;
+        margin-bottom: 0px !important;
+        line-height: 1.25em !important;
+        font-size: 16px;
+      }
+      ol {
+        list-style-type: upper-alpha;
+        padding-left: 20px !important;
+        margin: 10px 0 30px !important;
+        line-height: 1.25em !important;
+        li {
+          font-weight: normal;
+          margin-top: 5px !important;
+          line-height: 1.25em !important;
+          font-size: 14px;
+        }
+        ol {
+          list-style-type: lower-alpha;
+          padding-left: 20px !important;
+          margin: 5px 0px 10px !important;
+          line-height: 1.25em !important;
+          ol {
+            list-style-type: lower-roman;
+            padding-left: 20px !important;
+            margin: 5px 0 5px !important;
+            line-height: 1.25em !important;
+          }
+        }
+      }
+    }
+  }
+}
