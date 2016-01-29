@@ -129,3 +129,20 @@ body.section-portal .ds-2col {
     }
   }
 }
+
+
+body.page-portals.page-views {
+  h1#page-title {
+    margin-bottom: 30px;
+    font-size: .9em;
+  }
+  &.role-anonymous-user {
+    #content {
+      width: 100% !important;
+      .panelize form input[type="text"],
+      .panelize form input[type="password"] {
+        width: 96% !important;
+      }
+    }
+  }
+}

@@ -20,9 +20,9 @@
 <head>
   <title><?php print $head_title; ?></title>
 </head>
-<body class="<?php print $classes; ?>">
-  <div id="page" style="padding: 30px; margin: 0 auto; text-align: center">
-    <?php print $content; ?>
-  </div> <!-- /page -->
+<body>
+
+<?php drupal_goto('/user/login'); ?>
+
 </body>
 </html>

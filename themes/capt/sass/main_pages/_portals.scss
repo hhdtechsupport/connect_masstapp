@@ -9,6 +9,49 @@ body.page-portals.page-views {
     background: url("../images/icons/portals.png") 0 0 no-repeat;
     padding-left: 63px;
   }
+  &.role-anonymous-user {
+    h1#page-title {
+      color: $capt-maroon;
+      font-size: 35px;
+      height: 70px;
+    }
+    #content {
+      margin: 0 auto !important;
+      width: 490px !important;
+    }
+  }
+  .panelize {
+    padding: 20px 0px 85px;
+    h2 {
+      padding: 0 20px 30px;
+      color: $capt-darkblue;
+      font-size: 28px;
+    }
+    form {
+      padding: 0 20px;
+      label {
+        font-weight: normal;
+        color: $capt-black;
+        margin-left: 1px;
+        margin-bottom: 0px;
+        font-size: 16px;
+      }
+      .description {
+        display: none;
+      }
+      a.request-password-link {
+        font-weight: normal;
+        text-decoration: none;
+        position: relative;
+        top: -10px;
+        color: #8c1d18;
+        font-size: 13px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
   #content {
     margin: 24px auto;
   }

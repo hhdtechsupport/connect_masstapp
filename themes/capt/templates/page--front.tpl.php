@@ -10,8 +10,8 @@
 
 <div class="top-header">
   <div class="top-header-container">
-    <div class="capt-logo">CAPT</div>
-    <div class="samhsa-logo">SAMHSA</div>
+    <a href="http://www.samhsa.gov/capt" title="SAMHSA's Center for the Application of Prevention Technologies"><div class="capt-logo">CAPT</div></a>
+    <a href="http://www.samhsa.gov" title="U.S. Substance Abuse and Mental Health Services Administration"><div class="samhsa-logo">SAMHSA</div></a>
   </div>
 </div>
 
@@ -81,6 +81,10 @@
     <div id="content" class="column" role="main">
       <a id="main-content"></a>
       <?php print $messages; ?>
+      <?php if (_menu_site_is_offline()) {
+        print '<div class="messages--error messages error">
+                <h2 class="element-invisible">Error message</h2>
+                CAPT Connect is currently undergoing maintenance, but should be back shortly. Only site administrators may log in using the form below. Thank you for your patience.</div>'; } ?>
       <?php print render($title_prefix); ?>
       <div id="title-section">
       <?php if ($title): ?>

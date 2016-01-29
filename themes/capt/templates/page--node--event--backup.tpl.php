@@ -11,8 +11,8 @@
 
 <div class="top-header">
   <div class="top-header-container">
-    <div class="capt-logo">CAPT</div>
-    <div class="samhsa-logo">SAMHSA</div>
+    <a href="http://www.samhsa.gov/capt" title="SAMHSA's Center for the Application of Prevention Technologies"><div class="capt-logo">CAPT</div></a>
+    <a href="http://www.samhsa.gov" title="U.S. Substance Abuse and Mental Health Services Administration"><div class="samhsa-logo">SAMHSA</div></a>
   </div>
 </div>
 
