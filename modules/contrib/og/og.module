@@ -2005,16 +2005,16 @@ function og_group($group_type, $gid, $values = array(), $save_created = TRUE) {
 
   if (!$og_membership && empty($field_name)) {
     $params = array(
-      '%entity-type' => $entity_type,
-      '%bundle' => $bundle,
-      '%group-type' => $group_type,
-      '%group-bundle' => $group_bundle,
+      '@entity-type' => $entity_type,
+      '@bundle' => $bundle,
+      '@group-type' => $group_type,
+      '@group-bundle' => $group_bundle,
     );
 
     // Allow getting fields not accessible by the user.
     $field_name = og_get_best_group_audience_field($entity_type, $entity, $group_type, $group_bundle, TRUE);
     if (!$field_name) {
-      throw new OgException(format_string('There are no OG fields in entity %entity-type and bundle %bundle referencing %group-type - %group-bundle.', $params));
+      throw new OgException(format_string('There are no OG fields in entity "@entity-type" and bundle "@bundle" referencing "@group-type" - "@group-bundle".', $params));
     }
   }
 
