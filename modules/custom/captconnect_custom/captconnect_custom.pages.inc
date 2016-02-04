@@ -28,6 +28,7 @@ function captconnect_custom_view_registrations($node) {
       'empty' => t('There are currently no instances of this event.'),
       );
     $event = entity_metadata_wrapper('node', $node);
+    $date_format = variable_get('captconnect_custom_register_date_format', 'long_day_at_time');
 
     $reg_flag = flag_get_flag('registration');
     $part_flag = flag_get_flag('participate');
@@ -63,15 +64,18 @@ function captconnect_custom_view_registrations($node) {
 
       // We can link the instance title to its node if the setting says so
       // and the user has permission.
+      $instance_label = format_date($instance_data['start'], $date_format);
       if (variable_get('captconnect_custom_registrations_link_instance', 1)
       && (user_access('edit any instance content')
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid))) {
-        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
+//        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
+        $title_link = l($instance_label, 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
 
       }
       else {
-        $title_link = $instance->label();
+//        $title_link = $instance->label();
+        $title_link = $instance_label;
       }
 
       if ($instance_is_past) {
@@ -99,6 +103,11 @@ function captconnect_custom_view_registrations($node) {
         foreach ($users as $uid => $account) {
           $registrant = (user_access('administer users') ?
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
+          $roles = $account->roles;
+          unset($roles[DRUPAL_AUTHENTICATED_RID]);
+          if ($user->uid == $uid) {
+            $roles[] = 'me';
+          }
 
           $join_class = array('join-link');
           $join_class[] = ($user->uid == $uid ? 'mark' : 'proxy');
@@ -141,10 +150,13 @@ function captconnect_custom_view_registrations($node) {
           }
 
           $table['rows'][] = array(
-            array('data' => $registrant, 'class' => array('registrant_name')),
-            array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
-            array('data' => $reg_link, 'class' => array('cancel_link')),
-            array('data' => $join, 'class' => $join_class),
+            'data' => array(
+              array('data' => $registrant, 'class' => array('registrant-name')),
+              array('data' => format_date($rows[$uid]), 'class' => array('date-registered')),
+              array('data' => $reg_link, 'class' => array('cancel-link')),
+              array('data' => $join, 'class' => $join_class),
+            ),
+            'class' => array_map('drupal_html_class', $roles),
             );
         }
       }
@@ -290,7 +302,7 @@ function captconnect_custom_anon_pending() {
   // See if we are to do cleanup.
   if (isset($_GET['delete'])) {
     $clean_up = $_GET['delete'];
-    drupal_set_message(t('Removing records older than @int days.', 
+    drupal_set_message(t('Removing records older than @int days.',
       array('@int' => $clean_up)));
     // Make it in seconds.
     $clean_up = $clean_up * 86400;

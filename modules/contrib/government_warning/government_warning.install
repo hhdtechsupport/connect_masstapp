@@ -1,0 +1,12 @@
+<?php
+/**
+ * @file
+ * Uninstall function for the government_warning module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function government_warning_uninstall() {
+  variable_del('government_warning_text');
+}
