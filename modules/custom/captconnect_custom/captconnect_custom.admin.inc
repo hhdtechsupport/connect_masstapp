@@ -267,15 +267,20 @@ function captconnect_custom_message_texts($form, $form_state) {
     );
 
   $form['captconnect_custom_event_full'] = array(
-    '#type' => 'textfield',
-    '#maxlength' => 256,
+    '#type' => 'textarea',
+    '#rows' => 1,
     '#title' => t('Event is full'),
     '#default_value' => variable_get('captconnect_custom_event_full',
       'We are sorry, but this event is full. You may try registering for another time or date.'),
     '#description' => t('When someone tries to register for an event that is '
-      . 'already at capacity, this message is displayed '
-      . '<br />'
-      . 'and the registration is denied.')
+      . 'already at capacity, this message is displayed and the registration '
+      . 'is denied.')
+      . '<br/>'
+      . t('You may use these tokens:')
+      . '<ul>'
+      . '<li>' . t('@capacity - the maximum capacity.') . '</li>'
+      . '</ul>',
+
     );
 
   $form['captconnect_custom_completion_email_anon'] = array(
