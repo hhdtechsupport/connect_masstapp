@@ -103,6 +103,11 @@ function captconnect_custom_view_registrations($node) {
         foreach ($users as $uid => $account) {
           $registrant = (user_access('administer users') ?
             l(format_username($account), "user/$account->uid/edit") : format_username($account));
+          $roles = $account->roles;
+          unset($roles[DRUPAL_AUTHENTICATED_RID]);
+          if ($user->uid == $uid) {
+            $roles[] = 'me';
+          }
 
           $join_class = array('join-link');
           $join_class[] = ($user->uid == $uid ? 'mark' : 'proxy');
@@ -145,10 +150,13 @@ function captconnect_custom_view_registrations($node) {
           }
 
           $table['rows'][] = array(
-            array('data' => $registrant, 'class' => array('registrant_name')),
-            array('data' => format_date($rows[$uid]), 'class' => array('date_registered')),
-            array('data' => $reg_link, 'class' => array('cancel_link')),
-            array('data' => $join, 'class' => $join_class),
+            'data' => array(
+              array('data' => $registrant, 'class' => array('registrant-name')),
+              array('data' => format_date($rows[$uid]), 'class' => array('date-registered')),
+              array('data' => $reg_link, 'class' => array('cancel-link')),
+              array('data' => $join, 'class' => $join_class),
+            ),
+            'class' => array_map('drupal_html_class', $roles),
             );
         }
       }
@@ -294,7 +302,7 @@ function captconnect_custom_anon_pending() {
   // See if we are to do cleanup.
   if (isset($_GET['delete'])) {
     $clean_up = $_GET['delete'];
-    drupal_set_message(t('Removing records older than @int days.', 
+    drupal_set_message(t('Removing records older than @int days.',
       array('@int' => $clean_up)));
     // Make it in seconds.
     $clean_up = $clean_up * 86400;
