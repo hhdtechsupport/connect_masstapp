@@ -142,6 +142,24 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#description' => t('This format will be used in the "registration successful" message.'),
     );
 
+  $workflow = workflow_get_workflows_by_type('event', 'node');
+  $event_state_list = $workflow->getStates(TRUE);
+  $event_states = array();
+  foreach ($event_state_list as $state) {
+    // Leave out the creation state.
+    if ($state->sysid == 0) {
+      $event_states[$state->sid] = $state->state;
+    }
+  }
+  $form['captconnect_custom_no_approver_state'] = array(
+    '#type' => 'radios',
+    '#options' => $event_states,
+    '#title' => t('No Approver State'),
+    '#default_value' => variable_get('captconnect_custom_no_approver_state', NULL),
+    '#description' => t('If an event is marked as not needing an approver,
+      advance its workflow state to this one..'),
+    );
+
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
@@ -202,7 +220,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_register_date_format']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_no_approver_state']), 'style' => $style),
     );
 
   $output .= theme('table', array(

@@ -342,6 +342,10 @@ function captconnect_custom_node_access($node, $op, $account) {
 
   switch ($op) {
     case 'create':
+      // For this $node is just the type (string).
+      if (!user_access("create $node content")) {
+        return NODE_ACCESS_DENY;
+      }
       break;
 
     case 'view':
@@ -391,6 +395,43 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
     case 'event':
       if (!user_access('view approvers')) {
         unset($node->content['field_approver']);
+      }
+      break;
+  }
+} /* */
+
+/**
+ * Implements hook_node_insert().
+ */
+function captconnect_custom_node_insert($node) {
+  global $user;
+//  dpm($node, $node->type);
+  switch ($node->type) {
+    case 'event':
+      dpm($node, 'inserted node');
+      if ($node->field_no_approver[LANGUAGE_NONE][0]['value'] == 1) {
+        $workflow = workflow_get_workflows_by_type('event', 'node');
+        $wid = $workflow->getWorkflowId();
+        $new = variable_get('captconnect_custom_no_approver_state', NULL);
+        // These shouldn't all be necessary.
+        $values = array(
+          'wid' => $wid,
+          'entity_type' => 'node',
+          'uid' => $user->uid,
+          'sid' => $new,
+          'new_sid' => $new,
+          'old_sid' => $node->field_workflow_state[LANGUAGE_NONE][0]['value'],
+          'field_name' => 'field_workflow_state',
+          'language' => LANGUAGE_NONE,
+          'comment' => 'No approver needed',
+          'stamp' => REQUEST_TIME,
+          'nid' => $node->nid,
+          'entity_id' => $node->nid,
+          'revision_id' => $node->vid,
+          );
+        $transition = new WorkflowTransition($values);
+        // Actually do it now.
+        workflow_execute_transition('node', $node, 'field_workflow_state', $transition, TRUE);
       }
       break;
   }
