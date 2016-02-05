@@ -107,6 +107,7 @@ function workflow_notify_workflow_operations($op, $workflow = NULL) {
  */
 function workflow_notify_workflow($op, $old_state, $new_state, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
   global $user;
+//  dpm($op, 'workflow_notify_workflow');
   switch ($op) {
     // React to a transition after it's done.
     case 'transition post':
@@ -233,6 +234,43 @@ function workflow_notify_workflow($op, $old_state, $new_state, $entity, $force, 
       }
 
     return;
+  }
+}
+
+function workflow_notify_entity_presave($entity, $type) {
+  switch ($type) {
+    case 'node':
+      // Is this node participating in a workflow?
+      if ($workflow = workflow_get_workflows_by_type($entity->type, $type)) {
+        // Get the state names.
+        $states = array();
+        foreach ($workflow->states as $state) {
+          $states[$state->sid] = $state->state;
+        }
+        $node = entity_metadata_wrapper($type, $entity);
+
+        // Get the workflow field name.
+        $field_name = workflow_get_field_name($entity, $type, NULL, NULL);
+
+        // Is this a new node?
+        if ($entity->is_new) {
+          // New node. Note: workflow state won't exist yet.
+          $old_state = $workflow->states[1]->sid;
+          $new_state = $workflow->transitions[$old_state]->target_sid;
+        }
+        else {
+          // Existing node.
+          $original = entity_metadata_wrapper($type, $entity->original);
+          // Get the old state.
+          $old_state = $original->$field_name->value();
+          // Grab current state.
+          $new_state = $node->$field_name->value();
+        }
+        // @TODO: Force = false?; this is post-transition.
+        // @TODO: Call all hooks?
+        workflow_notify_workflow('transition post', $old_state, $new_state, $entity, FALSE, $type, $field_name);
+      }
+      break;
   }
 }
 
