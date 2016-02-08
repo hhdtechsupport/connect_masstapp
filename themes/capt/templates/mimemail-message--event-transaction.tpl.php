@@ -35,128 +35,190 @@
     <?php endif; ?>
   </head>
   <body id="mimemail-body" <?php if ($module && $key): print 'class="'. $module .'-'. $key .'"'; endif; ?>>
-    <div id="center">
-      <div id="main">
-
-        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="[ics-class:value]">
-          <tr>
-            <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/pattern.png" valign="top" bgcolor="#E3E3DF">
-              <div>
-
-                <table class="header">
-                  <tr>
-                    <td>
-
-                      <table class="logos-wrapper">
+    <div id="rootDiv" class="[ics-class:value]">
+      <div id="subRootDiv">
+      <!--[if gte mso 9]>
+        <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+          <v:fill type="tile" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"  color="#E2E1DE" />
+        </v:background>
+      <![endif]-->
+        <div class="OuterBGColor" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
+        align="center">
+          <table class="OuterBGColor" border="0" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
+            width="100%" cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr>
+                <td class="HideInMobile" rowspan="1" colspan="1">
+                  <img height="5" vspace="0" border="0" hspace="0" width="1" alt="" src="https://static.ctctcdn.com/letters/images/1101116784221/S.gif">
+                </td>
+                <td class="MainWidth" valign="top" width="610" rowspan="1" colspan="1" align="center">
+                  <div class="MaxMainWidth" align="center">
+                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                      <tbody>
                         <tr>
-                          <td width="100%">
-
-                            <table class="logos center">
-                              <tr>
-                                <td width="351" height="78" valign="bottom">
-                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/capt_logo.png" width="350" height="80" alt="CAPT - SAMHSA's Center for the Application of Prevention Technologies" title="CAPT - SAMHSA's Center for the Application of Prevention Technologies">
-                                </td>
-                                <td width="250" height="78" valign="bottom">
-                                  <img src="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/samhsa_logo.png" width="250" height="80" alt="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration" title="SAMHSA - U.S. Substance Abuse and Mental Health Services Administration">
-                                </td>
-                              </tr>
+                          <td class="BodyPadding" valign="top" rowspan="1" colspan="1" align="center">
+                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td class="TopMargin" valign="top" width="100%" rowspan="1" colspan="1" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                        <tr>
+                                          <td class="OuterText Logo" valign="top" rowspan="1" colspan="1" align="center">
+                                            <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                              <tbody>
+                                                <tr>
+                                                  <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
+                                                    <div align="center">
+                                                      <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
+                                                        <img class="LogoImg" vspace="0" border="0" hspace="0" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
+                                                      </a>
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                        <tr>
+                                          <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
+                                            <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                              <tbody>
+                                                <tr>
+                                                  <td style="tdWrapper" width="1%" rowspan="1" colspan="1">
+                                                    <div align="center">
+                                                      <img class="Rainbow" vspace="0" border="0" hspace="0" width="600" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/dbe019af-35e1-4106-bff9-885cd75a767c.png">
+                                                    </div>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
                             </table>
-
+                            <table class="BorderColor" bgcolor="transparent" border="0" width="100%" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td class="BorderWidth" valign="top" width="100%" rowspan="1" colspan="1" align="center">
+                                    <table class="InnerBGColor" bgcolor="#FFFFFF" border="0" width="100%" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                        <tr>
+                                          <td class="EmailContainer" valign="top" width="100%" rowspan="1" colspan="1" align="center">
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
+                                                    <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
+                                                            <div align="center">
+                                                              <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
+                                                                <img class="BannerImage" vspace="0" border="0" hspace="0" width="600" alt="CAPT Connect: Your Access Point for All CAPT Virtual Events" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/9714f8df-8d17-471e-b7de-206d52de96c1.png">
+                                                              </a>
+                                                            </div>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td id="Body">
+                                                    <?php print $body; ?>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td>
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="textEdit" style="width: 600px !important; text-align: center !important;">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td class="Disclaimer" valign="top" align="center">
+                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                              <tbody>
+                                                <tr>
+                                                  <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
+                                                    <table class="OneColumnMobile" width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                                      <tbody>
+                                                        <tr>
+                                                          <td class="tdWrapper"  width="1%" rowspan="1" colspan="1">
+                                                            <div align="center" class="RainbowTopWrapper">
+                                                              <img class="Rainbox" vspace="0" border="0" name="ACCOUNT.IMAGE.176" hspace="0" width="600" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/dbe019af-35e1-4106-bff9-885cd75a767c.png">
+                                                            </div>
+                                                          </td>
+                                                        </tr>
+                                                      </tbody>
+                                                    </table>
+                                                  </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                              <tbody>
+                                <tr>
+                                  <td class="BottomMargin" valign="top" width="100%" rowspan="1" colspan="1" align="center">
+                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                      <tbody>
+                                        <tr>
+                                          <td class="MailingText" valign="top" rowspan="1" colspan="1" align="center">
+                                            <div>
+                                              <span style="font-size: 9pt !important;">Mailing Address: Education Development Center<br>43 Foundry Avenue, Waltham, MA 02453<br><a shape="rect" href="https://captconnect.edc.org/terms" linktype="1" alt="https://captconnect.edc.org/terms" target="_blank">Terms of Use</a> | <a shape="rect" href="http://www.samhsa.gov/privacy" linktype="1" alt="http://www.samhsa.gov/privacy" target="_blank">Privacy Policy</a></span>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
                           </td>
                         </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-
-                      <table class="colorband">
-                        <tr>
-                          <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
-                            <div>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-
-                </table>
-
-                <table class="banner center">
-                  <tr>
-                    <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/banner.png" bgcolor="#567583" width="600" height="134" valign="top">
-                      <div>
-
-                        <?php
-                          if (!empty($nid_event->field_banner_text)) {
-                            print '<div style="font-size: 24px; margin-top: 36px; line-height: 1;"><strong>CAPT</strong> <em style="font-weight: normal;">Connect</em></div><div style="font-size: 36px; opacity: 0.5;">' .  $nid_event->field_banner_text['und'][0]['value'] . '</div>';
-                          }
-                          else if (!empty($nid_event->field_category)) {
-                            $term = taxonomy_term_load($nid_event->field_category['und'][0]['target_id']);
-                            print '<div style="font-size: 24px; margin-top: 36px; line-height: 1;"><strong>CAPT</strong> <em style="font-weight: normal;">Connect</em></div><div style="font-size: 36px; opacity: 0.5;">' .  $term->name . '</div>';
-                          }
-                          else {
-                            print '<div style="font-size: 36px; margin-top: 32px;"><strong>CAPT</strong> <em style="font-weight: normal;">Connect</em></div><div style="font-size: 15px; text-transform: uppercase;">Your access point for all CAPT virtual events</div>';
-                          }
-                        ?>
-
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="center content">
-                  <tr>
-                    <td bgcolor="#FFFFFF">
-                      <?php print $body; ?>
-                    </td>
-                  </tr>
-                </table>
-
-                <table class="footer">
-                  <tr>
-                    <td>
-
-                      <table class="colorband">
-                        <tr>
-                          <td background="http://masstapp-ta.edc.org/sites/masstapp-ta.edc.org/files/page-images/colorband.png" bgcolor="#E4E3E1" width="580" height="6" valign="top">
-                            <div>
-                            </div>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>
-
-                      <table class="mailing center">
-                        <tr>
-                          <td>
-                            <p>Mailing Address: SAMHSA's Center for the Application of Prevention Technologies<br>Education Development Center, Inc. | <span class="appleLinks">43 Foundry Ave | Waltham, MA 02453-8313</span></p>
-                            <p><a href="<?php print $base_url; ?>/terms">Terms of Use</a> | <a href="http://www.samhsa.gov/privacy">SAMHSA Privacy Policy</a></p>
-                            <p class="unsubscribe">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such notifications, you must <a href="<?php print $base_url; ?>/user">log in and cancel your account to unsubscribe</a>.</p>
-                          </td>
-                        </tr>
-                      </table>
-
-                    </td>
-                  </tr>
-                </table>
-
-              </div>
-            </td>
-          </tr>
-        </table>
-
-
-
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+                <td class="HideInMobile" rowspan="1" colspan="1">
+                  <img height="5" vspace="0" border="0" hspace="0" width="1" alt="" src="https://static.ctctcdn.com/letters/images/1101116784221/S.gif">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </body>
