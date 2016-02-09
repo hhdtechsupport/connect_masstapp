@@ -162,6 +162,24 @@
   }
 
 
+
+  /*
+   * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (not yet working if resizing from phone to tablet)
+   */
+
+  // function equalHeightDivs($div1, $div2) {
+  //   max = Math.max($div1.height(), $div2.height());
+  //   $div1.height(max - 50);
+  //   $div2.height(max - 50);
+  // }
+
+  // if (window.innerWidth >= phone_tablet_divide && $('body').hasClass('page-node-1046')) {
+  //   equalHeightDivs($('#block-views-dashboard-block-1'), $('#block-views-dashboard-block-2'));
+  // }
+
+
+
+
   var newDevice = 0;
 
   $(window).resize(function(){
@@ -169,9 +187,20 @@
     // Check if changing from one device to another
     if (window.innerWidth < phone_tablet_divide) {
       newDevice = 1;
+
+      // if ($('body').hasClass('page-node-1046')) {
+      //   $('#block-views-dashboard-block-1').height('auto');
+      //   $('#block-views-dashboard-block-2').height('auto');
+      // }
+
     }
     else {
       newDevice = 0;
+
+      // if ($('body').hasClass('page-node-1046')) {
+      //   equalHeightDivs($('#block-views-dashboard-block-1'), $('#block-views-dashboard-block-2'));
+      // }
+
     }
 
     // If changing devices, then run the show-hide function
@@ -246,26 +275,6 @@
     });
 
   });
-
-
-
-
-
-
-    /*
-     * MAKE DASHBOARD BLOCKS SAME HEIGHT IF ONLY TWO (I.E. NO "UPCOMING EVENTS" PAGE)
-     */
-
-    //  if ($('body').hasClass('section-events') && !$('body').hasClass('page-events')) {
-    //    $block1 = $('#block-views-dashboard-block-1');
-    //    $block2 = $('#block-views-dashboard-block-2');
-    //    max = Math.max($block1.height(),$block2.height());
-    //    $block1.height(max - 50);
-    //    $block2.height(max - 50);
-    //  }
-
-
-
 
 
 
@@ -479,7 +488,13 @@ function otherSelectbox ($field, $fieldPrev) {
   var parsedTitle = $develTitle.text();
   $develTitle.html('<em>Devel</em>' + parsedTitle);
 
+  var $membershipTitle1 = $('.page-group-node-admin-people-edit-membership h1#page-title');
+  var parsedTitle = $membershipTitle1.text().split('Edit membership in group ');
+  $membershipTitle1.html('<em>Modify user membership for</em>' + parsedTitle[1]);
 
+  var $membershipTitle1 = $('.page-group-node-admin-people-delete-membership h1#page-title');
+  var parsedTitle = $membershipTitle1.text().split('Remove membership in group ');
+  $membershipTitle1.html('<em>Remove user membership from</em>' + parsedTitle[1]);
 
 
   // commented out until we add back in the exposed search terms filters in dashbaord

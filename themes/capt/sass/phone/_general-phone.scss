@@ -12,8 +12,8 @@ body {
   div#page {
     @extend .reset-layout;
     display: inline-block;
-    padding: 0 0 110px 0;
-    margin: 0 0 -110px 0;
+    // padding: 0 0 110px 0;
+    // margin: 0 0 -110px 0;
     div#main {
       padding-top: 0px;
       div#content {
@@ -121,10 +121,10 @@ body.page-anon-register #block-block-3 p {
   font-size: 11px !important;
 }
 
-div.bottom-footer div.bottom-footer-container footer#footer div.disclaimer {
-  margin: 0px !important;
-  width: auto;
-}
+// div.bottom-footer div.bottom-footer-container footer#footer div.disclaimer {
+//   margin: 0px !important;
+//   width: auto;
+// }
 
 body.node-type-page {
   div#content {
@@ -151,4 +151,45 @@ body.page-user-cancel h1#page-title {
     margin-top: 30px !important;
   }
 
+}
+
+
+
+
+div.bottom-footer {
+  top: 0px !important;
+  clear: both;
+  .bottom-footer-container {
+    padding-top: 20px;
+    width: 100%;
+    footer#footer {
+      width: 100%;
+      margin: 0 auto !important;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 11px;
+      #block-block-12 {
+        width: 94%;
+        margin-top: 20px;
+        p {
+          line-height: 1.25em;
+        }
+        a {
+          font-weight: normal;
+          text-decoration: underline;
+          color: #333333;
+        }
+      }
+    }
+  }
+}
+
+
+body.not-logged-in.page-user:not(.page-user-register) div#page div#main,
+body.not-logged-in.page-anon-login div#page div#main {
+  margin-bottom: 100px;
+}
+
+body .top-header .top-header-container {
+  padding: 0px !important;
 }

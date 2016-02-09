@@ -324,7 +324,7 @@ p.hr {
 
 
 
-.page-node-access {
+.page-node-manage-members {
   #content {
     overflow: hidden;
     padding-bottom: 200px;
@@ -342,38 +342,9 @@ p.hr {
     text-decoration: underline;
   }
   #block-views-portal-access-block-1 {
-    float: left;
+    text-align: left;
     width: 49%;
-    background: #EEF3EE;
-    h2 {
-      color: #588557;
-    }
-    &:before {
-      background: #588557;
-    }
-    input[type="submit"] {
-      background: #588557;
-      &:hover {
-        background: lighten(#588557, 10%);
-      }
-    }
-  }
-  #block-views-portal-access-block-2 {
-    float: right;
-    width: 49%;
-    background: #F3EEEE;
-    h2 {
-      color: #855757;
-    }
-    &:before {
-      background: #855757;
-    }
-    input[type="submit"] {
-      background: #855757;
-      &:hover {
-        background: lighten(#855757, 10%);
-      }
-    }
+    margin: 40px auto 0;
   }
 }
 
@@ -544,4 +515,29 @@ body.section-portal {
 .field-name-field-portal-image {
   float: left;
   margin-right: 2em;
+}
+
+
+
+
+
+
+#edit-og-user {
+  border: none;
+  padding: 0px;
+  legend {
+    display: none;
+  }
+  .fieldset-wrapper {
+    font-size: 2em;
+    margin-top: 1.5em;
+    & > .form-item {
+      margin-top: 1.5em;
+      font-size: 0.5em;
+    }
+  }
+}
+
+#og-ui-field-name {
+  display: none;
 }

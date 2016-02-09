@@ -16,7 +16,9 @@ body.node-type-portal-section,
 body.node-type-portal-page,
 body.page-node-reorder-sections,
 body.page-node-reorder-pages,
-body.page-node-access {
+body.page-node-access,
+body.page-node-manage-members,
+body.page-group-node {
   div#title-section {
     h1.page__title.title {
       color: $capt-green;
@@ -473,21 +475,21 @@ body.node-type-event.not-logged-in {
 
 
 
-/*
- *  Event Page -- Mozilla-specific fix for footer.
- */
-@-moz-document url-prefix() {
-  body.node-type-event {
-    #page {
-      margin-bottom: -100px;
-      padding-bottom: 100px;
-    }
-    #block-block-12 .disclaimer {
-      top: 20px;
-      left: 20px;
-    }
-  }
-}
+// /*
+//  *  Event Page -- Mozilla-specific fix for footer.
+//  */
+// @-moz-document url-prefix() {
+//   body.node-type-event {
+//     #page {
+//       margin-bottom: -100px;
+//       padding-bottom: 100px;
+//     }
+//     #block-block-12 .disclaimer {
+//       top: 20px;
+//       left: 20px;
+//     }
+//   }
+// }
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: $phone-tablet-divide + 1px) {
   body.not-logged-in.page-user:not(.page-user-register) {

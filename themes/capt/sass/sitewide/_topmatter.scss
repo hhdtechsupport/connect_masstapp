@@ -352,12 +352,44 @@ div.capt-logo {
 
 div.bottom-footer {
   @include rainbow-bar(0px);
-  div.disclaimer {
-    @extend .proto-disclaimer;
-  }
+  // div.disclaimer {
+  //   @extend .proto-disclaimer;
+  // }
 }
+//
+// div#block-block-12 {
+//   /*height: 100px;*/
+//   margin-bottom: 0px;
+// }
 
-div#block-block-12 {
-  /*height: 100px;*/
-  margin-bottom: 0px;
+
+
+
+
+
+div.bottom-footer {
+  top: 0px !important;
+  clear: both;
+  .bottom-footer-container {
+    padding-top: 20px;
+    width: 100%;
+    footer#footer {
+      width: 1000px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+      font-size: 11px;
+      #block-block-12 {
+        width: 550px;
+        p {
+          line-height: 1.25em;
+        }
+        a {
+          font-weight: normal;
+          text-decoration: underline;
+          color: #333333;
+        }
+      }
+    }
+  }
 }
