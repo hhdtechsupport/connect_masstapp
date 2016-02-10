@@ -355,9 +355,9 @@ function otherSelectbox ($field, $fieldPrev) {
       $field.css('display','block');
       $field.find('input').addClass('other-required');
 
-        // Special -- "please specify" for role is sorta broken, so faking it
-        $field.find('label').append('<span class="form-required" title="This field is required.">*</span>');
-        $field.find('input').addClass('required');
+        // // Special -- "please specify" for role is sorta broken, so faking it
+        // $field.find('label').append('<span class="form-required" title="This field is required.">*</span>');
+        // $field.find('input').addClass('required');
 
     }
   }
@@ -418,6 +418,7 @@ function otherSelectbox ($field, $fieldPrev) {
       }
     }
   }
+
 
 
 
@@ -684,31 +685,38 @@ function otherSelectbox ($field, $fieldPrev) {
       // Get label text
       var label = $(this).contents().filter(function() { return this.nodeType == 3; }).text().trim();
       // First check: required?
-      if ($(this).find('span').text().trim() == '*') {
+      if ($(this).find('span').text().trim() == '*' && $(this).closest('.form-wrapper').css('display') == 'block') {
         // Second check: "Other" field?
         if (label == 'Please specify') {
           $controllingField = $(this).parent().parent().parent().prev();
           if ($controllingField.hasClass('field-name-field-role') || $controllingField.hasClass('field-name-field-organizational-affiliation')) {
+            if ($controllingField.hasClass('field-name-field-role')) {
+              labelPlus = ' (role through which you participate in CAPT services)';
+            }
+            if ($controllingField.hasClass('field-name-field-organizational-affiliation')) {
+              labelPlus = ' (primary focus of organization/agency)';
+            }
             if ($controllingField.find('select').val() == 117 || $controllingField.find('select').val() == 20) {
               // Check if there's a value in there
               if ($(this).next('input').val() == '') {
                 errorsCount = errorsCount + 1;
-                errorsList += '<li class="messages__item">' + label + '</li>';
+                errorsList += '<li class="messages__item">' + label + labelPlus + '</li>';
               }
             }
           }
           else if ($controllingField.hasClass('field-name-field-tribal-affiliation')) {
+            labelPlus = ' (tribal affiliation)';
             $controllingField.find('input[type="checkbox"]:checked').each(function(){
               if ($(this).val() == 'Other') {
                 errorsCount = errorsCount + 1;
-                errorsList += '<li class="messages__item">' + label + '</li>';
+                errorsList += '<li class="messages__item">' + label + labelPlus + '</li>';
               }
             });
           }
         }
         else {
           // Third check: type of field?
-          if ($(this).parent('div').hasClass('form-type-textfield')) {
+          if ($(this).parent('div').hasClass('form-type-textfield') || $(this).parent('div').hasClass('form-type-password')) {
             // Fourth check: error?
             if (!$(this).next('input').val()) {
               errorsCount = errorsCount + 1;
