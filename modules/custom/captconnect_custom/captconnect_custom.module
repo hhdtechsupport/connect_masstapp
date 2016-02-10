@@ -232,6 +232,11 @@ function captconnect_custom_init() {
   // or editing someone else's account.
   $a0 = arg(0);
   $a1 = arg(1);
+
+  if ($user->uid == 0 && $a1 != 'login') {
+    drupal_goto('<front>', NULL, '301');
+  }
+
   if ($user->uid == 0
   || ($a0 == 'user' && $a1 == 'logout')
   || ($a0 == 'user' && $a1 != $user->uid)) {
@@ -617,9 +622,9 @@ function captconnect_custom_user_page_title() {
 function captconnect_custom_module_implements_alter(&$implementations, $hook) {
   // Fire our form_alter last.
   if ($hook == 'form_alter' && isset($implementations['captconnect_custom'])) {
-    $group = $implementations ['captconnect_custom'];
-    unset($implementations['captconnect_custom']);
-    $implementations['captconnect_custom'] = $group;
+//    $group = $implementations ['captconnect_custom'];
+//    unset($implementations['captconnect_custom']);
+//    $implementations['captconnect_custom'] = $group;
   }
 
   if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
@@ -711,6 +716,19 @@ function captconnect_custom_user_profile_validation(&$form, &$form_state) {
  */
 function captconnect_custom_request_password(&$form, &$form_state) {
   $form_state['redirect'] = 'user/password';
+}
+
+/**
+ * Implements hook_og_ui_get_group_admin_alter().
+ * Suppress Group tab on nodes.
+ */
+function captconnect_custom_og_ui_get_group_admin_alter(&$data, $context) {
+//  dpm($data, 'data captconnect_custom_og_ui_get_group_admin_alter');
+//  dpm($context, 'context captconnect_custom_og_ui_get_group_admin_alter');
+  if (!user_access('administer group')) {
+    // Just wipe it out so nothing shows up.
+    $data = array();
+  }
 }
 
 /**
@@ -841,6 +859,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       }
 
       $form['actions']['#weight'] = 100;
+      dpm($form, 'captconnect_custom_form_alter');
 
       break;
 
@@ -1076,6 +1095,8 @@ function captconnect_custom_anon_register($instance) {
  * Submit handler for user registration.
  */
 function captconnect_custom_user_register_submit($form, $form_state) {
+  dpm($form_state['values'], 'captconnect_custom_user_register_submit');
+  watchdog('captconnect', 'captconnect_custom_user_register_submit entered');
   // Get the instance ID that they will register for when they come back.
   if (isset($form['#captconnect_anon_instance'])) {
     $register_nid = $form['#captconnect_anon_instance'];
