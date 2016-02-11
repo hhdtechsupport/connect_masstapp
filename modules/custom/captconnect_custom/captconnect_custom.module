@@ -233,7 +233,7 @@ function captconnect_custom_init() {
   $a0 = arg(0);
   $a1 = arg(1);
 
-  if ($a0 == 'user') { 
+  if ($a0 == 'user') {
     if (user_is_anonymous() && $a1 != 'login') {
       drupal_goto('<front>', array(), '301');
     }
@@ -866,7 +866,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       }
 
       $form['actions']['#weight'] = 100;
-      dpm($form, 'captconnect_custom_form_alter');
 
       break;
 
@@ -1144,8 +1143,13 @@ function captconnect_custom_user_register_submit($form, $form_state) {
  * Implements hook_user_login().
  */
 function captconnect_custom_user_login(&$edit, $account) {
-  // Default redirect should be the front page.
-  $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
+  // Default redirect should be the front page or whatever is set it the URL.
+  if (isset($_GET['destination'])) {
+    $edit['redirect'] = $_GET['destination'];
+  }
+  else {
+    $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
+  }
 
   // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
