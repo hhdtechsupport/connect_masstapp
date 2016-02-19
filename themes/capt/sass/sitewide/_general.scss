@@ -1308,3 +1308,18 @@ input#edit-cancel {
     line-height: normal;
   }
 }
+
+
+
+.group-subscribers {
+  margin-bottom: 15px;
+  h3 {
+    display: none;
+  }
+  & + div {
+    display: none;
+    & + fieldset {
+      display: none;
+    }
+  }
+}
