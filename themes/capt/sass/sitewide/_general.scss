@@ -2,6 +2,15 @@
 @import '../headers/capt-mixins';
 @import '../headers/extensible';
 
+
+.form-type-checkbox > input,
+.form-type-checkbox > label,
+.form-type-radio > input,
+.form-type-radio > label {
+  cursor: pointer;
+}
+
+
 .section-events .field-type-ds,
 .section-event .field-type-ds {
   margin-top: 0px !important;
@@ -1079,7 +1088,14 @@ div.vertical-tabs {
   }
   #edit-field-days-before-event-to-send,
   #edit-field-days-after-event-to-send {
-    margin: -15px 15px 0;
+    margin: -15px 10px 0;
+  }
+  #edit-field-event-reminder-mailing-lis,
+  #edit-field-event-followup-mailing-lis {
+    margin: 20px 10px 0;
+    .form-checkboxes > div {
+      margin: 0px;
+    }
   }
   #edit-field-send-test-notification,
   #edit-field-send-event-announcement {
