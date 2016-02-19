@@ -2825,12 +2825,12 @@ div.vertical-tabs {
     margin-top: 20px;
   }
   /* line 199, ../sass/sitewide/_navigation.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region {
+  div#main div#navigation div.region.region-navigation div.block-responsive-dropdown-menus {
     margin: 0px auto;
     width: 100%;
   }
   /* line 202, ../sass/sitewide/_navigation.scss */
-  div#main div#navigation div.region.region-navigation div.contextual-links-region ul#main-menu.main-menu.responsive-menu {
+  div#main div#navigation div.region.region-navigation div.block-responsive-dropdown-menus ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     margin: 0px auto;
     padding: 0px;
@@ -8218,24 +8218,11 @@ form#user-pass {
  *  Workflow Styles
  */
 /* line 5, ../sass/admin/_workflow.scss */
-.node-event.workflow-in-progress .group-left::after {
-  color: #ccbb99;
-  content: "DRAFT";
-  display: block;
-  font-size: 15em;
-  font-weight: bold;
-  opacity: 0.4;
-  position: absolute;
-  top: 360px;
-  pointer-events: none;
-}
-
-/* line 17, ../sass/admin/_workflow.scss */
 .not-logged-in .field-name-field-workflow-state {
   display: none;
 }
 
-/* line 23, ../sass/admin/_workflow.scss */
+/* line 11, ../sass/admin/_workflow.scss */
 .node-event .group-left .field-group-html-element:not(:first-child) h2, .node-event .group-left .field-group-html-element:not(:first-child) h4,
 .node-event .group-left .field-name-all-followup-materials:not(:first-child) h2,
 .node-event .group-left .field-name-all-followup-materials:not(:first-child) h4 {
@@ -8243,13 +8230,13 @@ form#user-pass {
   padding-top: 1.4em;
   margin-top: 1.6em;
 }
-/* line 28, ../sass/admin/_workflow.scss */
+/* line 16, ../sass/admin/_workflow.scss */
 .node-event .group-left .field-group-html-element:first-child h4,
 .node-event .group-left .field-name-all-followup-materials:first-child h4 {
   margin-top: 0;
 }
 
-/* line 33, ../sass/admin/_workflow.scss */
+/* line 21, ../sass/admin/_workflow.scss */
 form.workflow-transition-form {
   padding: 10px 26px 20px 26px;
   width: 269px;
@@ -8257,7 +8244,7 @@ form.workflow-transition-form {
   border: 1px solid #DBD6D6;
 }
 
-/* line 40, ../sass/admin/_workflow.scss */
+/* line 28, ../sass/admin/_workflow.scss */
 .node.workflow-published .field-name-field-workflow-state {
   display: none;
 }
