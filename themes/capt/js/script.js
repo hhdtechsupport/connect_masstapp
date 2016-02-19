@@ -983,6 +983,16 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
+  // Date picker fix -- if start date updated, make end date match
+  $('.field-name-field-date').each(function(){
+    var $field = $(this);
+    $field.find('.start-date-wrapper .date-padding > .form-item:nth-child(1) input').change(function(){
+      $field.find('.end-date-wrapper .date-padding > .form-item:nth-child(1) input').val($(this).val());
+    });
+  });
+
+
+
 
 }
 };

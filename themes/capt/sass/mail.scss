@@ -137,15 +137,24 @@ table {
 
 .FeatureText.Callout.Green {
   background: #D8E2C8;
+  a {
+    color: #000000 !important;
+  }
 }
 
 .FeatureText.Callout.Yellow {
   background: #F3E2B5;
+  a {
+    color: #000000 !important;
+  }
 }
 
 .FeatureText.Callout.Red {
   background: #8C1D18;
   color: #FFFFFF;
+  a {
+    color: #FFFFFF !important;
+  }
 }
 
 .FeatureHeadlineText {
@@ -347,6 +356,10 @@ p {
 }
 
 
-a {
+span.break a {
   word-break: break-all;
+}
+
+div.date-display-range {
+  display: inline;
 }
