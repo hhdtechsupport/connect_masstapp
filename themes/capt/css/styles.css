@@ -320,46 +320,69 @@ ul.pager li.pager-last a {
   cursor: pointer;
 }
 
-/* line 14, ../sass/sitewide/_general.scss */
+/* line 13, ../sass/sitewide/_general.scss */
+.node-unpublished {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font: normal 100%/normal Arial, Helvetica, sans-serif;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent 0), #f7efef;
+  background: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent 0), #f7efef;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent 0), #f7efef;
+  background-position: auto auto;
+  -webkit-background-origin: padding-box;
+  background-origin: padding-box;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-size: 30px 30px;
+  background-size: 30px 30px;
+}
+
+/* line 35, ../sass/sitewide/_general.scss */
 .section-events .field-type-ds,
 .section-event .field-type-ds {
   margin-top: 0px !important;
 }
 
-/* line 19, ../sass/sitewide/_general.scss */
+/* line 40, ../sass/sitewide/_general.scss */
 .form-item label:not(.option) {
   font-weight: bold;
 }
 
-/* line 23, ../sass/sitewide/_general.scss */
+/* line 44, ../sass/sitewide/_general.scss */
 .chosen-container {
   display: block;
 }
-/* line 25, ../sass/sitewide/_general.scss */
+/* line 46, ../sass/sitewide/_general.scss */
 .chosen-container.chosen-container-multi .chosen-choices {
   min-height: 30px;
 }
-/* line 27, ../sass/sitewide/_general.scss */
+/* line 48, ../sass/sitewide/_general.scss */
 .chosen-container.chosen-container-multi .chosen-choices input.default {
   margin: 6px !important;
 }
 
-/* line 33, ../sass/sitewide/_general.scss */
+/* line 54, ../sass/sitewide/_general.scss */
 .field-container fieldset {
   border: 0px;
   padding-left: 0px;
 }
-/* line 37, ../sass/sitewide/_general.scss */
+/* line 58, ../sass/sitewide/_general.scss */
 .field-container legend,
 .field-container span.fieldset-legend {
   font-weight: bold;
 }
-/* line 41, ../sass/sitewide/_general.scss */
+/* line 62, ../sass/sitewide/_general.scss */
 .field-container input.form-submit {
   margin-top: 0px;
 }
 
-/* line 47, ../sass/sitewide/_general.scss */
+/* line 68, ../sass/sitewide/_general.scss */
 #edit-og-group-ref .form-item.form-type-checkbox {
   display: inline;
   margin-right: 40px;
@@ -369,7 +392,7 @@ ul.pager li.pager-last a {
  *  End inherited primitives
  */
 /* pager */
-/* line 58, ../sass/sitewide/_general.scss */
+/* line 79, ../sass/sitewide/_general.scss */
 .pager-clip {
   overflow: hidden;
   white-space: nowrap;
@@ -380,7 +403,7 @@ ul.pager li.pager-last a {
   height: 20px;
 }
 
-/* line 69, ../sass/sitewide/_general.scss */
+/* line 90, ../sass/sitewide/_general.scss */
 body {
   /* changed font per the spec */
   font-family: Arial, Helvetica, sans-serif;
@@ -389,7 +412,7 @@ body {
 }
 
 /* eliminate blue links */
-/* line 80, ../sass/sitewide/_general.scss */
+/* line 101, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a, #page div.view-content .panel-rule a, #page div.view-content .panel-rule-single a, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a, #page div.view-content .section-events #block-views-dashboard-block-1 a, .section-events #page div.view-content #block-views-dashboard-block-1 a,
 #page div.view-content .section-events #block-views-dashboard-block-2 a,
 .section-events #page div.view-content #block-views-dashboard-block-2 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 a, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 a,
@@ -517,7 +540,7 @@ body.not-logged-in.page-anon-login #page div.view-content div#title-section a.fl
 body.not-logged-in.page-anon-login #page div.view-content form#user-login a.flag-action, #page div.view-content form#user-pass a.flag-action, #page div.view-content body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset a.flag-action, body.not-logged-in.section-user.page-user:not(.page-user-register) #page div.view-content form#user-pass-reset a.flag-action {
   /* color: $capt-black;*/
 }
-/* line 83, ../sass/sitewide/_general.scss */
+/* line 104, ../sass/sitewide/_general.scss */
 #page div.view-content .panel .item-list h3, #page div.view-content .panel-rule .item-list h3, #page div.view-content .panel-rule-single .item-list h3, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 .item-list h3, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 .item-list h3, #page div.view-content .section-events #block-views-dashboard-block-1 .item-list h3, .section-events #page div.view-content #block-views-dashboard-block-1 .item-list h3,
 #page div.view-content .section-events #block-views-dashboard-block-2 .item-list h3,
 .section-events #page div.view-content #block-views-dashboard-block-2 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 .item-list h3, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .item-list h3, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 .item-list h3,
@@ -583,7 +606,7 @@ body.not-logged-in.page-anon-login #page div.view-content div#title-section .ite
 body.not-logged-in.page-anon-login #page div.view-content form#user-login .item-list h3, #page div.view-content form#user-pass .item-list h3, #page div.view-content body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset .item-list h3, body.not-logged-in.section-user.page-user:not(.page-user-register) #page div.view-content form#user-pass-reset .item-list h3 {
   font-size: 16px;
 }
-/* line 86, ../sass/sitewide/_general.scss */
+/* line 107, ../sass/sitewide/_general.scss */
 #page div.view-content .panel a:hover, #page div.view-content .panel-rule a:hover, #page div.view-content .panel-rule-single a:hover, #page div.view-content .section-events .view-dashboard.view-display-id-page_1 a:hover, .section-events #page div.view-content .view-dashboard.view-display-id-page_1 a:hover, #page div.view-content .section-events #block-views-dashboard-block-1 a:hover, .section-events #page div.view-content #block-views-dashboard-block-1 a:hover,
 #page div.view-content .section-events #block-views-dashboard-block-2 a:hover,
 .section-events #page div.view-content #block-views-dashboard-block-2 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-8 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-8 a:hover, #page div.view-content body.not-logged-in.page-user:not(.page-user-register) #block-block-18 a:hover, body.not-logged-in.page-user:not(.page-user-register) #page div.view-content #block-block-18 a:hover,
@@ -650,24 +673,24 @@ body.not-logged-in.page-anon-login #page div.view-content form#user-login a:hove
   color: #8c1d18;
 }
 
-/* line 92, ../sass/sitewide/_general.scss */
+/* line 113, ../sass/sitewide/_general.scss */
 #page > header {
   position: relative;
   padding-bottom: 20px;
 }
 
-/* line 97, ../sass/sitewide/_general.scss */
+/* line 118, ../sass/sitewide/_general.scss */
 .page-anon-login #main {
   padding-top: 0px;
 }
 
-/* line 103, ../sass/sitewide/_general.scss */
+/* line 124, ../sass/sitewide/_general.scss */
 ul.main-menu {
   margin-top: 40px;
 }
 
 /* inherited class */
-/* line 109, ../sass/sitewide/_general.scss */
+/* line 130, ../sass/sitewide/_general.scss */
 .button-reset, ul.main-menu a, input[type="submit"],
 a.button,
 a.button.participate-others-button,
@@ -681,20 +704,20 @@ a.button.register-others-button:visited,
   appearance: normal;
 }
 
-/* line 116, ../sass/sitewide/_general.scss */
+/* line 137, ../sass/sitewide/_general.scss */
 ul.main-menu a {
   color: #333333;
   background: #eef1f3;
   padding: 12px 20px 4px 20px;
   font-size: 15px;
 }
-/* line 122, ../sass/sitewide/_general.scss */
+/* line 143, ../sass/sitewide/_general.scss */
 ul.main-menu a:active {
   color: #8c1d18;
 }
 
 /* submit & other buttons*/
-/* line 129, ../sass/sitewide/_general.scss */
+/* line 150, ../sass/sitewide/_general.scss */
 input[type="submit"],
 a.button,
 a.button.participate-others-button,
@@ -715,24 +738,24 @@ a.button.register-others-button:visited,
   text-shadow: none;
 }
 
-/* line 147, ../sass/sitewide/_general.scss */
+/* line 168, ../sass/sitewide/_general.scss */
 a.button.register-others-button,
 a.button.register-others-button:visited {
   background: #c3791f !important;
 }
 
-/* line 152, ../sass/sitewide/_general.scss */
+/* line 173, ../sass/sitewide/_general.scss */
 #block-block-19 a.button {
   color: #ffffff !important;
 }
-/* line 154, ../sass/sitewide/_general.scss */
+/* line 175, ../sass/sitewide/_general.scss */
 #block-block-19 a.button:hover {
   color: #ffffff;
   text-decoration: none;
   background: #df9336;
 }
 
-/* line 161, ../sass/sitewide/_general.scss */
+/* line 182, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit:hover {
   color: #fff;
   box-shadow: none;
@@ -740,16 +763,16 @@ a.button.register-others-button:visited {
   border-color: transparent;
 }
 
-/* line 169, ../sass/sitewide/_general.scss */
+/* line 190, ../sass/sitewide/_general.scss */
 #user-login #edit-actions {
   position: relative;
 }
-/* line 171, ../sass/sitewide/_general.scss */
+/* line 192, ../sass/sitewide/_general.scss */
 #user-login #edit-actions input#edit-submit {
   position: absolute;
   top: 20px;
 }
-/* line 175, ../sass/sitewide/_general.scss */
+/* line 196, ../sass/sitewide/_general.scss */
 #user-login #edit-actions a {
   padding: 0px;
   margin-top: 0px;
@@ -762,12 +785,12 @@ a.button.register-others-button:visited {
   text-transform: none;
   font-weight: normal;
 }
-/* line 186, ../sass/sitewide/_general.scss */
+/* line 207, ../sass/sitewide/_general.scss */
 #user-login #edit-actions a:hover {
   text-decoration: underline;
 }
 
-/* line 193, ../sass/sitewide/_general.scss */
+/* line 214, ../sass/sitewide/_general.scss */
 .participate-others-button,
 .register-others-button {
   margin-top: 10px;
@@ -775,13 +798,13 @@ a.button.register-others-button:visited {
   float: right;
 }
 
-/* line 200, ../sass/sitewide/_general.scss */
+/* line 221, ../sass/sitewide/_general.scss */
 .participate-others-button:hover,
 .register-others-button:hover {
   text-decoration: none;
 }
 
-/* line 205, ../sass/sitewide/_general.scss */
+/* line 226, ../sass/sitewide/_general.scss */
 .page-user-edit .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -791,62 +814,62 @@ a.button.register-others-button:visited {
   padding: 4px 16px;
   width: 50px;
 }
-/* line 211, ../sass/sitewide/_general.scss */
+/* line 232, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button {
   background: #c3791f;
 }
-/* line 213, ../sass/sitewide/_general.scss */
+/* line 234, ../sass/sitewide/_general.scss */
 .page-user-edit .button.save-button:hover {
   background: #df9336;
 }
-/* line 217, ../sass/sitewide/_general.scss */
+/* line 238, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button {
   background: #334b56;
   margin-top: 10px;
 }
-/* line 220, ../sass/sitewide/_general.scss */
+/* line 241, ../sass/sitewide/_general.scss */
 .page-user-edit .button.cancel-button:hover {
   background: #466776;
 }
-/* line 224, ../sass/sitewide/_general.scss */
+/* line 245, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button {
   background: #c3791f;
 }
-/* line 226, ../sass/sitewide/_general.scss */
+/* line 247, ../sass/sitewide/_general.scss */
 .page-user-edit .button.edit-button:hover {
   background: #df9336;
 }
 
-/* line 232, ../sass/sitewide/_general.scss */
+/* line 253, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Next page"] {
   background: #577785;
 }
-/* line 234, ../sass/sitewide/_general.scss */
+/* line 255, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Next page"]:hover {
   background: #6f91a0;
 }
 
-/* line 239, ../sass/sitewide/_general.scss */
+/* line 260, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Previous page"] {
   background: #c3791f;
 }
-/* line 241, ../sass/sitewide/_general.scss */
+/* line 262, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Previous page"]:hover {
   background: #df9336;
 }
 
-/* line 246, ../sass/sitewide/_general.scss */
+/* line 267, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Create new account"],
 .multipage-controls-list input.form-submit[value="Done"] {
   background: #888a55 !important;
 }
-/* line 249, ../sass/sitewide/_general.scss */
+/* line 270, ../sass/sitewide/_general.scss */
 .multipage-controls-list input.form-submit[value="Create new account"]:hover,
 .multipage-controls-list input.form-submit[value="Done"]:hover {
   background: #a3a56d !important;
 }
 
-/* line 255, ../sass/sitewide/_general.scss */
+/* line 276, ../sass/sitewide/_general.scss */
 .group-right .button .flag-wrapper a, .group-right .button .field-content > a, .group-right .button.certificate a, .group-right .button .flag-wrapper .instance-full, .view-dashboard .button .flag-wrapper a, .view-dashboard .button .field-content > a, .view-dashboard .button.certificate a, .view-dashboard .button .flag-wrapper .instance-full, body.node-type-event .view-instances .button .flag-wrapper a, body.node-type-event .view-instances .button .field-content > a, body.node-type-event .view-instances .button.certificate a, body.node-type-event .view-instances .button .flag-wrapper .instance-full {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -857,51 +880,51 @@ a.button.register-others-button:visited {
   font-size: 13px;
   font-weight: normal;
 }
-/* line 263, ../sass/sitewide/_general.scss */
+/* line 284, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a, .group-right .button.register .flag-wrapper a:visited, .view-dashboard .button.register .flag-wrapper a, .view-dashboard .button.register .flag-wrapper a:visited, body.node-type-event .view-instances .button.register .flag-wrapper a, body.node-type-event .view-instances .button.register .flag-wrapper a:visited {
   background: #888a55;
   font-weight: normal;
   padding: 12px 14px;
   font-size: 14px;
 }
-/* line 269, ../sass/sitewide/_general.scss */
+/* line 290, ../sass/sitewide/_general.scss */
 .group-right .button.register .flag-wrapper a:hover, .view-dashboard .button.register .flag-wrapper a:hover, body.node-type-event .view-instances .button.register .flag-wrapper a:hover {
   background-color: #a3a56d;
 }
-/* line 272, ../sass/sitewide/_general.scss */
+/* line 293, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a, .group-right .button.cancel.flag-wrapper a:visited, .view-dashboard .button.cancel .flag-wrapper a, .view-dashboard .button.cancel.flag-wrapper a:visited, body.node-type-event .view-instances .button.cancel .flag-wrapper a, body.node-type-event .view-instances .button.cancel.flag-wrapper a:visited {
   background: #8c1d18;
   font-weight: normal;
   padding: 12px 14px;
   font-size: 14px;
 }
-/* line 278, ../sass/sitewide/_general.scss */
+/* line 299, ../sass/sitewide/_general.scss */
 .group-right .button.cancel .flag-wrapper a:hover, .view-dashboard .button.cancel .flag-wrapper a:hover, body.node-type-event .view-instances .button.cancel .flag-wrapper a:hover {
   background-color: #b8261f;
 }
-/* line 281, ../sass/sitewide/_general.scss */
+/* line 302, ../sass/sitewide/_general.scss */
 .group-right .button.participate, .view-dashboard .button.participate, body.node-type-event .view-instances .button.participate {
   margin: 25px 0 15px;
   font-weight: normal;
   text-align: right;
 }
-/* line 285, ../sass/sitewide/_general.scss */
+/* line 306, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a, .group-right .button.participate .field-content > a, .group-right .button.participate .flag-wrapper a:visited, .group-right .button.participate .field-content > a:visited, .view-dashboard .button.participate .flag-wrapper a, .view-dashboard .button.participate .field-content > a, .view-dashboard .button.participate .flag-wrapper a:visited, .view-dashboard .button.participate .field-content > a:visited, body.node-type-event .view-instances .button.participate .flag-wrapper a, body.node-type-event .view-instances .button.participate .field-content > a, body.node-type-event .view-instances .button.participate .flag-wrapper a:visited, body.node-type-event .view-instances .button.participate .field-content > a:visited {
   background: #c3791f;
   font-size: 14px;
   padding: 12px 14px;
   font-weight: normal;
 }
-/* line 291, ../sass/sitewide/_general.scss */
+/* line 312, ../sass/sitewide/_general.scss */
 .group-right .button.participate .flag-wrapper a:hover, .group-right .button.participate .field-content > a:hover, .view-dashboard .button.participate .flag-wrapper a:hover, .view-dashboard .button.participate .field-content > a:hover, body.node-type-event .view-instances .button.participate .flag-wrapper a:hover, body.node-type-event .view-instances .button.participate .field-content > a:hover {
   background-color: #df9336;
 }
-/* line 295, ../sass/sitewide/_general.scss */
+/* line 316, ../sass/sitewide/_general.scss */
 .group-right .button.certificate, .view-dashboard .button.certificate, body.node-type-event .view-instances .button.certificate {
   font-style: normal;
   margin-bottom: 10px;
 }
-/* line 298, ../sass/sitewide/_general.scss */
+/* line 319, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a, .group-right .button.certificate a:visited, .view-dashboard .button.certificate a, .view-dashboard .button.certificate a:visited, body.node-type-event .view-instances .button.certificate a, body.node-type-event .view-instances .button.certificate a:visited {
   font-weight: bold;
   color: #c3791f;
@@ -910,23 +933,23 @@ a.button.register-others-button:visited {
   padding: 0px;
   text-decoration: none;
 }
-/* line 305, ../sass/sitewide/_general.scss */
+/* line 326, ../sass/sitewide/_general.scss */
 .group-right .button.certificate a:hover, .group-right .button.certificate a:visited:hover, .view-dashboard .button.certificate a:hover, .view-dashboard .button.certificate a:visited:hover, body.node-type-event .view-instances .button.certificate a:hover, body.node-type-event .view-instances .button.certificate a:visited:hover {
   text-decoration: underline;
 }
 
 /*ul.main-menu a:hover, */
-/* line 314, ../sass/sitewide/_general.scss */
+/* line 335, ../sass/sitewide/_general.scss */
 ul.sub-menu {
   background: #292929;
 }
-/* line 316, ../sass/sitewide/_general.scss */
+/* line 337, ../sass/sitewide/_general.scss */
 ul.sub-menu li {
   white-space: nowrap;
   margin: 6px 0;
 }
 
-/* line 322, ../sass/sitewide/_general.scss */
+/* line 343, ../sass/sitewide/_general.scss */
 input[type="submit"] {
   margin-right: 1em;
   border: none;
@@ -937,31 +960,31 @@ input[type="submit"] {
   background-color: #c3791f;
   cursor: pointer;
 }
-/* line 331, ../sass/sitewide/_general.scss */
+/* line 352, ../sass/sitewide/_general.scss */
 input[type="submit"]:hover {
   background-color: #df9336;
 }
-/* line 334, ../sass/sitewide/_general.scss */
+/* line 355, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"], input[type="submit"][value="Remove"], input[type="submit"][value="Delete"], input[type="submit"][value="Reset"] {
   background-color: #577785;
 }
-/* line 336, ../sass/sitewide/_general.scss */
+/* line 357, ../sass/sitewide/_general.scss */
 input[type="submit"][value="Cancel"]:hover, input[type="submit"][value="Remove"]:hover, input[type="submit"][value="Delete"]:hover, input[type="submit"][value="Reset"]:hover {
   background-color: #6f91a0;
 }
 
-/* line 342, ../sass/sitewide/_general.scss */
+/* line 363, ../sass/sitewide/_general.scss */
 .ief-entity-operations input[type="submit"] {
   margin-top: 0;
 }
 
-/* line 346, ../sass/sitewide/_general.scss */
+/* line 367, ../sass/sitewide/_general.scss */
 h1 {
   font-size: 3.25em;
   line-height: 1.25em;
 }
 
-/* line 351, ../sass/sitewide/_general.scss */
+/* line 372, ../sass/sitewide/_general.scss */
 h2 {
   font-size: 2.25em;
   line-height: 1.25em;
@@ -969,19 +992,19 @@ h2 {
   margin-bottom: .5em;
 }
 
-/* line 358, ../sass/sitewide/_general.scss */
+/* line 379, ../sass/sitewide/_general.scss */
 h3 {
   font-size: 1.75em;
   font-style: italic;
 }
 
-/* line 363, ../sass/sitewide/_general.scss */
+/* line 384, ../sass/sitewide/_general.scss */
 h4 {
   font-size: 1.25em;
   margin-bottom: .5em;
 }
 
-/* line 368, ../sass/sitewide/_general.scss */
+/* line 389, ../sass/sitewide/_general.scss */
 h5 {
   font-size: 1.1em;
   margin-bottom: .5em;
@@ -989,71 +1012,71 @@ h5 {
 
 /* FORMS */
 /* general styles */
-/* line 376, ../sass/sitewide/_general.scss */
+/* line 397, ../sass/sitewide/_general.scss */
 a {
   color: #c3791f;
 }
 
-/* line 380, ../sass/sitewide/_general.scss */
+/* line 401, ../sass/sitewide/_general.scss */
 a.button,
 a.button:hover {
   background-color: #c3791f;
   color: white;
 }
 
-/* line 388, ../sass/sitewide/_general.scss */
+/* line 409, ../sass/sitewide/_general.scss */
 .view-presenters .views-field-field-presenter-image {
   float: left;
   margin: 0 1em 0.5em 0;
 }
-/* line 392, ../sass/sitewide/_general.scss */
+/* line 413, ../sass/sitewide/_general.scss */
 .view-presenters .views-row:not(last-child) {
   margin-bottom: 2em;
 }
 
-/* line 397, ../sass/sitewide/_general.scss */
+/* line 418, ../sass/sitewide/_general.scss */
 .field-group-fieldset,
 .view-presenters .views-row {
   clear: both;
 }
 
-/* line 402, ../sass/sitewide/_general.scss */
+/* line 423, ../sass/sitewide/_general.scss */
 a {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 406, ../sass/sitewide/_general.scss */
+/* line 427, ../sass/sitewide/_general.scss */
 a:visited {
   text-decoration: none;
   font-weight: bold;
   color: #3884e1;
 }
-/* line 411, ../sass/sitewide/_general.scss */
+/* line 432, ../sass/sitewide/_general.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 416, ../sass/sitewide/_general.scss */
+/* line 437, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a {
   color: #333;
 }
-/* line 418, ../sass/sitewide/_general.scss */
+/* line 439, ../sass/sitewide/_general.scss */
 .tabs-primary__tab a:visited {
   color: #333;
 }
 
-/* line 423, ../sass/sitewide/_general.scss */
+/* line 444, ../sass/sitewide/_general.scss */
 table {
   width: 100%;
   border-collapse: collapse;
 }
-/* line 427, ../sass/sitewide/_general.scss */
+/* line 448, ../sass/sitewide/_general.scss */
 table thead tr {
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
-/* line 430, ../sass/sitewide/_general.scss */
+/* line 451, ../sass/sitewide/_general.scss */
 table thead tr th {
   text-align: left;
   font-size: 1.1em;
@@ -1063,52 +1086,52 @@ table thead tr th {
   border-bottom: none;
   padding: 8px 8px;
 }
-/* line 438, ../sass/sitewide/_general.scss */
+/* line 459, ../sass/sitewide/_general.scss */
 table thead tr th:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 444, ../sass/sitewide/_general.scss */
+/* line 465, ../sass/sitewide/_general.scss */
 table tbody {
   border: 1px solid #d7d7d7;
 }
-/* line 446, ../sass/sitewide/_general.scss */
+/* line 467, ../sass/sitewide/_general.scss */
 table tbody tr {
   border: 1px solid #ccc;
 }
-/* line 448, ../sass/sitewide/_general.scss */
+/* line 469, ../sass/sitewide/_general.scss */
 table tbody tr.odd {
   background-color: #F7F7F7;
 }
-/* line 452, ../sass/sitewide/_general.scss */
+/* line 473, ../sass/sitewide/_general.scss */
 table tbody tr td {
   padding: 3px 6px;
   font-size: .9em;
 }
-/* line 455, ../sass/sitewide/_general.scss */
+/* line 476, ../sass/sitewide/_general.scss */
 table tbody tr td:last-child {
   border-right: 1px solid #ccc;
 }
-/* line 458, ../sass/sitewide/_general.scss */
+/* line 479, ../sass/sitewide/_general.scss */
 table tbody tr td a, table tbody tr td a:visited {
   color: #333333;
   font-weight: bold;
   text-decoration: none;
 }
-/* line 462, ../sass/sitewide/_general.scss */
+/* line 483, ../sass/sitewide/_general.scss */
 table tbody tr td a:hover, table tbody tr td a:visited:hover {
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 467, ../sass/sitewide/_general.scss */
+/* line 488, ../sass/sitewide/_general.scss */
 table tbody tr td.inline-entity-form-node-field_body {
   width: 400px;
 }
-/* line 470, ../sass/sitewide/_general.scss */
+/* line 491, ../sass/sitewide/_general.scss */
 table tbody tr td.active {
   background: rgba(198, 206, 221, 0.31);
 }
 
-/* line 478, ../sass/sitewide/_general.scss */
+/* line 499, ../sass/sitewide/_general.scss */
 .admin-only {
   background: #c7ff86;
   float: right;
@@ -1118,26 +1141,26 @@ table tbody tr td.active {
   padding-left: 0;
 }
 
-/* line 488, ../sass/sitewide/_general.scss */
+/* line 509, ../sass/sitewide/_general.scss */
 .view-registrations table caption {
   font-size: 1.5em;
   margin: 1em 0 .5em;
 }
 
 /* end forms */
-/* line 496, ../sass/sitewide/_general.scss */
+/* line 517, ../sass/sitewide/_general.scss */
 body {
   background: url("../images/design-elements/wrapper-background.png");
 }
 
-/* line 500, ../sass/sitewide/_general.scss */
+/* line 521, ../sass/sitewide/_general.scss */
 .top-header {
   width: 100%;
   /*border-bottom: 5px solid black;*/
   height: 30px;
 }
 
-/* line 506, ../sass/sitewide/_general.scss */
+/* line 527, ../sass/sitewide/_general.scss */
 .bottom-footer {
   width: 100%;
   display: block;
@@ -1145,7 +1168,7 @@ body {
   position: relative;
 }
 
-/* line 513, ../sass/sitewide/_general.scss */
+/* line 534, ../sass/sitewide/_general.scss */
 .group-footer {
   padding: 10px 0;
 }
@@ -1158,14 +1181,14 @@ body {
 /*
  *  Specific event page styling for the footer.
  */
-/* line 529, ../sass/sitewide/_general.scss */
+/* line 550, ../sass/sitewide/_general.scss */
 #page {
   height: auto !important;
   /* This line and the next line are not necessary unless you need IE6 support */
   /* the bottom margin is the negative value of the footer's height */
 }
 
-/* line 536, ../sass/sitewide/_general.scss */
+/* line 557, ../sass/sitewide/_general.scss */
 .top-header-container,
 .bottom-footer-container {
   margin-left: auto;
@@ -1173,17 +1196,17 @@ body {
   max-width: 1200px;
 }
 
-/* line 543, ../sass/sitewide/_general.scss */
+/* line 564, ../sass/sitewide/_general.scss */
 .capt-logo {
   float: left;
 }
 
-/* line 547, ../sass/sitewide/_general.scss */
+/* line 568, ../sass/sitewide/_general.scss */
 .samhsa-logo {
   float: right;
 }
 
-/* line 551, ../sass/sitewide/_general.scss */
+/* line 572, ../sass/sitewide/_general.scss */
 #main {
   width: 1000px;
   margin-left: 0px;
@@ -1191,7 +1214,7 @@ body {
 }
 
 /* page */
-/* line 559, ../sass/sitewide/_general.scss */
+/* line 580, ../sass/sitewide/_general.scss */
 #page {
   background: #FFF;
   padding-bottom: 2em;
@@ -1200,24 +1223,24 @@ body {
   width: 1000px;
 }
 
-/* line 567, ../sass/sitewide/_general.scss */
+/* line 588, ../sass/sitewide/_general.scss */
 .header__name-and-slogan {
   float: none;
   clear: both;
 }
 
-/* line 572, ../sass/sitewide/_general.scss */
+/* line 593, ../sass/sitewide/_general.scss */
 .region-header {
   float: right;
   margin-top: 10px;
   margin-bottom: -10px;
 }
-/* line 576, ../sass/sitewide/_general.scss */
+/* line 597, ../sass/sitewide/_general.scss */
 .region-header div, .region-header form {
   display: inline;
 }
 
-/* line 581, ../sass/sitewide/_general.scss */
+/* line 602, ../sass/sitewide/_general.scss */
 .group-dates,
 .group-event,
 .group-presenter,
@@ -1227,18 +1250,18 @@ body {
   clear: both;
 }
 
-/* line 590, ../sass/sitewide/_general.scss */
+/* line 611, ../sass/sitewide/_general.scss */
 .view-instances.view-display-id-registration > .view-content > .views-row div {
   display: inline;
 }
 
-/* line 594, ../sass/sitewide/_general.scss */
+/* line 615, ../sass/sitewide/_general.scss */
 body.node-type-event #title-section {
   width: auto;
   /*280px;*/
 }
 
-/* line 599, ../sass/sitewide/_general.scss */
+/* line 620, ../sass/sitewide/_general.scss */
 .region-help #block-block-1 {
   text-align: center;
   float: right;
@@ -1252,7 +1275,7 @@ body.node-type-event #title-section {
  *  Viewing a Registered Event
  */
 /* view registration and edit notification buttons */
-/* line 614, ../sass/sitewide/_general.scss */
+/* line 635, ../sass/sitewide/_general.scss */
 div#block-block-1.contextual-links-region a.button {
   width: 116px;
   display: block;
@@ -1261,36 +1284,36 @@ div#block-block-1.contextual-links-region a.button {
 }
 
 /* make links orange */
-/* line 624, ../sass/sitewide/_general.scss */
+/* line 645, ../sass/sitewide/_general.scss */
 a.flag-action,
 div.view-materials a,
 a.unflag-action {
   color: #c3791f;
 }
 
-/* line 630, ../sass/sitewide/_general.scss */
+/* line 651, ../sass/sitewide/_general.scss */
 .vertical-tabs {
   clear: both;
 }
 
-/* line 634, ../sass/sitewide/_general.scss */
+/* line 655, ../sass/sitewide/_general.scss */
 img.file-icon {
   position: relative;
   top: 4px;
 }
 
 /* form stuff */
-/* line 643, ../sass/sitewide/_general.scss */
+/* line 664, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .form-field-type-entityreference.field-widget-inline-entity-form-single .cke_top {
   display: none;
 }
 
-/* line 648, ../sass/sitewide/_general.scss */
+/* line 669, ../sass/sitewide/_general.scss */
 .role-event-creator .text-format-wrapper .filter-wrapper {
   display: none;
 }
 
-/* line 652, ../sass/sitewide/_general.scss */
+/* line 673, ../sass/sitewide/_general.scss */
 .rules-debug-log,
 .tabs-primary {
   clear: both;
@@ -1298,12 +1321,12 @@ img.file-icon {
 
 /* new styles */
 /* not used yet */
-/* line 660, ../sass/sitewide/_general.scss */
+/* line 681, ../sass/sitewide/_general.scss */
 .back-to-top {
   color: #333333;
 }
 
-/* line 664, ../sass/sitewide/_general.scss */
+/* line 685, ../sass/sitewide/_general.scss */
 .content-container {
   width: 970px;
   margin-left: 15px;
@@ -1311,7 +1334,7 @@ img.file-icon {
 }
 
 /* not used yet */
-/* line 672, ../sass/sitewide/_general.scss */
+/* line 693, ../sass/sitewide/_general.scss */
 h4.black {
   color: #333333;
   font-weight: bold;
@@ -1320,7 +1343,7 @@ h4.black {
   margin-bottom: 9px;
 }
 
-/* line 682, ../sass/sitewide/_general.scss */
+/* line 703, ../sass/sitewide/_general.scss */
 div#content {
   border: 1px solid #d7d7d7;
   width: 970px;
@@ -1338,22 +1361,22 @@ div#content {
   padding-top: 20px;
 }
 
-/* line 701, ../sass/sitewide/_general.scss */
+/* line 722, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info {
   color: white;
   top: 10px;
 }
-/* line 704, ../sass/sitewide/_general.scss */
+/* line 725, ../sass/sitewide/_general.scss */
 div#block-captconnect-blocks-user-info span.user-roles {
   text-transform: capitalize;
 }
 
-/* line 708, ../sass/sitewide/_general.scss */
+/* line 729, ../sass/sitewide/_general.scss */
 .form-type-select .chosen-container {
   display: block !important;
 }
 
-/* line 712, ../sass/sitewide/_general.scss */
+/* line 733, ../sass/sitewide/_general.scss */
 #edit-field-demographic-info-intro, #edit-field-omb p {
   margin: 2em 0em;
   padding: 15px;
@@ -1361,25 +1384,25 @@ div#block-captconnect-blocks-user-info span.user-roles {
   border: 1px solid #b2c0c9 !important;
 }
 
-/* line 719, ../sass/sitewide/_general.scss */
+/* line 740, ../sass/sitewide/_general.scss */
 #edit-field-omb p {
   line-height: 1.4em;
   font-size: 90%;
 }
 
-/* line 724, ../sass/sitewide/_general.scss */
+/* line 745, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset,
 body.page-user-edit #og-user-node1-add-more-wrapper fieldset {
   margin: 30px 0px !important;
 }
-/* line 728, ../sass/sitewide/_general.scss */
+/* line 749, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible.collapsed,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed,
 body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   border: none !important;
 }
-/* line 731, ../sass/sitewide/_general.scss */
+/* line 752, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed), body.page-user-edit fieldset.collapsible#edit-og-user-node-und, body.page-user-edit fieldset.collapsible#edit-og-user-node1-und,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed),
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und,
@@ -1391,7 +1414,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset#edit-og-user-node1-
   border: 1px solid #b2c0c9 !important;
   padding: 0px;
 }
-/* line 735, ../sass/sitewide/_general.scss */
+/* line 756, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed):before, body.page-user-edit fieldset.collapsible#edit-og-user-node-und:before, body.page-user-edit fieldset.collapsible#edit-og-user-node1-und:before,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed):before,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und:before,
@@ -1409,7 +1432,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset#edit-og-user-node1-
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 746, ../sass/sitewide/_general.scss */
+/* line 767, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible:not(.collapsed) .fieldset-wrapper, body.page-user-edit fieldset.collapsible#edit-og-user-node-und .fieldset-wrapper, body.page-user-edit fieldset.collapsible#edit-og-user-node1-und .fieldset-wrapper,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset:not(.collapsed) .fieldset-wrapper,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset#edit-og-user-node-und .fieldset-wrapper,
@@ -1422,34 +1445,34 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset#edit-og-user-node1-
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 753, ../sass/sitewide/_general.scss */
+/* line 774, ../sass/sitewide/_general.scss */
 body.page-user-edit fieldset.collapsible.collapsed,
 body.page-user-edit #og-user-node-add-more-wrapper fieldset.collapsed,
 body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   padding: 0px;
 }
 
-/* line 760, ../sass/sitewide/_general.scss */
+/* line 781, ../sass/sitewide/_general.scss */
 .feed-icon {
   float: left;
 }
 
-/* line 764, ../sass/sitewide/_general.scss */
+/* line 785, ../sass/sitewide/_general.scss */
 .view-admin-content, #block-block-16 {
   width: 50%;
 }
-/* line 766, ../sass/sitewide/_general.scss */
+/* line 787, ../sass/sitewide/_general.scss */
 .view-admin-content:after, #block-block-16:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 771, ../sass/sitewide/_general.scss */
+/* line 792, ../sass/sitewide/_general.scss */
 .view-admin-content .item-list ul, #block-block-16 .item-list ul {
   padding-left: 15px;
 }
 
-/* line 776, ../sass/sitewide/_general.scss */
+/* line 797, ../sass/sitewide/_general.scss */
 .feed-icon img[title="CSV"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADAklEQVRoQ+2YTW7TUBCAZxovELZEir0nPQHpCWhvkJ6AcgLSJWqsBtkRS8oJWk5AeoKGEzQ9AWEft0ayUZHsDBrHNqF1klKPawv5bSq5782bb35fBmHJMmyNlv0v/3caB4G/6/bBzS9rLgHLAeFbZWHKASG6BMSXkjClgASBt6k01JEkTCkg056HzT40JWFKA+EskYQpFUQSpnQQKZhKgEjAVAYkL0ylQPLAVA7koTCVBHkITGVB/hWm0iBZMNOev5310C0FJM/TnZ83NUgeC0qfrT0ibdG88mqP5LWg9PnaI9IWzSuvUI8QwA8AGiLhhICaiPg2GvgAfQeCIQK6hNRCwNdA8D4eRB0lUET0ifcAQvptGXBxIESXgRJ23Hc3k/RJoWjXQPA1CL1OMoRrDtS2QngRNIIt3qvbmosAz/hMNIz48KSlhMq3dR4rDCRA2nYP/bEx0I5oBt1o6ofQZIXh142rKNoXANgBgBH/JaQ3zqF/aljaCBBeMfDU9HZ062kHcYP3rlyFgBDAmdPzOoal7QDC+aIGfGHWdw4jx/S7hqX1OZQI6LPT8/d1Sz1OQnIVSSEgM6CDq55/rNvqaRT/CysJIcNSx/NBXJoRY37B6gN1HwlPEhmGrV4AYLsUjwDB7tT0RmmYLGhBBEPH9PZ4dtVQ1ONF0Cgn4pxJZdxzaF6IR1aBxFXrNAz8A074JJQi1sQAtkbz8anWvh2aj1q17iRu5u1/pu66rU4Q8AWX4Knp9XVbG8Y5FuXLurBKKlzWvnw/rGKF/rJ2xi1pHsSVKikSz221yzmWFZqP6xGgidPzt7gHNEJlnPSF20rcASFwHdPb5HNRT7G0ay7Z5XmEw51me475c8hKbYSNDiuzAfiR84D7xgzJZaunyR1rm/Sf29/XwRST7PGtM6LuTAnP2LrRhF1Rz4NGuJd0e+4nhHSCgK20CMeNkcMrAr/nKhTknjqIbKtBRMwoKKT2iKAxRUTVHhExo6CQ2iOCxhQRVXtExIyCQmqPCBpTRNR/75HfS6J/UZoaCRMAAAAASUVORK5CYII=");
   width: 32px;
@@ -1459,7 +1482,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   margin-bottom: 10px;
 }
 
-/* line 785, ../sass/sitewide/_general.scss */
+/* line 806, ../sass/sitewide/_general.scss */
 .feed-icon img[title="XLS"] {
   content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACtUlEQVRoQ+2ZTW7TUBSFz409QNgSLs4C0hWQroCyAtoVtF0B6RDVEUF2xRCzAsIKWlZAWAHpChLmMTJSjBg4veg5cYiq/Dj1s58HzsjK+7n3O8f32nombPg1PZM3jeX/n4dxHL0Kewjz7zXfgdSAiKhyYdSAMN+B6IVMGCUgcTw90DVjIBNGCcjEmZLVgyUTRhmIqBKZMEpBZMIoB5EFUwkQGTCVAckLUymQPDCVA3ksTCVBHgNTWZB9YSoNsg5m4kRH6150lYDkeXUXrzc1SB4FZa+tHZGtaN79akfyKih7fe2IbEXz7leMI4zvAAYAjkF4mSTJeM/ELQKdievFodO7hwAM/gnGLYFCJrQJeJ0FshAQBo8DJzq03acnRI0bMN9NulH7uWd0GqCPadCHh30MfA2c6UmaeNM1hRDflIGIwDHxUXgVDW3PDBnc++VEvu0ZIwK1NoGI4yCxVtfNm8RN8BCgtlIQBn8JnOjc9oz+TJv19FhvpequA2FGGHSnB/u4sApYyK2VlMQiMevaaM+dMfpJfQDY6cjykC6LF/M5hYEkMMQXwVXUF+dUmmaOiGBtA2FwP3Cii2S+bvgpeBacQkHuwZeiNqwPT1r6TB+lCW1yZD7O/sSJLsXVqou7YAoFibX4UCQQvv07brrmIG3F20ESmOXnBdEsCHimDCRtpbZr+EE36tjXxjkxfd52a60mm7q5KsA2mMIcYb4/Dbp/bsWzYrUVC3V3O/K/vpqe8SNLCy4EhIHfgTO10gciM39KXHENn4jeLEFcs5eqzIQOMcTD8JgbPBZNYp9WXAxImvii5S5b8aLo1wUVysfa7FTU06LQz8Dkp51OWY3sCix7vBBHZCeZZb8aJItKZc6pHSlT7SyxakeyqFTmnNqRMtXOEqt2JItKZc6pHSlT7SyxNjnyD4avTFESYk0LAAAAAElFTkSuQmCC");
   width: 32px;
@@ -1469,14 +1492,14 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   margin-bottom: 10px;
 }
 
-/* line 800, ../sass/sitewide/_general.scss */
+/* line 821, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) div#content,
 .page-404:not(.section-login) div#content,
 .section-404:not(.section-login) div#content,
 .section-403:not(.section-login) div#content {
   border: none;
 }
-/* line 803, ../sass/sitewide/_general.scss */
+/* line 824, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) h1#page-title,
 .page-404:not(.section-login) h1#page-title,
 .section-404:not(.section-login) h1#page-title,
@@ -1490,7 +1513,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   margin-top: 0px;
   text-align: center;
 }
-/* line 813, ../sass/sitewide/_general.scss */
+/* line 834, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) .node-page,
 .page-404:not(.section-login) .node-page,
 .section-404:not(.section-login) .node-page,
@@ -1499,7 +1522,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   margin: 0 auto;
   text-align: center;
 }
-/* line 817, ../sass/sitewide/_general.scss */
+/* line 838, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) .node-page a,
 .page-404:not(.section-login) .node-page a,
 .section-404:not(.section-login) .node-page a,
@@ -1507,7 +1530,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   color: #8c1d18;
 }
 
-/* line 827, ../sass/sitewide/_general.scss */
+/* line 848, ../sass/sitewide/_general.scss */
 .page-403.logged-in div#content,
 .page-404.logged-in div#content,
 .section-404.logged-in div#content,
@@ -1515,7 +1538,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   border: 1px solid #d7d7d7;
 }
 
-/* line 834, ../sass/sitewide/_general.scss */
+/* line 855, ../sass/sitewide/_general.scss */
 .page-404:not(.section-login) .node,
 .section-404:not(.section-login) .node {
   height: 350px;
@@ -1523,7 +1546,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   background-size: 50%;
 }
 
-/* line 843, ../sass/sitewide/_general.scss */
+/* line 864, ../sass/sitewide/_general.scss */
 .page-403:not(.section-login) .node,
 .section-403:not(.section-login) .node {
   height: 350px;
@@ -1531,14 +1554,14 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   background-size: 50%;
 }
 
-/* line 853, ../sass/sitewide/_general.scss */
+/* line 874, ../sass/sitewide/_general.scss */
 .panelize {
   background: #eef1f3;
   border: 1px solid #d7d7d7;
   border-top: 0px;
   padding: 20px 0px;
 }
-/* line 858, ../sass/sitewide/_general.scss */
+/* line 879, ../sass/sitewide/_general.scss */
 .panelize:before {
   display: block;
   background-color: #577785;
@@ -1550,11 +1573,11 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   margin-left: -1px;
   padding-left: 2px;
 }
-/* line 869, ../sass/sitewide/_general.scss */
+/* line 890, ../sass/sitewide/_general.scss */
 .panelize > div:not(.contextual-links-wrapper) {
   padding: 0px 10px;
 }
-/* line 872, ../sass/sitewide/_general.scss */
+/* line 893, ../sass/sitewide/_general.scss */
 .panelize h2 {
   color: #577785;
   padding: 0px 10px;
@@ -1562,7 +1585,7 @@ body.page-user-edit #og-user-node1-add-more-wrapper fieldset.collapsed {
   font-size: 24px;
 }
 
-/* line 882, ../sass/sitewide/_general.scss */
+/* line 903, ../sass/sitewide/_general.scss */
 input.form-text {
   font-size: 14px;
   padding: 5px;
@@ -1573,74 +1596,74 @@ input.form-text {
   -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
 }
-/* line 891, ../sass/sitewide/_general.scss */
+/* line 912, ../sass/sitewide/_general.scss */
 input.form-text:focus {
   background: #F5FAFC;
   outline: none;
 }
 
-/* line 900, ../sass/sitewide/_general.scss */
+/* line 921, ../sass/sitewide/_general.scss */
 .text-format-wrapper a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 904, ../sass/sitewide/_general.scss */
+/* line 925, ../sass/sitewide/_general.scss */
 .text-format-wrapper > div > label {
   display: none;
 }
-/* line 907, ../sass/sitewide/_general.scss */
+/* line 928, ../sass/sitewide/_general.scss */
 .text-format-wrapper .form-item {
   margin-bottom: 0px;
 }
-/* line 910, ../sass/sitewide/_general.scss */
+/* line 931, ../sass/sitewide/_general.scss */
 .text-format-wrapper .ckeditor_links {
   font-size: .85em;
 }
-/* line 913, ../sass/sitewide/_general.scss */
+/* line 934, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper {
   border: 1px solid #d4d5d5;
   background-color: #F6F8FA;
   padding: 15px 0;
 }
-/* line 917, ../sass/sitewide/_general.scss */
+/* line 938, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .form-type-select {
   margin-top: 0px;
 }
-/* line 920, ../sass/sitewide/_general.scss */
+/* line 941, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines {
   font-size: .85em;
   line-height: 1.25em;
 }
-/* line 923, ../sass/sitewide/_general.scss */
+/* line 944, ../sass/sitewide/_general.scss */
 .text-format-wrapper .filter-wrapper .filter-guidelines .tips {
   padding-left: 15px;
 }
 
-/* line 930, ../sass/sitewide/_general.scss */
+/* line 951, ../sass/sitewide/_general.scss */
 .warning {
   background-color: transparent;
 }
 
-/* line 936, ../sass/sitewide/_general.scss */
+/* line 957, ../sass/sitewide/_general.scss */
 .entityform .content a {
   font-weight: normal;
   color: #8c1d18;
 }
-/* line 940, ../sass/sitewide/_general.scss */
+/* line 961, ../sass/sitewide/_general.scss */
 .entityform .content .field {
   margin: 10px 0;
   background: #F7F7F7;
   overflow: hidden;
   clear: both;
 }
-/* line 945, ../sass/sitewide/_general.scss */
+/* line 966, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-label {
   width: 130px;
   padding: 2px 5px;
   background: #E4E4E4;
   float: left;
 }
-/* line 951, ../sass/sitewide/_general.scss */
+/* line 972, ../sass/sitewide/_general.scss */
 .entityform .content .field .field-items {
   float: none;
   height: 100%;
@@ -1648,47 +1671,47 @@ input.form-text:focus {
   padding: 2px 5px;
 }
 
-/* line 964, ../sass/sitewide/_general.scss */
+/* line 985, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) h1:not(#site-name),
 body.section-user .group-terms-of-use h1:not(#site-name) {
   text-align: center;
 }
-/* line 967, ../sass/sitewide/_general.scss */
+/* line 988, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) h2,
 body.section-user .group-terms-of-use h2 {
   text-transform: uppercase;
   font-size: 1.5em;
   margin: 20px 0px 10px !important;
 }
-/* line 972, ../sass/sitewide/_general.scss */
+/* line 993, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) #content a,
 body.section-user .group-terms-of-use #content a {
   color: #333333;
   font-weight: normal;
   text-decoration: underline;
 }
-/* line 977, ../sass/sitewide/_general.scss */
+/* line 998, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) ol, body.node-type-page:not(.section-events):not(.section-administration) li,
 body.section-user .group-terms-of-use ol,
 body.section-user .group-terms-of-use li {
   line-height: 1.6em;
 }
-/* line 980, ../sass/sitewide/_general.scss */
+/* line 1001, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) ol,
 body.section-user .group-terms-of-use ol {
   padding-left: 1.5em;
 }
-/* line 982, ../sass/sitewide/_general.scss */
+/* line 1003, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) ol li,
 body.section-user .group-terms-of-use ol li {
   margin-bottom: 1em;
 }
-/* line 984, ../sass/sitewide/_general.scss */
+/* line 1005, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) ol li ul,
 body.section-user .group-terms-of-use ol li ul {
   margin-top: 1em;
 }
-/* line 989, ../sass/sitewide/_general.scss */
+/* line 1010, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration) #terms-scroll,
 body.section-user .group-terms-of-use #terms-scroll {
   border: 1px solid #d7d7d7;
@@ -1701,32 +1724,32 @@ body.section-user .group-terms-of-use #terms-scroll {
   -moz-box-shadow: inset 5px 7px 18px -8px rgba(0, 0, 0, 0.75);
   box-shadow: inset 5px 7px 18px -8px rgba(0, 0, 0, 0.75);
 }
-/* line 1001, ../sass/sitewide/_general.scss */
+/* line 1022, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration).not-logged-in div#main,
 body.section-user .group-terms-of-use.not-logged-in div#main {
   padding-top: 0px !important;
 }
-/* line 1003, ../sass/sitewide/_general.scss */
+/* line 1024, ../sass/sitewide/_general.scss */
 body.node-type-page:not(.section-events):not(.section-administration).not-logged-in div#main div#content,
 body.section-user .group-terms-of-use.not-logged-in div#main div#content {
   border: 0px !important;
 }
 
-/* line 1010, ../sass/sitewide/_general.scss */
+/* line 1031, ../sass/sitewide/_general.scss */
 body.section-mailing-lists div#content {
   padding: 20px 150px !important;
 }
-/* line 1012, ../sass/sitewide/_general.scss */
+/* line 1033, ../sass/sitewide/_general.scss */
 body.section-mailing-lists div#content h1 {
   text-align: left;
 }
 
-/* line 1018, ../sass/sitewide/_general.scss */
+/* line 1039, ../sass/sitewide/_general.scss */
 body.section-terms div#content {
   padding: 20px 150px !important;
 }
 
-/* line 1024, ../sass/sitewide/_general.scss */
+/* line 1045, ../sass/sitewide/_general.scss */
 body.node-type-page h1#page-title {
   padding-top: 7px;
   color: #8c1d18;
@@ -1738,139 +1761,139 @@ body.node-type-page h1#page-title {
   font-weight: normal;
 }
 
-/* line 1038, ../sass/sitewide/_general.scss */
+/* line 1059, ../sass/sitewide/_general.scss */
 div.krumo-preview {
   color: #E5E4E4;
   background: #323232;
   font-size: 15px;
 }
 
-/* line 1044, ../sass/sitewide/_general.scss */
+/* line 1065, ../sass/sitewide/_general.scss */
 div.vertical-tabs {
   background: #eef1f3;
 }
-/* line 1048, ../sass/sitewide/_general.scss */
+/* line 1069, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button {
   color: #577785;
   background: #fff;
 }
-/* line 1051, ../sass/sitewide/_general.scss */
+/* line 1072, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button a {
   color: #333333;
 }
-/* line 1053, ../sass/sitewide/_general.scss */
+/* line 1074, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button a:hover {
   outline: none;
   color: #8c1d18;
 }
-/* line 1058, ../sass/sitewide/_general.scss */
+/* line 1079, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button.selected {
   background: #eef1f3 !important;
   border-top: 5px solid #577785 !important;
 }
-/* line 1062, ../sass/sitewide/_general.scss */
+/* line 1083, ../sass/sitewide/_general.scss */
 div.vertical-tabs ul.vertical-tabs-list li.vertical-tab-button:not(.selected) {
   padding-top: 5px;
 }
-/* line 1067, ../sass/sitewide/_general.scss */
+/* line 1088, ../sass/sitewide/_general.scss */
 div.vertical-tabs .vertical-tabs-panes {
   border-top: 5px solid #577785;
 }
 
-/* line 1073, ../sass/sitewide/_general.scss */
+/* line 1094, ../sass/sitewide/_general.scss */
 #event-notifications-node-form {
   margin-bottom: 20px;
 }
-/* line 1075, ../sass/sitewide/_general.scss */
+/* line 1096, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-type-list-boolean label {
   font-weight: bold;
 }
-/* line 1079, ../sass/sitewide/_general.scss */
+/* line 1100, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset {
   border: 0px;
 }
-/* line 1081, ../sass/sitewide/_general.scss */
+/* line 1102, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset > legend {
   display: none;
 }
-/* line 1083, ../sass/sitewide/_general.scss */
+/* line 1104, ../sass/sitewide/_general.scss */
 #event-notifications-node-form .field-widget-inline-entity-form-single > div > fieldset > legend .field-name-field-prevent-notification > .form-item {
   cursor: pointer;
 }
-/* line 1089, ../sass/sitewide/_general.scss */
+/* line 1110, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-days-before-event-to-send,
 #event-notifications-node-form #edit-field-days-after-event-to-send {
   margin: -15px 10px 0;
 }
-/* line 1093, ../sass/sitewide/_general.scss */
+/* line 1114, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-event-reminder-mailing-lis,
 #event-notifications-node-form #edit-field-event-followup-mailing-lis {
   margin: 20px 10px 0;
 }
-/* line 1096, ../sass/sitewide/_general.scss */
+/* line 1117, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-event-reminder-mailing-lis .form-checkboxes > div,
 #event-notifications-node-form #edit-field-event-followup-mailing-lis .form-checkboxes > div {
   margin: 0px;
 }
-/* line 1100, ../sass/sitewide/_general.scss */
+/* line 1121, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-test-notification,
 #event-notifications-node-form #edit-field-send-event-announcement {
   padding: 15px 20px;
 }
-/* line 1105, ../sass/sitewide/_general.scss */
+/* line 1126, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo {
   margin-top: 2em;
 }
-/* line 1107, ../sass/sitewide/_general.scss */
+/* line 1128, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo .form-item {
   margin: 0.25em 0;
 }
-/* line 1109, ../sass/sitewide/_general.scss */
+/* line 1130, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-date-combo .form-item label:not(.option) {
   font-weight: normal;
 }
-/* line 1114, ../sass/sitewide/_general.scss */
+/* line 1135, ../sass/sitewide/_general.scss */
 #event-notifications-node-form #edit-field-send-event-announcement .form-type-checkboxes .form-item {
   margin: 0px;
 }
-/* line 1118, ../sass/sitewide/_general.scss */
+/* line 1139, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Change"] {
   background-color: #8c1d18;
 }
-/* line 1120, ../sass/sitewide/_general.scss */
+/* line 1141, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Change"]:hover {
   background-color: #b8261f;
 }
-/* line 1124, ../sass/sitewide/_general.scss */
+/* line 1145, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send message"] {
   background-color: #888a55;
   float: right;
 }
-/* line 1126, ../sass/sitewide/_general.scss */
+/* line 1147, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send message"]:hover {
   background-color: #a3a56d;
 }
-/* line 1131, ../sass/sitewide/_general.scss */
+/* line 1152, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send test message"] {
   background-color: #888a55;
 }
-/* line 1133, ../sass/sitewide/_general.scss */
+/* line 1154, ../sass/sitewide/_general.scss */
 #event-notifications-node-form input[value="Send test message"]:hover {
   background-color: #a3a56d;
 }
 
-/* line 1144, ../sass/sitewide/_general.scss */
+/* line 1165, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .form-item label:not(.option), .page-node-edit .node-form .form-item label:not(.option) {
   margin-bottom: 5px;
 }
-/* line 1147, ../sass/sitewide/_general.scss */
+/* line 1168, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .form-item .description, .page-node-edit .node-form .form-item .description {
   color: #858282;
   margin-top: 2px;
   max-width: 400px;
   line-height: 1.1em;
 }
-/* line 1154, ../sass/sitewide/_general.scss */
+/* line 1175, ../sass/sitewide/_general.scss */
 .page-node-add .node-form .panel > .description, .page-node-add .node-form .panel-rule > .description, .page-node-add .node-form .panel-rule-single > .description, .page-node-add .node-form .section-events .view-dashboard.view-display-id-page_1 > .description, .section-events .page-node-add .node-form .view-dashboard.view-display-id-page_1 > .description, .page-node-add .node-form .section-events #block-views-dashboard-block-1 > .description, .section-events .page-node-add .node-form #block-views-dashboard-block-1 > .description,
 .page-node-add .node-form .section-events #block-views-dashboard-block-2 > .description,
 .section-events .page-node-add .node-form #block-views-dashboard-block-2 > .description, .page-node-add .node-form body.not-logged-in.page-user:not(.page-user-register) #block-block-8 > .description, body.not-logged-in.page-user:not(.page-user-register) .page-node-add .node-form #block-block-8 > .description, .page-node-add .node-form body.not-logged-in.page-user:not(.page-user-register) #block-block-18 > .description, body.not-logged-in.page-user:not(.page-user-register) .page-node-add .node-form #block-block-18 > .description,
@@ -2001,35 +2024,35 @@ body.not-logged-in.page-anon-login .page-node-edit .node-form form#user-login > 
   margin-top: 15px;
 }
 
-/* line 1163, ../sass/sitewide/_general.scss */
+/* line 1184, ../sass/sitewide/_general.scss */
 form.node-form .form-item.form-type-textarea, form.entityform .form-item.form-type-textarea {
   margin-bottom: 0px;
 }
-/* line 1167, ../sass/sitewide/_general.scss */
+/* line 1188, ../sass/sitewide/_general.scss */
 form.node-form a.ckeditor_links, form.entityform a.ckeditor_links {
   display: none !important;
 }
 
-/* line 1173, ../sass/sitewide/_general.scss */
+/* line 1194, ../sass/sitewide/_general.scss */
 .form-checkboxes .form-type-checkbox,
 .form-radios .form-type-radio {
   margin-left: 18px !important;
 }
-/* line 1176, ../sass/sitewide/_general.scss */
+/* line 1197, ../sass/sitewide/_general.scss */
 .form-checkboxes .form-type-checkbox input[type="checkbox"], .form-checkboxes .form-type-checkbox input[type="radio"],
 .form-radios .form-type-radio input[type="checkbox"],
 .form-radios .form-type-radio input[type="radio"] {
   margin-left: -18px;
 }
 
-/* line 1182, ../sass/sitewide/_general.scss */
+/* line 1203, ../sass/sitewide/_general.scss */
 a#edit-cancel {
   color: #8c1d18;
   font-weight: normal;
   text-decoration: underline;
 }
 
-/* line 1188, ../sass/sitewide/_general.scss */
+/* line 1209, ../sass/sitewide/_general.scss */
 input#edit-cancel {
   float: right;
   color: #8c1d18;
@@ -2039,62 +2062,62 @@ input#edit-cancel {
   padding: 0px !important;
 }
 
-/* line 1203, ../sass/sitewide/_general.scss */
+/* line 1224, ../sass/sitewide/_general.scss */
 .section-404.not-logged-in #name-and-slogan,
 .section-403.not-logged-in #name-and-slogan {
   top: 0px !important;
   left: 0px !important;
   position: relative !important;
 }
-/* line 1208, ../sass/sitewide/_general.scss */
+/* line 1229, ../sass/sitewide/_general.scss */
 .section-404.not-logged-in .region-highlighted,
 .section-403.not-logged-in .region-highlighted {
   top: 0px !important;
   left: 0px !important;
   position: relative !important;
 }
-/* line 1213, ../sass/sitewide/_general.scss */
+/* line 1234, ../sass/sitewide/_general.scss */
 .section-404.not-logged-in #title-section,
 .section-403.not-logged-in #title-section {
   margin-top: 140px !important;
 }
 
-/* line 1220, ../sass/sitewide/_general.scss */
+/* line 1241, ../sass/sitewide/_general.scss */
 .form-field-type-text-long > div > div.text-format-wrapper > div.filter-wrapper {
   display: none;
 }
 
-/* line 1229, ../sass/sitewide/_general.scss */
+/* line 1250, ../sass/sitewide/_general.scss */
 .not-logged-in.page-views #main {
   padding-top: 0px;
 }
-/* line 1231, ../sass/sitewide/_general.scss */
+/* line 1252, ../sass/sitewide/_general.scss */
 .not-logged-in.page-views #main #content {
   border: 0px;
 }
 
-/* line 1242, ../sass/sitewide/_general.scss */
+/* line 1263, ../sass/sitewide/_general.scss */
 .documentation {
   font-family: 'Helvetica', sans-serif !important;
   font-size: 14px !important;
   line-height: 1.25em !important;
 }
-/* line 1246, ../sass/sitewide/_general.scss */
+/* line 1267, ../sass/sitewide/_general.scss */
 .documentation h2 {
   font-size: 1.5em !important;
   text-transform: none !important;
 }
-/* line 1251, ../sass/sitewide/_general.scss */
+/* line 1272, ../sass/sitewide/_general.scss */
 .documentation a:hover {
   color: #8c1d18 !important;
 }
-/* line 1256, ../sass/sitewide/_general.scss */
+/* line 1277, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol {
   list-style-type: upper-roman;
   padding-left: 30px !important;
   line-height: 1.25em !important;
 }
-/* line 1260, ../sass/sitewide/_general.scss */
+/* line 1281, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol li {
   padding-left: 20px !important;
   margin-top: 15px !important;
@@ -2103,28 +2126,28 @@ input#edit-cancel {
   line-height: 1.25em !important;
   font-size: 16px;
 }
-/* line 1268, ../sass/sitewide/_general.scss */
+/* line 1289, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol ol {
   list-style-type: upper-alpha;
   padding-left: 20px !important;
   margin: 10px 0 30px !important;
   line-height: 1.25em !important;
 }
-/* line 1273, ../sass/sitewide/_general.scss */
+/* line 1294, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol ol li {
   font-weight: normal;
   margin-top: 5px !important;
   line-height: 1.25em !important;
   font-size: 14px;
 }
-/* line 1279, ../sass/sitewide/_general.scss */
+/* line 1300, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol ol ol {
   list-style-type: lower-alpha;
   padding-left: 20px !important;
   margin: 5px 0px 10px !important;
   line-height: 1.25em !important;
 }
-/* line 1284, ../sass/sitewide/_general.scss */
+/* line 1305, ../sass/sitewide/_general.scss */
 .documentation .multilevel ol ol ol ol {
   list-style-type: lower-roman;
   padding-left: 20px !important;
@@ -2132,32 +2155,32 @@ input#edit-cancel {
   line-height: 1.25em !important;
 }
 
-/* line 1297, ../sass/sitewide/_general.scss */
+/* line 1318, ../sass/sitewide/_general.scss */
 .view-og-extras-groups caption {
   font-size: 115%;
   font-weight: bold;
 }
 
-/* line 1307, ../sass/sitewide/_general.scss */
+/* line 1328, ../sass/sitewide/_general.scss */
 .section-administration .disclaimer,
 .section-node-add .disclaimer,
 .section-groups .disclaimer {
   line-height: normal;
 }
 
-/* line 1314, ../sass/sitewide/_general.scss */
+/* line 1335, ../sass/sitewide/_general.scss */
 .group-subscribers {
   margin-bottom: 15px;
 }
-/* line 1316, ../sass/sitewide/_general.scss */
+/* line 1337, ../sass/sitewide/_general.scss */
 .group-subscribers h3 {
   display: none;
 }
-/* line 1319, ../sass/sitewide/_general.scss */
+/* line 1340, ../sass/sitewide/_general.scss */
 .group-subscribers + div {
   display: none;
 }
-/* line 1321, ../sass/sitewide/_general.scss */
+/* line 1342, ../sass/sitewide/_general.scss */
 .group-subscribers + div + fieldset {
   display: none;
 }
@@ -8240,11 +8263,23 @@ form#user-pass {
 form.workflow-transition-form {
   padding: 10px 26px 20px 26px;
   width: 269px;
-  background: #F3EEEE;
-  border: 1px solid #DBD6D6;
+  background: #F8EED3;
+  border: 1px solid #D7D7D7;
+}
+/* line 26, ../sass/admin/_workflow.scss */
+form.workflow-transition-form:before {
+  margin-left: -27px;
+  padding-left: 54px;
+  display: block;
+  background-color: #C3791F;
+  height: 5px;
+  width: 100%;
+  content: "";
+  position: relative;
+  top: -15px;
 }
 
-/* line 28, ../sass/admin/_workflow.scss */
+/* line 39, ../sass/admin/_workflow.scss */
 .node.workflow-published .field-name-field-workflow-state {
   display: none;
 }
@@ -11427,6 +11462,11 @@ body.page-user-register:not(.node-type-event) {
   .section-groups .disclaimer {
     font-size: 11px;
     line-height: normal !important;
+  }
+
+  /* line 215, ../sass/tablet/_tablet-general.scss */
+  form.workflow-transition-form {
+    width: 235px;
   }
 
   /* line 9, ../sass/tablet/_tablet-login.scss */

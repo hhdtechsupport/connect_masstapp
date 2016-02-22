@@ -21,8 +21,19 @@
 form.workflow-transition-form {
   padding: 10px 26px 20px 26px;
   width: 269px;
-  background: #F3EEEE;
-  border: 1px solid #DBD6D6;
+  background: #F8EED3;
+  border: 1px solid #D7D7D7;
+  &:before {
+    margin-left: -27px;
+    padding-left: 54px;
+    display: block;
+    background-color: #C3791F;
+    height: 5px;
+    width: 100%;
+    content: "";
+    position: relative;
+    top: -15px;
+  }
 }
 
 .node.workflow-published .field-name-field-workflow-state {
