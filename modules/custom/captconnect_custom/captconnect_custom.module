@@ -1591,6 +1591,31 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
     }
   }
 }
+/*
+ * Implements hook_entity_info_alter().
+ */
+function captconnect_custom_entity_info_alter(&$entity_info) {
+  $entity_info['taxonomy_term']['access callback'] = '_captconnect_custom_taxonomy_access';
+}
+
+/*
+ * Copy of entity_metadata_taxonomy_access with $op == 'create' added for terms.
+ */
+function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NULL, $entity_type) {
+  if ($entity_type == 'taxonomy_vocabulary') {
+    return user_access('administer taxonomy', $account);
+  }
+  if (isset($entity) && $entity_type == 'taxonomy_term' && $op == 'create') {
+    return user_access('add terms in ' . $entity->vocabulary_machine_name, $account);
+  }
+  if (isset($entity) && $op == 'update' && !isset($account) && taxonomy_term_edit_access($entity)) {
+    return TRUE;
+  }
+  if (user_access('administer taxonomy', $account) || user_access('access content', $account) && $op == 'view') {
+    return TRUE;
+  }
+  return FALSE;
+}
 
 /**
  * Place to put special purpose stuff.
