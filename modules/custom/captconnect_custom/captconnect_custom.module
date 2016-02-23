@@ -805,7 +805,6 @@ function _captconnect_custom_preset_groups(&$form) {
     $form['og_group_ref']['#access'] = FALSE;
   }
 
-  dpm($form, '_captconnect_custom_preset_groups');
   return;
 }
 
@@ -835,7 +834,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     // Add/Edit Event.
     case 'event_node_form':
       _captconnect_custom_preset_groups($form);
-      $form['#submit'][] = 'captconnect_custom_check_groups';
 
       break;
 
@@ -968,10 +966,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       break;
   }
 //  dpm($form, $form_id);
-}
-
-function captconnect_custom_check_groups($form, &$form_state) {
-  dpm($form_state['values'], 'values');
 }
 
 /**
