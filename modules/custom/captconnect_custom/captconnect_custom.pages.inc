@@ -362,3 +362,31 @@ function captconnect_custom_anon_pending() {
 
   return theme('table', $table);
 }
+
+function captconnect_custom_view_user_content($account) {
+  $query = "SELECT type, COUNT(*) AS num FROM {node} "
+    . "WHERE status = 1 AND uid = :uid "
+    . "GROUP BY type ORDER BY type ";
+  $result = db_query($query, array(':uid' => $account->uid));
+
+  $table = array(
+    'header' => array(
+      ),
+    'rows' => array(),
+    'attributes' => array('style' => 'width:auto;'),
+    'empty' => 'There is no content for ' . format_username($account),
+    );
+  $node_type_present = module_exists('node_type');
+  $types = node_type_get_names();
+
+  foreach ($result as $row) {
+    $type = ($node_type_present ? 
+      l($types[$row->type], 'node/type/' . $row->type . '/' . $account->uid)
+      : filter_xss($types[$row->type]));
+    $table['rows'][] = array(
+      $type,
+      number_format($row->num, 0),
+      );
+  }
+  return theme('table', $table);
+}

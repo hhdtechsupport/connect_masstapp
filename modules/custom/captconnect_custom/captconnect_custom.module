@@ -17,6 +17,7 @@
  * Implements hook_permission().
  */
 function captconnect_custom_permission() {
+  $node_types = node_type_get_names();
   $perms = array(
     'view registrations' => array(
       'title' => t('View Registrations'),
@@ -34,6 +35,14 @@ function captconnect_custom_permission() {
       'restrict access' => FALSE,
       ),
     );
+
+    foreach ($node_types as $type => $name) {
+      $perms["view $type publishing options"] = array(
+        'title' => t("View $name Publishing Options"),
+        'description' => t("View publishing options for $name content."),
+        'restrict access' => FALSE,
+        );
+    }
   return $perms;
 }
 
@@ -42,6 +51,17 @@ function captconnect_custom_permission() {
  */
 function captconnect_custom_menu() {
   $items = array();
+
+  $items['user/%user/content'] = array(
+    'title' => 'Content',
+    'page callback' => 'captconnect_custom_view_user_content',
+    'page arguments' => array(1),
+//    'access callback' => 'captconnect_custom_access_notifications',
+    'access arguments' => array('administer users'),
+    'weight' => 10,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'captconnect_custom.pages.inc',
+    );
 
   $items['node/%node/notifications'] = array(
     'title' => 'Notifications',
@@ -202,6 +222,8 @@ function captconnect_custom_theme() {
  * Implements hook_menu_alter().
  */
 function captconnect_custom_menu_alter(&$items) {
+  unset($items['node']);  // Get rid of /node.
+
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 
   // Change the permission on the "Manage display" tab.
@@ -232,17 +254,22 @@ function captconnect_custom_init() {
   // or editing someone else's account.
   $a0 = arg(0);
   $a1 = arg(1);
+//  drupal_set_message("$a0/$a1. ".$_GET['q']);
+//  if ($a0 == 'node') {
+//    return;
+//  }
 
-  if ($a0 == 'user') {
+//  if ($a0 == 'user') {
     if (user_is_anonymous() && $a1 != 'login') {
-      drupal_goto('<front>', array(), '301');
+//    if (user_is_anonymous()) {
+      drupal_goto('user/login', array(), '301');
     }
-    else {
-      if (empty($a1)) {
-        drupal_goto('events', array(), '302');
-      }
-    }
-  }
+//    else {
+//      if (empty($a1)) {
+//        drupal_goto('user/login', array(), '302');
+//      }
+//    }
+//  }
 
   if (user_is_anonymous()
   || ($a0 == 'user' && $a1 == 'logout')
@@ -415,12 +442,11 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
 /**
  * Implements hook_node_insert().
  */
-function captconnect_custom_node_insert($node) {
+function _captconnect_custom_node_insert($node) {
   global $user;
 //  dpm($node, $node->type);
   switch ($node->type) {
     case 'event':
-      dpm($node, 'inserted node');
       if ($node->field_no_approver[LANGUAGE_NONE][0]['value'] == 1) {
         $workflow = workflow_get_workflows_by_type('event', 'node');
         $wid = $workflow->getWorkflowId();
@@ -755,7 +781,9 @@ function _captconnect_custom_preset_groups(&$form) {
   }
 
   if (empty($groups)) {
-    throw new CaptException(t('You need to be a member of a team in order to create a portal.'));
+    $types = node_type_get_names();
+    throw new CaptException(t('You need to be a member of a team in order to create a @type.',
+      array('@type' => $types[$form['type']['#value']])));
   }
 
   // One would hope that OG is prepopulating this.
@@ -770,13 +798,14 @@ function _captconnect_custom_preset_groups(&$form) {
       $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = reset($groups);
     }
     else {
-      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = $groups;
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array_values($groups);
     }
     unset($form['#groups'][$form['#group_children']['og_group_ref']]);
     unset($form['#group_children']['og_group_ref']);
     $form['og_group_ref']['#access'] = FALSE;
   }
 
+  dpm($form, '_captconnect_custom_preset_groups');
   return;
 }
 
@@ -787,6 +816,15 @@ function _captconnect_custom_preset_groups(&$form) {
 function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
+  // Is it a node form?
+  if (substr($form_id, -10) == '_node_form') {
+    // Yes, are they allowed to see the publishing options?
+    $type = $form['type']['#value'];
+    if (user_access("view $type publishing options")) {
+      $form['options']['#access'] = TRUE;
+    }
+  }
+
   switch ($form_id) {
     // Add/Edit Portal.
     case 'portal_node_form':
@@ -797,7 +835,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     // Add/Edit Event.
     case 'event_node_form':
       _captconnect_custom_preset_groups($form);
-      $form['options']['#access'] = TRUE;
+      $form['#submit'][] = 'captconnect_custom_check_groups';
 
       break;
 
@@ -922,9 +960,31 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     // Save the current path and grab the submit handler.
     case 'event_notifications_node_form':
       $form['#where_to'] = $_GET['q'];
-      break; /* */
+      break;
+
+    case 'user_admin_permissions':
+      array_unshift($form['#submit'], 'captconnect_custom_set_user_perms');
+
+      break;
   }
 //  dpm($form, $form_id);
+}
+
+function captconnect_custom_check_groups($form, &$form_state) {
+  dpm($form_state['values'], 'values');
+}
+
+/**
+ * Submission handler for user permissions.
+ */
+function captconnect_custom_set_user_perms($form, &$form_state) {
+  // Custom permissions may not be picked up by admins.
+  // Make sure Administrator has everything.
+  $admin_role = user_role_load_by_name('administrator');
+  $rid = $admin_role->rid;
+  foreach ($form_state['values'][$rid] as $perm => $value) {
+    $form_state['values'][$rid][$perm] = $perm;
+  }
 }
 
 /**
@@ -1101,8 +1161,6 @@ function captconnect_custom_anon_register($instance) {
  * Submit handler for user registration.
  */
 function captconnect_custom_user_register_submit($form, $form_state) {
-  dpm($form_state['values'], 'captconnect_custom_user_register_submit');
-  watchdog('captconnect', 'captconnect_custom_user_register_submit entered');
   // Get the instance ID that they will register for when they come back.
   if (isset($form['#captconnect_anon_instance'])) {
     $register_nid = $form['#captconnect_anon_instance'];
@@ -1547,36 +1605,37 @@ function captconnect_custom_nancy() {
   global $user;
   $output = '';
 
-  $query = "SELECT u.uid, u.data, r.realname, u.created FROM {users} u "
-    . "LEFT JOIN realname r ON r.uid = u.uid "
-    . "WHERE u.uid > 0 "
-    ;
-  $result = db_query($query);
-  $table = array(
-    'header' => array(t('User'), t('Last Edit'), t('Created')),
-    'rows' => array(),
-    );
-  foreach ($result as $row) {
-    $data = unserialize($row->data);
-    if (isset($data['last_account_edit'])) {
-      $lae = format_date($data['last_account_edit']);
-    }
-    else {
-      $lae = 'never';
-      $data['last_account_edit'] = $row->created;
-      $num_updated = db_update('users')
-        ->fields(array('data' => serialize($data)))
-        ->condition('uid', $row->uid)
-        ->execute();
-    }
+  $rows = db_select('rules_config', 'r')
+    ->fields('r')
+    ->execute();
+
+  $table['rows'] = array();
+  foreach ($rows as $row) {
     $table['rows'][] = array(
-      l($row->realname, "user/$row->uid/edit"),
-      $lae,
-      format_date($row->created),
+      $row->id . " " . $row->name,
+      $row->data,
       );
+    try {
+      $unserialize = unserialize($row->data);
+      //var_dump($unserialize);
+    } catch (Exception $e) {
+      echo "Unable to unserialize " . PHP_EOL;
+    }
   }
   $output .= theme('table', $table);
 
+  return $output;
+
+  $q = "SELECT name, value FROM {variable} WHERE name like 'rh%'";
+  $results = db_query($q);
+  $r = array();
+  foreach ($results as $row) {
+    $r[] = array(
+      $row->name,
+      unserialize($row->value),
+      );
+  }
+  $output .= theme('table', array('rows' => $r));
   return $output;
 
   $flag = flag_get_flag('registration');
