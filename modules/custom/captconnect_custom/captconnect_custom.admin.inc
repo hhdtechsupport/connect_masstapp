@@ -157,9 +157,8 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#title' => t('No Approver State'),
     '#default_value' => variable_get('captconnect_custom_no_approver_state', NULL),
     '#description' => t('If an event is marked as not needing an approver,
-      advance its workflow state to this one..'),
+      advance its workflow state to this one.'),
     );
-
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
