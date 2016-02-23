@@ -30,6 +30,8 @@ function content_type_summary_report() {
 //  dpm($types, 'node_type_get_types');
 
   $auto_entitylabel_present = module_exists('auto_entitylabel');
+  $og_present = module_exists('og');
+  $node_type_present = module_exists('node_type');
 
   // I don't know what this is, but I see a lot of it.
   $modules = array('initialize' => 'Initialize');
@@ -55,6 +57,10 @@ function content_type_summary_report() {
     'attributes' => array('id' => 'content-type-summary', 'style' => 'width:auto;'),
     'empty' => t('Strangely, I cannot find any content types.'),
     );
+  if ($og_present) {
+    $table['header'][] = t('Group');
+    $table['header'][] = t('Group Content');
+  }
   $published_query = "SELECT COUNT(*) FROM {node} WHERE status = 1 AND type = :type";
   $unpublished_query = "SELECT COUNT(*) FROM {node} WHERE status <> 1 AND type = :type";
   foreach ($types as $type => $info) {
@@ -73,19 +79,35 @@ function content_type_summary_report() {
       }
     }
 
-    $table['rows'][] = array(
+    $published = number_format(db_query($published_query, $args)->fetchField(), 0);
+    if ($node_type_present) {
+      $published = l($published, "node/type/$type");
+    }
+    $fields = l(number_format(count(field_info_instances('node', $type)), 0), "admin/structure/types/manage/$type/fields");
+    $row = array(
       l($info->name, 'admin/structure/types/manage/' . $type),
       filter_xss($type),
       $modules[$info->module],
       array('data' => (in_array('status', $options) ? "&#10004;" : "&chi;"), 'align' => 'center'),
-      array('data' => (in_array('promote', $options) ? "&#10004;" : "&chi;"), 'align' => 'center'),
-      array('data' => (in_array('revision', $options) ? "&#10004;" : "&chi;"), 'align' => 'center'),
+      array('data' => (in_array('promote', $options) ? "&#10004;" : " "), 'align' => 'center'),
+      array('data' => (in_array('revision', $options) ? "&#10004;" : " "), 'align' => 'center'),
       array('data' => $has_title, 'align' => 'center'),
-      array('data' => (empty($info->help) ? "&chi;" : "&#10004;"), 'align' => 'center'),
-      array('data' => number_format(db_query($published_query, $args)->fetchField(), 0), 'align' => 'right'),
+      array('data' => (empty($info->help) ? " " : "&#10004;"), 'align' => 'center'),
+      array('data' => $published, 'align' => 'right'),
       array('data' => number_format(db_query($unpublished_query, $args)->fetchField(), 0), 'align' => 'right'),
-      array('data' => number_format(count(field_info_instances('node', $type)), 0), 'align' => 'right'),
+      array('data' => $fields, 'align' => 'right'),
       );
+    if ($og_present) {
+      $row[] = array(
+        'data' => (og_is_group_type('node', $type) ? "&#10004;" : " "),
+        'align' => 'center',
+        );
+      $row[] = array(
+        'data' => (og_is_group_content_type('node', $type) ? "&#10004;" : " "),
+        'align' => 'center',
+        );
+    }
+    $table['rows'][] = $row;
   }
 
   $output .= theme('table', $table);

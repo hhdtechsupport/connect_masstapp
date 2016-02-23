@@ -25,9 +25,9 @@ function quick_list_menu() {
 
   $items['admin/modules/quick_list'] = array(
     'title' => 'Module Quick List',
-    'type' => MENU_LOCAL_TASK,
     'page callback' => 'quick_list_page',
-    'access arguments' => array('administer modules '),
+    'access arguments' => array('administer modules'),
+    'type' => MENU_NORMAL_ITEM,
     );
 
     return $items;
@@ -93,9 +93,7 @@ function quick_list_page() {
 
   $output .= theme_list_table(array('items' => $list, 'columns' => variable_get('quick_list_columns', 2)));
 
-  $output .= '<p>' . t('!count modules, !not including core.', array('!count' => count($list), '!not' => ($show_core ? NULL : 'not')));
-
-  $output .= ' ' . t('Drupal: @drupal, PHP: @php.', array('@drupal' => VERSION, '@php' => phpversion())) . '</p>';
+  $output .= t('!count modules, !not including core.', array('!count' => count($list), '!not' => ($show_core ? NULL : 'not')));
 
   return $output;
 }
