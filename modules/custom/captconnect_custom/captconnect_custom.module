@@ -1017,6 +1017,8 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
  * Implements hook_inline_entity_form_table_fields_alter().
  */
 function captconnect_custom_inline_entity_form_table_fields_alter(&$fields, $context) {
+//  dpm($context, 'captconnect_custom_inline_entity_form_table_fields_alter context');
+//  dpm($fields, 'captconnect_custom_inline_entity_form_table_fields_alter fields');
   // Make sure there's a stock field on each of the allowed types.
   $instances = FALSE;
   foreach ($context['allowed_bundles'] as $bundle) {
@@ -1602,6 +1604,7 @@ function captconnect_custom_entity_info_alter(&$entity_info) {
  * Copy of entity_metadata_taxonomy_access with $op == 'create' added for terms.
  */
 function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NULL, $entity_type) {
+//  dpm($entity, "_captconnect_custom_taxonomy_access $op $entity_type.");
   if ($entity_type == 'taxonomy_vocabulary') {
     return user_access('administer taxonomy', $account);
   }
@@ -1610,6 +1613,11 @@ function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NUL
   }
   if (isset($entity) && $op == 'update' && !isset($account) && taxonomy_term_edit_access($entity)) {
     return TRUE;
+  }
+  if (isset($entity) && $op == 'delete') {
+    if (user_access('delete terms in ' . $entity->vid)) {
+      return TRUE;
+    }
   }
   if (user_access('administer taxonomy', $account) || user_access('access content', $account) && $op == 'view') {
     return TRUE;
