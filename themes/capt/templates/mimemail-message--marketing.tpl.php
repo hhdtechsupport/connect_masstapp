@@ -71,7 +71,7 @@
                                                   <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                     <div align="center">
                                                       <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
-                                                        <img class="LogoImg" vspace="0" border="0" hspace="0" height="58"width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
+                                                        <img class="LogoImg" vspace="0" border="0" hspace="0" height="58" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
                                                       </a>
                                                     </div>
                                                   </td>

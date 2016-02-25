@@ -71,7 +71,7 @@
                                                   <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                     <div align="center">
                                                       <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
-                                                        <img class="LogoImg" vspace="0" border="0" hspace="0" height="58"width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
+                                                        <img class="LogoImg" vspace="0" border="0" hspace="0" height="58" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
                                                       </a>
                                                     </div>
                                                   </td>
@@ -151,7 +151,7 @@
                                                       <tbody>
                                                         <tr>
                                                           <td class="Disclaimer" valign="top" align="center">
-                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at CAPT Connect.<br>If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
+                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at CAPT Connect. If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
                                                           </td>
                                                         </tr>
                                                       </tbody>
