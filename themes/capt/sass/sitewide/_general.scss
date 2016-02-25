@@ -1344,3 +1344,9 @@ input#edit-cancel {
     }
   }
 }
+
+
+body:not(.role-administrator) #edit-field-access-key .text-format-wrapper,
+body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .field-type-entityreference {
+    display: none;
+}

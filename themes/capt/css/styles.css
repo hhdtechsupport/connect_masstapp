@@ -2185,6 +2185,12 @@ input#edit-cancel {
   display: none;
 }
 
+/* line 1349, ../sass/sitewide/_general.scss */
+body:not(.role-administrator) #edit-field-access-key .text-format-wrapper,
+body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .field-type-entityreference {
+  display: none;
+}
+
 /*
  *  Banners
  */
