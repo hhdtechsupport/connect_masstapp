@@ -476,28 +476,6 @@ function _captconnect_custom_node_insert($node) {
 } /* */
 
 /**
- * Implements hook_node_delete().
- * Portals may have a bunch of sub-pages associated with them.
- * We have to deal those pages when the portal is deleted.
- */ /*
-function captconnect_custom_node_delete($node) {
-//  dpm($node, $node->type . ' delete');
-  switch ($node->type) {
-    case 'portal':
-      $portal = entity_metadata_wrapper('node', $node);
-      foreach ($portal->field_portal_section->getIterator() as $portal_section) {
-        drupal_set_message('deleting portal_section ' . $portal_section->title->value());
-        foreach ($portal_section->field_portal_page->getIterator() as $portal_page) {
-          drupal_set_message('deleting portal_page --' . $portal_page->title->value());
-          $portal_page->delete();
-        }
-        $portal_section->delete();
-      }
-      break;
-  }
-} /* */
-
-/**
  * Menu access callback.
  * Decide whether or not to show the "Login" tab.
  */
@@ -779,6 +757,8 @@ function _captconnect_custom_preset_groups(&$form) {
   foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
     $groups[$grp['target_id']] = $grp['target_id'];
   }
+//  dpm($form, '_captconnect_custom_preset_groups');
+//  dpm($groups, 'groups');
 
   if (empty($groups)) {
     $types = node_type_get_names();
@@ -798,14 +778,21 @@ function _captconnect_custom_preset_groups(&$form) {
       $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = reset($groups);
     }
     else {
-      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array_values($groups);
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = $groups;
     }
     unset($form['#groups'][$form['#group_children']['og_group_ref']]);
     unset($form['#group_children']['og_group_ref']);
+//    $form['og_group_ref']['#access'] = TRUE;
     $form['og_group_ref']['#access'] = FALSE;
   }
 
   return;
+}
+
+function _captconnect_custom_delete_redirect(&$form, &$form_state) {
+  if (isset($form['#GOTO'])) {
+    $form_state['redirect'] = $form['#GOTO'];
+  }
 }
 
 /**
@@ -825,6 +812,21 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
   }
 
   switch ($form_id) {
+    // Node delete redirect.
+    case 'node_delete_confirm':
+      switch ($form['#node']->type) {
+        case 'portal':
+          $form['#GOTO'] = 'portals';
+          $form['#submit'][] = '_captconnect_custom_delete_redirect';
+          break;
+
+        case 'event':
+          $form['#GOTO'] = 'events';
+          $form['#submit'][] = '_captconnect_custom_delete_redirect';
+          break;
+      }
+      break;
+
     // Add/Edit Portal.
     case 'portal_node_form':
       _captconnect_custom_preset_groups($form);
