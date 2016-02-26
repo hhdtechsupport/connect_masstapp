@@ -260,7 +260,7 @@ function captconnect_custom_init() {
     if ($a0 == 'node') {
       $node = menu_get_object();
       // @TODO: Check if published?
-      if ($node->type == 'event') {
+      if ($node && $node->type == 'event') {
         // We let anon users got straight to an event.
         return;
       }
@@ -749,6 +749,15 @@ function _captconnect_custom_preset_groups(&$form) {
   if (!isset($user->og_user_node)) {
     // Provide a complete user object.
     $user = user_load($user->uid);
+  }
+
+  // Is it an existing node?
+  if (isset($form['nid']['#value'])) {
+    // Are they allowed to edit it? (Admins, site maintainers).
+    $type = $form['type']['#value'];
+    if (user_access("edit any $type content")) {
+      return;
+    }
   }
 
   // If they are not allowed to set the group, then prepopulate it.
