@@ -255,21 +255,20 @@ function captconnect_custom_init() {
   $a0 = arg(0);
   $a1 = arg(1);
 //  drupal_set_message("$a0/$a1. ".$_GET['q']);
-//  if ($a0 == 'node') {
-//    return;
-//  }
 
-//  if ($a0 == 'user') {
-    if (user_is_anonymous() && $a1 != 'login') {
-//    if (user_is_anonymous()) {
+  if (user_is_anonymous()) {
+    if ($a0 == 'node') {
+      $node = menu_get_object();
+      // @TODO: Check if published?
+      if ($node->type == 'event') {
+        // We let anon users got straight to an event.
+        return;
+      }
+    }
+    if ($a1 != 'login') {
       drupal_goto('user/login', array(), '301');
     }
-//    else {
-//      if (empty($a1)) {
-//        drupal_goto('user/login', array(), '302');
-//      }
-//    }
-//  }
+  }
 
   if (user_is_anonymous()
   || ($a0 == 'user' && $a1 == 'logout')
