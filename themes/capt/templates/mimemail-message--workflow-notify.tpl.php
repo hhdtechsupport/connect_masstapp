@@ -146,23 +146,6 @@
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                               <tbody>
                                                 <tr>
-                                                  <td>
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="textEdit" style="width: 600px !important; text-align: center !important;">
-                                                      <tbody>
-                                                        <tr>
-                                                          <td class="Disclaimer" valign="top" align="center">
-                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at CAPT Connect. If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
-                                                          </td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                                  </td>
-                                                </tr>
-                                              </tbody>
-                                            </table>
-                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
-                                              <tbody>
-                                                <tr>
                                                   <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
                                                     <table class="OneColumnMobile" width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
                                                       <tbody>
