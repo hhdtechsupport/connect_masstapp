@@ -137,11 +137,11 @@ class SmtpMailSystem implements MailSystemInterface {
 
 
     // Create the list of 'To:' recipients.
-    $torecipients = explode(',', $to);
+    $torecipients = preg_split('/;|,/', $to);
     foreach ($torecipients as $torecipient) {
       if (strpos($torecipient, '<') !== FALSE) {
-        $toparts = explode(' <', $torecipient);
-        $toname = $toparts[0];
+        $toparts = explode('<', $torecipient);
+        $toname = trim($toparts[0]);
         $toaddr = rtrim($toparts[1], '>');
       }
       else {
@@ -150,7 +150,6 @@ class SmtpMailSystem implements MailSystemInterface {
       }
       $mailer->AddAddress($toaddr, $toname);
     }
-
 
     // Parse the headers of the message and set the PHPMailer object's settings
     // accordingly.

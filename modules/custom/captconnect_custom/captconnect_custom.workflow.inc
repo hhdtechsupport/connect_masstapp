@@ -23,7 +23,7 @@
  * @return none - Modify the list by reference.
  */
 function captconnect_custom_workflow_notify($op, &$args) {
-  dpm($args, "captconnect_custom_workflow_notify $op");
+//  dpm($args, "captconnect_custom_workflow_notify $op");
   switch ($op) {
     case 'users':
       // We only care about Events here.

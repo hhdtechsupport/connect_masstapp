@@ -184,8 +184,17 @@ function entity_ui_entity_page_view($entity) {
  * Gets the page title for the passed operation.
  */
 function entity_ui_get_page_title($op, $entity_type, $entity = NULL) {
-  module_load_include('inc', 'entity', 'includes/entity.ui');
-  $label = entity_label($entity_type, $entity);
+  if (isset($entity)) {
+    module_load_include('inc', 'entity', 'includes/entity.ui');
+    $label = entity_label($entity_type, $entity);
+    list(, , $bundle) = entity_extract_ids($entity_type, $entity);
+  }
+  else {
+    $info = entity_get_info($entity_type);
+    $label = $info['label'];
+    $bundle = NULL;
+  }
+
   switch ($op) {
     case 'view':
       return $label;
@@ -200,12 +209,7 @@ function entity_ui_get_page_title($op, $entity_type, $entity = NULL) {
     case 'export':
       return t('Export @label', array('@label' => $label));
   }
-  if (isset($entity)) {
-    list(, , $bundle) = entity_extract_ids($entity_type, $entity);
-  }
-  else {
-    $bundle = NULL;
-  }
+
   return entity_ui_get_action_title($op, $entity_type, $bundle);
 }
 
@@ -1076,7 +1080,8 @@ function entity_flush_caches() {
   // case of enabling or disabling modules we already rebuild defaults in
   // entity_modules_enabled() and entity_modules_disabled(), so we do not need
   // to do it again.
-  if (current_path() != 'admin/modules/list/confirm') {
+  // Also check if rebuilding on cache flush is explicitly disabled.
+  if (current_path() != 'admin/modules/list/confirm' && variable_get('entity_rebuild_on_flush', TRUE)) {
     entity_defaults_rebuild();
   }
 
@@ -1485,78 +1490,79 @@ function entity_entity_info_alter(&$entity_info) {
  */
 function _entity_info_add_metadata(&$entity_info) {
   // Set plural labels.
-  $entity_info['node']['plural label'] = t('Nodes');
-  $entity_info['user']['plural label'] = t('Users');
-  $entity_info['file']['plural label'] = t('Files');
+  $defaults['node']['plural label'] = t('Nodes');
+  $defaults['user']['plural label'] = t('Users');
+  $defaults['file']['plural label'] = t('Files');
 
   // Set descriptions.
-  $entity_info['node']['description'] = t('Nodes represent the main site content items.');
-  $entity_info['user']['description'] = t('Users who have created accounts on your site.');
-  $entity_info['file']['description'] = t('Uploaded file.');
+  $defaults['node']['description'] = t('Nodes represent the main site content items.');
+  $defaults['user']['description'] = t('Users who have created accounts on your site.');
+  $defaults['file']['description'] = t('Uploaded file.');
 
   // Set access callbacks.
-  $entity_info['node']['access callback'] = 'entity_metadata_no_hook_node_access';
-  $entity_info['user']['access callback'] = 'entity_metadata_user_access';
+  $defaults['node']['access callback'] = 'entity_metadata_no_hook_node_access';
+  $defaults['user']['access callback'] = 'entity_metadata_user_access';
   // File entity has it's own entity_access function.
   if (!module_exists('file_entity')) {
-    $entity_info['file']['access callback'] = 'entity_metadata_file_access';
+    $defaults['file']['access callback'] = 'entity_metadata_file_access';
   }
 
   // CRUD function callbacks.
-  $entity_info['node']['creation callback'] = 'entity_metadata_create_node';
-  $entity_info['node']['save callback'] = 'node_save';
-  $entity_info['node']['deletion callback'] = 'node_delete';
-  $entity_info['node']['revision deletion callback'] = 'node_revision_delete';
-  $entity_info['user']['creation callback'] = 'entity_metadata_create_object';
-  $entity_info['user']['save callback'] = 'entity_metadata_user_save';
-  $entity_info['user']['deletion callback'] = 'user_delete';
-  $entity_info['file']['save callback'] = 'file_save';
-  $entity_info['file']['deletion callback'] = 'entity_metadata_delete_file';
+  $defaults['node']['creation callback'] = 'entity_metadata_create_node';
+  $defaults['node']['save callback'] = 'node_save';
+  $defaults['node']['deletion callback'] = 'node_delete';
+  $defaults['node']['revision deletion callback'] = 'node_revision_delete';
+  $defaults['user']['creation callback'] = 'entity_metadata_create_object';
+  $defaults['user']['save callback'] = 'entity_metadata_user_save';
+  $defaults['user']['deletion callback'] = 'user_delete';
+  $defaults['file']['save callback'] = 'file_save';
+  $defaults['file']['deletion callback'] = 'entity_metadata_delete_file';
 
   // Form callbacks.
-  $entity_info['node']['form callback'] = 'entity_metadata_form_node';
-  $entity_info['user']['form callback'] = 'entity_metadata_form_user';
+  $defaults['node']['form callback'] = 'entity_metadata_form_node';
+  $defaults['user']['form callback'] = 'entity_metadata_form_user';
 
   // URI callbacks.
-  if (!isset($entity_info['file']['uri callback'])) {
-    $entity_info['file']['uri callback'] = 'entity_metadata_uri_file';
-  }
+  $defaults['file']['uri callback'] = 'entity_metadata_uri_file';
 
   // View callbacks.
-  $entity_info['node']['view callback'] = 'entity_metadata_view_node';
-  $entity_info['user']['view callback'] = 'entity_metadata_view_single';
+  $defaults['node']['view callback'] = 'entity_metadata_view_node';
+  $defaults['user']['view callback'] = 'entity_metadata_view_single';
 
   if (module_exists('comment')) {
-    $entity_info['comment']['plural label'] = t('Comments');
-    $entity_info['comment']['description'] = t('Remark or note that refers to a node.');
-    $entity_info['comment']['access callback'] = 'entity_metadata_comment_access';
-    $entity_info['comment']['creation callback'] = 'entity_metadata_create_comment';
-    $entity_info['comment']['save callback'] = 'comment_save';
-    $entity_info['comment']['deletion callback'] = 'comment_delete';
-    $entity_info['comment']['view callback'] = 'entity_metadata_view_comment';
-    $entity_info['comment']['form callback'] = 'entity_metadata_form_comment';
+    $defaults['comment']['plural label'] = t('Comments');
+    $defaults['comment']['description'] = t('Remark or note that refers to a node.');
+    $defaults['comment']['access callback'] = 'entity_metadata_comment_access';
+    $defaults['comment']['creation callback'] = 'entity_metadata_create_comment';
+    $defaults['comment']['save callback'] = 'comment_save';
+    $defaults['comment']['deletion callback'] = 'comment_delete';
+    $defaults['comment']['view callback'] = 'entity_metadata_view_comment';
+    $defaults['comment']['form callback'] = 'entity_metadata_form_comment';
   }
   if (module_exists('taxonomy')) {
-    $entity_info['taxonomy_term']['plural label'] = t('Taxonomy terms');
-    $entity_info['taxonomy_term']['description'] = t('Taxonomy terms are used for classifying content.');
-    $entity_info['taxonomy_term']['access callback'] = 'entity_metadata_taxonomy_access';
-    $entity_info['taxonomy_term']['creation callback'] = 'entity_metadata_create_object';
-    $entity_info['taxonomy_term']['save callback'] = 'taxonomy_term_save';
-    $entity_info['taxonomy_term']['deletion callback'] = 'taxonomy_term_delete';
-    $entity_info['taxonomy_term']['view callback'] = 'entity_metadata_view_single';
-    $entity_info['taxonomy_term']['form callback'] = 'entity_metadata_form_taxonomy_term';
+    $defaults['taxonomy_term']['plural label'] = t('Taxonomy terms');
+    $defaults['taxonomy_term']['description'] = t('Taxonomy terms are used for classifying content.');
+    $defaults['taxonomy_term']['access callback'] = 'entity_metadata_taxonomy_access';
+    $defaults['taxonomy_term']['creation callback'] = 'entity_metadata_create_object';
+    $defaults['taxonomy_term']['save callback'] = 'taxonomy_term_save';
+    $defaults['taxonomy_term']['deletion callback'] = 'taxonomy_term_delete';
+    $defaults['taxonomy_term']['view callback'] = 'entity_metadata_view_single';
+    $defaults['taxonomy_term']['form callback'] = 'entity_metadata_form_taxonomy_term';
 
-    $entity_info['taxonomy_vocabulary']['plural label'] = t('Taxonomy vocabularies');
-    $entity_info['taxonomy_vocabulary']['description'] = t('Vocabularies contain related taxonomy terms, which are used for classifying content.');
-    $entity_info['taxonomy_vocabulary']['access callback'] = 'entity_metadata_taxonomy_access';
-    $entity_info['taxonomy_vocabulary']['creation callback'] = 'entity_metadata_create_object';
-    $entity_info['taxonomy_vocabulary']['save callback'] = 'taxonomy_vocabulary_save';
-    $entity_info['taxonomy_vocabulary']['deletion callback'] = 'taxonomy_vocabulary_delete';
-    $entity_info['taxonomy_vocabulary']['form callback'] = 'entity_metadata_form_taxonomy_vocabulary';
+    $defaults['taxonomy_vocabulary']['plural label'] = t('Taxonomy vocabularies');
+    $defaults['taxonomy_vocabulary']['description'] = t('Vocabularies contain related taxonomy terms, which are used for classifying content.');
+    $defaults['taxonomy_vocabulary']['access callback'] = 'entity_metadata_taxonomy_access';
+    $defaults['taxonomy_vocabulary']['creation callback'] = 'entity_metadata_create_object';
+    $defaults['taxonomy_vocabulary']['save callback'] = 'taxonomy_vocabulary_save';
+    $defaults['taxonomy_vocabulary']['deletion callback'] = 'taxonomy_vocabulary_delete';
+    $defaults['taxonomy_vocabulary']['form callback'] = 'entity_metadata_form_taxonomy_vocabulary';
     // Token type mapping.
-    $entity_info['taxonomy_term']['token type'] = 'term';
-    $entity_info['taxonomy_vocabulary']['token type'] = 'vocabulary';
+    $defaults['taxonomy_term']['token type'] = 'term';
+    $defaults['taxonomy_vocabulary']['token type'] = 'vocabulary';
   }
+
+  // Merge defaults array into $entity_info, preserving already existing keys.
+  $entity_info = drupal_array_merge_deep($defaults, $entity_info);
 }
 
 /**
