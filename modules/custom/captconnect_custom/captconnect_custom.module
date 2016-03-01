@@ -257,6 +257,10 @@ function captconnect_custom_init() {
 //  drupal_set_message("$a0/$a1. ".$_GET['q']);
 
   if (user_is_anonymous()) {
+    if ($a0 == 'anon_login' || $a0 == 'anon_register'
+    || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password') {
+      return;
+    }
     if ($a0 == 'node') {
       $node = menu_get_object();
       // @TODO: Check if published?
