@@ -429,6 +429,20 @@ function captconnect_custom_node_access($node, $op, $account) {
  */
 function captconnect_custom_node_view($node, $view_mode, $langcode) {
 //  dpm($node, $node->type);
+  $check_unpub = array_filter(variable_get('captconnect_custom_unpublished_content_types', array()));
+  if (in_array($node->type, $check_unpub)) {
+    $states = db_query("SELECT sid FROM {workflow_states} WHERE name = 'published'")
+      ->fetchCol();
+    if (!isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])
+    || !in_array($node->field_workflow_state[LANGUAGE_NONE][0]['value'], $states)) {
+      $types = node_type_get_names();
+      $msg = variable_get('captconnect_custom_unpublished_content_msg',
+        'This @type is currently unpublished. Users are not be able to access the content on this page.');
+      drupal_set_message(t($msg, array('@type' => $types[$node->type])),
+        'warning', FALSE);
+    }
+  }
+
   switch ($node->type) {
     case 'event':
       if (!user_access('view approvers')) {

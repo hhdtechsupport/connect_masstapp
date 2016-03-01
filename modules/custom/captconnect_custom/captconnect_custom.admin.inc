@@ -159,6 +159,16 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#description' => t('If an event is marked as not needing an approver,
       advance its workflow state to this one.'),
     );
+    
+  $node_types = node_type_get_names();
+  $form['captconnect_custom_unpublished_content_types'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $node_types,
+    '#title' => t('Show "Unpublished" Message'),
+    '#default_value' => variable_get('captconnect_custom_unpublished_content_types', array()),
+    '#description' => t('If a piece of content is marked as unpublished,
+      display a message to that effect.'),
+    );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
 
@@ -213,13 +223,18 @@ function theme_captconnect_custom_admin_settings($variables) {
     );
 
   $rows[] = array(
-    array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_register_date_format']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_no_approver_state']), 'style' => $style),
     );
 
   $rows[] = array(
-    array('data' => drupal_render($form['captconnect_custom_register_date_format']), 'style' => $style),
-    array('data' => drupal_render($form['captconnect_custom_no_approver_state']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_unpublished_content_types']), 'style' => $style),
+    array('data' => "&nbsp;", 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -447,8 +462,19 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_must_change_password',
       'In order to continue on this site, you need to change your password.'),
     '#description' => t('This message is displayed when an account is initially
-      logged into in the anonymous registration process'),
+      logged into in the anonymous registration process.'),
     );
+
+  $form['captconnect_custom_unpublished_content_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Unpublished Content Message'),
+    '#default_value' => variable_get('captconnect_custom_unpublished_content_msg',
+      'This @type is currently unpublished. Users are not be able to access the content on this page.'),
+    '#description' => t('This message is displayed when some unpublished 
+      content is viewed. Use "@type" to show the content type.'),
+    );
+
 
   $form['#theme'] = 'captconnect_custom_message_texts';
 
@@ -513,6 +539,11 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_require_group_msg']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_must_change_password']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_unpublished_content_msg']), 'style' => $style),
+    array('data' => "&nbsp;", 'style' => $style),
     );
 
   $output .= theme('table', array(
