@@ -154,7 +154,8 @@ ul.tabs-secondary {
       background-color: white;
       font-family: ArialMT, Arial;
       font-weight: 500;
-      padding: 3px 20px;
+      padding: 2px 12px;
+      text-transform: capitalize;
     }
     a:not(.is-active) {
       border: 0px;
@@ -166,6 +167,23 @@ ul.tabs-secondary {
   li.tabs-primary__tab.is-active {
     border-color: black;
     border-bottom-color: white;
+  }
+}
+
+body.page-node-delete {
+  ul.tabs-primary.tabs.primary {
+    display: none;
+  }
+  h1 {
+    color: $capt-black !important;
+    font-weight: normal !important;
+    font-size: 28px !important;
+    & > em.placeholder {
+      font-size: 1em !important;
+      display: inline !important;
+      color: $capt-green !important;
+      font-weight: bold !important;
+    }
   }
 }
 

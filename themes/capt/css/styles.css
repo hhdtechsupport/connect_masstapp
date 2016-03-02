@@ -2800,92 +2800,111 @@ ul.tabs-secondary li a.is-active {
   background-color: white;
   font-family: ArialMT, Arial;
   font-weight: 500;
-  padding: 3px 20px;
+  padding: 2px 12px;
+  text-transform: capitalize;
 }
-/* line 159, ../sass/sitewide/_navigation.scss */
+/* line 160, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:not(.is-active),
 ul.tabs-secondary li a:not(.is-active) {
   border: 0px;
 }
-/* line 162, ../sass/sitewide/_navigation.scss */
+/* line 163, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li a:hover, ul.tabs-primary li a:active,
 ul.tabs-secondary li a:hover,
 ul.tabs-secondary li a:active {
   background-color: white;
 }
-/* line 166, ../sass/sitewide/_navigation.scss */
+/* line 167, ../sass/sitewide/_navigation.scss */
 ul.tabs-primary li.tabs-primary__tab.is-active,
 ul.tabs-secondary li.tabs-primary__tab.is-active {
   border-color: black;
   border-bottom-color: white;
 }
 
-/* line 173, ../sass/sitewide/_navigation.scss */
+/* line 174, ../sass/sitewide/_navigation.scss */
+body.page-node-delete ul.tabs-primary.tabs.primary {
+  display: none;
+}
+/* line 177, ../sass/sitewide/_navigation.scss */
+body.page-node-delete h1 {
+  color: #333333 !important;
+  font-weight: normal !important;
+  font-size: 28px !important;
+}
+/* line 181, ../sass/sitewide/_navigation.scss */
+body.page-node-delete h1 > em.placeholder {
+  font-size: 1em !important;
+  display: inline !important;
+  color: #888a55 !important;
+  font-weight: bold !important;
+}
+
+/* line 191, ../sass/sitewide/_navigation.scss */
 .page-admin-people-create h1#page-title {
   content: "hello";
 }
-/* line 176, ../sass/sitewide/_navigation.scss */
+/* line 194, ../sass/sitewide/_navigation.scss */
 .page-admin-people-create ul.tabs-primary, .page-admin-people-create ul.tabs-secondary {
   display: none;
 }
 
-/* line 181, ../sass/sitewide/_navigation.scss */
+/* line 199, ../sass/sitewide/_navigation.scss */
 div.vertical-tabs {
   margin-right: 0px;
 }
 
 /* used to be in mobile */
 @media screen and (max-width: 1024px) {
-  /* line 188, ../sass/sitewide/_navigation.scss */
+  /* line 206, ../sass/sitewide/_navigation.scss */
   div#main {
     width: 100%;
     margin-left: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
-  /* line 193, ../sass/sitewide/_navigation.scss */
+  /* line 211, ../sass/sitewide/_navigation.scss */
   div#main div#navigation {
     width: 100%;
     padding: 0px;
     margin: 0px auto;
   }
-  /* line 197, ../sass/sitewide/_navigation.scss */
+  /* line 215, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation {
     margin-top: 20px;
   }
-  /* line 199, ../sass/sitewide/_navigation.scss */
+  /* line 217, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.block-responsive-dropdown-menus {
     margin: 0px auto;
     width: 100%;
   }
-  /* line 202, ../sass/sitewide/_navigation.scss */
+  /* line 220, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation div.block-responsive-dropdown-menus ul#main-menu.main-menu.responsive-menu {
     overflow: visible;
     margin: 0px auto;
     padding: 0px;
   }
-  /* line 213, ../sass/sitewide/_navigation.scss */
+  /* line 231, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu {
     /* hide admin*/
   }
-  /* line 215, ../sass/sitewide/_navigation.scss */
+  /* line 233, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu li#menu-item-1185,
   div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu li#menu-item-589,
   div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu li#menu-item-4322 {
     display: none;
   }
 
-  /* line 226, ../sass/sitewide/_navigation.scss */
+  /* line 244, ../sass/sitewide/_navigation.scss */
   body.role-administrator ul#main-menu.main-menu.responsive-menu {
     width: 95%;
   }
 
-  /* line 232, ../sass/sitewide/_navigation.scss */
+  /* line 250, ../sass/sitewide/_navigation.scss */
   body.role-authenticated-user ul#main-menu.main-menu.responsive-menu {
     width: 96.75%;
   }
 }
-/* line 245, ../sass/sitewide/_navigation.scss */
+/* line 263, ../sass/sitewide/_navigation.scss */
 body.section-portal ul#main-menu.main-menu li#menu-item-3349 > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -2894,7 +2913,7 @@ body.section-portal ul#main-menu.main-menu li#menu-item-3349 > a {
   height: 26px;
 }
 
-/* line 253, ../sass/sitewide/_navigation.scss */
+/* line 271, ../sass/sitewide/_navigation.scss */
 body.section-event ul#main-menu.main-menu li#menu-item-2746 > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -2903,7 +2922,7 @@ body.section-event ul#main-menu.main-menu li#menu-item-2746 > a {
   height: 26px;
 }
 
-/* line 261, ../sass/sitewide/_navigation.scss */
+/* line 279, ../sass/sitewide/_navigation.scss */
 body.section-node-add ul#main-menu.main-menu li#menu-item-1185 > a {
   background-color: white;
   border: 1px solid #d7d7d7;
@@ -8286,11 +8305,16 @@ form.workflow-transition-form:before {
 }
 
 /* line 39, ../sass/admin/_workflow.scss */
+#edit-workflow-comment {
+  height: 60px;
+}
+
+/* line 43, ../sass/admin/_workflow.scss */
 .node.workflow-published .field-name-field-workflow-state {
   display: none;
 }
 
-/* line 44, ../sass/admin/_workflow.scss */
+/* line 48, ../sass/admin/_workflow.scss */
 .workflow-transition-form input.form-save-default-button {
   display: none !important;
 }
@@ -11477,7 +11501,7 @@ body.page-user-register:not(.node-type-event) {
 
   /* line 215, ../sass/tablet/_tablet-general.scss */
   form.workflow-transition-form {
-    width: 235px;
+    width: auto;
   }
 
   /* line 9, ../sass/tablet/_tablet-login.scss */
@@ -12232,32 +12256,4 @@ body.page-user-register:not(.node-type-event) {
       margin-bottom: 5px;
     }*/
   }
-}
-
-#registrations-list tr.me td {
-  background-color: #ffeeee;
-  border-width: 2px 0;
-  border-style: solid;
-  border-color: #aa4444;
-}
-
-#registrations-list tr.event-creator td.registrant-name {
-  background-color: #ddffaa;
-}
-
-#registrations-list tr.event-approver td.registrant-name {
-  background-color: #ffddaa;
-}
-
-#registrations-list tr.site-maintainer td.registrant-name {
-  background-color: #eeffee;
-}
-
-#registrations-list tr.administrator td.registrant-name {
-  background-color: #ffffcc;
-}
-
-.field-name-field-portal-image {
-  float: left;
-  margin-right: 2em;
 }
