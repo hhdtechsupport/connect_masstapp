@@ -2191,6 +2191,42 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
   display: none;
 }
 
+/* line 1355, ../sass/sitewide/_general.scss */
+.access-key {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+/* line 1359, ../sass/sitewide/_general.scss */
+.access-key input.form-text {
+  width: 120px;
+}
+/* line 1362, ../sass/sitewide/_general.scss */
+.access-key #edit-field-access-key-check {
+  float: left;
+}
+/* line 1365, ../sass/sitewide/_general.scss */
+.access-key #edit-actions {
+  float: left;
+}
+/* line 1367, ../sass/sitewide/_general.scss */
+.access-key #edit-actions #edit-submit {
+  padding: 8px 14px;
+  font-size: 12px;
+  margin-top: 33px;
+  margin-left: 10px !important;
+}
+
+/* line 1376, ../sass/sitewide/_general.scss */
+.page-user-edit h1#page-title {
+  margin-right: 260px;
+}
+
+/* line 1380, ../sass/sitewide/_general.scss */
+.messages {
+  margin-right: 260px;
+}
+
 /*
  *  Banners
  */
@@ -10626,6 +10662,21 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   body.not-logged-in.section-user.page-user-reset form#user-pass > div,
   body.not-logged-in.section-user.page-user-reset form#user-pass-reset > div {
     padding: 15px;
+  }
+
+  /* line 47, ../sass/phone/_phone-user-password.scss */
+  .page-user-edit h1#page-title {
+    margin-right: 0px;
+  }
+
+  /* line 51, ../sass/phone/_phone-user-password.scss */
+  .access-key {
+    display: none;
+  }
+
+  /* line 55, ../sass/phone/_phone-user-password.scss */
+  .messages {
+    margin-right: 0px;
   }
 
   /* line 10, ../sass/phone/_login-phone.scss */

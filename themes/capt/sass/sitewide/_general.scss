@@ -1350,3 +1350,33 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper,
 body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .field-type-entityreference {
     display: none;
 }
+
+
+.access-key {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  input.form-text {
+    width: 120px;
+  }
+  #edit-field-access-key-check {
+    float: left;
+  }
+  #edit-actions {
+    float: left;
+    #edit-submit {
+      padding: 8px 14px;
+      font-size: 12px;
+      margin-top: 33px;
+      margin-left: 10px !important;
+    }
+  }
+}
+
+.page-user-edit h1#page-title {
+  margin-right: 260px;
+}
+
+.messages {
+  margin-right: 260px;
+}
