@@ -165,6 +165,20 @@ body.section-portal {
               }
             }
           }
+          .view-footer {
+            height: 85px;
+            position: relative;
+            a, a:hover, a:visited {
+              position: absolute;
+              bottom: 0px;
+              right: 0px;
+              color: #ffffff;
+              text-decoration: none;
+              &:hover {
+                background-color: lighten($capt-orange, 10%);
+              }
+            }
+          }
           & > .view-content {
             & > .views-row {
               padding: 15px 0;
