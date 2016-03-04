@@ -67,12 +67,23 @@ function quick_list_page() {
     }
 
     // Build the module line.
+    if (substr($row->info['version'], -4) == '-dev') {
+      if (isset($row->info['datestamp'])) {
+        $datestamp = date('Y/m/d', $row->info['datestamp']);
+      }
+      else {
+        $datestamp = '<strong>' . t('Deployed from Git ?') . '</strong>';
+      }
+    }
+    else {
+      $datestamp = '';
+    }
     if ((!$show_core && $row->info['package'] != 'Core') || $show_core) {
       $line = $row->name
         . ' '
         . $row->info['version']
         . ' '
-        . (substr($row->info['version'], -4) == '-dev' ? date('Y/m/d', $row->info['datestamp']) : '')
+        . $datestamp
         ;
 
       if ($help_exists && function_exists($row->name . '_help')) {
