@@ -114,6 +114,11 @@ function mail_logger_enable() {
  * Expand 'mailto' column.
  */
 function mail_logger_update_7000() {
+  if (db_driver() == 'mysql') {
+    // Otherwise the alter table may fail.
+    db_query("set sql_mode = 'NO_ENGINE_SUBSTITUTION'");
+  }
+
   db_change_field('mail_logger', 'mailto', 'mailto',
     array(
       'description' => 'to whom this mail is going',
