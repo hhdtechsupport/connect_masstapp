@@ -36,13 +36,22 @@ function captconnect_custom_permission() {
       ),
     );
 
-    foreach ($node_types as $type => $name) {
-      $perms["view $type publishing options"] = array(
-        'title' => t("View $name Publishing Options"),
-        'description' => t("View publishing options for $name content."),
-        'restrict access' => FALSE,
-        );
-    }
+  foreach ($node_types as $type => $name) {
+    $perms["view $type publishing options"] = array(
+      'title' => t("View $name Publishing Options"),
+      'description' => t("View publishing options for $name content."),
+      'restrict access' => FALSE,
+      );
+  }
+
+  foreach (workflow_load_multiple() as $workflow) {
+    $perms["view $workflow->name transitions"] = array(
+      'title' => t("Use $workflow->label transition form"),
+      'description' => t("View transition choices for for the $workflow->label."),
+      'restrict access' => FALSE,
+      );
+  }
+
   return $perms;
 }
 
@@ -315,7 +324,7 @@ function captconnect_custom_init() {
       drupal_goto("user/$user->uid/edit", $dest);
     }
   }
-} /* */
+}
 
 /**
  * Implements hook_drupal_goto_alter().
@@ -448,6 +457,10 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
 
       case 'portal':
         $field_name = 'field_workflow_state_portals';
+        if (isset($node->content['field_workflow_state_portals']['#view_mode'])) {
+          $node->content['field_workflow_state_portals']['#access'] = 
+            ($node->content['field_workflow_state_portals']['#view_mode'] == 'full');
+        }
         break;
 
       case 'event':
@@ -859,6 +872,10 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 
+  if (substr($form_id, 0, 24) == 'workflow_transition_form') {
+    $form_id = 'workflow_transition_form';
+  }
+
   switch ($form_id) {
     // Node delete redirect.
     case 'node_delete_confirm':
@@ -922,7 +939,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
       }
 
       $form['#submit'][] = 'captconnect_custom_user_register_submit';
-//      break;
       // Yes, there is no break, we want to fall through.
 
     case 'user_login':
@@ -1012,8 +1028,20 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
     case 'user_admin_permissions':
       array_unshift($form['#submit'], 'captconnect_custom_set_user_perms');
-
       break;
+/*
+    case 'workflow_transition_form':
+//      $workflows = workflow_load_multiple();
+//      dpm($workflows, 'workflows');
+//      dpm($form, $form_id);
+      $type = $form['workflow']['workflow_entity']['#value']->type;
+//      dpm($form['workflow']['workflow_instance']['#value']['label'], $type);
+      $workflow = workflow_get_workflows_by_type($type);
+      dpm($workflow, "workflow for $type.");
+      $perm = "view $workflow->name transitions";
+      dpm((int)user_access($perm), $perm);
+//      $form['#access'] = FALSE;
+      break; /* */
   }
 //  dpm($form, $form_id);
 }
