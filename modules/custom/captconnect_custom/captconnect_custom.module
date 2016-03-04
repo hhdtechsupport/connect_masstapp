@@ -258,7 +258,8 @@ function captconnect_custom_init() {
 
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
-    || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password') {
+    || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
+    || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
     }
     if ($a0 == 'node') {
@@ -432,13 +433,34 @@ function captconnect_custom_node_access($node, $op, $account) {
  * Implements hook_node_view().
  */
 function captconnect_custom_node_view($node, $view_mode, $langcode) {
-//  dpm($node, $node->type);
+//  dpm($node, $node->type.' '.$view_mode);
   $check_unpub = array_filter(variable_get('captconnect_custom_unpublished_content_types', array()));
   if (in_array($node->type, $check_unpub)) {
     $states = db_query("SELECT sid FROM {workflow_states} WHERE name = 'published'")
       ->fetchCol();
-    if (!isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])
-    || !in_array($node->field_workflow_state[LANGUAGE_NONE][0]['value'], $states)) {
+    $base = $node;
+    switch ($node->type) {
+      case 'portal_page':
+      case 'portal_group':
+      case 'portal_section':
+        $base = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
+        // Fall through.
+
+      case 'portal':
+        $field_name = 'field_workflow_state_portals';
+        break;
+
+      case 'event':
+        $field_name = 'field_workflow_state';
+        break;
+
+      default:
+        $field_name = 'field_workflow_statex';
+    }
+    // @TODO: Check Portal status.
+//    dpm($base->{$field_name}[LANGUAGE_NONE][0]['value'], $field_name);
+    if (!isset($base->{$field_name}[LANGUAGE_NONE][0]['value'])
+    || !in_array($base->{$field_name}[LANGUAGE_NONE][0]['value'], $states)) {
       $types = node_type_get_names();
       $msg = variable_get('captconnect_custom_unpublished_content_msg',
         'This @type is currently unpublished. Users are not be able to access the content on this page.');
@@ -454,7 +476,7 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
       }
       break;
   }
-} /* */
+}
 
 /**
  * Implements hook_node_insert().
@@ -1592,7 +1614,9 @@ function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
  * Add a class to the node so it can be displayed as published or not.
  */
 function captconnect_custom_preprocess_node(&$variables) {
-  $node = $variables ['node'];
+//  dpm($variables, 'captconnect_custom_preprocess_node');
+  $node = $variables['node'];
+  // @TODO: Portals use different fields, and then there are child nodes...
   if (isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])) {
     $current_state = workflow_state_load_single($node->field_workflow_state[LANGUAGE_NONE][0]['value']);
     $class = ($current_state->name == 'published' ? 'published' : 'in-progress');
