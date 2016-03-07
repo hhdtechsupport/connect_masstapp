@@ -233,6 +233,8 @@ function captconnect_custom_theme() {
 function captconnect_custom_menu_alter(&$items) {
   unset($items['node']);  // Get rid of /node.
 
+  $items['node/%node/workflow']['access callback'] = 'captconnect_custom_workflow_tab_access';
+
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 
   // Change the permission on the "Manage display" tab.
@@ -247,6 +249,29 @@ function captconnect_custom_menu_alter(&$items) {
   // Try to hide "Log in" and "Request new password" tabs.
   $items['user/password']['type'] = MENU_CALLBACK;
   $items['user/login']['access callback'] = 'captconnect_custom_login_access';
+}
+
+/**
+ * Menu access callback.
+ * Limit Workflow tab visibility.
+ */
+function captconnect_custom_workflow_tab_access($entity_type, $entity) {
+  global $user;
+  // We only care about some types of nodes.
+  if ($entity_type == 'node') {
+    $handle_types = array('event', 'portal');
+    if (in_array($entity->type, $handle_types)) {
+      // Found something interesting...
+      // May they update the node?
+      if (!node_access('update', $entity)) {
+        // No, then don't let them have the tab.
+        return FALSE;
+      }
+    }
+  }
+
+  // Just do regular workflow control.
+  return workflow_tab_access($entity_type, $entity);
 }
 
 /**
@@ -694,6 +719,12 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 //    $group = $implementations ['captconnect_custom'];
 //    unset($implementations['captconnect_custom']);
 //    $implementations['captconnect_custom'] = $group;
+  }
+
+  if ($hook == 'menu_alter' && isset($implementations['captconnect_custom'])) {
+    $group = $implementations ['captconnect_custom'];
+    unset($implementations['captconnect_custom']);
+    $implementations['captconnect_custom'] = $group;
   }
 
   if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
