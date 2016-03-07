@@ -2206,11 +2206,11 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
   float: left;
 }
 /* line 1365, ../sass/sitewide/_general.scss */
-.access-key #edit-actions {
+.access-key #edit-actions, .access-key #edit-actions--2 {
   float: left;
 }
 /* line 1367, ../sass/sitewide/_general.scss */
-.access-key #edit-actions #edit-submit {
+.access-key #edit-actions #edit-submit, .access-key #edit-actions #edit-submit--2, .access-key #edit-actions--2 #edit-submit, .access-key #edit-actions--2 #edit-submit--2 {
   padding: 8px 14px;
   font-size: 12px;
   margin-top: 33px;
@@ -2218,12 +2218,12 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
 }
 
 /* line 1376, ../sass/sitewide/_general.scss */
-.page-user-edit h1#page-title {
+.page-portals.logged-in h1#page-title {
   margin-right: 260px;
 }
 
 /* line 1380, ../sass/sitewide/_general.scss */
-.page-user-edit .messages {
+.page-portals.logged-in .messages {
   margin-right: 260px;
 }
 
@@ -7222,65 +7222,69 @@ body.section-portal:not(.node-type-portal) h1#page-title {
   margin-top: 15px;
 }
 /* line 100, ../sass/main_pages/_portals.scss */
+body.section-portal.node-type-portal h1#page-title {
+  margin-top: -12px !important;
+}
+/* line 103, ../sass/main_pages/_portals.scss */
 body.section-portal #block-views-portals-block-4,
 body.section-portal #block-views-portals-block-6 {
   clear: both;
-  margin-left: 22px !important;
+  margin-left: 12px !important;
   margin-top: 30px !important;
   width: auto;
   max-width: 96%;
 }
-/* line 107, ../sass/main_pages/_portals.scss */
+/* line 110, ../sass/main_pages/_portals.scss */
 body.section-portal #block-views-portals-block-4 a,
 body.section-portal #block-views-portals-block-6 a {
   font-weight: normal;
   color: #333;
 }
-/* line 110, ../sass/main_pages/_portals.scss */
+/* line 113, ../sass/main_pages/_portals.scss */
 body.section-portal #block-views-portals-block-4 a:hover,
 body.section-portal #block-views-portals-block-6 a:hover {
   text-decoration: underline;
 }
-/* line 113, ../sass/main_pages/_portals.scss */
+/* line 116, ../sass/main_pages/_portals.scss */
 body.section-portal #block-views-portals-block-4 a.active,
 body.section-portal #block-views-portals-block-6 a.active {
   color: #c3791f;
   font-weight: bold;
 }
-/* line 116, ../sass/main_pages/_portals.scss */
+/* line 119, ../sass/main_pages/_portals.scss */
 body.section-portal #block-views-portals-block-4 a.active:hover,
 body.section-portal #block-views-portals-block-6 a.active:hover {
   text-decoration: none;
 }
-/* line 124, ../sass/main_pages/_portals.scss */
+/* line 127, ../sass/main_pages/_portals.scss */
 body.section-portal #navigation .view-portals .views-field:not(:first-child) {
   background: url("../images/icons/arrow-icons.png") no-repeat 0px 5px;
   margin-left: 5px;
   padding-left: 15px;
 }
-/* line 131, ../sass/main_pages/_portals.scss */
+/* line 134, ../sass/main_pages/_portals.scss */
 body.section-portal #content {
   padding-top: 35px !important;
   padding-bottom: 20px !important;
 }
-/* line 135, ../sass/main_pages/_portals.scss */
+/* line 138, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col > .group-right {
   float: right;
 }
-/* line 139, ../sass/main_pages/_portals.scss */
+/* line 142, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 {
   margin-top: 0px;
   padding-top: 25px;
 }
-/* line 143, ../sass/main_pages/_portals.scss */
+/* line 146, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1:before,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3:before {
   margin-left: -27px;
   padding-left: 54px;
   top: -25px;
 }
-/* line 152, ../sass/main_pages/_portals.scss */
+/* line 155, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-header a, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-header a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-header a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-header a {
@@ -7288,33 +7292,33 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
   color: #577785;
   font-weight: bold;
 }
-/* line 156, ../sass/main_pages/_portals.scss */
+/* line 159, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-header a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-header a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-header a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-header a:hover {
   color: #c3791f;
 }
-/* line 159, ../sass/main_pages/_portals.scss */
+/* line 162, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-header a.active, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-header a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-header a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-header a.active {
   cursor: default;
   color: #c3791f;
 }
-/* line 162, ../sass/main_pages/_portals.scss */
+/* line 165, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-header a.active:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-header a.active:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-header a.active:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-header a.active:hover {
   color: #c3791f;
 }
-/* line 168, ../sass/main_pages/_portals.scss */
+/* line 171, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-footer,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-footer {
   height: 85px;
   position: relative;
 }
-/* line 171, ../sass/main_pages/_portals.scss */
+/* line 174, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a:visited, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a:visited,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-footer a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-footer a:hover,
@@ -7328,7 +7332,7 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
   color: #ffffff;
   text-decoration: none;
 }
-/* line 177, ../sass/main_pages/_portals.scss */
+/* line 180, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a:hover:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 .view-footer a:visited:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a:hover:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 .view-footer a:visited:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-footer a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 .view-footer a:hover:hover,
@@ -7338,14 +7342,14 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 .view-footer a:visited:hover {
   background-color: #df9336;
 }
-/* line 183, ../sass/main_pages/_portals.scss */
+/* line 186, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row {
   padding: 15px 0;
   border-top: 1px solid #d7d7d7;
 }
-/* line 188, ../sass/main_pages/_portals.scss */
+/* line 191, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a {
@@ -7357,46 +7361,46 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
   padding: 8px 22px 8px 22px;
   font-size: 1.25em;
 }
-/* line 196, ../sass/main_pages/_portals.scss */
+/* line 199, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a:hover {
   background-image: url("../images/icons/right-arrow-orange.png");
   color: #c3791f;
 }
-/* line 200, ../sass/main_pages/_portals.scss */
+/* line 203, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active {
   background-image: url("../images/icons/down-arrow-orange.png");
   color: #c3791f;
 }
-/* line 203, ../sass/main_pages/_portals.scss */
+/* line 206, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active:hover {
   background-image: url("../images/icons/down-arrow-orange.png");
 }
-/* line 207, ../sass/main_pages/_portals.scss */
+/* line 210, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active.parent:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active.parent:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row > .views-field-title > .field-content > a.active.parent:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row > .views-field-title > .field-content > a.active.parent:hover {
   background-image: url("../images/icons/down-arrow-orange.png");
 }
-/* line 213, ../sass/main_pages/_portals.scss */
+/* line 216, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view {
   margin-top: 2px;
   margin-left: 34px;
 }
-/* line 218, ../sass/main_pages/_portals.scss */
+/* line 221, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row {
   padding: 3px 0px;
 }
-/* line 220, ../sass/main_pages/_portals.scss */
+/* line 223, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a {
@@ -7405,13 +7409,13 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
   text-decoration: none;
   margin-left: -12px;
 }
-/* line 225, ../sass/main_pages/_portals.scss */
+/* line 228, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a:hover, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a:hover,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a:hover {
   text-decoration: underline;
 }
-/* line 228, ../sass/main_pages/_portals.scss */
+/* line 231, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a.active, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_1 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a.active,
 body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view-portals.view-display-id-block_3 > .view-content > .views-row .views-field-view .view-portals .view-content .views-row a.active {
@@ -7419,55 +7423,60 @@ body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 .view
   text-decoration: none;
   cursor: default;
 }
-/* line 245, ../sass/main_pages/_portals.scss */
+/* line 248, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col > .group-left a {
   color: #333333;
   text-decoration: underline;
   font-weight: normal;
 }
-/* line 249, ../sass/main_pages/_portals.scss */
+/* line 252, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col > .group-left a:hover {
   text-decoration: underline !important;
   color: #c3791f;
 }
-/* line 256, ../sass/main_pages/_portals.scss */
+/* line 259, ../sass/main_pages/_portals.scss */
 body.section-portal .ds-2col > .group-left ul li p {
   margin-bottom: 0px;
 }
-/* line 264, ../sass/main_pages/_portals.scss */
+/* line 267, ../sass/main_pages/_portals.scss */
 body.section-portal #content .view-materials ul {
   padding-left: 30px;
 }
-/* line 266, ../sass/main_pages/_portals.scss */
+/* line 269, ../sass/main_pages/_portals.scss */
 body.section-portal #content .view-materials ul li {
   margin: 15px 0;
 }
-/* line 268, ../sass/main_pages/_portals.scss */
+/* line 271, ../sass/main_pages/_portals.scss */
 body.section-portal #content .view-materials ul li a {
   text-decoration: none;
   font-weight: bold;
   color: #8c1d18;
 }
-/* line 274, ../sass/main_pages/_portals.scss */
+/* line 277, ../sass/main_pages/_portals.scss */
 body.section-portal #content .view-materials ul li .views-field-field-resource a {
   background: url("../images/icons/link-icon.png") no-repeat 0px 0px;
   padding-left: 20px;
   padding-bottom: 1px;
 }
-/* line 280, ../sass/main_pages/_portals.scss */
+/* line 283, ../sass/main_pages/_portals.scss */
 body.section-portal #content .view-materials ul li .views-field-field-body {
   font-style: italic;
 }
-/* line 286, ../sass/main_pages/_portals.scss */
+/* line 289, ../sass/main_pages/_portals.scss */
 body.section-portal #content .views-field-field-embedded-video-video-url {
   margin-bottom: 30px;
 }
-/* line 289, ../sass/main_pages/_portals.scss */
+/* line 292, ../sass/main_pages/_portals.scss */
 body.section-portal #content .views-field-field-embedded-file {
   margin-bottom: 30px;
 }
 
-/* line 297, ../sass/main_pages/_portals.scss */
+/* line 299, ../sass/main_pages/_portals.scss */
+.views-field-field-embedded-video iframe {
+  width: 100%;
+}
+
+/* line 306, ../sass/main_pages/_portals.scss */
 form.node-form.node-portal-form > div > .field-group-div.panel-rule .text-format-wrapper > div > label, form.node-form.node-portal-form > div > .field-group-div.panel-rule-single .text-format-wrapper > div > label, .section-events form.node-form.node-portal-form > div > .field-group-div.view-dashboard.view-display-id-page_1 .text-format-wrapper > div > label, .section-events form.node-form.node-portal-form > div > .field-group-div#block-views-dashboard-block-1 .text-format-wrapper > div > label,
 .section-events form.node-form.node-portal-form > div > .field-group-div#block-views-dashboard-block-2 .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form.node-form.node-portal-form > div > .field-group-div#block-block-8 .text-format-wrapper > div > label, body.not-logged-in.page-user:not(.page-user-register) form.node-form.node-portal-form > div > .field-group-div#block-block-18 .text-format-wrapper > div > label,
 body.not-logged-in.page-anon-login form.node-form.node-portal-form > div > .field-group-div#block-block-8 .text-format-wrapper > div > label,
@@ -7599,19 +7608,19 @@ body.not-logged-in.section-user.page-user:not(.page-user-register) form.node-for
   display: block;
 }
 
-/* line 303, ../sass/main_pages/_portals.scss */
+/* line 312, ../sass/main_pages/_portals.scss */
 p.hr {
   border-top: 1px solid gray;
   margin-top: 3.5em;
   padding-top: 1.5em;
   font-size: 0.85em;
 }
-/* line 308, ../sass/main_pages/_portals.scss */
+/* line 317, ../sass/main_pages/_portals.scss */
 p.hr ~ p {
   font-size: 0.85em;
 }
 
-/* line 313, ../sass/main_pages/_portals.scss */
+/* line 322, ../sass/main_pages/_portals.scss */
 #block-block-19 {
   float: right;
   width: 323px;
@@ -7619,89 +7628,89 @@ p.hr ~ p {
   margin-top: -90px;
 }
 
-/* line 325, ../sass/main_pages/_portals.scss */
+/* line 334, ../sass/main_pages/_portals.scss */
 .page-node-reorder-pages .views-table.draggable tr,
 .page-node-reorder-sections .views-table.draggable tr {
   height: 40px;
 }
-/* line 327, ../sass/main_pages/_portals.scss */
+/* line 336, ../sass/main_pages/_portals.scss */
 .page-node-reorder-pages .views-table.draggable tr a:not(.tabledrag-handle),
 .page-node-reorder-sections .views-table.draggable tr a:not(.tabledrag-handle) {
   vertical-align: sub;
 }
-/* line 333, ../sass/main_pages/_portals.scss */
+/* line 342, ../sass/main_pages/_portals.scss */
 .page-node-reorder-pages .tabledrag-toggle-weight-wrapper a,
 .page-node-reorder-sections .tabledrag-toggle-weight-wrapper a {
   color: #8c1d18;
   font-weight: normal;
 }
 
-/* line 343, ../sass/main_pages/_portals.scss */
+/* line 352, ../sass/main_pages/_portals.scss */
 .page-node-manage-members #content {
   overflow: hidden;
   padding-bottom: 200px;
 }
-/* line 347, ../sass/main_pages/_portals.scss */
+/* line 356, ../sass/main_pages/_portals.scss */
 .page-node-manage-members .view-portals {
   margin-bottom: 30px;
 }
-/* line 350, ../sass/main_pages/_portals.scss */
+/* line 359, ../sass/main_pages/_portals.scss */
 .page-node-manage-members .views-field a {
   color: #333333;
 }
-/* line 352, ../sass/main_pages/_portals.scss */
+/* line 361, ../sass/main_pages/_portals.scss */
 .page-node-manage-members .views-field a:hover {
   color: #8c1d18;
 }
-/* line 356, ../sass/main_pages/_portals.scss */
+/* line 365, ../sass/main_pages/_portals.scss */
 .page-node-manage-members th.views-field a:hover {
   text-decoration: underline;
 }
-/* line 359, ../sass/main_pages/_portals.scss */
+/* line 368, ../sass/main_pages/_portals.scss */
 .page-node-manage-members #block-views-portal-access-block-1 {
   text-align: left;
   width: 49%;
   margin: 40px auto 0;
 }
 
-/* line 371, ../sass/main_pages/_portals.scss */
+/* line 380, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left p {
   margin-bottom: 0px;
   padding-bottom: 1em;
 }
-/* line 375, ../sass/main_pages/_portals.scss */
+/* line 384, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left ul {
   margin-top: 0px;
   padding-left: 1.8em;
 }
-/* line 378, ../sass/main_pages/_portals.scss */
+/* line 387, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left ul > li {
   padding-bottom: 5px;
 }
-/* line 380, ../sass/main_pages/_portals.scss */
+/* line 389, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left ul > li > p {
   padding: 5px 0px 5px;
 }
-/* line 383, ../sass/main_pages/_portals.scss */
+/* line 392, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left ul > li > ul {
   padding-top: 5px;
 }
-/* line 388, ../sass/main_pages/_portals.scss */
+/* line 397, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left > ul {
   padding-bottom: 5px;
 }
-/* line 391, ../sass/main_pages/_portals.scss */
+/* line 400, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left a {
   word-break: keep-all;
 }
-/* line 394, ../sass/main_pages/_portals.scss */
+/* line 403, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left h2 {
   color: #888a55;
   font-weight: normal;
   font-size: 1.9em;
   margin: 1em 0 0.5em 0;
 }
-/* line 400, ../sass/main_pages/_portals.scss */
+/* line 409, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left h3 {
   color: #333333;
   font-weight: bold;
@@ -7709,31 +7718,31 @@ body.section-portal #content .group-left h3 {
   font-style: italic;
   margin: 1.25em 0 0.5em 0;
 }
-/* line 407, ../sass/main_pages/_portals.scss */
+/* line 416, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left h4 {
   color: #8c1d18;
   font-weight: bold;
   font-size: 1.25em;
   margin: 1.5em 0 0.75em 0;
 }
-/* line 413, ../sass/main_pages/_portals.scss */
+/* line 422, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left h5 {
   color: #333333;
   font-weight: bold;
   font-size: 1em;
   margin: 1em 0 0.5em 0;
 }
-/* line 419, ../sass/main_pages/_portals.scss */
+/* line 428, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left table {
   margin: 1em 0;
   width: 100%;
 }
-/* line 423, ../sass/main_pages/_portals.scss */
+/* line 432, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left table thead th {
   padding: 8px 6px;
   border-right: 1px solid #ccc;
 }
-/* line 429, ../sass/main_pages/_portals.scss */
+/* line 438, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left table tbody th {
   font-weight: bold;
   padding: 3px 6px;
@@ -7741,25 +7750,25 @@ body.section-portal #content .group-left table tbody th {
   border-right: 1px solid #ccc;
   text-align: left;
 }
-/* line 436, ../sass/main_pages/_portals.scss */
+/* line 445, ../sass/main_pages/_portals.scss */
 body.section-portal #content .group-left table tbody td {
   border-right: 1px solid #ccc;
 }
 
-/* line 448, ../sass/main_pages/_portals.scss */
+/* line 457, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content {
   border-bottom: 1px solid #cbccac;
 }
-/* line 450, ../sass/main_pages/_portals.scss */
+/* line 459, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row {
   border: 1px solid #cbccac;
   border-bottom: 0px;
 }
-/* line 453, ../sass/main_pages/_portals.scss */
+/* line 462, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row.views-row-last {
   border-bottom: 1px;
 }
-/* line 456, ../sass/main_pages/_portals.scss */
+/* line 465, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-label {
   width: 100%;
   margin: 0px;
@@ -7774,41 +7783,41 @@ body.section-portal #content .group-left table tbody td {
   background-image: url("../images/icons/hide-green.png");
   cursor: pointer;
 }
-/* line 469, ../sass/main_pages/_portals.scss */
+/* line 478, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-label.closed {
   background-image: url("../images/icons/show-green.png");
 }
-/* line 474, ../sass/main_pages/_portals.scss */
+/* line 483, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content {
   padding: 20px 16px;
 }
-/* line 476, ../sass/main_pages/_portals.scss */
+/* line 485, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content p {
   margin-bottom: 0px;
   padding-bottom: 1em;
 }
-/* line 480, ../sass/main_pages/_portals.scss */
+/* line 489, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content ul {
   margin-top: 0px;
   padding-left: 1.2em;
 }
-/* line 483, ../sass/main_pages/_portals.scss */
+/* line 492, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content ul > li {
   padding-bottom: 5px;
 }
-/* line 485, ../sass/main_pages/_portals.scss */
+/* line 494, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content ul > li > p {
   padding: 5px 0px 5px;
 }
-/* line 488, ../sass/main_pages/_portals.scss */
+/* line 497, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content ul > li > ul {
   padding-top: 5px;
 }
-/* line 493, ../sass/main_pages/_portals.scss */
+/* line 502, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row > .portal-grouping-content > .field-content > ul {
   padding-bottom: 5px;
 }
-/* line 498, ../sass/main_pages/_portals.scss */
+/* line 507, ../sass/main_pages/_portals.scss */
 #block-views-portals-block-5 > .view-portals > .view-content > .views-row.views-row-first:before {
   display: block;
   background-color: #888a55;
@@ -7821,46 +7830,46 @@ body.section-portal #content .group-left table tbody td {
   padding-left: 2px;
 }
 
-/* line 517, ../sass/main_pages/_portals.scss */
+/* line 526, ../sass/main_pages/_portals.scss */
 .group-archiving > .description p {
   margin-top: 15px;
 }
-/* line 521, ../sass/main_pages/_portals.scss */
+/* line 530, ../sass/main_pages/_portals.scss */
 .group-archiving #edit-field-reminder-to-archive .form-item {
   margin: 0px;
 }
-/* line 523, ../sass/main_pages/_portals.scss */
+/* line 532, ../sass/main_pages/_portals.scss */
 .group-archiving #edit-field-reminder-to-archive .form-item .date-padding {
   padding-left: 0px;
 }
 
-/* line 530, ../sass/main_pages/_portals.scss */
+/* line 539, ../sass/main_pages/_portals.scss */
 .field-name-field-portal-image {
   float: left;
   margin-right: 2em;
 }
 
-/* line 540, ../sass/main_pages/_portals.scss */
+/* line 549, ../sass/main_pages/_portals.scss */
 #edit-og-user {
   border: none;
   padding: 0px;
 }
-/* line 543, ../sass/main_pages/_portals.scss */
+/* line 552, ../sass/main_pages/_portals.scss */
 #edit-og-user legend {
   display: none;
 }
-/* line 546, ../sass/main_pages/_portals.scss */
+/* line 555, ../sass/main_pages/_portals.scss */
 #edit-og-user .fieldset-wrapper {
   font-size: 2em;
   margin-top: 1.5em;
 }
-/* line 549, ../sass/main_pages/_portals.scss */
+/* line 558, ../sass/main_pages/_portals.scss */
 #edit-og-user .fieldset-wrapper > .form-item {
   margin-top: 1.5em;
   font-size: 0.5em;
 }
 
-/* line 556, ../sass/main_pages/_portals.scss */
+/* line 565, ../sass/main_pages/_portals.scss */
 #og-ui-field-name {
   display: none;
 }
@@ -9145,6 +9154,11 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   /* line 194, ../sass/phone/_general-phone.scss */
   body .top-header .top-header-container {
     padding: 0px !important;
+  }
+
+  /* line 199, ../sass/phone/_general-phone.scss */
+  .page-portals.logged-in .messages {
+    margin-right: 0px;
   }
 
   /* line 13, ../sass/phone/_phone-register-profile.scss */
@@ -10699,16 +10713,22 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
   }
 
   /* line 47, ../sass/phone/_phone-user-password.scss */
-  .page-user-edit h1#page-title {
+  .page-portals.logged-in h1#page-title {
     margin-right: 0px;
+    margin-bottom: 0px;
   }
 
-  /* line 51, ../sass/phone/_phone-user-password.scss */
+  /* line 52, ../sass/phone/_phone-user-password.scss */
   .access-key {
-    display: none;
+    position: relative;
+    margin-left: 5px;
+  }
+  /* line 55, ../sass/phone/_phone-user-password.scss */
+  .access-key input.form-text {
+    width: 120px;
   }
 
-  /* line 55, ../sass/phone/_phone-user-password.scss */
+  /* line 60, ../sass/phone/_phone-user-password.scss */
   .page-user-edit .messages {
     margin-right: 0px;
   }
@@ -11047,7 +11067,12 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-left: 0px !important;
   }
 
-  /* line 57, ../sass/phone/_phone-portals.scss */
+  /* line 56, ../sass/phone/_phone-portals.scss */
+  .section-portal.node-type-portal h1#page-title {
+    margin-top: -12px !important;
+  }
+
+  /* line 60, ../sass/phone/_phone-portals.scss */
   .section-portal .group-right .accordion h2.block-title {
     background-repeat: no-repeat;
     cursor: pointer;
@@ -11057,35 +11082,35 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-position: 10px !important;
     margin-left: -22px !important;
   }
-  /* line 65, ../sass/phone/_phone-portals.scss */
+  /* line 68, ../sass/phone/_phone-portals.scss */
   .section-portal .group-right .accordion h2.block-title ~ .view-portals {
     margin-top: 20px;
   }
 
-  /* line 70, ../sass/phone/_phone-portals.scss */
+  /* line 73, ../sass/phone/_phone-portals.scss */
   .field-name-portal-navigation-1, .field-name-portal-navigation-3 {
     padding-left: 0px !important;
     padding-right: 0px !important;
     padding-bottom: 0px !important;
   }
-  /* line 74, ../sass/phone/_phone-portals.scss */
+  /* line 77, ../sass/phone/_phone-portals.scss */
   .field-name-portal-navigation-1:before, .field-name-portal-navigation-3:before {
     margin-left: -1px !important;
     padding-left: 2px !important;
   }
-  /* line 78, ../sass/phone/_phone-portals.scss */
+  /* line 81, ../sass/phone/_phone-portals.scss */
   .field-name-portal-navigation-1 > .field-items > .field-item > h2.block-title, .field-name-portal-navigation-3 > .field-items > .field-item > h2.block-title {
     padding: 0px 26px 14px !important;
     margin-left: 0px !important;
     background-position: 10px 10px !important;
   }
-  /* line 83, ../sass/phone/_phone-portals.scss */
+  /* line 86, ../sass/phone/_phone-portals.scss */
   .field-name-portal-navigation-1 > .field-items > .field-item > .view-portals, .field-name-portal-navigation-3 > .field-items > .field-item > .view-portals {
     padding: 26px 16px;
     margin-top: 0px !important;
   }
 
-  /* line 97, ../sass/phone/_phone-portals.scss */
+  /* line 100, ../sass/phone/_phone-portals.scss */
   body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 {
     margin-top: 20px;
     padding-top: 25px;
@@ -11094,7 +11119,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     border: 1px solid #d7d7d7;
     background-color: #eef1f3;
   }
-  /* line 105, ../sass/phone/_phone-portals.scss */
+  /* line 108, ../sass/phone/_phone-portals.scss */
   body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1:before, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3:before {
     margin-left: -1px !important;
     padding-left: 2px !important;
@@ -11106,7 +11131,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     position: relative;
     top: -15px;
   }
-  /* line 116, ../sass/phone/_phone-portals.scss */
+  /* line 119, ../sass/phone/_phone-portals.scss */
   body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-1 h2.block-title, body.section-portal .ds-2col .field-type-ds.field-name-portal-navigation-3 h2.block-title {
     font-weight: normal !important;
     margin-top: 0px !important;
@@ -11121,36 +11146,36 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-bottom: -2px !important;
   }
 
-  /* line 135, ../sass/phone/_phone-portals.scss */
+  /* line 138, ../sass/phone/_phone-portals.scss */
   body.page-portals.page-views h1#page-title {
-    margin-bottom: 30px;
+    margin-bottom: 0px;
     font-size: .9em;
   }
-  /* line 140, ../sass/phone/_phone-portals.scss */
+  /* line 143, ../sass/phone/_phone-portals.scss */
   body.page-portals.page-views.role-anonymous-user #content {
     width: 100% !important;
   }
-  /* line 142, ../sass/phone/_phone-portals.scss */
+  /* line 145, ../sass/phone/_phone-portals.scss */
   body.page-portals.page-views.role-anonymous-user #content .panelize form input[type="text"],
   body.page-portals.page-views.role-anonymous-user #content .panelize form input[type="password"] {
     width: 96% !important;
   }
 
-  /* line 152, ../sass/phone/_phone-portals.scss */
+  /* line 155, ../sass/phone/_phone-portals.scss */
   .page-portals .view-portals .field-content > div > a > img {
     width: 90px;
     height: auto;
   }
-  /* line 156, ../sass/phone/_phone-portals.scss */
+  /* line 159, ../sass/phone/_phone-portals.scss */
   .page-portals .view-portals .field-content > div:nth-child(2) {
     margin-left: 100px !important;
   }
-  /* line 158, ../sass/phone/_phone-portals.scss */
+  /* line 161, ../sass/phone/_phone-portals.scss */
   .page-portals .view-portals .field-content > div:nth-child(2) > a {
     font-size: 18px !important;
   }
 
-  /* line 164, ../sass/phone/_phone-portals.scss */
+  /* line 167, ../sass/phone/_phone-portals.scss */
   .views-field-field-show-published-date {
     margin-left: 100px !important;
   }
