@@ -268,6 +268,7 @@ function captconnect_custom_init() {
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
+    || $_GET['q'] == 'user/reset'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
     }
@@ -409,8 +410,13 @@ function captconnect_custom_node_access($node, $op, $account) {
       break;
 
     case 'update':
-      // Workflow Access grants access based on roles, but Events also need an OG check.
-      $access_types = array('event');
+      // Workflow Access grants access based on roles,
+      // but some content also needs an OG check.
+      // We can bypass those people who can administer OG.
+      if (user_access('administer group')) {
+        return NODE_ACCESS_IGNORE;
+      }
+      $access_types = array('event', 'portal');
       if (in_array($node->type, $access_types)) {
         $gid = field_get_items('node', $node, 'og_group_ref');
 
@@ -458,7 +464,7 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
       case 'portal':
         $field_name = 'field_workflow_state_portals';
         if (isset($node->content['field_workflow_state_portals']['#view_mode'])) {
-          $node->content['field_workflow_state_portals']['#access'] = 
+          $node->content['field_workflow_state_portals']['#access'] =
             ($node->content['field_workflow_state_portals']['#view_mode'] == 'full');
         }
         break;
@@ -1649,16 +1655,6 @@ function captconnect_custom_preprocess_node(&$variables) {
     $current_state = workflow_state_load_single($node->field_workflow_state[LANGUAGE_NONE][0]['value']);
     $class = ($current_state->name == 'published' ? 'published' : 'in-progress');
     $variables ['classes_array'][] = drupal_html_class('workflow-' . $class);
-  }
-}
-
-/**
- * Implements hook_workflow().
- */
-function captconnect_custom_workflow($op, $id, $new_sid, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
-  switch ($op) {
-    case 'transition permitted':
-      return ($id != $new_sid);
   }
 }
 
