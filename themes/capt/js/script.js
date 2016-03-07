@@ -354,11 +354,6 @@ function otherSelectbox ($field, $fieldPrev) {
     else {
       $field.css('display','block');
       $field.find('input').addClass('other-required');
-
-        // // Special -- "please specify" for role is sorta broken, so faking it
-        // $field.find('label').append('<span class="form-required" title="This field is required.">*</span>');
-        // $field.find('input').addClass('required');
-
     }
   }
 
@@ -420,12 +415,6 @@ function otherSelectbox ($field, $fieldPrev) {
   }
 
 
-
-
-
-  /*
-   * END OF: "MY PROFILE" EDIT/VIEW FUNCTIONALITY
-   */
 
 
  /*
@@ -881,57 +870,6 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
-  // Pseudo Vertical tabs
-
-  // USER ACCOUNT AND PROFILE SINGLE FORM
-
-  $('#user-profile-form').each(function(){
-
-  	$(this).find('> div > fieldset:first-of-type').before('<div class="vertical-tabs clearfix"><ul class="vertical-tabs-list"></ul><div class="vertical-tabs-panes vertical-tabs-processed"></div></div>');
-  	$tabs_list = $('.vertical-tabs-list');
-  	$tabs_panes = $('.vertical-tabs-panes');
-
-  	$(this).find('> div > fieldset , #edit-field-feedback-und-0').each(function(){
-
-  		tab_label = $(this).find('> legend > .fieldset-legend').text();
-  		$tabs_list.append('<li class="vertical-tab-button"><a href="#"><strong>' + tab_label + '</strong></a></li>');
-  		$(this).addClass('vertical-tabs-pane').appendTo($tabs_panes);
-
-  	});
-
-  	$first_tab = $tabs_list.find('> li:nth-child(1)');
-  	$first_tab.addClass('first').addClass('selected');
-  	reveal_panes($first_tab);
-
-  	$tabs_list.find('> li').on('click',function(){
-  		reveal_panes($(this));
-  	});
-
-  	// Move available fields into the user settings group
-  	$('#edit-profile-main-field-available').appendTo('.group-user-settings > .fieldset-wrapper');
-  	$('#edit-profile-main-field-reason-unavailable').appendTo('.group-user-settings > .fieldset-wrapper');
-  	$('#edit-profile-main-field-comments-if-not-available').appendTo('.group-user-settings > .fieldset-wrapper');
-
-  });
-
-  $('.page-user .field-name-field-available').appendTo('.group-user-settings > .fieldset-wrapper');
-  $('.page-user .field-name-field-reason-unavailable').appendTo('.group-user-settings > .fieldset-wrapper');
-  $('.page-user .field-name-field-comments-if-not-available').appendTo('.group-user-settings > .fieldset-wrapper');
-
-
-
-  function reveal_panes($tab) {
-  	index = $('ul.vertical-tabs-list li').index($tab) + 1;
-  	$('.vertical-tabs-panes > fieldset').css('display','none');
-  	$('.vertical-tab-button').each(function(){
-  		$(this).removeClass('selected');
-  	});
-  	$('.vertical-tabs-panes > fieldset:nth-child(' + index + ')').css('display','block');
-  	$tab.addClass('selected');
-  }
-
-
-
   // Open up the terms of use and link to SAMHSA's privacy policy in another window (not 508-compliant)
   $('.field-type-list-boolean a').attr('target','_blank');
 
@@ -951,11 +889,9 @@ function otherSelectbox ($field, $fieldPrev) {
 
 
 
-
-  // PORTALS
-
   // Adds "active" to the parent section on a portal page
   $('.section-portal .views-field-view a.active').closest('.views-field-view').prev().find('.field-content a').addClass('active').addClass('parent');
+
 
 
 
@@ -991,9 +927,6 @@ function otherSelectbox ($field, $fieldPrev) {
     });
   });
 
-
-
-  // Access Key
 
 
 
