@@ -413,10 +413,6 @@ function captconnect_custom_admin_paths_alter(&$paths) {
  */
 function captconnect_custom_node_access($node, $op, $account) {
   global $user;
-  /*
-  $who = (isset($account->uid) ? $account->uid : 'current');
-  $what = (isset($node->nid) ? $node->nid : $node);
-  drupal_set_message("captconnect_custom_node_access($what, $op, $who)"); /* */
 
   switch ($op) {
     case 'create':
@@ -441,11 +437,18 @@ function captconnect_custom_node_access($node, $op, $account) {
       if (user_access('administer group')) {
         return NODE_ACCESS_IGNORE;
       }
-      $access_types = array('event', 'portal');
+      $access_types = variable_get('captconnect_custom_check_group_access', array());
       if (in_array($node->type, $access_types)) {
-        $gid = field_get_items('node', $node, 'og_group_ref');
+        // Is it one of the subparts of a portal?
+        if (isset($node->og_group_ref_2)) {
+          $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
+        }
+        else {
+          $ref = $node;
+        }
+        $gid = field_get_items('node', $ref, 'og_group_ref');
 
-        // See if the user is a member of the node's group or core.
+        // See if the user is a member of the node's group.
         if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user')) {
           // Yes, so just let other Drupal rules take over.
           return NODE_ACCESS_IGNORE;
@@ -458,12 +461,6 @@ function captconnect_custom_node_access($node, $op, $account) {
 
       // Well, we've run out of exceptions, so Drupal can take it from here.
       break;
-/*
-    case 'delete':
-      if (user_access("delete own $node->type content")) {
-        return NODE_ACCESS_IGNORE;
-      }
-      return NODE_ACCESS_DENY; /* */
   }
 
   return NODE_ACCESS_IGNORE;
