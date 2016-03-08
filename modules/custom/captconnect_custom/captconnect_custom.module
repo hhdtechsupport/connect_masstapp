@@ -259,7 +259,7 @@ function captconnect_custom_workflow_tab_access($entity_type, $entity) {
   global $user;
   // We only care about some types of nodes.
   if ($entity_type == 'node') {
-    $handle_types = array('event', 'portal');
+    $handle_types = variable_get('captconnect_custom_check_group_access', array());
     if (in_array($entity->type, $handle_types)) {
       // Found something interesting...
       // May they update the node?
