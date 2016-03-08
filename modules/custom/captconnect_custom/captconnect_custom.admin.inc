@@ -159,7 +159,7 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#description' => t('If an event is marked as not needing an approver,
       advance its workflow state to this one.'),
     );
-    
+
   $node_types = node_type_get_names();
   $form['captconnect_custom_unpublished_content_types'] = array(
     '#type' => 'checkboxes',
@@ -168,6 +168,15 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_unpublished_content_types', array()),
     '#description' => t('If a piece of content is marked as unpublished,
       display a message to that effect.'),
+    );
+
+  $form['captconnect_custom_check_group_access'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $node_types,
+    '#title' => t('Check update access by group'),
+    '#default_value' => variable_get('captconnect_custom_check_group_access', array()),
+    '#description' => t('Before allowing edit access to these content types,
+      check the grroup (team) to which the user belongs.'),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
@@ -229,7 +238,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_unpublished_content_types']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_check_group_access']), 'style' => $style),
     );
 
   $rows[] = array(
@@ -471,7 +480,7 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Unpublished Content Message'),
     '#default_value' => variable_get('captconnect_custom_unpublished_content_msg',
       'This @type is currently unpublished. Users are not be able to access the content on this page.'),
-    '#description' => t('This message is displayed when some unpublished 
+    '#description' => t('This message is displayed when some unpublished
       content is viewed. Use "@type" to show the content type.'),
     );
 

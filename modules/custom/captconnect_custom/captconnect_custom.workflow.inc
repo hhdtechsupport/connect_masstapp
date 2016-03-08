@@ -48,3 +48,49 @@ function captconnect_custom_workflow_notify($op, &$args) {
       break;
   }
 }
+/**
+ * Implements hook_workflow().
+ *
+ * @param $op
+ *   The current workflow operation: 'transition permitted', 'transition pre' or 'transition post'.
+ * @param $old_state
+ *   The state ID of the current state.
+ * @param $new_state
+ *   The state ID of the new state.
+ * @param $node
+ *   The node whose workflow state is changing.
+ * @param $force
+ *   The caller indicated that the transition should be forced. (bool).
+ *   This is only available on the "pre" and "post" calls.
+ */
+function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force = FALSE) {
+  global $user;
+  switch ($op) {
+    case 'transition permitted':
+      switch ($node->type) {
+        case 'event':
+        case 'portal':
+          // Don't show the current state.
+          if ($old_state == $new_state) {
+            return FALSE;
+          }
+
+          // Let admins and site maintainers do it.
+          if (user_access('administer group')) {
+            return TRUE;
+          }
+
+          // Get the node's team group value(s).
+          $groups = field_get_items('node', $node, 'og_group_ref');
+
+          foreach ($groups as $group) {
+            // See if the current user is a member of the node's group.
+            if (og_is_member('node', $group['target_id'], 'user')) {
+              return TRUE;
+            }
+          }
+          // Nope the user is not in any of the node's groups.
+          return FALSE;
+      }
+    }
+}

@@ -255,8 +255,13 @@ function workflow_notify_entity_presave($entity, $type) {
         // Is this a new node?
         if ($entity->is_new) {
           // New node. Note: workflow state won't exist yet.
-          $old_state = $workflow->states[1]->sid;
-          $new_state = $workflow->transitions[$old_state]->target_sid;
+          $creation = reset($workflow->states);
+          $old_state = $creation->sid;
+          foreach ($workflow->transitions as $tid => $transition) {
+            if ($transition->sid == $old_state) {
+              $new_state = $transition->target_sid;
+            }
+          }
         }
         else {
           // Existing node.

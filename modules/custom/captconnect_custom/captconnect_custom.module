@@ -233,6 +233,8 @@ function captconnect_custom_theme() {
 function captconnect_custom_menu_alter(&$items) {
   unset($items['node']);  // Get rid of /node.
 
+  $items['node/%node/workflow']['access callback'] = 'captconnect_custom_workflow_tab_access';
+
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 
   // Change the permission on the "Manage display" tab.
@@ -247,6 +249,29 @@ function captconnect_custom_menu_alter(&$items) {
   // Try to hide "Log in" and "Request new password" tabs.
   $items['user/password']['type'] = MENU_CALLBACK;
   $items['user/login']['access callback'] = 'captconnect_custom_login_access';
+}
+
+/**
+ * Menu access callback.
+ * Limit Workflow tab visibility.
+ */
+function captconnect_custom_workflow_tab_access($entity_type, $entity) {
+  global $user;
+  // We only care about some types of nodes.
+  if ($entity_type == 'node') {
+    $handle_types = variable_get('captconnect_custom_check_group_access', array());
+    if (in_array($entity->type, $handle_types)) {
+      // Found something interesting...
+      // May they update the node?
+      if (!node_access('update', $entity)) {
+        // No, then don't let them have the tab.
+        return FALSE;
+      }
+    }
+  }
+
+  // Just do regular workflow control.
+  return workflow_tab_access($entity_type, $entity);
 }
 
 /**
@@ -268,6 +293,7 @@ function captconnect_custom_init() {
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
+    || $_GET['q'] == 'user/reset'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
     }
@@ -387,10 +413,6 @@ function captconnect_custom_admin_paths_alter(&$paths) {
  */
 function captconnect_custom_node_access($node, $op, $account) {
   global $user;
-  /*
-  $who = (isset($account->uid) ? $account->uid : 'current');
-  $what = (isset($node->nid) ? $node->nid : $node);
-  drupal_set_message("captconnect_custom_node_access($what, $op, $who)"); /* */
 
   switch ($op) {
     case 'create':
@@ -409,12 +431,24 @@ function captconnect_custom_node_access($node, $op, $account) {
       break;
 
     case 'update':
-      // Workflow Access grants access based on roles, but Events also need an OG check.
-      $access_types = array('event');
+      // Workflow Access grants access based on roles,
+      // but some content also needs an OG check.
+      // We can bypass those people who can administer OG.
+      if (user_access('administer group')) {
+        return NODE_ACCESS_IGNORE;
+      }
+      $access_types = variable_get('captconnect_custom_check_group_access', array());
       if (in_array($node->type, $access_types)) {
-        $gid = field_get_items('node', $node, 'og_group_ref');
+        // Is it one of the subparts of a portal?
+        if (isset($node->og_group_ref_2)) {
+          $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
+        }
+        else {
+          $ref = $node;
+        }
+        $gid = field_get_items('node', $ref, 'og_group_ref');
 
-        // See if the user is a member of the node's group or core.
+        // See if the user is a member of the node's group.
         if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user')) {
           // Yes, so just let other Drupal rules take over.
           return NODE_ACCESS_IGNORE;
@@ -427,12 +461,6 @@ function captconnect_custom_node_access($node, $op, $account) {
 
       // Well, we've run out of exceptions, so Drupal can take it from here.
       break;
-/*
-    case 'delete':
-      if (user_access("delete own $node->type content")) {
-        return NODE_ACCESS_IGNORE;
-      }
-      return NODE_ACCESS_DENY; /* */
   }
 
   return NODE_ACCESS_IGNORE;
@@ -458,7 +486,7 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
       case 'portal':
         $field_name = 'field_workflow_state_portals';
         if (isset($node->content['field_workflow_state_portals']['#view_mode'])) {
-          $node->content['field_workflow_state_portals']['#access'] = 
+          $node->content['field_workflow_state_portals']['#access'] =
             ($node->content['field_workflow_state_portals']['#view_mode'] == 'full');
         }
         break;
@@ -688,6 +716,12 @@ function captconnect_custom_module_implements_alter(&$implementations, $hook) {
 //    $group = $implementations ['captconnect_custom'];
 //    unset($implementations['captconnect_custom']);
 //    $implementations['captconnect_custom'] = $group;
+  }
+
+  if ($hook == 'menu_alter' && isset($implementations['captconnect_custom'])) {
+    $group = $implementations ['captconnect_custom'];
+    unset($implementations['captconnect_custom']);
+    $implementations['captconnect_custom'] = $group;
   }
 
   if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
@@ -1649,16 +1683,6 @@ function captconnect_custom_preprocess_node(&$variables) {
     $current_state = workflow_state_load_single($node->field_workflow_state[LANGUAGE_NONE][0]['value']);
     $class = ($current_state->name == 'published' ? 'published' : 'in-progress');
     $variables ['classes_array'][] = drupal_html_class('workflow-' . $class);
-  }
-}
-
-/**
- * Implements hook_workflow().
- */
-function captconnect_custom_workflow($op, $id, $new_sid, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
-  switch ($op) {
-    case 'transition permitted':
-      return ($id != $new_sid);
   }
 }
 
