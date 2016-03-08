@@ -2191,6 +2191,25 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
   display: none;
 }
 
+/* line 1356, ../sass/sitewide/_general.scss */
+#block-block-25 {
+  position: absolute;
+  right: 0px;
+  font-size: 9pt;
+  top: -20px;
+  z-index: 99999;
+}
+/* line 1362, ../sass/sitewide/_general.scss */
+#block-block-25 a, #block-block-25 a:visited {
+  color: #777777;
+  text-decoration: underline;
+  font-weight: normal;
+}
+/* line 1366, ../sass/sitewide/_general.scss */
+#block-block-25 a:hover, #block-block-25 a:visited:hover {
+  color: #333333;
+}
+
 /*
  *  Banners
  */
@@ -12232,32 +12251,4 @@ body.page-user-register:not(.node-type-event) {
       margin-bottom: 5px;
     }*/
   }
-}
-
-#registrations-list tr.me td {
-  background-color: #ffeeee;
-  border-width: 2px 0;
-  border-style: solid;
-  border-color: #aa4444;
-}
-
-#registrations-list tr.event-creator td.registrant-name {
-  background-color: #ddffaa;
-}
-
-#registrations-list tr.event-approver td.registrant-name {
-  background-color: #ffddaa;
-}
-
-#registrations-list tr.site-maintainer td.registrant-name {
-  background-color: #eeffee;
-}
-
-#registrations-list tr.administrator td.registrant-name {
-  background-color: #ffffcc;
-}
-
-.field-name-field-portal-image {
-  float: left;
-  margin-right: 2em;
 }
