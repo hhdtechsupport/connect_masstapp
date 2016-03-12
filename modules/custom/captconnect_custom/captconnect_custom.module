@@ -293,7 +293,7 @@ function captconnect_custom_init() {
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
-    || $_GET['q'] == 'user/reset'
+    || substr($_GET['q'], 0, 11) == 'user/reset/'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
     }
