@@ -291,7 +291,7 @@ function workflow_notify_mail($key, &$message, $params) {
 
       $message['subject'] = filter_xss(token_replace($params['context']['subject'], $params['data'], $params));
       $message['body'][] = check_markup(token_replace($params['context']['body'], $params['data'], $params), $filter);
-
+/*
       watchdog('workflow_notify',
         '<ul><li>Subject: @subject</li><li>Body: @body</li><li>To: @to</li><li>From: @from</li></ul>', array(
           '@subject' => $message['subject'],
@@ -299,7 +299,7 @@ function workflow_notify_mail($key, &$message, $params) {
           '@to' => $message['to'],
           '@from' => $message['from'],
           ),
-        WATCHDOG_INFO, l(t('view'), 'node/' . $params['data']['node']->nid));
+        WATCHDOG_INFO, l(t('view'), 'node/' . $params['data']['node']->nid));/* */
       return;
   }
 }
