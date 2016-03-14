@@ -454,6 +454,14 @@ function captconnect_custom_node_access($node, $op, $account) {
           $related = array('instance', 'material', 'presenter');
           if (in_array($node->type, $related)) {
             $ref = menu_get_object();
+            if (empty($ref)) {
+              // The URL has been redirected to "system'ajax"
+              // so get the real address from the REFERER field.
+              $from = parse_url($_SERVER['HTTP_REFERER']);
+              $args = explode('/', $from['path']);
+              // Path like "/node/1234/edit", so use 3rd piece.
+              $ref = node_load($args[2]);
+            }
           }
           else {
             // Nope, then just use it as is.
@@ -469,7 +477,6 @@ function captconnect_custom_node_access($node, $op, $account) {
         }
         else {
           // No, the current user does not match the viewed node's groups.
-          drupal_set_message('Sorry, Charlie!');
           return NODE_ACCESS_DENY;
         }
       }
