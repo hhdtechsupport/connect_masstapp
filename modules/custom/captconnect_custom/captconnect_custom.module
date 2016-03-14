@@ -441,6 +441,7 @@ function captconnect_custom_node_access($node, $op, $account) {
       if (user_access('administer group', $account)) {
         return NODE_ACCESS_IGNORE;
       }
+
       $access_types = variable_get('captconnect_custom_check_group_access', array());
       if (in_array($node->type, $access_types)) {
         // Is it one of the subparts of a portal?
@@ -448,7 +449,16 @@ function captconnect_custom_node_access($node, $op, $account) {
           $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
         }
         else {
-          $ref = $node;
+          // No. Is it stuff related to Event?
+          // These are accessed by inline_entity_form.
+          $related = array('instance', 'material', 'presenter');
+          if (in_array($node->type, $related)) {
+            $ref = menu_get_object();
+          }
+          else {
+            // Nope, then just use it as is.
+            $ref = $node;
+          }
         }
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
@@ -459,6 +469,7 @@ function captconnect_custom_node_access($node, $op, $account) {
         }
         else {
           // No, the current user does not match the viewed node's groups.
+          drupal_set_message('Sorry, Charlie!');
           return NODE_ACCESS_DENY;
         }
       }
