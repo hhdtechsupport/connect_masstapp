@@ -413,11 +413,15 @@ function captconnect_custom_admin_paths_alter(&$paths) {
  */
 function captconnect_custom_node_access($node, $op, $account) {
   global $user;
+//  dpm($node, "captconnect_custom_node_access $op ".$account->uid);
+  if (empty($account)) {
+    $account = user_load($user->uid);
+  }
 
   switch ($op) {
     case 'create':
       // For this $node is just the type (string).
-      if (!user_access("create $node content")) {
+      if (!user_access("create $node content", $account)) {
         return NODE_ACCESS_DENY;
       }
       break;
@@ -434,7 +438,7 @@ function captconnect_custom_node_access($node, $op, $account) {
       // Workflow Access grants access based on roles,
       // but some content also needs an OG check.
       // We can bypass those people who can administer OG.
-      if (user_access('administer group')) {
+      if (user_access('administer group', $account)) {
         return NODE_ACCESS_IGNORE;
       }
       $access_types = variable_get('captconnect_custom_check_group_access', array());
@@ -449,7 +453,7 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user')) {
+        if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user', $account)) {
           // Yes, so just let other Drupal rules take over.
           return NODE_ACCESS_IGNORE;
         }
@@ -581,12 +585,9 @@ function captconnect_custom_access_registrations($node) {
  * Decide whether or not to show the "Notifications" tab on Events.
  */
 function captconnect_custom_access_notifications($node) {
+  global $user;
   if ($node->type == 'event') {
-    $notification = field_get_items('node', $node, 'field_related_notifications');
-    if ($notification) {
-      $notification = $notification[0]['target_id'];
-      return node_access('update', node_load($notification));
-    }
+    return node_access('update', $node, $user);
   }
   return FALSE;
 }
