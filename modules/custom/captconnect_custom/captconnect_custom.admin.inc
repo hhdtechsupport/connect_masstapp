@@ -563,3 +563,67 @@ function theme_captconnect_custom_message_texts(&$variables) {
   $output .= drupal_render_children($form);
   return $output;
 }
+
+/**
+ * Field Check form.
+ * Block workflow transitions if selected fields are still empty.
+ */
+function captconnect_custom_field_check_form($form, $form_state) {
+  $fields = array();
+  $node_type = 'event';
+  $type_name = node_type_get_name($node_type);
+
+  // Get all the fields for this node type.
+  $field_list = field_info_instances('node', $node_type);
+
+  // Skip certain types of fields.
+  $skip_types = array(
+    'field_hidden',
+    'serial',
+    );
+
+  // Check each one and build an options list.
+  foreach ($field_list as $field_name => $values) {
+    if (in_array($values['widget']['type'], $skip_types)) {
+      continue;
+    }
+    $fields[$field_name] = check_plain($values['label']);
+  }
+
+  // Put them in alpha order by label.
+  asort($fields);
+
+  // Get the event states list.
+  $workflow = workflow_get_workflows_by_type($node_type, 'node');
+  $state_list = $workflow->getStates(TRUE);
+  $states = array();
+  foreach ($state_list as $state) {
+    // Leave out the creation state.
+    if ($state->sysid == 0) {
+      $states[$state->sid] = $state->state;
+    }
+  }
+
+  $form['captconnect_custom_check_fields'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $fields,
+    '#title' => t('Check the following @name fields for contents',
+      array('@name' => $type_name)),
+    '#default_value' => variable_get('captconnect_custom_check_fields', array()),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div>',
+    );
+
+  $form['captconnect_custom_check_fields_states'] = array(
+    '#title' => t('Block transitions to'),
+    '#type' => 'checkboxes',
+    '#options' => $states,
+    '#default_value' => variable_get('captconnect_custom_check_fields_states', array()),
+    '#description' => t('If any of the selected fields is empty, the chosen states
+      will be blocked from the change state form.'),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div><br />',
+    );
+
+  return system_settings_form($form);
+}

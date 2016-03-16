@@ -80,6 +80,32 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
             return TRUE;
           }
 
+          if ($node->type == 'event'
+          && in_array($new_state, array_filter(variable_get('captconnect_custom_check_fields_states', array())))) {
+            // We want to see if some event fields are filled in, and alert if not.
+            $fields_to_check = array_filter(variable_get('captconnect_custom_check_fields', array()));
+
+            $event = entity_metadata_wrapper('node', $node);
+            $missing_a_field = FALSE;
+            foreach ($fields_to_check as $field_name) {
+              $value = $event->$field_name->value();
+              if (empty($value)) {
+                $info = field_info_instance('node', $field_name, 'event');
+                drupal_set_message(t('"@field" is empty.',
+                  array('@field' => $info['label'])),
+                  'warning', FALSE);
+                $missing_a_field = TRUE;
+              }
+            }
+
+            // If something is missing, prevent the transition.
+            if ($missing_a_field) {
+              drupal_set_message('<strong>' . t('This data must be provided in order to go forward with this Event.') . '</strong>',
+                'warning', FALSE);
+              return FALSE;
+            }
+          }
+
           // Get the node's team group value(s).
           $groups = field_get_items('node', $node, 'og_group_ref');
 
