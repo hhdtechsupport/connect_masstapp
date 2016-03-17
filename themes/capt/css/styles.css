@@ -2169,47 +2169,30 @@ input#edit-cancel {
 }
 
 /* line 1335, ../sass/sitewide/_general.scss */
-.group-subscribers {
-  margin-bottom: 15px;
-}
-/* line 1337, ../sass/sitewide/_general.scss */
-.group-subscribers h3 {
-  display: none;
-}
-/* line 1340, ../sass/sitewide/_general.scss */
-.group-subscribers + div {
-  display: none;
-}
-/* line 1342, ../sass/sitewide/_general.scss */
-.group-subscribers + div + fieldset {
-  display: none;
-}
-
-/* line 1349, ../sass/sitewide/_general.scss */
 body:not(.role-administrator) #edit-field-access-key .text-format-wrapper,
 body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .field-type-entityreference {
   display: none;
 }
 
-/* line 1355, ../sass/sitewide/_general.scss */
+/* line 1341, ../sass/sitewide/_general.scss */
 .access-key {
   position: absolute;
   right: 5px;
   top: 5px;
 }
-/* line 1359, ../sass/sitewide/_general.scss */
+/* line 1345, ../sass/sitewide/_general.scss */
 .access-key input.form-text {
   width: 120px;
 }
-/* line 1362, ../sass/sitewide/_general.scss */
+/* line 1348, ../sass/sitewide/_general.scss */
 .access-key #edit-field-access-key-check {
   float: left;
 }
-/* line 1365, ../sass/sitewide/_general.scss */
+/* line 1351, ../sass/sitewide/_general.scss */
 .access-key #edit-actions, .access-key #edit-actions--2 {
   float: left;
 }
-/* line 1367, ../sass/sitewide/_general.scss */
+/* line 1353, ../sass/sitewide/_general.scss */
 .access-key #edit-actions #edit-submit, .access-key #edit-actions #edit-submit--2, .access-key #edit-actions--2 #edit-submit, .access-key #edit-actions--2 #edit-submit--2 {
   padding: 8px 14px;
   font-size: 12px;
@@ -2217,17 +2200,17 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
   margin-left: 10px !important;
 }
 
-/* line 1376, ../sass/sitewide/_general.scss */
+/* line 1362, ../sass/sitewide/_general.scss */
 .page-portals.logged-in h1#page-title {
   margin-right: 260px;
 }
 
-/* line 1380, ../sass/sitewide/_general.scss */
+/* line 1366, ../sass/sitewide/_general.scss */
 .page-portals.logged-in .messages {
   margin-right: 260px;
 }
 
-/* line 1386, ../sass/sitewide/_general.scss */
+/* line 1372, ../sass/sitewide/_general.scss */
 #block-block-25 {
   position: absolute;
   right: 0px;
@@ -2235,15 +2218,20 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
   top: -20px;
   z-index: 99999;
 }
-/* line 1392, ../sass/sitewide/_general.scss */
+/* line 1378, ../sass/sitewide/_general.scss */
 #block-block-25 a, #block-block-25 a:visited {
   color: #777777;
   text-decoration: underline;
   font-weight: normal;
 }
-/* line 1396, ../sass/sitewide/_general.scss */
+/* line 1382, ../sass/sitewide/_general.scss */
 #block-block-25 a:hover, #block-block-25 a:visited:hover {
   color: #333333;
+}
+
+/* line 1388, ../sass/sitewide/_general.scss */
+li.messages__item:contains("Updated term") {
+  display: none;
 }
 
 /*
@@ -5143,31 +5131,31 @@ body.logged-in.section-node-add h1#page-title {
   padding-left: 70px;
 }
 /* line 72, ../sass/main_pages/_logged-in.scss */
-body.logged-in.section-administration h1#page-title {
+body.logged-in.section-administration h1#page-title, body.logged-in.page-taxonomy-term-edit h1#page-title {
   background: url("../images/icons/admin.png") 0 0 no-repeat;
   padding-left: 70px;
 }
-/* line 76, ../sass/main_pages/_logged-in.scss */
+/* line 77, ../sass/main_pages/_logged-in.scss */
 body.logged-in.page-user-edit h1#page-title {
   background: url("../images/icons/profile.png") 0 0 no-repeat;
   padding-left: 55px;
 }
-/* line 80, ../sass/main_pages/_logged-in.scss */
+/* line 81, ../sass/main_pages/_logged-in.scss */
 body.logged-in h2 {
   margin-bottom: 0px;
 }
-/* line 84, ../sass/main_pages/_logged-in.scss */
+/* line 85, ../sass/main_pages/_logged-in.scss */
 body.logged-in div#title-section h3 {
   margin-bottom: 0px;
   font-weight: normal;
   margin-top: 14px;
   color: #577785;
 }
-/* line 91, ../sass/main_pages/_logged-in.scss */
+/* line 92, ../sass/main_pages/_logged-in.scss */
 body.logged-in.node-type-dashboard #title-section {
   float: left;
 }
-/* line 94, ../sass/main_pages/_logged-in.scss */
+/* line 95, ../sass/main_pages/_logged-in.scss */
 body.logged-in.node-type-dashboard .region-help {
   float: right;
 }
@@ -8034,6 +8022,27 @@ body.section-administration a, body.section-administration a:visited {
 /* line 165, ../sass/admin/_admin.scss */
 body.section-administration a:hover, body.section-administration a:visited:hover {
   color: #8c1d18;
+}
+
+/* line 176, ../sass/admin/_admin.scss */
+.page-admin.role-site-maintainer .remove-term-stuff,
+.page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff {
+  margin-bottom: 15px;
+}
+/* line 178, ../sass/admin/_admin.scss */
+.page-admin.role-site-maintainer .remove-term-stuff h3,
+.page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff h3 {
+  display: none;
+}
+/* line 181, ../sass/admin/_admin.scss */
+.page-admin.role-site-maintainer .remove-term-stuff + div,
+.page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff + div {
+  display: none;
+}
+/* line 183, ../sass/admin/_admin.scss */
+.page-admin.role-site-maintainer .remove-term-stuff + div + fieldset,
+.page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff + div + fieldset {
+  display: none;
 }
 
 /**
@@ -11608,10 +11617,11 @@ body.page-user-register:not(.node-type-event) {
     color: #333333;
   }
 
-  /* line 183, ../sass/tablet/_tablet-general.scss */
+  /* line 184, ../sass/tablet/_tablet-general.scss */
   .section-administration #content,
   .section-node-add #content,
-  .section-groups #content {
+  .section-groups #content,
+  .section-taxonomy #content {
     width: 96% !important;
     border: 1px solid #d7d7d7 !important;
     border-top: none !important;
@@ -11624,30 +11634,33 @@ body.page-user-register:not(.node-type-event) {
     padding-left: 15px;
     padding-bottom: 35px;
   }
-  /* line 196, ../sass/tablet/_tablet-general.scss */
+  /* line 197, ../sass/tablet/_tablet-general.scss */
   .section-administration #main-menu,
   .section-node-add #main-menu,
-  .section-groups #main-menu {
+  .section-groups #main-menu,
+  .section-taxonomy #main-menu {
     width: 96% !important;
   }
-  /* line 198, ../sass/tablet/_tablet-general.scss */
+  /* line 199, ../sass/tablet/_tablet-general.scss */
   .section-administration #main-menu li.menu-item,
   .section-node-add #main-menu li.menu-item,
-  .section-groups #main-menu li.menu-item {
+  .section-groups #main-menu li.menu-item,
+  .section-taxonomy #main-menu li.menu-item {
     width: 45%;
     max-width: 200px;
     margin-right: 10px;
     padding: 0px 5px 0px 0px;
   }
-  /* line 205, ../sass/tablet/_tablet-general.scss */
+  /* line 206, ../sass/tablet/_tablet-general.scss */
   .section-administration .disclaimer,
   .section-node-add .disclaimer,
-  .section-groups .disclaimer {
+  .section-groups .disclaimer,
+  .section-taxonomy .disclaimer {
     font-size: 11px;
     line-height: normal !important;
   }
 
-  /* line 215, ../sass/tablet/_tablet-general.scss */
+  /* line 216, ../sass/tablet/_tablet-general.scss */
   form.workflow-transition-form {
     width: auto;
   }

@@ -167,3 +167,22 @@ body.section-administration {
     }
   }
 }
+
+
+
+
+.page-admin.role-site-maintainer,
+.page-taxonomy-term-edit.role-site-maintainer {
+  .remove-term-stuff {
+    margin-bottom: 15px;
+    h3 {
+      display: none;
+    }
+    & + div {
+      display: none;
+      & + fieldset {
+        display: none;
+      }
+    }
+  }
+}

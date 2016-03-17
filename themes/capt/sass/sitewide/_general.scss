@@ -1332,20 +1332,6 @@ input#edit-cancel {
 
 
 
-.group-subscribers {
-  margin-bottom: 15px;
-  h3 {
-    display: none;
-  }
-  & + div {
-    display: none;
-    & + fieldset {
-      display: none;
-    }
-  }
-}
-
-
 body:not(.role-administrator) #edit-field-access-key .text-format-wrapper,
 body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .field-type-entityreference {
     display: none;
@@ -1397,4 +1383,8 @@ body:not(.role-administrator) #edit-field-access-key .text-format-wrapper ~ .fie
       color: #333333;
     }
   }
+}
+
+li.messages__item:contains("Updated term") {
+  display: none;
 }

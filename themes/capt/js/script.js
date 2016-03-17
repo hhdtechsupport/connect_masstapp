@@ -778,7 +778,21 @@ function otherSelectbox ($field, $fieldPrev) {
   $('div.messages:contains("Please review your submission")').removeClass('status').addClass('warning').text('Please review your pending email below. If you are satisfied with the recipients selected and content entered, then click "Send Message" to confirm.');
   $('.entityform .content .submitted').remove();
 
+  // Change "Name" to "Email" for the subscriber taxonomy term form
+  $('.page-admin-structure-taxonomy-subscribers label[for="edit-name"]').each(function(){
+    var span = $(this).find('span');
+    $(this).html('Email ').append(span);
+  });
 
+  if ($('#block-block-26 > h3').text() == 'Edit Subscriber') {
+    $('label[for="edit-name"]').each(function(){
+      var span = $(this).find('span');
+      $(this).html('Email ').append(span);
+    });
+  }
+
+  // Change edit term pages' titles to Admin
+  $('.page-taxonomy-term-edit h1#page-title').text('Admin');
 
 
 
