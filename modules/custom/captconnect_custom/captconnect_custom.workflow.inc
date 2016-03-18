@@ -95,7 +95,8 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
 
             // If something is missing, prevent the transition.
             if ($missing_a_field) {
-              drupal_set_message('<strong>' . t('This data must be provided in order to go forward with this Event.') . '</strong>',
+              drupal_set_message(variable_get('captconnect_custom_check_fields_msg',
+                'This needs to be corrected in order to publish this Event.'),
                 'error', FALSE);
               // Let admins and site maintainers do it anyway.
               return user_access('administer group');

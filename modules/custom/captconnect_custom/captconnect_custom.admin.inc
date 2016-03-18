@@ -484,7 +484,6 @@ function captconnect_custom_message_texts($form, $form_state) {
       content is viewed. Use "@type" to show the content type.'),
     );
 
-
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -621,6 +620,19 @@ function captconnect_custom_field_check_form($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_check_fields_states', array()),
     '#description' => t('If any of the selected fields is empty, the chosen states
       will be blocked from the change state form.'),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div><br />',
+    );
+
+  $form['captconnect_custom_check_fields_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Empty Fields Message'),
+    '#default_value' => variable_get('captconnect_custom_check_fields_msg',
+      'This needs to be corrected in order to publish this Event.'),
+    '#description' => t('This message is displayed when an Event might be moved
+      into the specified state. A message identifying the field will
+      have already appeared.'),
     '#prefix' => '<div style="float: left; width:49%;">',
     '#suffix' => '</div><br />',
     );
