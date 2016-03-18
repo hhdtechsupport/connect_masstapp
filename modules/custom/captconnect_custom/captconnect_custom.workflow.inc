@@ -75,11 +75,6 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
             return FALSE;
           }
 
-          // Let admins and site maintainers do it.
-          if (user_access('administer group')) {
-            return TRUE;
-          }
-
           if ($node->type == 'event'
           && in_array($new_state, array_filter(variable_get('captconnect_custom_check_fields_states', array())))) {
             // We want to see if some event fields are filled in, and alert if not.
@@ -93,7 +88,7 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
                 $info = field_info_instance('node', $field_name, 'event');
                 drupal_set_message(t('"@field" is empty.',
                   array('@field' => $info['label'])),
-                  'warning', FALSE);
+                  'error', FALSE);
                 $missing_a_field = TRUE;
               }
             }
@@ -101,8 +96,9 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
             // If something is missing, prevent the transition.
             if ($missing_a_field) {
               drupal_set_message('<strong>' . t('This data must be provided in order to go forward with this Event.') . '</strong>',
-                'warning', FALSE);
-              return FALSE;
+                'error', FALSE);
+              // Let admins and site maintainers do it anyway.
+              return user_access('administer group');
             }
           }
 
