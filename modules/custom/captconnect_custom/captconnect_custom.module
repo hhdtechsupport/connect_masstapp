@@ -138,6 +138,15 @@ function captconnect_custom_menu() {
     'type' => MENU_LOCAL_TASK,
     );
 
+  $items['admin/config/administration/captconnect/field_checks'] = array(
+    'title' => 'Field Checks',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('captconnect_custom_field_check_form'),
+    'file' => 'captconnect_custom.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    );
+
   $items['register_others'] = array(
     'title' => 'Register Another',
     'description' => 'Register on behalf of someone else.',
@@ -432,6 +441,10 @@ function captconnect_custom_node_access($node, $op, $account) {
       if (is_object($node) && $node->nid == 931) {
         return NODE_ACCESS_ALLOW;
       }
+      if (is_object($node) && $node->type == 'portal') {
+        return NODE_ACCESS_ALLOW;
+      }
+
       break;
 
     case 'update':
@@ -515,6 +528,14 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
 
       case 'event':
         $field_name = 'field_workflow_state';
+//        $trans = workflow_transition_load_single('node', $node->nid, $field_name, LANGUAGE_NONE);
+//        dpm($trans, 'workflow_transition_load_single');
+//        $msg = token_replace('Workflow Comment: [node:last-transition:comment] ([node:last-transition:created:medium])',
+//          array('node' => $node, 'WorkflowTransition' => $trans));
+//        drupal_set_message($msg);
+        if (!user_access('view approvers')) {
+          unset($node->content['field_approver']);
+        }
         break;
 
       default:
@@ -530,14 +551,6 @@ function captconnect_custom_node_view($node, $view_mode, $langcode) {
       drupal_set_message(t($msg, array('@type' => $types[$node->type])),
         'warning', FALSE);
     }
-  }
-
-  switch ($node->type) {
-    case 'event':
-      if (!user_access('view approvers')) {
-        unset($node->content['field_approver']);
-      }
-      break;
   }
 }
 
@@ -943,6 +956,30 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
           $form['#submit'][] = '_captconnect_custom_delete_redirect';
           break;
       }
+      break;
+
+    // Add/Edit Portal sub pages.
+    case 'portal_section_node_form':
+    case 'portal_page_node_form':          /*
+      if (!isset($user->og_user_node)) {
+        $user = user_load($user->uid);
+      }
+      $groups = array();
+      foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+        $groups[] = $grp['target_id'];
+      }
+      // Get list of all portals that this are part of this user's group.
+      $portals_query = "SELECT DISTINCT n.nid, n.title FROM node n "
+        . "INNER JOIN og_membership g ON g.etid = n.nid AND g.entity_type = 'node' "
+        . "WHERE n.type = 'portal' AND n.status = 1 "
+        . "AND g.gid IN (:teams) ";
+      $portals = db_query($portals_query, array(':teams' => $groups))->fetchAllKeyed();
+//      $form['og_group_ref_2'][LANGUAGE_NONE][0]['default']['#options'] += $portals;
+//      $dflt = array($_GET['field_related_portal_section'] => $_GET['field_related_portal_section']);
+//      $form['og_group_ref_2'][LANGUAGE_NONE][0]['default']['#default_value'] = $_GET['field_related_portal_section'];
+//      $form['og_group_ref_2'][LANGUAGE_NONE][0]['default']['#default_value'] = $dflt;
+//      dpm($form['og_group_ref_2'][LANGUAGE_NONE][0]['default'], 'og_group_ref_2');
+      /* */
       break;
 
     // Add/Edit Portal.
