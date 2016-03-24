@@ -7906,43 +7906,53 @@ body.section-portal #content .group-left table tbody td {
 }
 
 /* line 17, ../sass/admin/_admin.scss */
+tr.archived {
+  background-color: rgba(198, 209, 185, 0.35) !important;
+}
+
+/* line 21, ../sass/admin/_admin.scss */
+.page-administration .views-exposed-widget.views-submit-button {
+  clear: both;
+}
+
+/* line 25, ../sass/admin/_admin.scss */
 body.page-administration {
   line-height: 1.5em;
 }
-/* line 19, ../sass/admin/_admin.scss */
+/* line 27, ../sass/admin/_admin.scss */
 body.page-administration a, body.page-administration a:visited {
   color: #333333;
 }
-/* line 21, ../sass/admin/_admin.scss */
+/* line 29, ../sass/admin/_admin.scss */
 body.page-administration a:hover, body.page-administration a:visited:hover {
   color: #8c1d18;
 }
-/* line 25, ../sass/admin/_admin.scss */
+/* line 33, ../sass/admin/_admin.scss */
 body.page-administration fieldset {
   background: rgba(0, 0, 0, 0.06);
   margin: 20px 0;
   border: 1px solid rgba(128, 128, 128, 0.3);
   padding: 12px;
 }
-/* line 30, ../sass/admin/_admin.scss */
+/* line 38, ../sass/admin/_admin.scss */
 body.page-administration fieldset legend {
   font-weight: bold;
 }
-/* line 33, ../sass/admin/_admin.scss */
+/* line 41, ../sass/admin/_admin.scss */
 body.page-administration fieldset .form-item {
   clear: both;
   float: left;
   margin-top: 0;
 }
-/* line 38, ../sass/admin/_admin.scss */
+/* line 46, ../sass/admin/_admin.scss */
 body.page-administration fieldset input[type="submit"] {
   margin: 0 0 0 15px;
 }
-/* line 44, ../sass/admin/_admin.scss */
+/* line 52, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report td.views-field-field-date-instance, body.page-administration.page-administration-my-events td.views-field-field-date-instance {
   width: 220px;
 }
-/* line 47, ../sass/admin/_admin.scss */
+/* line 55, ../sass/admin/_admin.scss */
 body.page-administration.page-administration-event-report td.views-field-field-date, body.page-administration.page-administration-my-events td.views-field-field-date {
   min-width: 200px;
 }
@@ -7950,21 +7960,21 @@ body.page-administration.page-administration-event-report td.views-field-field-d
 /*
  *  styles from Nancy on 5/21-5/22:
  */
-/* line 56, ../sass/admin/_admin.scss */
+/* line 64, ../sass/admin/_admin.scss */
 #account-pass-restrictions {
   border: 1px solid #ff9933;
   font-family: Georgia, Palatino, serif;
   padding: 0 6px;
 }
 
-/* line 62, ../sass/admin/_admin.scss */
+/* line 70, ../sass/admin/_admin.scss */
 #account-pass-restrictions li {
   font-size: 120%;
   line-height: 1.25em;
   list-style-image: url("/misc/menu-collapsed.png");
 }
 
-/* line 68, ../sass/admin/_admin.scss */
+/* line 76, ../sass/admin/_admin.scss */
 div.group-audience, div.group-description, div.group-dates {
   /* h4 {
        margin-bottom: 0px;
@@ -7975,17 +7985,17 @@ div.group-audience, div.group-description, div.group-dates {
 }
 
 /* Float image on Presenters in Event view. */
-/* line 79, ../sass/admin/_admin.scss */
+/* line 87, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image {
   float: left;
 }
-/* line 81, ../sass/admin/_admin.scss */
+/* line 89, ../sass/admin/_admin.scss */
 .field-name-field-presenter .node-teaser .field-name-field-presenter-image div.field-content img {
   margin-right: 20px;
   border: 1px solid red;
 }
 
-/* line 87, ../sass/admin/_admin.scss */
+/* line 95, ../sass/admin/_admin.scss */
 div.views-field.views-field-field-presenter-image {
   margin: 5px 15px 0px 0px;
   /*16px 23px 0px 0px;*/
@@ -7995,7 +8005,7 @@ div.views-field.views-field-field-presenter-image {
 /*
  * page administration
  */
-/* line 135, ../sass/admin/_admin.scss */
+/* line 143, ../sass/admin/_admin.scss */
 body.page-administration div#content div#title-section h2 {
   display: none;
 }
@@ -8003,7 +8013,7 @@ body.page-administration div#content div#title-section h2 {
 /**
  * Switch User
  */
-/* line 144, ../sass/admin/_admin.scss */
+/* line 152, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user {
   margin-left: 90px;
   background-color: white;
@@ -8011,55 +8021,55 @@ div.block-devel#block-devel-switch-user {
   border: 1px solid #959595;
   width: 400px;
 }
-/* line 150, ../sass/admin/_admin.scss */
+/* line 158, ../sass/admin/_admin.scss */
 div.block-devel#block-devel-switch-user input.form-submit {
   background-color: #c3791f;
 }
 
-/* line 157, ../sass/admin/_admin.scss */
+/* line 165, ../sass/admin/_admin.scss */
 .section-administration .view-admin-content {
   width: 100%;
 }
 
-/* line 161, ../sass/admin/_admin.scss */
+/* line 169, ../sass/admin/_admin.scss */
 body.section-administration {
   line-height: 1.5em;
 }
-/* line 163, ../sass/admin/_admin.scss */
+/* line 171, ../sass/admin/_admin.scss */
 body.section-administration a, body.section-administration a:visited {
   color: #333333;
 }
-/* line 165, ../sass/admin/_admin.scss */
+/* line 173, ../sass/admin/_admin.scss */
 body.section-administration a:hover, body.section-administration a:visited:hover {
   color: #8c1d18;
 }
 
-/* line 176, ../sass/admin/_admin.scss */
+/* line 184, ../sass/admin/_admin.scss */
 .page-admin.role-site-maintainer .remove-term-stuff,
 .page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff {
   margin-bottom: 15px;
 }
-/* line 178, ../sass/admin/_admin.scss */
+/* line 186, ../sass/admin/_admin.scss */
 .page-admin.role-site-maintainer .remove-term-stuff h3,
 .page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff h3 {
   display: none;
 }
-/* line 181, ../sass/admin/_admin.scss */
+/* line 189, ../sass/admin/_admin.scss */
 .page-admin.role-site-maintainer .remove-term-stuff + div,
 .page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff + div {
   display: none;
 }
-/* line 183, ../sass/admin/_admin.scss */
+/* line 191, ../sass/admin/_admin.scss */
 .page-admin.role-site-maintainer .remove-term-stuff + div + fieldset,
 .page-taxonomy-term-edit.role-site-maintainer .remove-term-stuff + div + fieldset {
   display: none;
 }
 
-/* line 193, ../sass/admin/_admin.scss */
+/* line 201, ../sass/admin/_admin.scss */
 .page-administration #content {
   padding-bottom: 15px;
 }
-/* line 197, ../sass/admin/_admin.scss */
+/* line 205, ../sass/admin/_admin.scss */
 .page-administration .view-content h3 {
   margin: 20px 0px 0px;
   font-style: normal;
@@ -8071,15 +8081,15 @@ body.section-administration a:hover, body.section-administration a:visited:hover
   border-right: 1px solid #ccc;
   border-left: 1px solid #ccc;
 }
-/* line 210, ../sass/admin/_admin.scss */
+/* line 218, ../sass/admin/_admin.scss */
 .page-administration .view-content table tr td {
   width: 25%;
 }
-/* line 212, ../sass/admin/_admin.scss */
+/* line 220, ../sass/admin/_admin.scss */
 .page-administration .view-content table tr td a:hover {
   text-decoration: underline;
 }
-/* line 216, ../sass/admin/_admin.scss */
+/* line 224, ../sass/admin/_admin.scss */
 .page-administration .view-content table tr:nth-child(odd) {
   background: #F7F7F7;
 }
