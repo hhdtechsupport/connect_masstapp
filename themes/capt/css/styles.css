@@ -7079,13 +7079,14 @@ body.node-type-event.not-logged-in div#content.column {
 /* line 518, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row {
   position: relative;
+  padding-bottom: 20px;
 }
-/* line 521, ../sass/main_pages/_event.scss */
+/* line 522, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view > .field-content > .view-instances > .view-content, .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-1 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
 }
-/* line 527, ../sass/main_pages/_event.scss */
+/* line 528, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-4 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
@@ -7100,25 +7101,25 @@ body.node-type-event.not-logged-in div#content.column {
   color: #8c1d18;
   font-size: 1.25em;
 }
-/* line 542, ../sass/main_pages/_event.scss */
+/* line 543, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php {
   text-decoration: underline;
   margin-top: -22px;
   margin-left: 14px;
   margin-bottom: 20px;
 }
-/* line 547, ../sass/main_pages/_event.scss */
+/* line 548, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a {
   color: #333333 !important;
   font-weight: normal;
   cursor: pointer;
 }
-/* line 551, ../sass/main_pages/_event.scss */
+/* line 552, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a:hover {
   color: #8c1d18 !important;
 }
 
-/* line 561, ../sass/main_pages/_event.scss */
+/* line 562, ../sass/main_pages/_event.scss */
 .role-administrator .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-2 {
   display: none;
 }
@@ -10039,6 +10040,13 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     line-height: 1.2em;
   }
   /* line 173, ../sass/phone/_phone-event-detail.scss */
+  body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds > .field-items > .field-item > .view-instances > .view-content > .views-row,
+  body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row,
+  body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event > .field-items > .field-item > .view-instances > .view-content > .views-row,
+  body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 > .field-items > .field-item > .view-instances > .view-content > .views-row {
+    padding-bottom: 0px;
+  }
+  /* line 176, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event h2,
@@ -10053,14 +10061,14 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 20px !important;
     margin-bottom: 0px !important;
   }
-  /* line 185, ../sass/phone/_phone-event-detail.scss */
+  /* line 188, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s-:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event:before,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2:before {
     height: 0px;
   }
-  /* line 188, ../sass/phone/_phone-event-detail.scss */
+  /* line 191, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds div.item-list,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event div.item-list,
@@ -10068,7 +10076,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-left: 20px;
     border-top-width: 0px;
   }
-  /* line 192, ../sass/phone/_phone-event-detail.scss */
+  /* line 195, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials.field-type-ds h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h4,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event h4,
@@ -10083,140 +10091,140 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     margin-bottom: auto;
     padding-top: 0px;
   }
-  /* line 204, ../sass/phone/_phone-event-detail.scss */
+  /* line 207, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- h2 {
     margin-top: 0px !important;
   }
-  /* line 207, ../sass/phone/_phone-event-detail.scss */
+  /* line 210, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 {
     margin-bottom: -10px;
   }
-  /* line 210, ../sass/phone/_phone-event-detail.scss */
+  /* line 213, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event ~ div.field-type-ds.field-name-event-date-s- h2,
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-join-this-event-2 ~ div.field-type-ds.field-name-event-date-s- h2 {
     margin-top: 10px !important;
   }
-  /* line 214, ../sass/phone/_phone-event-detail.scss */
+  /* line 217, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials {
     border-top: 1px solid #d7d7d7;
   }
-  /* line 216, ../sass/phone/_phone-event-detail.scss */
+  /* line 219, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials h2.block-title {
     margin-top: 0px !important;
     margin-bottom: 0px !important;
   }
-  /* line 220, ../sass/phone/_phone-event-detail.scss */
+  /* line 223, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials div.item-list {
     margin-left: 26px !important;
     margin-top: 0px;
   }
-  /* line 226, ../sass/phone/_phone-event-detail.scss */
+  /* line 229, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list {
     margin-left: 0px !important;
   }
-  /* line 228, ../sass/phone/_phone-event-detail.scss */
+  /* line 231, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-type-ds.field-name-event-date-s- div.item-list li {
     width: auto !important;
   }
-  /* line 234, ../sass/phone/_phone-event-detail.scss */
+  /* line 237, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked .group-right .view-instances {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 241, ../sass/phone/_phone-event-detail.scss */
+  /* line 244, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked .group-left .block-views h2, body.node-type-event .ds-2col-stacked .group-left .field-type-ds h2 {
     border-left: 0px !important;
     border-right: 0px !important;
   }
-  /* line 248, ../sass/phone/_phone-event-detail.scss */
+  /* line 251, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left {
     width: 100%;
     background-color: white;
     padding-bottom: 0px;
     /* make an extensible class?*/
   }
-  /* line 253, ../sass/phone/_phone-event-detail.scss */
+  /* line 256, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left:before {
     height: 5px;
   }
-  /* line 260, ../sass/phone/_phone-event-detail.scss */
+  /* line 263, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image {
     margin-right: -22px;
   }
-  /* line 262, ../sass/phone/_phone-event-detail.scss */
+  /* line 265, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image div.field-content,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image div.field-content,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image div.field-content {
     width: 75%;
     height: 75%;
   }
-  /* line 265, ../sass/phone/_phone-event-detail.scss */
+  /* line 268, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-field-field-presenter-image div.field-content img,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-field-field-presenter-image div.field-content img,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-field-field-presenter-image div.field-content img {
     width: 100%;
     height: 100%;
   }
-  /* line 271, ../sass/phone/_phone-event-detail.scss */
+  /* line 274, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience .views-row,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter .views-row,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description .views-row {
     min-height: 120px;
   }
-  /* line 274, ../sass/phone/_phone-event-detail.scss */
+  /* line 277, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-name-presenters,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-name-presenters,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-name-presenters {
     border-top: 0px;
     border-bottom: 0px;
   }
-  /* line 277, ../sass/phone/_phone-event-detail.scss */
+  /* line 280, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-name-presenters .view-presenters .views-row:last-child,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-name-presenters .view-presenters .views-row:last-child,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-name-presenters .view-presenters .views-row:last-child {
     margin-bottom: 0px;
   }
-  /* line 281, ../sass/phone/_phone-event-detail.scss */
+  /* line 284, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-audience div.field-type-text-long,
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter div.field-type-text-long,
   body.node-type-event .ds-2col-stacked > .group-left div.group-description div.field-type-text-long {
     border-top: 0px;
   }
-  /* line 286, ../sass/phone/_phone-event-detail.scss */
+  /* line 289, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left > div:nth-child(1) p {
     width: 95%;
   }
-  /* line 291, ../sass/phone/_phone-event-detail.scss */
+  /* line 294, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left > div:not(:nth-child(1)) h4, body.node-type-event .ds-2col-stacked > .group-left > div:not(:nth-child(1)) h2 {
     margin-top: 0px;
     padding-top: 17px;
     border-top: 1px solid #d7d7d7;
   }
-  /* line 298, ../sass/phone/_phone-event-detail.scss */
+  /* line 301, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.group-presenter p {
     width: 95%;
   }
-  /* line 303, ../sass/phone/_phone-event-detail.scss */
+  /* line 306, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials {
     padding-top: 0px;
   }
-  /* line 305, ../sass/phone/_phone-event-detail.scss */
+  /* line 308, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul {
     padding-left: 15px;
   }
-  /* line 307, ../sass/phone/_phone-event-detail.scss */
+  /* line 310, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul li {
     margin-top: 0px;
     margin-bottom: 0px !important;
   }
-  /* line 310, ../sass/phone/_phone-event-detail.scss */
+  /* line 313, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials ul li:last-child {
     padding-bottom: 15px;
   }
-  /* line 315, ../sass/phone/_phone-event-detail.scss */
+  /* line 318, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-name-all-followup-materials h2 {
     margin-top: 0px;
     padding-top: 17px;
@@ -10233,36 +10241,36 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-repeat: no-repeat;
     margin-bottom: 0px;
   }
-  /* line 333, ../sass/phone/_phone-event-detail.scss */
+  /* line 336, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- {
     width: 100%;
     padding: 0px;
     background-color: white;
     border: 0px;
   }
-  /* line 340, ../sass/phone/_phone-event-detail.scss */
+  /* line 343, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row:not(:nth-child(1)) {
     border-top: 1px solid #d7d7d7;
     padding-top: 20px;
   }
-  /* line 344, ../sass/phone/_phone-event-detail.scss */
+  /* line 347, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view, body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-1 {
     line-height: 3;
   }
-  /* line 348, ../sass/phone/_phone-event-detail.scss */
+  /* line 351, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-4 > .field-content > .view-instances > .view-content {
     background: rgba(255, 255, 255, 0.6);
   }
-  /* line 353, ../sass/phone/_phone-event-detail.scss */
+  /* line 356, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- li.views-row > strong {
     display: list-item;
   }
-  /* line 356, ../sass/phone/_phone-event-detail.scss */
+  /* line 359, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul {
     background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
     padding-left: 14px;
   }
-  /* line 359, ../sass/phone/_phone-event-detail.scss */
+  /* line 362, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row {
     width: 90%;
     display: list-item;
@@ -10272,47 +10280,47 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     padding-top: 0px;
     padding-left: 0px;
   }
-  /* line 367, ../sass/phone/_phone-event-detail.scss */
+  /* line 370, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row > .views-field {
     margin-left: 0px;
   }
-  /* line 369, ../sass/phone/_phone-event-detail.scss */
+  /* line 372, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row > .views-field > .field-content {
     margin-left: 0px;
   }
-  /* line 371, ../sass/phone/_phone-event-detail.scss */
+  /* line 374, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row > .views-field > .field-content .date-display-range {
     margin-left: 0px;
   }
-  /* line 377, ../sass/phone/_phone-event-detail.scss */
+  /* line 380, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row strong {
     position: relative;
   }
-  /* line 381, ../sass/phone/_phone-event-detail.scss */
+  /* line 384, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row span.date-display-single {
     position: relative;
   }
-  /* line 387, ../sass/phone/_phone-event-detail.scss */
+  /* line 390, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s- div.item-list ul li.views-row div.views-field.views-field-ops {
     margin-left: 0px;
     position: relative;
   }
-  /* line 393, ../sass/phone/_phone-event-detail.scss */
+  /* line 396, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked > .group-left div.field-type-ds.field-name-event-date-s-:before {
     background-color: white;
     height: 0px;
   }
 
-  /* line 403, ../sass/phone/_phone-event-detail.scss */
+  /* line 406, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login {
     padding-top: 0px;
     width: 100%;
   }
-  /* line 406, ../sass/phone/_phone-event-detail.scss */
+  /* line 409, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login:before {
     top: -15px;
   }
-  /* line 409, ../sass/phone/_phone-event-detail.scss */
+  /* line 412, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-label {
     font-size: 20px;
     color: #334b56;
@@ -10327,20 +10335,20 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     background-position: 6px 22px;
     cursor: pointer;
   }
-  /* line 423, ../sass/phone/_phone-event-detail.scss */
+  /* line 426, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items {
     background: #fff;
     padding: 0px 25px 40px 20px !important;
   }
-  /* line 426, ../sass/phone/_phone-event-detail.scss */
+  /* line 429, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items input.form-text {
     width: 220px;
   }
-  /* line 429, ../sass/phone/_phone-event-detail.scss */
+  /* line 432, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items .description {
     display: none;
   }
-  /* line 432, ../sass/phone/_phone-event-detail.scss */
+  /* line 435, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items a.request-password-link {
     font-weight: normal;
     color: #8c1d18;
@@ -10348,96 +10356,96 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     font-size: 11px;
     top: -5px;
   }
-  /* line 438, ../sass/phone/_phone-event-detail.scss */
+  /* line 441, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items a.request-password-link:hover {
     text-decoration: underline;
   }
-  /* line 442, ../sass/phone/_phone-event-detail.scss */
+  /* line 445, ../sass/phone/_phone-event-detail.scss */
   .field-name-already-registered-please-login .field-items #edit-actions {
     float: right;
     top: -40px;
     right: 65px;
   }
 
-  /* line 453, ../sass/phone/_phone-event-detail.scss */
+  /* line 456, ../sass/phone/_phone-event-detail.scss */
   .accordion {
     border: 0px;
   }
-  /* line 455, ../sass/phone/_phone-event-detail.scss */
+  /* line 458, ../sass/phone/_phone-event-detail.scss */
   .accordion .header {
     background-image: url("../images/icons/hide.png") !important;
   }
-  /* line 457, ../sass/phone/_phone-event-detail.scss */
+  /* line 460, ../sass/phone/_phone-event-detail.scss */
   .accordion .header.closed {
     background-image: url("../images/icons/show.png") !important;
   }
-  /* line 461, ../sass/phone/_phone-event-detail.scss */
+  /* line 464, ../sass/phone/_phone-event-detail.scss */
   .accordion .body {
     background: #fff;
   }
 
-  /* line 469, ../sass/phone/_phone-event-detail.scss */
+  /* line 472, ../sass/phone/_phone-event-detail.scss */
   .section-events .block-views .view-content {
     padding: 0px !important;
   }
-  /* line 471, ../sass/phone/_phone-event-detail.scss */
+  /* line 474, ../sass/phone/_phone-event-detail.scss */
   .section-events .block-views .view-content > .item-list:first-child {
     border-top: 0px !important;
   }
 
-  /* line 478, ../sass/phone/_phone-event-detail.scss */
+  /* line 481, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page {
     padding-bottom: 20px;
     margin-bottom: 100px;
   }
-  /* line 483, ../sass/phone/_phone-event-detail.scss */
+  /* line 486, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 #name-and-slogan {
     top: 0px;
     left: 0px;
     position: relative;
   }
-  /* line 487, ../sass/phone/_phone-event-detail.scss */
+  /* line 490, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 #name-and-slogan.category {
     top: 0px;
   }
-  /* line 491, ../sass/phone/_phone-event-detail.scss */
+  /* line 494, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted {
     top: 0px;
     font-size: inherit;
   }
-  /* line 494, ../sass/phone/_phone-event-detail.scss */
+  /* line 497, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted.category {
     top: 0px;
   }
-  /* line 496, ../sass/phone/_phone-event-detail.scss */
+  /* line 499, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page header#header .header-blue-2 .region-highlighted.category #block-block-13 {
     font-size: 0.8em;
   }
-  /* line 503, ../sass/phone/_phone-event-detail.scss */
+  /* line 506, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page h1#page-title {
     font-size: 28px !important;
     margin-top: 10px;
   }
-  /* line 507, ../sass/phone/_phone-event-detail.scss */
+  /* line 510, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div#page #user-login #edit-actions input#edit-submit {
     top: 30px;
   }
 
-  /* line 512, ../sass/phone/_phone-event-detail.scss */
+  /* line 515, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer {
     margin-top: -103px;
   }
-  /* line 513, ../sass/phone/_phone-event-detail.scss */
+  /* line 516, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event div.bottom-footer footer#footer {
     margin-left: 0px;
   }
 
-  /* line 525, ../sass/phone/_phone-event-detail.scss */
+  /* line 528, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials {
     border-left: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
   }
-  /* line 528, ../sass/phone/_phone-event-detail.scss */
+  /* line 531, ../sass/phone/_phone-event-detail.scss */
   body.node-type-event .ds-2col-stacked div.field-name-materials div.item-list {
     margin-left: 0px !important;
   }
