@@ -21,7 +21,7 @@
  *      'tokens' - The list of tokens for emails.
  *
  * @return none - Modify the list by reference.
- */
+ */ /*
 function captconnect_custom_workflow_notify($op, &$args) {
 //  dpm($args, "captconnect_custom_workflow_notify $op");
   switch ($op) {
@@ -47,7 +47,8 @@ function captconnect_custom_workflow_notify($op, &$args) {
 
       break;
   }
-}
+} /* */
+
 /**
  * Implements hook_workflow().
  *
