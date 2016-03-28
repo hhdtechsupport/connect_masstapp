@@ -106,14 +106,23 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
           // Get the node's team group value(s).
           $groups = field_get_items('node', $node, 'og_group_ref');
 
-          foreach ($groups as $group) {
-            // See if the current user is a member of the node's group.
-            if (og_is_member('node', $group['target_id'], 'user')) {
-              return TRUE;
-            }
+          if (empty($groups)) {
+            $types = node_type_get_names();
+            $msg = variable_get('captconnect_custom_missing_group_msg',
+              'This @type needs to belong to a group.');
+            drupal_set_message(t($msg, array('@type' => $types[$node->type])), 'error', FALSE);
+            return FALSE;
           }
-          // Nope the user is not in any of the node's groups.
-          return FALSE;
+          else {
+            foreach ($groups as $group) {
+              // See if the current user is a member of the node's group.
+              if (og_is_member('node', $group['target_id'], 'user')) {
+                return TRUE;
+              }
+            }
+            // Nope the user is not in any of the node's groups.
+            return FALSE;
+          }
       }
     }
 }

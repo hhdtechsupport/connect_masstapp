@@ -484,6 +484,16 @@ function captconnect_custom_message_texts($form, $form_state) {
       content is viewed. Use "@type" to show the content type.'),
     );
 
+  $form['captconnect_custom_missing_group_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Missing Group Message'),
+    '#default_value' => variable_get('captconnect_custom_missing_group_msg',
+      'This @type needs to belong to a group.'),
+    '#description' => t('This message is displayed when content that must be
+      assigned to a Resource Team is not. Use "@type" to show the content type.'),
+    );
+
   $form['#theme'] = 'captconnect_custom_message_texts';
 
   return system_settings_form($form);
@@ -551,7 +561,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_unpublished_content_msg']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_missing_group_msg']), 'style' => $style),
     );
 
   $output .= theme('table', array(
