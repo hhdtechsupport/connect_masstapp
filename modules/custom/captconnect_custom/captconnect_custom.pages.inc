@@ -160,13 +160,6 @@ function captconnect_custom_view_registrations($node) {
             );
         }
       }
-      else {
-        $table['rows'][] = array(array(
-          'data' => t('There are no registrations for this instance yet.'),
-          'colspan' => 20,
-          'class' => array('no-registrations'),
-          ));
-      }
 
       // Display Access information.
       $text = $instance->field_access_information->value();
@@ -380,7 +373,7 @@ function captconnect_custom_view_user_content($account) {
   $types = node_type_get_names();
 
   foreach ($result as $row) {
-    $type = ($node_type_present ? 
+    $type = ($node_type_present ?
       l($types[$row->type], 'node/type/' . $row->type . '/' . $account->uid)
       : filter_xss($types[$row->type]));
     $table['rows'][] = array(

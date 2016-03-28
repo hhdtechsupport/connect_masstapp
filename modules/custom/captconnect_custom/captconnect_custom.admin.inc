@@ -159,7 +159,7 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#description' => t('If an event is marked as not needing an approver,
       advance its workflow state to this one.'),
     );
-    
+
   $node_types = node_type_get_names();
   $form['captconnect_custom_unpublished_content_types'] = array(
     '#type' => 'checkboxes',
@@ -168,6 +168,15 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#default_value' => variable_get('captconnect_custom_unpublished_content_types', array()),
     '#description' => t('If a piece of content is marked as unpublished,
       display a message to that effect.'),
+    );
+
+  $form['captconnect_custom_check_group_access'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $node_types,
+    '#title' => t('Check update access by group'),
+    '#default_value' => variable_get('captconnect_custom_check_group_access', array()),
+    '#description' => t('Before allowing edit access to these content types,
+      check the grroup (team) to which the user belongs.'),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
@@ -229,7 +238,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_unpublished_content_types']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_check_group_access']), 'style' => $style),
     );
 
   $rows[] = array(
@@ -471,10 +480,19 @@ function captconnect_custom_message_texts($form, $form_state) {
     '#title' => t('Unpublished Content Message'),
     '#default_value' => variable_get('captconnect_custom_unpublished_content_msg',
       'This @type is currently unpublished. Users are not be able to access the content on this page.'),
-    '#description' => t('This message is displayed when some unpublished 
+    '#description' => t('This message is displayed when some unpublished
       content is viewed. Use "@type" to show the content type.'),
     );
 
+  $form['captconnect_custom_missing_group_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Missing Group Message'),
+    '#default_value' => variable_get('captconnect_custom_missing_group_msg',
+      'This @type needs to belong to a group.'),
+    '#description' => t('This message is displayed when content that must be
+      assigned to a Resource Team is not. Use "@type" to show the content type.'),
+    );
 
   $form['#theme'] = 'captconnect_custom_message_texts';
 
@@ -543,7 +561,7 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_unpublished_content_msg']), 'style' => $style),
-    array('data' => "&nbsp;", 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_missing_group_msg']), 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -553,4 +571,81 @@ function theme_captconnect_custom_message_texts(&$variables) {
 
   $output .= drupal_render_children($form);
   return $output;
+}
+
+/**
+ * Field Check form.
+ * Block workflow transitions if selected fields are still empty.
+ */
+function captconnect_custom_field_check_form($form, $form_state) {
+  $fields = array();
+  $node_type = 'event';
+  $type_name = node_type_get_name($node_type);
+
+  // Get all the fields for this node type.
+  $field_list = field_info_instances('node', $node_type);
+
+  // Skip certain types of fields.
+  $skip_types = array(
+    'field_hidden',
+    'serial',
+    );
+
+  // Check each one and build an options list.
+  foreach ($field_list as $field_name => $values) {
+    if (in_array($values['widget']['type'], $skip_types)) {
+      continue;
+    }
+    $fields[$field_name] = check_plain($values['label']);
+  }
+
+  // Put them in alpha order by label.
+  asort($fields);
+
+  // Get the event states list.
+  $workflow = workflow_get_workflows_by_type($node_type, 'node');
+  $state_list = $workflow->getStates(TRUE);
+  $states = array();
+  foreach ($state_list as $state) {
+    // Leave out the creation state.
+    if ($state->sysid == 0) {
+      $states[$state->sid] = $state->state;
+    }
+  }
+
+  $form['captconnect_custom_check_fields'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $fields,
+    '#title' => t('Check the following @name fields for contents',
+      array('@name' => $type_name)),
+    '#default_value' => variable_get('captconnect_custom_check_fields', array()),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div>',
+    );
+
+  $form['captconnect_custom_check_fields_states'] = array(
+    '#title' => t('Block transitions to'),
+    '#type' => 'checkboxes',
+    '#options' => $states,
+    '#default_value' => variable_get('captconnect_custom_check_fields_states', array()),
+    '#description' => t('If any of the selected fields is empty, the chosen states
+      will be blocked from the change state form.'),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div><br />',
+    );
+
+  $form['captconnect_custom_check_fields_msg'] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('Empty Fields Message'),
+    '#default_value' => variable_get('captconnect_custom_check_fields_msg',
+      'This needs to be corrected in order to publish this Event.'),
+    '#description' => t('This message is displayed when an Event might be moved
+      into the specified state. A message identifying the field will
+      have already appeared.'),
+    '#prefix' => '<div style="float: left; width:49%;">',
+    '#suffix' => '</div><br />',
+    );
+
+  return system_settings_form($form);
 }
