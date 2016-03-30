@@ -622,7 +622,8 @@ function otherSelectbox ($field, $fieldPrev) {
 
   if ($('body').hasClass('logged-in')   ||
       $('body').hasClass('page-events') ||
-      $('body').hasClass('node-type-page')) {
+      $('body').hasClass('node-type-page') ||
+      $('body').hasClass('node-type-event')) {
     $('.header-photos-2 .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
     $('.header-photos-2 .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
     timeout_init(photos, photo_count);
