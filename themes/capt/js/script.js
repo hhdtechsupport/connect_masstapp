@@ -795,6 +795,26 @@ function otherSelectbox ($field, $fieldPrev) {
   // Change edit term pages' titles to Admin
   $('.page-taxonomy-term-edit h1#page-title').text('Admin');
 
+  // If Event Materials block is empty, then remove the entire block from DOM
+  $('#block-views-materials-block > .view-materials').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).closest('.field-name-materials').remove();
+    }
+  });
+
+  // If Event Materials .view-content is empty, then remove that part from DOM
+  $('#block-views-materials-block > .view-materials .view-content').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).remove();
+    }
+  });
+
+  // If Event Materials .view-content is empty, then remove that part from DOM
+  $('#block-views-materials-block > .view-materials .view-footer').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).remove();
+    }
+  });
 
 
   /*
@@ -941,6 +961,9 @@ function otherSelectbox ($field, $fieldPrev) {
       $field.find('.end-date-wrapper .date-padding > .form-item:nth-child(1) input').val($(this).val());
     });
   });
+
+
+
 
 
 
