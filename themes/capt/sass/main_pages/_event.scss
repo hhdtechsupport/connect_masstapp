@@ -209,6 +209,21 @@ body.page-group-node {
       margin-left: 0px;
       display: inline;
     }
+    .view-materials .view-content .view-materials {
+      .views-field {
+        display: block;
+      }
+      .views-row-last {
+        padding-bottom: 0px !important;
+      }
+    }
+    .view-materials .views-field-field-body {
+      & + .views-field-view {
+        .item-list {
+          // border-top: 1px solid #d7d7d7;
+        }
+      }
+    }
     .field-name-join-this-event, .field-name-join-this-event-2 {
       .block-views {
         margin-bottom: -10px;

@@ -2234,7 +2234,7 @@ li.messages__item:contains("Updated term") {
   display: none;
 }
 
-/* line 1356, ../sass/sitewide/_general.scss */
+/* line 1394, ../sass/sitewide/_general.scss */
 #block-block-25 {
   position: absolute;
   right: 0px;
@@ -2242,13 +2242,13 @@ li.messages__item:contains("Updated term") {
   top: -20px;
   z-index: 99999;
 }
-/* line 1362, ../sass/sitewide/_general.scss */
+/* line 1400, ../sass/sitewide/_general.scss */
 #block-block-25 a, #block-block-25 a:visited {
   color: #777777;
   text-decoration: underline;
   font-weight: normal;
 }
-/* line 1366, ../sass/sitewide/_general.scss */
+/* line 1404, ../sass/sitewide/_general.scss */
 #block-block-25 a:hover, #block-block-25 a:visited:hover {
   color: #333333;
 }
@@ -4908,7 +4908,7 @@ body.not-logged-in.page-user:not(.page-user-register) #block-block-8 h2.custom_b
 body.not-logged-in.page-anon-login #block-block-8 h2.custom_block_title,
 body.not-logged-in.page-anon-login #block-block-18 h2.custom_block_title {
   margin-top: 0px;
-  margin-left: 30px;
+  margin-left: 20px;
   font-size: 1.8em;
 }
 /* line 112, ../sass/main_pages/_login.scss */
@@ -5038,7 +5038,7 @@ body.not-logged-in.page-anon-login #block-block-18 h2.custom_block_title {
 /* line 200, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description,
 body.not-logged-in.page-anon-login #block-block-18 .description {
-  margin: 0 30px;
+  margin: 0 20px;
 }
 /* line 202, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description a,
@@ -5053,25 +5053,35 @@ body.not-logged-in.page-anon-login #block-block-18 .description a.arrow-link {
   background: url("../images/icons/right-arrow-orange.png") 0px 1px no-repeat;
   width: 250px;
   padding-left: 25px;
-  margin-left: 0;
   color: #c3791f;
   text-decoration: none;
+  margin: 30px 0px;
 }
-/* line 215, ../sass/main_pages/_login.scss */
+/* line 213, ../sass/main_pages/_login.scss */
+body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description a.arrow-link:hover,
+body.not-logged-in.page-anon-login #block-block-18 .description a.arrow-link:hover {
+  text-decoration: underline;
+}
+/* line 218, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user:not(.page-user-register) #block-block-18 .description p:nth-child(2),
 body.not-logged-in.page-anon-login #block-block-18 .description p:nth-child(2) {
   margin-top: 25px;
 }
 
-/* line 223, ../sass/main_pages/_login.scss */
+/* line 226, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user.page-user-password h1#page-title {
   margin-left: 27px;
   text-transform: capitalize;
 }
-/* line 227, ../sass/main_pages/_login.scss */
+/* line 230, ../sass/main_pages/_login.scss */
 body.not-logged-in.page-user.page-user-password label[for="edit-name"] {
   font-weight: normal !important;
   font-size: 16px !important;
+}
+
+/* line 237, ../sass/main_pages/_login.scss */
+body.page-anon-login h1#page-title {
+  margin-right: 20px;
 }
 
 /*
@@ -5828,6 +5838,48 @@ body.page-group-node .ds-2col > .group-right .view-content .field-content .views
   display: inline;
 }
 /* line 213, ../sass/main_pages/_event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-event .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal-section .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal-section .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal-page .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.node-type-portal-page .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-reorder-sections .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-reorder-sections .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-reorder-pages .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-reorder-pages .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-access .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-access .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-manage-members .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-node-manage-members .ds-2col > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-group-node .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-field,
+body.page-group-node .ds-2col > .group-right .view-materials .view-content .view-materials .views-field {
+  display: block;
+}
+/* line 216, ../sass/main_pages/_event.scss */
+body.node-type-event .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-event .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal-section .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal-section .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal-page .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.node-type-portal-page .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-reorder-sections .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-reorder-sections .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-reorder-pages .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-reorder-pages .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-access .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-access .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-manage-members .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-node-manage-members .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-group-node .ds-2col-stacked > .group-right .view-materials .view-content .view-materials .views-row-last,
+body.page-group-node .ds-2col > .group-right .view-materials .view-content .view-materials .views-row-last {
+  padding-bottom: 0px !important;
+}
+/* line 228, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event .block-views, body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event-2 .block-views,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event .block-views,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event-2 .block-views,
@@ -5865,7 +5917,7 @@ body.page-group-node .ds-2col > .group-right .field-name-join-this-event .block-
 body.page-group-node .ds-2col > .group-right .field-name-join-this-event-2 .block-views {
   margin-bottom: -10px;
 }
-/* line 216, ../sass/main_pages/_event.scss */
+/* line 231, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event .views-row, body.node-type-event .ds-2col-stacked > .group-right .field-name-join-this-event-2 .views-row,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event .views-row,
 body.node-type-event .ds-2col > .group-right .field-name-join-this-event-2 .views-row,
@@ -5903,7 +5955,7 @@ body.page-group-node .ds-2col > .group-right .field-name-join-this-event .views-
 body.page-group-node .ds-2col > .group-right .field-name-join-this-event-2 .views-row {
   overflow: hidden;
 }
-/* line 221, ../sass/main_pages/_event.scss */
+/* line 236, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.field-content,
 body.node-type-event .ds-2col > .group-right .views-row div.field-content,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.field-content,
@@ -5924,7 +5976,7 @@ body.page-group-node .ds-2col-stacked > .group-right .views-row div.field-conten
 body.page-group-node .ds-2col > .group-right .views-row div.field-content {
   clear: left;
 }
-/* line 224, ../sass/main_pages/_event.scss */
+/* line 239, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date,
@@ -5947,7 +5999,7 @@ body.page-group-node .ds-2col > .group-right .views-row div.views-field-field-da
   margin-right: 3px;
   padding: 0px 10px 15px;
 }
-/* line 228, ../sass/main_pages/_event.scss */
+/* line 243, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date a.unflag-action,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date a.unflag-action,
@@ -5968,7 +6020,7 @@ body.page-group-node .ds-2col-stacked > .group-right .views-row div.views-field-
 body.page-group-node .ds-2col > .group-right .views-row div.views-field-field-date a.unflag-action {
   font-weight: normal;
 }
-/* line 232, ../sass/main_pages/_event.scss */
+/* line 247, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-date-1,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-date-1,
@@ -5989,7 +6041,7 @@ body.page-group-node .ds-2col-stacked > .group-right .views-row div.views-field-
 body.page-group-node .ds-2col > .group-right .views-row div.views-field-field-date-1 {
   margin-right: 4px;
 }
-/* line 235, ../sass/main_pages/_event.scss */
+/* line 250, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .views-row div.views-field-field-access-information,
 body.node-type-event .ds-2col > .group-right .views-row div.views-field-field-access-information,
 body.node-type-portal .ds-2col-stacked > .group-right .views-row div.views-field-field-access-information,
@@ -6012,7 +6064,7 @@ body.page-group-node .ds-2col > .group-right .views-row div.views-field-field-ac
   clear: both;
   padding: 0px 10px;
 }
-/* line 241, ../sass/main_pages/_event.scss */
+/* line 256, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .item-list h3,
 body.node-type-event .ds-2col > .group-right .item-list h3,
 body.node-type-portal .ds-2col-stacked > .group-right .item-list h3,
@@ -6033,7 +6085,7 @@ body.page-group-node .ds-2col-stacked > .group-right .item-list h3,
 body.page-group-node .ds-2col > .group-right .item-list h3 {
   font-size: 16px;
 }
-/* line 245, ../sass/main_pages/_event.scss */
+/* line 260, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s-,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-,
@@ -6054,7 +6106,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-e
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-event-date-s- {
   padding-top: 25px;
 }
-/* line 248, ../sass/main_pages/_event.scss */
+/* line 263, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s-:before,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s-:before,
@@ -6076,7 +6128,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-event-dat
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 252, ../sass/main_pages/_event.scss */
+/* line 267, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.register,
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- div.button.cancel,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s- div.button.register,
@@ -6116,7 +6168,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-event-dat
   margin-top: 5px;
   display: block;
 }
-/* line 257, ../sass/main_pages/_event.scss */
+/* line 272, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- .field-items,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-event-date-s- .field-items,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-event-date-s- .field-items,
@@ -6137,7 +6189,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-e
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-event-date-s- .field-items {
   margin-top: -5px;
 }
-/* line 263, ../sass/main_pages/_event.scss */
+/* line 278, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2,
@@ -6175,7 +6227,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 {
   padding-top: 25px;
 }
-/* line 265, ../sass/main_pages/_event.scss */
+/* line 280, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event:before, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2:before,
@@ -6214,7 +6266,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 269, ../sass/main_pages/_event.scss */
+/* line 284, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event .views-field-field-date .field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 .views-field-field-date .field-content,
@@ -6253,7 +6305,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
   background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
   padding-left: 14px;
 }
-/* line 273, ../sass/main_pages/_event.scss */
+/* line 288, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event .button, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 .button,
@@ -6292,7 +6344,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
   margin: 15px 0 25px;
   float: right;
 }
-/* line 277, ../sass/main_pages/_event.scss */
+/* line 292, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event ul, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul,
@@ -6330,7 +6382,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul {
   padding-left: 0px;
 }
-/* line 279, ../sass/main_pages/_event.scss */
+/* line 294, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event ul li, body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-join-this-event-2 ul li,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event ul li,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-join-this-event-2 ul li,
@@ -6372,7 +6424,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-join-this
   background: url("../images/icons/arrow-icons.png") no-repeat 0 5px;
   padding-left: 14px;
 }
-/* line 294, ../sass/main_pages/_event.scss */
+/* line 309, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials,
 body.node-type-event .ds-2col > .group-right div.field-name-materials,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials,
@@ -6393,7 +6445,7 @@ body.page-group-node .ds-2col-stacked > .group-right div.field-name-materials,
 body.page-group-node .ds-2col > .group-right div.field-name-materials {
   padding-top: 25px;
 }
-/* line 296, ../sass/main_pages/_event.scss */
+/* line 311, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials:before,
 body.node-type-event .ds-2col > .group-right div.field-name-materials:before,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials:before,
@@ -6415,7 +6467,7 @@ body.page-group-node .ds-2col > .group-right div.field-name-materials:before {
   margin-left: -27px;
   padding-left: 54px;
 }
-/* line 300, ../sass/main_pages/_event.scss */
+/* line 315, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials h2.block-title,
 body.node-type-event .ds-2col > .group-right div.field-name-materials h2.block-title,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials h2.block-title,
@@ -6436,7 +6488,7 @@ body.page-group-node .ds-2col-stacked > .group-right div.field-name-materials h2
 body.page-group-node .ds-2col > .group-right div.field-name-materials h2.block-title {
   margin-top: -5px;
 }
-/* line 304, ../sass/main_pages/_event.scss */
+/* line 319, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul,
@@ -6458,7 +6510,7 @@ body.page-group-node .ds-2col > .group-right div.field-name-materials div#block-
   padding-left: 0px;
   margin-bottom: 0px;
 }
-/* line 307, ../sass/main_pages/_event.scss */
+/* line 322, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row,
@@ -6485,7 +6537,7 @@ body.page-group-node .ds-2col > .group-right div.field-name-materials div#block-
   padding-bottom: 15px;
   background: none;
 }
-/* line 315, ../sass/main_pages/_event.scss */
+/* line 330, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1),
@@ -6506,7 +6558,7 @@ body.page-group-node .ds-2col-stacked > .group-right div.field-name-materials di
 body.page-group-node .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row:nth-child(1) {
   padding-top: 0px;
 }
-/* line 318, ../sass/main_pages/_event.scss */
+/* line 333, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-material,
@@ -6529,7 +6581,7 @@ body.page-group-node .ds-2col > .group-right div.field-name-materials div#block-
   padding-left: 23px;
   padding-bottom: 3px;
 }
-/* line 323, ../sass/main_pages/_event.scss */
+/* line 338, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
 body.node-type-event .ds-2col > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
 body.node-type-portal .ds-2col-stacked > .group-right div.field-name-materials div#block-views-materials-block ul li.views-row .views-field-field-resource,
@@ -6553,7 +6605,7 @@ body.page-group-node .ds-2col > .group-right div.field-name-materials div#block-
   padding-bottom: 3px;
   padding-top: 5px;
 }
-/* line 333, ../sass/main_pages/_event.scss */
+/* line 348, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds,
 body.node-type-event .ds-2col > .group-right .field-type-ds,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds,
@@ -6580,7 +6632,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds {
   /* changed from 250px so "cancel" link does not start new line */
   padding: 10px 26px 14px 26px;
 }
-/* line 340, ../sass/main_pages/_event.scss */
+/* line 355, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds h2.block-title,
 body.node-type-event .ds-2col > .group-right .field-type-ds h2.block-title,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds h2.block-title,
@@ -6605,7 +6657,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds h2.block-title {
   margin-bottom: 20px;
   font-size: 24px;
 }
-/* line 347, ../sass/main_pages/_event.scss */
+/* line 362, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list,
@@ -6628,7 +6680,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list {
   padding-top: 15px;
   margin-top: -5px;
 }
-/* line 351, ../sass/main_pages/_event.scss */
+/* line 366, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul,
@@ -6649,7 +6701,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds div.item-lis
 body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul {
   padding-left: 0px;
 }
-/* line 353, ../sass/main_pages/_event.scss */
+/* line 368, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row,
@@ -6676,7 +6728,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.
   border-bottom: 1px solid #d7d7d7;
   overflow: hidden;
 }
-/* line 361, ../sass/main_pages/_event.scss */
+/* line 376, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row:last-child,
@@ -6697,7 +6749,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds div.item-lis
 body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row:last-child {
   border-bottom: 0px;
 }
-/* line 364, ../sass/main_pages/_event.scss */
+/* line 379, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content,
@@ -6718,7 +6770,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds div.item-lis
 body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content {
   /* general rule?*/
 }
-/* line 365, ../sass/main_pages/_event.scss */
+/* line 380, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a,
@@ -6742,7 +6794,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.
   padding-bottom: 10px;
   color: #333333;
 }
-/* line 372, ../sass/main_pages/_event.scss */
+/* line 387, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row div.field-content a:hover,
@@ -6764,7 +6816,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.
   text-decoration: none;
   color: #8c1d18;
 }
-/* line 377, ../sass/main_pages/_event.scss */
+/* line 392, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .views-field-field-body,
@@ -6786,7 +6838,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.
   font-style: italic;
   padding-left: 23px;
 }
-/* line 381, ../sass/main_pages/_event.scss */
+/* line 396, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .button,
 body.node-type-event .ds-2col > .group-right .field-type-ds div.item-list ul li.views-row .button,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds div.item-list ul li.views-row .button,
@@ -6808,7 +6860,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds div.item-list ul li.
   float: right;
   margin: 13px 0px 10px;
 }
-/* line 388, ../sass/main_pages/_event.scss */
+/* line 403, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login,
@@ -6829,7 +6881,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-a
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login {
   padding-bottom: 50px;
 }
-/* line 390, ../sass/main_pages/_event.scss */
+/* line 405, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login:before,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login:before,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login:before,
@@ -6852,7 +6904,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-r
   padding-left: 54px;
   top: -15px;
 }
-/* line 395, ../sass/main_pages/_event.scss */
+/* line 410, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .field-label,
@@ -6875,7 +6927,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-r
   font-weight: normal;
   color: #334b56;
 }
-/* line 400, ../sass/main_pages/_event.scss */
+/* line 415, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link,
@@ -6898,7 +6950,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-r
   font-size: 11px;
   text-decoration: none;
 }
-/* line 404, ../sass/main_pages/_event.scss */
+/* line 419, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover,
@@ -6919,7 +6971,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-a
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login a.request-password-link:hover {
   text-decoration: underline;
 }
-/* line 408, ../sass/main_pages/_event.scss */
+/* line 423, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text,
@@ -6940,7 +6992,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-a
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login input.form-text {
   width: 260px;
 }
-/* line 411, ../sass/main_pages/_event.scss */
+/* line 426, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login #edit-actions,
@@ -6963,7 +7015,7 @@ body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-r
   top: -30px;
   right: 65px;
 }
-/* line 416, ../sass/main_pages/_event.scss */
+/* line 431, ../sass/main_pages/_event.scss */
 body.node-type-event .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .description,
 body.node-type-event .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .description,
 body.node-type-portal .ds-2col-stacked > .group-right .field-type-ds.field-name-already-registered-please-login .description,
@@ -6984,7 +7036,7 @@ body.page-group-node .ds-2col-stacked > .group-right .field-type-ds.field-name-a
 body.page-group-node .ds-2col > .group-right .field-type-ds.field-name-already-registered-please-login .description {
   display: none;
 }
-/* line 423, ../sass/main_pages/_event.scss */
+/* line 438, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11,
 body.node-type-portal div#block-block-11,
 body.node-type-portal-section div#block-block-11,
@@ -7001,7 +7053,7 @@ body.page-group-node div#block-block-11 {
   margin: 0px 0px 0px -10px;
   z-index: 20;
 }
-/* line 429, ../sass/main_pages/_event.scss */
+/* line 444, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p,
 body.node-type-portal div#block-block-11 p,
 body.node-type-portal-section div#block-block-11 p,
@@ -7015,7 +7067,7 @@ body.page-group-node div#block-block-11 p {
   list-style-image: none;
   margin-left: 0px;
 }
-/* line 433, ../sass/main_pages/_event.scss */
+/* line 448, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home,
 body.node-type-portal div#block-block-11 p a.anonymous_home,
 body.node-type-portal-section div#block-block-11 p a.anonymous_home,
@@ -7037,7 +7089,7 @@ body.page-group-node div#block-block-11 p a.anonymous_home {
   float: left;
   margin-left: -18px;
 }
-/* line 447, ../sass/main_pages/_event.scss */
+/* line 462, ../sass/main_pages/_event.scss */
 body.node-type-event div#block-block-11 p a.anonymous_home:hover,
 body.node-type-portal div#block-block-11 p a.anonymous_home:hover,
 body.node-type-portal-section div#block-block-11 p a.anonymous_home:hover,
@@ -7053,18 +7105,18 @@ body.page-group-node div#block-block-11 p a.anonymous_home:hover {
 /**
  *  Event Page, not logged in
  */
-/* line 460, ../sass/main_pages/_event.scss */
+/* line 475, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in #main {
   padding-top: 0;
 }
-/* line 463, ../sass/main_pages/_event.scss */
+/* line 478, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in h3 {
   font-weight: normal;
   color: #577785;
   margin-top: 0px;
   /*margin-bottom: 40px;*/
 }
-/* line 469, ../sass/main_pages/_event.scss */
+/* line 484, ../sass/main_pages/_event.scss */
 body.node-type-event.not-logged-in div#content.column {
   border-top-color: #d7d7d7;
   margin-top: 10px;
@@ -7072,49 +7124,49 @@ body.node-type-event.not-logged-in div#content.column {
 
 /* fine-tuning for Chrome & Safari */
 @media all and (-webkit-min-device-pixel-ratio: 0) and (min-width: 768px) {
-  /* line 496, ../sass/main_pages/_event.scss */
+  /* line 511, ../sass/main_pages/_event.scss */
   body.not-logged-in.page-user:not(.page-user-register) #block-block-9 {
     min-height: 192px;
     height: auto;
   }
 }
-/* line 502, ../sass/main_pages/_event.scss */
+/* line 517, ../sass/main_pages/_event.scss */
 #block-views-subtitle-and-type-block {
   margin-top: -1em;
 }
 
-/* line 506, ../sass/main_pages/_event.scss */
+/* line 521, ../sass/main_pages/_event.scss */
 .node-type-event .field-group-html-element p a {
   font-weight: normal;
   text-decoration: underline;
   color: #333333;
 }
 
-/* line 512, ../sass/main_pages/_event.scss */
+/* line 527, ../sass/main_pages/_event.scss */
 .group-certificates {
   clear: both;
 }
 
-/* line 517, ../sass/main_pages/_event.scss */
+/* line 532, ../sass/main_pages/_event.scss */
 .view-presenters h5, .view-presenters .views-field-field-body {
   margin-left: 185px;
 }
-/* line 520, ../sass/main_pages/_event.scss */
+/* line 535, ../sass/main_pages/_event.scss */
 .view-presenters img {
   margin-bottom: 30px;
 }
 
-/* line 527, ../sass/main_pages/_event.scss */
+/* line 542, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row {
   position: relative;
   padding-bottom: 20px;
 }
-/* line 531, ../sass/main_pages/_event.scss */
+/* line 546, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view > .field-content > .view-instances > .view-content, .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-1 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
 }
-/* line 537, ../sass/main_pages/_event.scss */
+/* line 552, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-4 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
@@ -7129,25 +7181,25 @@ body.node-type-event.not-logged-in div#content.column {
   color: #8c1d18;
   font-size: 1.25em;
 }
-/* line 552, ../sass/main_pages/_event.scss */
+/* line 567, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php {
   text-decoration: underline;
   margin-top: -22px;
   margin-left: 14px;
   margin-bottom: 20px;
 }
-/* line 557, ../sass/main_pages/_event.scss */
+/* line 572, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a {
   color: #333333 !important;
   font-weight: normal;
   cursor: pointer;
 }
-/* line 561, ../sass/main_pages/_event.scss */
+/* line 576, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a:hover {
   color: #8c1d18 !important;
 }
 
-/* line 571, ../sass/main_pages/_event.scss */
+/* line 586, ../sass/main_pages/_event.scss */
 .role-administrator .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-2 {
   display: none;
 }
