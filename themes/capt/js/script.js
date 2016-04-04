@@ -816,6 +816,14 @@ function otherSelectbox ($field, $fieldPrev) {
     }
   });
 
+  // If the "a welcome message" is shown in addition to the activation message, remove
+  var numMessage = $('ul.messages__list li').length;
+  if (numMessage > 1) {
+    $('ul.messages__list li:contains("A welcome message")').remove();
+  }
+
+
+
 
   /*
    * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
