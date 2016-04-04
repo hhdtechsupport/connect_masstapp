@@ -8,26 +8,10 @@
  * Main settings form.
  */
 function flag_notify_admin_settings($form, $form_state, $flag = NULL) {
-  dpm($flag, 'working flag');
+//  dpm($flag, 'working flag');
   global $user;
   $form = array('#flag' => $flag);
   $noyes = array(t('No'), t('Yes'));
-
-  $all_flags = flag_get_flags();
-
-  $form['flag_notify_flag_message_' . $flag->name] = array(
-    '#type' => 'textarea',
-    '#size' => 8,
-    '#title' => t('"@msg" email template', array('@msg' => $flag->flag_long)),
-    '#default_value' => variable_get('flag_notify_flag_message_' . $flag->name, 'Thanks'),
-    );
-
-  $form['flag_notify_unflag_message_' . $flag->name] = array(
-    '#type' => 'textarea',
-    '#size' => 8,
-    '#title' => t('"@msg" email template', array('@msg' => $flag->unflag_long)),
-    '#default_value' => variable_get('flag_notify_unflag_message_' . $flag->name, 'Thanks'),
-    );
 
   $roles = array('-1' => t('Author')) + user_roles(TRUE);
   unset ($roles[DRUPAL_AUTHENTICATED_RID]);
@@ -40,7 +24,8 @@ function flag_notify_admin_settings($form, $form_state, $flag = NULL) {
     '#options' => $roles,
     '#title' => t('Roles to notify'),
     '#default_value' => variable_get('flag_notify_flag_roles_' . $flag->name, array()),
-    '#description' => t('Send the notification only to the people in these roles.'),
+    '#description' => t('Send the notification only to the people in these roles.
+      "Author" is the person who performed the flagging action.'),
     );
 
   if (module_exists('og')) {
@@ -53,6 +38,54 @@ function flag_notify_admin_settings($form, $form_state, $flag = NULL) {
         within the same OG group as the content being flagged.'),
       );
   }
+  else {
+    $form['flag_notify_flag_group_' . $flag->name] = array(
+      '#type' => 'value',
+      '#value' => FALSE,
+      );
+  }
+
+  $form['flag'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Flag'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    );
+
+  $form['flag']['flag_notify_flag_subject_' . $flag->name] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('"@msg" email subject', array('@msg' => $flag->flag_long)),
+    '#default_value' => variable_get('flag_notify_flag_subject_' . $flag->name, 'Congratulations'),
+    );
+
+  $form['flag']['flag_notify_flag_message_' . $flag->name] = array(
+    '#type' => 'textarea',
+    '#rows' => 8,
+    '#title' => t('"@msg" email body', array('@msg' => $flag->flag_long)),
+    '#default_value' => variable_get('flag_notify_flag_message_' . $flag->name, 'Thanks'),
+    );
+
+  $form['unflag'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Unflag'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    );
+
+  $form['unflag']['flag_notify_unflag_subject_' . $flag->name] = array(
+    '#type' => 'textarea',
+    '#rows' => 1,
+    '#title' => t('"@msg" email subject', array('@msg' => $flag->unflag_long)),
+    '#default_value' => variable_get('flag_notify_unflag_subject_' . $flag->name, 'Congratulations'),
+    );
+
+  $form['unflag']['flag_notify_unflag_message_' . $flag->name] = array(
+    '#type' => 'textarea',
+    '#rows' => 8,
+    '#title' => t('"@msg" email body', array('@msg' => $flag->unflag_long)),
+    '#default_value' => variable_get('flag_notify_unflag_message_' . $flag->name, 'Thanks'),
+    );
 
   $form['tokens'] = array(
     '#theme' => 'token_tree_link',

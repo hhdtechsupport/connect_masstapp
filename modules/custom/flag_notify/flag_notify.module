@@ -79,46 +79,7 @@ function flag_notify_flag_admin_operations($flag) {
  *  The flagging entity.
  */
 function flag_notify_flag_flag($flag, $entity_id, $account, $flagging) {
-  global $user, $language;
-  dpm($flag, $flag->title);
-  dpm($flagging, "flag $flag->name $entity_id $account->uid");
-  $msg = variable_get('flag_notify_flag_message_' . $flag->name, 'Thanks');
-  $instance = node_load($entity_id);
-
-  // Let's go ahead and do the tokens, because sometimes they screw up.
-  $args = array(
-    'flag' => $flag,
-    'flagging' => $flagging,
-    'node' => $instance,
-    );
-  $body = token_replace($msg, $args);
-//  drupal_set_message($subbed);
-
-  $rids = array_filter(variable_get('flag_notify_flag_roles_' . $flag->name, array()));
-
-  $limit_to_group = variable_get('flag_notify_flag_group_' . $flag->name, 0);
-
-  $event = field_get_items('node', $instance, 'field_related_events');
-  $event = node_load($event[0]['target_id']);
-
-  $who = _flag_notify_list($rids, $event, $limit_to_group);
-//  dpm($who, 'send emails to');
-  $params = array(
-    'body' => $body,
-    'addresses' => $who,
-    'flag' => $flag,
-    'subs' => array(
-      '@event' => filter_xss($event->title),
-      '@action' => filter_xss($flag->name),
-      ),
-    );
-
-  // Send the email.
-  drupal_mail('flag_notify',
-    filter_xss($flag->name),
-    $who,
-    $language,
-    $params);
+  flag_notify_send_email($flag, $entity_id, $account, $flagging, 'flag');
 }
 
 /**
@@ -138,8 +99,55 @@ function flag_notify_flag_flag($flag, $entity_id, $account, $flagging) {
  *  The flagging entity.
  */
 function flag_notify_flag_unflag($flag, $entity_id, $account, $flagging) {
-  dpm($flagging, "unflag $flag->name $entity_id $account->uid");
-//  flag_notify_flag_flag($flag, $entity_id, $account, $flagging);
+  flag_notify_send_email($flag, $entity_id, $account, $flagging, 'unflag');
+}
+
+/**
+ * Helper function for sending email message.
+ */
+function flag_notify_send_email($flag, $entity_id, $account, $flagging, $action) {
+  global $user, $language;
+//  dpm($flag, $action . ' ' . $flag->title);
+
+  $subj = variable_get('flag_notify_' . $action . '_subject_' . $flag->name, 'Congratulations');
+  $msg = variable_get('flag_notify_' . $action . '_message_' . $flag->name, 'Thanks');
+  $instance = node_load($entity_id);
+
+  // Let's go ahead and do the tokens, because sometimes they screw up.
+  $args = array(
+    'flag' => $flag,
+    'flagging' => $flagging,
+    'node' => $instance,
+    );
+  $body = token_replace($msg, $args);
+  $subject = token_replace($subj, $args);
+
+  $rids = array_filter(variable_get('flag_notify_flag_roles_' . $flag->name, array()));
+
+  $limit_to_group = variable_get('flag_notify_flag_group_' . $flag->name, 0);
+
+  $event = field_get_items('node', $instance, 'field_related_events');
+  $event = node_load($event[0]['target_id']);
+
+  $who = _flag_notify_list($rids, $event, $limit_to_group);
+
+  $params = array(
+    'subject' => $subject,
+    'body' => $body,
+    'addresses' => $who,
+    'flag' => $flag,
+    'subs' => array(
+      '@event' => filter_xss($event->title),
+      '@action' => filter_xss($flag->name),
+      ),
+    );
+
+  // Send the email.
+  drupal_mail('flag_notify',
+    filter_xss($flag->name),
+    $who,
+    $language,
+    $params);
 }
 
 /**
@@ -190,8 +198,8 @@ function flag_notify_mail($key, &$message, $params) {
   $message['send'] = TRUE;
   $message['body'][] = '<div class="'. drupal_html_class($key) .'">';
 
-  $message['subject'] = t('@event @action', $params['subs']);
-  $message['body'][] = $params['body'];
+  $message['subject'] = filter_xss($params['subject']);
+  $message['body'][] = filter_xss($params['body']);
 
   $message['body'][] = '</div>';
 }
