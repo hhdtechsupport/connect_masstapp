@@ -622,7 +622,8 @@ function otherSelectbox ($field, $fieldPrev) {
 
   if ($('body').hasClass('logged-in')   ||
       $('body').hasClass('page-events') ||
-      $('body').hasClass('node-type-page')) {
+      $('body').hasClass('node-type-page') ||
+      $('body').hasClass('node-type-event')) {
     $('.header-photos-2 .photos .photo-inner:nth-child(1)').each(function(){ $(this).css('opacity','1'); });
     $('.header-photos-2 .photos .photo-inner:nth-child(2)').each(function(){ $(this).css('opacity','0'); });
     timeout_init(photos, photo_count);
@@ -794,6 +795,27 @@ function otherSelectbox ($field, $fieldPrev) {
   // Change edit term pages' titles to Admin
   $('.page-taxonomy-term-edit h1#page-title').text('Admin');
 
+  // If Event Materials block is empty, then remove the entire block from DOM
+  $('#block-views-materials-block > .view-materials').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).closest('.field-name-materials').remove();
+    }
+  });
+
+  // If Event Materials .view-content is empty, then remove that part from DOM
+  $('#block-views-materials-block > .view-materials .view-content').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).remove();
+    }
+  });
+
+  // If Event Materials .view-content is empty, then remove that part from DOM
+  $('#block-views-materials-block > .view-materials .view-footer').each(function(){
+    if ($(this).text().trim() == '') {
+      $(this).remove();
+    }
+  });
+
 
 
   /*
@@ -940,6 +962,9 @@ function otherSelectbox ($field, $fieldPrev) {
       $field.find('.end-date-wrapper .date-padding > .form-item:nth-child(1) input').val($(this).val());
     });
   });
+
+
+
 
 
 
