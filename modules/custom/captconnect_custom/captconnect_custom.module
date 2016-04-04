@@ -251,6 +251,8 @@ function captconnect_custom_menu_alter(&$items) {
 
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 
+  $items['user/autocomplete']['access callback'] = TRUE;
+
   // Change the permission on the "Manage display" tab.
   $items['user/%user/display']['access arguments'] = array('admin_display_suite');
 
@@ -307,6 +309,7 @@ function captconnect_custom_init() {
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
+    || $_GET['q'] == 'node/1376' /* Terms */
     || substr($_GET['q'], 0, 11) == 'user/reset/'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
@@ -1406,14 +1409,20 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     // This is embarrassing, but I couldn't figure out any other way
     // to prevent that message from coming out a second time.
     $msgs = drupal_get_messages('status', TRUE);
+
     $get_rid_of = t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
       array('!login_url' => url('anon_login/' . arg(1), array('query' => drupal_get_destination()))));
-    $register_msg = t('A welcome message with further instructions has been sent to your e-mail address.');
+
+    // Using array here because User registration password module mucks with it.
+    $register_msgs = array(
+      t('A welcome message with further instructions has been sent to your e-mail address.'),
+      t('Thank you for applying for an account. Your account is currently pending approval by the site administrator.<br />In the meantime, a welcome message with further instructions has been sent to your e-mail address.'),
+      );
 
     foreach ($msgs['status'] as $msg) {
       // Is it the user_register message?
-      if ($msg == $register_msg) {
+      if (in_array($msg, $register_msgs)) {
         // Okay, use our version.
         $our_msg = (isset($form['#captconnect_anon_instance']) ?
           'captconnect_custom_completion_email_anon' : 'captconnect_custom_completion_email_normal');
