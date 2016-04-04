@@ -822,6 +822,10 @@ function otherSelectbox ($field, $fieldPrev) {
     $('ul.messages__list li:contains("A welcome message")').remove();
   }
 
+  // Adjust tense of the "published" and "unpublished" buttons
+  $('input[value="Published"]').val('Publish');
+  $('input[value="Unpublished"]').val('Unpublish');
+
 
 
 
