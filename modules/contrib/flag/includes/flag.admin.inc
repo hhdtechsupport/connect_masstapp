@@ -67,6 +67,24 @@ function flag_admin_listing_submit($form, &$form_state) {
 }
 
 /**
+ * Implements hook_flag_admin_operations().
+ *
+ * @param $flag - flag object identifying the flag.
+ *
+ * @return array() keyed by name,
+ *   'title' => the text that will show in the admin list.
+ *   'href' => where to go to accomplish the operation.
+ */
+function flag_flag_admin_operations($flag) {
+  return array(
+    'flags_edit' => array('title' => t('edit'), 'href' => $flag->admin_path('edit')),
+    'flags_fields' => array('title' => t('manage fields'), 'href' => $flag->admin_path('fields')),
+    'flags_delete' => array('title' => t('delete'), 'href' => $flag->admin_path('delete')),
+    'flags_export' => array('title' => t('export'), 'href' => $flag->admin_path('export')),
+    );
+}
+
+/**
  * Theme the output of the normal, database flags into a table.
  */
 function theme_flag_admin_listing($variables) {
@@ -76,12 +94,13 @@ function theme_flag_admin_listing($variables) {
   $output = '';
 
   foreach ($flags as $flag) {
-    $ops = array(
-      'flags_edit' => array('title' => t('edit'), 'href' => $flag->admin_path('edit')),
-      'flags_fields' => array('title' => t('manage fields'), 'href' => $flag->admin_path('fields')),
-      'flags_delete' => array('title' => t('delete'), 'href' => $flag->admin_path('delete')),
-      'flags_export' => array('title' => t('export'), 'href' => $flag->admin_path('export')),
-    );
+//    $ops = array(
+//      'flags_edit' => array('title' => t('edit'), 'href' => $flag->admin_path('edit')),
+//      'flags_fields' => array('title' => t('manage fields'), 'href' => $flag->admin_path('fields')),
+//      'flags_delete' => array('title' => t('delete'), 'href' => $flag->admin_path('delete')),
+//      'flags_export' => array('title' => t('export'), 'href' => $flag->admin_path('export')),
+//    );
+    $ops = module_invoke_all('flag_admin_operations', $flag);
     if (!module_exists('field_ui')) {
       unset($ops['flags_fields']);
     }
