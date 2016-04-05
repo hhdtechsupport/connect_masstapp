@@ -493,13 +493,18 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid && og_is_member('node', $gid[0]['target_id'], 'user', $account)) {
-          // Yes, so just let other Drupal rules take over.
-          return NODE_ACCESS_IGNORE;
+        if ($gid /*&& og_is_member('node', $gid[0]['target_id'], 'user', $account)*/) {
+          foreach ($gid as $grp) {
+            if (og_is_member('node', $grp['target_id'], 'user', $account)) {
+            // Yes, so just let other Drupal rules take over.
+            return NODE_ACCESS_IGNORE;
+            }
+          }
+          // Not in any group, so bounce them.
+          return NODE_ACCESS_DENY;
         }
         else {
           // No, the current user does not match the viewed node's groups.
-          return NODE_ACCESS_DENY;
         }
       }
 

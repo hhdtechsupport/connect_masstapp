@@ -78,7 +78,9 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
 
           // If the node is new, it may not be totally complete.
           // We'll just wait for the next time through.
-          if (isset($node->is_new) && $node->is_new) {
+          // Strangely, even if is_new is FALSE, og_group_ref is empty.
+          // This is only if is_new is set at all.
+          if (isset($node->is_new) /*&& $node->is_new*/) {
             return TRUE;
           }
 
