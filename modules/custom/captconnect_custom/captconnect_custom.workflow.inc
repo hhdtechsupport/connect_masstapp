@@ -76,6 +76,12 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
             return FALSE;
           }
 
+          // If the node is new, it may not be totally complete.
+          // We'll just wait for the next time through.
+          if (isset($node->is_new) && $node->is_new) {
+            return TRUE;
+          }
+
           if ($node->type == 'event'
           && in_array($new_state, array_filter(variable_get('captconnect_custom_check_fields_states', array())))) {
             // We want to see if some event fields are filled in, and alert if not.

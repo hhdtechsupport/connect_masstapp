@@ -493,7 +493,7 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user', $account)) {
+        if ($gid && og_is_member('node', $gid[0]['target_id'], 'user', $account)) {
           // Yes, so just let other Drupal rules take over.
           return NODE_ACCESS_IGNORE;
         }
@@ -1029,7 +1029,9 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
     // Add/Edit Portal sub pages.
     case 'portal_section_node_form':
-    case 'portal_page_node_form':          /*
+    case 'portal_page_node_form':
+      _captconnect_custom_preset_groups($form);
+      /*
       if (!isset($user->og_user_node)) {
         $user = user_load($user->uid);
       }
