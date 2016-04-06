@@ -146,6 +146,12 @@ p {
         }
         ul {
           padding-left: 15px;
+          & > li.views-row {
+            margin-bottom: 7px;
+            &:not(.views-row-first) {
+              margin-top: 15px;
+            }
+          }
           & > .views-row > .views-field {
             &.views-field-field-date {
               .date-display-range {

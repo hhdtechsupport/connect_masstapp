@@ -816,6 +816,17 @@ function otherSelectbox ($field, $fieldPrev) {
     }
   });
 
+  // If the "a welcome message" is shown in addition to the activation message, remove
+  var numMessage = $('ul.messages__list li').length;
+  if (numMessage > 1) {
+    $('ul.messages__list li:contains("A welcome message")').remove();
+  }
+
+  // Adjust tense of the "published" and "unpublished" buttons
+  $('input[value="Published"]').val('Publish');
+  $('input[value="Unpublished"]').val('Unpublish');
+
+
 
 
   /*
@@ -964,6 +975,77 @@ function otherSelectbox ($field, $fieldPrev) {
   });
 
 
+  /*
+   * START: FLAG CONFIRMATION PROFILE VIEW/EDIT FUNCTIONALITY
+   */
+
+  function getLabelsAndInputs($formItem) {
+    var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
+    var input = $formItem.find('input').val();
+    if ($formItem.hasClass('form-type-textfield')){
+      if (label.substr(label.length-1) != '?') {
+        label = label + ':';
+      }
+    }
+    else if ($formItem.hasClass('form-type-select')) {
+      if (label.substr(label.length-1) != '?') {
+        label = label + ':';
+      }
+    }
+    else if ($formItem.hasClass('form-type-radios')) {
+      var input = $formItem.find('input:checked').next().text().trim();
+      if (label.substr(label.length-1) != '?') {
+        label = label + ':';
+      }
+    }
+    else if ($formItem.hasClass('form-type-checkboxes')) {
+      var input = '';
+      if (label.substr(label.length-1) != '?') {
+        label = label + ':';
+      }
+      $formItem.children('input:checked').each(function(){
+        input = input + ', ' + $(this).next().text().trim();
+      });
+      input = input.substr(2);
+    }
+
+    if (!((label == 'Please specify:') && (input == ''))) {
+      return '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
+    }
+  }
+
+  $('#flag-confirm .panel').each(function(){
+    var $panel = $(this);
+    var label = '';
+
+     $panel.find('.form-wrapper').each(function(){
+
+       $(this).prepend('<div class="content" style="display: block;"></div>');
+       $(this).prepend('<div class="editor" style="float: right; display: block;">Edit</div>');
+       $(this).prepend('<div class="saver" style="float: right; display: none;">Save</div>');
+
+       $(this).children('.editor').on('click',function(){
+         $(this).css('display','none');
+         $(this).parent().children('.saver').css('display','block');
+         $(this).parent().children('.content').css('display','none');
+         var $formItem = $(this).parent().find('.form-item').css('display','block');
+       });
+
+       $(this).children('.saver').on('click',function(){
+         $(this).css('display', 'none');
+         $(this).parent().children('.editor').css('display','block');
+         var $formItem = $(this).parent().find('.form-item');
+         $(this).parent().children('.content').html(getLabelsAndInputs($formItem)).css('display','block');
+         $formItem.css('display','none');
+       });
+
+       $initialValue = getLabelsAndInputs($(this).find('.form-item'));
+       $(this).find('.content').append($initialValue);
+       $(this).find('.form-item').css('display','none');
+
+     });
+
+   });
 
 
 

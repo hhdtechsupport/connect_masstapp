@@ -228,3 +228,24 @@ body.section-administration {
     }
   }
 }
+
+#edit-timezone {
+  border: 0px !important;
+  padding: 0px;
+  margin: 0px;
+  background: none !important;
+  &:before {
+    display: none;
+  }
+  legend {
+    display: none;
+  }
+  .fieldset-wrapper {
+    padding: 0px;
+  }
+}
+.page-user-register, .page-anon-register {
+  #edit-timezone {
+    margin-left: 20px;
+  }
+}
