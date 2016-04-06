@@ -981,7 +981,7 @@ function otherSelectbox ($field, $fieldPrev) {
 
   function getLabelsAndInputs($formItem) {
     var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
-    if ($formItem.hasClass('form-type-textfield')){
+    else if ($formItem.hasClass('form-type-textfield')){
       var input = $formItem.find('input').val();
       label = label.replace(' (check all that apply):','');
     }
@@ -1007,9 +1007,11 @@ function otherSelectbox ($field, $fieldPrev) {
     }
   }
 
-  $('#flag-confirm .panel').each(function(){
+  $('#flag-confirm .panel.profile').each(function(){
     var $panel = $(this);
     var label = '';
+
+
 
      $panel.find('.form-wrapper').each(function(){
 
