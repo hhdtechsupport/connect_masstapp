@@ -598,6 +598,7 @@ body.node-type-event.not-logged-in {
     .content {
       display: block;
       margin-left: 60px;
+      padding: 2px;
       .item {
         .label {
           font-weight: bold;
@@ -625,5 +626,9 @@ body.node-type-event.not-logged-in {
       margin-right: 20px;
       @include border-radius(2px);
     }
+  }
+  .form-item > label ~ div,
+  .form-item > label ~ input {
+    margin-left: 70px;
   }
 }

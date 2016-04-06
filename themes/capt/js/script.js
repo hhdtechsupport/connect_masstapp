@@ -989,7 +989,7 @@ function otherSelectbox ($field, $fieldPrev) {
       }
     }
     else if ($formItem.hasClass('form-type-select')) {
-      var input = $formItem.find('');
+      var input = $formItem.find('.chosen-container span').text();
       if (label.substr(label.length-1) != '?') {
         label = label + ':';
         label = label.replace(' (check all that apply):','');

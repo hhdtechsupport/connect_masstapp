@@ -8247,12 +8247,13 @@ body.node-type-event.not-logged-in div#content.column {
 .page-flag-confirm-flag-registration .profile .content {
   display: block;
   margin-left: 60px;
+  padding: 2px;
 }
-/* line 602, ../sass/main_pages/_event.scss */
+/* line 603, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content .item .label {
   font-weight: bold;
 }
-/* line 610, ../sass/main_pages/_event.scss */
+/* line 611, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .editor {
   float: left;
   display: block;
@@ -8261,7 +8262,7 @@ body.node-type-event.not-logged-in div#content.column {
   color: #8c1d18;
   text-decoration: underline;
 }
-/* line 618, ../sass/main_pages/_event.scss */
+/* line 619, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .saver {
   float: left;
   display: none;
@@ -8274,6 +8275,11 @@ body.node-type-event.not-logged-in div#content.column {
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
+}
+/* line 630, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .form-item > label ~ div,
+.page-flag-confirm-flag-registration .form-item > label ~ input {
+  margin-left: 70px;
 }
 
 /* line 8, ../sass/main_pages/_portals.scss */
