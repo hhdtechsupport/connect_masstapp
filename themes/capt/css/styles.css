@@ -8241,28 +8241,39 @@ body.node-type-event.not-logged-in div#content.column {
 /* line 594, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile > div {
   clear: both;
-  margin: 12px 0px;
+  margin: 9px 0px;
 }
 /* line 598, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content {
   display: block;
-  margin-left: 60px;
-  padding: 2px;
+  margin-left: 70px;
+  padding: 0;
 }
 /* line 603, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content .item .label {
   font-weight: bold;
 }
-/* line 611, ../sass/main_pages/_event.scss */
+/* line 606, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .content .item .value {
+  display: block;
+  font-style: italic;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+/* line 614, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .editor {
   float: left;
   display: block;
   cursor: pointer;
-  padding: 2px 10px 2px 14px;
-  color: #8c1d18;
+  padding: 2px 10px 0px 14px;
+  color: #878787;
   text-decoration: underline;
 }
-/* line 619, ../sass/main_pages/_event.scss */
+/* line 621, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .editor:hover {
+  color: #8c1d18;
+}
+/* line 625, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .saver {
   float: left;
   display: none;
@@ -8276,10 +8287,55 @@ body.node-type-event.not-logged-in div#content.column {
   -ms-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 630, ../sass/main_pages/_event.scss */
-.page-flag-confirm-flag-registration .form-item > label ~ div,
-.page-flag-confirm-flag-registration .form-item > label ~ input {
+/* line 635, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .content ~ .form-item > label ~ div {
   margin-left: 70px;
+}
+/* line 638, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .content ~ .form-item > label ~ input {
+  margin-left: 85px;
+}
+/* line 641, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .form-item:not(.form-type-checkbox):not(.form-type-radio) {
+  margin: 0px 0px 20px 0px !important;
+}
+/* line 647, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration .profile .form-item .description {
+  font-size: 0.85em;
+  line-height: 1.5em;
+  margin-left: 2px;
+  color: #5c5c5c;
+  max-width: 400px;
+}
+/* line 655, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration #edit-questions {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+}
+/* line 658, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration #edit-questions:before {
+  margin-left: -7px !important;
+  padding-left: 14px !important;
+}
+/* line 662, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration #edit-questions textarea {
+  height: 100px;
+  font-size: 14px;
+  color: #333333;
+  padding: 5px;
+  max-width: 400px !important;
+}
+/* line 669, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration #edit-questions .grippie {
+  max-width: 400px !important;
+}
+/* line 672, ../sass/main_pages/_event.scss */
+.page-flag-confirm-flag-registration #edit-questions .description {
+  font-size: 0.85em;
+  line-height: 1.5em;
+  margin-left: 2px;
+  color: #5c5c5c;
+  max-width: 400px;
 }
 
 /* line 8, ../sass/main_pages/_portals.scss */

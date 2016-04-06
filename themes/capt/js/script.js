@@ -983,31 +983,19 @@ function otherSelectbox ($field, $fieldPrev) {
     var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
     if ($formItem.hasClass('form-type-textfield')){
       var input = $formItem.find('input').val();
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-        label = label.replace(' (check all that apply):','');
-      }
+      label = label.replace(' (check all that apply):','');
     }
     else if ($formItem.hasClass('form-type-select')) {
       var input = $formItem.find('.chosen-container span').text();
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-        label = label.replace(' (check all that apply):','');
-      }
+      label = label.replace(' (check all that apply):','');
     }
     else if ($formItem.hasClass('form-type-radios')) {
       var input = $formItem.find('input:checked').next().text().trim();
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-        label = label.replace(' (check all that apply):','');
-      }
+      label = label.replace(' (check all that apply):','');
     }
     else if ($formItem.hasClass('form-type-checkboxes')) {
       var input = '';
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-        label = label.replace(' (check all that apply):','');
-      }
+      label = label.replace(' (check all that apply):','');
       $formItem.children('input:checked').each(function(){
         input = input + ', ' + $(this).next().text().trim();
       });
