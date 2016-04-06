@@ -114,14 +114,21 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
       );
 
     if (!$already_questioned) {
+      // Wrapper for questions.
       $form['questions'] = array(
-        '#type' => 'fieldset',
-        '#title' => t('Registration Questions'),
-        '#collapsible' => FALSE,
-        '#collapsed' => FALSE,
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('field-group-div', 'panel', 'field-group-questions'),
+          'style' => 'padding: 1px 6px;',
+          ),
         '#weight' => -10,
         '#tree' => TRUE,           // Keep them together.
         );
+      $form['questions']['title'] = array(
+        '#type' => 'markup',
+        '#markup' => '<h3>' . t('Registration Questions') . '</h3>',
+        );
+
       foreach ($questions as $nid => $question) {
         if (isset($question->field_help_text[LANGUAGE_NONE][0]['safe_value'])) {
           $help = $question->field_help_text[LANGUAGE_NONE][0]['safe_value'];
@@ -262,7 +269,7 @@ function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
       node_save($answer);
     }
   }
-  
+
   $result = user_save($account, $form_state['values']);
   if (!$result) {
     drupal_set_message(t('Saving of updated profile information failed.'), 'warning');
