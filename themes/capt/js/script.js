@@ -981,27 +981,32 @@ function otherSelectbox ($field, $fieldPrev) {
 
   function getLabelsAndInputs($formItem) {
     var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
-    var input = $formItem.find('input').val();
     if ($formItem.hasClass('form-type-textfield')){
+      var input = $formItem.find('input').val();
       if (label.substr(label.length-1) != '?') {
         label = label + ':';
+        label = label.replace(' (check all that apply):','');
       }
     }
     else if ($formItem.hasClass('form-type-select')) {
+      var input = $formItem.find('');
       if (label.substr(label.length-1) != '?') {
         label = label + ':';
+        label = label.replace(' (check all that apply):','');
       }
     }
     else if ($formItem.hasClass('form-type-radios')) {
       var input = $formItem.find('input:checked').next().text().trim();
       if (label.substr(label.length-1) != '?') {
         label = label + ':';
+        label = label.replace(' (check all that apply):','');
       }
     }
     else if ($formItem.hasClass('form-type-checkboxes')) {
       var input = '';
       if (label.substr(label.length-1) != '?') {
         label = label + ':';
+        label = label.replace(' (check all that apply):','');
       }
       $formItem.children('input:checked').each(function(){
         input = input + ', ' + $(this).next().text().trim();
@@ -1020,9 +1025,9 @@ function otherSelectbox ($field, $fieldPrev) {
 
      $panel.find('.form-wrapper').each(function(){
 
-       $(this).prepend('<div class="content" style="display: block;"></div>');
-       $(this).prepend('<div class="editor" style="float: right; display: block;">Edit</div>');
-       $(this).prepend('<div class="saver" style="float: right; display: none;">Save</div>');
+       $(this).prepend('<div class="content"></div>');
+       $(this).prepend('<div class="editor">Edit</div>');
+       $(this).prepend('<div class="saver">Save</div>');
 
        $(this).children('.editor').on('click',function(){
          $(this).css('display','none');

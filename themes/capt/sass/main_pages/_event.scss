@@ -584,3 +584,46 @@ body.node-type-event.not-logged-in {
 .role-administrator .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-2 {
   display: none;
 }
+
+
+.page-flag-confirm-flag-registration {
+  .profile {
+    h3 {
+      border-bottom: 0px !important;
+    }
+    & > div {
+      clear: both;
+      margin: 12px 0px;
+    }
+    .content {
+      display: block;
+      margin-left: 60px;
+      .item {
+        .label {
+          font-weight: bold;
+        }
+        .value {
+
+        }
+      }
+    }
+    .editor {
+      float: left;
+      display: block;
+      cursor: pointer;
+      padding: 2px 10px 2px 14px;
+      color: $capt-maroon;
+      text-decoration: underline;
+    }
+    .saver {
+      float: left;
+      display: none;
+      cursor: pointer;
+      padding: 2px 10px 2px 10px;
+      color: #FFF;
+      background: $capt-green;
+      margin-right: 20px;
+      @include border-radius(2px);
+    }
+  }
+}
