@@ -34,6 +34,11 @@ function captconnect_custom_permission() {
       'description' => t('View approver selection for Events.'),
       'restrict access' => FALSE,
       ),
+    'view registration questions' => array(
+      'title' => t('View Registration Questions'),
+      'description' => t('View answers to registration questions on Events.'),
+      'restrict access' => FALSE,
+      ),
     );
 
   foreach ($node_types as $type => $name) {
@@ -246,6 +251,8 @@ function captconnect_custom_menu_alter(&$items) {
 
   $items['user']['title callback'] = 'captconnect_custom_user_page_title';
 
+  $items['user/autocomplete']['access callback'] = TRUE;
+
   // Change the permission on the "Manage display" tab.
   $items['user/%user/display']['access arguments'] = array('admin_display_suite');
 
@@ -302,15 +309,17 @@ function captconnect_custom_init() {
   if (user_is_anonymous()) {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
+    || $_GET['q'] == 'node/1376' /* Terms */
     || substr($_GET['q'], 0, 11) == 'user/reset/'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
       return;
     }
     if ($a0 == 'node') {
-      $node = menu_get_object();
+//      $node = menu_get_object();
+      $node = node_load($a1);
       // @TODO: Check if published?
       if ($node && $node->type == 'event') {
-        // We let anon users got straight to an event.
+        // We let anon users go straight to an event.
         return;
       }
     }
@@ -484,13 +493,18 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid && og_is_member('node', array_pop(array_pop($gid)), 'user', $account)) {
-          // Yes, so just let other Drupal rules take over.
-          return NODE_ACCESS_IGNORE;
+        if ($gid /*&& og_is_member('node', $gid[0]['target_id'], 'user', $account)*/) {
+          foreach ($gid as $grp) {
+            if (og_is_member('node', $grp['target_id'], 'user', $account)) {
+            // Yes, so just let other Drupal rules take over.
+            return NODE_ACCESS_IGNORE;
+            }
+          }
+          // Not in any group, so bounce them.
+          return NODE_ACCESS_DENY;
         }
         else {
           // No, the current user does not match the viewed node's groups.
-          return NODE_ACCESS_DENY;
         }
       }
 
@@ -506,6 +520,66 @@ function captconnect_custom_node_access($node, $op, $account) {
  */
 function captconnect_custom_node_view($node, $view_mode, $langcode) {
 //  dpm($node, $node->type.' '.$view_mode);
+  // Always do this.
+  switch ($node->type) {
+    case 'event':
+      // Only show the questions to privileged people.
+      $node->content['field_question']['#access'] = node_access('update', $node);
+      break;
+
+    case 'event_questions':
+      unset($node->content['field_answers']);
+
+      if (user_access('view registration questions')) {
+        $table = array(
+          'header' => array(
+            t('Respondent / Date'),
+            t('Answer Given'),
+            ),
+          'rows' => array(),
+          'attributes' => array('id' => 'answer-list'),
+          'empty' => '<center><strong>'
+            . t('This question has not been answered yet.')
+            . '</strong></center>',
+          );
+
+        $question = entity_metadata_wrapper('node', $node);
+        $yesno = FALSE;
+        switch ($question->field_question_type->value()) {
+          case 'yesno':
+            $yesno = TRUE;
+            break;
+          case 'select':
+            $node->content['field_select_list_options'][0]['#markup'] =
+              filter_xss(str_replace("\n", ", ", $question->field_select_list_options->value()));
+            break;
+        }
+        $no_yes = array(t('No'), t('Yes'));
+
+        foreach ($question->field_answers->getIterator() as $answer) {
+          if ($yesno) {
+            $ans = $no_yes[$answer->field_answer->value()];
+          }
+          else {
+            $ans = $answer->field_answer->value();
+          }
+          $table['rows'][] = array(
+            $answer->label(),
+            $ans,
+            );
+        }
+
+        $node->content['field_answers'] = array(
+          '#markup' => '<h3>' . t('Answers Given at Registration') . '</h3>'
+            . theme('table', $table),
+          '#weight' => 10,
+          );
+
+        return; // We don't need to check unpubbed.
+      }
+  }
+
+  // Check if an "unpublished" message is needed.
   $check_unpub = array_filter(variable_get('captconnect_custom_unpublished_content_types', array()));
   if (in_array($node->type, $check_unpub)) {
     $states = db_query("SELECT sid FROM {workflow_states} WHERE name = 'published'")
@@ -960,7 +1034,9 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
     // Add/Edit Portal sub pages.
     case 'portal_section_node_form':
-    case 'portal_page_node_form':          /*
+    case 'portal_page_node_form':
+      _captconnect_custom_preset_groups($form);
+      /*
       if (!isset($user->og_user_node)) {
         $user = user_load($user->uid);
       }
@@ -1340,14 +1416,20 @@ function captconnect_custom_user_register_submit($form, $form_state) {
     // This is embarrassing, but I couldn't figure out any other way
     // to prevent that message from coming out a second time.
     $msgs = drupal_get_messages('status', TRUE);
+
     $get_rid_of = t(variable_get('captconnect_custom_anon_login',
       'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
       array('!login_url' => url('anon_login/' . arg(1), array('query' => drupal_get_destination()))));
-    $register_msg = t('A welcome message with further instructions has been sent to your e-mail address.');
+
+    // Using array here because User registration password module mucks with it.
+    $register_msgs = array(
+      t('A welcome message with further instructions has been sent to your e-mail address.'),
+      t('Thank you for applying for an account. Your account is currently pending approval by the site administrator.<br />In the meantime, a welcome message with further instructions has been sent to your e-mail address.'),
+      );
 
     foreach ($msgs['status'] as $msg) {
       // Is it the user_register message?
-      if ($msg == $register_msg) {
+      if (in_array($msg, $register_msgs)) {
         // Okay, use our version.
         $our_msg = (isset($form['#captconnect_anon_instance']) ?
           'captconnect_custom_completion_email_anon' : 'captconnect_custom_completion_email_normal');
@@ -1411,45 +1493,18 @@ function captconnect_custom_user_login(&$edit, $account) {
     $event_nid = reset($result);
     $instance_nid = key($result);
 
-    // Actually execute the flag before going to the event.
-    $event = node_load($event_nid);
-    $instance = node_load($instance_nid);
-    if (flag('flag', 'registration', $instance_nid, $account)) {
-      $date = $instance->field_date[LANGUAGE_NONE][0];
-//      $start_date = strtotime($date['value'] . ' ' . $date['timezone']);
-      $start_date = strtotime($date['value'] . ' UTC');
-      $fmt = variable_get('captconnect_custom_register_date_format', 'long_day_at_time');
-
-      drupal_set_message(t(variable_get('captconnect_custom_registration_successful',
-        'You are now registered for "@title" on @when.'),
-        array(
-          '@title' => $event->title,
-//          '@when' => $instance->title,
-          '@when' => format_date($start_date, $fmt),  // Note: will use user's TZ.
-          )));
-    }
-    else {
-      $registration = flag_get_flag('registration');
-      if (isset($registration->errors)) {
-        foreach ($registration->errors as $id => $msg) {
-          $text = _captconnect_custom_wrap_message($msg, $id);
-          drupal_set_message($text, 'error');
-        }
-      }
-//      drupal_set_message(t(variable_get('captconnect_custom_registration_failed',
-//        'Your registration for "@title" failed; please try again now that you are logged in.'),
-//        array('@title' => $event->title)), 'error');
-    }
-
     // Delete the record and then go to the event.
     $num_deleted = db_delete('captconnect_custom_anon_register')
       ->condition('uid', $account->uid)
       ->execute();
 
-    // The redirect method is not working, so fall back on good ol' drupal_goto().
-//    $edit['redirect'] = 'node/' . $event_nid;
-//    $GLOBALS['destination'] = 'node/' . $event_nid;
-    drupal_goto('node/' . $event_nid);
+    // Set up link to go to.
+    $link = "flag/confirm/flag/registration/$instance_nid";
+//    drupal_set_message("Redirecting to $link.");
+//    $edit['redirect'] = $link;
+//    return;
+    $_GET['destination'] = $link;
+//    drupal_goto($link, array('destination' => "node/$event_nid"));
   }
 }
 

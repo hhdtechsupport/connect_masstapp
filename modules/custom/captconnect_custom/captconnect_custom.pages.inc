@@ -13,20 +13,6 @@ function captconnect_custom_view_registrations($node) {
   if ($node->type == 'event') {
     drupal_set_title(t('Registrations for event "!title"', array('!title' => $node->title)));
 
-    $table = array(
-      'rows' => array(),
-      'header' => array(
-        t('Registrant'),
-        t('Registered'),
-        t('Cancel Registration'),
-        t('Participation'),
-        ),
-      'attributes' => array(
-        'id' => 'registrations-list',
-        ),
-      'sticky' => TRUE,
-      'empty' => t('There are currently no instances of this event.'),
-      );
     $event = entity_metadata_wrapper('node', $node);
     $date_format = variable_get('captconnect_custom_register_date_format', 'long_day_at_time');
 
@@ -49,12 +35,34 @@ function captconnect_custom_view_registrations($node) {
     }
     usort($instances, '_captconnect_custom_sort_instances');
 
+    $table = array(
+      'rows' => array(),
+      'header' => array(
+        t('Registrant'),
+        t('Registered'),
+        t('Cancel Registration'),
+        t('Participation'),
+        ),
+      'attributes' => array(
+        'id' => 'registrations-list',
+        ),
+      'sticky' => TRUE,
+      'empty' => t('There are currently no instances of this event.'),
+      );
+
     foreach ($instances as $instance_data) {
+      // Note that $instance is metadata_wrapper form.
       $instance = $instance_data['instance'];
       $dates = $instance->field_date->value();
       $limit = $instance->field_max_registration->value();
       $start_time = $instance_data['start'];
       $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
+
+      // Whether to show "cancel" and "participate" links.
+      $show_links = node_access('update', $node);
+      if (!$show_links) {
+        unset($table['header'][3], $table['header'][2]);
+      }
 
       // Is the event instance past?
       $instance_is_past = ($instance_data['end'] < REQUEST_TIME);
@@ -149,13 +157,19 @@ function captconnect_custom_view_registrations($node) {
             }
           }
 
+          // Build the table row.
+          $row = array(
+            array('data' => $registrant, 'class' => array('registrant-name')),
+            array('data' => format_date($rows[$uid]), 'class' => array('date-registered')),
+            );
+
+          // If this user has flagging permission, show the links.
+          if ($show_links) {
+            $row[] = array('data' => $reg_link, 'class' => array('cancel-link'));
+            $row[] = array('data' => $join, 'class' => $join_class);
+          }
           $table['rows'][] = array(
-            'data' => array(
-              array('data' => $registrant, 'class' => array('registrant-name')),
-              array('data' => format_date($rows[$uid]), 'class' => array('date-registered')),
-              array('data' => $reg_link, 'class' => array('cancel-link')),
-              array('data' => $join, 'class' => $join_class),
-            ),
+            'data' => $row,
             'class' => array_map('drupal_html_class', $roles),
             );
         }

@@ -1,0 +1,281 @@
+<?php
+/**
+ * @file
+ * Custom additions to the Flag confirmation option.
+ */
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function flag_confirm_plus_field_extra_fields() {
+  $extra = array();
+
+  $extra['flagging']['registration'] = array(
+    'form' => array(
+      'boilerplate' => array(
+        'label' => t('Boilerplate'),
+        'weight' => -3,
+        ),
+      'questions' => array(
+        'label' => t('Questions'),
+        'weight' => -2,
+        ),
+      'omb_text' => array(
+        'label' => t('OMB Text'),
+        'weight' => -1,
+        ),
+      ),
+    );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * Mess with the flag edit form.
+ */
+function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+//  dpm($form, $form_id);
+  $form['display']['link_options_confirm']['confirm_header_message'] = array(
+    '#type' => 'textarea',
+    '#size' => 5,
+    '#title' => t('Header text'),
+    '#description' => t('This is boilerplate text placed at the top of the
+      confirmation form to explain what the user is doing. Please note that
+      the confirmation mesaages above appear as the page title above
+      this text.'),
+    '#default_value' => variable_get('flag_confirm_form_header_text', ''),
+    );
+
+  $form['display']['link_options_confirm']['omb_text'] = array(
+    '#type' => 'textarea',
+    '#size' => 5,
+    '#title' => t('OMB Text'),
+    '#description' => t('This is boilerplate text placed on the
+      confirmation form to provide OMB guidelines.'),
+    '#default_value' => variable_get('flag_confirm_omb_text', ''),
+    );
+
+  $form['#submit'][] = '_flag_confirm_plus_flag_form_submit';
+}
+
+function _flag_confirm_plus_flag_form_submit(&$form, &$form_state) {
+//  dpm($form_state['values'], 'values');
+  variable_set('flag_confirm_form_header_text', $form_state['values']['confirm_header_message']);
+  variable_set('flag_confirm_omb_text', $form_state['values']['omb_text']);
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * Mess with the flag confirmation form.
+ */
+function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_id) {
+  global $user;
+//  dpm($form, $form_id);
+
+  $instance = node_load($form['entity_id']['#value']);
+  $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+  $form['#redirect'] = 'node/' . $event->nid;
+  $instances = field_get_items('node', $event, 'field_date_instance');
+
+  $flag = $form['#flag'];
+  // Okay, let's see if any of the instances have been flagged yet.
+  $already_questioned = FALSE;
+  foreach ($instances as $item) {
+    $already_questioned |= $flag->is_flagged($item['target_id'], $user->uid);
+  }
+
+  // Is there at least one question?
+  if (isset($event->field_question[LANGUAGE_NONE][0])) {
+    $questions = array();
+    foreach ($event->field_question[LANGUAGE_NONE] as $question) {
+      $questions[] = $question['target_id'];
+    }
+    $questions = entity_load('node', $questions);
+    $form['#questions'] = $questions;
+
+    // Note that there is a hook_field_extra_fields() that allows
+    // the admin to re-order these fields.
+    $form['boilerplate'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="flag-confirm-boilerplate">'
+        . filter_xss(variable_get('flag_confirm_form_header_text', ''))
+        . '</div><br />',
+      '#weight' => -999,
+      );
+
+    $form['omb_text'] = array(
+      '#type' => 'markup',
+      '#markup' => '<div class="flag-confirm-omb-text">'
+        . filter_xss(variable_get('flag_confirm_form_omb_text', ''))
+        . '</div><br />',
+      '#weight' => -998,
+      );
+
+    if (!$already_questioned) {
+      // Wrapper for questions.
+      $form['questions'] = array(
+        '#type' => 'container',
+        '#attributes' => array(
+          'class' => array('field-group-div', 'panel', 'field-group-questions'),
+          'style' => 'padding: 1px 6px;',
+          ),
+        '#weight' => -10,
+        '#tree' => TRUE,           // Keep them together.
+        );
+      $form['questions']['title'] = array(
+        '#type' => 'markup',
+        '#markup' => '<h3>' . t('Registration Questions') . '</h3>',
+        );
+
+      foreach ($questions as $nid => $question) {
+        if (isset($question->field_help_text[LANGUAGE_NONE][0]['safe_value'])) {
+          $help = $question->field_help_text[LANGUAGE_NONE][0]['safe_value'];
+        }
+        else {
+          $help = NULL;
+        }
+        $form['questions'][$nid] = array(
+          '#title' => t($question->title),
+          '#required' => TRUE,
+          '#description' => $help,
+          );
+
+        switch ($question->field_question_type[LANGUAGE_NONE][0]['value']) {
+          case 'text':
+            if ($question->field_text_size[LANGUAGE_NONE][0]['value']) {
+              $form['questions'][$nid]['#type'] = 'textarea';
+              $form['questions'][$nid]['#size'] = 5;
+            }
+            else {
+              $form['questions'][$nid]['#type'] = 'textfield';
+            }
+            break;
+
+          case 'select':
+            $form['questions'][$nid]['#type'] =
+              ($question->field_select_list_multiple[LANGUAGE_NONE][0]['value'] ?
+              'checkboxes' : 'radios');
+            $options = explode("\n", filter_xss($question->field_select_list_options[LANGUAGE_NONE][0]['value']));
+            $options = array_combine($options, $options);
+            $form['questions'][$nid]['#options'] = $options;
+            break;
+
+          case 'yesno':
+            $form['questions'][$nid]['#type'] = 'radios';
+            $form['questions'][$nid]['#options'] = array(t('No'), t('Yes'));
+            break;
+
+          default:
+            dpm($question->field_question_type[LANGUAGE_NONE][0]['value'], 'bad question type');
+        }
+      }
+    }
+  }
+
+  // That takes care of any possible questions,
+  // now we need to copy over profile information.
+  // Make sure we have all user data.
+  if (!isset($user->og_user_node)) {
+    $user = user_load($user->uid);
+  }
+
+  // Get list of fields that are present.
+  $info = field_info_instances('user', 'user');
+
+  $form_state['user'] = $user;
+  $form_state['#user_category'] = 'account';
+
+  $form['field_user'][LANGUAGE_NONE]['#entity'] = $user;
+  $form['field_user'][LANGUAGE_NONE]['#entity_type'] = 'user';
+  $form['field_user'][LANGUAGE_NONE]['#default_value'] = $user->uid;
+
+  foreach ($info as $field_name => $field_info) {
+    if ($field_name == 'og_user_node') {
+      $form[$field_name][LANGUAGE_NONE][0]['default']['#default_value'] =
+          _flag_confirm_plus_set_field($user->{$field_name}[LANGUAGE_NONE], $form[$field_name][LANGUAGE_NONE][0]['default']['#type']);
+    }
+    if (isset($form[$field_name])) {
+      if (isset($info[$field_name]['display']['default']['module'])
+      && $info[$field_name]['display']['default']['module'] == 'entityreference') {
+        $form[$field_name][LANGUAGE_NONE]['#default_value'] =
+          _flag_confirm_plus_set_field($user->{$field_name}[LANGUAGE_NONE], $form[$field_name][LANGUAGE_NONE]['#type']);
+      }
+      else {
+        if (isset($form[$field_name][LANGUAGE_NONE][0])
+        && isset($user->{$field_name}[LANGUAGE_NONE][0]['value'])) {
+          $form[$field_name][LANGUAGE_NONE][0]['value']['#default_value'] =
+            _flag_confirm_plus_set_field($user->{$field_name}[LANGUAGE_NONE], $form[$field_name][LANGUAGE_NONE][0]['value']['#type']);
+        }
+        else {
+          if (!empty($user->{$field_name}[LANGUAGE_NONE][0]['value'])) {
+            $form[$field_name][LANGUAGE_NONE]['#default_value'] =
+              _flag_confirm_plus_set_field($user->{$field_name}[LANGUAGE_NONE], $form[$field_name][LANGUAGE_NONE]['#type']);
+          }
+        }
+      }
+    }
+  } /* */
+
+  // Make sure we get a crack at the values.
+  $form['#submit'][] = '_flag_confirm_plus_event_registration_submit';
+}
+
+function _flag_confirm_plus_set_field($values, $type) {
+  if (count($values) == 1) {
+    $ret = (isset($values[0]['value']) ? $values[0]['value'] : $values[0]['target_id']);
+    if ($type == 'checkboxes') {
+      return array($ret);
+    }
+    else {
+      return $ret;
+    }
+  }
+  else {
+    $vals = array();
+    foreach ($values as $value) {
+      $vals[] = (isset($value['value']) ? $value['value'] : $value['target_id']);
+    }
+    return $vals;
+  }
+}
+
+/**
+ * Submission handler.
+ */
+function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
+  global $user;
+  $account = $form_state['user'];
+  $category = $form_state['#user_category'];
+
+//  dpm($form_state['values'], '_flag_confirm_plus_event_registration_submit form_state[values]');
+  form_state_values_clean($form_state);
+  $questions = $form['#questions'];
+
+  if (isset($form_state['values']['questions']) && count($form_state['values']['questions']) > 0) {
+    $nodes = entity_load('node', array_keys($form_state['values']['questions']));
+    foreach ($nodes as $nid => $question) {
+      $answer = (object) array(
+        'type' => 'event_answers',
+        'uid' => $account->uid,
+        'name' => $account->name,
+        'language' => LANGUAGE_NONE,
+        'is_new' => TRUE,
+        'field_related_question' => array(LANGUAGE_NONE => array(0 => array('target_id' => $nid))),
+        'field_answer' => array(LANGUAGE_NONE => array(0 => array('value' => $form_state['values']['questions'][$nid]))),
+        );
+
+      node_save($answer);
+    }
+  }
+
+  $result = user_save($account, $form_state['values']);
+  if (!$result) {
+    drupal_set_message(t('Saving of updated profile information failed.'), 'warning');
+  }
+
+  if (isset($form['#redirect'])) {
+    $form_state['redirect'] = $form['#redirect'];
+  }
+}

@@ -27,7 +27,20 @@ function node_add_order_menu() {
 function node_add_order_theme($existing, $type, $theme, $path) {
   return array(
     'node_add_order' => array('variables' => array('content' => NULL)),
+    'node_add_order_settings' => array('render element' => 'form'),
     );
+}
+
+/**
+ * Implements hook_menu_alter().
+ * Remove omitted types from menu.
+ */
+function node_add_order_menu_alter(&$items) {
+  $omits = array_intersect_key(node_type_get_names(), array_filter(variable_get('node_add_order_omit', array())));
+  foreach ($omits as $type => $name) {
+    $path = 'node/add/' . strtr($type, '_', '-');
+    $items[$path]['access callback'] = FALSE;
+  }
 }
 
 /**
@@ -80,6 +93,8 @@ function theme_node_add_order($variables) {
     }
     uasort($content, '_node_add_order_compare');
 
+    $omits = array_intersect_key(node_type_get_names(), array_filter(variable_get('node_add_order_omit', array())));
+
     $output .= '<dl class="node-type-list">';
     foreach ($content as $item) {
       $title = $item['title'];
@@ -112,7 +127,9 @@ function node_add_order_settings() {
 
   $form['intro'] = array(
     '#type' => 'markup',
-    '#markup' => '<p>' . t('This page allows you to change the order of the content types on the "Create content" page.') . '</p>',
+    '#markup' => '<p>'
+      . t('This page allows you to change the order and existence of the content types on the "Create content" page and menu.')
+      . '</p>',
     );
 
   $options = array(
@@ -127,8 +144,45 @@ function node_add_order_settings() {
     '#default_value' => variable_get('node_add_order_sort', 'alpha'),
     '#title' => t('Order of content types'),
     '#description' => t('Select the method by which you wish to order (sort) the content types.'),
-//    '#attributes' => array('class' => array('container-inline')),
     );
 
+  $form['node_add_order_omit'] = array(
+    '#type' => 'checkboxes',
+    '#options' => node_type_get_names(),
+    '#default_value' => variable_get('node_add_order_omit', array()),
+    '#title' => t('Omit content types'),
+    '#description' => t('The list, by default, contains all possible types.
+      You may use this option to prevent some types from being created manually.'),
+    );
+
+  $form['#theme'] = 'node_add_order_settings';
+
   return system_settings_form($form);
+}
+
+function theme_node_add_order_settings(&$variables) {
+  $css = '#node-add-order-settings {font-size: 100%;}
+    table th, table td {width: 49%;}
+    .description {white-space: normal !important;}
+    ';
+  drupal_add_css($css, 'inline');
+
+  $form = $variables['form'];
+  $rows = array();
+  $style = 'vertical-align: top; white-space: normal';
+
+  $output = drupal_render($form['intro']);
+
+  $rows[] = array(
+    array('data' => drupal_render($form['node_add_order_sort']), 'style' => $style),
+    array('data' => drupal_render($form['node_add_order_omit']), 'style' => $style),
+    );
+
+  $output .= theme('table', array(
+    'rows' => $rows,
+    'attributes' => array('id' => 'node-add-order-settings'),
+    ));
+
+  $output .= drupal_render_children($form);
+  return $output;
 }

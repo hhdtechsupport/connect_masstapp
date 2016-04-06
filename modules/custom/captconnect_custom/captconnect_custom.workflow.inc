@@ -21,7 +21,7 @@
  *      'tokens' - The list of tokens for emails.
  *
  * @return none - Modify the list by reference.
- */
+ */ /*
 function captconnect_custom_workflow_notify($op, &$args) {
 //  dpm($args, "captconnect_custom_workflow_notify $op");
   switch ($op) {
@@ -47,7 +47,8 @@ function captconnect_custom_workflow_notify($op, &$args) {
 
       break;
   }
-}
+} /* */
+
 /**
  * Implements hook_workflow().
  *
@@ -73,6 +74,14 @@ function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force 
           // Don't show the current state.
           if ($old_state == $new_state) {
             return FALSE;
+          }
+
+          // If the node is new, it may not be totally complete.
+          // We'll just wait for the next time through.
+          // Strangely, even if is_new is FALSE, og_group_ref is empty.
+          // This is only if is_new is set at all.
+          if (isset($node->is_new) /*&& $node->is_new*/) {
+            return TRUE;
           }
 
           if ($node->type == 'event'

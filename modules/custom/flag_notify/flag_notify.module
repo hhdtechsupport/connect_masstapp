@@ -1,0 +1,205 @@
+<?php
+/**
+ * @file
+ * Custom notifications of flagging and unflagging events.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function flag_notify_menu() {
+  $items = array();
+
+  foreach (flag_get_flags() as $name => $info) {
+    $items[FLAG_ADMIN_PATH . '/%flag/notify'] = array(
+      'title' => t($info->title),
+      'description' => 'Custom notifications of flagging and unflagging events',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('flag_notify_admin_settings', 3),
+      'access arguments' => array('administer flags'),
+      'file' => 'flag_notify.admin.inc',
+      );
+  }
+
+    $items[FLAG_ADMIN_PATH . '/manage/%flag/notify'] = array(
+      'title' => t('Notify'),
+      'description' => 'Custom notifications of flagging and unflagging events',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('flag_notify_admin_settings', 4),
+      'access arguments' => array('administer flags'),
+      'file' => 'flag_notify.admin.inc',
+      'type' => MENU_LOCAL_TASK,
+      );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function flag_notify_theme() {
+  return array(
+    'flag_notify_admin_settings' => array(
+       'render element' => 'form',
+       'file' => 'flag_notify.admin.inc',
+       ),
+    );
+}
+
+/**
+ * Implements hook_flag_admin_operations().
+ *
+ * @param $flag - flag object identifying the flag.
+ *
+ * @return array() keyed by name,
+ *   'title' => the text that will show in the admin list.
+ *   'href' => where to go to accomplish the operation.
+ */
+function flag_notify_flag_admin_operations($flag) {
+  return array(
+    'flag_notify' => array('title' => t('notifications'), 'href' => FLAG_ADMIN_PATH . '/' . $flag->name . '/notify'),
+    );
+}
+
+/**
+ * @TODO: flag_alter to add header and omb stuff?
+ */
+
+/**
+ * Implements hook_flag_flag().
+ * Act on an object being flagged.
+ *
+ * @param flag_flag $flag
+ *  The flag object.
+ * @param int $entity_id
+ *  The id of the entity the flag is on.
+ * @param $account
+ *  The user account performing the action.
+ * @param $flagging
+ *  The flagging entity.
+ */
+function flag_notify_flag_flag($flag, $entity_id, $account, $flagging) {
+  flag_notify_send_email($flag, $entity_id, $account, $flagging, 'flag');
+}
+
+/**
+ * Implements hook_flag_unflag().
+ * Act on an object being unflagged.
+ *
+ * This is invoked after the flag count has been decreased, but before the
+ * flagging entity has been deleted.
+ *
+ * @param $flag
+ *  The flag object.
+ * @param int $entity_id
+ *  The id of the entity the flag is on.
+ * @param $account
+ *  The user account performing the action.
+ * @param $flagging
+ *  The flagging entity.
+ */
+function flag_notify_flag_unflag($flag, $entity_id, $account, $flagging) {
+  flag_notify_send_email($flag, $entity_id, $account, $flagging, 'unflag');
+}
+
+/**
+ * Helper function for sending email message.
+ */
+function flag_notify_send_email($flag, $entity_id, $account, $flagging, $action) {
+  global $user, $language;
+//  dpm($flag, $action . ' ' . $flag->title);
+
+  $subj = variable_get('flag_notify_' . $action . '_subject_' . $flag->name, 'Congratulations');
+  $msg = variable_get('flag_notify_' . $action . '_message_' . $flag->name, 'Thanks');
+  $instance = node_load($entity_id);
+
+  // Let's go ahead and do the tokens, because sometimes they screw up.
+  $args = array(
+    'flag' => $flag,
+    'flagging' => $flagging,
+    'node' => $instance,
+    );
+  $body = token_replace($msg, $args);
+  $subject = token_replace($subj, $args);
+
+  $rids = array_filter(variable_get('flag_notify_flag_roles_' . $flag->name, array()));
+
+  $limit_to_group = variable_get('flag_notify_flag_group_' . $flag->name, 0);
+
+  $event = field_get_items('node', $instance, 'field_related_events');
+  $event = node_load($event[0]['target_id']);
+
+  $who = _flag_notify_list($rids, $event, $limit_to_group);
+
+  $params = array(
+    'subject' => $subject,
+    'body' => $body,
+    'addresses' => $who,
+    'flag' => $flag,
+    'subs' => array(
+      '@event' => filter_xss($event->title),
+      '@action' => filter_xss($flag->name),
+      ),
+    );
+
+  // Send the email.
+  drupal_mail('flag_notify',
+    filter_xss($flag->name),
+    $who,
+    $language,
+    $params);
+}
+
+/**
+ * Helper function to get email address list.
+ *
+ * @param $rids - array of role ids to get email addresses for.
+ * @param $node - If a node is available, the roles may specify "author" of that node.
+ * @param $limit_to_group - If a node is available, the list will be limited to people
+ *   in the roles and in the group of that node.
+ * @return list of email addresses ready for drupal_mail()
+ *      or FALSE if there are no roles.
+ */
+function _flag_notify_list($rids, $node = NULL, $limit_to_group = FALSE) {
+  // Make sure the list of roles is clean.
+  $notify = array_filter($rids);
+  if (empty($notify)) {
+    return FALSE;
+  }
+
+  // Get all the user accounts in those roles.
+  $address_list = db_select('users_roles', 'ur');
+  $address_list->join('users', 'u', 'u.uid = ur.uid');
+  $address_list->fields('u', array('uid', 'mail'))
+    ->condition('ur.rid', $notify, 'IN');
+
+  if ($limit_to_group) {
+    $main = field_get_items('node', $node, 'og_group_ref');
+    $extra = field_get_items('node', $node, 'og_group_ref2');
+    $node_groups = array($main[0]['target_id'], $extra[0]['target_id']);
+
+    $address_list->join('og_membership', 'm', 'm.etid = u.uid');
+    $address_list->condition('m.gid', $node_groups, 'IN');
+  }
+
+  $addresses = $address_list->execute()->fetchAllKeyed();
+
+  if (isset($notify[-1]) && !is_null($node)) {
+    $account = user_load($node->uid);
+    $addresses[] = $account->mail;
+  }
+
+  return implode(',', array_unique($addresses));
+}
+/**
+ * Implements hook_mail().
+ */
+function flag_notify_mail($key, &$message, $params) {
+  $message['send'] = TRUE;
+  $message['body'][] = '<div class="'. drupal_html_class($key) .'">';
+
+  $message['subject'] = filter_xss($params['subject']);
+  $message['body'][] = filter_xss($params['body']);
+
+  $message['body'][] = '</div>';
+}
