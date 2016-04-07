@@ -8178,25 +8178,34 @@ body.node-type-event.not-logged-in div#content.column {
 }
 
 /* line 530, ../sass/main_pages/_event.scss */
-.view-presenters h5, .view-presenters .views-field-field-body {
-  margin-left: 185px;
+.view-presenters h5 {
+  font-size: 1.25em;
 }
-/* line 533, ../sass/main_pages/_event.scss */
-.view-presenters img {
+/* line 535, ../sass/main_pages/_event.scss */
+.view-presenters .views-field-nothing .field-content > div:nth-child(1) {
+  float: left;
+  margin-right: 15px;
+}
+/* line 538, ../sass/main_pages/_event.scss */
+.view-presenters .views-field-nothing .field-content > div:nth-child(1) img {
   margin-bottom: 30px;
 }
+/* line 542, ../sass/main_pages/_event.scss */
+.view-presenters .views-field-nothing .field-content > div:nth-child(2) {
+  overflow: hidden;
+}
 
-/* line 540, ../sass/main_pages/_event.scss */
+/* line 551, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row {
   position: relative;
   padding-bottom: 20px;
 }
-/* line 544, ../sass/main_pages/_event.scss */
+/* line 555, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view > .field-content > .view-instances > .view-content, .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-1 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
 }
-/* line 550, ../sass/main_pages/_event.scss */
+/* line 561, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-4 > .field-content > .view-instances > .view-content {
   text-align: right;
   margin-bottom: 30px;
@@ -8211,60 +8220,60 @@ body.node-type-event.not-logged-in div#content.column {
   color: #8c1d18;
   font-size: 1.25em;
 }
-/* line 565, ../sass/main_pages/_event.scss */
+/* line 576, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php {
   text-decoration: underline;
   margin-top: -22px;
   margin-left: 14px;
   margin-bottom: 20px;
 }
-/* line 570, ../sass/main_pages/_event.scss */
+/* line 581, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a {
   color: #333333 !important;
   font-weight: normal;
   cursor: pointer;
 }
-/* line 574, ../sass/main_pages/_event.scss */
+/* line 585, ../sass/main_pages/_event.scss */
 .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-php a:hover {
   color: #8c1d18 !important;
 }
 
-/* line 584, ../sass/main_pages/_event.scss */
+/* line 595, ../sass/main_pages/_event.scss */
 .role-administrator .field-name-event-date-s- > .field-items > .field-item > .view-instances > .view-content > .views-row > .views-field-view-2 {
   display: none;
 }
 
-/* line 591, ../sass/main_pages/_event.scss */
+/* line 602, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile #edit-og-user-node {
   display: none;
 }
-/* line 594, ../sass/main_pages/_event.scss */
+/* line 605, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile h3 {
   border-bottom: 0px !important;
 }
-/* line 597, ../sass/main_pages/_event.scss */
+/* line 608, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile > div {
   clear: both;
   margin: 9px 0px;
 }
-/* line 601, ../sass/main_pages/_event.scss */
+/* line 612, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content {
   display: block;
   margin-left: 70px;
   padding: 0;
 }
-/* line 606, ../sass/main_pages/_event.scss */
+/* line 617, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content .item .label {
   font-weight: bold;
 }
-/* line 609, ../sass/main_pages/_event.scss */
+/* line 620, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content .item .value {
   display: block;
   font-style: italic;
   margin-left: 10px;
   margin-top: 2px;
 }
-/* line 617, ../sass/main_pages/_event.scss */
+/* line 628, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .editor {
   float: left;
   display: block;
@@ -8273,11 +8282,11 @@ body.node-type-event.not-logged-in div#content.column {
   color: #878787;
   text-decoration: underline;
 }
-/* line 624, ../sass/main_pages/_event.scss */
+/* line 635, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .editor:hover {
   color: #8c1d18;
 }
-/* line 628, ../sass/main_pages/_event.scss */
+/* line 639, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .saver {
   float: left;
   display: none;
@@ -8291,19 +8300,19 @@ body.node-type-event.not-logged-in div#content.column {
   -ms-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 638, ../sass/main_pages/_event.scss */
+/* line 649, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content ~ .form-item > label ~ div {
   margin-left: 70px;
 }
-/* line 641, ../sass/main_pages/_event.scss */
+/* line 652, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .content ~ .form-item > label ~ input {
   margin-left: 85px;
 }
-/* line 644, ../sass/main_pages/_event.scss */
+/* line 655, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .form-item:not(.form-type-checkbox):not(.form-type-radio) {
   margin: 0px 0px 20px 0px !important;
 }
-/* line 650, ../sass/main_pages/_event.scss */
+/* line 661, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration .profile .form-item .description {
   font-size: 0.85em;
   line-height: 1.5em;
@@ -8311,17 +8320,17 @@ body.node-type-event.not-logged-in div#content.column {
   color: #5c5c5c;
   max-width: 400px;
 }
-/* line 658, ../sass/main_pages/_event.scss */
+/* line 669, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration #edit-questions {
   padding-top: 20px !important;
   padding-bottom: 20px !important;
 }
-/* line 661, ../sass/main_pages/_event.scss */
+/* line 672, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration #edit-questions:before {
   margin-left: -7px !important;
   padding-left: 14px !important;
 }
-/* line 665, ../sass/main_pages/_event.scss */
+/* line 676, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration #edit-questions textarea {
   height: 100px;
   font-size: 14px;
@@ -8329,11 +8338,11 @@ body.node-type-event.not-logged-in div#content.column {
   padding: 5px;
   max-width: 400px !important;
 }
-/* line 672, ../sass/main_pages/_event.scss */
+/* line 683, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration #edit-questions .grippie {
   max-width: 400px !important;
 }
-/* line 675, ../sass/main_pages/_event.scss */
+/* line 686, ../sass/main_pages/_event.scss */
 .page-flag-confirm-flag-registration #edit-questions .description {
   font-size: 0.85em;
   line-height: 1.5em;

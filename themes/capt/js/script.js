@@ -981,7 +981,7 @@ function otherSelectbox ($field, $fieldPrev) {
 
   function getLabelsAndInputs($formItem) {
     var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
-    else if ($formItem.hasClass('form-type-textfield')){
+    if ($formItem.hasClass('form-type-textfield')){
       var input = $formItem.find('input').val();
       label = label.replace(' (check all that apply):','');
     }

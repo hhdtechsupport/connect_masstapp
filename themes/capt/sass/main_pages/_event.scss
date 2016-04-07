@@ -527,11 +527,22 @@ body.node-type-event.not-logged-in {
 }
 
 .view-presenters {
-  h5, .views-field-field-body {
-    margin-left: 185px;
+  h5 {
+    font-size: 1.25em;
   }
-  img {
-    margin-bottom: 30px;
+  .views-field-nothing {
+    .field-content {
+      & > div:nth-child(1) {
+        float: left;
+        margin-right: 15px;
+        img {
+          margin-bottom: 30px;
+        }
+      }
+      & > div:nth-child(2) {
+        overflow: hidden;
+      }
+    }
   }
 }
 
