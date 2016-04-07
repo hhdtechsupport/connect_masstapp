@@ -1094,6 +1094,10 @@ function otherSelectbox ($field, $fieldPrev) {
        $(this).prepend('<div class="editor" style="float: right; display: block;">Edit</div>');
        $(this).prepend('<div class="saver" style="float: right; display: none;">Save</div>');
 
+       $initialValue = getLabelsAndInputs($(this).find('.form-item'));
+       $(this).find('.content').append($initialValue);
+       $(this).find('.form-item').css('display','none');
+
        $(this).children('.editor').on('click',function(){
          $(this).css('display','none');
          $(this).parent().children('.saver').css('display','block');
@@ -1108,10 +1112,6 @@ function otherSelectbox ($field, $fieldPrev) {
          $(this).parent().children('.content').html(getLabelsAndInputs($formItem)).css('display','block');
          $formItem.css('display','none');
        });
-
-       $initialValue = getLabelsAndInputs($(this).find('.form-item'));
-       $(this).find('.content').append($initialValue);
-       $(this).find('.form-item').css('display','none');
 
      });
 
