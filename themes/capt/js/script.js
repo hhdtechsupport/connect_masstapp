@@ -823,8 +823,8 @@ function otherSelectbox ($field, $fieldPrev) {
   }
 
   // Adjust tense of the "published" and "unpublished" buttons
-  $('input[value="Published"]').val('Publish');
-  $('input[value="Unpublished"]').val('Unpublish');
+  // $('input[value="Published"]').val('Publish');
+  // $('input[value="Unpublished"]').val('Unpublish');
 
 
 
