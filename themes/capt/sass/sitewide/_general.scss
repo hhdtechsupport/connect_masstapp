@@ -915,6 +915,25 @@ input.form-text {
   }
 }
 
+textarea {
+  font-size: $input-font-size;
+  padding: 5px;
+  display: block;
+  border: 1px solid #b6b6b6;
+  height: 50px;
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+  &:focus {
+    background: $capt-inputfocus;
+    outline: none;
+  }
+}
+
+.form-textarea-wrapper {
+
+}
+
 
 
 .text-format-wrapper {
