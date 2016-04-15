@@ -822,6 +822,14 @@ function otherSelectbox ($field, $fieldPrev) {
     $('ul.messages__list li:contains("A welcome message")').remove();
   }
 
+  // If the message is the one indicating the user should check their email for activation link, then make bigger
+  var $message = $('li.messages__item');
+  if ($('li.messages__item:contains("Thank you for creating a new account at CAPT Connect!")') {
+    $message.css('font-size','1.4em').css('display','block').css('margin-left','-20px');
+  }
+
+
+
 
   /*
    * START: HIDING NOTIFICATION FIELDS & LIMIT DEFAULT TEMPLATES
