@@ -1,0 +1,297 @@
+<?php
+/**
+ * @file
+ * Makes a child node according to rules.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function child_nodes_permission() {
+  $perms = array(
+    'create child nodes' => array(
+      'title' => t('Create Child Nodes'),
+      'description' => t('Create Child Nodes (use "create" buttons).'),
+      ),
+    );
+
+  return $perms;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function child_nodes_menu() {
+  $items = array();
+
+  $items['child_create/%node'] = array(
+    'page callback' => 'child_nodes_node_create',
+    'page arguments' => array(1),
+    'access arguments' => array('create child nodes'),
+    'type' => MENU_CALLBACK,
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_help($path, $args).
+ */
+function child_nodes_help($path, $args) {
+  switch ($path) {
+    case 'admin/help#child_nodes':
+      return '<p>'
+        . t('The Child Nodes module helps design parent-child content relationships.')
+        . ' '
+        . t('You may define fields to be copied (inherited) from the parent to the child.')
+        . ' '
+        . t('Additionally the child may have an entity reference to the parent.')
+        . '</p>';
+  }
+}
+
+/**
+ * Implements hook_init().
+ * Try to avoid AJAX errors when creating a child node.
+ */
+function child_nodes_init() {
+  if (($_GET['q'] == 'system/ajax' || strstr($_GET['q'], 'file/ajax/')) && preg_match('/^[a-z_]+_node_form/', $_POST['form_id'])) {
+    module_load_include('inc', 'node', 'node.pages');
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ * Move create child button to front of list so other modules can alter the button.
+ */
+function child_nodes_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'node_view' || $hook == 'form_alter') {
+    $module = 'child_nodes';
+    $group = array($module => $implementations[$module]);
+    unset($implementations[$module]);
+    $implementations = $group + $implementations;
+  }
+}
+
+/**
+ * Implements hook_node_view().
+ * Add a create child button.
+ */
+function child_nodes_node_view($node, $view_mode, $langcode) {
+  $family = variable_get('child_nodes_family', array());
+
+  // Is this node one of our parent types and are we in full view mode?
+  if (isset($family[$node->type]) && $view_mode == 'full') {
+    // Is the user allowed to create the child node?
+    $keys = array();
+    foreach ($family[$node->type] as $child => $data) {
+      // Node access doesn't seem to work well with OG.
+      if (user_access("create $child content")) {
+        $types = node_type_get_names();
+        $button_text = isset($data['button_text']) ? filter_xss($data['button_text']) : 'Create @type';
+
+        // Let other modules participate in deciding to show the button.
+        $show_it = array();
+        foreach (module_implements('child_nodes_button') as $module) {
+          $func = $module . '_child_nodes_button';
+          $show_it[] = $func($node, $child, $button_text);
+        }
+        if (!in_array(FALSE, $show_it)) {
+          // So now if we still want to show the button, let's do it.
+          $key = 'child_nodes_' . $child;
+          $keys[] = $key;
+          $node->content[$key] = array(
+            '#theme' => 'link',
+            '#text' => t($button_text, array('@type' => $types[$child])),
+            '#path' => "child_create/$node->nid/$child",
+            '#options' => array(
+              'attributes' => array('class' => array('button', 'pretty-button', "$child", 'child-nodes-button')),
+              'html' => FALSE,
+              'query' => array('token' => drupal_get_token($node->type.$child)),
+              ),
+            '#weight' => -10,
+            );
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_extra_fields().
+ */
+function child_nodes_field_extra_fields() {
+  $family = variable_get('child_nodes_family', array());
+
+  $extra = array();
+  $buttons = array();
+  foreach ($family as $parent => $children) {
+    foreach ($children as $child => $data) {
+      $extra['node'][$parent]['display']['child_nodes_' . $child] = array(
+        'label' => t("Child Nodes: Create @child button", array('@child' => $child)),
+        'description' => t("Create @child button", array('@child' => $child)),
+        'weight' => -99,   // Default to top.
+        );
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * MENU_CALLBACK: create a child node.
+ * Some code copied from node_add().
+ */
+function child_nodes_node_create($parent, $child) {
+  global $user;
+  $family = variable_get('child_nodes_family', array());
+  $types = node_type_get_names();
+
+  $child_type_machine = $child;
+  $child_type_human = $types[$child_type_machine];
+
+  if (drupal_get_token($parent->type.$child) != $_GET['token']) {
+    drupal_set_message(t('Invalid token given; did you use a proper liink?'), 'error');
+    drupal_goto();
+  }
+
+  // We need to make the node module load its node form code.
+  // Node_add() didn't worry about this because it's in the same file.
+  module_load_include('inc', 'node', 'node.pages');
+
+  drupal_set_message(t("Creating @type content from %title.", array('@type' => $child_type_human,'%title' => $parent->title)));
+
+  $node = array(
+    'uid' => $user->uid,
+    'name' => (isset($user->name) ? $user->name : ''),
+    'type' => $child_type_machine,
+    'language' => $parent->language,
+    'parent' => $parent,
+    );
+
+  if (module_exists('entityreference')) {
+    $ref = isset($family[$parent->type][$child]['ref']) ? $family[$parent->type][$child]['ref'] : NULL;
+    // Set a noderef back to the parent.
+    $node[$ref] = array(LANGUAGE_NONE => array(array('target_id' => $parent->nid)));
+  }
+
+  if (isset($family[$parent->type][$child]['fields'])) {
+    foreach ($family[$parent->type][$child]['fields'] as $parent_field => $child_field) {
+      if (isset($parent->$parent_field)) {
+        // For some reason PHP won't let me do this directly.
+        $x = $parent->$parent_field;
+        $node[$child_field] = $x;
+      }
+    }
+  }
+
+  // Provide a complete user object.
+  $user = user_load($user->uid);
+
+  // Allow other modules to alter the nascent node.
+  $ret = module_invoke_all('child_nodes_create', $child_type_machine, $node, $user);
+
+  // I don't know why the node module is not available, but this might help.
+  if (!function_exists('node_form')) {
+    module_load_include('inc', 'node', 'node.pages');
+  }
+
+  drupal_set_title(t('Create @name', array('@name' => $child_type_human)), PASS_THROUGH);
+  $form = drupal_get_form($child_type_machine . '_node_form', (object) $node);
+
+  return $form;
+}
+
+/**
+ * Implements hook_form_alter().
+ * Hide/disable fields that are not editable.
+ */
+function child_nodes_form_alter(&$form, $form_state, $form_id) {
+  // If this is a super user, don't do anything.
+  if (user_access('bypass node access')) {
+    return;
+  }
+
+  // Node forms are "type_node_form" where 'type' is the machine name.
+  if (substr($form_id, -10) == '_node_form') {
+    form_load_include($form_state, 'inc', 'node', 'node.pages');
+
+    $type = substr($form_id, 0, -10);
+
+    $family = variable_get('child_nodes_family', array());
+
+    // Is this a node type we deal with?
+    // It is conceivable that a given type could be the child
+    // of more than one parent. In that case, the field stuff
+    // becomes cumulative.
+    foreach ($family as $parent => $children) {
+      foreach ($children as $child => $info) {
+        if ($child == $type) {
+          if (!isset($info['fields'])) {
+            $info['fields'] = array();
+          }
+
+          // Try to avoid AJAX errors.
+          form_load_include($form_state, 'inc', 'node', 'node.pages');
+
+          // We need to hide the fields that we populate,
+          // unless editing is specifically allowable.
+          $ref = $info['ref'];
+          // Let the user see what value was set, but don't let them change it.
+          $form[$ref]['#disabled'] = TRUE;
+
+          $editable = isset($info['edits']) ? $info['edits'] : array();
+
+          foreach ($info['fields'] as $field) {
+            // If it is editable, just skip everything.
+            if (in_array($field, $editable)) {
+              continue;
+            }
+
+            if ($form[$field]['#type'] == 'container') {
+              $lang = $form[$field]['#language'];
+
+              // Can it have multiple values?
+              // #tree is not a good indicator. Mult values will be in
+              // an array with numeric keys.
+              $x = key($form[$field][$lang]);
+              if (is_numeric(key($form[$field][$lang]))) {
+                foreach ($form[$field][$lang] as $key => $stuff) {
+                  if (!is_numeric($key)) {
+                    continue;
+                  }
+                  // Is it already hidden?
+                  if (isset($stuff['value']) && isset($stuff['value']['#type']) && $stuff['value']['#type'] == 'hidden') {
+                    // Don't need to do anything.
+                    continue;
+                  }
+                  else {
+                    // Let the user see what value was set, but don't let them change it.
+                    $form[$field][$lang][$key]['#disabled'] = TRUE;
+                  }
+                }
+              }
+              // Container, but not multiple values.
+              else {
+                if (!isset($form[$field][$lang]['#default_value'])) {
+                  dpm($form[$field], "$field huh?");
+                  break;
+                }
+                // If the value is set, then disable the field.
+                if (isset($form[$field][$lang]['#default_value']['value'])
+                  || isset($form[$field][$lang]['#default_value'][0])) {
+                    $form[$field][$lang]['#disabled'] = TRUE;
+                }
+              }
+            }
+            else {
+              //  Make it hidden and set the returned value.
+              $form[$field]['#type'] = 'hidden';
+              $form[$field]['#value'] = $form[$field]['#default_value'];
+            }
+          }
+        }
+      }
+    }
+  }
+}

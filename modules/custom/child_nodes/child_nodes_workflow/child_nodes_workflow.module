@@ -1,0 +1,178 @@
+<?php
+/**
+ * @file
+ * Workflow support for Child_Nodes Module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ * Add Workflow settings to Child Nodes settings.
+ */
+function child_nodes_workflow_form_alter(&$form, $form_state, $form_id) {
+  global $user;
+//  drupal_set_message('child_nodes_workflow_form_alter: ' . $form_id);
+
+  switch ($form_id) {
+    // Child_Nodes settings form.
+    case 'child_nodes_ui_type_page':
+      $noyes = array(t('No'), t('Yes'));
+      $types = node_type_get_names();
+
+      $family = child_nodes_get_family();
+
+      $form['workflow'] = array(
+        '#type' => 'fieldset',
+        '#title' => t('Workflow') . theme('advanced_help_topic', array('module' => 'child_nodes', 'topic' => 'workflow')),
+        '#collapsible' => TRUE,
+        '#collapsed' => FALSE,
+        );
+
+      $form['workflow']['child_nodes_use_workflow'] = array(
+        '#type' => 'radios',
+        '#options' => $noyes,
+        '#title' => t('Control button visibility with Workflow'),
+        '#attributes' => array('class' => array('container-inline')),
+        '#default_value' => variable_get('child_nodes_use_workflow', 0),
+        );
+
+      ksort($family);
+      $form['family'] = array('#type' => 'value', '#value' => $family);
+
+      // Set the workflow options for each parent type.
+      foreach ($family as $parent => $children) {
+        if (!isset($types[$parent])) {
+          drupal_set_message(t('Child_nodes_workflow skipping parent @type.',
+            array('@type' => $parent)), 'warning', FALSE);
+          continue;
+        }
+        foreach ($children as $child => $data) {
+          if (!isset($types[$parent])) {
+            drupal_set_message(t('Child_nodes_workflow skipping child @type.',
+              array('@type' => $child)), 'warning', FALSE);
+            continue;
+          }
+
+        $args = array('@parent' => $types[$parent], '@child' => $types[$child]);
+
+          // Get the workflow states for this content type.
+          $parent_states = _child_nodes_workflow_get_workflow_states($parent);
+          if ($parent_states) {
+            $form['workflow'][$parent][$child] = array(
+              '#type' => 'fieldset',
+              '#title' => t("@parent &#x279F; @child", $args),
+              '#collapsible' => TRUE,
+               // Yeehaw, no more javascript coding...
+              '#states' => array(
+                'visible' => array('input[name="child_nodes_use_workflow"]' => array('value' => 1)),
+                'invisible' => array('input[name="child_nodes_use_workflow"]' => array('value' => 0)),
+                ),
+              );
+
+            $form['workflow'][$parent][$child]["workflow_" . $parent . '_' . $child] = array(
+              '#type' => 'checkboxes',
+              '#options' => $parent_states,
+              '#title' => t('Select @parent workflow states in which to display "Create @child" button', $args),
+              '#attributes' => array('class' => array('container-inline')),
+              '#default_value' => variable_get("child_nodes_workflow_" . $parent . '_' . $child, array()),
+              );
+          }
+        }
+      }
+
+      $form['workflow']['submit'] = array(
+        '#type' => 'submit',
+        '#value' => t('Save workflow settings'),
+        '#submit' => array('child_nodes_workflow_settings_submit'),
+        );
+
+      return;
+  }
+}
+
+/**
+ * Get all the workflow states for a content type.
+ */
+function _child_nodes_workflow_get_workflow_states($type) {
+  static $states = array();
+  // Get the workflow states for this content type.
+  if (!isset($states[$type])) {
+    $workflow_states = workflow_get_workflow_states_by_type($type);
+    if ($workflow_states) {
+      $states[$type] = array();
+      foreach ($workflow_states as $state) {
+        if ($state->sysid != 1) {
+          $states[$type][$state->sid] = $state->state;
+        }
+      }
+    }
+    else {
+      $states[$type] = FALSE;
+    }
+  }
+  return $states[$type];
+}
+
+/**
+ * Settings form submission handler.
+ */
+function child_nodes_workflow_settings_submit($form, $form_state) {
+  switch($form_state['values']['op']) {
+    case $form['workflow']['submit']['#value']:
+      variable_set('child_nodes_use_workflow', $form_state['values']['child_nodes_use_workflow']);
+
+      $family = $form_state['values']['family'];
+      foreach($family as $parent => $children) {
+        foreach ($children as $child => $data) {
+          // Get the selected states.
+          if (isset($form_state['values']["workflow_" . $parent . '_' . $child])) {
+            $value = array_filter($form_state['values']["workflow_" . $parent . '_' . $child]);
+            variable_set("child_nodes_workflow_" . $parent . '_' . $child, $value);
+          }
+        }
+      }
+
+      drupal_set_message(t('Workflow settings saved'));
+      return;
+  }
+}
+
+/**
+ * Implements hook_child_nodes_create().
+ * @TODO: remove.
+ */
+function _child_nodes_workflow_child_nodes_create($child_type_machine, $node, $account) {
+  // Default workflow state.
+  $child_state = array_shift(variable_get("child_nodes_workflow_initial_$child_type_machine", array()));
+  dpm($child_state, "child_nodes_workflow_child_nodes_create child_state");
+  if ($child_state) {
+    $node['workflow'] = $child_state;
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ * Make sure our button hook runs first.
+ */
+function child_nodes_workflow_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'child_nodes_button') {
+    $module = 'child_nodes_workflow';
+    $group = array($module => $implementations[$module]);
+    unset($implementations[$module]);
+    $implementations = $group + $implementations;
+  }
+}
+
+/**
+ * Implements hook_child_nodes_button().
+ * Note the previous hook to make this run first.
+ */
+function child_nodes_workflow_child_nodes_button($node, $child) {
+  // Are we using the Workflow module?
+  if (variable_get('child_nodes_use_workflow', 0)) {
+    // Is it a workflow content type?
+    if (workflow_get_workflow_type_map_by_type($node->type)) {
+      // If it's a state we have set, then return TRUE; else return FALSE.
+      return in_array(workflow_node_current_state($node), variable_get('child_nodes_workflow_' . $node->type . '_' . $child, array()));
+    }
+  }
+}
