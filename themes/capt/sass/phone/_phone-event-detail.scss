@@ -277,8 +277,18 @@ body.node-type-event {
       div.field-name-presenters {
         border-top: 0px;
         border-bottom: 0px;
-        .view-presenters .views-row:last-child {
-          margin-bottom: 0px;
+        .view-presenters {
+          .views-row:last-child {
+            margin-bottom: 0px;
+          }
+          .views-field-nothing {
+            .field-content {
+              & > div:nth-child(2) {
+                overflow: hidden;
+                clear: both;
+              }
+            }
+          }
         }
       }
       div.field-type-text-long {
