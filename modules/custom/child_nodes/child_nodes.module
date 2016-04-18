@@ -101,20 +101,32 @@ function child_nodes_node_view($node, $view_mode, $langcode) {
           $key = 'child_nodes_' . $child;
           $keys[] = $key;
           $node->content[$key] = array(
-            '#theme' => 'link',
-            '#text' => t($button_text, array('@type' => $types[$child])),
-            '#path' => "child_create/$node->nid/$child",
-            '#options' => array(
-              'attributes' => array('class' => array('button', 'pretty-button', "$child", 'child-nodes-button')),
-              'html' => FALSE,
-              'query' => array('token' => drupal_get_token($node->type.$child)),
-              ),
+            '#type' => 'markup',
+            '#markup' => child_nodes_create_link($child, $node, $button_text),
             '#weight' => -10,
             );
         }
       }
     }
   }
+}
+
+/**
+ * Helper function for creating link.
+ * Primarily for use in Views.
+ */
+function child_nodes_create_link($child_type, $parent, $button_text) {
+  $types = node_type_get_names();
+
+  $text = t($button_text, array('@type' => $types[$child_type]));
+  $path = "child_create/$parent->nid/$child_type";
+  $options = array(
+    'attributes' => array('class' => array('button', 'pretty-button', "$child_type", 'child-nodes-button')),
+    'query' => array('token' => drupal_get_token($parent->type.$child_type)),
+    );
+
+  $link = l($text, $path, $options);
+  return $link;
 }
 
 /**

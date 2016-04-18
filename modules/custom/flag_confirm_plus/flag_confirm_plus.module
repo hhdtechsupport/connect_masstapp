@@ -108,7 +108,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
     $form['omb_text'] = array(
       '#type' => 'markup',
       '#markup' => '<div class="flag-confirm-omb-text">'
-        . filter_xss(variable_get('flag_confirm_form_omb_text', ''))
+        . filter_xss(variable_get('flag_confirm_omb_text', ''))
         . '</div><br />',
       '#weight' => -998,
       );
