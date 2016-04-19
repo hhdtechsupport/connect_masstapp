@@ -2272,6 +2272,11 @@ li.messages__item:contains("Updated term") {
   color: #333333;
 }
 
+/* line 1429, ../sass/sitewide/_general.scss */
+#block-views-send-message-block {
+  margin-top: 100px;
+}
+
 /*
  *  Banners
  */
@@ -2974,7 +2979,7 @@ div.vertical-tabs {
   }
   /* line 240, ../sass/sitewide/_navigation.scss */
   div#main div#navigation div.region.region-navigation ul#main-menu.main-menu.responsive-menu > li.menu-item > ul > li.menu-item {
-    width: 100%;
+    width: 100% !important;
   }
 
   /* line 250, ../sass/sitewide/_navigation.scss */
@@ -12250,8 +12255,13 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     max-width: 335px;
     width: 100%;
   }
+  /* line 113, ../sass/phone/_login-phone.scss */
+  body.not-logged-in.page-user:not(.page-user-register) div#page div#main div#block-block-18 p,
+  body.not-logged-in.page-anon-login div#page div#main div#block-block-18 p {
+    margin-left: 0px;
+  }
 
-  /* line 118, ../sass/phone/_login-phone.scss */
+  /* line 121, ../sass/phone/_login-phone.scss */
   div.bottom-footer {
     height: 50px;
     width: 100%;
@@ -12260,7 +12270,7 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     display: block;
     margin: 0px;
   }
-  /* line 126, ../sass/phone/_login-phone.scss */
+  /* line 129, ../sass/phone/_login-phone.scss */
   div.bottom-footer div.bottom-footer-container {
     text-align: left;
     width: 100%;
@@ -12268,18 +12278,18 @@ body.page-user-register .multipage-panes .multipage-pane .multipage-controls-lis
     display: block;
     margin: 0px;
   }
-  /* line 133, ../sass/phone/_login-phone.scss */
+  /* line 136, ../sass/phone/_login-phone.scss */
   div.bottom-footer div.bottom-footer-container footer#footer {
     width: 100%;
     max-width: 100%;
   }
 
-  /* line 150, ../sass/phone/_login-phone.scss */
+  /* line 153, ../sass/phone/_login-phone.scss */
   .page-anon-login form#user-login {
     height: 340px !important;
   }
 
-  /* line 154, ../sass/phone/_login-phone.scss */
+  /* line 157, ../sass/phone/_login-phone.scss */
   #why-register-icon {
     background-size: 60px;
     width: 80px !important;
