@@ -3096,19 +3096,33 @@ p {
   color: black;
 }
 /* line 74, ../sass/main_pages/_dashboard.scss */
+.section-events .views-field-field-date a {
+  color: #333;
+  text-decoration: underline;
+  font-weight: normal;
+  background: url("../images/icons/add-to-calendar-black.png") no-repeat;
+  padding-left: 20px;
+  padding-bottom: 4px;
+}
+/* line 81, ../sass/main_pages/_dashboard.scss */
+.section-events .views-field-field-date a:hover {
+  background: url("../images/icons/add-to-calendar-maroon.png") no-repeat;
+  color: #8c1d18;
+}
+/* line 86, ../sass/main_pages/_dashboard.scss */
 .section-events h3 {
   margin-top: 0px;
 }
-/* line 77, ../sass/main_pages/_dashboard.scss */
+/* line 89, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 {
   float: right;
   margin-bottom: 1em;
 }
-/* line 80, ../sass/main_pages/_dashboard.scss */
+/* line 92, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="submit"] {
   margin-right: 0px;
 }
-/* line 83, ../sass/main_pages/_dashboard.scss */
+/* line 95, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 .views-exposed-widget input[type="text"] {
   font-size: 14px;
   padding: 5px;
@@ -3119,11 +3133,11 @@ p {
   -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 0px inset;
   box-shadow: rgba(0, 0, 0, 0.15) 1px 1px 5px 0px inset;
 }
-/* line 91, ../sass/main_pages/_dashboard.scss */
+/* line 103, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-exp-dashboard-page-1 #edit-keys-wrapper {
   margin-top: -2px;
 }
-/* line 95, ../sass/main_pages/_dashboard.scss */
+/* line 107, ../sass/main_pages/_dashboard.scss */
 .section-events .view-dashboard.view-display-id-page_1 {
   background-color: white;
   border-width: 0px;
@@ -3132,23 +3146,23 @@ p {
   margin-top: 10px;
   float: left;
 }
-/* line 103, ../sass/main_pages/_dashboard.scss */
+/* line 115, ../sass/main_pages/_dashboard.scss */
 .section-events .view-dashboard.view-display-id-page_1:before {
   margin-left: 0px;
   padding-left: 0px;
 }
-/* line 108, ../sass/main_pages/_dashboard.scss */
+/* line 120, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 {
   background: url("../images/icons/registered.png") 386px 17px no-repeat #eef1f3;
   background-size: 60px;
 }
-/* line 112, ../sass/main_pages/_dashboard.scss */
+/* line 124, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-2 {
   background: url("../images/icons/archived.png") 386px 17px no-repeat #eef1f3;
   clear: right;
   background-size: 60px;
 }
-/* line 117, ../sass/main_pages/_dashboard.scss */
+/* line 129, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1,
 .section-events #block-views-dashboard-block-2 {
   float: right;
@@ -3158,7 +3172,7 @@ p {
   margin-right: 0px;
   padding-left: 0px;
 }
-/* line 126, ../sass/main_pages/_dashboard.scss */
+/* line 138, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 h2.block-title,
 .section-events #block-views-dashboard-block-2 h2.block-title {
   font-weight: normal;
@@ -3168,12 +3182,12 @@ p {
   padding: 0 20px;
   color: #334b56;
 }
-/* line 134, ../sass/main_pages/_dashboard.scss */
+/* line 146, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content,
 .section-events #block-views-dashboard-block-2 .view-content {
   padding: 0 20px;
 }
-/* line 136, ../sass/main_pages/_dashboard.scss */
+/* line 148, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list {
   border-top: 1px solid #d7d7d7;
@@ -3181,49 +3195,49 @@ p {
   padding: 20px 10px 20px;
   overflow: hidden;
 }
-/* line 141, ../sass/main_pages/_dashboard.scss */
+/* line 153, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list:not(:nth-child(1)),
 .section-events #block-views-dashboard-block-2 .view-content > .item-list:not(:nth-child(1)) {
   border-top: none;
 }
-/* line 144, ../sass/main_pages/_dashboard.scss */
+/* line 156, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list:last-child,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list:last-child {
   border-bottom: none;
 }
-/* line 147, ../sass/main_pages/_dashboard.scss */
+/* line 159, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul {
   padding-left: 15px;
 }
-/* line 149, ../sass/main_pages/_dashboard.scss */
+/* line 161, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > li.views-row,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > li.views-row {
   margin-bottom: 7px;
 }
-/* line 151, ../sass/main_pages/_dashboard.scss */
+/* line 163, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > li.views-row:not(.views-row-first),
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > li.views-row:not(.views-row-first) {
   margin-top: 15px;
 }
-/* line 157, ../sass/main_pages/_dashboard.scss */
+/* line 169, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-field-date .date-display-range,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-field-date .date-display-range {
   display: inline;
 }
-/* line 162, ../sass/main_pages/_dashboard.scss */
+/* line 174, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a {
   font-weight: normal;
   color: #333333;
   text-decoration: underline;
 }
-/* line 166, ../sass/main_pages/_dashboard.scss */
+/* line 178, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-ops a:hover {
   color: #8c1d18;
 }
-/* line 171, ../sass/main_pages/_dashboard.scss */
+/* line 183, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-view, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul > .views-row > .views-field.views-field-view-1,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-view,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul > .views-row > .views-field.views-field-view-1 {
@@ -3232,13 +3246,13 @@ p {
   margin-right: -13px;
   min-width: 70%;
 }
-/* line 178, ../sass/main_pages/_dashboard.scss */
+/* line 190, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 {
   margin-left: 0px;
 }
-/* line 181, ../sass/main_pages/_dashboard.scss */
+/* line 193, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row {
@@ -3249,7 +3263,7 @@ p {
   margin-bottom: 20px;
   margin-right: 3px;
 }
-/* line 189, ../sass/main_pages/_dashboard.scss */
+/* line 201, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information h4, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information h4,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information h4,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information h4 {
@@ -3257,13 +3271,13 @@ p {
   color: #8c1d18;
   margin-top: 0px;
 }
-/* line 194, ../sass/main_pages/_dashboard.scss */
+/* line 206, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content {
   font-size: 0.9em;
 }
-/* line 196, ../sass/main_pages/_dashboard.scss */
+/* line 208, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a {
@@ -3271,31 +3285,31 @@ p {
   font-weight: normal;
   text-decoration: underline;
 }
-/* line 200, ../sass/main_pages/_dashboard.scss */
+/* line 212, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a:hover, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content a:hover,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content a:hover {
   color: #8c1d18;
 }
-/* line 204, ../sass/main_pages/_dashboard.scss */
+/* line 216, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul {
   list-style-type: disc;
 }
-/* line 206, ../sass/main_pages/_dashboard.scss */
+/* line 218, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul li, .section-events #block-views-dashboard-block-1 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul li,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_1 .views-row .views-field-field-access-information .field-content ul li,
 .section-events #block-views-dashboard-block-2 .view-content > .item-list ul .view-dashboard.view-display-id-attachment_2 .views-row .views-field-field-access-information .field-content ul li {
   list-style-image: none;
   padding-bottom: 6px;
 }
-/* line 217, ../sass/main_pages/_dashboard.scss */
+/* line 229, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-content .view-content,
 .section-events #block-views-dashboard-block-2 .view-content .view-content {
   padding: 0;
 }
-/* line 221, ../sass/main_pages/_dashboard.scss */
+/* line 233, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-empty,
 .section-events #block-views-dashboard-block-2 .view-empty {
   border-top: 1px solid #d7d7d7;
@@ -3303,21 +3317,21 @@ p {
   padding-bottom: 30px;
   margin-right: 20px;
 }
-/* line 227, ../sass/main_pages/_dashboard.scss */
+/* line 239, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .pager,
 .section-events #block-views-dashboard-block-2 .pager {
   margin: 10px 0 0;
 }
-/* line 230, ../sass/main_pages/_dashboard.scss */
+/* line 242, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 .view-empty,
 .section-events #block-views-dashboard-block-2 .view-empty {
   margin-left: 20px;
 }
-/* line 234, ../sass/main_pages/_dashboard.scss */
+/* line 246, ../sass/main_pages/_dashboard.scss */
 .section-events #block-block-15 {
   clear: both;
 }
-/* line 237, ../sass/main_pages/_dashboard.scss */
+/* line 249, ../sass/main_pages/_dashboard.scss */
 .section-events #block-views-dashboard-block-1 {
   float: left;
 }
@@ -3327,87 +3341,87 @@ NK (7/30): dashboard update.
 we may deprecate field-name-upcoming-events selector
 
 */
-/* line 255, ../sass/main_pages/_dashboard.scss */
+/* line 267, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-exp-dashboard-page-1 div#edit-keys-wrapper {
   margin-top: 2px;
 }
-/* line 260, ../sass/main_pages/_dashboard.scss */
+/* line 272, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events .views-exposed-form .views-exposed-widget .form-submit {
   margin-top: 1.4em;
 }
-/* line 264, ../sass/main_pages/_dashboard.scss */
+/* line 276, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list {
   margin: 0px auto;
 }
-/* line 266, ../sass/main_pages/_dashboard.scss */
+/* line 278, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 > div > div.item-list ul.pager {
   margin-left: 0px;
 }
-/* line 271, ../sass/main_pages/_dashboard.scss */
+/* line 283, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard {
   /* min-height: 170px;*/
 }
-/* line 273, ../sass/main_pages/_dashboard.scss */
+/* line 285, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .view-dashboard div.view-empty {
   margin-top: 20px;
 }
-/* line 281, ../sass/main_pages/_dashboard.scss */
+/* line 293, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 .views-field-flagged {
   font-size: 12px;
   line-height: 1em;
   font-style: italic;
   margin-bottom: 6px;
 }
-/* line 288, ../sass/main_pages/_dashboard.scss */
+/* line 300, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 290, ../sass/main_pages/_dashboard.scss */
+/* line 302, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-content div.item-list ul {
   padding-bottom: 20px;
 }
-/* line 295, ../sass/main_pages/_dashboard.scss */
+/* line 307, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 h2.block-title {
   font-weight: normal;
 }
-/* line 298, ../sass/main_pages/_dashboard.scss */
+/* line 310, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 div.view-empty {
   margin-top: 30px;
 }
-/* line 301, ../sass/main_pages/_dashboard.scss */
+/* line 313, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div#block-views-dashboard-block-2 ul.pager {
   /*margin-bottom: -30px;*/
   padding-bottom: 0px;
 }
-/* line 306, ../sass/main_pages/_dashboard.scss */
+/* line 318, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events,
 body.page-events.section-events div.view.view-dashboard {
   padding-bottom: 0px;
 }
-/* line 309, ../sass/main_pages/_dashboard.scss */
+/* line 321, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content,
 body.page-events.section-events div.view.view-dashboard div.view-content {
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
-/* line 313, ../sass/main_pages/_dashboard.scss */
+/* line 325, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content ul,
 body.page-events.section-events div.view.view-dashboard div.view-content ul {
   padding-left: 14px;
   border-bottom: 1px solid #d7d7d7;
   padding-bottom: 14px;
 }
-/* line 317, ../sass/main_pages/_dashboard.scss */
+/* line 329, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content ul li,
 body.page-events.section-events div.view.view-dashboard div.view-content ul li {
   margin-bottom: 5px;
 }
-/* line 321, ../sass/main_pages/_dashboard.scss */
+/* line 333, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list {
   margin-left: 0px;
 }
-/* line 324, ../sass/main_pages/_dashboard.scss */
+/* line 336, ../sass/main_pages/_dashboard.scss */
 body.page-events.section-events div.field-name-upcoming-events div.view-content div.item-list:last-child ul,
 body.page-events.section-events div.view.view-dashboard div.view-content div.item-list:last-child ul {
   border-bottom: none;
@@ -3416,7 +3430,7 @@ body.page-events.section-events div.view.view-dashboard div.view-content div.ite
 /* *
  * Pager styles
  */
-/* line 335, ../sass/main_pages/_dashboard.scss */
+/* line 347, ../sass/main_pages/_dashboard.scss */
 ul.pager {
   text-align: center;
   text-overflow: visible;
@@ -3425,15 +3439,15 @@ ul.pager {
   /* first & previous on left */
   /* next & last on right */
 }
-/* line 338, ../sass/main_pages/_dashboard.scss */
+/* line 350, ../sass/main_pages/_dashboard.scss */
 ul.pager a:hover {
   text-decoration: none;
 }
-/* line 342, ../sass/main_pages/_dashboard.scss */
+/* line 354, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-ellipsis {
   padding: 0px;
 }
-/* line 345, ../sass/main_pages/_dashboard.scss */
+/* line 357, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item {
   background-color: #eef1f3;
   color: #c3791f;
@@ -3441,69 +3455,69 @@ ul.pager li.pager-item {
   /*padding: 8px 0px 8px 0px;*/
   width: 50px;
 }
-/* line 351, ../sass/main_pages/_dashboard.scss */
+/* line 363, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item a {
   color: #c3791f;
   /*padding: 4px 7px;*/
 }
-/* line 357, ../sass/main_pages/_dashboard.scss */
+/* line 369, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-current {
   background-color: #c3791f;
   width: 60px;
   color: #eef1f3;
 }
-/* line 362, ../sass/main_pages/_dashboard.scss */
+/* line 374, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 33px 8px;
 }
-/* line 366, ../sass/main_pages/_dashboard.scss */
+/* line 378, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-first,
 ul.pager li.pager-previous {
   padding: 0px;
   margin: 0px 4px 0px 0px;
 }
-/* line 370, ../sass/main_pages/_dashboard.scss */
+/* line 382, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-first a,
 ul.pager li.pager-previous a {
   background-image: url("../images/icons/left-arrow-orange.png");
   background-position: 0 8px;
   padding: 8px 0px 8px 20px;
 }
-/* line 378, ../sass/main_pages/_dashboard.scss */
+/* line 390, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-next,
 ul.pager li.pager-last {
   padding: 0px;
   margin: 0px 0px 0px 4px;
 }
-/* line 382, ../sass/main_pages/_dashboard.scss */
+/* line 394, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-next a,
 ul.pager li.pager-last a {
   background-image: url("../images/icons/right-arrow-orange.png");
   background-position: 33px 7px;
   padding: 8px 24px 8px 0px;
 }
-/* line 389, ../sass/main_pages/_dashboard.scss */
+/* line 401, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-last a {
   background-position: 30px 7px;
 }
-/* line 392, ../sass/main_pages/_dashboard.scss */
+/* line 404, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-current {
   margin-left: 3px;
   margin-right: 3px;
   padding: 6px 9px;
 }
-/* line 397, ../sass/main_pages/_dashboard.scss */
+/* line 409, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item {
   /* not sure why we need vert padding but not horiz padding.*/
   padding: 6px 0px;
   margin-right: 3px;
   margin-left: 3px;
 }
-/* line 402, ../sass/main_pages/_dashboard.scss */
+/* line 414, ../sass/main_pages/_dashboard.scss */
 ul.pager li.pager-item a {
   padding: 6px 9px;
 }
-/* line 408, ../sass/main_pages/_dashboard.scss */
+/* line 420, ../sass/main_pages/_dashboard.scss */
 ul.pager div.ajax-progress {
   float: right;
   display: inline;
@@ -3512,7 +3526,7 @@ ul.pager div.ajax-progress {
   position: relative;
   margin-left: -20px;
 }
-/* line 416, ../sass/main_pages/_dashboard.scss */
+/* line 428, ../sass/main_pages/_dashboard.scss */
 ul.pager #page {
   height: 100%;
   margin-bottom: -200px;
