@@ -107,12 +107,12 @@ function workflow_notify_workflow_operations($op, $workflow = NULL) {
  */
 function workflow_notify_workflow($op, $old_state, $new_state, $entity, $force, $entity_type = '', $field_name = '', $transition = NULL, $user = NULL) {
   global $user;
+//  drupal_set_message("workflow_notify_workflow($op, $old_state, $new_state");
   switch ($op) {
     // React to a transition after it's done.
     case 'transition post':
       // See if this is a state that we notify for.
       $notify = variable_get('workflow_notify_roles', array());
-
       if (isset($notify[$new_state])) {
         // List of content types.
         $node_types = node_type_get_names();
@@ -233,6 +233,33 @@ function workflow_notify_workflow($op, $old_state, $new_state, $entity, $force, 
       }
 
     return;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function workflow_notify_entity_presave($entity, $type) {
+  global $user;
+//  dpm($entity, 'workflow_notify_entity_presave '.$type);
+  switch ($type) {
+    // Note: It would seem to make sense to act on a WorkflowTransition,
+    // but the email comes out with the previous state.
+    case 'node':
+      // If this is not present, then it's not a transition;
+      if (isset($entity->field_workflow_state[LANGUAGE_NONE][0]['workflow'])) {
+        $old_sid = $entity->field_workflow_state[LANGUAGE_NONE][0]['value'];
+        $new_sid = $entity->field_workflow_state[LANGUAGE_NONE][0]['workflow']['workflow_sid'];
+
+        // Is this a transition?
+        if ($new_sid != $old_sid) {
+          $field_name = workflow_get_field_name($entity, $type);
+
+          workflow_notify_workflow('transition post', $old_sid, $new_sid,
+            $entity, FALSE, $type, $field_name);
+        }
+      }
+      break;
   }
 }
 
