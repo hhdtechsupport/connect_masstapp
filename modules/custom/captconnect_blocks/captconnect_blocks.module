@@ -12,6 +12,7 @@ function captconnect_blocks_block_info() {
     'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
     'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
     'user_info' => array('info' => t('CAPTConnect: User Information'), 'cache' => DRUPAL_NO_CACHE),
+    'rt_view' => array('info' => t('CAPTConnect: View RT'), 'cache' => DRUPAL_NO_CACHE),
     );
 }
 
@@ -20,7 +21,7 @@ function captconnect_blocks_block_info() {
  */
 function captconnect_blocks_block_view($delta) {
   global $user;
-  $block = array();
+  $block = array('subject' => '');
   $output = '';
 
   switch ($delta) {
@@ -34,6 +35,10 @@ function captconnect_blocks_block_view($delta) {
 
     case 'user_info':
       $block['content'] = captconnect_blocks_user_info_view();
+      break;
+
+    case 'rt_view':
+      $block['content'] = captconnect_blocks_rt_view();
       break;
   }
 
@@ -231,12 +236,12 @@ function captconnect_blocks_instance_registration_view() {
 }
 
 /**
- * block_view(instance_registration).
+ * block_view(user info).
  */
 function captconnect_blocks_user_info_view() {
   global $user;
   $output = '';
-  
+
   if (user_is_logged_in()) {
     // Get full user object.
     $user = user_load($user->uid);
@@ -255,6 +260,31 @@ function captconnect_blocks_user_info_view() {
 
     $stuff = db_query("SELECT title FROM {node} WHERE nid IN(:nids)", array(':nids' => $groups))->fetchCol();
     $output .= '<br /><span class="user-groups">' . implode(', ', $stuff) . '</span>';
+  }
+
+  return $output;
+}
+
+/**
+ * block_view(rt view).
+ */
+function captconnect_blocks_rt_view() {
+  global $user;
+  $output = '';
+
+  $node = menu_get_object();
+  if (is_object($node)) {
+    $output = '<div class="resource-team">';
+
+    $groups = og_get_entity_groups('node', $node->nid);
+    $groups = array_values($groups['node']);
+    $groups = entity_load('node', $groups);
+
+    foreach ($groups as $nid => $group) {
+      $output .= '<div class="' . drupal_html_class($group->title) . '">'
+        . filter_xss($group->title) . '</div>';
+    }
+    $output .= '</div>';
   }
 
   return $output;

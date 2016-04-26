@@ -320,7 +320,7 @@ function captconnect_custom_anon_pending() {
 
   // Get the existing records.
   $query = "SELECT ar.uid, ar.nid, n.title AS instance, en.nid AS enid, "
-    . "en.title AS event, rn.realname, u.name, u.created "
+    . "en.title AS event, rn.realname, u.name, u.created, u.mail "
     . "FROM {captconnect_custom_anon_register} ar "
     . "LEFT JOIN {node} n ON n.nid = ar.nid "
     . "LEFT JOIN {realname} rn ON rn.uid = ar.uid "
@@ -331,7 +331,7 @@ function captconnect_custom_anon_pending() {
   $result = db_query($query);
 
   $table = array(
-    'header' => array(t('User'), t('Event'), t('Instance'), t('Created')),
+    'header' => array(t('User'), t('Event'), t('Instance'), t('Created'), t('Email')),
     'rows' => array(),
     'attributes' => array('id' => 'anon-pending-table'),
     'empty' => t('No pending anonymous logins.'),
@@ -357,6 +357,7 @@ function captconnect_custom_anon_pending() {
         l($row->event, 'node/' . $row->enid),
         l($row->instance, 'node/' . $row->nid),
         format_date($row->created),
+        $row->mail,
         );
       if ($clean_up && ((REQUEST_TIME - $row->created) > $clean_up)) {
         drupal_set_message(t('Deleting user @id', array('@id' => $name)));
