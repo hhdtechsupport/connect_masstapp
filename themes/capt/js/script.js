@@ -1013,36 +1013,41 @@ function otherSelectbox ($field, $fieldPrev) {
     var $panel = $(this);
     var label = '';
 
+    $panel.find('.form-wrapper').each(function(){
 
+      $(this).prepend('<div class="content"></div>');
+      $(this).prepend('<div class="editor">Edit</div>');
+      $(this).prepend('<div class="saver">Save</div>');
 
-     $panel.find('.form-wrapper').each(function(){
+      $initialValue = getLabelsAndInputs($(this).find('.form-item'));
+      $(this).find('.content').append($initialValue);
+      $(this).find('.form-item').css('display','none');
 
-       $(this).prepend('<div class="content"></div>');
-       $(this).prepend('<div class="editor">Edit</div>');
-       $(this).prepend('<div class="saver">Save</div>');
+      $(this).children('.editor').on('click',function(){
+        $(this).css('display','none');
+        $(this).parent().children('.saver').css('display','block');
+        $(this).parent().children('.content').css('display','none');
+        var $formItem = $(this).parent().find('.form-item').css('display','block');
+      });
 
-       $(this).children('.editor').on('click',function(){
-         $(this).css('display','none');
-         $(this).parent().children('.saver').css('display','block');
-         $(this).parent().children('.content').css('display','none');
-         var $formItem = $(this).parent().find('.form-item').css('display','block');
-       });
+      $(this).find('.item .value').on('click',function(){
+        $(this).parent().parent().parent().children('.editor').css('display','none');
+        $(this).parent().parent().parent().children('.saver').css('display','block');
+        $(this).parent().parent().parent().children('.content').css('display','none');
+        var $formItem = $(this).parent().parent().parent().find('.form-item').css('display','block');
+      });
 
-       $(this).children('.saver').on('click',function(){
-         $(this).css('display', 'none');
-         $(this).parent().children('.editor').css('display','block');
-         var $formItem = $(this).parent().find('.form-item');
-         $(this).parent().children('.content').html(getLabelsAndInputs($formItem)).css('display','block');
-         $formItem.css('display','none');
-       });
+      $(this).children('.saver').on('click',function(){
+        $(this).css('display', 'none');
+        $(this).parent().children('.editor').css('display','block');
+        var $formItem = $(this).parent().find('.form-item');
+        $(this).parent().children('.content').html(getLabelsAndInputs($formItem)).css('display','block');
+        $formItem.css('display','none');
+      });
 
-       $initialValue = getLabelsAndInputs($(this).find('.form-item'));
-       $(this).find('.content').append($initialValue);
-       $(this).find('.form-item').css('display','none');
+    });
 
-     });
-
-   });
+  });
 
 
 

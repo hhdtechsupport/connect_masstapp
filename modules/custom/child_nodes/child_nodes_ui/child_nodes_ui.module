@@ -1,0 +1,551 @@
+<?php
+/**
+ * @file
+ * Makes a child node according to rules.
+ */
+
+define("MAIN_UI_PAGE", "admin/config/content/child_nodes_ui");
+
+/**
+ * Implements hook_permission().
+ */
+function child_nodes_ui_permission() {
+  $perms = array(
+    'administer child nodes' => array(
+      'title' => t('Administer Child Nodes'),
+      'description' => t('Control Child Nodes settings.'),
+      'restrict access' => TRUE,
+      ),
+    );
+
+  return $perms;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function child_nodes_ui_menu() {
+  $items = array();
+
+  $items[MAIN_UI_PAGE] = array(
+    'title' => 'Child Nodes',
+    'description' => 'Administer parent/child node relationships.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('child_nodes_ui_type_page'),
+    'access arguments' => array('administer child nodes'),
+    'type' => MENU_NORMAL_ITEM,
+    );
+
+  $items[MAIN_UI_PAGE . '/fields'] = array(
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('child_nodes_ui_field_page'),
+    'access arguments' => array('administer child nodes'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['child_nodes_type_delete'] = array(
+    'page callback' => 'child_nodes_ui_type_delete',
+    'page arguments' => array(1),
+    'access arguments' => array('administer child nodes'),
+    'type' => MENU_CALLBACK,
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_help($path, $args).
+ */
+function child_nodes_ui_help($path, $args) {
+  switch ($path) {
+    case 'admin/help#child_nodes_ui':
+      return '<p>' . t('You may set up parent-child content relationships here.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_field_delete_instance($instance).
+ * Warn admin when a Child_Nodes field is deleted
+ * and remove it from its families.
+ */
+function child_nodes_ui_field_delete_instance($instance) {
+  if ($instance['entity_type'] == 'node') {
+    $family = child_nodes_get_family();
+    $parent = $instance['bundle'];
+    if ($family && isset($family[$parent])) {
+      $types = node_type_get_names();
+
+      foreach ($family[$parent] as $child => $info) {
+        if (isset($info['fields'][$instance['field_name']])) {
+          drupal_set_message(t('@fld_label (@fld_name) will no longer be copied to the new @child_type
+            when clicking the "@button" button.',
+            array(
+              '@fld_label' => $instance['label'],
+              '@fld_name' => $instance['field_name'],
+              '@child_type' => $types[$child],
+              '@button' => (isset($info['button_text']) ? $info['button_text'] : 'Create @type'),
+              )), 'warning');
+
+          // So delete the field.
+          unset($family[$parent][$child]['fields'][$instance['field_name']]);
+          child_nodes_put_family($family);
+        }
+      }
+      // Finally, save the new structure.
+      child_nodes_put_family($family);
+    }
+  }
+}
+
+/**
+ * MENU LOCAL TASK: Content type relationship form.
+ */
+function child_nodes_ui_type_page() {
+  $form = array();
+  $noyes = array(t('No'), t('Yes'));
+
+  
+  drupal_set_title(t('Child Nodes Settings'));
+  drupal_add_css(drupal_get_path('module', 'child_nodes') . '/child_nodes.css');
+
+  $types = node_type_get_names();
+
+  $family = child_nodes_get_family();
+
+  if ($family) {
+    $table = array(
+      'rows' => array(),
+      'header' => array(t('Parent type'), t('Child type'), t('Fields'), t('Operations')),
+      'attributes' => array('id' => 'child-nodes-ui'),
+      );
+
+    foreach ($family as $parent => $children) {
+      // Get parent field names.
+      $parent_fields = child_nodes_ui_get_fields($parent, TRUE, FALSE);
+
+      // There's a strange issue when a content type is deleted.
+      if (!isset($types[$parent])) {
+        // Delete this entry.
+        unset($family[$parent]);
+        // Update the information.
+        child_nodes_put_family($family);
+        drupal_set_message(t('Undefined content type (@type) encountered as a parent type.',
+          array('@type' => $parent)), 'warning', FALSE);
+        drupal_goto(MAIN_UI_PAGE);
+      }
+
+      foreach ($children as $child => $data) {
+        // There's a strange issue when a content type is deleted.
+        if (!isset($types[$child])) {
+          // Delete this entry.
+          unset($family[$parent][$child]);
+          // Update the information.
+          child_nodes_put_family($family);
+          drupal_set_message(t('Undefined content type (@type) encountered as a child type.',
+            array('@type' => $child)), 'warning');
+          drupal_goto(MAIN_UI_PAGE);
+        }
+
+        // Get child field names.
+        $child_fields = child_nodes_ui_get_fields($child, FALSE, FALSE);
+
+        $fields = isset($data['fields']) ? $data['fields'] : array();
+
+        $list = array();
+        $changed = FALSE;
+
+        foreach ($fields as $parent_field => $child_field) {
+          if (isset($parent_fields[$parent_field])) {
+            $list[] = check_plain($parent_fields[$parent_field])
+              . " &#x279F; "
+              . check_plain($child_fields[$child_field]);
+          }
+          else {
+            drupal_set_message(t('"@fld_name" no longer exists in the @type or is a Computed Field. It will be removed.',
+              array(
+                '@fld_name' => $parent_field,
+                '@type' => $types[$parent],
+                )), 'warning');
+            unset($family[$parent][$child]['fields'][$parent_field]);
+            $changed = TRUE;
+          }
+        }
+        if ($changed) {
+          child_nodes_put_family($family);
+        }
+
+        if (isset($family[$parent][$child]['ref'])) {
+          $list[] = '<span class="reference"><em>'
+            . t('reference')
+            . '</em>: '
+            . $family[$parent][$child]['ref']
+            . '</span>';
+        }
+
+        $table['rows'][] = array(
+          check_plain($types[$parent]),
+          check_plain($types[$child]),
+          implode(', ', $list),
+          l(t('Fields'), MAIN_UI_PAGE . "/fields/$parent/$child")
+          . ' | ' .
+          l(t('Delete'), "child_nodes_type_delete/$parent/$child"),
+          );
+      }
+    }
+
+    $form['current'] = array(
+      '#type' => 'markup',
+      '#markup' => theme('table', $table),
+      '#weight' => -10,
+      );
+  }
+
+  $form['relationship'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Add a new relationship'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#weight' => -5,
+    );
+
+  $form['relationship']['parent'] = array(
+    '#type' => 'select',
+    '#options' => $types,
+    '#title' => t('Parent type') . theme('advanced_help_topic', array('module' => 'child_nodes', 'topic' => 'configuration')),
+    );
+
+  $form['relationship']['child'] = array(
+    '#type' => 'select',
+    '#options' => $types,
+    '#title' => t('Child type'),
+    );
+
+  $form['relationship']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save relationship'),
+    '#submit' => array('child_nodes_ui_type_page_submit'),
+    );
+
+  return $form;
+}
+
+/**
+ * Submission handler for relationships.
+ */
+function child_nodes_ui_type_page_submit($form, &$form_state) {
+  $family = child_nodes_get_family();
+  $parent = $form_state['values']['parent'];
+  $child = $form_state['values']['child'];
+  $family[$parent][$child] = array(
+    'fields' => array(),
+    'edits' => array(),
+    );
+  child_nodes_put_family($family);
+
+  drupal_set_message(t('Relationship saved'));
+  return;
+}
+
+/**
+ * MENU CALLBACK: Relationship delete.
+ */
+function child_nodes_ui_type_delete($parent, $child) {
+  $family = child_nodes_get_family();
+
+  unset($family[$parent][$child]);
+
+  child_nodes_put_family($family);
+
+  drupal_set_message(t('Relationship deleted'));
+
+  drupal_goto(MAIN_UI_PAGE);
+}
+
+/**
+ * MENU LOCAL TASK: Field copy form.
+ */
+function child_nodes_ui_field_page($form, $form_state, $parent, $child) {
+  drupal_add_css(drupal_get_path('module', 'child_nodes') . '/child_nodes.css');
+  // Give them a way back.
+  drupal_set_breadcrumb(array(
+    l(t('Home'), '<front>'),
+    l(t('Child Nodes Settings'), MAIN_UI_PAGE),
+    ));
+  $form = array();
+
+  $types = node_type_get_names();
+  $pc_subs = array(
+      '@parent' => $types[$parent],
+      '@child' => $types[$child],
+      );
+
+  $family = child_nodes_get_family();
+  drupal_set_title(t('Child Nodes Fields for the @parent to @child Relationship', $pc_subs));
+
+  $parent_fields = child_nodes_ui_get_fields($parent, TRUE, FALSE);
+  // Leave out Computed fields.
+  $child_fields = child_nodes_ui_get_fields($child, FALSE, FALSE);
+
+  $editable = isset($family[$parent][$child]['edits']) ? $family[$parent][$child]['edits'] : array();
+
+  $form['to_copy'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Fields to be copied'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#description' => '<p>'
+      . t('Select a field from the @parent choices that you want copied when the @child content is created.', $pc_subs)
+      . '</p>',
+    );
+
+  $form['parent'] = array('#type' => 'value', '#value' => $parent);
+  $form['child'] = array('#type' => 'value', '#value' => $child);
+
+  // Show parent fields that are not already copied.
+  $form['to_copy']['parent_fields'] = array(
+    '#type' => 'select',
+    '#options' => array_diff_key($parent_fields, $family[$parent][$child]['fields']),
+    '#title' => t('Available @parent fields', $pc_subs),
+    '#description' => t('Note that Computed Fields may be present. They will not be re-computed in the child content.'),
+    );
+
+  // Show child fields that are not already copied.
+  $form['to_copy']['child_fields'] = array(
+    '#type' => 'select',
+    '#options' => array_diff_key($child_fields, array_flip($family[$parent][$child]['fields'])),
+    '#title' => t('Available @child fields', $pc_subs),
+    '#description' => t('Note that Computed Fields have been skipped.'),
+    );
+
+  $form['to_copy']['allow_edit'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Allow Edit'),
+    );
+
+  $form['to_copy']['instructions'] = array(
+    '#type' => 'markup',
+    '#markup' => '<p>'
+      . t('After making your selections, click the Save button. Repeat for each field pair.')
+      . ' '
+      . t('If you do not check the "Allow edit" box, then the copied field will not be editable
+        unless the user has the "bypass node access" permission.')
+      . '</p>',
+    );
+
+  $form['to_copy']['submit'] = array('#type' => 'submit', '#value' => t('Save choices'));
+
+/******************************************************************************/
+  $form['existing'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Fields in Use'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    '#description' => t('You may remove fields from the list to be copied.'),
+    );
+
+  $list = array();
+  $changed = FALSE;
+  foreach ($family[$parent][$child]['fields'] as $from_field => $to_field) {
+    // Make sure the fields still exist.
+    if (isset($child_fields[$to_field])) {
+      $list[$from_field] = t("!from_name (!from_field) &#x279F; !to_name (!to_field!allow_edit)",
+        array(
+          '!from_field' => $from_field,
+          '!from_name' => $parent_fields[$from_field],
+          '!to_field' => $to_field,
+          '!to_name' => $child_fields[$to_field],
+          '!allow_edit' => in_array($to_field, $editable) ? (', ' . t('edit allowed')) : ''
+          ));
+    }
+    else {
+      drupal_set_message(t('@fld_name no longer exists in the @type or is a Computed Field. It will be removed.',
+        array(
+          '@fld_name' => $to_field,
+          '@type' => $types[$child],
+          )), 'warning');
+      unset($family[$parent][$child]['fields'][$from_field]);
+      $changed = TRUE;
+    }
+  }
+  // If a field has been deleted, save the revised family.
+  if ($changed) {
+    child_nodes_put_family($family);
+  }
+
+  $form['existing']['field_list'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $list,
+    '#title' => t('Select fields to remove'),
+    );
+
+  $form['existing']['remove_fields'] = array('#type' => 'submit', '#value' => t('Remove Fields'));
+
+/******************************************************************************/
+  if (module_exists('entityreference')) {
+    $form['references'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Reference Field'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#description' => t('In addition to the fields you select to copy,
+        the @child may receive a reference (pointer) back to the @parent.', $pc_subs),
+      );
+
+    $form['references']['ref_field'] = array(
+      '#type' => 'select',
+      '#options' => $child_fields,
+      '#title' => t('Available @child fields', $pc_subs),
+      '#description' => t('Note that there may be only one such reference field.'),
+      '#default_value' => (isset($family[$parent][$child]['ref']) ? $family[$parent][$child]['ref'] : NULL),
+      );
+
+    $form['references']['saveref'] = array('#type' => 'submit', '#value' => t('Save Reference'));
+  }
+
+  $form['button_text'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Button Text'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    );
+
+  $form['button_text']['button_text'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Button Text'),
+    '#description' => t('You may specify alternate text for the button.
+      You may use "@type" to indicate where to place the content type name.'),
+    '#default_value' => (isset($family[$parent][$child]['button_text']) ? $family[$parent][$child]['button_text'] : 'Create @type'),
+    );
+
+  $form['button_text']['savebtn'] = array('#type' => 'submit', '#value' => t('Save button text'));
+
+  return $form;
+}
+
+/**
+ * Submission handler for Field copy form.
+ */
+function child_nodes_ui_field_page_submit($form, $form_state) {
+  $family = child_nodes_get_family();
+  $parent = $form_state['values']['parent'];
+  $child = $form_state['values']['child'];
+
+  switch ($form_state['values']['op']) {
+    // Fields to copy.
+    case $form_state['values']['submit']:
+      // Make sure some basic info is present.
+      $family[$parent][$child]['fields'][$form_state['values']['parent_fields']] = array();
+      if (!isset($family[$parent][$child]['edits'])) {
+        $family[$parent][$child]['edits'] = array();
+      }
+
+      if (isset($form_state['values']['child_fields'])) {
+        $family[$parent][$child]['fields'][$form_state['values']['parent_fields']] = $form_state['values']['child_fields'];
+      }
+
+      if ($allow_edit = $form_state['values']['allow_edit']) {
+        if (isset($family[$parent][$child]['edits'])) {
+          $family[$parent][$child]['edits'][] = $form_state['values']['child_fields'];
+        }
+        else {
+          $family[$parent][$child]['edits'] = array($form_state['values']['child_fields']);
+        }
+      }
+
+      drupal_set_message(t('Field settings saved.'));
+      break;
+
+    // Node/Entity reference.
+    case $form_state['values']['remove_fields']:
+      $list = array_filter($form_state['values']['field_list']);
+      foreach ($list as $field) {
+        // Is this an editable field?
+        $editable = array_search($family[$parent][$child]['fields'][$field], $family[$parent][$child]['edits']);
+        if ($editable !== FALSE) {
+          // Yes, it is, so get rid of it.
+          unset($family[$parent][$child]['edits'][$editable]);
+        }
+
+        // Get rid of the field info.
+        unset($family[$parent][$child]['fields'][$field]);
+      }
+
+      drupal_set_message(t('Field removed.'));
+      break;
+
+    // Node/Entity reference.
+    case $form_state['values']['saveref']:
+      $family[$parent][$child]['ref'] = $form_state['values']['ref_field'];
+
+      drupal_set_message(t('Reference field setting saved.'));
+      break;
+
+    // Button Text.
+    case $form_state['values']['savebtn']:
+      $family[$parent][$child]['button_text'] = $form_state['values']['button_text'];
+
+      drupal_set_message(t('Button text setting saved.'));
+      break;
+  }
+
+  child_nodes_put_family($family);
+}
+
+/**
+ * Helper function to retrieve settings.
+ */
+function child_nodes_get_family() {
+  return variable_get('child_nodes_family', array());
+}
+
+/**
+ * Helper function to save settings.
+ */
+function child_nodes_put_family($family) {
+  $family = variable_set('child_nodes_family', $family);
+}
+
+/**
+ * Helper to get all available fields for a content type.
+ * @param $type - string, node type for which to retrieve fields.
+ * @param $include_computed - boolean, whether to include Computed fields.
+ * @param $references - boolean, retrieve only entity references.
+ * @return - array containing field name => field_label.
+ *   Note: Computed fields are skipped.
+ */
+function child_nodes_ui_get_fields($type, $include_computed = TRUE, $references = FALSE) {
+  $node_type = node_type_get_type($type);
+  if ($node_type == FALSE) {
+    drupal_set_message(t('Node type "@type" no longer exists.',
+      array('@type' => $type)), 'error');
+    return FALSE;
+  }
+  $fields = $refs = array();
+
+  $field_list = field_info_instances('node', $type);
+
+  if ($node_type->has_title) {
+    $fields[$type]['title'] = $node_type->title_label;
+  }
+
+  foreach ($field_list as $field_name => $values) {
+    // If it is a computed field and do we want to skip them?
+    if ($include_computed == FALSE && $values['widget']['module'] == 'computed_field') {
+      // Yes, skip it.
+      continue;
+    }
+    $fields[$type][$field_name] = $values['label'];
+
+    // Keep track of reference fields separately.
+    if ($values['widget']['module'] == 'entityreference') {
+      $refs[$type][$field_name] = $values['label'];
+    }
+  }
+
+  if ($references) {
+    return $refs[$type];
+  }
+  else {
+    return (isset($fields[$type]) ? $fields[$type] : array());
+  }
+}

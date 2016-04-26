@@ -66,6 +66,18 @@ function captconnect_custom_workflow_notify($op, &$args) {
  */
 function captconnect_custom_workflow($op, $old_state, $new_state, $node, $force = FALSE) {
   global $user;
+  /*
+  $workflow = workflow_get_workflows_by_type($node->type, 'node');
+  $event_state_list = $workflow->getStates(TRUE);
+  $event_states = array();
+  foreach ($event_state_list as $state) {
+    // Leave out the creation state.
+    if ($state->sysid == 0) {
+      $event_states[$state->sid] = $state->state;
+    }
+  }
+  drupal_set_message("captconnect_custom_workflow($op, ". $event_states[$old_state].' -> '. $event_states[$new_state]);
+  /* */
   switch ($op) {
     case 'transition permitted':
       switch ($node->type) {

@@ -1,0 +1,116 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the Child_Nodes module.
+ */
+
+/**
+ * Rebuild Child_Nodes Family array.
+ */
+function child_nodes_update_7000(&$sandbox) {
+  $family = variable_get('child_nodes_family', array());
+  $new_family = array();
+
+  foreach ($family as $parent => $data) {
+    $child = $data['child'];
+    unset($data['child']);
+    $new_family[$parent][$child] = $data;
+  }
+
+  variable_set('child_nodes_family', $new_family);
+  variable_set('child_nodes_update_7000', TRUE);
+
+  return t('The Child_Nodes Family array variable has been updated.');
+}
+
+/**
+ * Implements hook_schema().
+ */
+function _child_nodes_schema() {
+  $schema['child_nodes_family'] = array(
+    'description' => t('Base table for Child_Nodes.'),
+    'fields' => array(
+      'id' => array(
+        'description' => 'The family identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        ),
+      'parent_type' => array(
+        'description' => 'The entity type of the parent.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      'parent_bundle' => array(
+        'description' => 'The bundle type of the parent.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      'child_type' => array(
+        'description' => 'The entity type of the child.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      'child_bundle' => array(
+        'description' => 'The bundle type of the child.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      ),
+    'primary_key' => array(
+      'parent_type', 'parent_bundle', 'child_type', 'child_bundle'
+      ),
+    'indexes' => array(
+      'parent' => array('parent_type', 'parent_bundle'),
+      'child' => array('child_type', 'child_bundle'),
+      ),
+    );
+/*
+  $schema['child_nodes_fields'] = array(
+    'description' => t('Fields list for Child_Nodes.'),
+    'fields' => array(
+      'id' => array(
+        'description' => 'The family identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      'source_field' => array(
+        'description' => 'The field name from the parent.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      'dest_field' => array(
+        'description' => 'The field name from the child.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        ),
+      'editable' => array(
+        'description' => 'Whether the field may be edited.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'default' => 0,
+        ),
+      ),
+    'primary_key' => array(
+      'family' => array('source_field', 'dest_field'),
+      ),
+    );
+/* */
+  return $schema;
+}
