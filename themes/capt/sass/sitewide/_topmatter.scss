@@ -199,7 +199,7 @@ body {
 
     }
   }
-  &.not-front.logged-in, &.not-front.node-type-event, &.not-front.node-type-page, &.not-front.page-views {
+  &.not-front.logged-in, &.not-front.node-type-event, &.not-front.node-type-page:not(.page-403), &.not-front.page-views {
     header#header {
       .region-header {
         position: absolute;
