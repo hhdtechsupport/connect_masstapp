@@ -186,7 +186,21 @@ function captconnect_custom_view_registrations($node) {
       }
     }
 
-    if (user_access('register others')) {
+    // In order to access the "register other" button, they need
+    // to be in the same group and have 'register others' permission.
+    if (user_access('bypass node access')) {
+      $in_nodes_group = TRUE;
+    }
+    else {
+      $in_nodes_group = FALSE;
+      foreach ($node->og_group_ref[LANGUAGE_NONE] as $group) {
+        if (og_is_member('node', $group['target_id'], 'user')) {
+          $in_nodes_group = TRUE;
+          break;
+        }
+      }
+    }
+    if ($in_nodes_group && user_access('register others')) {
       $register_others = array(
         '#theme' => 'link',
         '#text' => t(variable_get('captconnect_custom_proxy_register_text', 'Register Someone Else')),
