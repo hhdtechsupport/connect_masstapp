@@ -977,6 +977,39 @@ function otherSelectbox ($field, $fieldPrev) {
   });
 
 
+
+//   // Another date picker fix -- bump up end time if start time changed
+//   var timeDiff;
+//
+//   $('.start-date-wrapper .form-type-textfield:nth-child(2) input').on('click', function(){
+//
+//     var startTimeString = $(this).val();
+//     var $endTimeInput = $('.end-date-wrapper .form-type-textfield:nth-child(2) input');
+//     var endTimeString = $endTimeInput.val();
+//
+//     var startTimeAMPM = startTimeString.substring(5,7);
+//     var endTimeAMPM = endTimeString.substring(5,7);
+//
+//     var startTime12 = startTimeString.replace(':','');
+//     var endTime12 = startTimeString.replace(':','');
+//
+//     var startTime24, endTime24;
+//
+//     if (startTimeAMPM == 'pm') { startTime24 = parseInt(startTime12) + 1200; }
+//     else { startTime24 = parseInt(startTime12); }
+//
+//     if (endTimeAMPM == 'pm') { endTime24 = parseInt(endTime12) + 1200; }
+//     else { endTime24 = parseInt(endTime24); }
+//
+//     timeDiff = endTime24 - startTime24;
+//
+//   });
+//
+//   $('.start-date-wrapper .form-type-textfield:nth-child(2) input').on('click', function(){
+//
+// }
+
+
   /*
    * START: FLAG CONFIRMATION PROFILE VIEW/EDIT FUNCTIONALITY
    */
@@ -1030,13 +1063,6 @@ function otherSelectbox ($field, $fieldPrev) {
         var $formItem = $(this).parent().find('.form-item').css('display','block');
       });
 
-      $(this).find('.item .value').on('click',function(){
-        $(this).parent().parent().parent().children('.editor').css('display','none');
-        $(this).parent().parent().parent().children('.saver').css('display','block');
-        $(this).parent().parent().parent().children('.content').css('display','none');
-        var $formItem = $(this).parent().parent().parent().find('.form-item').css('display','block');
-      });
-
       $(this).children('.saver').on('click',function(){
         $(this).css('display', 'none');
         $(this).parent().children('.editor').css('display','block');
@@ -1048,83 +1074,6 @@ function otherSelectbox ($field, $fieldPrev) {
     });
 
   });
-
-
-
-
-  /*
-   * START: FLAG CONFIRMATION PROFILE VIEW/EDIT FUNCTIONALITY
-   */
-
-  function getLabelsAndInputs($formItem) {
-    var label = $formItem.children('label:not(.option)').clone().children().remove().end().text().trim();
-    var input = $formItem.find('input').val();
-    if ($formItem.hasClass('form-type-textfield')){
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-      }
-    }
-    else if ($formItem.hasClass('form-type-select')) {
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-      }
-    }
-    else if ($formItem.hasClass('form-type-radios')) {
-      var input = $formItem.find('input:checked').next().text().trim();
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-      }
-    }
-    else if ($formItem.hasClass('form-type-checkboxes')) {
-      var input = '';
-      if (label.substr(label.length-1) != '?') {
-        label = label + ':';
-      }
-      $formItem.children('input:checked').each(function(){
-        input = input + ', ' + $(this).next().text().trim();
-      });
-      input = input.substr(2);
-    }
-
-    if (!((label == 'Please specify:') && (input == ''))) {
-      return '<div class="item"><span class="label">' + label + ' </span><span class="value">' + input + '</span></div>';
-    }
-  }
-
-  $('#flag-confirm .panel').each(function(){
-    var $panel = $(this);
-    var label = '';
-
-     $panel.find('.form-wrapper').each(function(){
-
-       $(this).prepend('<div class="content" style="display: block;"></div>');
-       $(this).prepend('<div class="editor" style="float: right; display: block;">Edit</div>');
-       $(this).prepend('<div class="saver" style="float: right; display: none;">Save</div>');
-
-       $initialValue = getLabelsAndInputs($(this).find('.form-item'));
-       $(this).find('.content').append($initialValue);
-       $(this).find('.form-item').css('display','none');
-
-       $(this).children('.editor').on('click',function(){
-         $(this).css('display','none');
-         $(this).parent().children('.saver').css('display','block');
-         $(this).parent().children('.content').css('display','none');
-         var $formItem = $(this).parent().find('.form-item').css('display','block');
-       });
-
-       $(this).children('.saver').on('click',function(){
-         $(this).css('display', 'none');
-         $(this).parent().children('.editor').css('display','block');
-         var $formItem = $(this).parent().find('.form-item');
-         $(this).parent().children('.content').html(getLabelsAndInputs($formItem)).css('display','block');
-         $formItem.css('display','none');
-       });
-
-     });
-
-   });
-
-
 
 
 
