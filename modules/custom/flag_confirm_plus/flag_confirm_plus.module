@@ -251,7 +251,7 @@ function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
 
 //  dpm($form_state['values'], '_flag_confirm_plus_event_registration_submit form_state[values]');
   form_state_values_clean($form_state);
-  $questions = $form['#questions'];
+//  $questions = $form['#questions'];
 
   if (isset($form_state['values']['questions']) && count($form_state['values']['questions']) > 0) {
     $nodes = entity_load('node', array_keys($form_state['values']['questions']));
