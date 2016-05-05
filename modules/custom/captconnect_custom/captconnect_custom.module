@@ -1126,21 +1126,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
     case 'user_admin_permissions':
       array_unshift($form['#submit'], 'captconnect_custom_set_user_perms');
       break;
-/*
-    case 'workflow_transition_form':
-//      $workflows = workflow_load_multiple();
-//      dpm($workflows, 'workflows');
-//      dpm($form, $form_id);
-      $type = $form['workflow']['workflow_entity']['#value']->type;
-//      dpm($form['workflow']['workflow_instance']['#value']['label'], $type);
-      $workflow = workflow_get_workflows_by_type($type);
-      dpm($workflow, "workflow for $type.");
-      $perm = "view $workflow->name transitions";
-      dpm((int)user_access($perm), $perm);
-//      $form['#access'] = FALSE;
-      break; /* */
   }
-//  dpm($form, $form_id);
 }
 
 /**
@@ -1384,14 +1370,14 @@ function captconnect_custom_user_register_submit($form, $form_state) {
  * Implements hook_user_login().
  */
 function captconnect_custom_user_login(&$edit, $account) {
-  // Default redirect should be the front page or whatever is set it the URL.
+  // Default redirect should be the front page or whatever is set in the URL.
   if (isset($_GET['destination'])) {
     $edit['redirect'] = $_GET['destination'];
   }
   else {
     $edit['redirect'] = variable_get('captconnect_custom_login_dest', 'events');
   }
-
+/*
   // Get the last time they edited their account.
   $last_edit = (empty($account->data['last_account_edit']) ?
     0 : $account->data['last_account_edit']);
@@ -1409,7 +1395,7 @@ function captconnect_custom_user_login(&$edit, $account) {
     drupal_set_message(t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")), $msg_level, FALSE);
   }
-
+/* */
   // Find out if the user is mid-registration (anon user).
   if (isset($edit['#captconnect_anon_instance'])) {
     // Got here from Login.
@@ -1435,13 +1421,23 @@ function captconnect_custom_user_login(&$edit, $account) {
       ->condition('uid', $account->uid)
       ->execute();
 
+    // Check for duplicate registration.
+    $flag = flag_get_flag('registration');
+
+    if ($flag && $flag->is_flagged($instance_nid)) {
+      $event = node_load($event_nid);
+      drupal_set_message(t(variable_get('captconnect_custom_duplicate_registration',
+        'You were already registered for "@title."'),
+        array('@title' => $event->title)));
+      $edit['redirect'] = 'node/' . $event_nid;
+      return;
+    }
+
     // Set up link to go to.
     $link = "flag/confirm/flag/registration/$instance_nid";
-//    $link = "flag/flag/registration/$instance_nid";
     $token = flag_get_token($instance_nid);
     $link .= '?token=' . $token;
     $_GET['destination'] = $link;
-//    $edit['redirect'] = $link;
   }
 }
 
@@ -1622,44 +1618,6 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
     else {
       drupal_set_message(t(variable_get('captconnect_custom_proxy_failed',
         'Flagging for @user for "@event" at @time failed.'), $args));
-    }
-  }
-}
-
-/**
- * Implements hook_flag_validate().
- * Make sure there's room in the event.
- */
-function _captconnect_custom_flag_validate($action, $flag, $entity_id, $account, $skip_permission_check, $flagging) {
-  global $user;
-  // Let's see if they are trying to register?
-  if ($action == 'flag' && $flag->name == 'registration') {
-    if ($user->uid == 3 || $user->uid == 38) {
-      // Do my debugging here.
-    }
-
-    // Are they already registered?
-    if ($flag->is_flagged($entity_id, $account->uid)) {
-      $instance = node_load($entity_id);
-      $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
-      return array('already-registered' => t(variable_get('captconnect_custom_duplicate_registration',
-        'You were already registered for "@title."'),
-        array('@title' => $event->title)));
-    }
-
-    // Is the event instance at capacity yet?
-    $instance = entity_metadata_wrapper('node', node_load($entity_id));
-    $capacity = $instance->field_max_registration->value();
-    if (empty($capacity)) {
-      $capacity = 0;
-    }
-
-    // How many registrations do we have currently?
-    $num_regs = $flag->get_count($entity_id);
-    if ($num_regs >= $capacity && $capacity > 0) {
-      return array('event-full' => t(variable_get('captconnect_custom_event_full',
-        'We are sorry, but this event is full. You may try registering for another time or date.'),
-        array('@capacity' => $capacity)));
     }
   }
 }
