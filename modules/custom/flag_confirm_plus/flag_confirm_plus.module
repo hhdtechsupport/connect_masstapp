@@ -305,12 +305,13 @@ function flag_confirm_plus_flag_unflag($flag, $entity_id, $account, $flagging) {
     $deletes = array();
 
     foreach ($event->field_question[LANGUAGE_NONE] as $quest) {
-      $question = node_load($quest['target_id']);
-      foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
-        $answer = node_load($ans['target_id']);
-        // Is the answer by the person unflagging?
-        if ($answer->uid == $account->uid) {
-          $deletes[] = $answer->nid;
+      if ($question = node_load($quest['target_id'])) {
+        foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
+          $answer = node_load($ans['target_id']);
+          // Is the answer by the person unflagging?
+          if ($answer->uid == $account->uid) {
+            $deletes[] = $answer->nid;
+          }
         }
       }
     }
