@@ -176,7 +176,17 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#title' => t('Check update access by group'),
     '#default_value' => variable_get('captconnect_custom_check_group_access', array()),
     '#description' => t('Before allowing edit access to these content types,
-      check the grroup (team) to which the user belongs.'),
+      check the group (team) to which the user belongs.'),
+    );
+
+  $lines_per_page = array(5, 10, 15, 20, 25, 50, 100);
+  $form['captconnect_custom_register_lines_per_page'] = array(
+    '#type' => 'radios',
+    '#options' => array_combine($lines_per_page, $lines_per_page),
+    '#title' => t('Registrations Lines per Page '),
+    '#default_value' => variable_get('captconnect_custom_register_lines_per_page', 10),
+    '#description' => t('This is the number of lines per page that will be
+      displayed in a Registrations list.'),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
@@ -244,6 +254,11 @@ function theme_captconnect_custom_admin_settings($variables) {
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_account_check_interval']), 'style' => $style),
     array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
+    );
+
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_register_lines_per_page']), 'style' => $style),
+//    array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
     );
 
   $output .= theme('table', array(

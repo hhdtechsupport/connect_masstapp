@@ -44,3 +44,17 @@ function captconnect_custom_update_7000() {
 
   return 'The Anonymous User Delayed Registration table has been added.';
 }
+
+/**
+ * Rename Connect variables.
+ */
+function _captconnect_custom_update_7001() {
+  $vars = db_query("SELECT name FROM {variable} WHERE name LIKE 'captconnect_%'");
+  foreach ($vars as $variable) {
+    $x = variable_get($variable, '');
+    $x = drupal_substr($x, 4);
+    variable_set($variable, $x);
+  }
+
+  return 'The variables have been renamed.';
+}
