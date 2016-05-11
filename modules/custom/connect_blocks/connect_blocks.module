@@ -1,0 +1,342 @@
+<?php
+/**
+ * @file
+ * Block functions for Connect sites.
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function connect_blocks_block_info() {
+  return array(
+    'instance_registration' => array('info' => t('Connect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
+    'date_instances' => array('info' => t('Connect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
+    'user_info' => array('info' => t('Connect: User Information'), 'cache' => DRUPAL_NO_CACHE),
+    'rt_view' => array('info' => t('Connect: View RT'), 'cache' => DRUPAL_NO_CACHE),
+    );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function connect_blocks_block_view($delta) {
+  global $user;
+  $block = array('subject' => '');
+  $output = '';
+
+  switch ($delta) {
+    case 'instance_registration':
+      $block['subject'] = t('Event Dates');
+      $block['content'] = connect_blocks_instance_registration_view();
+      break;
+
+    case 'date_instances':
+      $block['content'] = connect_blocks_date_instances_view();
+      break;
+
+    case 'user_info':
+      $block['content'] = connect_blocks_user_info_view();
+      break;
+
+    case 'rt_view':
+      $block['content'] = connect_blocks_rt_view();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function connect_blocks_block_configure($delta = '') {
+  $form = array();
+  $noyes = array(t('No'), t('Yes'));
+
+  switch ($delta) {
+    case 'date_instances':
+      $site_name = variable_get('site_name', 'Connect');
+      $form['connect'] = array(
+        '#type' => 'fieldset',
+        '#title' => filter_xss($site_name),
+        '#collapsible' => FALSE,
+        );
+
+      $form['connect']['intro'] = array(
+        '#type' => 'markup',
+        '#markup' => '<p class="connect-intro">'
+          . t('This block is placed by Display Suite.')
+          . '</p>',
+        );
+
+      $form['connect']['connect_blocks_date_instances_participate'] = array(
+        '#title' => t('Show a "Participate" link'),
+        '#type' => 'radios',
+        '#options' => $noyes,
+        '#default_value' => variable_get('connect_blocks_date_instances_participate', 1),
+        '#description' => t('In this block, do you want to show a "Participate" link on instances
+          for which the current user is registered?'),
+        '#attributes' => array('class' => array('container-inline')),
+        );
+
+      $form['connect']['connect_blocks_date_instances_show_ended'] = array(
+        '#title' => t('Show Instances that have already ended'),
+        '#type' => 'radios',
+        '#options' => $noyes,
+        '#default_value' => variable_get('connect_blocks_date_instances_show_ended', 1),
+        '#description' => t('In this block, do you want to show instances
+          for which the end time has already passed?'),
+        '#attributes' => array('class' => array('container-inline')),
+        );
+
+      $date_types = array();
+      foreach (system_get_date_types() as $name => $info) {
+        $date_types[$name] = $info['title'] . ' <small>(' . format_date(REQUEST_TIME, $name) . ')</small>';
+      }
+      $form['connect']['connect_blocks_instance_date_format'] = array(
+        '#type' => 'radios',
+        '#options' => $date_types,
+        '#title' => t('Date format'),
+        '#default_value' => variable_get('connect_blocks_instance_date_format', 'date_only'),
+        '#description' => t('This format will be used for the date label.'),
+        );
+
+      $form['connect']['connect_blocks_instance_time_format'] = array(
+        '#type' => 'radios',
+        '#options' => $date_types,
+        '#title' => t('Time format'),
+        '#default_value' => variable_get('connect_blocks_instance_time_format', 'date_only'),
+        '#description' => t('This format will be used for the time.'),
+        );
+
+      break;
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function connect_blocks_block_save($delta = '', $edit = array()) {
+  switch ($delta) {
+    case 'date_instances':
+      variable_set('connect_blocks_date_instances_participate', $edit['connect_blocks_date_instances_participate']);
+      variable_set('connect_blocks_date_instances_show_ended', $edit['connect_blocks_date_instances_show_ended']);
+      variable_set('connect_blocks_instance_date_format', $edit['connect_blocks_instance_date_format']);
+      variable_set('connect_blocks_instance_time_format', $edit['connect_blocks_instance_time_format']);
+      break;
+  }
+}
+
+/**
+ * Sorting function for instances below.
+ */
+function _connect_blocks_sort_instances($a, $b) {
+  // Are the start dates the same?
+  if ($a->field_date[LANGUAGE_NONE][0]['value'] == $b->field_date[LANGUAGE_NONE][0]['value']) {
+    // How about the end dates?
+    if ($a->field_date[LANGUAGE_NONE][0]['value2'] == $b->field_date[LANGUAGE_NONE][0]['value2']) {
+      return 0;
+    }
+    else {
+      return ($a->field_date[LANGUAGE_NONE][0]['value2'] < $b->field_date[LANGUAGE_NONE][0]['value2'] ? -1 : 1);
+    }
+  }
+  return ($a->field_date[LANGUAGE_NONE][0]['value'] < $b->field_date[LANGUAGE_NONE][0]['value'] ? -1 : 1);
+}
+
+/**
+ * block_view(date_instances).
+ */
+function connect_blocks_date_instances_view() {
+  // @TODO: This doesn't work for anonymous users.
+
+  $css = "#event-date-instances ul {padding: 0 0 0 12px; margin-top: 0;}
+    #event-date-instances .instance-date {font-weight: bold;}
+    #event-date-instances .instance-time {display: block;}
+    #event-date-instances .flag-link-normal {font-size: 89%; font-weight: normal;}
+    #event-date-instances .flag-wrapper {display: inline;}
+    #event-date-instances li.instance-ended {color: #888888;}
+    #event-date-instances .button.register {text-align:right;margin:1em 0;}
+    .field-name-instances-for-event {border-top: 5px solid #577785 !important;}
+    ";
+  drupal_add_css($css, 'inline');
+  /* */
+  $output = '<div id="event-date-instances" class="view-instances">';
+  $lead_time = variable_get('connect_custom_participate_lead_time', 1800);
+  $show_participate = variable_get('connect_blocks_date_instances_participate', 1);
+  $show_ended = variable_get('connect_blocks_date_instances_show_ended', 1);
+  $date_format = variable_get('connect_blocks_instance_date_format', 'date_only');
+  $time_format = variable_get('connect_blocks_instance_time_format', 'time_only');
+
+  // Get the node.
+  $node = menu_get_object('node');
+  $dates = field_get_items('node', $node, 'field_date_instance');
+  $targets = array();
+  foreach ($dates as $target) {
+    $targets[] = $target['target_id'];
+  }
+  $instances = entity_load('node', $targets);
+
+  // Put them in date order.
+  uasort($instances, '_connect_blocks_sort_instances');
+
+  $items = array();
+  foreach ($instances as $nid => $instance) {
+    $start = strtotime($instance->field_date[LANGUAGE_NONE][0]['value'] . 'UTC');
+    $end = strtotime($instance->field_date[LANGUAGE_NONE][0]['value2'] . 'UTC');
+    $start_date = format_date($start, $date_format);
+    $end_date = format_date($end, $date_format);
+    $date_label = (isset($instance->field_date_label[LANGUAGE_NONE]) ?
+      $instance->field_date_label[LANGUAGE_NONE][0]['safe_value'] . ': ' : '');
+    $line = '<span class="instance-date">'
+      . $date_label
+      . $start_date;
+
+    $classes = array('instance-row');
+    // Has it already ended?
+    if (REQUEST_TIME >= $end) {
+      $classes[] = 'instance-ended';
+      if (!$show_ended) {
+        continue;
+      }
+    }
+
+    if ($end_date != $start_date) {
+      $line .= ' ' . t('to') . ' ' . $end_date;
+    }
+    $line .= '</span>';
+
+    $time_wo_zone = variable_get('date_format_' . $time_format, '');
+    $time_wo_zone = substr($time_wo_zone, 0, -1);
+    $line .= '<span class="instance-time">';
+    $line .= format_date($start, 'custom', $time_wo_zone) 
+      . ' ' . t('to') . ' ' . format_date($end, $time_format);
+    $line .= '</span>';
+    $line .= '<div class="button register">';
+
+    $reg_flag = flag_get_flag('registration');
+    $part_flag = flag_get_flag('participate');
+
+    // Has the instance ended yet?
+    if (REQUEST_TIME < $end) {
+      // No.
+      // Note that this results in "register" or "cancel" link.
+      $line .= flag_create_link('registration', $nid);
+
+      // @TODO: Do we show participate here?
+      // Are they already registered?
+      if ($show_participate && $reg_flag->is_flagged($nid)) {
+        // Now see if we are in the participate lead time window.
+        if (REQUEST_TIME > ($start_date - $lead_time)) {
+          $line .= flag_create_link('participate', $nid);
+        }
+      }
+    }
+
+    $line .= '</div>';
+    $items[] = array('data' => $line, 'class' => $classes);
+  }
+  $output .= theme('item_list', array('items' => $items));
+
+  $output .= '</div>';
+  return $output;
+}
+
+/**
+ * block_view(instance_registration).
+ */
+function connect_blocks_instance_registration_view() {
+  $output = '';
+
+  // Get the node.
+  $node = menu_get_object('node');
+  if ($node->type != 'instance') {
+    return $block;
+  }
+
+  $register = db_query("SELECT fid FROM {flag} WHERE title = 'Registration'")->fetchField();
+  $query = "SELECT uid, timestamp "
+    . "FROM {flagging} "
+    . "WHERE entity_id = :nid "
+    . "AND fid = :reg "
+    ;
+  $registrants = db_query($query, array(':nid' => $node->nid, ':reg' => $register))->fetchALLKeyed();
+
+  if (count($registrants) > 0) {
+    $accounts = entity_load('user', array_keys($registrants));
+    $rows = array();
+    $link_to_user = user_access('administer users');
+    foreach ($accounts as $uid => $account) {
+      $registrant = ($link_to_user ?
+        l(format_username($account), "user/$account->uid/edit") : format_username($account));
+
+      $rows[] = array(
+        $registrant,
+        format_date($registrants[$uid]),
+        );
+    }
+    $output .= theme('table', array('rows' => $rows));
+  }
+  else {
+    $output .= t('No registrations yet.');
+  }
+
+  return $output;
+}
+
+/**
+ * block_view(user info).
+ */
+function connect_blocks_user_info_view() {
+  global $user;
+  $output = '';
+
+  if (user_is_logged_in()) {
+    // Get full user object.
+    $user = user_load($user->uid);
+
+    // Get the user's roles.
+    $roles = $user->roles;
+    unset($roles[DRUPAL_AUTHENTICATED_RID]);
+    $output .= '<br /><span class="user-roles">' . implode(', ', $roles) . '</span>';
+
+    // Get the user's groups.
+    $gid = field_get_items('user', $user, 'og_user_node');
+    $groups = array();
+    foreach ($gid as $garray) {
+      $groups[] = $garray['target_id'];
+    }
+
+    $stuff = db_query("SELECT title FROM {node} WHERE nid IN(:nids)", array(':nids' => $groups))->fetchCol();
+    $output .= '<br /><span class="user-groups">' . implode(', ', $stuff) . '</span>';
+  }
+
+  return $output;
+}
+
+/**
+ * block_view(rt view).
+ */
+function connect_blocks_rt_view() {
+  global $user;
+  $output = '';
+
+  $node = menu_get_object();
+  if (is_object($node)) {
+    $output = '<div class="resource-team">';
+
+    $groups = og_get_entity_groups('node', $node->nid);
+    $groups = array_values($groups['node']);
+    $groups = entity_load('node', $groups);
+
+    foreach ($groups as $nid => $group) {
+      $output .= '<div class="' . drupal_html_class($group->title) . '">'
+        . filter_xss($group->title) . '</div>';
+    }
+    $output .= '</div>';
+  }
+
+  return $output;
+}

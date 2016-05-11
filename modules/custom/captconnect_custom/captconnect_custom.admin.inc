@@ -189,7 +189,17 @@ function captconnect_custom_admin_settings($form, $form_state) {
       displayed in a Registrations list.'),
     );
 
+  $form['captconnect_custom_questions_as_tab'] = array(
+    '#type' => 'radios',
+    '#options' => $noyes,
+    '#title' => t('Show the Registration Questions in a tab.'),
+    '#default_value' => variable_get('captconnect_custom_questions_as_tab', 0),
+    '#description' => t('The registration questions and answers can be shown in 
+      a tab on the event page.'),
+    );
+
   $form['#theme'] = 'captconnect_custom_admin_settings';
+  $form['#submit'][] = 'captconnect_custom_admin_settings_submit';
 
   return system_settings_form($form);
 }
@@ -258,7 +268,7 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $rows[] = array(
     array('data' => drupal_render($form['captconnect_custom_register_lines_per_page']), 'style' => $style),
-//    array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_questions_as_tab']), 'style' => $style),
     );
 
   $output .= theme('table', array(
@@ -268,6 +278,16 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $output .= drupal_render_children($form);
   return $output;
+}
+
+/**
+ * Submission Handler.
+ * Reset menu cache because of tab setting.
+ */
+function captconnect_custom_admin_settings_submit(&$form, &$form_state) {
+  // Variable_set forces it to be uncached.
+  variable_set('captconnect_custom_questions_as_tab', $form_state['values']['captconnect_custom_questions_as_tab']);
+  menu_rebuild();  
 }
 
 /**

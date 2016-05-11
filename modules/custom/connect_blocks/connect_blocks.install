@@ -1,0 +1,15 @@
+<?php
+/**
+ * @file
+ * Update functions for Connect sites.
+ */
+
+/**
+ * Rename CAPTconnect_blocks variables.
+ */
+function connect_blocks_update_7000() {
+  $x = variable_get('captconnect_blocks_date_instances_participate', 1);
+  variable_set('connect_blocks_date_instances_participate', $x);
+  $x = variable_get('captconnect_blocks_date_instances_show_ended', 1);
+  variable_set('connect_blocks_date_instances_show_ended', $x);
+}

@@ -98,6 +98,19 @@ function captconnect_custom_menu() {
     'file' => 'captconnect_custom.pages.inc',
     );
 
+  if (variable_get('captconnect_custom_questions_as_tab', 0)) {
+    $items['node/%node/questions'] = array(
+      'title' => 'Questions',
+      'page callback' => 'captconnect_custom_view_questions',
+      'page arguments' => array(1),
+      'access callback' => 'captconnect_custom_access_questions',
+      'access arguments' => array(1),
+      'weight' => 0,
+      'type' => MENU_LOCAL_TASK,
+      'file' => 'captconnect_custom.pages.inc',
+      );
+    }
+
   $items['event/participate/%node/%user'] = array(
     'title' => 'Flag participation for someone else',
     'page callback' => 'captconnect_custom_participate_someone_else',
@@ -644,6 +657,14 @@ function captconnect_custom_access_registrations($node) {
 
 /**
  * Menu access callback.
+ * Decide whether or not to show the "Questions" tab on Events.
+ */
+function captconnect_custom_access_questions($node) {
+  return ($node->type == 'event' && user_access('view registration questions'));
+}
+
+/**
+ * Menu access callback.
  * Decide whether or not to show the "Notifications" tab on Events.
  */
 function captconnect_custom_access_notifications($node) {
@@ -900,7 +921,7 @@ function _captconnect_custom_preset_groups(&$form) {
   if (!isset($form['og_group_ref'])) {
     return;
   }
-  if (!isset($user->og_user_node)) {
+  if (!isset($user->og_user_node[LANGUAGE_NONE])) {
     // Provide a complete user object.
     $user = user_load($user->uid);
   }
@@ -997,7 +1018,6 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
     // Edit Event Questions.
     case 'event_questions_node_form':
-      dpm($form, 'form');
       if (!empty($form['nid']['#value'])) {
         if (isset($form['#node']->field_answers[LANGUAGE_NONE])) {
           drupal_set_message('This question has already been answered at least once,

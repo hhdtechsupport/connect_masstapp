@@ -15,15 +15,10 @@ function captconnect_custom_view_registrations($node) {
 
     $event = entity_metadata_wrapper('node', $node);
     $date_format = variable_get('captconnect_custom_register_date_format', 'long_day_at_time');
+    $lines_per_page = variable_get('captconnect_custom_register_lines_per_page', 10);
 
     $reg_flag = flag_get_flag('registration');
     $part_flag = flag_get_flag('participate');
-
-    // Query for registrations below.
-    $reg_query = "SELECT uid, timestamp FROM {flagging} "
-      . "WHERE entity_id = :instance "
-      . "AND fid = 2 "      // Registration.
-      ;
 
     // Get all the instances.
     $instances = array();
@@ -76,13 +71,11 @@ function captconnect_custom_view_registrations($node) {
       if (variable_get('captconnect_custom_registrations_link_instance', 1)
       && (user_access('edit any instance content')
       || (user_access('edit own instance content') && $instance->uid->value() == $user->uid))) {
-//        $title_link = l($instance->label(), 'node/' . $instance->nid->value() . '/edit',
         $title_link = l($instance_label, 'node/' . $instance->nid->value() . '/edit',
           array('query' => drupal_get_destination()));
 
       }
       else {
-//        $title_link = $instance->label();
         $title_link = $instance_label;
       }
 
@@ -104,7 +97,16 @@ function captconnect_custom_view_registrations($node) {
       $link = $instance->field_link->value();
 
       // Get all the registration details.
-      $rows = db_query($reg_query, array('instance' => $instance->nid->value()))->fetchAllKeyed();
+      $rows = db_select('flagging', 'f')
+        ->fields('f', array('uid', 'timestamp'))
+        ->condition('f.entity_id', $instance->nid->value())
+        ->condition('f.fid', $reg_flag->fid)
+        ->extend('PagerDefault')
+        ->limit($lines_per_page)
+        ;
+      $rows = $rows->execute()
+        ->fetchAllKeyed()
+        ;
 
       if (count($rows) > 0) {
         $users = entity_load('user', array_keys($rows));
@@ -186,6 +188,11 @@ function captconnect_custom_view_registrations($node) {
       }
     }
 
+    // Place the table and pager.
+    $ret = theme('table', $table);
+    $pager = array('#theme' => 'pager', '#weight' => 50);
+    $ret .= drupal_render($pager);
+
     // In order to access the "register other" button, they need
     // to be in the same group and have 'register others' permission.
     if (user_access('bypass node access')) {
@@ -216,8 +223,75 @@ function captconnect_custom_view_registrations($node) {
       $register_others = NULL;
     }
 
-    return theme('table', $table) . drupal_render($register_others);
+    $ret .= drupal_render($register_others);
+
+    return $ret;
   }
+}
+
+/**
+ * Menu callback.
+ * View the registration questions for the Event.
+ */
+function captconnect_custom_view_questions($node) {
+  global $user;
+//  dpm($node, 'captconnect_custom_view_questions');
+  $no_yes = array(t('No'), t('Yes'));
+  $output = '<div id="questions-and-answers">';
+  $css = '#questions-and-answers table {width:31%;float:left;margin-right:1em;}
+    ';
+  drupal_add_css($css, 'inline');
+
+  if ($node->type == 'event') {
+    if (isset($node->field_question[LANGUAGE_NONE])) {
+      foreach ($node->field_question[LANGUAGE_NONE]as $quest) {
+        $question = node_load($quest['target_id']);
+        $table = array(
+          'header' => array(),
+          'rows' => array(),
+          'empty' => t('Could not find anything.'),
+          'attributes' => array(
+            'id' => 'answers-' . $question->nid,
+            'class' => array('question-answers'),
+            ),
+          'caption' => l($question->title, 'node/'.$question->nid),
+          );
+        // Handle answers here.
+        if (isset($question->field_answers[LANGUAGE_NONE])) {
+          foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
+            $answer = node_load($ans['target_id']);
+            $answ = $answer->field_answer[LANGUAGE_NONE][0]['value'];
+            switch ($question->field_question_type[LANGUAGE_NONE][0]['value']) {
+              case 'yesno':
+                $answ = $no_yes[$answ];
+                break;
+
+              case 'select':
+                $answ = array();
+                if (count($answer->field_answer[LANGUAGE_NONE])) {
+                  foreach ($answer->field_answer[LANGUAGE_NONE] as $value) {
+                    $answ[] = $value['safe_value'];
+                  }
+                  $answ = (count($answ) > 1 ?
+                    theme('item_list', array('items' => $answ)) : $answ[0]);
+                }
+                break;
+
+              case 'text':
+                break;
+            }
+            $table['rows'][] = array($answ);
+          }
+        }
+        $output .= theme('table', $table);
+      }
+    }
+  }
+  else {
+    $output = t("I don't understand how you got here.");
+  }
+
+  return $output . '</div>';
 }
 
 /**

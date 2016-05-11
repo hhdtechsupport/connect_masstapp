@@ -150,6 +150,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
             }
             else {
               $form['questions'][$nid]['#type'] = 'textfield';
+              $form['questions'][$nid]['#maxlength'] = 255;
             }
             break;
 
@@ -193,9 +194,23 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
 
   foreach ($info as $field_name => $field_info) {
     if ($field_name == 'og_user_node') {
-      $form[$field_name][LANGUAGE_NONE][0]['default']['#default_value'] =
-          _flag_confirm_plus_set_field($user->{$field_name}[LANGUAGE_NONE], $form[$field_name][LANGUAGE_NONE][0]['default']['#type']);
+      if (isset($user->og_user_node[LANGUAGE_NONE])) {
+        $grps = array();
+        foreach ($user->og_user_node[LANGUAGE_NONE] as $info) {
+          $grps[$info['target_id']] = $info['target_id'];
+        }
+        $form['og_user_node'][LANGUAGE_NONE][0]['default']['#default_value'] = $grps;
+      }
+      else {
+        drupal_set_message(t('Why are you not in a group?'), 'warning');
+      }
     }
+    
+    if ($field_name == 'field_country') {
+      $form['field_country'][LANGUAGE_NONE]['#default_value'] = 
+        $user->field_country[LANGUAGE_NONE][0]['target_id'];
+    }
+    
     if (isset($form[$field_name])) {
       if (isset($info[$field_name]['display']['default']['module'])
       && $info[$field_name]['display']['default']['module'] == 'entityreference') {
@@ -216,7 +231,9 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
         }
       }
     }
-  } /* */
+  }
+    dpm($form, $form_id);
+
 
   // Make sure we get a crack at the values.
   $form['#submit'][] = '_flag_confirm_plus_event_registration_submit';
@@ -243,6 +260,8 @@ function _flag_confirm_plus_set_field($values, $type) {
 
 /**
  * Submission handler.
+ * Handles saving answers to the questions and
+ * saves profile information back to the user.
  */
 function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
   global $user;
@@ -251,7 +270,6 @@ function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
 
 //  dpm($form_state['values'], __FUNCTION__.' form_state[values]');
   form_state_values_clean($form_state);
-//  $questions = $form['#questions'];
 
   if (isset($form_state['values']['questions']) && count($form_state['values']['questions']) > 0) {
     $nodes = entity_load('node', array_keys($form_state['values']['questions']));
@@ -283,6 +301,7 @@ function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
     }
   }
 
+//  unset($form_state['values']['og_user_node']);
   $result = user_save($account, $form_state['values']);
   if (!$result) {
     drupal_set_message(t('Saving of updated profile information failed.'), 'warning');
@@ -327,7 +346,7 @@ function flag_confirm_plus_flag_unflag($flag, $entity_id, $account, $flagging) {
  * Display question and answer info.
  */
 function flag_confirm_plus_node_view($node, $view_mode, $langcode) {
-//  dpm($node, $node->type.' '.$view_mode);
+//  dpm($node, __FUNCTION__."$node->type $view_mode");
   // Always do this.
   switch ($node->type) {
     case 'event':
@@ -396,7 +415,11 @@ function flag_confirm_plus_node_view($node, $view_mode, $langcode) {
           foreach ($node->field_answers[LANGUAGE_NONE] as $answer_info) {
             $answer = entity_metadata_wrapper('node', node_load($answer_info['target_id']));
             if ($yesno) {
-              $ans = $no_yes[$answer->field_answer->value()];
+              $ans = $answer->field_answer->value();
+              if (is_array($ans)) {
+                $ans = reset($ans);
+              }
+              $ans = $no_yes[$ans];
             }
             else {
               if ($multiple) {
@@ -404,10 +427,15 @@ function flag_confirm_plus_node_view($node, $view_mode, $langcode) {
                 foreach ($answer->field_answer->value() as $data) {
                   $list[] = $data;
                 }
-                $ans = theme('item_list', array('items' => $list));
+                $ans = (count($list) > 1 ? 
+                  theme('item_list', array('items' => $list)) : $list[0]);
               }
               else {
                 $ans = $answer->field_answer->value();
+                if (is_array($ans)) {
+                  // Just get first. Why is it an array?
+                  $ans = reset($ans);
+                }
               }
             }
             $table['rows'][] = array(
