@@ -24,6 +24,23 @@
 
 
 
+  // Temporarily changing the flag confirm title to "Please Complete Your Registration" in case of form errors && change confirm button
+  $('.page-flag-confirm-flag-registration h1#page-title').text('Please Complete Your Registration');
+  $('.page-flag-confirm-flag-registration .form-actions').prepend('<a class="button">Confirm Registration</a>');
+  $('.page-flag-confirm-flag-registration input[type="submit"]').css('display','none');
+  $('.page-flag-confirm-flag-registration a.button').css('color','#fff')
+                                                          .css('display','inline-block')
+                                                          .css('margin-right','20px')
+                                                          .css('cursor','pointer')
+                                                          .on('click',function(){
+                                                            $('.page-flag-confirm-flag-registration input[type="submit"]').click();
+                                                          });
+
+
+  //
+  // $newRegisterButton = $('.page-flag-confirm-flag-registration input[type="submit"]').clone();
+  // $newRegisterButton.val('.').prependTo('.page-flag-confirm-flag-registration .form-actions');
+
   // Get browser's timezone - NOT DOING ANYTHING WITH THIS RIGHT NOW
   // cl(jstz.determine().name());
 
