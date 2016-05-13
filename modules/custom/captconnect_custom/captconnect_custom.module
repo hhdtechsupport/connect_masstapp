@@ -174,6 +174,14 @@ function captconnect_custom_menu() {
     'type' => MENU_CALLBACK,
     );
 
+  $items['connect/autocomplete'] = array(
+    'title' => 'User autocomplete',
+    'page callback' => 'captconnect_custom_user_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+    'type' => MENU_CALLBACK,
+    );
+
   $items['participate_others'] = array(
     'title' => 'Participate Another',
     'description' => 'Participate on behalf of someone else.',
@@ -323,6 +331,7 @@ function captconnect_custom_init() {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
     || $_GET['q'] == 'node/1376' /* Terms */
+    || $a0 == 'portals'
     || arg(2) == 'captconnect.ics'
     || substr($_GET['q'], 0, 11) == 'user/reset/'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
@@ -446,8 +455,8 @@ function captconnect_custom_admin_paths_alter(&$paths) {
  */
 function captconnect_custom_node_access($node, $op, $account) {
   global $user;
-//  dpm($node, "captconnect_custom_node_access $op ".$account->uid);
-  if (empty($account)) {
+//  dpm($node, __FUNCTION__." $op $node->type $account->uid");
+  if (empty($account) || !isset($account->og_user_node)) {
     $account = user_load($user->uid);
   }
 
@@ -491,7 +500,7 @@ function captconnect_custom_node_access($node, $op, $account) {
         return NODE_ACCESS_IGNORE;
       }
 
-      $access_types = variable_get('captconnect_custom_check_group_access', array());
+      $access_types = array_filter(variable_get('captconnect_custom_check_group_access', array()));
       if (in_array($node->type, $access_types)) {
         // Is it one of the subparts of a portal?
         if (isset($node->og_group_ref_2)) {
@@ -521,18 +530,19 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid /*&& og_is_member('node', $gid[0]['target_id'], 'user', $account)*/) {
+        if ($gid) {
           foreach ($gid as $grp) {
             if (og_is_member('node', $grp['target_id'], 'user', $account)) {
-            // Yes, so just let other Drupal rules take over.
-            return NODE_ACCESS_IGNORE;
+              // Yes, so just let other Drupal rules take over.
+              return NODE_ACCESS_IGNORE;
             }
           }
           // Not in any group, so bounce them.
           return NODE_ACCESS_DENY;
         }
         else {
-          // No, the current user does not match the viewed node's groups.
+          // The current node does not have groups.
+//          return NODE_ACCESS_DENY;
         }
       }
 
@@ -1205,7 +1215,7 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
  * Implements hook_inline_entity_form_entity_form_alter().
  */
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
-//  dpm($entity_form, 'IEF '.$entity_form['#entity_type']);
+//  dpm($entity_form, __FUNCTION__.' '.$entity_form['#entity_type']);
   _captconnect_custom_preset_groups($entity_form);
   if ($entity_form['#entity_type'] == 'notifications') {
     $form['field_related_event']['#access'] = FALSE;
@@ -1473,7 +1483,12 @@ function captconnect_custom_user_login(&$edit, $account) {
     }
 
     // Set up link to go to.
-    $link = "flag/confirm/flag/registration/$instance_nid";
+    if ($flag->link_type == 'confirm') {
+      $link = "flag/confirm/flag/registration/$instance_nid";
+    }
+    else {
+      $link = "flag/flag/registration/$instance_nid";
+    }
     $token = flag_get_token($instance_nid);
     $link .= '?token=' . $token;
     $_GET['destination'] = $link;
@@ -1585,11 +1600,11 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
     $instance_list[0] = t('* None *');
   }
 
-	$form['account'] = array (
-		'#type' => 'textfield',
-		'#title' => t('Select the user'),
-		'#autocomplete_path' => 'user/autocomplete',
-  	);
+  $form['account'] = array (
+    '#type' => 'textfield',
+    '#title' => t('Select the user'),
+    '#autocomplete_path' => 'connect/autocomplete',
+    );
 
   $form['which_one'] = array(
     '#type' => 'radios',
@@ -1604,6 +1619,25 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
 
   $form['#validate'] = array('captconnect_custom_proxy_flag_form_validate');
   $form['#submit'] = array('captconnect_custom_proxy_flag_form_submit');
+}
+
+/**
+ * User autocomplete for above function.
+ */
+function captconnect_custom_user_autocomplete($string = '') {
+  $matches = array();
+  if ($string) {
+    $result = db_select('users')
+      ->fields('users', array('name'))
+      ->condition('name', db_like($string) . '%', 'LIKE')
+      ->condition('status', 1)
+      ->range(0, 10)->execute();
+    foreach ($result as $user) {
+      $matches[$user->name] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
 }
 
 /**
@@ -1795,6 +1829,13 @@ function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NUL
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
+
+  $output .= '</pre>'. print_r(og_get_entity_groups('user', $user, array(OG_STATE_ACTIVE)), TRUE) .'</pre>';
+  dpm(og_context_determine_context('node'), 'og_context_determine_context');
+  dpm(node_load(932), 'node 932');
+    $flag = flag_get_flag('registration');
+  dpm($flag, 'registration');
+  return $output;
 
     $instance_nid = 2219;
     $link = "flag/flag/registration/$instance_nid";

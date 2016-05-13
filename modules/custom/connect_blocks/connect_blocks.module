@@ -211,7 +211,7 @@ function connect_blocks_date_instances_view() {
     $time_wo_zone = variable_get('date_format_' . $time_format, '');
     $time_wo_zone = substr($time_wo_zone, 0, -1);
     $line .= '<span class="instance-time">';
-    $line .= format_date($start, 'custom', $time_wo_zone) 
+    $line .= format_date($start, 'custom', $time_wo_zone)
       . ' ' . t('to') . ' ' . format_date($end, $time_format);
     $line .= '</span>';
     $line .= '<div class="button register">';
@@ -321,22 +321,39 @@ function connect_blocks_user_info_view() {
  */
 function connect_blocks_rt_view() {
   global $user;
+  // See if the user object is complete.
+  if (!isset($user->og_user_node[LANGUAGE_NONE])) {
+    $user = user_load($user->uid);
+  }
   $output = '';
 
+  // Get all Team names and sanitize them.
+  $groups = db_query("SELECT nid, title FROM {node} WHERE type = 'resource_team'")->fetchAllKeyed();
+  $groups = array_map('filter_xss', $groups);
+
+  // Node groups.
   $node = menu_get_object();
   if (is_object($node)) {
     $output = '<div class="resource-team">';
 
-    $groups = og_get_entity_groups('node', $node->nid);
-    $groups = array_values($groups['node']);
-    $groups = entity_load('node', $groups);
+    $node_groups = og_get_entity_groups('node', $node->nid);
+    $node_groups = array_values($node_groups['node']);
 
-    foreach ($groups as $nid => $group) {
-      $output .= '<div class="' . drupal_html_class($group->title) . '">'
-        . filter_xss($group->title) . '</div>';
+    foreach ($node_groups as $nid) {
+      $output .= '<div class="' . drupal_html_class($groups[$nid]) . '">'
+        . $groups[$nid] . '</div>';
     }
     $output .= '</div>';
   }
+
+  // User's groups.
+  $output .= '<div class="user-resource-team">' . t('You') . ': ';
+  foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+    $group = $groups[$grp['target_id']];
+    $output .= '<span class="' . drupal_html_class($group) . '">'
+      . $group . '</span> ';
+  }
+  $output .= '</div>';
 
   return $output;
 }
