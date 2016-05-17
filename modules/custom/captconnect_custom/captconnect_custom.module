@@ -670,7 +670,9 @@ function captconnect_custom_access_registrations($node) {
  * Decide whether or not to show the "Questions" tab on Events.
  */
 function captconnect_custom_access_questions($node) {
-  return ($node->type == 'event' && user_access('view registration questions'));
+  return ($node->type == 'event'
+    && user_access('view registration questions')
+    && (isset($node->field_question[LANGUAGE_NONE]) && count($node->field_question[LANGUAGE_NONE] > 0)));
 }
 
 /**
@@ -925,7 +927,7 @@ function captconnect_custom_og_ui_get_group_admin_alter(&$data, $context) {
 /**
  * Helper function to preset the resource team group.
  */
-function _captconnect_custom_preset_groups(&$form) {
+function _captconnect_custom_preset_groups(&$form, $default = NULL) {
   global $user;
   // If the field is not present, there's nothing we can do.
   if (!isset($form['og_group_ref'])) {
@@ -939,7 +941,8 @@ function _captconnect_custom_preset_groups(&$form) {
   // Is it an existing node?
   if (isset($form['nid']['#value'])) {
     // Are they allowed to edit it? (Admins, site maintainers).
-    $type = $form['type']['#value'];
+    $type = (isset($form['type']) ?
+      $form['type']['#value'] : $form['#entity']->type);
     if (user_access("edit any $type content")) {
       return;
     }
@@ -950,8 +953,8 @@ function _captconnect_custom_preset_groups(&$form) {
   foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
     $groups[$grp['target_id']] = $grp['target_id'];
   }
-//  dpm($form, '_captconnect_custom_preset_groups');
-//  dpm($groups, 'groups');
+//  dpm($form, __FUNCTION__);
+//  dpm($groups, __FUNCTION__.' groups');
 
   if (empty($groups)) {
     $types = node_type_get_names();
@@ -963,6 +966,15 @@ function _captconnect_custom_preset_groups(&$form) {
   if (count($groups) > 1) {
     // Not sure why I have to do this.
     $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
+    $group_nodes = entity_load('node', $groups);
+    $x = array();
+    foreach ($groups as $grp) {
+      $x[$grp] = $group_nodes[$grp]->title;
+    }
+    $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] = $x;
+    if ($default) {
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array($default => $default);
+    }
   }
   else {
     // They only have one group, so let's set it as the default
@@ -1028,6 +1040,7 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
 
     // Edit Event Questions.
     case 'event_questions_node_form':
+      _captconnect_custom_preset_groups($form);
       if (!empty($form['nid']['#value'])) {
         if (isset($form['#node']->field_answers[LANGUAGE_NONE])) {
           drupal_set_message('This question has already been answered at least once,
@@ -1215,8 +1228,20 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
  * Implements hook_inline_entity_form_entity_form_alter().
  */
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  global $user;
 //  dpm($entity_form, __FUNCTION__.' '.$entity_form['#entity_type']);
-  _captconnect_custom_preset_groups($entity_form);
+  // Make sure we have a complete user object.
+  if (!isset($user->og_user_node)) {
+    $user = user_load($user->uid);
+  }
+  // Preset the groups. OG tells us what the parent node has.
+  _captconnect_custom_preset_groups($entity_form, $_SESSION['og_context']['gid']);
+  if ($entity_form['#entity_type'] == 'node') {
+    switch ($entity_form['#entity']->type) {
+      case 'event_questions':
+        break;
+    }
+  }
   if ($entity_form['#entity_type'] == 'notifications') {
     $form['field_related_event']['#access'] = FALSE;
     $form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
@@ -1692,6 +1717,34 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
       drupal_set_message(t(variable_get('captconnect_custom_proxy_failed',
         'Flagging for @user for "@event" at @time failed.'), $args));
     }
+  }
+}
+
+/**
+ * Implements hook_flag_notify_message_alter().
+ * After registering, return/goto event.
+ * @param $data - array containing 'subject' and 'body',
+ *   this may be altered as needed.
+ * @param $context - array containing the flag object, the flagging object,
+ *   the action being taken, and the node object being flagged.
+ */
+function captconnect_custom_flag_notify_message_alter(&$data, $context) {
+//  dpm($data, __FUNCTION__ . ' data');
+//  dpm($context, __FUNCTION__ . ' context');
+  $instance = $context['node'];
+  $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+
+  $notification = node_load($event->field_related_notifications[LANGUAGE_NONE][0]['target_id']);
+  // Figure out which field to use.
+  $actions = array(
+    'flag' => 'field_event_registration',
+    'unflag' => 'field_event_cancellation',
+    );
+  if (isset($actions[$context['action']])) {
+    $field_name = $actions[$context['action']];
+    $msg = node_load($notification->{$field_name}[LANGUAGE_NONE][0]['target_id']);
+    $data['subject'] = $msg->field_email_subject[LANGUAGE_NONE][0]['value'];
+    $data['body'] = $msg->field_email_body[LANGUAGE_NONE][0]['value'];
   }
 }
 
