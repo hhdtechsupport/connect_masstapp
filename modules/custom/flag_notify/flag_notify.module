@@ -108,19 +108,34 @@ function flag_notify_flag_unflag($flag, $entity_id, $account, $flagging) {
 function flag_notify_send_email($flag, $entity_id, $account, $flagging, $action) {
   global $user, $language;
 //  dpm($flag, $action . ' ' . $flag->title);
+  if (isset($user->og_user_node)) {
+    $user = user_load($user);
+  }
 
-  $subj = variable_get('flag_notify_' . $action . '_subject_' . $flag->name, 'Congratulations');
-  $msg = variable_get('flag_notify_' . $action . '_message_' . $flag->name, 'Thanks');
   $instance = node_load($entity_id);
 
-  // Let's go ahead and do the tokens, because sometimes they screw up.
+  // Let's get the stuff and let other modules take a crack at it.
+  // It is up to the individual modules to control the order they run in.
+  // See hook_module_implements().
   $args = array(
     'flag' => $flag,
     'flagging' => $flagging,
+    'flagging_user' => $user,
+    'action' => $action,
     'node' => $instance,
     );
-  $body = token_replace($msg, $args);
-  $subject = token_replace($subj, $args);
+
+  $data = array(
+    'subject' => variable_get('flag_notify_' . $action . '_subject_' . $flag->name, 'Congratulations'),
+    'body' => variable_get('flag_notify_' . $action . '_message_' . $flag->name, 'Thanks'),
+    );
+  drupal_alter('flag_notify_message', $data, $args);
+//  dpm($data['body'], 'altered email body');
+
+  // Let's go ahead and do the tokens, because sometimes they screw up.
+  $body = token_replace($data['body'], $args);
+  $subject = token_replace($data['subject'], $args);
+  dpm($body, 'processed email body');
 
   $rids = array_filter(variable_get('flag_notify_flag_roles_' . $flag->name, array()));
 
