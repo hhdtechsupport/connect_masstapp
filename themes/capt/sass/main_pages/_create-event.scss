@@ -5,6 +5,27 @@
 /* form elements for Edit & Create Event & FLAGS & other node forms */
 
 form.node-form, form#flag-confirm {
+  .form-grouping > .form-wrapper {
+    padding: 1px 15px;
+    background: rgba(87, 119, 133, 0.15);
+    &:first-child {
+      padding-top: 10px;
+    }
+    &:last-child {
+      padding-bottom: 10px;
+    }
+    .form-item {
+      margin: 10px 0px;
+    }
+  }
+  .form-field-type-list-boolean {
+    .form-item .description {
+      margin-left: 0px;
+    }
+    label.option {
+      font-weight: bold;
+    }
+  }
   a:not(.chosen-single) {
     font-weight: normal;
     color: $capt-maroon;
