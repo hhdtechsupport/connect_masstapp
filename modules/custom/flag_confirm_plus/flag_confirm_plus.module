@@ -43,7 +43,7 @@ function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) 
     '#title' => t('Header text'),
     '#description' => t('This is boilerplate text placed at the top of the
       confirmation form to explain what the user is doing. Please note that
-      the confirmation mesaages above appear as the page title above
+      the confirmation messages above appear as the page title above
       this text.'),
     '#default_value' => variable_get('flag_confirm_form_header_text', ''),
     );
@@ -105,15 +105,15 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
       '#weight' => -999,
       );
 
-    $form['omb_text'] = array(
-      '#type' => 'markup',
-      '#markup' => '<div class="flag-confirm-omb-text">'
-        . filter_xss(variable_get('flag_confirm_omb_text', ''))
-        . '</div><br />',
-      '#weight' => -998,
-      );
-
     if (!$already_questioned) {
+      $form['omb_text'] = array(
+        '#type' => 'markup',
+        '#markup' => '<div class="flag-confirm-omb-text">'
+          . filter_xss(variable_get('flag_confirm_omb_text', ''))
+          . '</div><br />',
+        '#weight' => -998,
+        );
+
       // Wrapper for questions.
       $form['questions'] = array(
         '#type' => 'container',
@@ -205,12 +205,12 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
         drupal_set_message(t('Why are you not in a group?'), 'warning');
       }
     }
-    
+
     if ($field_name == 'field_country') {
-      $form['field_country'][LANGUAGE_NONE]['#default_value'] = 
+      $form['field_country'][LANGUAGE_NONE]['#default_value'] =
         $user->field_country[LANGUAGE_NONE][0]['target_id'];
     }
-    
+
     if (isset($form[$field_name])) {
       if (isset($info[$field_name]['display']['default']['module'])
       && $info[$field_name]['display']['default']['module'] == 'entityreference') {
@@ -322,13 +322,17 @@ function flag_confirm_plus_flag_unflag($flag, $entity_id, $account, $flagging) {
     $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
     $deletes = array();
 
-    foreach ($event->field_question[LANGUAGE_NONE] as $quest) {
-      if ($question = node_load($quest['target_id'])) {
-        foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
-          $answer = node_load($ans['target_id']);
-          // Is the answer by the person unflagging?
-          if ($answer->uid == $account->uid) {
-            $deletes[] = $answer->nid;
+    if (isset($event->field_question[LANGUAGE_NONE])) {
+      foreach ($event->field_question[LANGUAGE_NONE] as $quest) {
+        if ($question = node_load($quest['target_id'])) {
+          if (isset($question->field_answers[LANGUAGE_NONE])) {
+            foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
+              $answer = node_load($ans['target_id']);
+              // Is the answer by the person unflagging?
+              if ($answer->uid == $account->uid) {
+                $deletes[] = $answer->nid;
+              }
+            }
           }
         }
       }
@@ -427,7 +431,7 @@ function flag_confirm_plus_node_view($node, $view_mode, $langcode) {
                 foreach ($answer->field_answer->value() as $data) {
                   $list[] = $data;
                 }
-                $ans = (count($list) > 1 ? 
+                $ans = (count($list) > 1 ?
                   theme('item_list', array('items' => $list)) : $list[0]);
               }
               else {
