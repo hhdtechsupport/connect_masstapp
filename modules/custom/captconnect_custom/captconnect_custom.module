@@ -503,7 +503,7 @@ function captconnect_custom_node_access($node, $op, $account) {
       $access_types = array_filter(variable_get('captconnect_custom_check_group_access', array()));
       if (in_array($node->type, $access_types)) {
         // Is it one of the subparts of a portal?
-        if (isset($node->og_group_ref_2)) {
+        if (isset($node->og_group_ref_2[LANGUAGE_NONE])) {
           $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
         }
         else {
