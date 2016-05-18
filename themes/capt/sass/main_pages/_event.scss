@@ -184,6 +184,9 @@ body.page-group-node {
         display: inline;
       }
     }
+    .field-content > .date-display-single {
+      display: block;
+    }
   }
   h2.element-invisible {
     display: none;
@@ -202,9 +205,6 @@ body.page-group-node {
   .ds-2col > .group-right {
     width: 323px;
     margin-left: -323px;
-    h4 {
-      font-size: 13px;
-    }
     .view-content .field-content .views-row div {
       margin-left: 0px;
       display: inline;
@@ -237,7 +237,7 @@ body.page-group-node {
       div.views-field-field-date {
         border-top: 1px solid $capt-midgrey;
         margin-right: 3px;
-        padding: 0px 10px 15px;
+        padding: 0px 0px 15px;
         a.unflag-action {
           font-weight: normal;
         }
@@ -248,7 +248,7 @@ body.page-group-node {
       div.views-field-field-access-information {
         border-top: 1px solid $capt-midgrey;
         clear: both;
-        padding: 0px 10px;
+        padding: 0px;
       }
     }
     .item-list h3 {

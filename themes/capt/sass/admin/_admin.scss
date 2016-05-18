@@ -56,6 +56,11 @@ body.page-administration {
       min-width: 200px;
     }
   }
+  .view-event-administration {
+    table ul {
+      padding-left: 20px;
+    }
+  }
 }
 /*
  *  styles from Nancy on 5/21-5/22:
@@ -137,6 +142,13 @@ div.views-field.views-field-field-presenter-image {
 /*
  * page administration
  */
+
+
+ body:not(.role-administrator):not(.role-site-maintainer) {
+   li#menu-item-4467 {
+     display: none;
+   }
+ }
 
 body.page-administration {
   div#content div#title-section {
