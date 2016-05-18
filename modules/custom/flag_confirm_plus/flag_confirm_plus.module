@@ -37,6 +37,17 @@ function flag_confirm_plus_field_extra_fields() {
 function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
+  $form['display']['link_options_confirm']['confirm_all_registrations'] = array(
+    '#type' => 'radios',
+    '#title' => t('Confirm which registrations'),
+    '#options' => array(
+      0 => t('First registration'),
+      1 => t('All registrations')),
+    '#description' => t('This determines whether all registrations for an
+      event will be confirmed, or only the first instance.'),
+    '#default_value' => variable_get('flag_confirm_form_all_registrations', 0),
+    );
+
   $form['display']['link_options_confirm']['confirm_header_message'] = array(
     '#type' => 'textarea',
     '#size' => 5,
@@ -62,6 +73,7 @@ function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) 
 
 function _flag_confirm_plus_flag_form_submit(&$form, &$form_state) {
 //  dpm($form_state['values'], 'values');
+  variable_set('flag_confirm_form_all_registrations', $form_state['values']['confirm_all_registrations']);
   variable_set('flag_confirm_form_header_text', $form_state['values']['confirm_header_message']);
   variable_set('flag_confirm_omb_text', $form_state['values']['omb_text']);
 }
@@ -78,12 +90,17 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
   $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
   $form['#redirect'] = 'node/' . $event->nid;
   $instances = field_get_items('node', $event, 'field_date_instance');
+  $all_registrations = variable_get('flag_confirm_form_all_registrations', 0);
 
   $flag = $form['#flag'];
   // Okay, let's see if any of the instances have been flagged yet.
+  // If we are supposed to confirm all registrations, then skip the check.
   $already_questioned = FALSE;
-  foreach ($instances as $item) {
-    $already_questioned |= $flag->is_flagged($item['target_id'], $user->uid);
+  
+  if (!$all_registrations) {
+    foreach ($instances as $item) {
+      $already_questioned |= $flag->is_flagged($item['target_id'], $user->uid);
+    }
   }
 
   // Is there at least one question?
