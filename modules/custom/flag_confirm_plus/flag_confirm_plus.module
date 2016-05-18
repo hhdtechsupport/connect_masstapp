@@ -39,12 +39,12 @@ function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) 
 //  dpm($form, $form_id);
   $form['display']['link_options_confirm']['confirm_all_registrations'] = array(
     '#type' => 'radios',
-    '#title' => t('Confirm which registrations'),
+    '#title' => t('Show registration questions'),
     '#options' => array(
       0 => t('First registration'),
       1 => t('All registrations')),
-    '#description' => t('This determines whether all registrations for an
-      event will be confirmed, or only the first instance.'),
+    '#description' => t('This determines whether registration questions for an
+      event will be asked on all registrations, or only the first instance.'),
     '#default_value' => variable_get('flag_confirm_form_all_registrations', 0),
     );
 
@@ -94,7 +94,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
 
   $flag = $form['#flag'];
   // Okay, let's see if any of the instances have been flagged yet.
-  // If we are supposed to confirm all registrations, then skip the check.
+  // If we are supposed to do questions on all registrations, then skip the check.
   $already_questioned = FALSE;
   
   if (!$all_registrations) {
