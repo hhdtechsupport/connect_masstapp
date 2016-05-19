@@ -39,6 +39,11 @@ function captconnect_custom_permission() {
       'description' => t('View answers to registration questions on Events.'),
       'restrict access' => FALSE,
       ),
+    'update feedback' => array(
+      'title' => t('Update Instance Feedback'),
+      'description' => t('Allow update access to feedback on Event instance.'),
+      'restrict access' => FALSE,
+      ),
     );
 
   foreach ($node_types as $type => $name) {
@@ -1234,19 +1239,42 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
   if (!isset($user->og_user_node)) {
     $user = user_load($user->uid);
   }
+
   // Preset the groups. OG tells us what the parent node has.
   _captconnect_custom_preset_groups($entity_form, $_SESSION['og_context']['gid']);
   if ($entity_form['#entity_type'] == 'node') {
     switch ($entity_form['#entity']->type) {
       case 'event_questions':
         break;
+
+      case 'notifications':
+        $entity_form['field_related_event']['#access'] = FALSE;
+        $entity_form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
+        // Load node.pages.inc from Node module.
+        form_load_include($form_state, 'inc', 'node', 'node.pages');
+        break;
+
+      case 'instance':
+        if (!user_access('update feedback')) {
+          $entity_form['field_feedback_link'][LANGUAGE_NONE][0]['#description'] =
+            t('You are not allowed to change this.');
+        }
+        // Add a submit handler so we can preempt invalid changes.
+        array_unshift($entity_form['#ief_element_submit'], '_captconnect_custom_handle_feedback_link');
+        break;
     }
   }
-  if ($entity_form['#entity_type'] == 'notifications') {
-    $form['field_related_event']['#access'] = FALSE;
-    $form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
-    // Load node.pages.inc from Node module.
-    form_load_include($form_state, 'inc', 'node', 'node.pages');
+}
+
+/**
+ * Submit handler.
+ * Check ability to edit certain fields.
+ */
+function _captconnect_custom_handle_feedback_link($form, &$form_state) {
+  if (!user_access('update feedback')) {
+      $d = $form['#ief_row_delta'];
+      $form_state['values']['field_date_instance'][LANGUAGE_NONE]['entities'][$d]['form']['field_feedback_link'][LANGUAGE_NONE][0]['url'] =
+        $form['field_feedback_link'][LANGUAGE_NONE][0]['#default_value']['url'];
   }
 }
 
