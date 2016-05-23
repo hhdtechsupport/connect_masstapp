@@ -37,17 +37,6 @@ function flag_confirm_plus_field_extra_fields() {
 function flag_confirm_plus_form_flag_form_alter(&$form, &$form_state, $form_id) {
   global $user;
 //  dpm($form, $form_id);
-  $form['display']['link_options_confirm']['confirm_all_registrations'] = array(
-    '#type' => 'radios',
-    '#title' => t('Show registration questions'),
-    '#options' => array(
-      0 => t('First registration'),
-      1 => t('All registrations')),
-    '#description' => t('This determines whether registration questions for an
-      event will be asked on all registrations, or only the first instance.'),
-    '#default_value' => variable_get('flag_confirm_form_all_registrations', 0),
-    );
-
   $form['display']['link_options_confirm']['confirm_header_message'] = array(
     '#type' => 'textarea',
     '#size' => 5,
@@ -90,26 +79,44 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
   $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
   $form['#redirect'] = 'node/' . $event->nid;
   $instances = field_get_items('node', $event, 'field_date_instance');
-  $all_registrations = variable_get('flag_confirm_form_all_registrations', 0);
 
   $flag = $form['#flag'];
-  // Okay, let's see if any of the instances have been flagged yet.
-  // If we are supposed to do questions on all registrations, then skip the check.
-  $already_questioned = FALSE;
-  
-  if (!$all_registrations) {
-    foreach ($instances as $item) {
-      $already_questioned |= $flag->is_flagged($item['target_id'], $user->uid);
-    }
-  }
+
+  $answer_query = "SELECT 1 FROM {node} n "
+    . "INNER JOIN {field_data_field_answers} a ON a.entity_id = n.nid "
+    . "INNER JOIN {node} na ON na.nid = a.field_answers_target_id "
+    . "WHERE n.nid = :question AND na.uid = :uid "
+    ;
 
   // Is there at least one question?
   if (isset($event->field_question[LANGUAGE_NONE][0])) {
     $questions = array();
-    foreach ($event->field_question[LANGUAGE_NONE] as $question) {
-      $questions[] = $question['target_id'];
+    foreach ($event->field_question[LANGUAGE_NONE] as $quest) {
+      $question = node_load($quest['target_id']);
+
+      // And the question might have already been answered by this user.
+      $args = array(
+        ':uid' => $user->uid,
+        ':question' => $question->nid,
+        );
+      $answered = db_query($answer_query, $args)->fetchField();
+      // If it has, skip it.
+      if ($answered) {
+        continue;
+      }
+
+      // Some questions may be limited to specific instances.
+      if (isset($question->field_related_instance[LANGUAGE_NONE])) {
+        // Got a specific instance.
+        $specific = $question->field_related_instance[LANGUAGE_NONE][0]['target_id'];
+        if ($specific != $instance->nid) {
+          // If there is an instance, but it is not this one, we just skip it.
+          continue;
+        }
+      }
+      $questions[$question->nid] = $question;
     }
-    $questions = entity_load('node', $questions);
+
     $form['#questions'] = $questions;
 
     // Note that there is a hook_field_extra_fields() that allows
@@ -122,7 +129,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
       '#weight' => -999,
       );
 
-    if (!$already_questioned) {
+    if ($questions) {
       $form['omb_text'] = array(
         '#type' => 'markup',
         '#markup' => '<div class="flag-confirm-omb-text">'
@@ -147,6 +154,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
         );
 
       foreach ($questions as $nid => $question) {
+        // Safe_value has already had check_markup() on it
         if (isset($question->field_help_text[LANGUAGE_NONE][0]['safe_value'])) {
           $help = $question->field_help_text[LANGUAGE_NONE][0]['safe_value'];
         }
@@ -334,33 +342,69 @@ function _flag_confirm_plus_event_registration_submit($form, &$form_state) {
  * I am assuming that Flag will delete the profile stuff.
  */
 function flag_confirm_plus_flag_unflag($flag, $entity_id, $account, $flagging) {
+  global $user;
+  // Their responses to the questions should only be deleted if ALL date instance
+  // registrations for that particular event are cancelled.
+  // Or they cancel a registration for an instance to which a question
+  // is tied.
+
   if ($flag->name == 'registration') {
     $instance = node_load($entity_id);
     $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+    // Now get all instances.
+    // We don't have to check if there are any, because we are here
+    // through at least one.
+    $instances = array();
+    foreach ($event->field_date_instance[LANGUAGE_NONE] as $inst) {
+      $t = $inst['target_id'];
+      $instances[$t] = node_load($t);
+    }
     $deletes = array();
 
-    if (isset($event->field_question[LANGUAGE_NONE])) {
-      foreach ($event->field_question[LANGUAGE_NONE] as $quest) {
-        if ($question = node_load($quest['target_id'])) {
-          if (isset($question->field_answers[LANGUAGE_NONE])) {
-            foreach ($question->field_answers[LANGUAGE_NONE] as $ans) {
-              $answer = node_load($ans['target_id']);
-              // Is the answer by the person unflagging?
-              if ($answer->uid == $account->uid) {
-                $deletes[] = $answer->nid;
-              }
-            }
-          }
-        }
-      }
+    $answer_query = "SELECT na.nid "
+      . "FROM {field_data_field_related_instance} ri "
+      . "INNER JOIN {field_data_field_answers} a ON a.entity_id = ri.entity_id "
+      . "INNER JOIN {node} na ON na.nid = a.field_answers_target_id "
+      . "WHERE ri.field_related_instance_target_id = :instance AND na.uid = :uid ";
+    $answer = db_query($answer_query, array(
+      ':uid' => $user->uid,
+      ':instance' => $instance->nid,
+      ))->fetchField();
+
+    // Okay, delete it.
+    if ($answer) {
+      node_delete($answer);
     }
 
-    // Did we find any?
-    if ($deletes) {
-      node_delete_multiple($deletes);
+    // Is this the last registration for this event and user?
+    $any_regs_left_query = "SELECT COUNT(*) AS num_regs "
+      . "FROM field_data_field_date_instance i "
+      . "INNER JOIN flagging f ON f.entity_id = i.field_date_instance_target_id "
+      . "WHERE i.entity_id = :event AND f.fid = :fid AND f.uid = :uid "
+      . "GROUP BY f.uid ";
+    $args = array(
+      ':fid' => $flag->fid,
+      ':uid' => $user->uid,
+      ':event' => $event->nid,
+      );
+    $any_regs_left = db_query($any_regs_left_query, $args)->fetchField();
+    // A count of one means this is the last.
+    if ($any_regs_left == 1) {
+      // So we need to remove any answers left.
+      $remaining_answers_query = "SELECT a.field_answers_target_id "
+      . "FROM field_data_field_question rq "
+      . "INNER JOIN field_data_field_answers a ON a.entity_id = rq.field_question_target_id "
+      . "INNER JOIN node na ON na.nid = a.field_answers_target_id "
+      . "WHERE rq.entity_id = :event AND na.uid = :uid ";
+      unset($args[':fid']);  // Don't need flag this time.
+      $remaining_answers = db_query($remaining_answers_query, $args)->fetchCol();
+      if ($remaining_answers) {
+        node_delete_multiple($remaining_answers);
+      }
     }
   }
 }
+
 /**
  * Implements hook_node_view().
  * Display question and answer info.
