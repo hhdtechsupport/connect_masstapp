@@ -1244,8 +1244,25 @@ function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, 
   _captconnect_custom_preset_groups($entity_form, $_SESSION['og_context']['gid']);
   if ($entity_form['#entity_type'] == 'node') {
     switch ($entity_form['#entity']->type) {
+      /* */
       case 'event_questions':
-        break;
+        $parsed = parse_url($_SERVER['HTTP_REFERER']);
+        $x = explode('/', $parsed['path']);
+
+        // Yikes, the related_event field is not set yet on a new question.
+        $event = node_load($x[2]);
+        $instances = array('_none' => t('First registration'));
+        foreach($event->field_date_instance[LANGUAGE_NONE] as $inst) {
+          $instance = node_load($inst['target_id']);
+          $instances[$instance->nid] = $instance->title;
+        }
+        $entity_form['field_related_instance'][LANGUAGE_NONE]['#default_value'] = '_none';
+        $entity_form['field_related_instance'][LANGUAGE_NONE]['#options'] = $instances;
+
+        $entity_form['field_related_event']['#access'] = FALSE;
+        $entity_form['field_answers']['#access'] = FALSE;
+        $entity_form['status']['#access'] = FALSE;
+        break; /* */
 
       case 'notifications':
         $entity_form['field_related_event']['#access'] = FALSE;
