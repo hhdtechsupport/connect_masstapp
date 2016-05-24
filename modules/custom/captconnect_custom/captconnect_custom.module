@@ -1889,18 +1889,29 @@ function captconnect_custom_workflow_permitted_state_transitions_alter(array &$t
     }
   }
 }
+
 /*
  * Implements hook_entity_info_alter().
  */
 function captconnect_custom_entity_info_alter(&$entity_info) {
+//  dpm($entity_info, __FUNCTION__);
   $entity_info['taxonomy_term']['access callback'] = '_captconnect_custom_taxonomy_access';
+}
+
+/*
+ * Implements hook_field_formatter_info_alter().
+ */
+function captconnect_custom_field_formatter_info_alter(&$info) {
+//  dpm($info, __FUNCTION__);
+  // Set ER field displays to be linked by default.
+  $info['entityreference_label']['settings']['link'] = TRUE;
 }
 
 /*
  * Copy of entity_metadata_taxonomy_access with $op == 'create' added for terms.
  */
 function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NULL, $entity_type) {
-//  dpm($entity, "_captconnect_custom_taxonomy_access $op $entity_type.");
+//  dpm($entity, __FUNCTION__." $op $entity_type.");
   if ($entity_type == 'taxonomy_vocabulary') {
     return user_access('administer taxonomy', $account);
   }
