@@ -176,10 +176,30 @@ function captconnect_custom_admin_settings($form, $form_state) {
     '#title' => t('Check update access by group'),
     '#default_value' => variable_get('captconnect_custom_check_group_access', array()),
     '#description' => t('Before allowing edit access to these content types,
-      check the grroup (team) to which the user belongs.'),
+      check the group (team) to which the user belongs.'),
+    );
+
+  $lines_per_page = array(5, 10, 15, 20, 25, 50, 100);
+  $form['captconnect_custom_register_lines_per_page'] = array(
+    '#type' => 'radios',
+    '#options' => array_combine($lines_per_page, $lines_per_page),
+    '#title' => t('Registrations Lines per Page '),
+    '#default_value' => variable_get('captconnect_custom_register_lines_per_page', 10),
+    '#description' => t('This is the number of lines per page that will be
+      displayed in a Registrations list.'),
+    );
+
+  $form['captconnect_custom_questions_as_tab'] = array(
+    '#type' => 'radios',
+    '#options' => $noyes,
+    '#title' => t('Show the Registration Questions in a tab.'),
+    '#default_value' => variable_get('captconnect_custom_questions_as_tab', 0),
+    '#description' => t('The registration questions and answers can be shown in 
+      a tab on the event page.'),
     );
 
   $form['#theme'] = 'captconnect_custom_admin_settings';
+  $form['#submit'][] = 'captconnect_custom_admin_settings_submit';
 
   return system_settings_form($form);
 }
@@ -246,6 +266,11 @@ function theme_captconnect_custom_admin_settings($variables) {
     array('data' => drupal_render($form['captconnect_custom_account_check_grace']), 'style' => $style),
     );
 
+  $rows[] = array(
+    array('data' => drupal_render($form['captconnect_custom_register_lines_per_page']), 'style' => $style),
+    array('data' => drupal_render($form['captconnect_custom_questions_as_tab']), 'style' => $style),
+    );
+
   $output .= theme('table', array(
     'rows' => $rows,
     'attributes' => array('id' => 'captconnect-custom-admin-settings'),
@@ -253,6 +278,16 @@ function theme_captconnect_custom_admin_settings($variables) {
 
   $output .= drupal_render_children($form);
   return $output;
+}
+
+/**
+ * Submission Handler.
+ * Reset menu cache because of tab setting.
+ */
+function captconnect_custom_admin_settings_submit(&$form, &$form_state) {
+  // Variable_set forces it to be uncached.
+  variable_set('captconnect_custom_questions_as_tab', $form_state['values']['captconnect_custom_questions_as_tab']);
+  menu_rebuild();  
 }
 
 /**

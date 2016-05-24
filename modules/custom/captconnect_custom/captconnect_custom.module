@@ -39,6 +39,11 @@ function captconnect_custom_permission() {
       'description' => t('View answers to registration questions on Events.'),
       'restrict access' => FALSE,
       ),
+    'update feedback' => array(
+      'title' => t('Update Instance Feedback'),
+      'description' => t('Allow update access to feedback on Event instance.'),
+      'restrict access' => FALSE,
+      ),
     );
 
   foreach ($node_types as $type => $name) {
@@ -97,6 +102,19 @@ function captconnect_custom_menu() {
     'type' => MENU_LOCAL_TASK,
     'file' => 'captconnect_custom.pages.inc',
     );
+
+  if (variable_get('captconnect_custom_questions_as_tab', 0)) {
+    $items['node/%node/questions'] = array(
+      'title' => 'Questions',
+      'page callback' => 'captconnect_custom_view_questions',
+      'page arguments' => array(1),
+      'access callback' => 'captconnect_custom_access_questions',
+      'access arguments' => array(1),
+      'weight' => 0,
+      'type' => MENU_LOCAL_TASK,
+      'file' => 'captconnect_custom.pages.inc',
+      );
+    }
 
   $items['event/participate/%node/%user'] = array(
     'title' => 'Flag participation for someone else',
@@ -158,6 +176,14 @@ function captconnect_custom_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('captconnect_custom_register_other'),
     'access arguments' => array('register others'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['connect/autocomplete'] = array(
+    'title' => 'User autocomplete',
+    'page callback' => 'captconnect_custom_user_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
     'type' => MENU_CALLBACK,
     );
 
@@ -310,6 +336,7 @@ function captconnect_custom_init() {
     if ($a0 == 'anon_login' || $a0 == 'anon_register'
     || $_GET['q'] == 'user/register' || $_GET['q'] == 'user/password'
     || $_GET['q'] == 'node/1376' /* Terms */
+    || $a0 == 'portals'
     || arg(2) == 'captconnect.ics'
     || substr($_GET['q'], 0, 11) == 'user/reset/'
     || substr($_GET['q'], 0, 26) == 'user/registrationpassword/') {
@@ -343,8 +370,6 @@ function captconnect_custom_init() {
 
   // Have they updated their account since we started this?
   $check_interval = variable_get('captconnect_custom_account_check_interval', 7776000);
-//  $grace = ($check_interval == 0 ?
-//    variable_get('captconnect_custom_account_check_grace', 3600) : 60);
   $grace = variable_get('captconnect_custom_account_check_grace', 3600);
 
   $how_long_ago = (isset($user->data['last_account_edit']) ?
@@ -387,9 +412,6 @@ function captconnect_custom_drupal_goto_alter(&$path, &$options, &$http_response
   $our_msgs = array(
     t(variable_get('captconnect_custom_account_check_msg',
       "Check your personal information, please.")),
-//    t(variable_get('captconnect_custom_anon_register',
-//      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
-//      array('!create_url' => 'anon_register/')),  // @TODO: need a uid here.
     );
   $our_classes = array(
     'anon-login',
@@ -438,8 +460,8 @@ function captconnect_custom_admin_paths_alter(&$paths) {
  */
 function captconnect_custom_node_access($node, $op, $account) {
   global $user;
-//  dpm($node, "captconnect_custom_node_access $op ".$account->uid);
-  if (empty($account)) {
+//  dpm($node, __FUNCTION__." $op $node->type $account->uid");
+  if (empty($account) || !isset($account->og_user_node)) {
     $account = user_load($user->uid);
   }
 
@@ -464,6 +486,18 @@ function captconnect_custom_node_access($node, $op, $account) {
       break;
 
     case 'update':
+      // Don't let answers be edited.
+      if ($node->type == 'event_answers') {
+        return NODE_ACCESS_DENY;
+      }
+
+      // Don't let questions be edited if there's an answer.
+      if ($node->type == 'event_questions') {
+        if (isset($node->field_answers[LANGUAGE_NONE])) {
+          return NODE_ACCESS_DENY;
+        }
+      }
+
       // Workflow Access grants access based on roles,
       // but some content also needs an OG check.
       // We can bypass those people who can administer OG.
@@ -471,10 +505,10 @@ function captconnect_custom_node_access($node, $op, $account) {
         return NODE_ACCESS_IGNORE;
       }
 
-      $access_types = variable_get('captconnect_custom_check_group_access', array());
+      $access_types = array_filter(variable_get('captconnect_custom_check_group_access', array()));
       if (in_array($node->type, $access_types)) {
         // Is it one of the subparts of a portal?
-        if (isset($node->og_group_ref_2)) {
+        if (isset($node->og_group_ref_2[LANGUAGE_NONE])) {
           $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
         }
         else {
@@ -501,18 +535,19 @@ function captconnect_custom_node_access($node, $op, $account) {
         $gid = field_get_items('node', $ref, 'og_group_ref');
 
         // See if the user is a member of the node's group.
-        if ($gid /*&& og_is_member('node', $gid[0]['target_id'], 'user', $account)*/) {
+        if ($gid) {
           foreach ($gid as $grp) {
             if (og_is_member('node', $grp['target_id'], 'user', $account)) {
-            // Yes, so just let other Drupal rules take over.
-            return NODE_ACCESS_IGNORE;
+              // Yes, so just let other Drupal rules take over.
+              return NODE_ACCESS_IGNORE;
             }
           }
           // Not in any group, so bounce them.
           return NODE_ACCESS_DENY;
         }
         else {
-          // No, the current user does not match the viewed node's groups.
+          // The current node does not have groups.
+//          return NODE_ACCESS_DENY;
         }
       }
 
@@ -633,6 +668,16 @@ function captconnect_custom_login_access() {
  */
 function captconnect_custom_access_registrations($node) {
   return ($node->type == 'event' && user_access('view registrations'));
+}
+
+/**
+ * Menu access callback.
+ * Decide whether or not to show the "Questions" tab on Events.
+ */
+function captconnect_custom_access_questions($node) {
+  return ($node->type == 'event'
+    && user_access('view registration questions')
+    && (isset($node->field_question[LANGUAGE_NONE]) && count($node->field_question[LANGUAGE_NONE] > 0)));
 }
 
 /**
@@ -887,13 +932,13 @@ function captconnect_custom_og_ui_get_group_admin_alter(&$data, $context) {
 /**
  * Helper function to preset the resource team group.
  */
-function _captconnect_custom_preset_groups(&$form) {
+function _captconnect_custom_preset_groups(&$form, $default = NULL) {
   global $user;
   // If the field is not present, there's nothing we can do.
   if (!isset($form['og_group_ref'])) {
     return;
   }
-  if (!isset($user->og_user_node)) {
+  if (!isset($user->og_user_node[LANGUAGE_NONE])) {
     // Provide a complete user object.
     $user = user_load($user->uid);
   }
@@ -901,7 +946,8 @@ function _captconnect_custom_preset_groups(&$form) {
   // Is it an existing node?
   if (isset($form['nid']['#value'])) {
     // Are they allowed to edit it? (Admins, site maintainers).
-    $type = $form['type']['#value'];
+    $type = (isset($form['type']) ?
+      $form['type']['#value'] : $form['#entity']->type);
     if (user_access("edit any $type content")) {
       return;
     }
@@ -912,8 +958,8 @@ function _captconnect_custom_preset_groups(&$form) {
   foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
     $groups[$grp['target_id']] = $grp['target_id'];
   }
-//  dpm($form, '_captconnect_custom_preset_groups');
-//  dpm($groups, 'groups');
+//  dpm($form, __FUNCTION__);
+//  dpm($groups, __FUNCTION__.' groups');
 
   if (empty($groups)) {
     $types = node_type_get_names();
@@ -925,6 +971,15 @@ function _captconnect_custom_preset_groups(&$form) {
   if (count($groups) > 1) {
     // Not sure why I have to do this.
     $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
+    $group_nodes = entity_load('node', $groups);
+    $x = array();
+    foreach ($groups as $grp) {
+      $x[$grp] = $group_nodes[$grp]->title;
+    }
+    $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] = $x;
+    if ($default) {
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array($default => $default);
+    }
   }
   else {
     // They only have one group, so let's set it as the default
@@ -986,6 +1041,18 @@ function captconnect_custom_form_alter(&$form, &$form_state, $form_id) {
           $form['#submit'][] = '_captconnect_custom_delete_redirect';
           break;
       }
+      break;
+
+    // Edit Event Questions.
+    case 'event_questions_node_form':
+      _captconnect_custom_preset_groups($form);
+      if (!empty($form['nid']['#value'])) {
+        if (isset($form['#node']->field_answers[LANGUAGE_NONE])) {
+          drupal_set_message('This question has already been answered at least once,
+            changing it could cause all sorts of errors.', 'warning');
+        }
+      }
+
       break;
 
     // Add/Edit Portal.
@@ -1166,13 +1233,65 @@ function captconnect_custom_form_workflow_transition_form_alter(&$form, &$form_s
  * Implements hook_inline_entity_form_entity_form_alter().
  */
 function captconnect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
-//  dpm($entity_form, 'IEF '.$entity_form['#entity_type']);
-  _captconnect_custom_preset_groups($entity_form);
-  if ($entity_form['#entity_type'] == 'notifications') {
-    $form['field_related_event']['#access'] = FALSE;
-    $form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
-    // Load node.pages.inc from Node module.
-    form_load_include($form_state, 'inc', 'node', 'node.pages');
+  global $user;
+//  dpm($entity_form, __FUNCTION__.' '.$entity_form['#entity_type']);
+  // Make sure we have a complete user object.
+  if (!isset($user->og_user_node)) {
+    $user = user_load($user->uid);
+  }
+
+  // Preset the groups. OG tells us what the parent node has.
+  _captconnect_custom_preset_groups($entity_form, $_SESSION['og_context']['gid']);
+  if ($entity_form['#entity_type'] == 'node') {
+    switch ($entity_form['#entity']->type) {
+      /* */
+      case 'event_questions':
+        $parsed = parse_url($_SERVER['HTTP_REFERER']);
+        $x = explode('/', $parsed['path']);
+
+        // Yikes, the related_event field is not set yet on a new question.
+        $event = node_load($x[2]);
+        $instances = array('_none' => t('First registration'));
+        foreach($event->field_date_instance[LANGUAGE_NONE] as $inst) {
+          $instance = node_load($inst['target_id']);
+          $instances[$instance->nid] = $instance->title;
+        }
+        $entity_form['field_related_instance'][LANGUAGE_NONE]['#default_value'] = '_none';
+        $entity_form['field_related_instance'][LANGUAGE_NONE]['#options'] = $instances;
+
+        $entity_form['field_related_event']['#access'] = FALSE;
+        $entity_form['field_answers']['#access'] = FALSE;
+        $entity_form['status']['#access'] = FALSE;
+        break; /* */
+
+      case 'notifications':
+        $entity_form['field_related_event']['#access'] = FALSE;
+        $entity_form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
+        // Load node.pages.inc from Node module.
+        form_load_include($form_state, 'inc', 'node', 'node.pages');
+        break;
+
+      case 'instance':
+        if (!user_access('update feedback')) {
+          $entity_form['field_feedback_link'][LANGUAGE_NONE][0]['#description'] =
+            t('You are not allowed to change this.');
+        }
+        // Add a submit handler so we can preempt invalid changes.
+        array_unshift($entity_form['#ief_element_submit'], '_captconnect_custom_handle_feedback_link');
+        break;
+    }
+  }
+}
+
+/**
+ * Submit handler.
+ * Check ability to edit certain fields.
+ */
+function _captconnect_custom_handle_feedback_link($form, &$form_state) {
+  if (!user_access('update feedback')) {
+      $d = $form['#ief_row_delta'];
+      $form_state['values']['field_date_instance'][LANGUAGE_NONE]['entities'][$d]['form']['field_feedback_link'][LANGUAGE_NONE][0]['url'] =
+        $form['field_feedback_link'][LANGUAGE_NONE][0]['#default_value']['url'];
   }
 }
 
@@ -1434,7 +1553,12 @@ function captconnect_custom_user_login(&$edit, $account) {
     }
 
     // Set up link to go to.
-    $link = "flag/confirm/flag/registration/$instance_nid";
+    if ($flag->link_type == 'confirm') {
+      $link = "flag/confirm/flag/registration/$instance_nid";
+    }
+    else {
+      $link = "flag/flag/registration/$instance_nid";
+    }
     $token = flag_get_token($instance_nid);
     $link .= '?token=' . $token;
     $_GET['destination'] = $link;
@@ -1546,11 +1670,11 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
     $instance_list[0] = t('* None *');
   }
 
-	$form['account'] = array (
-		'#type' => 'textfield',
-		'#title' => t('Select the user'),
-		'#autocomplete_path' => 'user/autocomplete',
-  	);
+  $form['account'] = array (
+    '#type' => 'textfield',
+    '#title' => t('Select the user'),
+    '#autocomplete_path' => 'connect/autocomplete',
+    );
 
   $form['which_one'] = array(
     '#type' => 'radios',
@@ -1565,6 +1689,25 @@ function captconnect_custom_proxy_flag_form($event, &$form) {
 
   $form['#validate'] = array('captconnect_custom_proxy_flag_form_validate');
   $form['#submit'] = array('captconnect_custom_proxy_flag_form_submit');
+}
+
+/**
+ * User autocomplete for above function.
+ */
+function captconnect_custom_user_autocomplete($string = '') {
+  $matches = array();
+  if ($string) {
+    $result = db_select('users')
+      ->fields('users', array('name'))
+      ->condition('name', db_like($string) . '%', 'LIKE')
+      ->condition('status', 1)
+      ->range(0, 10)->execute();
+    foreach ($result as $user) {
+      $matches[$user->name] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
 }
 
 /**
@@ -1623,6 +1766,34 @@ function captconnect_custom_proxy_flag_form_submit($form, $form_state) {
 }
 
 /**
+ * Implements hook_flag_notify_message_alter().
+ * After registering, return/goto event.
+ * @param $data - array containing 'subject' and 'body',
+ *   this may be altered as needed.
+ * @param $context - array containing the flag object, the flagging object,
+ *   the action being taken, and the node object being flagged.
+ */
+function captconnect_custom_flag_notify_message_alter(&$data, $context) {
+//  dpm($data, __FUNCTION__ . ' data');
+//  dpm($context, __FUNCTION__ . ' context');
+  $instance = $context['node'];
+  $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+
+  $notification = node_load($event->field_related_notifications[LANGUAGE_NONE][0]['target_id']);
+  // Figure out which field to use.
+  $actions = array(
+    'flag' => 'field_event_registration',
+    'unflag' => 'field_event_cancellation',
+    );
+  if (isset($actions[$context['action']])) {
+    $field_name = $actions[$context['action']];
+    $msg = node_load($notification->{$field_name}[LANGUAGE_NONE][0]['target_id']);
+    $data['subject'] = $msg->field_email_subject[LANGUAGE_NONE][0]['value'];
+    $data['body'] = $msg->field_email_body[LANGUAGE_NONE][0]['value'];
+  }
+}
+
+/**
  * Implements hook_flag_flag().
  * After registering, return/goto event.
  */
@@ -1647,7 +1818,7 @@ function captconnect_custom_flag_link_type_info() {
       'provides form' => FALSE,
       ),
     );
-} /* */
+}
 
 /**
  * Implements hook_flag_link().
@@ -1682,7 +1853,7 @@ function captconnect_custom_flag_link($flag, $action, $entity_id) {
       );
   }
 
-} /* */
+}
 
 /**
  * Implements hook_flag_anon_tokens_alter().
@@ -1690,7 +1861,6 @@ function captconnect_custom_flag_link($flag, $action, $entity_id) {
  * Requires local patch, see https://www.drupal.org/node/2527594.
  */
 function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
-//  $tokens['[anon_register]'] = check_url(url('anon_register/' . $link_options['entity_id'], $link_options));
   $tokens['[anon_register]'] = check_url(url('anon_login/' . $link_options['entity_id'], $link_options));
 }
 
@@ -1699,7 +1869,6 @@ function captconnect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
  * Add a class to the node so it can be displayed as published or not.
  */
 function captconnect_custom_preprocess_node(&$variables) {
-//  dpm($variables, 'captconnect_custom_preprocess_node');
   $node = $variables['node'];
   // @TODO: Portals use different fields, and then there are child nodes...
   if (isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])) {
@@ -1758,6 +1927,13 @@ function _captconnect_custom_taxonomy_access($op, $entity = NULL, $account = NUL
 function captconnect_custom_nancy() {
   global $user;
   $output = '';
+
+  $output .= '</pre>'. print_r(og_get_entity_groups('user', $user, array(OG_STATE_ACTIVE)), TRUE) .'</pre>';
+  dpm(og_context_determine_context('node'), 'og_context_determine_context');
+  dpm(node_load(932), 'node 932');
+    $flag = flag_get_flag('registration');
+  dpm($flag, 'registration');
+  return $output;
 
     $instance_nid = 2219;
     $link = "flag/flag/registration/$instance_nid";

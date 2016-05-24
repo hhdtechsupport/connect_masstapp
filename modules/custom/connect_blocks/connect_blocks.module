@@ -1,44 +1,45 @@
 <?php
 /**
  * @file
- * Block functions for CAPTServices site.
+ * Block functions for Connect sites.
  */
 
 /**
  * Implements hook_block_info().
  */
-function captconnect_blocks_block_info() {
+function connect_blocks_block_info() {
   return array(
-    'instance_registration' => array('info' => t('CAPTConnect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
-    'date_instances' => array('info' => t('CAPTConnect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
-    'user_info' => array('info' => t('CAPTConnect: User Information'), 'cache' => DRUPAL_NO_CACHE),
-    'rt_view' => array('info' => t('CAPTConnect: View RT'), 'cache' => DRUPAL_NO_CACHE),
+    'instance_registration' => array('info' => t('Connect: Registrations for an Instance'), 'cache' => DRUPAL_NO_CACHE),
+    'date_instances' => array('info' => t('Connect: Instances for Event'), 'cache' => DRUPAL_NO_CACHE),
+    'user_info' => array('info' => t('Connect: User Information'), 'cache' => DRUPAL_NO_CACHE),
+    'rt_view' => array('info' => t('Connect: View RT'), 'cache' => DRUPAL_NO_CACHE),
     );
 }
 
 /**
  * Implements hook_block_view().
  */
-function captconnect_blocks_block_view($delta) {
+function connect_blocks_block_view($delta) {
   global $user;
   $block = array('subject' => '');
   $output = '';
 
   switch ($delta) {
     case 'instance_registration':
-      $block['content'] = captconnect_blocks_instance_registration_view();
+      $block['subject'] = t('Event Dates');
+      $block['content'] = connect_blocks_instance_registration_view();
       break;
 
     case 'date_instances':
-      $block['content'] = captconnect_blocks_date_instances_view();
+      $block['content'] = connect_blocks_date_instances_view();
       break;
 
     case 'user_info':
-      $block['content'] = captconnect_blocks_user_info_view();
+      $block['content'] = connect_blocks_user_info_view();
       break;
 
     case 'rt_view':
-      $block['content'] = captconnect_blocks_rt_view();
+      $block['content'] = connect_blocks_rt_view();
       break;
   }
 
@@ -48,31 +49,65 @@ function captconnect_blocks_block_view($delta) {
 /**
  * Implements hook_block_configure().
  */
-function captconnect_blocks_block_configure($delta = '') {
+function connect_blocks_block_configure($delta = '') {
   $form = array();
   $noyes = array(t('No'), t('Yes'));
 
   switch ($delta) {
     case 'date_instances':
-      $form['captconnect_blocks_date_instances_participate'] = array(
+      $site_name = variable_get('site_name', 'Connect');
+      $form['connect'] = array(
+        '#type' => 'fieldset',
+        '#title' => filter_xss($site_name),
+        '#collapsible' => FALSE,
+        );
+
+      $form['connect']['intro'] = array(
+        '#type' => 'markup',
+        '#markup' => '<p class="connect-intro">'
+          . t('This block is placed by Display Suite.')
+          . '</p>',
+        );
+
+      $form['connect']['connect_blocks_date_instances_participate'] = array(
         '#title' => t('Show a "Participate" link'),
         '#type' => 'radios',
         '#options' => $noyes,
-        '#default_value' => variable_get('captconnect_blocks_date_instances_participate', 1),
+        '#default_value' => variable_get('connect_blocks_date_instances_participate', 1),
         '#description' => t('In this block, do you want to show a "Participate" link on instances
           for which the current user is registered?'),
         '#attributes' => array('class' => array('container-inline')),
-        ); /* */
+        );
 
-      $form['captconnect_blocks_date_instances_show_ended'] = array(
+      $form['connect']['connect_blocks_date_instances_show_ended'] = array(
         '#title' => t('Show Instances that have already ended'),
         '#type' => 'radios',
         '#options' => $noyes,
-        '#default_value' => variable_get('captconnect_blocks_date_instances_show_ended', 1),
+        '#default_value' => variable_get('connect_blocks_date_instances_show_ended', 1),
         '#description' => t('In this block, do you want to show instances
           for which the end time has already passed?'),
         '#attributes' => array('class' => array('container-inline')),
-        ); /* */
+        );
+
+      $date_types = array();
+      foreach (system_get_date_types() as $name => $info) {
+        $date_types[$name] = $info['title'] . ' <small>(' . format_date(REQUEST_TIME, $name) . ')</small>';
+      }
+      $form['connect']['connect_blocks_instance_date_format'] = array(
+        '#type' => 'radios',
+        '#options' => $date_types,
+        '#title' => t('Date format'),
+        '#default_value' => variable_get('connect_blocks_instance_date_format', 'date_only'),
+        '#description' => t('This format will be used for the date label.'),
+        );
+
+      $form['connect']['connect_blocks_instance_time_format'] = array(
+        '#type' => 'radios',
+        '#options' => $date_types,
+        '#title' => t('Time format'),
+        '#default_value' => variable_get('connect_blocks_instance_time_format', 'date_only'),
+        '#description' => t('This format will be used for the time.'),
+        );
 
       break;
   }
@@ -83,11 +118,13 @@ function captconnect_blocks_block_configure($delta = '') {
 /**
  * Implements hook_block_save().
  */
-function captconnect_blocks_block_save($delta = '', $edit = array()) {
+function connect_blocks_block_save($delta = '', $edit = array()) {
   switch ($delta) {
     case 'date_instances':
-      variable_set('captconnect_blocks_date_instances_participate', $edit['captconnect_blocks_date_instances_participate']);
-      variable_set('captconnect_blocks_date_instances_show_ended', $edit['captconnect_blocks_date_instances_show_ended']);
+      variable_set('connect_blocks_date_instances_participate', $edit['connect_blocks_date_instances_participate']);
+      variable_set('connect_blocks_date_instances_show_ended', $edit['connect_blocks_date_instances_show_ended']);
+      variable_set('connect_blocks_instance_date_format', $edit['connect_blocks_instance_date_format']);
+      variable_set('connect_blocks_instance_time_format', $edit['connect_blocks_instance_time_format']);
       break;
   }
 }
@@ -95,7 +132,7 @@ function captconnect_blocks_block_save($delta = '', $edit = array()) {
 /**
  * Sorting function for instances below.
  */
-function _captconnect_blocks_sort_instances($a, $b) {
+function _connect_blocks_sort_instances($a, $b) {
   // Are the start dates the same?
   if ($a->field_date[LANGUAGE_NONE][0]['value'] == $b->field_date[LANGUAGE_NONE][0]['value']) {
     // How about the end dates?
@@ -112,21 +149,26 @@ function _captconnect_blocks_sort_instances($a, $b) {
 /**
  * block_view(date_instances).
  */
-function captconnect_blocks_date_instances_view() {
+function connect_blocks_date_instances_view() {
   // @TODO: This doesn't work for anonymous users.
-  $css = "#evant-date-instances ul {padding: 0 0 0 12px; margin-top: 0;}
-    #evant-date-instances .instance-date {font-weight: bold;}
-    #evant-date-instances .instance-time {display: block;}
-    #evant-date-instances .flag-link-normal {font-size: 89%; font-weight: normal;}
-    #evant-date-instances .flag-wrapper {display: inline;}
-    #evant-date-instances li.instance-ended {color: #888888;}
+
+  $css = "#event-date-instances ul {padding: 0 0 0 12px; margin-top: 0;}
+    #event-date-instances .instance-date {font-weight: bold;}
+    #event-date-instances .instance-time {display: block;}
+    #event-date-instances .flag-link-normal {font-size: 89%; font-weight: normal;}
+    #event-date-instances .flag-wrapper {display: inline;}
+    #event-date-instances li.instance-ended {color: #888888;}
+    #event-date-instances .button.register {text-align:right;margin:1em 0;}
     .field-name-instances-for-event {border-top: 5px solid #577785 !important;}
     ";
   drupal_add_css($css, 'inline');
-  $output = '<div id="evant-date-instances">';
-  $lead_time = variable_get('captconnect_custom_participate_lead_time', 1800);
-  $show_participate = variable_get('captconnect_blocks_date_instances_participate', 1);
-  $show_ended = variable_get('captconnect_blocks_date_instances_show_ended', 1);
+  /* */
+  $output = '<div id="event-date-instances" class="view-instances">';
+  $lead_time = variable_get('connect_custom_participate_lead_time', 1800);
+  $show_participate = variable_get('connect_blocks_date_instances_participate', 1);
+  $show_ended = variable_get('connect_blocks_date_instances_show_ended', 1);
+  $date_format = variable_get('connect_blocks_instance_date_format', 'date_only');
+  $time_format = variable_get('connect_blocks_instance_time_format', 'time_only');
 
   // Get the node.
   $node = menu_get_object('node');
@@ -138,15 +180,19 @@ function captconnect_blocks_date_instances_view() {
   $instances = entity_load('node', $targets);
 
   // Put them in date order.
-  uasort($instances, '_captconnect_blocks_sort_instances');
+  uasort($instances, '_connect_blocks_sort_instances');
 
   $items = array();
   foreach ($instances as $nid => $instance) {
     $start = strtotime($instance->field_date[LANGUAGE_NONE][0]['value'] . 'UTC');
     $end = strtotime($instance->field_date[LANGUAGE_NONE][0]['value2'] . 'UTC');
-    $start_date = format_date($start, 'long');
-    $end_date = format_date($end, 'long');
-    $line = '<span class="instance-date">' . $start_date;
+    $start_date = format_date($start, $date_format);
+    $end_date = format_date($end, $date_format);
+    $date_label = (isset($instance->field_date_label[LANGUAGE_NONE]) ?
+      $instance->field_date_label[LANGUAGE_NONE][0]['safe_value'] . ': ' : '');
+    $line = '<span class="instance-date">'
+      . $date_label
+      . $start_date;
 
     $classes = array('instance-row');
     // Has it already ended?
@@ -162,9 +208,13 @@ function captconnect_blocks_date_instances_view() {
     }
     $line .= '</span>';
 
+    $time_wo_zone = variable_get('date_format_' . $time_format, '');
+    $time_wo_zone = substr($time_wo_zone, 0, -1);
     $line .= '<span class="instance-time">';
-    $line .= format_date($start, 'time') . ' ' . t('to') . ' ' . format_date($end, 'time');
+    $line .= format_date($start, 'custom', $time_wo_zone)
+      . ' ' . t('to') . ' ' . format_date($end, $time_format);
     $line .= '</span>';
+    $line .= '<div class="button register">';
 
     $reg_flag = flag_get_flag('registration');
     $part_flag = flag_get_flag('participate');
@@ -185,6 +235,7 @@ function captconnect_blocks_date_instances_view() {
       }
     }
 
+    $line .= '</div>';
     $items[] = array('data' => $line, 'class' => $classes);
   }
   $output .= theme('item_list', array('items' => $items));
@@ -196,7 +247,7 @@ function captconnect_blocks_date_instances_view() {
 /**
  * block_view(instance_registration).
  */
-function captconnect_blocks_instance_registration_view() {
+function connect_blocks_instance_registration_view() {
   $output = '';
 
   // Get the node.
@@ -238,7 +289,7 @@ function captconnect_blocks_instance_registration_view() {
 /**
  * block_view(user info).
  */
-function captconnect_blocks_user_info_view() {
+function connect_blocks_user_info_view() {
   global $user;
   $output = '';
 
@@ -268,24 +319,41 @@ function captconnect_blocks_user_info_view() {
 /**
  * block_view(rt view).
  */
-function captconnect_blocks_rt_view() {
+function connect_blocks_rt_view() {
   global $user;
+  // See if the user object is complete.
+  if (!isset($user->og_user_node[LANGUAGE_NONE])) {
+    $user = user_load($user->uid);
+  }
   $output = '';
 
+  // Get all Team names and sanitize them.
+  $groups = db_query("SELECT nid, title FROM {node} WHERE type = 'resource_team'")->fetchAllKeyed();
+  $groups = array_map('filter_xss', $groups);
+
+  // Node groups.
   $node = menu_get_object();
   if (is_object($node)) {
     $output = '<div class="resource-team">';
 
-    $groups = og_get_entity_groups('node', $node->nid);
-    $groups = array_values($groups['node']);
-    $groups = entity_load('node', $groups);
+    $node_groups = og_get_entity_groups('node', $node->nid);
+    $node_groups = array_values($node_groups['node']);
 
-    foreach ($groups as $nid => $group) {
-      $output .= '<div class="' . drupal_html_class($group->title) . '">'
-        . filter_xss($group->title) . '</div>';
+    foreach ($node_groups as $nid) {
+      $output .= '<div class="' . drupal_html_class($groups[$nid]) . '">'
+        . $groups[$nid] . '</div>';
     }
     $output .= '</div>';
   }
+
+  // User's groups.
+  $output .= '<div class="user-resource-team">' . t('You') . ': ';
+  foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+    $group = $groups[$grp['target_id']];
+    $output .= '<span class="' . drupal_html_class($group) . '">'
+      . $group . '</span> ';
+  }
+  $output .= '</div>';
 
   return $output;
 }
