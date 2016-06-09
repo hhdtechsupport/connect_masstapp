@@ -122,7 +122,9 @@ function flag_notify_send_email($flag, $entity_id, $account, $flagging, $action)
     'flagging' => $flagging,
     'flagging_user' => $user,
     'action' => $action,
+    'flagged-node' => $instance,
     'node' => $instance,
+    'user' => $user,
     );
 
   $data = array(

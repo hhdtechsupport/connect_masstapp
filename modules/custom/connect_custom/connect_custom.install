@@ -1,0 +1,69 @@
+<?php
+/**
+ * @file
+ * Install and update functions for Connect.
+ */
+
+function connect_custom_schema() {
+  $schema['connect_custom_anon_register'] = connect_custom_register_table();
+
+  return $schema;
+}
+
+function connect_custom_register_table() {
+  return array(
+    'description' => 'Connect Custom Anonymous User Delayed Registration',
+    'fields' => array(
+      'uid' => array(
+        'description' => 'The user identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      'nid' => array(
+        'description' => 'The instance node identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      ),
+    'primary key' => array('uid'),
+    'indexes' => array(
+      'nid' => array('nid'),
+      ),
+    );
+}
+
+/**
+ * Create the consultant scheduling table.
+ */
+function connect_custom_update_7000() {
+  db_create_table('connect_custom_anon_register', connect_custom_register_table());
+
+  return 'The Anonymous User Delayed Registration table has been added.';
+}
+
+/**
+ * Rename the anon_login table.
+ */
+function connect_custom_update_7001() {
+  db_rename_table('captconnect_custom_anon_register', 'connect_custom_anon_register');
+
+  return 'The Anonymous User Delayed Registration table has been renamed.';
+}
+
+/**
+ * Rename Connect variables.
+ */
+function _connect_custom_update_7002() {
+  $vars = db_query("SELECT name FROM {variable} WHERE name LIKE 'captconnect_%'");
+  foreach ($vars as $variable) {
+    $x = variable_get($variable, '');
+    $x = drupal_substr($x, 4);
+    variable_set($variable, $x);
+  }
+
+  return 'The variables have been renamed.';
+}

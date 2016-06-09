@@ -1,0 +1,2078 @@
+<?php
+/**
+ * @file
+ * Custom Code for Connect.
+ */
+
+// OPEN CODE.
+  global $conf;
+  $conf['locale_custom_strings_en'][''] = array(
+    // This message comes from the Password Policy module.
+    'Your password has expired. You must change your password to proceed on the site.' =>
+      variable_get('connect_custom_must_change_password',
+      'In order to continue on this site, you need to change your password.'),
+    );
+
+/**
+ * Implements hook_permission().
+ */
+function connect_custom_permission() {
+  $node_types = node_type_get_names();
+  $perms = array(
+    'view registrations' => array(
+      'title' => t('View Registrations'),
+      'description' => t('View Registrations on Events.'),
+      'restrict access' => FALSE,
+      ),
+    'register others' => array(
+      'title' => t('Register Others'),
+      'description' => t('Register another user.'),
+      'restrict access' => FALSE,
+      ),
+    'view approvers' => array(
+      'title' => t('View Event Approvers'),
+      'description' => t('View approver selection for Events.'),
+      'restrict access' => FALSE,
+      ),
+    'view registration questions' => array(
+      'title' => t('View Registration Questions'),
+      'description' => t('View answers to registration questions on Events.'),
+      'restrict access' => FALSE,
+      ),
+    'update feedback' => array(
+      'title' => t('Update Instance Feedback'),
+      'description' => t('Allow update access to feedback on Event instance.'),
+      'restrict access' => FALSE,
+      ),
+    );
+
+  foreach ($node_types as $type => $name) {
+    $perms["view $type publishing options"] = array(
+      'title' => t("View $name Publishing Options"),
+      'description' => t("View publishing options for $name content."),
+      'restrict access' => FALSE,
+      );
+  }
+
+  foreach (workflow_load_multiple() as $workflow) {
+    $perms["view $workflow->name transitions"] = array(
+      'title' => t("Use $workflow->label transition form"),
+      'description' => t("View transition choices for for the $workflow->label."),
+      'restrict access' => FALSE,
+      );
+  }
+
+  return $perms;
+}
+
+/**
+ * Implements hook_menu().
+ */
+function connect_custom_menu() {
+  $items = array();
+
+  $items['user/%user/content'] = array(
+    'title' => 'Content',
+    'page callback' => 'connect_custom_view_user_content',
+    'page arguments' => array(1),
+//    'access callback' => 'connect_custom_access_notifications',
+    'access arguments' => array('administer users'),
+    'weight' => 10,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'connect_custom.pages.inc',
+    );
+
+  $items['node/%node/notifications'] = array(
+    'title' => 'Notifications',
+    'page callback' => 'connect_custom_view_notifications',
+    'page arguments' => array(1),
+    'access callback' => 'connect_custom_access_notifications',
+    'access arguments' => array(1),
+    'weight' => 0,
+    'type' => MENU_LOCAL_TASK,
+    );
+
+  $items['node/%node/registrations'] = array(
+    'title' => 'Registrations',
+    'page callback' => 'connect_custom_view_registrations',
+    'page arguments' => array(1),
+    'access callback' => 'connect_custom_access_registrations',
+    'access arguments' => array(1),
+    'weight' => 0,
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'connect_custom.pages.inc',
+    );
+
+  if (variable_get('connect_custom_questions_as_tab', 0)) {
+    $items['node/%node/questions'] = array(
+      'title' => 'Questions',
+      'page callback' => 'connect_custom_view_questions',
+      'page arguments' => array(1),
+      'access callback' => 'connect_custom_access_questions',
+      'access arguments' => array(1),
+      'weight' => 0,
+      'type' => MENU_LOCAL_TASK,
+      'file' => 'connect_custom.pages.inc',
+      );
+    }
+
+  $items['event/participate/%node/%user'] = array(
+    'title' => 'Flag participation for someone else',
+    'page callback' => 'connect_custom_participate_someone_else',
+    'page arguments' => array(2, 3),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['event/unregister/%node/%user'] = array(
+    'title' => 'Unflag registration for someone else',
+    'page callback' => 'connect_custom_unregister_someone_else',
+    'page arguments' => array(2, 3),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['admin/config/administration/connect'] = array(
+    'title' => 'Connect',
+    'description' => 'Various settings to control Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'connect_custom.admin.inc',
+    );
+
+  $items['admin/config/administration/connect/basic'] = array(
+    'title' => 'Basic',
+    'description' => 'Various settings to control Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_admin_settings'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'connect_custom.admin.inc',
+    'type' => MENU_DEFAULT_LOCAL_TASK,
+    );
+
+  $items['admin/config/administration/connect/texts'] = array(
+    'title' => 'Message Texts',
+    'description' => 'Message texts for Connect custom functions',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_message_texts'),
+    'access arguments' => array('access administration pages'),
+    'file' => 'connect_custom.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    );
+
+  $items['admin/config/administration/connect/field_checks'] = array(
+    'title' => 'Field Checks',
+    'access arguments' => array('administer site configuration'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_field_check_form'),
+    'file' => 'connect_custom.admin.inc',
+    'type' => MENU_LOCAL_TASK,
+    );
+
+  $items['register_others'] = array(
+    'title' => 'Register Another',
+    'description' => 'Register on behalf of someone else.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_register_other'),
+    'access arguments' => array('register others'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['connect/autocomplete'] = array(
+    'title' => 'User autocomplete',
+    'page callback' => 'connect_custom_user_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['participate/autocomplete'] = array(
+    'title' => 'Particiation autocomplete',
+    'page callback' => 'connect_custom_participate_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['participate_others/%'] = array(
+    'title' => 'Participate Another',
+    'description' => 'Participate on behalf of someone else.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('connect_custom_participate_other', 1),
+    'access arguments' => array('register others'),
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['anon_login/%'] = array(
+    'title' => 'Log In',
+    'description' => 'Login then register.',
+    'page callback' => 'connect_custom_anon_login',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['anon_register/%'] = array(
+    'title' => 'Create a new account',
+    'description' => 'Create user then register.',
+    'page callback' => 'connect_custom_anon_register',
+    'page arguments' => array(1),
+    'access callback' => TRUE,
+    'type' => MENU_CALLBACK,
+    );
+
+  $items['administration/presenters'] = array(
+    'title' => 'Presenters',
+    'description' => 'List of Presenter Activity',
+    'page callback' => 'connect_custom_presenter_list',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+    'menu_name' => 'main-menu',
+    'file' => 'connect_custom.pages.inc',
+    );
+
+  $items['administration/anon_pending'] = array(
+    'title' => 'Pending Anonymous Log Ins',
+    'description' => 'Anonymous Log Ins not yet completed.',
+    'page callback' => 'connect_custom_anon_pending',
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 50,
+    'menu_name' => 'main-menu',
+    'file' => 'connect_custom.pages.inc',
+    );
+
+  $items['nancy'] = array(
+    'title' => 'Nancy',
+    'description' => 'Stuff that needs a menu item',
+    'page callback' => 'connect_custom_nancy',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function connect_custom_theme() {
+  return array(
+    'connect_custom_admin_settings' => array(
+       'render element' => 'form',
+       'file' => 'connect_custom.admin.inc',
+       ),
+    'connect_custom_message_texts' => array(
+       'render element' => 'form',
+       'file' => 'connect_custom.admin.inc',
+       ),
+    'connect_custom_userprofile' => array(
+       'render element' => 'elements',
+       'template' => 'capt-user-profile',
+       ),
+    );
+}
+
+/**
+ * Implements hook_menu_alter().
+ */
+function connect_custom_menu_alter(&$items) {
+  unset($items['node']);  // Get rid of /node.
+
+  $items['node/%node/workflow']['access callback'] = 'connect_custom_workflow_tab_access';
+
+  $items['user']['title callback'] = 'connect_custom_user_page_title';
+
+  $items['user/autocomplete']['access callback'] = TRUE;
+
+  // Change the permission on the "Manage display" tab.
+  $items['user/%user/display']['access arguments'] = array('admin_display_suite');
+
+  // Get rid of the User View tab.
+  // Make user.view not a default tab.
+  $items['user/%user/view']['type'] -= MENU_LINKS_TO_PARENT;
+  // Make user.edit the default tab.
+  $items['user/%user/edit']['type'] |= MENU_LINKS_TO_PARENT;
+
+  // Try to hide "Log in" and "Request new password" tabs.
+  $items['user/password']['type'] = MENU_CALLBACK;
+  $items['user/login']['access callback'] = 'connect_custom_login_access';
+}
+
+/**
+ * Menu access callback.
+ * Limit Workflow tab visibility.
+ */
+function connect_custom_workflow_tab_access($entity_type, $entity) {
+  global $user;
+  // We only care about some types of nodes.
+  if ($entity_type == 'node') {
+    $handle_types = variable_get('connect_custom_check_group_access', array());
+    if (in_array($entity->type, $handle_types)) {
+      // Found something interesting...
+      // May they update the node?
+      if (!node_access('update', $entity)) {
+        // No, then don't let them have the tab.
+        return FALSE;
+      }
+    }
+  }
+
+  // Just do regular workflow control.
+  return workflow_tab_access($entity_type, $entity);
+}
+
+/**
+ * Implements hook_init().
+ *
+ * Prevent leaving the login page when they need to update their data.
+ */
+function _connect_custom_init() {
+  // Note that the $user object does not contain fields.
+  global $user;
+
+  // Have they updated their account since we started this?
+  $check_interval = variable_get('connect_custom_account_check_interval', 7776000);
+  $check_interval = 7776000;
+  $grace = variable_get('connect_custom_account_check_grace', 3600);
+
+  $how_long_ago = (isset($user->data['last_account_edit']) ?
+    (REQUEST_TIME - $user->data['last_account_edit']) : $check_interval + 1);
+
+  // Has the account been updated in our required time?
+  // Give some grace even for 0.
+  if ($how_long_ago <= $check_interval) {
+    // They are okay, let them do whatever they want.
+    return;
+  }
+
+  // They need to update their data.
+  $msg_level = ($check_interval == 0 ? 'status' : 'warning');
+  $msg = variable_get('connect_custom_account_check_msg',
+    "Check your personal information, please.");
+
+  // Do we need to force them to edit?
+  if (arg(0) == 'user' && arg(2) == 'edit') {
+    drupal_set_message(t($msg), $msg_level, FALSE);
+  }
+  else {
+    // Make them stay here.
+    if ($check_interval > 0 || $how_long_ago >= $grace) {
+      // We'll be nice and save where they want to go.
+      $dest = array('query' => array('destination' => $_GET['q']));
+      drupal_goto("user/$user->uid/edit", $dest);
+    }
+  }
+}
+
+/**
+ * Implements hook_drupal_goto_alter().
+ */
+function connect_custom_drupal_goto_alter(&$path, &$options, &$http_response_code) {
+  // Get all outstanding mesaages.
+  $msgs = drupal_get_messages();
+
+  // List of our bypasss-able messages.
+  $our_msgs = array(
+    t(variable_get('connect_custom_account_check_msg',
+      "Check your personal information, please.")),
+    );
+  $our_classes = array(
+    'anon-login',
+    'anon-register',
+    );
+
+  // Check them all.
+  foreach ($msgs as $sev => $list) {
+    foreach ($list as $msg) {
+      // If it is not one of our bypass-ables, save it.
+      if (!in_array($msg, $our_msgs)) {
+        // See if it has a class wrapper.
+        $where_class = strpos($msg, '<span class="');
+        if ($where_class === FALSE) {
+          // Nope, just show it.
+          drupal_set_message($msg, $sev);
+        }
+        else {
+          // Yes, it has a class, so let's check it.
+          // Start = 12 (<span class=").
+          $end = strpos($msg, '"', 13);
+          $class = substr($msg, 13, $end - 13);
+          if (!in_array($class, $our_classes)) {
+            drupal_set_message($msg, $sev);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_admin_paths_alter().
+ * Trying to eliminate Themekey.
+ */
+function connect_custom_admin_paths_alter(&$paths) {
+  // Treat all user pages as non-administrative.
+  $paths['user'] = FALSE;
+  $paths['user/*'] = FALSE;
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Exceptions to normal Drupal access rules.
+ */
+function connect_custom_node_access($node, $op, $account) {
+  global $user;
+//  dpm($node, __FUNCTION__." $op $node->type $account->uid");
+  if (empty($account) || !isset($account->og_user_node)) {
+    $account = user_load($user->uid);
+  }
+
+  switch ($op) {
+    case 'create':
+      // For this $node is just the type (string).
+      if (!user_access("create $node content", $account)) {
+        return NODE_ACCESS_DENY;
+      }
+      break;
+
+    case 'view':
+      // Node 931 is the core group, which we want to see the title of.
+      // @TODO: do we need this in Connect?
+      if (is_object($node) && $node->nid == 931) {
+        return NODE_ACCESS_ALLOW;
+      }
+      if (is_object($node) && $node->type == 'portal') {
+        return NODE_ACCESS_ALLOW;
+      }
+
+      break;
+
+    case 'update':
+      // Don't let answers be edited.
+      if ($node->type == 'event_answers') {
+        return NODE_ACCESS_DENY;
+      }
+
+      // Don't let questions be edited if there's an answer.
+      if ($node->type == 'event_questions') {
+        if (isset($node->field_answers[LANGUAGE_NONE])) {
+          return NODE_ACCESS_DENY;
+        }
+      }
+
+      // Workflow Access grants access based on roles,
+      // but some content also needs an OG check.
+      // We can bypass those people who can administer OG.
+      if (user_access('administer group', $account)) {
+        return NODE_ACCESS_IGNORE;
+      }
+
+      $access_types = array_filter(variable_get('connect_custom_check_group_access', array()));
+      if (in_array($node->type, $access_types)) {
+        // Is it one of the subparts of a portal?
+        if (isset($node->og_group_ref_2[LANGUAGE_NONE])) {
+          $ref = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
+        }
+        else {
+          // No. Is it stuff related to Event?
+          // These are accessed by inline_entity_form.
+          $related = array('instance', 'material', 'presenter',
+            'event_answers', 'event_questions');
+          if (in_array($node->type, $related)) {
+            $ref = menu_get_object();
+            if (empty($ref)) {
+              // The URL has been redirected to "system'ajax"
+              // so get the real address from the REFERER field.
+              $from = parse_url($_SERVER['HTTP_REFERER']);
+              $args = explode('/', $from['path']);
+              // Path like "/node/1234/edit", so use 3rd piece.
+              $ref = node_load($args[2]);
+            }
+          }
+          else {
+            // Nope, then just use it as is.
+            $ref = $node;
+          }
+        }
+        $gid = field_get_items('node', $ref, 'og_group_ref');
+
+        // See if the user is a member of the node's group.
+        if ($gid) {
+          foreach ($gid as $grp) {
+            if (og_is_member('node', $grp['target_id'], 'user', $account)) {
+              // Yes, so just let other Drupal rules take over.
+              return NODE_ACCESS_IGNORE;
+            }
+          }
+          // Not in any group, so bounce them.
+          return NODE_ACCESS_DENY;
+        }
+        else {
+          // The current node does not have groups.
+//          return NODE_ACCESS_DENY;
+        }
+      }
+
+      // Well, we've run out of exceptions, so Drupal can take it from here.
+      break;
+  }
+
+  return NODE_ACCESS_IGNORE;
+}
+
+/**
+ * Implements hook_node_view().
+ */
+function connect_custom_node_view($node, $view_mode, $langcode) {
+//  dpm($node, $node->type.' '.$view_mode);
+
+  // Check if an "unpublished" message is needed.
+  $check_unpub = array_filter(variable_get('connect_custom_unpublished_content_types', array()));
+  if (in_array($node->type, $check_unpub)) {
+    $states = db_query("SELECT sid FROM {workflow_states} WHERE name = 'published'")
+      ->fetchCol();
+    $base = $node;
+    switch ($node->type) {
+      case 'portal_page':
+      case 'portal_group':
+      case 'portal_section':
+        $base = node_load($node->og_group_ref_2[LANGUAGE_NONE][0]['target_id']);
+        // Fall through.
+
+      case 'portal':
+        $field_name = 'field_workflow_state_portals';
+        if (isset($node->content['field_workflow_state_portals']['#view_mode'])) {
+          $node->content['field_workflow_state_portals']['#access'] =
+            ($node->content['field_workflow_state_portals']['#view_mode'] == 'full');
+        }
+        break;
+
+      case 'event':
+        $field_name = 'field_workflow_state';
+//        $trans = workflow_transition_load_single('node', $node->nid, $field_name, LANGUAGE_NONE);
+//        dpm($trans, 'workflow_transition_load_single');
+//        $msg = token_replace('Workflow Comment: [node:last-transition:comment] ([node:last-transition:created:medium])',
+//          array('node' => $node, 'WorkflowTransition' => $trans));
+//        drupal_set_message($msg);
+        if (!user_access('view approvers')) {
+          unset($node->content['field_approver']);
+        }
+        break;
+
+      default:
+        $field_name = 'field_workflow_statex';
+    }
+    // @TODO: Check Portal status.
+//    dpm($base->{$field_name}[LANGUAGE_NONE][0]['value'], $field_name);
+    if (!isset($base->{$field_name}[LANGUAGE_NONE][0]['value'])
+    || !in_array($base->{$field_name}[LANGUAGE_NONE][0]['value'], $states)) {
+      $types = node_type_get_names();
+      $msg = variable_get('connect_custom_unpublished_content_msg',
+        'This @type is currently unpublished. Users are not be able to access the content on this page.');
+      drupal_set_message(t($msg, array('@type' => $types[$node->type])),
+        'warning', FALSE);
+    }
+  }
+}
+
+/**
+ * Implements hook_node_insert().
+ */
+function _connect_custom_node_insert($node) {
+  global $user;
+//  dpm($node, $node->type);
+  switch ($node->type) {
+    case 'event':
+      if ($node->field_no_approver[LANGUAGE_NONE][0]['value'] == 1) {
+        $workflow = workflow_get_workflows_by_type('event', 'node');
+        $wid = $workflow->getWorkflowId();
+        $new = variable_get('connect_custom_no_approver_state', NULL);
+        // These shouldn't all be necessary.
+        $values = array(
+          'wid' => $wid,
+          'entity_type' => 'node',
+          'uid' => $user->uid,
+          'sid' => $new,
+          'new_sid' => $new,
+          'old_sid' => $node->field_workflow_state[LANGUAGE_NONE][0]['value'],
+          'field_name' => 'field_workflow_state',
+          'language' => LANGUAGE_NONE,
+          'comment' => 'No approver needed',
+          'stamp' => REQUEST_TIME,
+          'nid' => $node->nid,
+          'entity_id' => $node->nid,
+          'revision_id' => $node->vid,
+          );
+        $transition = new WorkflowTransition($values);
+        // Actually do it now.
+        workflow_execute_transition('node', $node, 'field_workflow_state', $transition, TRUE);
+      }
+      break;
+  }
+} /* */
+
+/**
+ * Menu access callback.
+ * Decide whether or not to show the "Login" tab.
+ */
+function connect_custom_login_access() {
+  if ($_GET['q'] == 'user/register') {
+    return FALSE;
+  }
+
+  // Menu administrators can see items for anonymous when administering.
+  return !$GLOBALS ['user']->uid || !empty($GLOBALS ['menu_admin']);
+}
+
+/**
+ * Menu access callback.
+ * Decide whether or not to show the "Registrations" tab on Events.
+ */
+function connect_custom_access_registrations($node) {
+  return ($node->type == 'event' && user_access('view registrations'));
+}
+
+/**
+ * Menu access callback.
+ * Decide whether or not to show the "Questions" tab on Events.
+ */
+function connect_custom_access_questions($node) {
+  return ($node->type == 'event'
+    && user_access('view registration questions')
+    && (isset($node->field_question[LANGUAGE_NONE]) && count($node->field_question[LANGUAGE_NONE] > 0)));
+}
+
+/**
+ * Menu access callback.
+ * Decide whether or not to show the "Notifications" tab on Events.
+ */
+function connect_custom_access_notifications($node) {
+  global $user;
+  if ($node->type == 'event') {
+    return node_access('update', $node, $user);
+  }
+  return FALSE;
+}
+
+/**
+ * Menu callback.
+ * Put the related Notifications into edit moode.
+ */
+function connect_custom_view_notifications($node) {
+  if ($node->type == 'event') {
+    $notification = field_get_items('node', $node, 'field_related_notifications');
+    if ($notification) {
+      $notification = array_pop(array_pop($notification));
+      module_load_include('inc', 'node', 'node.pages');
+      return node_page_edit(node_load($notification));
+    }
+  }
+}
+
+/**
+ * User sort funtion for instances.
+ */
+function _connect_custom_sort_instances($a, $b) {
+  // If the start times are the same, then we look at the end times.
+  if ($a['start'] == $b['start']) {
+    if ($a['end'] == $b['end']) {
+      return 0;
+    }
+    else {
+      return ($a['end'] < $b['end'] ? -1 : 1);
+    }
+  }
+  else {
+    return ($a['start'] < $b['start'] ? -1 : 1);
+  }
+}
+
+/**
+ * Particpate flag for someone else.
+ */
+function connect_custom_participate_someone_else($instance, $account) {
+  $token = $_GET['token'];
+  if ($token == flag_get_token($instance->nid)) {
+    $part_flag = flag_get_flag('participate');
+    $action = ($part_flag->is_flagged($instance->nid, $account->uid) ? 'unflag' : 'flag');
+
+    if (!flag($action, 'participate', $instance->nid, $account)) {
+      if (isset($part_flag->errors)) {
+        foreach ($part_flag->errors as $id => $msg) {
+          $text = _connect_custom_wrap_message($msg, $id);
+          drupal_set_message($text, 'error');
+        }
+      }
+      drupal_set_message(t('@name @action participation in "@title" failed,',
+      array(
+        '@name' => format_username($account),
+        '@title' => $instance->label(),
+        '@action' => $action,
+        ), 'error'));
+    }
+  }
+  else {
+    drupal_set_message(t('Invalid token in link.'));
+  }
+  drupal_goto();
+}
+
+/**
+ * Particpate flag for someone else.
+ */
+function connect_custom_unregister_someone_else($instance, $account) {
+  $token = $_GET['token'];
+  if ($token == flag_get_token($instance->nid)) {
+    $registration = flag_get_flag('registrtation');
+
+    if (!flag('unflag', 'registration', $instance->nid, $account)) {
+      drupal_set_message(t('@name unregister in "@title" failed,',
+      array(
+        '@name' => format_username($account),
+        '@title' => $instance->label(),
+        '@action' => $action,
+        ), 'error'));
+    }
+  }
+  else {
+    drupal_set_message(t('Invalid token in link.'));
+  }
+  drupal_goto();
+}
+
+/**
+ * Menu title callback.
+ * Various titles for the user page, depending on why we're here.
+ */
+function connect_custom_user_page_title() {
+  global $user;
+  if (user_is_logged_in()) {
+    $title = t('My account');
+  }
+  else {
+    $path = drupal_get_path_alias($_GET['q']);
+
+    switch ($path) {
+      case 'user/password':
+        $title = t('Request new password');
+        break;
+
+      case 'user/register':
+        $title = t('Create New Account');
+        break;
+
+      default:
+        $title = t('Log in');
+        break;
+    }
+  }
+  return $title;
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ * Make Node_Save_redirect last to run. See https://www.drupal.org/node/2476031.
+ */
+function connect_custom_module_implements_alter(&$implementations, $hook) {
+  // Fire our form_alter last.
+  if ($hook == 'form_alter' && isset($implementations['connect_custom_'])) {
+//    $group = $implementations ['connect_custom_'];
+//    unset($implementations['connect_custom_']);
+//    $implementations['connect_custom_'] = $group;
+  }
+
+  if ($hook == 'menu_alter' && isset($implementations['connect_custom_'])) {
+    $group = $implementations ['connect_custom_'];
+    unset($implementations['connect_custom_']);
+    $implementations['connect_custom_'] = $group;
+  }
+
+  if ($hook == 'form_alter' && isset($implementations['node_save_redirect'])) {
+    $group = $implementations ['node_save_redirect'];
+    unset($implementations['node_save_redirect']);
+    $implementations['node_save_redirect'] = $group;
+  }
+
+  // Make our hook_user_login() fire last so we can drupal_goto().
+  if ($hook == 'user_login' && isset($implementations['connect_custom_'])) {
+    $group = array('connect_custom_' => $implementations['connect_custom_']);
+    unset($implementations['connect_custom_']);
+    $implementations = $group + $implementations;
+  }
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * Mess with the account edit form.
+ */
+function connect_custom_form_user_profile_form_alter(&$form, &$form_state, $form_id) {
+//  dpm($form, $form_id);
+  $account = $form['#user'];
+  $form['actions']['#weight'] = 100;
+
+  $form['account']['#weight'] = 0;
+  $form['account']['mail']['#description'] = t(variable_get('connect_custom_login_email_help',
+         "A valid e-mail address. All e-mails from the system will be sent to this address."));
+
+  if (isset($form['password_policy'])) {
+    $form['password_policy']['#collapsible'] = TRUE;
+    $form['password_policy']['#collapsed'] = TRUE;
+    $form['password_policy']['#weight'] = 11;
+  }
+
+  if (isset($form['timezone'])) {
+    // It is initially a fieldset, so let's just move the data up a level.
+    $timezone = $form['timezone']['timezone'];
+    unset($form['timezone']);
+    $form['timezone'] = $timezone;
+    $form['timezone']['#weight'] = 1;
+  }
+
+  if (isset($form['mimemail'])) {
+    // Just get rid of this.
+    $form['mimemail']['#access'] = FALSE;
+  }
+
+  if (user_access('administer users')) {
+    if (isset($account->data['last_account_edit'])) {
+      $msg = t('This account was last edited on @date.',
+        array('@date' => format_date($account->data['last_account_edit'], 'long')));
+    }
+    else {
+      $msg = t('This account has never been edited.');
+    }
+    $form['last_account_edit'] = array(
+      '#type' => 'markup',
+      '#markup' => $msg,
+      );
+  }
+
+  $form['#validate'][] = 'connect_custom_user_profile_validation';
+}
+
+/**
+ * Validation handler for requesting a new password.
+ */
+function connect_custom_user_profile_validation(&$form, &$form_state) {
+  // Get all user roles.
+  // Then remove "authenticated" and "administrator".
+  $all_roles = user_roles();
+  unset($all_roles[DRUPAL_AUTHENTICATED_RID]);
+  unset($all_roles[array_search('administrator', $all_roles)]);
+
+  // Okay, do they have a role other than authen. or admin?
+  $roles_selected = array_intersect_key($all_roles, array_filter($form_state['values']['roles']));
+  if (count($roles_selected)) {
+    // So, if they have a role, then they need a group too.
+    if (empty($form_state['values']['og_user_node'][LANGUAGE_NONE])) {
+      form_set_error('og_user_node', t(variable_get('connect_custom_require_group_msg',
+        "Special roles require an RT group selection.")));
+    }
+  }
+}
+
+/**
+ * Submit handler for requesting a new password.
+ */
+function connect_custom_request_password(&$form, &$form_state) {
+  $form_state['redirect'] = 'user/password';
+}
+
+/**
+ * Implements hook_og_ui_get_group_admin_alter().
+ * Suppress Group tab on nodes.
+ */
+function connect_custom_og_ui_get_group_admin_alter(&$data, $context) {
+//  dpm($data, 'data connect_custom_og_ui_get_group_admin_alter');
+//  dpm($context, 'context connect_custom_og_ui_get_group_admin_alter');
+  if (!user_access('administer group')) {
+    // Just wipe it out so nothing shows up.
+    $data = array();
+  }
+}
+
+/**
+ * Helper function to preset the resource team group.
+ */
+function _connect_custom_preset_groups(&$form, $default = NULL) {
+  global $user;
+  // If the field is not present, there's nothing we can do.
+  if (!isset($form['og_group_ref'])) {
+    return;
+  }
+  if (!isset($user->og_user_node[LANGUAGE_NONE])) {
+    // Provide a complete user object.
+    $user = user_load($user->uid);
+  }
+
+  // Is it an existing node?
+  if (isset($form['nid']['#value'])) {
+    // Are they allowed to edit it? (Admins, site maintainers).
+    $type = (isset($form['type']) ?
+      $form['type']['#value'] : $form['#entity']->type);
+    if (user_access("edit any $type content")) {
+      return;
+    }
+  }
+
+  // If they are not allowed to set the group, then prepopulate it.
+  $groups = array();
+  foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
+    $groups[$grp['target_id']] = $grp['target_id'];
+  }
+//  dpm($form, __FUNCTION__);
+//  dpm($groups, __FUNCTION__.' groups');
+
+  if (empty($groups)) {
+    $types = node_type_get_names();
+    throw new ConnectException(t('You need to be a member of a team in order to create a @type.',
+      array('@type' => $types[$form['type']['#value']])));
+  }
+
+  // One would hope that OG is prepopulating this.
+  if (count($groups) > 1) {
+    // Not sure why I have to do this.
+    $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#required'] = TRUE;
+    $group_nodes = entity_load('node', $groups);
+    $x = array();
+    foreach ($groups as $grp) {
+      $x[$grp] = $group_nodes[$grp]->title;
+    }
+    $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] = $x;
+    if ($default) {
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array($default => $default);
+    }
+  }
+  else {
+    // They only have one group, so let's set it as the default
+    // and get rid of the containing group.
+    if ($form['og_group_ref'][LANGUAGE_NONE]['#cardinality'] == 1) {
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = reset($groups);
+    }
+    else {
+      $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = $groups;
+    }
+    if (!empty($form['#group_children'])) {
+      unset($form['#groups'][$form['#group_children']['og_group_ref']]);
+      unset($form['#group_children']['og_group_ref']);
+    }
+//    $form['og_group_ref']['#access'] = TRUE;
+    $form['og_group_ref']['#access'] = FALSE;
+  }
+
+  return;
+}
+
+function _connect_custom_delete_redirect(&$form, &$form_state) {
+  if (isset($form['#GOTO'])) {
+    $form_state['redirect'] = $form['#GOTO'];
+  }
+}
+
+function _connect_custom_instance_submit(&$form, &$form_state) {
+  dpm($form, __FUNCTION__.' form');
+  dpm($form_state, __FUNCTION__.' form_state');
+}
+
+/**
+ * Implements hook_form_alter().
+ * Note: we need to be very late in the form cycle so we can see all the fields.
+ */
+function connect_custom_form_alter(&$form, &$form_state, $form_id) {
+  global $user;
+//  dpm($form, __FUNCTION__.' '.$form_id);
+  // Is it a node form?
+  if (substr($form_id, -10) == '_node_form') {
+    // Yes, are they allowed to see the publishing options?
+    $type = $form['type']['#value'];
+    if (user_access("view $type publishing options")) {
+      $form['options']['#access'] = TRUE;
+    }
+  }
+
+  if (substr($form_id, 0, 24) == 'workflow_transition_form') {
+    $form_id = 'workflow_transition_form';
+  }
+
+  switch ($form_id) {
+    // Node delete redirect.
+    case 'node_delete_confirm':
+      switch ($form['#node']->type) {
+        case 'portal':
+          $form['#GOTO'] = 'portals';
+          $form['#submit'][] = '_connect_custom_delete_redirect';
+          break;
+
+        case 'event':
+          $form['#GOTO'] = 'events';
+          $form['#submit'][] = '_connect_custom_delete_redirect';
+          break;
+      }
+      break;
+
+    // Date Instance Stuff.
+    case 'instance_node_form':
+//      array_unshift($form['#submit'], '_connect_custom_instance_submit');
+      $form['field_date_utc']['#access'] = FALSE;
+      break; /* */
+
+    // Edit Event Questions.
+    case 'event_questions_node_form':
+      _connect_custom_preset_groups($form);
+      drupal_set_message(t('Questions should be created or edited inside
+        the associated Event.'),
+        'error');
+      unset($form['actions']);
+/*      if (!empty($form['nid']['#value'])) {
+        if (isset($form['#node']->field_answers[LANGUAGE_NONE])) {
+          drupal_set_message(t('This question has already been answered at
+            least once, changing it could cause all sorts of errors.'),
+            'warning');
+        }
+      } /* */
+
+      break;
+
+    // Add/Edit Portal.
+    // Sub pages are handled by Child Nodes module.
+    case 'portal_node_form':
+      _connect_custom_preset_groups($form);
+
+      break;
+
+    // Add/Edit Event.
+    case 'event_node_form':
+      _connect_custom_preset_groups($form);
+
+      // Questions may be related to date instances, but for a new event,
+      // there are none yet, so just don't allow a question to be entered.
+      // See https://work.planbox.com/items/14298129.
+      if (empty($form['nid']['#value'])) {
+        $form['field_question']['#access'] = FALSE;
+      }
+
+      $form['field_empty_for_rules']['#access'] = FALSE;
+      $form['actions']['submit']['#ief_submit_all'] = TRUE;
+//  dpm($form, __FUNCTION__.' '.$form_id);
+
+      break;
+
+    // Create a new account form.
+    case 'user_register_form':
+      $form['account']['mail']['#description'] = t(variable_get('connect_custom_login_email_help',
+        "A valid e-mail address. All e-mails from the system will be sent to this address."));
+      // We sort of need to cheat.
+      // We will override the multitab settings to become multipage.
+      foreach ($form['#groups'] as $group_name => $stuff) {
+        if ($group_name == 'group_tabs') {
+          $form['#fieldgroups']['group_tabs']->format_type = 'multipage-group';
+          $form['#fieldgroups']['group_tabs']->format_settings = array(
+            'formatter' => '',
+            'instance_settings' => array(
+              'classes' => '',
+              'page_header' => 1,
+              'move_additional' => 1,
+              'page_counter' => 1,
+              'move_button' => 1,
+              ),
+            );
+        }
+        else {
+          $groups[$group_name] = $stuff->label;
+          $form['#fieldgroups'][$group_name]->format_type = 'multipage';
+          $form['#fieldgroups'][$group_name]->format_settings = array(
+            'formatter' => 'no-start',
+            'instance_settings' => array(
+              'description' => '',
+              'classes' => '',
+              'required_fields' => 1,
+              ),
+            );
+        }
+      }
+
+      $form['#submit'][] = 'connect_custom_user_register_submit';
+      // Yes, there is no break, we want to fall through.
+
+    case 'user_login':
+      // User_login is normally the front page, so ignore that.
+      if (!drupal_is_front_page()) {
+        // We can get the instance nid from the original URI.
+        $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+        $parts = explode('/', $x['path']);
+        // Only set this up if it's an anonymous registration.
+        if (in_array($parts[1], array('anon_register', 'anon_login'))) {
+          // It's $parts[2] because there is a leading slash.
+          $form['#connect_anon_instance'] = $parts[2];
+          $form_state['#connect_anon_instance'] = $parts[2];
+        }
+      }
+
+      if ($form_id != 'user_register_form') {
+        $text = variable_get('connect_custom_request_password_text',
+          'Request a new password');
+
+        $form['request_password'] = array(
+          '#type' => 'markup',
+          '#markup' => l($text, '/user/password',
+            array('attributes' => array('class' => array('request-password-link')))),
+          '#weight' => 20,
+          );
+      }
+
+      $form['actions']['#weight'] = 100;
+
+      break;
+
+    case 'user_pass_reset':
+      // Borrowed and cleaned up from user.pages.inc.
+      $timeout = variable_get('user_password_reset_timeout', 86400);
+      $timestamp = arg(3);
+      $form['message']['#markup'] = '';
+
+      // Custom title?
+      // @TODO: should this be in menu_alter()?
+      drupal_set_title(variable_get('connect_custom_reset_pass_head',
+        'Reset Password'));
+
+      $account = user_load(arg(2));
+
+      $result = db_query("SELECT ar.nid, di.entity_id "
+        . "FROM {connect_custom_anon_register} ar "
+        . "INNER JOIN {field_data_field_date_instance} di ON di.field_date_instance_target_id = ar.nid "
+        . "WHERE ar.uid = :uid ",
+        array(':uid' => $account->uid))->fetchAllKeyed();
+
+      if ($result) {
+        $event_nid = reset($result);
+        $instance_nid = key($result);
+
+        $event = node_load($event_nid);
+        $instance = node_load($instance_nid);
+        $form['message']['#markup'] .= '<p class="click-message">'
+          . t(variable_get('connect_custom_reset_pass_welcome',
+              'Click on this button to log in to the site and change your password. '
+              . 'This will also complete your registration for "@event" on @instance.'),
+            array(
+              '@event' => $event->title,
+              '@instance' => $instance->title,
+              ))
+          . '</p>';
+      }
+      else {
+        $form['message']['#markup'] .= '<p class="click-message">'
+          . t('Click on this button to log in to the site and change your password.')
+          . '</p>';
+      }
+
+      $form['message']['#markup'] .= '<p class="one-time-message">'
+        . t('This is a one-time login for %user_name and will expire on %expiration_date.',
+          array(
+            '%user_name' => $account->name,
+            '%expiration_date' => format_date($timestamp + $timeout),
+            ))
+        . '</p>';
+      break; /* */
+
+    // Save the current path and grab the submit handler.
+    case 'event_notifications_node_form':
+      $form['#where_to'] = $_GET['q'];
+      break;
+
+    case 'user_admin_permissions':
+      array_unshift($form['#submit'], 'connect_custom_set_user_perms');
+      break;
+  }
+}
+
+/**
+ * Submission handler for user permissions.
+ */
+function connect_custom_set_user_perms($form, &$form_state) {
+  // Custom permissions may not be picked up by admins.
+  // Make sure Administrator has everything.
+  $admin_role = user_role_load_by_name('administrator');
+  $rid = $admin_role->rid;
+  foreach ($form_state['values'][$rid] as $perm => $value) {
+    $form_state['values'][$rid][$perm] = $perm;
+  }
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ * Load node.pages.inc from Node module.
+ */
+function connect_custom_form_node_form_alter(&$form, &$form_state, $form_id) {
+  form_load_include($form_state, 'inc', 'node', 'node.pages');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Put a class wrapper on the workflow_transition_form.
+ * See https://www.drupal.org/node/2510958
+ */
+function connect_custom_form_workflow_transition_form_alter(&$form, &$form_state, $form_id) {
+  $current_sid = $form['#default_value'];
+  $current_state = workflow_state_load_single($current_sid);
+  $class = drupal_html_class('state-' . ($current_state ? workflow_get_sid_label($current_sid) : 'unknown state'));
+  $form['#attributes']['class'] = array('workflow-transition-form', $class);
+}
+
+/**
+ * Implements hook_inline_entity_form_entity_form_alter().
+ */
+function connect_custom_inline_entity_form_entity_form_alter(&$entity_form, &$form_state) {
+  global $user;
+//  dpm($entity_form, __FUNCTION__.' '.$entity_form['#entity_type']);
+  // Make sure we have a complete user object.
+  if (!isset($user->og_user_node)) {
+    $user = user_load($user->uid);
+  }
+
+  // Preset the groups. OG tells us what the parent node has.
+  if (isset($_SESSION['og_context'])) {
+    _connect_custom_preset_groups($entity_form, $_SESSION['og_context']['gid']);
+  }
+  else {
+    _connect_custom_preset_groups($entity_form);
+  }
+
+  if ($entity_form['#entity_type'] == 'node') {
+    switch ($entity_form['#entity']->type) {
+      case 'notifications':
+        $entity_form['field_related_event']['#access'] = FALSE;
+        $entity_form['field_related_event'][LANGUAGE_NONE]['#access'] = FALSE;
+        // Load node.pages.inc from Node module.
+        form_load_include($form_state, 'inc', 'node', 'node.pages');
+        break;
+
+      case 'instance':
+        if (!user_access('update feedback')) {
+          $entity_form['field_feedback_link'][LANGUAGE_NONE][0]['#description'] =
+            t('You are not allowed to change this.');
+        }
+        // Add a submit handler so we can preempt invalid changes.
+        array_unshift($entity_form['#ief_element_submit'], '_connect_custom_handle_feedback_link');
+        break;
+    }
+  }
+}
+
+/**
+ * Submit handler.
+ * Check ability to edit certain fields.
+ */
+function _connect_custom_handle_feedback_link($form, &$form_state) {
+  if (!user_access('update feedback')) {
+    if (isset($form['field_feedback_link'][LANGUAGE_NONE][0]['#default_value']['url'])) {
+      $d = $form['#ief_row_delta'];
+      $form_state['values']['field_date_instance'][LANGUAGE_NONE]['entities'][$d]['form']['field_feedback_link'][LANGUAGE_NONE][0]['url'] =
+        $form['field_feedback_link'][LANGUAGE_NONE][0]['#default_value']['url'];
+    }
+  }
+}
+
+/**
+ * Implements hook_inline_entity_form_table_fields_alter().
+ */
+function connect_custom_inline_entity_form_table_fields_alter(&$fields, $context) {
+//  dpm($context, 'connect_custom_inline_entity_form_table_fields_alter context');
+//  dpm($fields, 'connect_custom_inline_entity_form_table_fields_alter fields');
+  // Make sure there's a stock field on each of the allowed types.
+  $instances = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'instance') {
+      $instances = TRUE;
+    }
+  }
+  $presenters = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'presenter') {
+      $presenters = TRUE;
+    }
+  }
+  $materials = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'material') {
+      $materials = TRUE;
+    }
+  }
+  $notifications = FALSE;
+  foreach ($context['allowed_bundles'] as $bundle) {
+    if ($bundle == 'notification') {
+      $notifications = TRUE;
+    }
+  }
+
+  // Replace fields shown for date instances
+  if ($instances) {
+    unset($fields['status']);
+    $fields['field_max_registration'] = array(
+      'type' => 'field',
+      'label' => t('Max Registrations'),
+      'weight' => 2
+      );
+  }
+
+  // Replace fields shown for presenters
+  if ($presenters) {
+    unset($fields['status']);
+    $fields['field_body'] = array(
+      'type' => 'field',
+      'label' => t('Presenter description'),
+      'weight' => 2,
+      'settings' => array(
+        'trim_length' => 200
+        )
+      );
+    $fields['field_presenter_image'] = array(
+      'type' => 'field',
+      'label' => t('Presenter image'),
+      'weight' => 3,
+      'settings' => array(
+        'image_style' => variable_get('connect_custom_presenters_list_style', 'presenter_image'),
+        )
+      );
+  }
+
+  // Replace fields shown for date instances
+  if ($materials) {
+    unset($fields['status']);
+    unset($fields['title']);
+    $fields['field_source'] = array(
+      'type' => 'field',
+      'label' => t('Source'),
+      'weight' => 2
+      );
+    $fields['field_resource'] = array(
+      'type' => 'field',
+      'label' => t('Resource'),
+      'weight' => 3
+      );
+    $fields['field_material'] = array(
+      'type' => 'field',
+      'label' => t('Material'),
+      'weight' => 4
+      );
+  }
+
+  // Replace fields shown for notifications
+  if ($notifications) {
+    unset($fields['status']);
+    unset($fields['title']);
+    $fields['field_email_body'] = array(
+      'type' => 'field',
+      'label' => t('Body'),
+      'weight' => 3
+      );
+  }
+}
+
+/**
+ * Helper to wrap message in a class.
+ */
+function _connect_custom_wrap_message($msg, $class) {
+  return '<span class="'. drupal_html_class($class) . '">'
+    . $msg
+    . '</span>';
+}
+
+/**
+ * Menu Callback.
+ * Allow anonymous users to register for events.
+ * @param $instance - nid of the instance node for which registration is desired.
+ */
+function connect_custom_anon_login($instance) {
+  // Give them options.
+  $text = t(variable_get('connect_custom_anon_register',
+      'If you do not have an account, please <a href="!create_url">create an account</a> to complete your registration.'),
+    array('!create_url' => url('anon_register/' . arg(1),
+      array('query' => drupal_get_destination())))
+    );
+  drupal_set_message(_connect_custom_wrap_message($text, 'anon_login'),
+    'status', FALSE);
+
+  // So just redirect to the normal registration page.
+//  menu_execute_active_handler('user', TRUE);
+  return menu_execute_active_handler('user', FALSE);
+}
+
+/**
+ * Menu Callback.
+ * Allow anonymous users to register for events.
+ * @param $instance - nid of the instance node for which registration is desired.
+ */
+function connect_custom_anon_register($instance) {
+  // Give them options.
+  $text = t(variable_get('connect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
+    array('!login_url' => url('anon_login/' . arg(1),
+    array('query' => drupal_get_destination()))));
+  drupal_set_message(_connect_custom_wrap_message($text, 'anon_register'),
+    'status', FALSE);
+
+// So just redirect to the normal registration page.
+//  menu_execute_active_handler('user/register', TRUE);
+  return menu_execute_active_handler('user/register', FALSE);
+}
+
+/**
+ * Submit handler for user registration.
+ */
+function connect_custom_user_register_submit($form, $form_state) {
+  // Get the instance ID that they will register for when they come back.
+  if (isset($form['#connect_anon_instance'])) {
+    $register_nid = $form['#connect_anon_instance'];
+    if ($register_nid) {
+      $record = array(
+        'uid' => $form['#user']->uid,
+        'nid' => $register_nid,
+        );
+      $success = drupal_write_record('connect_custom_anon_register', $record);
+    }
+  }
+
+    // This is embarrassing, but I couldn't figure out any other way
+    // to prevent that message from coming out a second time.
+    $msgs = drupal_get_messages('status', TRUE);
+
+    $get_rid_of = t(variable_get('connect_custom_anon_login',
+      'If you already have an account, please <a href="!login_url">Log In</a> to complete your registration.'),
+      array('!login_url' => url('anon_login/' . arg(1), array('query' => drupal_get_destination()))));
+
+    // Using array here because User registration password module mucks with it.
+    $register_msgs = array(
+      t('A welcome message with further instructions has been sent to your e-mail address.'),
+      t('Thank you for applying for an account. Your account is currently pending approval by the site administrator.<br />In the meantime, a welcome message with further instructions has been sent to your e-mail address.'),
+      );
+
+    foreach ($msgs['status'] as $msg) {
+      // Is it the user_register message?
+      if (in_array($msg, $register_msgs)) {
+        // Okay, use our version.
+        $our_msg = (isset($form['#connect_anon_instance']) ?
+          'connect_custom_completion_email_anon' : 'connect_custom_completion_email_normal');
+        $msg = variable_get($our_msg,
+          'An email has been sent with a link to complete the registration process.');
+      }
+
+      if ($msg != $get_rid_of) {
+        drupal_set_message($msg);
+      }
+    }
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function connect_custom_user_login(&$edit, $account) {
+  // Default redirect should be the front page or whatever is set in the URL.
+  if (isset($_GET['destination'])) {
+    $edit['redirect'] = $_GET['destination'];
+  }
+  else {
+    $edit['redirect'] = variable_get('connect_custom_login_dest', 'events');
+  }
+/*
+  // Get the last time they edited their account.
+  $last_edit = (empty($account->data['last_account_edit']) ?
+    0 : $account->data['last_account_edit']);
+
+  $check_interval = variable_get('connect_custom_account_check_interval', 7776000);
+  $how_long_ago = REQUEST_TIME - $last_edit;
+
+  // Give an hour's grace.
+  $grace = ($check_interval == 0 ?
+    variable_get('connect_custom_account_check_grace', 3600) : 0);
+
+  if ($how_long_ago > $check_interval && $how_long_ago > $grace) {
+    $edit['redirect'] = 'user/' . $account->uid . '/edit';
+    $msg_level = ($check_interval == 0 ? 'status' : 'warning');
+    drupal_set_message(t(variable_get('connect_custom_account_check_msg',
+      "Check your personal information, please.")), $msg_level, FALSE);
+  }
+/* */
+  // Find out if the user is mid-registration (anon user).
+  if (isset($edit['#connect_anon_instance'])) {
+    // Got here from Login.
+    // We can get the instance nid from the original URI.
+    $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+    $result[$edit['#connect_anon_instance']] = substr($x['query']['destination'], 5);
+  }
+  else {
+    // Got here from user register.
+    $result = db_query("SELECT ar.nid, di.entity_id "
+      . "FROM {connect_custom_anon_register} ar "
+      . "INNER JOIN {field_data_field_date_instance} di ON di.field_date_instance_target_id = ar.nid "
+      . "WHERE ar.uid = :uid ",
+      array(':uid' => $account->uid))->fetchAllKeyed();
+  }
+
+  if ($result) {
+    $event_nid = reset($result);
+    $instance_nid = key($result);
+
+    // Delete the record and then go to the event.
+    $num_deleted = db_delete('connect_custom_anon_register')
+      ->condition('uid', $account->uid)
+      ->execute();
+
+    // Check for duplicate registration.
+    $flag = flag_get_flag('registration');
+
+    if ($flag && $flag->is_flagged($instance_nid)) {
+      $event = node_load($event_nid);
+      drupal_set_message(t(variable_get('connect_custom_duplicate_registration',
+        'You were already registered for "@title."'),
+        array('@title' => $event->title)));
+      $edit['redirect'] = 'node/' . $event_nid;
+      return;
+    }
+
+    // Set up link to go to.
+    if ($flag->link_type == 'confirm') {
+      $link = "flag/confirm/flag/registration/$instance_nid";
+    }
+    else {
+      $link = "flag/flag/registration/$instance_nid";
+    }
+    $token = flag_get_token($instance_nid);
+    $link .= '?token=' . $token;
+    $_GET['destination'] = $link;
+  }
+}
+
+/**
+ * Implements hook_user_delete().
+ * If user is in login table, remove it.
+ */
+function connect_custom_user_delete($account) {
+  db_delete('connect_custom_anon_register')
+    ->condition('uid', $account->uid)
+    ->execute();
+}
+
+/**
+ * Implements hook_user_presave().
+ * Make sure the account is marked as updated and log it.
+ */
+function connect_custom_user_presave(&$edit, $account, $category) {
+//  dpm($edit, 'connect_custom_user_presave ' . $category);
+  // Make sure user email address is lower case.
+  if (isset($edit['mail'])) {
+    $edit['mail'] = drupal_strtolower($edit['mail']);
+  }
+
+  $edit['data']['last_account_edit'] = REQUEST_TIME;
+  watchdog('User updated',
+    'User account updated for @user.',
+    array('@user' => format_username($account)),
+    WATCHDOG_INFO,
+    l(t('View'), "user/$account->uid")
+    );
+}
+
+/**
+ * Menu Callback.
+ * Allow one user to register for someone else.
+ */
+function connect_custom_register_other($form, $form_state) {
+  $dest = drupal_get_destination();
+  list($x, $nid) = explode('/', $dest['destination']);
+  $event = node_load($nid);
+  $form['#event'] = $event;
+  $form['#flag_action'] = variable_get('connect_custom_other_flag', 'registration');
+
+  drupal_set_title(t('Register another person for "@event"', array('@event' => $event->title)), PASS_THROUGH);
+  connect_custom_proxy_flag_form($event, $form);
+
+  return $form;
+}
+
+/**
+ * Menu Callback.
+ * Allow one user to participate for someone else.
+ */
+function connect_custom_participate_other($form, $form_state) {
+  $dest = drupal_get_destination();
+  list($x, $nid) = explode('/', $dest['destination']);
+  $event = node_load($nid);
+  $form['#event'] = $event;
+  $form['#flag_action'] = variable_get('connect_custom_participate_other_flag', 'participate');
+
+  drupal_set_title(t('Participate another person for "@event"', array('@event' => $event->title)), PASS_THROUGH);
+  connect_custom_proxy_flag_form($event, $form);
+
+  return $form;
+}
+
+/**
+ * Helper form_builder for proxy regstration or participation.
+ * @param $event - the event node object.
+ * @param $form - the form array (by reference).
+ */
+function connect_custom_proxy_flag_form($event, &$form) {
+  // Note, on entry $form['#flag_action'] is available.
+  $flag = flag_get_flag($form['#flag_action']);
+
+  $instances = array();
+  foreach (field_get_items('node', $event, 'field_date_instance') as $instance) {
+    $instances[] = $instance['target_id'];
+  }
+
+  $form['#instances'] = entity_load('node', $instances);
+  $instance_list = array();
+  foreach ($form['#instances'] as $nid => $instance) {
+    $instance_list[$nid] = $instance->title;
+    if (!isset($instance->field_max_registration[LANGUAGE_NONE][0]['value'])) {
+      $instance->field_max_registration[LANGUAGE_NONE][0]['value'] = 0;
+    }
+    $max_registration = $instance->field_max_registration[LANGUAGE_NONE][0]['value'];
+
+    // Is the instance full? (Only for registrations)
+    if ($flag->name == 'registration' && $max_registration > 0
+    && $flag->get_count($instance->nid) >= $max_registration) {
+      $instance_list[$nid] .= ' [' . t('full') . ']';
+    }
+    else {
+      // Find first instance with capacity to be the default.
+      if (!isset($default)) {
+        $default = $instance->nid;
+      }
+    }
+  }
+
+  if (empty($instance_list)) {
+    drupal_set_message(t('There are no instances available for which to @action.',
+      array('@action' => $flag->short)), 'warning');
+    $instance_list[0] = t('* None *');
+  }
+
+  $autocompletes = array(
+    'registration' => 'connect/autocomplete',
+    'participate' => 'participate/autocomplete/' . arg(1),
+    );
+  $form['account'] = array (
+    '#type' => 'textfield',
+    '#title' => t('Select the user'),
+    '#autocomplete_path' => $autocompletes[$flag->name],
+    );
+
+  $form['which_one'] = array(
+    '#type' => 'radios',
+    '#options' => $instance_list,
+    '#title' => t('Select a time for "%event"', array('%event' => $event->title)),
+    '#default_value' => (isset($default) ? $default : key($instance_list)),
+    );
+
+  $form ['actions'] = array('#type' => 'actions', '#weight' => 100);
+  $form ['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save my choices'));
+  $form ['actions']['cancel'] = array('#type' => 'submit', '#value' => t('Changed my mind'));
+
+  $form['#validate'] = array('connect_custom_proxy_flag_form_validate');
+  $form['#submit'] = array('connect_custom_proxy_flag_form_submit');
+}
+
+/**
+ * User autocomplete for above function.
+ */
+function connect_custom_user_autocomplete($string = '') {
+  $matches = array();
+  if ($string) {
+    $query = "SELECT CONCAT(r.realname, ' (', u.mail, ')') AS name "
+      . "FROM {realname} r "
+      . "INNER JOIN {users} u ON u.uid = r.uid "
+      . "WHERE u.status = 1 AND r.realname LIKE :string "
+      . "LIMIT 10 ";
+    $names = db_query($query, array(':string' => $string . '%'));
+
+    foreach ($names as $user) {
+      $matches[$user->name] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
+}
+
+/**
+ * Registered user autocomplete for above function.
+ */
+function connect_custom_participate_autocomplete($nid, $string = '') {
+  $matches = array();
+  if ($string) {
+    $query = "SELECT CONCAT(rn.realname, ' (', u.mail, ')') AS name "
+      . "FROM field_data_field_date_instance di  /* all instances for event */ "
+      . "INNER JOIN flagging f ON f.entity_id = di.field_date_instance_target_id /* registrations */ "
+      . "INNER JOIN realname rn ON rn.uid = f.uid  /* get realname */ "
+      . "INNER JOIN users u ON u.uid = f.uid  /* get email address */ "
+      . "WHERE di.entity_id = :nid /* event nid */ "
+      . "AND f.fid = 2 /* flag id*/ "
+      . "AND u.status = 1 AND rn.realname LIKE :string "
+      . "LIMIT 10 ";
+    $names = db_query($query, array(':nid' => $nid, ':string' => $string . '%'));
+
+    foreach ($names as $user) {
+      $matches[$user->name] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
+}
+
+/**
+ * Validation handler.
+ */
+function connect_custom_proxy_flag_form_validate($form, $form_state) {
+  // Only check the fields if the "submit" button was clicked.
+  if ($form_state['triggering_element']['#parents'][0] == 'submit') {
+    if (empty($form_state['values']['account'])) {
+      form_set_error('account', t('Please select an account name.'));
+    }
+    if (empty($form_state['values']['which_one'])) {
+      form_set_error('which_one', t('Please select a time and date.'));
+    }
+  }
+}
+
+/**
+ * Submit handler.
+ */
+function connect_custom_proxy_flag_form_submit($form, $form_state) {
+//  dpm($form_state['values'], 'values '.__FUNCTION__);
+  // Only process the data if the "submit" button was clicked.
+  if ($form_state['triggering_element']['#parents'][0] == 'submit') {
+    $flag_action = $form['#flag_action'];
+    $flag = flag_get_flag($flag_action);
+    $flag_title = $flag->title;
+
+    $instance = $form['#instances'][$form_state['values']['which_one']];
+
+    $choice = $form_state['values']['account'];
+    $paren = strpos($choice, '(');
+    $choice = substr($choice, $paren + 1, -1);
+    $account = user_load_by_mail($choice);
+
+    // Set up arguments for messages.
+    $args = array(
+      '@event' => $form['#event']->title,
+      '@user' => format_username($account),
+      '@time' => $instance->title,
+      '@action' => ($flag_action == 'registration' ? 'registrered for' : 'participating in'),
+      );
+
+    if ($flag->is_flagged($instance->nid, $account->uid)) {
+      drupal_set_message(t('@user is already @action for this event.', $args));
+      return;
+    }
+
+    // Okay, let's get 'er done.
+    // The flag function returns a boolean to indicate success or failure.
+    if (flag('flag', $flag_action, $instance->nid, $account)) {
+      drupal_set_message(t(variable_get('connect_custom_proxy_registered',
+        '@user is now @action "@event" at @time.'), $args));
+    }
+    else {
+      drupal_set_message(t(variable_get('connect_custom_proxy_failed',
+        'Flagging for @user for "@event" at @time failed.'), $args));
+    }
+  }
+}
+
+/**
+ * Implements hook_flag_notify_message_alter().
+ * After registering, return/goto event.
+ * @param $data - array containing 'subject' and 'body',
+ *   this may be altered as needed.
+ * @param $context - array containing the flag object, the flagging object,
+ *   the action being taken, and the node object being flagged.
+ */
+function connect_custom_flag_notify_message_alter(&$data, $context) {
+//  dpm($data, __FUNCTION__ . ' data');
+//  dpm($context, __FUNCTION__ . ' context');
+  $instance = $context['node'];
+  $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+
+  $notification = node_load($event->field_related_notifications[LANGUAGE_NONE][0]['target_id']);
+  // Figure out which field to use.
+  $actions = array(
+    'flag' => 'field_event_registration',
+    'unflag' => 'field_event_cancellation',
+    );
+  if (isset($actions[$context['action']])) {
+    $field_name = $actions[$context['action']];
+    $msg = node_load($notification->{$field_name}[LANGUAGE_NONE][0]['target_id']);
+    $data['subject'] = $msg->field_email_subject[LANGUAGE_NONE][0]['value'];
+    $data['body'] = $msg->field_email_body[LANGUAGE_NONE][0]['value'];
+  }
+}
+
+/**
+ * Implements hook_flag_flag().
+ * After registering, return/goto event.
+ */
+function connect_custom_flag_flag($flag, $entity_id, $account, $flagging) {
+  if ($flag->name == 'registration') {
+    $instance = node_load($entity_id);
+    $_GET['destination'] = 'node/' . $instance->field_related_events[LANGUAGE_NONE][0]['target_id'];
+  }
+}
+
+/**
+ * Implements hook_flag_link_type_info().
+ */
+function connect_custom_flag_link_type_info() {
+  return array(
+    'connect_custom_' => array(
+      'title' => t('Connect'),
+      'description' => t('Additional Connect logic on the flag.'),
+      'options' => array(),
+      'uses standard js' => TRUE,
+      'uses standard css'=> TRUE,
+      'provides form' => FALSE,
+      ),
+    );
+}
+
+/**
+ * Implements hook_flag_link().
+ * ATM, this is just like the flag module.
+ */
+function connect_custom_flag_link($flag, $action, $entity_id) {
+  $token = flag_get_token($entity_id);
+
+  // Is the event instance at capacity yet?
+  $instance = entity_metadata_wrapper('node', node_load($entity_id));
+  $capacity = $instance->field_max_registration->value();
+  if (empty($capacity)) {
+    $capacity = 0;
+  }
+
+  // How many registrtations do we have currently?
+  $num_regs = $flag->get_count($entity_id);
+
+  // Are we at capacity, or are they already registered?
+  if ($num_regs >= $capacity && $capacity > 0 && !$flag->is_flagged($entity_id)) {
+    // This instance is full.
+    return array(
+      'title' => t('Full'),
+      'attributes' => array('class' => array('instance-full')),
+      );
+  }
+  else {
+    // Not full, so give standard link.
+    return array(
+      'href' => 'flag/' . ($flag->link_type == 'confirm' ? 'confirm/' : '') . "$action/$flag->name/$entity_id",
+      'query' => drupal_get_destination() + ($flag->link_type == 'confirm' ? array() : array('token' => $token)),
+      );
+  }
+
+}
+
+/**
+ * Implements hook_flag_anon_tokens_alter().
+ * Add a token for our URL.
+ * Requires local patch, see https://www.drupal.org/node/2527594.
+ */
+function connect_custom_flag_anon_tokens_alter(&$tokens, $link_options) {
+  $tokens['[anon_register]'] = check_url(url('anon_login/' . $link_options['entity_id'], $link_options));
+}
+
+/*
+ * Implements template_preprocess_node().
+ * Add a class to the node so it can be displayed as published or not.
+ */
+function connect_custom_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  // @TODO: Portals use different fields, and then there are child nodes...
+  if (isset($node->field_workflow_state[LANGUAGE_NONE][0]['value'])) {
+    $current_state = workflow_state_load_single($node->field_workflow_state[LANGUAGE_NONE][0]['value']);
+    $class = ($current_state->name == 'published' ? 'published' : 'in-progress');
+    $variables ['classes_array'][] = drupal_html_class('workflow-' . $class);
+  }
+}
+
+/**
+ * Implements hook_workflow_permitted_state_transitions_alter().
+ */
+function connect_custom_workflow_permitted_state_transitions_alter(array &$transitions, array $context) {
+  // Remove any transition where the target state is the same as the current state.
+  foreach ($transitions as $key => $transition) {
+    if ($transition->sid == $transition->target_sid) {
+      unset($transitions[$key]);
+    }
+  }
+}
+
+/*
+ * Implements hook_entity_info_alter().
+ */
+function connect_custom_entity_info_alter(&$entity_info) {
+//  dpm($entity_info, __FUNCTION__);
+  $entity_info['taxonomy_term']['access callback'] = '_connect_custom_taxonomy_access';
+}
+
+/*
+ * Implements hook_field_formatter_info_alter().
+ */
+function connect_custom_field_formatter_info_alter(&$info) {
+//  dpm($info, __FUNCTION__);
+  // Set ER field displays to be linked by default.
+  $info['entityreference_label']['settings']['link'] = TRUE;
+}
+
+/*
+ * Copy of entity_metadata_taxonomy_access with $op == 'create' added for terms.
+ */
+function _connect_custom_taxonomy_access($op, $entity = NULL, $account = NULL, $entity_type) {
+//  dpm($entity, __FUNCTION__." $op $entity_type.");
+  if ($entity_type == 'taxonomy_vocabulary') {
+    return user_access('administer taxonomy', $account);
+  }
+  if (isset($entity) && $entity_type == 'taxonomy_term' && $op == 'create') {
+    return user_access('add terms in ' . $entity->vocabulary_machine_name, $account);
+  }
+  if (isset($entity) && $op == 'update' && !isset($account) && taxonomy_term_edit_access($entity)) {
+    return TRUE;
+  }
+  if (isset($entity) && $op == 'delete') {
+    if (user_access('delete terms in ' . $entity->vid)) {
+      return TRUE;
+    }
+  }
+  if (user_access('administer taxonomy', $account) || user_access('access content', $account) && $op == 'view') {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Place to put special purpose stuff.
+ */
+function connect_custom_nancy() {
+  global $user;
+  $output = '';
+
+    $string = 'na';
+    $query = "SELECT CONCAT(r.realname, ' (', u.mail, ')') "
+      . "FROM {realname} r "
+      . "INNER JOIN {users} u ON u.uid = r.uid "
+      . "WHERE u.status = 1 AND r.realname LIKE :string "
+      . "LIMIT 10 ";
+    $names = db_query($query, array(':string' => $string . '%'))
+      ->fetchCol();
+    $output .= theme('item_list', array('items' => $names));
+  return $output;
+
+  $output .= '</pre>'. print_r(og_get_entity_groups('user', $user, array(OG_STATE_ACTIVE)), TRUE) .'</pre>';
+  dpm(og_context_determine_context('node'), 'og_context_determine_context');
+  dpm(node_load(932), 'node 932');
+    $flag = flag_get_flag('registration');
+  dpm($flag, 'registration');
+  return $output;
+
+    $instance_nid = 2219;
+    $link = "flag/flag/registration/$instance_nid";
+    $token = flag_get_token($instance_nid);
+    $_GET['destination'] = $link . '?token=' . $token;
+    $link = $link . '?token=' . $token;
+  $output .= '<p>'.$link.'</p>';
+  $output .= '<p>'.urlencode($link).'</p>';
+
+  return $output;
+
+  $rows = db_select('rules_config', 'r')
+    ->fields('r')
+    ->execute();
+
+  $table['rows'] = array();
+  foreach ($rows as $row) {
+    $table['rows'][] = array(
+      $row->id . " " . $row->name,
+      $row->data,
+      );
+    try {
+      $unserialize = unserialize($row->data);
+      //var_dump($unserialize);
+    } catch (Exception $e) {
+      echo "Unable to unserialize " . PHP_EOL;
+    }
+  }
+  $output .= theme('table', $table);
+
+  return $output;
+
+  $q = "SELECT name, value FROM {variable} WHERE name like 'rh%'";
+  $results = db_query($q);
+  $r = array();
+  foreach ($results as $row) {
+    $r[] = array(
+      $row->name,
+      unserialize($row->value),
+      );
+  }
+  $output .= theme('table', array('rows' => $r));
+  return $output;
+
+  $flag = flag_get_flag('registration');
+  $now = format_date(strtotime('0600', REQUEST_TIME), 'custom', 'Y-m-d h:i:s');
+  $output .= '<p>Looking for stuff as of ' . $now . '.</p>';
+
+  $query = db_select('node', 'n');
+  $query->join('field_data_field_date', 'd', 'd.entity_id = n.nid');
+  $query->join('field_data_field_related_events', 're', 're.entity_id = n.nid');
+  $query->join('node', 'ren', 'ren.nid = re.field_related_events_target_id');
+  $query->join('field_data_field_related_notifications', 'rn', 'rn.entity_id = re.field_related_events_target_id');
+  $query->join('field_data_field_event_reminder', 'rm', 'rm.entity_id = rn.field_related_notifications_target_id');
+  $query->join('field_data_field_days_before_event_to_send', 'be', 'be.entity_id = rm.field_event_reminder_target_id');
+  $query->join('field_data_field_prevent_notification', 'pn', 'pn.entity_id = rm.field_event_reminder_target_id');
+  $query->join('flagging', 'f', 'f.entity_id = n.nid');
+  $query->join('users', 'u', 'u.uid = f.uid');
+  $query->addField('n', 'nid', 'instance');
+  $query->addField('ren', 'nid', 'event');
+  $query->addField('ren', 'title');
+  $query->addField('d', 'field_date_value', 'event_date');
+  $query->addField('u', 'uid');
+  $query->condition('n.status', 1);
+  $query->condition('n.type', 'instance');
+  $query->condition('d.field_date_value', $now, '>');
+  $query->condition('pn.field_prevent_notification_value', 0);
+  $query->condition('f.fid', $flag->fid);
+  $query->where('be.field_days_before_event_to_send_value = DATEDIFF(d.field_date_value, :now)', array(':now' => $now));
+  $result = $query->execute();
+//  dpq($query);
+
+  $rows = array();
+  foreach ($result as $row) {
+    $account = user_load($row->uid);
+    $rows[] = array(
+      l(drupal_get_path_alias("node/$row->instance"), "node/$row->instance"),
+      l($row->title, "node/$row->event"),
+      $row->event_date,
+      l(format_username($account), "user/$row->uid"),
+      );
+  }
+  $output .= theme('table', array('rows' => $rows));
+
+  return $output;
+
+  dpm($_GET, 'GET');
+  dpm($_SERVER, 'SERVER');
+  $x = drupal_parse_url($_SERVER['REQUEST_URI']);
+  dpm($x, 'drupal_parse_url');
+  dpm(explode('/', $x['path']), 'path parts');
+  dpm(drupal_get_messages(NULL, FALSE), 'drupal_get_messages');
+/*
+  // Flush the schema cache.
+  $schema = drupal_get_schema('connect_custom_anon_register', TRUE);
+  if ($schema === FALSE) {
+    $schema = 'Bah, humbug!';
+  }
+  $output .= '<pre>' . print_r($schema, TRUE) . '</p>';
+/* */
+
+  return $output;
+}

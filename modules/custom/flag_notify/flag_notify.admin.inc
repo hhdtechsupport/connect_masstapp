@@ -45,42 +45,64 @@ function flag_notify_admin_settings($form, $form_state, $flag = NULL) {
       );
   }
 
-  $form['flag'] = array(
+  $form['messages'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Messages'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+    );
+
+  $hooks = module_implements('flag_notify_message_alter');
+  if ($hooks) {
+    $modules = system_rebuild_module_data();
+    $list = array();
+    foreach ($hooks as $hook) {
+      $list[] = $modules[$hook]->info['name'];
+    }
+    $form['messages']['#description'] = '<strong>' . t('Note') . ': </strong>'
+      . format_plural(count($list),
+        'The following module may alter the actual messages: @list.',
+        'The following modules may alter the actual messages: @list.',
+        array('@list' => implode(', ', $list)))
+      . '</p>';
+  }
+
+  $form['messages']['flag'] = array(
     '#type' => 'fieldset',
     '#title' => t('Flag'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
     );
 
-  $form['flag']['flag_notify_flag_subject_' . $flag->name] = array(
+  $form['messages']['flag']['flag_notify_flag_subject_' . $flag->name] = array(
     '#type' => 'textarea',
     '#rows' => 1,
     '#title' => t('"@msg" email subject', array('@msg' => $flag->flag_long)),
     '#default_value' => variable_get('flag_notify_flag_subject_' . $flag->name, 'Congratulations'),
     );
 
-  $form['flag']['flag_notify_flag_message_' . $flag->name] = array(
+  $form['messages']['flag']['flag_notify_flag_message_' . $flag->name] = array(
     '#type' => 'textarea',
     '#rows' => 8,
     '#title' => t('"@msg" email body', array('@msg' => $flag->flag_long)),
     '#default_value' => variable_get('flag_notify_flag_message_' . $flag->name, 'Thanks'),
     );
 
-  $form['unflag'] = array(
+  $form['messages']['unflag'] = array(
     '#type' => 'fieldset',
     '#title' => t('Unflag'),
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
     );
 
-  $form['unflag']['flag_notify_unflag_subject_' . $flag->name] = array(
+  $form['messages']['unflag']['flag_notify_unflag_subject_' . $flag->name] = array(
     '#type' => 'textarea',
     '#rows' => 1,
     '#title' => t('"@msg" email subject', array('@msg' => $flag->unflag_long)),
     '#default_value' => variable_get('flag_notify_unflag_subject_' . $flag->name, 'Congratulations'),
     );
 
-  $form['unflag']['flag_notify_unflag_message_' . $flag->name] = array(
+  $form['messages']['unflag']['flag_notify_unflag_message_' . $flag->name] = array(
     '#type' => 'textarea',
     '#rows' => 8,
     '#title' => t('"@msg" email body', array('@msg' => $flag->unflag_long)),
