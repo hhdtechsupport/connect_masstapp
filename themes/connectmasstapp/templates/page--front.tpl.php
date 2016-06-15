@@ -74,11 +74,11 @@
       <?php endif; ?>
       <div class="search-box">
         <div class="user-menu">
-          <?php print drupal_render(menu_tree('user-menu')); ?>
+          <?php $tree = menu_tree('user-menu'); print drupal_render($tree); ?>
         </div>
       <div class="clear"></div>
         <div class="top-search">
-        <?php print render(drupal_get_form('search_block_form')); ?>
+        <?php $search = drupal_get_form('search_block_form'); print render($search); ?>
       </div>
       </div>
     </div>
