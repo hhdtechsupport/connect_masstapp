@@ -289,9 +289,9 @@ h4 a {
   float: left;
   padding: 20px 15px 20px 0px;
 }
-.login{float:right; padding:4px 0 0 0;}
-.login a{color:#FFF; background:#09af4d; padding:5px 10px; text-decoration:none;}
-.login a:hover{color:#FFF; background:#2f8ff9; padding:5px 10px;}
+//.login{float:right; padding:4px 0 0 0;}
+//.login a{color:#FFF; background:#09af4d; padding:5px 10px; text-decoration:none;}
+//.login a:hover{color:#FFF; background:#2f8ff9; padding:5px 10px;}
 
 #sitename {
   float: left;
@@ -442,6 +442,12 @@ li ul.menu li a{margin:0px !important;}
   color: #FFF !important;
   background: #105eb4;
 }
+.login #main-menu .menu a.active {
+  background: transparent;
+}
+.login #main-menu .menu a:hover {
+  background: #105eb4;
+}
 
 #main-menu .menu a.active-trail{
   color: #FFF !important;
@@ -558,7 +564,7 @@ li.sfHover > a > .sf-sub-indicator {
 
 
 
-#block-system-main{background:#FFF url('../images/bg-welcome.jpg') repeat-x left bottom; padding:10px 30px;}
+#block-system-main{padding:10px 30px;}
 #block-system-main img{float:left; margin:0 15px 10px 0; border:1px solid #dcdcdc;}
 
 /*#pagecontent{background:#FFF ; padding:10px 30px;}*/
@@ -806,6 +812,9 @@ ul.col-1 li .date{font-style:italic; color:#898989; margin:0 0 5px 0;}
 #post-content {
   display: inline;
   margin: 0;
+}
+.front #post-content {
+  display: inline-block;
 }
 
 body.sidebar-first #post-content {
