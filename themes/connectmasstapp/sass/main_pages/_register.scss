@@ -1,0 +1,329 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+
+/* registrations*/
+body.page-node-registrations {
+  div#title-section {
+    h1.page__title.title {
+      color: $capt-green;
+      font-weight: bold;
+      font-size: 36px;
+      background-image: none;
+      padding-left: 0px;
+
+    }
+  }
+}
+
+/*
+ *  Title and other elements for Registration page - all specific stuff goes here.
+ */
+
+
+body.not-logged-in.page-user-register:not(.node-type-event),
+body.not-logged-in.page-anon-register:not(.node-type-event) {
+  .request-new-password {
+    display: none;
+  }
+  div#main {
+    padding-top: 0px;
+  }
+  h1#page-title.page__title {
+    padding-top: 7px;
+    color: $capt-maroon;
+    min-height: 44px;
+    font-size: 26pt;
+    /* from h2 in the specs */
+    margin-top: 36px;
+    margin-bottom: 21px;
+    margin-top: 0px;
+    text-transform: capitalize;
+    background: url("../images/icons/profile.png") 0 0 no-repeat;
+    padding-left: 55px;
+  }
+  div#content {
+    border-top: 1px solid #d7d7d7;
+    margin-top: 10px;
+  }
+  fieldset.field-group-fieldset {
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #eef1f3;
+    legend {
+      margin-left: -6px;
+      position: relative;
+    }
+  }
+  /* specific width of fieldset wrapper - very important */
+  div.fieldset-wrapper {
+    margin-left: -20px;
+    padding: 10px 17px;
+    /*17px;*/
+  }
+}
+
+/*
+ *  USER PROFILE FORM: Buttons and form elements for user profile
+ */
+form#user-profile-form {
+  .edit-button,
+  .save-button,
+  .cancel-button {
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+  }
+  /*.save-button {
+      @extend .basic-button;
+        text-transform: uppercase;
+        float: right;
+        margin-right: 10px;
+        cursor: pointer;
+        padding: 8px 20px;
+        }*/
+  input.form-text {
+    border: 1px solid #BCBCBC;
+  }
+  .cancel-button {
+    clear: right;
+  }
+  .item {
+    font-size: 14px;
+    margin: 10px 0 10px 5px;
+    line-height: 1.5em;
+    /*font-style: italic;*/
+    .value {
+      font-style: italic;
+    }
+  }
+  /* fieldset styles */
+  .fieldset-wrapper {
+    margin-left: 0px;
+    width: 97.9%;
+  }
+}
+
+
+/*** Table Registrations-list (from Nancy, 7/10) ***/
+
+.no-registrations {
+  text-align: center;
+}
+
+.instance-label {
+  background-color: #DAE6EC;
+  border-top: 2px solid #949596;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 0 3px 0;
+  text-align: center;
+}
+
+.instance-complete {
+  color: $capt-green;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.instance-full {
+  background: $capt-maroon;
+  color: #FFF;
+  padding: 2px;
+}
+
+.access-information {
+  background-color: #F8FBFD;
+  font-size: 11px;
+  p {
+    margin: 10px;
+  }
+}
+
+.show-access-information {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.view-instances .views-field-field-access-information {
+  ul {
+    padding: 0 0 0 15px;
+    margin-top: 0px;
+  }
+}
+
+#registrations-list {
+  tr.odd {
+    background-color: #fff !important;
+  }
+  a {
+    color: inherit !important;
+    &:hover {
+      color: $capt-maroon !important;
+    }
+  }
+}
+
+
+
+/* Matt's styles for chosen container and field-widget-inline-entity-form */
+.chosen-container {
+  width: 412px !important;
+  a {
+    font-weight: normal;
+  }
+  .chosen-single {
+    border-radius: 0px;
+    font-size: 14px;
+    max-width: 412px;
+    display: block;
+    border: 1px solid #b6b6b6;
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
+    height: 28px;
+    padding-top: 1px;
+  }
+  .chosen-drop {
+    border-radius: 0px;
+  }
+  &.chosen-container-multi .chosen-choices li.search-choice {
+    border-radius: 0px;
+  }
+}
+
+.field-widget-inline-entity-form > div {
+  margin-top: 20px;
+}
+
+body.not-logged-in.section-user.page-user:not(.page-user-register) {
+  div#title-section {
+    margin: 0px auto;
+    border-bottom: 0px;
+    width: 360px;
+  }
+  form#user-pass-reset {
+    @extend .panel;
+    padding: 20px;
+    margin: 0px auto;
+    width: 320px;
+    &:before {
+      width: 360px;
+      margin-left: -21px;
+    }
+  }
+}
+
+
+
+/* OMB Block; we may want to just use a form here */
+body.page-user-edit,
+body.page-user-register,
+body.page-anon-register {
+  #block-block-3 {
+    margin: 30px 0px;
+    p {
+      font-size: 12px;
+      line-height: 1.3em;
+    }
+  }
+}
+
+
+
+
+/* Multipage Panes */
+body.page-user-register, body.page-anon-register, body.page-admin-people-create {
+//  #block-block-17 {
+    ul#multipage-panes-list {
+      padding-left: 0px;
+      li {
+        list-style-type: none;
+        font-size: 17px;
+        color: $capt-midgrey;
+        text-transform: uppercase;
+        font-weight: bold;
+        &.active {
+          color: $capt-aqua;
+        }
+        .pane-link {
+          .step {
+            font-size: 24px;
+            vertical-align: middle;
+          }
+          .title {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+//  }
+  .multipage-panes {
+    .multipage-pane {
+      h2 {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px);
+        clip: rect(1px, 1px, 1px, 1px);
+      }
+      .multipage-pane-wrapper {
+        @extend .panel-rule;
+        padding: 20px !important;
+        margin-left: 0px !important;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        &:before {
+          margin-left: -21px;
+          margin-right: -21px;
+          padding: 0px;
+          width: auto;
+        }
+        .multipage-counter {
+          right: -2em;
+          top: 2.2em;
+        }
+      }
+      .multipage-controls-list {
+        .multipage-button input[type="button"] {
+          cursor: pointer;
+          margin-right: 0.5em;
+        }
+        #edit-actions {
+          left: 130px;
+          position: relative;
+          input {
+            margin-top: 0px;
+          }
+          &+ .multipage-button {
+            position: relative;
+            right: 92px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+.chosen-container.error .chosen-single {
+  border: 1px solid #b6b6b6;
+}
+
+.field-type-markup {
+  p:last-child {
+    margin-bottom: 0px;
+  }
+  &#edit-field-demographic-info-intro {
+    margin: 1em 0em 2em;
+  }
+}
+
+.field-type-list-boolean a {
+  font-weight: normal;
+  color: $capt-black;
+  text-decoration: underline;
+}
