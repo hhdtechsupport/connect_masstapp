@@ -1,0 +1,41 @@
+
+@import 'variables';
+
+@mixin bottom-line($thickness) {
+  background-image: -o-linear-gradient(bottom, black $thickness, transparent $thickness);
+  background-image: -moz-linear-gradient(center bottom, black, $thickness, transparent $thickness / 2);
+  background-image: -webkit-linear-gradient(bottom, black $thickness, transparent $thickness);
+  background-image: linear-gradient(center bottom, black, $thickness, transparent $thickness);
+}
+
+/* for rounded elements */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/* for header & footer */
+
+@mixin rainbow-bar($y_pos) {
+  background-image: url("../images/design-elements/rainbow-divider.png");
+  background-position: -124px $y_pos;
+  background-repeat: repeat-x;
+}
+
+@mixin main-active-link {
+  background-color: white;
+  border: 1px solid $capt-midgrey;
+  border-bottom: 1px solid white;
+  color: $capt-maroon;
+  height: 26px;
+}
+
+@mixin horiz_scale($val) {
+  -moz-transform: scaleX($val);
+  -o-transform: scaleX($val);
+  -webkit-transform: scaleX($val);
+  transform: scaleX($val);
+}
