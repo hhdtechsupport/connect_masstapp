@@ -331,7 +331,7 @@ function connect_blocks_rt_view() {
   $groups = db_query("SELECT nid, title FROM {node} WHERE type = 'resource_team'")->fetchAllKeyed();
   $groups = array_map('filter_xss', $groups);
 
-  // Node groups.
+  // Node groups. 
   $node = menu_get_object();
   if (is_object($node)) {
     $output = '<div class="resource-team">';
@@ -345,7 +345,7 @@ function connect_blocks_rt_view() {
     }
     $output .= '</div>';
   }
-
+  
   // User's groups.
   $output .= '<div class="user-resource-team">' . t('You') . ': ';
   foreach ($user->og_user_node[LANGUAGE_NONE] as $grp) {
