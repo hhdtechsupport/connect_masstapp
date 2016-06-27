@@ -58,7 +58,7 @@
 }
 
 /* line 34, ../sass/headers/_extensible.scss */
-.panel, .panel-rule, .panel-rule-single, body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset {
+.panel, .panel-rule, .panel-rule-single {
   background-color: #eef1f3;
   padding-left: 0px;
   padding-right: 0px;
@@ -66,16 +66,16 @@
   border-top: 0px;
 }
 /* line 40, ../sass/headers/_extensible.scss */
-.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover, body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper h3 a:hover, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper h3 a:hover, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper h3 a:hover, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset h3 a:hover {
+.panel h3 a:hover, .panel-rule h3 a:hover, .panel-rule-single h3 a:hover {
   color: #8c1d18;
 }
 /* line 43, ../sass/headers/_extensible.scss */
-.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper, body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper .filter-wrapper, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper .filter-wrapper, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper .filter-wrapper, body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset .filter-wrapper {
+.panel .filter-wrapper, .panel-rule .filter-wrapper, .panel-rule-single .filter-wrapper {
   border: 0px;
 }
 
 /* line 52, ../sass/headers/_extensible.scss */
-.panel-rule, .panel-rule-single, body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper {
+.panel-rule, .panel-rule-single {
   padding-top: 20px;
   padding-bottom: 20px;
   border-top: 0px;
@@ -89,7 +89,7 @@
   border-radius: 1px;
 }
 /* line 62, ../sass/headers/_extensible.scss */
-.panel-rule:before, .panel-rule-single:before, body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper:before {
+.panel-rule:before, .panel-rule-single:before {
   display: block;
   background-color: #577785;
   height: 5px;
@@ -132,352 +132,78 @@
 @import 'main_pages/profile';
 @import 'admin/user-password';
 @import 'admin/workflow';*/
-/* registrations*/
-/* line 8, ../sass/main_pages/_register.scss */
-body.page-node-registrations div#title-section h1.page__title.title {
-  color: #888a55;
-  font-weight: bold;
-  font-size: 36px;
-  background-image: none;
-  padding-left: 0px;
+/* line 6, ../sass/main_pages/_register.scss */
+body.page-user-register input, body.page-user-register select, body.page-user-register fieldset, body.page-user-register .form-select, body.page-anon-register input, body.page-anon-register select, body.page-anon-register fieldset, body.page-anon-register .form-select, body.page-admin-people-create input, body.page-admin-people-create select, body.page-admin-people-create fieldset, body.page-admin-people-create .form-select {
+  border: 2px solid #d7d7d7;
+  border-radius: 0;
 }
-
-/*
- *  Title and other elements for Registration page - all specific stuff goes here.
- */
-/* line 24, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event),
-body.not-logged-in.page-anon-register:not(.node-type-event) {
-  /* specific width of fieldset wrapper - very important */
+/* line 10, ../sass/main_pages/_register.scss */
+body.page-user-register select, body.page-user-register .form-select, body.page-anon-register select, body.page-anon-register .form-select, body.page-admin-people-create select, body.page-admin-people-create .form-select {
+  -webkit-appearance: none;
+  -webkit-background: none;
+  -webkit-border-radius: 0;
+  -moz-appearance: none;
+  -moz-background: none;
+  -moz-border-radius: 0;
+  appearance: none;
 }
-/* line 26, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) .request-new-password,
-body.not-logged-in.page-anon-register:not(.node-type-event) .request-new-password {
+/* line 19, ../sass/main_pages/_register.scss */
+body.page-user-register #breadcrumbs, body.page-anon-register #breadcrumbs, body.page-admin-people-create #breadcrumbs {
+  border-bottom: none;
+}
+/* line 22, ../sass/main_pages/_register.scss */
+body.page-user-register #small-login-close, body.page-anon-register #small-login-close, body.page-admin-people-create #small-login-close {
   display: none;
 }
-/* line 29, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div#main,
-body.not-logged-in.page-anon-register:not(.node-type-event) div#main {
-  padding-top: 0px;
-}
-/* line 32, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) h1#page-title.page__title,
-body.not-logged-in.page-anon-register:not(.node-type-event) h1#page-title.page__title {
-  padding-top: 7px;
-  color: #8c1d18;
-  min-height: 44px;
-  font-size: 26pt;
-  /* from h2 in the specs */
-  margin-top: 36px;
-  margin-bottom: 21px;
-  margin-top: 0px;
-  text-transform: capitalize;
-  background: url("../images/icons/profile.png") 0 0 no-repeat;
-  padding-left: 55px;
-}
-/* line 45, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div#content,
-body.not-logged-in.page-anon-register:not(.node-type-event) div#content {
-  border-top: 1px solid #d7d7d7;
-  margin-top: 10px;
-}
-/* line 49, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset,
-body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset {
-  padding-left: 20px;
-  padding-right: 20px;
-  background: #eef1f3;
-}
-/* line 53, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) fieldset.field-group-fieldset legend,
-body.not-logged-in.page-anon-register:not(.node-type-event) fieldset.field-group-fieldset legend {
-  margin-left: -6px;
-  position: relative;
-}
-/* line 59, ../sass/main_pages/_register.scss */
-body.not-logged-in.page-user-register:not(.node-type-event) div.fieldset-wrapper,
-body.not-logged-in.page-anon-register:not(.node-type-event) div.fieldset-wrapper {
-  margin-left: -20px;
-  padding: 10px 17px;
-  /*17px;*/
-}
-
-/*
- *  USER PROFILE FORM: Buttons and form elements for user profile
- */
-/* line 69, ../sass/main_pages/_register.scss */
-form#user-profile-form {
-  /*.save-button {
-      @extend .basic-button;
-        text-transform: uppercase;
-        float: right;
-        margin-right: 10px;
-        cursor: pointer;
-        padding: 8px 20px;
-        }*/
-  /* fieldset styles */
-}
-/* line 70, ../sass/main_pages/_register.scss */
-form#user-profile-form .edit-button,
-form#user-profile-form .save-button,
-form#user-profile-form .cancel-button {
-  float: right;
-  margin-right: 10px;
-  cursor: pointer;
-  text-align: center;
-}
-/* line 86, ../sass/main_pages/_register.scss */
-form#user-profile-form input.form-text {
-  border: 1px solid #BCBCBC;
-}
-/* line 89, ../sass/main_pages/_register.scss */
-form#user-profile-form .cancel-button {
-  clear: right;
-}
-/* line 92, ../sass/main_pages/_register.scss */
-form#user-profile-form .item {
-  font-size: 14px;
-  margin: 10px 0 10px 5px;
-  line-height: 1.5em;
-  /*font-style: italic;*/
-}
-/* line 97, ../sass/main_pages/_register.scss */
-form#user-profile-form .item .value {
-  font-style: italic;
-}
-/* line 102, ../sass/main_pages/_register.scss */
-form#user-profile-form .fieldset-wrapper {
-  margin-left: 0px;
-  width: 97.9%;
-}
-
-/*** Table Registrations-list (from Nancy, 7/10) ***/
-/* line 111, ../sass/main_pages/_register.scss */
-.no-registrations {
-  text-align: center;
-}
-
-/* line 115, ../sass/main_pages/_register.scss */
-.instance-label {
-  background-color: #DAE6EC;
-  border-top: 2px solid #949596;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 6px 0 3px 0;
-  text-align: center;
-}
-
-/* line 124, ../sass/main_pages/_register.scss */
-.instance-complete {
-  color: #888a55;
-  font-size: 14px;
-  font-style: italic;
-}
-
-/* line 130, ../sass/main_pages/_register.scss */
-.instance-full {
-  background: #8c1d18;
-  color: #FFF;
-  padding: 2px;
-}
-
-/* line 136, ../sass/main_pages/_register.scss */
-.access-information {
-  background-color: #F8FBFD;
-  font-size: 11px;
-}
-/* line 139, ../sass/main_pages/_register.scss */
-.access-information p {
-  margin: 10px;
-}
-
-/* line 144, ../sass/main_pages/_register.scss */
-.show-access-information {
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-/* line 150, ../sass/main_pages/_register.scss */
-.view-instances .views-field-field-access-information ul {
-  padding: 0 0 0 15px;
-  margin-top: 0px;
-}
-
-/* line 157, ../sass/main_pages/_register.scss */
-#registrations-list tr.odd {
-  background-color: #fff !important;
-}
-/* line 160, ../sass/main_pages/_register.scss */
-#registrations-list a {
-  color: inherit !important;
-}
-/* line 162, ../sass/main_pages/_register.scss */
-#registrations-list a:hover {
-  color: #8c1d18 !important;
-}
-
-/* Matt's styles for chosen container and field-widget-inline-entity-form */
-/* line 171, ../sass/main_pages/_register.scss */
-.chosen-container {
-  width: 412px !important;
-}
-/* line 173, ../sass/main_pages/_register.scss */
-.chosen-container a {
-  font-weight: normal;
-}
-/* line 176, ../sass/main_pages/_register.scss */
-.chosen-container .chosen-single {
-  border-radius: 0px;
-  font-size: 14px;
-  max-width: 412px;
-  display: block;
-  border: 1px solid #b6b6b6;
-  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
-  height: 28px;
-  padding-top: 1px;
-}
-/* line 188, ../sass/main_pages/_register.scss */
-.chosen-container .chosen-drop {
-  border-radius: 0px;
-}
-/* line 191, ../sass/main_pages/_register.scss */
-.chosen-container.chosen-container-multi .chosen-choices li.search-choice {
-  border-radius: 0px;
-}
-
-/* line 196, ../sass/main_pages/_register.scss */
-.field-widget-inline-entity-form > div {
-  margin-top: 20px;
-}
-
-/* line 201, ../sass/main_pages/_register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) div#title-section {
-  margin: 0px auto;
-  border-bottom: 0px;
-  width: 360px;
-}
-/* line 206, ../sass/main_pages/_register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset {
-  padding: 20px;
-  margin: 0px auto;
-  width: 320px;
-}
-/* line 211, ../sass/main_pages/_register.scss */
-body.not-logged-in.section-user.page-user:not(.page-user-register) form#user-pass-reset:before {
-  width: 360px;
-  margin-left: -21px;
-}
-
-/* OMB Block; we may want to just use a form here */
-/* line 224, ../sass/main_pages/_register.scss */
-body.page-user-edit #block-block-3,
-body.page-user-register #block-block-3,
-body.page-anon-register #block-block-3 {
-  margin: 30px 0px;
-}
-/* line 226, ../sass/main_pages/_register.scss */
-body.page-user-edit #block-block-3 p,
-body.page-user-register #block-block-3 p,
-body.page-anon-register #block-block-3 p {
-  font-size: 12px;
-  line-height: 1.3em;
-}
-
-/* Multipage Panes */
-/* line 239, ../sass/main_pages/_register.scss */
+/* line 25, ../sass/main_pages/_register.scss */
 body.page-user-register ul#multipage-panes-list, body.page-anon-register ul#multipage-panes-list, body.page-admin-people-create ul#multipage-panes-list {
-  padding-left: 0px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
-/* line 241, ../sass/main_pages/_register.scss */
+/* line 28, ../sass/main_pages/_register.scss */
 body.page-user-register ul#multipage-panes-list li, body.page-anon-register ul#multipage-panes-list li, body.page-admin-people-create ul#multipage-panes-list li {
-  list-style-type: none;
-  font-size: 17px;
+  font-size: 14px;
   color: #d7d7d7;
-  text-transform: uppercase;
   font-weight: bold;
+  padding: 2px 0;
 }
-/* line 247, ../sass/main_pages/_register.scss */
+/* line 34, ../sass/main_pages/_register.scss */
 body.page-user-register ul#multipage-panes-list li.active, body.page-anon-register ul#multipage-panes-list li.active, body.page-admin-people-create ul#multipage-panes-list li.active {
-  color: #577785;
+  color: #00a73a;
 }
-/* line 251, ../sass/main_pages/_register.scss */
+/* line 38, ../sass/main_pages/_register.scss */
 body.page-user-register ul#multipage-panes-list li .pane-link .step, body.page-anon-register ul#multipage-panes-list li .pane-link .step, body.page-admin-people-create ul#multipage-panes-list li .pane-link .step {
-  font-size: 24px;
+  font-size: 20px;
+  font-weight: normal;
   vertical-align: middle;
 }
-/* line 255, ../sass/main_pages/_register.scss */
+/* line 43, ../sass/main_pages/_register.scss */
 body.page-user-register ul#multipage-panes-list li .pane-link .title, body.page-anon-register ul#multipage-panes-list li .pane-link .title, body.page-admin-people-create ul#multipage-panes-list li .pane-link .title {
   vertical-align: middle;
 }
-/* line 264, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane h2, body.page-anon-register .multipage-panes .multipage-pane h2, body.page-admin-people-create .multipage-panes .multipage-pane h2 {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
+/* line 49, ../sass/main_pages/_register.scss */
+body.page-user-register h2.multipage-pane-title, body.page-anon-register h2.multipage-pane-title, body.page-admin-people-create h2.multipage-pane-title {
+  display: none;
 }
-/* line 272, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper {
-  padding: 20px !important;
-  margin-left: 0px !important;
-  margin-top: 0px;
-  margin-bottom: 10px;
+/* line 52, ../sass/main_pages/_register.scss */
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper {
+  border: #d7d7d7 solid 4px;
+  padding: 1.5em;
+  margin-bottom: 1em;
 }
-/* line 278, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper:before, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper:before {
-  margin-left: -21px;
-  margin-right: -21px;
-  padding: 0px;
-  width: auto;
+/* line 57, ../sass/main_pages/_register.scss */
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend {
+  position: absolute;
+  top: 5px;
 }
-/* line 284, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter, body.page-anon-register .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-pane-wrapper .multipage-counter {
-  right: -2em;
-  top: 2.2em;
+/* line 61, ../sass/main_pages/_register.scss */
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper {
+  margin-top: 40px;
 }
-/* line 290, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"], body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"], body.page-admin-people-create .multipage-panes .multipage-pane .multipage-controls-list .multipage-button input[type="button"] {
-  cursor: pointer;
-  margin-right: 0.5em;
-}
-/* line 294, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-controls-list #edit-actions {
-  left: 130px;
-  position: relative;
-}
-/* line 297, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-controls-list #edit-actions input {
-  margin-top: 0px;
-}
-/* line 300, ../sass/main_pages/_register.scss */
-body.page-user-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button, body.page-anon-register .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button, body.page-admin-people-create .multipage-panes .multipage-pane .multipage-controls-list #edit-actions + .multipage-button {
-  position: relative;
-  right: 92px;
-}
-
-/* line 312, ../sass/main_pages/_register.scss */
-.chosen-container.error .chosen-single {
-  border: 1px solid #b6b6b6;
-}
-
-/* line 317, ../sass/main_pages/_register.scss */
-.field-type-markup p:last-child {
-  margin-bottom: 0px;
-}
-/* line 320, ../sass/main_pages/_register.scss */
-.field-type-markup#edit-field-demographic-info-intro {
-  margin: 1em 0em 2em;
-}
-
-/* line 325, ../sass/main_pages/_register.scss */
-.field-type-list-boolean a {
-  font-weight: normal;
-  color: #333333;
-  text-decoration: underline;
+/* line 66, ../sass/main_pages/_register.scss */
+body.page-user-register .chosen-container-single .chosen-single, body.page-anon-register .chosen-container-single .chosen-single, body.page-admin-people-create .chosen-container-single .chosen-single {
+  background: none;
+  border: none;
 }
 
 /* responsive*/
