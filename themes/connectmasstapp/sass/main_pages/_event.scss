@@ -1,0 +1,103 @@
+@import '../headers/variables';
+@import '../headers/capt-mixins';
+@import '../headers/extensible';
+
+
+
+body.node-type-event {
+
+  .main-content {
+    .region-help {
+      .pageblock {
+        padding-left: 30px;
+        h2 {
+         
+        }
+      }
+    }
+  }
+  #pagecontent {
+    padding: 0 25px 0 30px;
+    .ds-2col-stacked > .group-left {
+      width: 49.5%;
+      margin-right: 4%;
+    }
+    .ds-2col-stacked > .group-right {
+      width: 46.5%;
+      margin-top: -25px;
+      .field {
+        margin: 0 0 25px 0;
+      }
+    }
+  }
+  .field-name-event-date-s- {
+    padding: 15px;
+    border: 1px solid #d7d7d7;
+    h2 {
+      margin-top: 0;
+    }
+    .view-instances {
+      .view-instances {
+        ul {
+          margin: 0;
+          li.views-row {
+            padding-top: 5px;
+          }
+        }
+        .views-row {
+          padding: 0 0 5px 0;
+        }
+      }
+    }
+  }
+  .field-name-materials {
+    padding: 15px;
+    border: 1px solid #d7d7d7;
+    h2 {
+      margin-top: 0;
+    }
+    .view-materials {
+      ul {
+        margin: 0;
+        li.views-row {
+          padding-top: 5px;
+        }
+      }
+      .views-row {
+        padding: 0 0 5px 0;
+      }
+    }
+  }
+  .region-sidebar-first {
+    .block-menu-block {
+      .content {
+        border: 1px solid #d7d7d7;
+      }
+    }
+    ul.menu {
+    padding: 5px 0;
+      border: none;
+      
+      li.leaf {
+        padding: 7px 15px 0px 18px;
+        border: none;
+        list-style-type: none;
+        list-style-image: none;
+        &:before {
+          content: '';
+          width: 0px;
+          height: 0px;
+          border-style: solid;
+          border-width: 4px 0 4px 5px;
+          border-color: transparent transparent transparent #333333;  
+          display: inline-block;
+          vertical-align: middle;
+          margin-right: 8px;
+        }
+        a {
+          color: #333333;
+        }
+      }
+    }
+  }
+}
