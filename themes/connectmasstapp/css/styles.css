@@ -117,9 +117,42 @@
 }
 
 /*general (sitewide) styles*/
-/*@import 'sitewide/general';
-@import 'sitewide/topmatter';
-@import 'sitewide/navigation';*/
+/* components */
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ *
+ * Additional useful selectors can be found in Zen's online documentation.
+ * https://drupal.org/node/1707736
+ */
+/**
+ * Menus.
+ */
+/* line 16, ../sass/components/_misc.scss */
+.region-sidebar-first #block-menu-block-4 .content {
+  border: 1px solid #d7d7d7;
+}
+/* line 19, ../sass/components/_misc.scss */
+.region-sidebar-first #block-menu-block-4 ul.menu {
+  padding: 5px 0 0;
+  border: none;
+}
+/* line 22, ../sass/components/_misc.scss */
+.region-sidebar-first #block-menu-block-4 ul.menu li.leaf {
+  padding: 7px 15px 0px 18px;
+  border: none;
+  list-style-type: none;
+  list-style-image: none;
+  background: transparent url("../images/bullet-gray.jpg") no-repeat scroll 18px 12px;
+  padding: 5px 0 3px 30px;
+}
+/* line 40, ../sass/components/_misc.scss */
+.region-sidebar-first #block-menu-block-4 ul.menu li.leaf a {
+  color: #333333;
+}
+
 /* main pages */
 /* line 11, ../sass/main_pages/_event.scss */
 body.node-type-event .main-content .region-help .pageblock {
@@ -185,49 +218,8 @@ body.node-type-event .field-name-materials .view-materials ul li.views-row {
 body.node-type-event .field-name-materials .view-materials .views-row {
   padding: 0 0 5px 0;
 }
-/* line 73, ../sass/main_pages/_event.scss */
-body.node-type-event .region-sidebar-first .block-menu-block .content {
-  border: 1px solid #d7d7d7;
-}
-/* line 77, ../sass/main_pages/_event.scss */
-body.node-type-event .region-sidebar-first ul.menu {
-  padding: 5px 0;
-  border: none;
-}
-/* line 81, ../sass/main_pages/_event.scss */
-body.node-type-event .region-sidebar-first ul.menu li.leaf {
-  padding: 7px 15px 0px 18px;
-  border: none;
-  list-style-type: none;
-  list-style-image: none;
-}
-/* line 86, ../sass/main_pages/_event.scss */
-body.node-type-event .region-sidebar-first ul.menu li.leaf:before {
-  content: '';
-  width: 0px;
-  height: 0px;
-  border-style: solid;
-  border-width: 4px 0 4px 5px;
-  border-color: transparent transparent transparent #333333;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-}
-/* line 97, ../sass/main_pages/_event.scss */
-body.node-type-event .region-sidebar-first ul.menu li.leaf a {
-  color: #333333;
-}
 
-/*@import 'main_pages/dashboard';
-@import 'main_pages/create-event';
-@import 'main_pages/login';
-@import 'main_pages/logged-in';
-@import 'main_pages/portals';*/
 /*admin & profile*/
-/*@import 'admin/admin';
-@import 'main_pages/profile';
-@import 'admin/user-password';
-@import 'admin/workflow';*/
 /* line 6, ../sass/main_pages/_register.scss */
 body.page-user-register input, body.page-user-register select, body.page-user-register fieldset, body.page-user-register .form-select, body.page-anon-register input, body.page-anon-register select, body.page-anon-register fieldset, body.page-anon-register .form-select, body.page-admin-people-create input, body.page-admin-people-create select, body.page-admin-people-create fieldset, body.page-admin-people-create .form-select {
   border: 2px solid #d7d7d7;
@@ -303,5 +295,3 @@ body.page-user-register .chosen-container-single .chosen-single, body.page-anon-
 }
 
 /* responsive*/
-/*@import 'phone/phone';
-@import 'tablet/tablet';*/

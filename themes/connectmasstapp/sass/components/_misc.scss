@@ -1,0 +1,46 @@
+/**
+ * @file
+ * SMACSS Modules
+ *
+ * Adds modular sets of styles.
+ *
+ * Additional useful selectors can be found in Zen's online documentation.
+ * https://drupal.org/node/1707736
+ */
+
+/**
+ * Menus.
+ */
+.region-sidebar-first {
+  #block-menu-block-4 {
+    .content {
+      border: 1px solid #d7d7d7;
+    }
+    ul.menu {
+      padding: 5px 0 0;
+      border: none;
+      li.leaf {
+        padding: 7px 15px 0px 18px;
+        border: none;
+        list-style-type: none;
+        list-style-image: none;
+        background: rgba(0, 0, 0, 0) url("../images/bullet-gray.jpg") no-repeat scroll 18px 12px;
+        padding: 5px 0 3px 30px;
+        &:before {
+          //content: '';
+          //width: 0px;
+          //height: 0px;
+          //border-style: solid;
+          //border-width: 4px 0 4px 5px;
+          //border-color: transparent transparent transparent #333333;  
+          //display: inline-block;
+          //vertical-align: middle;
+          //margin-right: 8px;
+        }
+        a {
+          color: #333333;
+        }
+      }
+    }
+  }
+}
