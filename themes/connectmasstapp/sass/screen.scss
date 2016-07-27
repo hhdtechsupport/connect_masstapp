@@ -892,18 +892,24 @@ ul.breadcrumbs li.unavailable:hover a, ul.pagination li.unavailable a:focus {
 #sidebar {
   float: right;
   width: 260px;
+  .block {
+    margin-bottom: 30px;
+    h2 {
+      color: #666;
+      border-bottom: 1px solid #EEE;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="password"] {
+      width: 90%;
+    }
+  }
 }
-
-#sidebar .block {
-  margin-bottom: 30px;
-}
-
-#sidebar .block h2 {
-  color: #666;
-  border-bottom: 1px solid #EEE;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  font-weight: bold;
+.rightblock {
+  input[type="text"], input[type="password"] {
+    width: 90%;
+  }
 }
 
 /*-------------------------------------------*
