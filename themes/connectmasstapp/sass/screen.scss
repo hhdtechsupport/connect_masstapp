@@ -2376,3 +2376,65 @@ div.arrow {
    float: right;
    border: none;
 }
+/* Calendar styles */
+div.view-events-calendar {
+
+  h3 a {
+    text-decoration: none;
+    font-size: 16px;
+  }
+  div.date-nav ul.pager li {
+    margin-top: 7px;
+  }
+  div.ajax-progress-throbber {
+    display: none;
+  }
+  ul.pager li a {
+    padding: 4px 10px;
+  }
+  div.date-nav-wrapper {
+    height: 30px;
+  }
+  div.date-nav div.date-heading {
+    background-color: #dfdfdf;
+  }
+  div.calendar-calendar .month-view {
+  td {
+    text-align: center;
+    font-weight: bold;
+    padding: 4px 0px;
+    border-right: 1px solid #ccc;
+
+  }
+  table {
+    margin-bottom: 4px;
+  }
+  table tbody {
+    border: 1px solid #ccc;
+  }
+  th {
+    padding: 2px 0px;
+  }
+  td.has-no-events {
+    background-color: #eee;
+  }
+  td.has-events a {
+      color: white;
+  }
+  td.today {
+      color: white;
+  }
+  td.has-events {
+    background-color: #09af4d;
+  }
+  td.today {
+    background-color: #1053b4;
+  }
+  td.empty {
+    background-color: white;
+  }
+ 
+ }
+  
+}
+
