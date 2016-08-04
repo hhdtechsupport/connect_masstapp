@@ -5,7 +5,11 @@
 
 
 body.node-type-event {
-
+  .page-title  {
+    color: #2986ed; //#0153b4;
+    text-align: center;
+    font-weight: bold;
+  }
   .main-content {
     .region-help {
       .pageblock {
@@ -30,12 +34,25 @@ body.node-type-event {
       }
     }
   }
-  .field-name-event-date-s- {
-    padding: 15px;
-    border: 1px solid #d7d7d7;
-    h2 {
+  .field-name-event-date-s-,
+  .field-name-materials {
+     padding: 0px 15px 15px 15px;
+    border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
+     h2 {
       margin-top: 0;
+      padding: 2px 0px;
+      text-align: center;
+      background: #2986ed; //#1ca64c; //#CBE1EE; //#DFECF4;
+      margin: 0px -15px 5px -15px;
+      color: white;
     }
+
+  }
+  .field-name-event-date-s- {
+
+
+   
+   
     .view-instances {
       .view-instances {
         ul {
@@ -51,8 +68,6 @@ body.node-type-event {
     }
   }
   .field-name-materials {
-    padding: 15px;
-    border: 1px solid #d7d7d7;
     h2 {
       margin-top: 0;
     }

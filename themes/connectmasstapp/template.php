@@ -12,6 +12,7 @@ function connectmasstapp_html_head_alter(&$head_elements) {
 /**
  * Insert themed breadcrumb page navigation at top of the node content.
  */
+/*
 function connectmasstapp_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   //print_r($breadcrumb);
@@ -65,7 +66,7 @@ function connectmasstapp_breadcrumb($variables) {
      return t("Home");
    }
 
-}
+}*/
 
 /**
  * Override or insert variables into the html template.
