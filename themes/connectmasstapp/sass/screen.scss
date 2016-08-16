@@ -1,3 +1,8 @@
+
+@import 'headers/variables';
+@import 'headers/capt-mixins';
+@import 'headers/extensible';
+
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
@@ -1545,6 +1550,14 @@ display: none;
 #pagecontent .field-name-field-address .field-label, #pagecontent .field-name-field-address .field-items {
 float: left;
 }
+#pagecontent a.arrow-link {
+  color: $masstapp-green;
+  text-decoration: none;
+}
+#pagecontent a.arrow-link:hover {
+  text-decoration: underline;
+}
+
 
 .view-all-grantees-map-view .view-header p {
 	margin:	1em 0 0.8em;
@@ -2270,6 +2283,57 @@ h2.field-content,
 /*** Front Page Upcoming Events ***/
 .view-display-id-front_page_events {
   text-align: left;
+
+}
+// event links
+.item-list h3 a {
+  text-decoration: none;
+}
+body.upcoming-events h1.page-title {
+   color: $masstapp-blue;
+   font-weight: bold;
+   text-align: center;
+}
+// special event styling
+.content ul.event-instances {
+  width: 330px;
+}
+.content ul.event-instances li {
+  border-color: #CCC;
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  padding: 18px 0px 15px 0px;
+  display: block;
+  
+
+}
+.content ul.event-instances li:last-child {
+  border-bottom-width: 1px;
+}
+.date-container {
+  float: left;
+  width: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+.date-container .date-display-single {
+  font-size: 24px;
+  display: block;
+  font-weight: bold;
+}
+.date-container .month {
+  display: block;
+  font-size: 14px;
+}
+.event-time span {
+  font-size: 14px;
+}
+.event-title a {
+  font-size: 18px;
+  /*line-height: 17px;*/
+  margin-bottom: 1px;
+  font-weight: bold;
+  display: block;
 }
 
 #block-views-events-pages-front-page-events .pageblock {
@@ -2412,15 +2476,27 @@ div.view-events-calendar {
   td {
     text-align: center;
     font-weight: bold;
-    padding: 4px 0px;
+  
     border-right: 1px solid #ccc;
 
   }
+  td:not(.has-events)  {
+    padding-top: 4px;
+  }
+
   table {
     margin-bottom: 4px;
   }
   table tbody {
     border: 1px solid #ccc;
+  }
+  td a {
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    margin: 0px;
+    padding: 2px 0px;
   }
   th {
     padding: 2px 0px;
@@ -2434,11 +2510,24 @@ div.view-events-calendar {
   td.today {
       color: white;
   }
-  td.has-events {
+  td.has-events,
+  td.today a {
+        transition: 0.2s ease;
+        &:hover {
+           transition: 0.2s ease;
+        }
+  }
+  td.has-events:not(.today) {
     background-color: #09af4d;
+    &:hover {
+      background-color: lighten(#09af4d,10%);
+    }
   }
   td.today {
     background-color: #1053b4;
+    &:hover a {
+      background-color: lighten(#1053b4,10%);
+    }
   }
   td.empty {
     background-color: white;
@@ -2452,4 +2541,55 @@ div.view-events-calendar {
 // keep subtitle from running into sidebar
 #block-block-20 h2 {
   width: 300px;
+}
+// calendar
+div.ctn-left div.view-events-calendar {
+  ul.pager li {
+    background-color: $masstapp-blue;
+  }
+}
+div.ctn-left div.view-events-calendar div.date-nav div.date-heading {
+  background-color: $masstapp-blue;
+
+  h3 {
+    color: white;
+  }
+
+}
+$light: lighten($masstapp-blue,20%);
+$dark: lighten($masstapp-blue,4%);
+.calendar-calendar .day-view .full div.single-day div.calendar.dayview {
+  margin: 0px 3px;
+  border: 1px solid $masstapp-blue;
+
+  border: 0px;
+  width: 300px;
+  a {
+    color: white;
+  }
+
+
+  @include linear-gradient(180deg,$light,$dark);
+}
+.calendar-calendar .date-display-range {
+  float: left;
+
+}
+div.view-events-calendar ul.pager {
+  margin-top: -1px;
+}
+div.view-events-calendar ul.pager li a {
+   padding: 2px 10px;
+   background-color: lighten($masstapp-blue,40%);
+}  
+
+.calendar-calendar .full td.single-day div.calendar.monthview {
+ 
+  a {
+    color: white;
+  }
+   @include linear-gradient(180deg,$light,$dark);
+   .date-display-single {
+    color: #CCC;
+   }
 }

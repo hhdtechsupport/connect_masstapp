@@ -68,6 +68,8 @@ function block_class_preprocess_panels_pane(&$vars) {
  */
 function block_class_form_alter(&$form, &$form_state, $form_id) {
   if (user_access('administer block classes') && ($form_id == 'block_admin_configure' || $form_id == 'block_add_block_form')) {
+
+    drupal_set_message($block);
     // Load statically cached block object used to display the form.
     $block = block_load($form['module']['#value'], $form['delta']['#value']);
 

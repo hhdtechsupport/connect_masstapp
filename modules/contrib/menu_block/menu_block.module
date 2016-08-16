@@ -168,6 +168,8 @@ function menu_block_block_view($delta = '') {
  * Implements hook_block_view_alter().
  */
 function menu_block_block_view_alter(&$data, $block) {
+
+
   // Add contextual links for menu blocks.
   if ($block->module == 'menu_block' && !empty($data['content']['#config'])) {
     $menu_name = $data['content']['#config']['menu_name'];

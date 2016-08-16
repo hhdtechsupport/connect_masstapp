@@ -11,12 +11,6 @@
 // - https://drupal.org/node/1446420
 // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
 
-  var iPh6H = 667;
-  var iPh6W = 375;
-
-
-
-
 (function ($, Drupal, window, document, undefined) {
   // To understand behaviors, see https://drupal.org/node/756722#behaviors
   Drupal.behaviors.my_custom_behavior = {
@@ -90,7 +84,7 @@
         oldDevice = 1;
       }
 
-
+      /*
       function deviceSwitch() {
 
         // Are we dealing with a phone?
@@ -135,7 +129,7 @@
 
         }
 
-      }
+      }*/
 
 
       // Show-Hide
@@ -222,7 +216,7 @@
 
         // If changing devices, then run the show-hide function
         if (newDevice != oldDevice) {
-          deviceSwitch();
+        //  deviceSwitch();
           // Only add show/hide functionality if it's a phone
           if (newDevice == 1) {
             // Turn into panels and add on-click functionality
@@ -238,7 +232,7 @@
       });
 
       // Run show-hide on initial page load
-      deviceSwitch();
+   //   deviceSwitch();
       $('.accordion').each(function(index){
         showHide($(this), index);
       });
@@ -981,6 +975,8 @@
 
 
 
+
+
 //   // Another date picker fix -- bump up end time if start time changed
 //   var timeDiff;
 //
@@ -1080,6 +1076,80 @@
 
     }
   };
+  $(document).ready(function () {
+       /*** MassTAPP JS ***/
+    function checkBoxes() {
+      
+      if($('#block-views-materials-block .item-list ul li').text().trim() == '') {
+        $('.field-name-materials').hide();
+      }
+    }
+    function checkPublishState() {
+
+       $('form.workflow-transition-form').each(function () {
+        if ($(this).hasClass('state-unpublish')) 
+           $('.workflow-button-unpublish').hide();
+         else 
+           $('.workflow-button-publish').hide();
+       });
+    }
+    function mergeTitles() {
+      $('.event-instances li').each(function () {
+           var $event_link = $(this).find('.event-title a');
 
 
+           var $part_name = $(this).find('.event-part-name');
+           if ($part_name.length > 0) {
+                $event_link.append(', ' + $part_name.text());
+                $part_name.remove();
+           }
+             
+
+          
+      });
+    }
+    function formatDateInstances() {
+       $('.date-container').each(function () {
+           // == abbreviating the date == 
+           // get the inner date element.
+           var $date_display = $(this).find('.date-display-single');
+           // get an array with the element's content.
+           var arr = $date_display.text().split(' ');
+           // make the date display element say the day
+           $date_display.text(arr[1]);
+           
+           // == adding the month == 
+           // convert self into a JS element to make appending with JS easy.
+           var self = $(this)[0];
+           // create an element for the month.
+           var month = document.createElement('span');
+           // set the element's month content using the array element.
+           month.textContent = arr[0];
+           // give it a class name for CSS.
+           month.className = 'month';
+           // append the span element with the month
+           self.appendChild(month);
+           // == done adding the month == 
+
+
+
+         
+       
+
+
+        });
+    }
+    function init() {
+      if ($('body').hasClass('node-type-event')) {
+        checkBoxes();
+        checkPublishState();
+      }
+      else if ($('body').hasClass('upcoming-events')) {
+        formatDateInstances();
+        mergeTitles();
+      }
+  }
+  init();
+  });
+ 
 })(jQuery, Drupal, this, this.document);
