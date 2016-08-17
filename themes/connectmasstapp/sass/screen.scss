@@ -2283,7 +2283,6 @@ h2.field-content,
 /*** Front Page Upcoming Events ***/
 .view-display-id-front_page_events {
   text-align: left;
-
 }
 // event links
 .item-list h3 a {
@@ -2296,7 +2295,7 @@ body.upcoming-events h1.page-title {
 }
 // special event styling
 .content ul.event-instances {
-  width: 330px;
+  width: 500px;
 }
 .content ul.event-instances li {
   border-color: #CCC;
@@ -2307,19 +2306,61 @@ body.upcoming-events h1.page-title {
   
 
 }
+.event-links {
+  float: left;
+}
+.registered-events div.date-display-range {
+  float: left;
+}
 .content ul.event-instances li:last-child {
   border-bottom-width: 1px;
 }
+.clear-both {
+  clear: both;
+}
 .date-container {
   float: left;
-  width: 30px;
+  margin-top: 2px;
+  width: 32px;
   text-align: center;
-  margin-right: 10px;
+  margin-right: 16px;
+
 }
+span.event-title {
+  cursor: pointer;
+}
+.event-instances li div span.event-title a:after {
+  background: url('../images/arrowhead-right.png') 11px 6px no-repeat;
+  content:'';
+  width: 26px;
+  height: 26px;
+  display: block;
+  float: right;
+  cursor: pointer;
+  z-index: 10;
+  margin-top: 6px;
+  border-radius: 13px;
+  background-color: #CCC;
+  transition: 0.2s ease;
+
+
+}
+
+.event-instances li div span.event-title a:hover:after {
+    background-color: #999;
+    transition: 0.2s ease;
+}
+
 .date-container .date-display-single {
   font-size: 24px;
   display: block;
   font-weight: bold;
+}
+span.bar {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
+  float: left;
 }
 .date-container .month {
   display: block;
@@ -2334,6 +2375,23 @@ body.upcoming-events h1.page-title {
   margin-bottom: 1px;
   font-weight: bold;
   display: block;
+}
+// my registered events
+.time-calendar .date-display-single a {
+  float: left;
+  border: 1px solid blue;
+}
+a.add-calendar {
+  float: left;
+}
+
+.time-calendar span.flag-registration {
+  float: left;
+  margin-right: 5px;
+}
+
+.time-calendar a {
+  font-size: 14px;
 }
 
 #block-views-events-pages-front-page-events .pageblock {
@@ -2419,10 +2477,12 @@ div.arrow {
   text-indent: 100%;
   white-space: nowrap;
   width: 26px;
+  
 }
 
 .arrow a:hover {
   background-position: 0 -26px;
+
 }
 
 /*** Front page SPF Flower ***/

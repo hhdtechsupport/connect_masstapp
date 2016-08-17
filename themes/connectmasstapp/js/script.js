@@ -1095,11 +1095,13 @@
     }
     function mergeTitles() {
       $('.event-instances li').each(function () {
+
            var $event_link = $(this).find('.event-title a');
 
 
            var $part_name = $(this).find('.event-part-name');
            if ($part_name.length > 0) {
+
                 $event_link.append(', ' + $part_name.text());
                 $part_name.remove();
            }
@@ -1143,10 +1145,19 @@
       if ($('body').hasClass('node-type-event')) {
         checkBoxes();
         checkPublishState();
-      }
-      else if ($('body').hasClass('upcoming-events')) {
-        formatDateInstances();
-        mergeTitles();
+      } 
+      else {
+        var classNames = ['events','upcoming-events','my-registered-events'];
+        // check for all classes in the array
+        if ($('body').is(classNames.map(function(className) 
+            { 
+              return '.'+className;
+            }).join(',')
+           )
+          ) {
+            formatDateInstances();
+            mergeTitles();
+        }
       }
   }
   init();
