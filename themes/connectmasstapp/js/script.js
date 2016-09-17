@@ -1096,6 +1096,7 @@
     function mergeTitles() {
       $('.event-instances li').each(function () {
 
+
            var $event_link = $(this).find('.event-title a');
 
 
@@ -1133,30 +1134,111 @@
            self.appendChild(month);
            // == done adding the month == 
 
-
-
-         
-       
-
-
         });
+    }
+    function showHide() {
+
+      var showText = 'show';
+      var hideText = 'hide';
+      $(".toggle").prev().append(' <span class="toggleContainer">[<a href="#" class="toggleLink">'+showText+'</a>]</span>');
+  
+      // hide all of the elements with a class of 'toggle'
+      $('.toggle').hide();
+  
+      // capture clicks on the toggle links
+      $('a.toggleLink').click(function() {
+  
+      // change the link text depending on whether the element is shown or hidden
+      if ($(this).text()==showText) {
+        $(this).text(hideText);
+      }
+      else {
+        $(this).text(showText);
+      }
+    
+      // toggle the display
+      $(this).parent().parent().next('.toggle').toggle('fast');
+    
+    // return false so any link destination is not followed
+      return false;
+    
+     });
+
+    }
+    function setToggle(selector) {    
+        $(selector).addClass('toggle');
+    }
+    function removeColons() {
+          // remove colon from label
+      $('.field-name-field-materials-groups .field-label').each(function () {
+          var txt = $(this).text();
+          var newText = txt.substring(0, txt.length-2);
+          $(this).text(newText);
+
+      });
+    }
+        // grab text from field items and append to title. then delete original items.
+    function formatPresenterInfo() {
+  
+      $('.node-event-materials-group').each(function () {
+          
+          var $title = $(this).children('header').find('h2.title');
+          // take away link from the title
+          $title.html($title.text()); 
+          var suffixes = ['name','position','location'];
+          var chars = [', ' ,', ', ' - ']
+
+          $(this).find('.node.node-resource-author').each(function () {
+              
+            for (var i = 0; i < suffixes.length; ++i) {
+            var $el = $(this).find('.field-name-field-author-'+suffixes[i]);
+
+            if ($el.text().length > 0)
+              $title.append('<span class="presenter-'+suffixes[i]+'">' + chars[i] + $el.text()+'</span>');
+         //   $el.remove();
+            }
+          });
+        
+      });
+    }
+    // add class names to resource links
+    function styleLinks() {
+       $('.field-name-field-material a').each(function () {
+         
+          var src = $(this).attr('href').split('.');
+          var idx = src.length-1;
+          var ext = src[idx].toLowerCase();
+          $(this).addClass(ext);
+      });
+    }
+    function formatMaterialsGroups() {
+       removeColons();
+       formatPresenterInfo();
+       styleLinks();
     }
     function init() {
       if ($('body').hasClass('node-type-event')) {
         checkBoxes();
         checkPublishState();
+        formatMaterialsGroups();
+      //  setToggle('.field-name-field-materials-groups > .field-items');
+      //  showHide();
       } 
       else {
-        var classNames = ['events','upcoming-events','my-registered-events'];
+        var classNames = ['events',
+                          'upcoming-events',
+                          'my-registered-events',
+                          'past-events',
+                          'my-archived-events'];
         // check for all classes in the array
-        if ($('body').is(classNames.map(function(className) 
-            { 
+        if ($('body').is(classNames.map(function(className)  { 
               return '.'+className;
             }).join(',')
            )
           ) {
             formatDateInstances();
             mergeTitles();
+
         }
       }
   }

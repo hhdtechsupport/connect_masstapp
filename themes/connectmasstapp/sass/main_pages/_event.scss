@@ -4,7 +4,8 @@
 
 
 
-body.node-type-event {
+body.node-type-event,
+body.node-type-event-materials-group {
   .page-title  {
     color: $masstapp-blue;
     text-align: center;
@@ -28,16 +29,21 @@ body.node-type-event {
     }
     .ds-2col-stacked > .group-right {
       width: 46.5%;
-      margin-top: -25px;
+      margin-top: 30px;
       .field {
         margin: 0 0 25px 0;
       }
     }
   }
+  .field-name-field-materials-groups,
+   .field-name-event-date-s-,
+  .field-name-materials { 
+    margin-top: 10px;
+    border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
+  }
   .field-name-event-date-s-,
   .field-name-materials {
-     padding: 0px 15px 15px 15px;
-    border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
+      padding: 0px 15px 15px 15px;
      h2 {
       margin-top: 0;
       padding: 2px 0px;
@@ -47,6 +53,37 @@ body.node-type-event {
       color: white;
     }
 
+  }
+  .field-name-field-event-details,
+  .field-name-field-materials-groups > .field-items {
+     a {
+      color: #07b24d;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .field-name-field-materials-groups > .field-items {
+    padding: 0 15px 0px 15px;
+   
+  }
+
+  .field-name-field-materials-groups .field-label {
+    background-color: #2986ed;
+    color: white;
+    text-align: center;
+    padding: 5px 0px;
+    margin: 0px auto;
+  }
+  article.node-material {
+    margin-bottom: 0px;
+  }
+  #pagecontent img.file-icon {
+    margin-right: 5px;
+  }
+  .presenter-location {
+    font-weight: normal;
   }
   .field-name-event-date-s- {
 
@@ -100,6 +137,67 @@ body.node-type-event {
         letter-spacing: 0.5px;
       }
     }
+  }
+  div.field-name-field-materials-groups {
+    
+    div.field-label {
+      font-size: 16px;
+    }
+    h2.title a{
+      text-decoration: none
+    }
+    h2.title {
+      font-size: 13px;
+    }
+    .node-resource-author header,
+    .field-name-field-author,
+    .node-material header h2 a,
+    div.field-name-field-source {
+      display: none;
+    }
+    .field-name-field-resource-note {
+      font-style: italic;
+    }
+   /* .presenter-name,
+    .presenter-position,
+    .presenter-location {
+      
+      
+      font-style: italic;
+
+    }*/
+    .presenter-position, 
+    .presenter-location {
+      font-weight: normal;
+    }
+   /* .field-name-field-presenter-name,
+    .field-name-field-presenter-position,
+    .field-name-field-presenter-location {
+       float: left;
+       font-size: 13px;
+       margin-top: 20px;
+       display: inline;
+
+
+    }
+    .node-event-materials-group header {
+      float: left; 
+    }
+    .field-name-field-presenter-position,
+    .field-name-field-presenter-location {
+      margin-left: 7px;
+  
+      position: relative;
+        &:before {
+        content:',';
+        float: left;
+        position: absolute;
+        left: -7px;
+       }
+    }
+    .field-name-field-materials {
+      clear: both;
+    }*/
   }
 }
 .my-archived-events {
