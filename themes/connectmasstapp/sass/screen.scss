@@ -2288,14 +2288,15 @@ h2.field-content,
 .item-list h3 a {
   text-decoration: none;
 }
-body.upcoming-events h1.page-title {
+body[class*='events'] h1.page-title {
    color: $masstapp-blue;
    font-weight: bold;
    text-align: center;
+   width: 560px;
 }
 // special event styling
 .content ul.event-instances {
-  width: 500px;
+  width: 560px;
 }
 .content ul.event-instances li {
   border-color: #CCC;
@@ -2305,6 +2306,9 @@ body.upcoming-events h1.page-title {
   display: block;
   
 
+}
+.content ul.event-instances li a {
+  width: 520px;
 }
 .event-links {
   float: left;
@@ -2342,8 +2346,12 @@ span.event-title {
   border-radius: 13px;
   background-color: #CCC;
   transition: 0.2s ease;
+  position: relative;
+  left: 40px;
 
-
+}
+a.long-title:after {
+  top: -10px;
 }
 
 .event-instances li div span.event-title a:hover:after {
@@ -2351,10 +2359,15 @@ span.event-title {
     transition: 0.2s ease;
 }
 
-.date-container .date-display-single {
+.date-container .date-display-single,
+li.year-label {
   font-size: 24px;
   display: block;
   font-weight: bold;
+}
+li.year-label {
+  text-align: center;
+  border-bottom-width: 0px;
 }
 span.bar {
   margin-left: 10px;

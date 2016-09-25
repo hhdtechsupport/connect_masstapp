@@ -178,6 +178,11 @@
 }
 
 /* main pages */
+/* line 7, ../sass/main_pages/_event.scss */
+body.node-type-event,
+body.node-type-event-materials-group {
+  /* hide second subtitle */
+}
 /* line 9, ../sass/main_pages/_event.scss */
 body.node-type-event .page-title,
 body.node-type-event-materials-group .page-title {
@@ -186,33 +191,68 @@ body.node-type-event-materials-group .page-title {
   font-weight: bold;
 }
 /* line 16, ../sass/main_pages/_event.scss */
+body.node-type-event #block-block-20 h2,
+body.node-type-event-materials-group #block-block-20 h2 {
+  color: #2986ed;
+  text-align: center;
+  width: 100%;
+  margin-top: 2px;
+}
+/* line 22, ../sass/main_pages/_event.scss */
+body.node-type-event h1 span,
+body.node-type-event-materials-group h1 span {
+  display: block;
+}
+/* line 25, ../sass/main_pages/_event.scss */
+body.node-type-event h1 span:nth-child(n+2),
+body.node-type-event-materials-group h1 span:nth-child(n+2) {
+  font-size: 21px;
+}
+/* line 30, ../sass/main_pages/_event.scss */
 body.node-type-event .main-content .region-help .pageblock,
 body.node-type-event-materials-group .main-content .region-help .pageblock {
   padding-left: 30px;
 }
-/* line 24, ../sass/main_pages/_event.scss */
+/* line 38, ../sass/main_pages/_event.scss */
+body.node-type-event .field-name-field-event-details,
+body.node-type-event-materials-group .field-name-field-event-details {
+  margin-top: 0px;
+}
+/* line 41, ../sass/main_pages/_event.scss */
+body.node-type-event .group-description p,
+body.node-type-event-materials-group .group-description p {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+/* line 45, ../sass/main_pages/_event.scss */
+body.node-type-event .group-footer p:first-child,
+body.node-type-event-materials-group .group-footer p:first-child {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+/* line 49, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent,
 body.node-type-event-materials-group #pagecontent {
   padding: 0 25px 0 30px;
 }
-/* line 26, ../sass/main_pages/_event.scss */
+/* line 51, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent .ds-2col-stacked > .group-left,
 body.node-type-event-materials-group #pagecontent .ds-2col-stacked > .group-left {
   width: 49.5%;
   margin-right: 4%;
 }
-/* line 30, ../sass/main_pages/_event.scss */
+/* line 55, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent .ds-2col-stacked > .group-right,
 body.node-type-event-materials-group #pagecontent .ds-2col-stacked > .group-right {
   width: 46.5%;
   margin-top: 30px;
 }
-/* line 33, ../sass/main_pages/_event.scss */
+/* line 58, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent .ds-2col-stacked > .group-right .field,
 body.node-type-event-materials-group #pagecontent .ds-2col-stacked > .group-right .field {
   margin: 0 0 25px 0;
 }
-/* line 38, ../sass/main_pages/_event.scss */
+/* line 63, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-materials-groups,
 body.node-type-event .field-name-event-date-s-,
 body.node-type-event .field-name-materials,
@@ -221,15 +261,43 @@ body.node-type-event-materials-group .field-name-event-date-s-,
 body.node-type-event-materials-group .field-name-materials {
   margin-top: 10px;
   border: 1px solid #2986ed;
+  margin-left: 5px;
 }
-/* line 44, ../sass/main_pages/_event.scss */
+/* line 70, ../sass/main_pages/_event.scss */
+body.node-type-event .field-name-field-learning-objectives-stem .field-label,
+body.node-type-event-materials-group .field-name-field-learning-objectives-stem .field-label {
+  margin-bottom: 10px;
+  /* hide the colon */
+  width: 142px;
+  /* lower case - 114px; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+/* line 78, ../sass/main_pages/_event.scss */
+body.node-type-event ul.learning-objectives li,
+body.node-type-event-materials-group ul.learning-objectives li {
+  list-style-type: disc;
+  margin-left: 14px;
+}
+/* line 82, ../sass/main_pages/_event.scss */
+body.node-type-event ul.learning-objectives li,
+body.node-type-event-materials-group ul.learning-objectives li {
+  padding-left: 5px;
+}
+/* line 86, ../sass/main_pages/_event.scss */
+body.node-type-event div.region-content div.group-header,
+body.node-type-event-materials-group div.region-content div.group-header {
+  display: none;
+}
+/* line 89, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s-,
 body.node-type-event .field-name-materials,
 body.node-type-event-materials-group .field-name-event-date-s-,
 body.node-type-event-materials-group .field-name-materials {
   padding: 0px 15px 15px 15px;
 }
-/* line 47, ../sass/main_pages/_event.scss */
+/* line 92, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- h2,
 body.node-type-event .field-name-materials h2,
 body.node-type-event-materials-group .field-name-event-date-s- h2,
@@ -241,7 +309,7 @@ body.node-type-event-materials-group .field-name-materials h2 {
   margin: 0px -15px 5px -15px;
   color: white;
 }
-/* line 59, ../sass/main_pages/_event.scss */
+/* line 104, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-event-details a,
 body.node-type-event .field-name-field-materials-groups > .field-items a,
 body.node-type-event-materials-group .field-name-field-event-details a,
@@ -249,19 +317,19 @@ body.node-type-event-materials-group .field-name-field-materials-groups > .field
   color: #07b24d;
   text-decoration: none;
 }
-/* line 62, ../sass/main_pages/_event.scss */
+/* line 107, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-event-details a:hover,
 body.node-type-event .field-name-field-materials-groups > .field-items a:hover,
 body.node-type-event-materials-group .field-name-field-event-details a:hover,
 body.node-type-event-materials-group .field-name-field-materials-groups > .field-items a:hover {
   text-decoration: underline;
 }
-/* line 67, ../sass/main_pages/_event.scss */
+/* line 112, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-materials-groups > .field-items,
 body.node-type-event-materials-group .field-name-field-materials-groups > .field-items {
   padding: 0 15px 0px 15px;
 }
-/* line 72, ../sass/main_pages/_event.scss */
+/* line 117, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-materials-groups .field-label,
 body.node-type-event-materials-group .field-name-field-materials-groups .field-label {
   background-color: #2986ed;
@@ -270,57 +338,57 @@ body.node-type-event-materials-group .field-name-field-materials-groups .field-l
   padding: 5px 0px;
   margin: 0px auto;
 }
-/* line 79, ../sass/main_pages/_event.scss */
+/* line 124, ../sass/main_pages/_event.scss */
 body.node-type-event article.node-material,
 body.node-type-event-materials-group article.node-material {
   margin-bottom: 0px;
 }
-/* line 82, ../sass/main_pages/_event.scss */
+/* line 127, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent img.file-icon,
 body.node-type-event-materials-group #pagecontent img.file-icon {
   margin-right: 5px;
 }
-/* line 85, ../sass/main_pages/_event.scss */
+/* line 130, ../sass/main_pages/_event.scss */
 body.node-type-event .presenter-location,
 body.node-type-event-materials-group .presenter-location {
   font-weight: normal;
 }
-/* line 95, ../sass/main_pages/_event.scss */
+/* line 140, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances ul,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances ul {
   margin: 0;
 }
-/* line 97, ../sass/main_pages/_event.scss */
+/* line 142, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances ul li.views-row,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances ul li.views-row {
   padding-top: 5px;
 }
-/* line 101, ../sass/main_pages/_event.scss */
+/* line 146, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances .views-row,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances .views-row {
   padding: 0 0 5px 0;
 }
-/* line 108, ../sass/main_pages/_event.scss */
+/* line 153, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials h2,
 body.node-type-event-materials-group .field-name-materials h2 {
   margin-top: 0;
 }
-/* line 112, ../sass/main_pages/_event.scss */
+/* line 157, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials ul,
 body.node-type-event-materials-group .field-name-materials .view-materials ul {
   margin: 0;
 }
-/* line 114, ../sass/main_pages/_event.scss */
+/* line 159, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials ul li.views-row,
 body.node-type-event-materials-group .field-name-materials .view-materials ul li.views-row {
   padding-top: 5px;
 }
-/* line 118, ../sass/main_pages/_event.scss */
+/* line 163, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials .views-row,
 body.node-type-event-materials-group .field-name-materials .view-materials .views-row {
   padding: 0 0 5px 0;
 }
-/* line 125, ../sass/main_pages/_event.scss */
+/* line 170, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .flag-registration a,
 body.node-type-event-materials-group .field-name-event-date-s- .flag-registration a {
   -moz-transition: all 0.2s ease-in-out 0s;
@@ -336,7 +404,7 @@ body.node-type-event-materials-group .field-name-event-date-s- .flag-registratio
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-/* line 141, ../sass/main_pages/_event.scss */
+/* line 186, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups,
 body.node-type-event-materials-group div.field-name-field-materials-groups {
    /* .presenter-name,
@@ -376,22 +444,22 @@ body.node-type-event-materials-group div.field-name-field-materials-groups {
       clear: both;
     }*/
 }
-/* line 143, ../sass/main_pages/_event.scss */
+/* line 188, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups div.field-label,
 body.node-type-event-materials-group div.field-name-field-materials-groups div.field-label {
   font-size: 16px;
 }
-/* line 146, ../sass/main_pages/_event.scss */
+/* line 191, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups h2.title a,
 body.node-type-event-materials-group div.field-name-field-materials-groups h2.title a {
   text-decoration: none;
 }
-/* line 149, ../sass/main_pages/_event.scss */
+/* line 194, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups h2.title,
 body.node-type-event-materials-group div.field-name-field-materials-groups h2.title {
   font-size: 13px;
 }
-/* line 152, ../sass/main_pages/_event.scss */
+/* line 197, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .node-resource-author header,
 body.node-type-event div.field-name-field-materials-groups .field-name-field-author,
 body.node-type-event div.field-name-field-materials-groups .node-material header h2 a,
@@ -402,12 +470,17 @@ body.node-type-event-materials-group div.field-name-field-materials-groups .node
 body.node-type-event-materials-group div.field-name-field-materials-groups div.field-name-field-source {
   display: none;
 }
-/* line 158, ../sass/main_pages/_event.scss */
+/* line 203, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .field-name-field-resource-note,
 body.node-type-event-materials-group div.field-name-field-materials-groups .field-name-field-resource-note {
   font-style: italic;
 }
-/* line 169, ../sass/main_pages/_event.scss */
+/* line 206, ../sass/main_pages/_event.scss */
+body.node-type-event div.field-name-field-materials-groups .node-material a,
+body.node-type-event-materials-group div.field-name-field-materials-groups .node-material a {
+  display: block;
+}
+/* line 217, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .presenter-position,
 body.node-type-event div.field-name-field-materials-groups .presenter-location,
 body.node-type-event-materials-group div.field-name-field-materials-groups .presenter-position,
@@ -415,16 +488,16 @@ body.node-type-event-materials-group div.field-name-field-materials-groups .pres
   font-weight: normal;
 }
 
-/* line 204, ../sass/main_pages/_event.scss */
+/* line 252, ../sass/main_pages/_event.scss */
 .my-archived-events .view-display-id-block_2 {
   margin-top: 20px;
 }
 
-/* line 209, ../sass/main_pages/_event.scss */
+/* line 257, ../sass/main_pages/_event.scss */
 body.events .region-content {
   padding: 0 30px;
 }
-/* line 212, ../sass/main_pages/_event.scss */
+/* line 260, ../sass/main_pages/_event.scss */
 body.events #sidebar {
   padding: 15px 15px 15px 15px;
 }

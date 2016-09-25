@@ -10,6 +10,20 @@ body.node-type-event-materials-group {
     color: $masstapp-blue;
     text-align: center;
     font-weight: bold;
+   
+  }
+  // subtitle
+  #block-block-20 h2 {
+    color: $masstapp-blue;
+    text-align: center;
+    width: 100%;
+    margin-top: 2px;
+  }
+  h1 span {
+    display: block;
+  }
+  h1 span:nth-child(n+2) {
+    font-size: 21px;
   }
   .main-content {
     .region-help {
@@ -20,6 +34,17 @@ body.node-type-event-materials-group {
         }
       }
     }
+  }
+  .field-name-field-event-details {
+    margin-top: 0px;
+  }
+  .group-description p{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+  .group-footer p:first-child {
+    margin-top: 0px;
+    padding-top: 0px;
   }
   #pagecontent {
     padding: 0 25px 0 30px;
@@ -40,6 +65,26 @@ body.node-type-event-materials-group {
   .field-name-materials { 
     margin-top: 10px;
     border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
+    margin-left: 5px;
+  }
+  .field-name-field-learning-objectives-stem .field-label {
+    margin-bottom: 10px;
+    /* hide the colon */
+    width: 142px; /* lower case - 114px; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  ul.learning-objectives li {
+    list-style-type: disc;
+    margin-left: 14px;
+  }
+  ul.learning-objectives li {
+    padding-left: 5px;
+  }
+  /* hide second subtitle */
+  div.region-content div.group-header {
+    display: none
   }
   .field-name-event-date-s-,
   .field-name-materials {
@@ -157,6 +202,9 @@ body.node-type-event-materials-group {
     }
     .field-name-field-resource-note {
       font-style: italic;
+    }
+    .node-material a {
+      display: block;
     }
    /* .presenter-name,
     .presenter-position,

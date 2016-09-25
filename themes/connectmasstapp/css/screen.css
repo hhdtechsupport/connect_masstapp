@@ -3301,18 +3301,19 @@ h2.field-content,
 }
 
 /* line 2291, ../sass/screen.scss */
-body.upcoming-events h1.page-title {
+body[class*='events'] h1.page-title {
   color: #2986ed;
   font-weight: bold;
   text-align: center;
+  width: 560px;
 }
 
-/* line 2297, ../sass/screen.scss */
+/* line 2298, ../sass/screen.scss */
 .content ul.event-instances {
-  width: 500px;
+  width: 560px;
 }
 
-/* line 2300, ../sass/screen.scss */
+/* line 2301, ../sass/screen.scss */
 .content ul.event-instances li {
   border-color: #CCC;
   border-style: solid;
@@ -3321,27 +3322,32 @@ body.upcoming-events h1.page-title {
   display: block;
 }
 
-/* line 2309, ../sass/screen.scss */
+/* line 2310, ../sass/screen.scss */
+.content ul.event-instances li a {
+  width: 520px;
+}
+
+/* line 2313, ../sass/screen.scss */
 .event-links {
   float: left;
 }
 
-/* line 2312, ../sass/screen.scss */
+/* line 2316, ../sass/screen.scss */
 .registered-events div.date-display-range {
   float: left;
 }
 
-/* line 2315, ../sass/screen.scss */
+/* line 2319, ../sass/screen.scss */
 .content ul.event-instances li:last-child {
   border-bottom-width: 1px;
 }
 
-/* line 2318, ../sass/screen.scss */
+/* line 2322, ../sass/screen.scss */
 .clear-both {
   clear: both;
 }
 
-/* line 2321, ../sass/screen.scss */
+/* line 2325, ../sass/screen.scss */
 .date-container {
   float: left;
   margin-top: 2px;
@@ -3350,12 +3356,12 @@ body.upcoming-events h1.page-title {
   margin-right: 16px;
 }
 
-/* line 2329, ../sass/screen.scss */
+/* line 2333, ../sass/screen.scss */
 span.event-title {
   cursor: pointer;
 }
 
-/* line 2332, ../sass/screen.scss */
+/* line 2336, ../sass/screen.scss */
 .event-instances li div span.event-title a:after {
   background: url("../images/arrowhead-right.png") 11px 6px no-repeat;
   content: '';
@@ -3369,22 +3375,36 @@ span.event-title {
   border-radius: 13px;
   background-color: #CCC;
   transition: 0.2s ease;
+  position: relative;
+  left: 40px;
 }
 
-/* line 2349, ../sass/screen.scss */
+/* line 2353, ../sass/screen.scss */
+a.long-title:after {
+  top: -10px;
+}
+
+/* line 2357, ../sass/screen.scss */
 .event-instances li div span.event-title a:hover:after {
   background-color: #999;
   transition: 0.2s ease;
 }
 
-/* line 2354, ../sass/screen.scss */
-.date-container .date-display-single {
+/* line 2362, ../sass/screen.scss */
+.date-container .date-display-single,
+li.year-label {
   font-size: 24px;
   display: block;
   font-weight: bold;
 }
 
-/* line 2359, ../sass/screen.scss */
+/* line 2368, ../sass/screen.scss */
+li.year-label {
+  text-align: center;
+  border-bottom-width: 0px;
+}
+
+/* line 2372, ../sass/screen.scss */
 span.bar {
   margin-left: 10px;
   margin-right: 10px;
@@ -3392,18 +3412,18 @@ span.bar {
   float: left;
 }
 
-/* line 2365, ../sass/screen.scss */
+/* line 2378, ../sass/screen.scss */
 .date-container .month {
   display: block;
   font-size: 14px;
 }
 
-/* line 2369, ../sass/screen.scss */
+/* line 2382, ../sass/screen.scss */
 .event-time span {
   font-size: 14px;
 }
 
-/* line 2372, ../sass/screen.scss */
+/* line 2385, ../sass/screen.scss */
 .event-title a {
   font-size: 18px;
   /*line-height: 17px;*/
@@ -3412,97 +3432,97 @@ span.bar {
   display: block;
 }
 
-/* line 2380, ../sass/screen.scss */
+/* line 2393, ../sass/screen.scss */
 .time-calendar .date-display-single a {
   float: left;
   border: 1px solid blue;
 }
 
-/* line 2384, ../sass/screen.scss */
+/* line 2397, ../sass/screen.scss */
 a.add-calendar {
   float: left;
 }
 
-/* line 2388, ../sass/screen.scss */
+/* line 2401, ../sass/screen.scss */
 .time-calendar span.flag-registration {
   float: left;
   margin-right: 5px;
 }
 
-/* line 2393, ../sass/screen.scss */
+/* line 2406, ../sass/screen.scss */
 .time-calendar a {
   font-size: 14px;
 }
 
-/* line 2397, ../sass/screen.scss */
+/* line 2410, ../sass/screen.scss */
 #block-views-events-pages-front-page-events .pageblock {
   position: relative;
 }
 
-/* line 2401, ../sass/screen.scss */
+/* line 2414, ../sass/screen.scss */
 span.welcome-message {
   float: right;
   margin: 0px 50px -40px 0px;
 }
 
-/* line 2406, ../sass/screen.scss */
+/* line 2419, ../sass/screen.scss */
 .view-display-id-front_page_events li {
   border-bottom: 1px solid #cccccc;
   padding: 12px 0 11px 15px !important;
 }
 
-/* line 2411, ../sass/screen.scss */
+/* line 2424, ../sass/screen.scss */
 .view-display-id-front_page_events .field-content a {
   color: #000000;
 }
 
-/* line 2415, ../sass/screen.scss */
+/* line 2428, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date {
   float: left;
   margin: 3px 2em 0 0;
   text-align: center;
 }
 
-/* line 2421, ../sass/screen.scss */
+/* line 2434, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date .day {
   display: block;
   font-size: 24px;
   font-weight: bold;
 }
 
-/* line 2427, ../sass/screen.scss */
+/* line 2440, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date .month {
   display: block;
   font-size: 14px;
   font-weight: normal;
 }
 
-/* line 2433, ../sass/screen.scss */
+/* line 2446, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .views-field-title .field-content {
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
 }
 
-/* line 2439, ../sass/screen.scss */
+/* line 2452, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .views-field-field-eventlocation .field-content {
   font-size: 13px;
   font-weight: normal;
   line-height: 20px;
 }
 
-/* line 2445, ../sass/screen.scss */
+/* line 2458, ../sass/screen.scss */
 .view-display-id-front_page_events .more-link,
 .view-display-id-front_page_events .more-link a {
   text-align: left;
 }
 
-/* line 2450, ../sass/screen.scss */
+/* line 2463, ../sass/screen.scss */
 .views-slideshow-pager-field-item a {
   text-decoration: none;
 }
 
-/* line 2454, ../sass/screen.scss */
+/* line 2467, ../sass/screen.scss */
 .view-display-id-front_page_events .more-link a {
   color: #09af4d;
   font-size: 14px;
@@ -3511,7 +3531,7 @@ span.welcome-message {
   text-transform: uppercase;
 }
 
-/* line 2462, ../sass/screen.scss */
+/* line 2475, ../sass/screen.scss */
 div.arrow {
   display: inline;
   float: right;
@@ -3519,7 +3539,7 @@ div.arrow {
   width: 26px;
 }
 
-/* line 2469, ../sass/screen.scss */
+/* line 2482, ../sass/screen.scss */
 .arrow a {
   background-image: url("/sites/masstapp.edc.org/files/btn-arrow-sprite.png");
   background-repeat: no-repeat;
@@ -3533,13 +3553,13 @@ div.arrow {
   width: 26px;
 }
 
-/* line 2483, ../sass/screen.scss */
+/* line 2496, ../sass/screen.scss */
 .arrow a:hover {
   background-position: 0 -26px;
 }
 
 /*** Front page SPF Flower ***/
-/* line 2489, ../sass/screen.scss */
+/* line 2502, ../sass/screen.scss */
 #block-views-events-pages-front-page-events h2,
 .spf-flower h2 {
   border-bottom: 1px solid #cccccc;
@@ -3550,75 +3570,75 @@ div.arrow {
   text-align: left;
 }
 
-/* line 2499, ../sass/screen.scss */
+/* line 2512, ../sass/screen.scss */
 .spf-flower {
   border-bottom: 1px solid #cccccc;
 }
 
-/* line 2503, ../sass/screen.scss */
+/* line 2516, ../sass/screen.scss */
 .spf-flower .content {
   text-align: center;
 }
 
-/* line 2506, ../sass/screen.scss */
+/* line 2519, ../sass/screen.scss */
 .facebook {
   float: right;
   border: none;
 }
 
 /* Calendar styles */
-/* line 2511, ../sass/screen.scss */
+/* line 2524, ../sass/screen.scss */
 div.view-events-calendar {
   margin-top: 10px;
 }
-/* line 2513, ../sass/screen.scss */
+/* line 2526, ../sass/screen.scss */
 div.view-events-calendar p {
   text-align: center;
 }
-/* line 2516, ../sass/screen.scss */
+/* line 2529, ../sass/screen.scss */
 div.view-events-calendar h3 a {
   text-decoration: none;
   font-size: 16px;
 }
-/* line 2520, ../sass/screen.scss */
+/* line 2533, ../sass/screen.scss */
 div.view-events-calendar div.date-nav ul.pager li {
   margin-top: 7px;
 }
-/* line 2523, ../sass/screen.scss */
+/* line 2536, ../sass/screen.scss */
 div.view-events-calendar div.ajax-progress-throbber {
   display: none;
 }
-/* line 2526, ../sass/screen.scss */
+/* line 2539, ../sass/screen.scss */
 div.view-events-calendar ul.pager li a {
   padding: 4px 10px;
 }
-/* line 2529, ../sass/screen.scss */
+/* line 2542, ../sass/screen.scss */
 div.view-events-calendar div.date-nav-wrapper {
   height: 30px;
 }
-/* line 2532, ../sass/screen.scss */
+/* line 2545, ../sass/screen.scss */
 div.view-events-calendar div.date-nav div.date-heading {
   background-color: #dfdfdf;
 }
-/* line 2536, ../sass/screen.scss */
+/* line 2549, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td {
   text-align: center;
   font-weight: bold;
   border-right: 1px solid #ccc;
 }
-/* line 2543, ../sass/screen.scss */
+/* line 2556, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td:not(.has-events) {
   padding-top: 4px;
 }
-/* line 2547, ../sass/screen.scss */
+/* line 2560, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view table {
   margin-bottom: 4px;
 }
-/* line 2550, ../sass/screen.scss */
+/* line 2563, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view table tbody {
   border: 1px solid #ccc;
 }
-/* line 2553, ../sass/screen.scss */
+/* line 2566, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td a {
   font-weight: bold;
   text-decoration: none;
@@ -3627,73 +3647,73 @@ div.view-events-calendar div.calendar-calendar .month-view td a {
   margin: 0px;
   padding: 2px 0px;
 }
-/* line 2561, ../sass/screen.scss */
+/* line 2574, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view th {
   padding: 2px 0px;
 }
-/* line 2564, ../sass/screen.scss */
+/* line 2577, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-no-events {
   background-color: #eee;
 }
-/* line 2567, ../sass/screen.scss */
+/* line 2580, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events a {
   color: white;
 }
-/* line 2570, ../sass/screen.scss */
+/* line 2583, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today {
   color: white;
 }
-/* line 2573, ../sass/screen.scss */
+/* line 2586, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events,
 div.view-events-calendar div.calendar-calendar .month-view td.today a {
   transition: 0.2s ease;
 }
-/* line 2576, ../sass/screen.scss */
+/* line 2589, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:hover,
 div.view-events-calendar div.calendar-calendar .month-view td.today a:hover {
   transition: 0.2s ease;
 }
-/* line 2580, ../sass/screen.scss */
+/* line 2593, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:not(.today) {
   background-color: #09af4d;
 }
-/* line 2582, ../sass/screen.scss */
+/* line 2595, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:not(.today):hover {
   background-color: #0be062;
 }
-/* line 2586, ../sass/screen.scss */
+/* line 2599, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today {
   background-color: #1053b4;
 }
-/* line 2588, ../sass/screen.scss */
+/* line 2601, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today:hover a {
   background-color: #1469e3;
 }
-/* line 2592, ../sass/screen.scss */
+/* line 2605, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.empty {
   background-color: white;
 }
 
-/* line 2602, ../sass/screen.scss */
+/* line 2615, ../sass/screen.scss */
 #block-block-20 h2 {
   width: 300px;
 }
 
-/* line 2607, ../sass/screen.scss */
+/* line 2620, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar ul.pager li {
   background-color: #2986ed;
 }
 
-/* line 2611, ../sass/screen.scss */
+/* line 2624, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar div.date-nav div.date-heading {
   background-color: #2986ed;
 }
-/* line 2614, ../sass/screen.scss */
+/* line 2627, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar div.date-nav div.date-heading h3 {
   color: white;
 }
 
-/* line 2621, ../sass/screen.scss */
+/* line 2634, ../sass/screen.scss */
 .calendar-calendar .day-view .full div.single-day div.calendar.dayview {
   margin: 0px 3px;
   border: 1px solid #2986ed;
@@ -3703,38 +3723,38 @@ div.ctn-left div.view-events-calendar div.date-nav div.date-heading h3 {
   background: -webkit-linear-gradient(legacy-direction(180deg), #87bbf5, #3c91ef);
   background: linear-gradient(180deg, #87bbf5, #3c91ef);
 }
-/* line 2627, ../sass/screen.scss */
+/* line 2640, ../sass/screen.scss */
 .calendar-calendar .day-view .full div.single-day div.calendar.dayview a {
   color: white;
 }
 
-/* line 2634, ../sass/screen.scss */
+/* line 2647, ../sass/screen.scss */
 .calendar-calendar .date-display-range {
   float: left;
 }
 
-/* line 2638, ../sass/screen.scss */
+/* line 2651, ../sass/screen.scss */
 div.view-events-calendar ul.pager {
   margin-top: -1px;
 }
 
-/* line 2641, ../sass/screen.scss */
+/* line 2654, ../sass/screen.scss */
 div.view-events-calendar ul.pager li a {
   padding: 2px 10px;
   background-color: #e5f0fd;
 }
 
-/* line 2646, ../sass/screen.scss */
+/* line 2659, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview {
   background: #87bbf5;
   background: -webkit-linear-gradient(legacy-direction(180deg), #87bbf5, #3c91ef);
   background: linear-gradient(180deg, #87bbf5, #3c91ef);
 }
-/* line 2648, ../sass/screen.scss */
+/* line 2661, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview a {
   color: white;
 }
-/* line 2652, ../sass/screen.scss */
+/* line 2665, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview .date-display-single {
   color: #CCC;
 }

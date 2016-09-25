@@ -1093,19 +1093,47 @@
            $('.workflow-button-publish').hide();
        });
     }
-    function mergeTitles() {
-      $('.event-instances li').each(function () {
+    function mergeTitle($obj) {
+           var $event_link = $obj.find('.event-title a');
 
 
-           var $event_link = $(this).find('.event-title a');
-
-
-           var $part_name = $(this).find('.event-part-name');
+           var $part_name = $obj.find('.event-part-name');
            if ($part_name.length > 0) {
 
                 $event_link.append(', ' + $part_name.text());
                 $part_name.remove();
            }
+
+           if ($event_link.text().length > 50) {
+              $event_link.addClass('long-title');
+           }
+
+    }
+   function addYear(sectionYear, cur_el) {
+        var year_el = document.createElement('li');
+        year_el.className = 'year-label';
+        year_el.textContent = sectionYear;
+            
+        var parent = cur_el.parentElement;
+        parent.insertBefore(year_el,cur_el);
+    }
+    function formatTitles() {
+      var prevYear = '';
+     // var numYears = 1;
+     
+      $('.event-instances li').each(function () {
+
+           var date_string = $(this).find('.date-display-single').attr('content');
+
+           var sectionYear = date_string.substring(0,4);
+
+          if (sectionYear != prevYear)  {
+            prevYear = sectionYear;
+            //  if (numYears > 1) 
+           addYear(sectionYear, $(this)[0]);
+            //  numYears++;
+           }
+           mergeTitle($(this));
              
 
           
@@ -1216,16 +1244,30 @@
        formatPresenterInfo();
        styleLinks();
     }
-    function init() {
-      if ($('body').hasClass('node-type-event')) {
-        checkBoxes();
-        checkPublishState();
-        formatMaterialsGroups();
-      //  setToggle('.field-name-field-materials-groups > .field-items');
-      //  showHide();
-      } 
-      else {
-        var classNames = ['events',
+    function checkTitleForSplit() {
+      var $title = $('h1.page-title');
+      var title_text = $title.text();
+      if (title_text.search(":") != -1) {
+        var arr = title_text.split(":");
+        $title.html('');
+        for (var i = 0; i < 2; ++i) {
+          /*var blurb = (i ==0) ? arr[i]+':' : arr[i];*/
+         var html = '<span>'+arr[i]+'</span>';
+
+         $title.html($title.html()+html);
+        }
+
+
+      }
+    }
+    function checkNumDates() {
+      var numDates = $('.field-name-event-date-s- .item-list .views-row').length;
+
+      if (numDates = 1) $('.field-name-event-date-s- h2').text('Event Date');
+
+    }
+    function checkForEvents() {
+       var classNames = ['events',
                           'upcoming-events',
                           'my-registered-events',
                           'past-events',
@@ -1237,9 +1279,23 @@
            )
           ) {
             formatDateInstances();
-            mergeTitles();
+            formatTitles();
+         
 
         }
+    }
+    function init() {
+      if ($('body').hasClass('node-type-event')) {
+        checkBoxes();
+        checkPublishState();
+        formatMaterialsGroups();
+        checkTitleForSplit();
+        checkNumDates();
+      //  setToggle('.field-name-field-materials-groups > .field-items');
+      //  showHide();
+      } 
+      else {
+        checkForEvents();
       }
   }
   init();
