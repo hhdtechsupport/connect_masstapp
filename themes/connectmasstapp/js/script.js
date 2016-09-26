@@ -1081,7 +1081,7 @@
     function checkBoxes() {
       
       if($('#block-views-materials-block .item-list ul li').text().trim() == '') {
-        $('.field-name-materials').hide();
+        $('.field-name-materials').remove();
       }
     }
     function checkPublishState() {
