@@ -1135,9 +1135,10 @@
            }
            mergeTitle($(this));
 
-           $(this).addClass('visible');
+
           
       });
+       $('.event-instances').addClass('visible');
     }
     function formatDateInstances() {
        $('.date-container').each(function () {
