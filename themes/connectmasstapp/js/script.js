@@ -1279,6 +1279,7 @@
 
     }
     function checkForEvents() {
+       var loaded = false;
        var classNames = ['events',
                           'upcoming-events',
                           'my-registered-events',
@@ -1291,12 +1292,27 @@
             }).join(',')
            )
           ) {
-            formatDateInstances();
-            formatTitles();
+         
+               formatDateInstances();
+               formatTitles();
+               loaded = true;
+
+            $('ul.pager li a').click(function () {
+              loaded = false;
+            })
+            $(document).ajaxComplete(function () {
+
+                 if (loaded == false) {
+                     formatDateInstances();
+                     formatTitles();
+                   }
+            });
+
          
 
         }
     }
+
     function init() {
       if ($('body').hasClass('node-type-event')) {
         checkBoxes();
