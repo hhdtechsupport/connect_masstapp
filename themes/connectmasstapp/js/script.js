@@ -1332,7 +1332,7 @@
         checkTitleForSplit();
         checkNumDates();
         countMaterialsBoxes();
-        checkContent();
+      //  checkContent();
       //  setToggle('.field-name-field-materials-groups > .field-items');
       //  showHide();
       } 
