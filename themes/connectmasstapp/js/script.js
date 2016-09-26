@@ -1312,6 +1312,16 @@
 
         }
     }
+    function checkContent() {
+   
+      if ($('.group-audience .field-name-field-audience').text() == '' &&
+        $('.group-description .field-name-field-description').text() == '')
+         {
+            $('.group-description').remove();
+            $('.group-audience').remove();
+            $('.field-name-event-date-s-').detach().appendTo('.group-left');
+         }
+    }
 
     function init() {
       if ($('body').hasClass('node-type-event')) {
@@ -1321,6 +1331,7 @@
         checkTitleForSplit();
         checkNumDates();
         countMaterialsBoxes();
+        checkContent();
       //  setToggle('.field-name-field-materials-groups > .field-items');
       //  showHide();
       } 
