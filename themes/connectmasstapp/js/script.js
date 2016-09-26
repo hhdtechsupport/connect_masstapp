@@ -1231,13 +1231,25 @@
     }
     // add class names to resource links
     function styleLinks() {
-       $('.field-name-field-material a').each(function () {
+       $('.field-name-field-material a,#block-views-materials-block a').each(function () {
          
           var src = $(this).attr('href').split('.');
           var idx = src.length-1;
           var ext = src[idx].toLowerCase();
-          $(this).addClass(ext);
+
+          if (ext.length < 5 && ext.length > 2)
+            $(this).addClass(ext);
+          else 
+            $(this).addClass('url');
+
+
       });
+    }
+    function countMaterialsBoxes() {
+      if ($('.field-name-field-materials-groups').length > 0 &&
+          $('.field-name-materials').length > 0) {
+        $('.field-name-field-materials-groups .field-label').text('Additional Materials');
+      }
     }
     function formatMaterialsGroups() {
        removeColons();
@@ -1271,7 +1283,8 @@
                           'upcoming-events',
                           'my-registered-events',
                           'past-events',
-                          'my-archived-events'];
+                          'my-archived-events',
+                          'past-webinars'];
         // check for all classes in the array
         if ($('body').is(classNames.map(function(className)  { 
               return '.'+className;
@@ -1291,6 +1304,7 @@
         formatMaterialsGroups();
         checkTitleForSplit();
         checkNumDates();
+        countMaterialsBoxes();
       //  setToggle('.field-name-field-materials-groups > .field-items');
       //  showHide();
       } 

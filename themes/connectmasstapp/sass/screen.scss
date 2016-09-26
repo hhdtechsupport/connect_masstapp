@@ -2288,7 +2288,8 @@ h2.field-content,
 .item-list h3 a {
   text-decoration: none;
 }
-body[class*='events'] h1.page-title {
+body[class*='events'] h1.page-title,
+body[class*='webinars'] h1.page-title {
    color: $masstapp-blue;
    font-weight: bold;
    text-align: center;
@@ -2298,14 +2299,16 @@ body[class*='events'] h1.page-title {
 .content ul.event-instances {
   width: 560px;
 }
+
 .content ul.event-instances li {
   border-color: #CCC;
   border-style: solid;
   border-width: 1px 0px 0px 0px;
   padding: 18px 0px 15px 0px;
   display: block;
-  
-
+}
+.content ul.event-instances li:first-child {
+  border-top: 0px;
 }
 .content ul.event-instances li a {
   width: 520px;
@@ -2348,9 +2351,10 @@ span.event-title {
   transition: 0.2s ease;
   position: relative;
   left: 40px;
+  top: -3px;
 
 }
-a.long-title:after {
+.event-instances li div span.event-title a.long-title:after {
   top: -10px;
 }
 
