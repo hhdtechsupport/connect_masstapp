@@ -1134,8 +1134,8 @@
             //  numYears++;
            }
            mergeTitle($(this));
-             
 
+           $(this).addClass('visible');
           
       });
     }

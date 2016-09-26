@@ -2357,7 +2357,13 @@ span.event-title {
 .event-instances li div span.event-title a.long-title:after {
   top: -10px;
 }
-
+ul.event-instances li {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+ul.event-instances li.visible {
+  opacity: 1
+}
 .event-instances li div span.event-title a:hover:after {
     background-color: #999;
     transition: 0.2s ease;
