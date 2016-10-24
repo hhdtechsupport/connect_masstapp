@@ -1283,6 +1283,7 @@
        var loaded = false;
        var classNames = ['events',
                           'upcoming-events',
+                          'upcoming-external-events',
                           'my-registered-events',
                           'past-events',
                           'my-archived-events',
