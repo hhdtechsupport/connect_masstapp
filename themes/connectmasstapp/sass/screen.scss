@@ -1596,6 +1596,37 @@ float: left;
   margin-left: 10px;
   margin-right: 10px;
 }
+// event buttons 
+div.event-links {
+  clear: both;
+  margin-left: 46px;
+  margin-top: 10px;
+}
+.content .field-content a.add-calendar,
+.content .field-content div.event-links a.flag.unflag-action {
+    -moz-transition: all 0.2s ease-in-out 0s;
+  border-radius: 5px;
+  cursor: pointer;
+  background: none repeat scroll 0 0 #09AF4D;
+  border: 0px solid #9D4D2C;
+  color: #fff;
+  padding: 4px;
+  text-shadow: 1px 1px 1px #300033;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+  display: block;
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+
+}
+.content .field-content div.event-links a.flag.unflag-action {
+  width: 60px;
+}
+// end event buttons 
 
 .tool-menu ul,
 .prevention-planning .rightblock .menu-block-1 ul {

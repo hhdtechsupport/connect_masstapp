@@ -2460,6 +2460,40 @@ legend span {
 }
 
 /* line 1600, ../sass/screen.scss */
+div.event-links {
+  clear: both;
+  margin-left: 46px;
+  margin-top: 10px;
+}
+
+/* line 1605, ../sass/screen.scss */
+.content .field-content a.add-calendar,
+.content .field-content div.event-links a.flag.unflag-action {
+  -moz-transition: all 0.2s ease-in-out 0s;
+  border-radius: 5px;
+  cursor: pointer;
+  background: none repeat scroll 0 0 #09AF4D;
+  border: 0px solid #9D4D2C;
+  color: #fff;
+  padding: 4px;
+  text-shadow: 1px 1px 1px #300033;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+  display: block;
+  width: 120px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* line 1626, ../sass/screen.scss */
+.content .field-content div.event-links a.flag.unflag-action {
+  width: 60px;
+}
+
+/* line 1631, ../sass/screen.scss */
 .tool-menu ul,
 .prevention-planning .rightblock .menu-block-1 ul {
   border: none;
@@ -2467,7 +2501,7 @@ legend span {
   padding: 0;
 }
 
-/* line 1606, ../sass/screen.scss */
+/* line 1637, ../sass/screen.scss */
 .tool-menu ul li,
 .prevention-planning .rightblock .menu-block-1 ul li {
   padding: 10px 0;
@@ -2477,36 +2511,36 @@ legend span {
   margin-left: 0;
 }
 
-/* line 1615, ../sass/screen.scss */
+/* line 1646, ../sass/screen.scss */
 .tool-menu ul li.first,
 .prevention-planning .rightblock .menu-block-1 ul li.first {
   border-top: 3px solid #fff;
   border-bottom: 3px solid #fff;
 }
 
-/* line 1621, ../sass/screen.scss */
+/* line 1652, ../sass/screen.scss */
 .tool-menu ul li a {
   color: #333333;
   padding-left: 1em;
 }
 
-/* line 1626, ../sass/screen.scss */
+/* line 1657, ../sass/screen.scss */
 .tool-menu ul li:hover {
   background-color: #fff;
 }
 
-/* line 1630, ../sass/screen.scss */
+/* line 1661, ../sass/screen.scss */
 .tool-menu ul li.active {
   background-color: #dae0e5;
 }
 
 /*step 1*/
-/* line 1635, ../sass/screen.scss */
+/* line 1666, ../sass/screen.scss */
 .tool-menu ul li.assessment {
   background-color: #bf392f;
 }
 
-/* line 1639, ../sass/screen.scss */
+/* line 1670, ../sass/screen.scss */
 .tool-menu ul li.assessment.active-trail {
   box-shadow: inset 0px 2px 16px 8px #8A1D16;
   -webkit-box-shadow: inset 0px 2px 16px 8px #8A1D16;
@@ -2514,7 +2548,7 @@ legend span {
   -o-box-shadow: inset 0px 2px 16px 8px #8A1D16;
 }
 
-/* line 1646, ../sass/screen.scss */
+/* line 1677, ../sass/screen.scss */
 .tool-menu ul li.evaluation a,
 .tool-menu ul li.implementation a,
 .tool-menu ul li.strategic-planning a,
@@ -2523,7 +2557,7 @@ legend span {
   color: #fff !important;
 }
 
-/* line 1654, ../sass/screen.scss */
+/* line 1685, ../sass/screen.scss */
 .tool-menu ul li.evaluation:hover,
 .tool-menu ul li.implementation:hover,
 .tool-menu ul li.strategic-planning:hover,
@@ -2535,12 +2569,12 @@ legend span {
 }
 
 /*step 2*/
-/* line 1664, ../sass/screen.scss */
+/* line 1695, ../sass/screen.scss */
 .tool-menu ul li.capacity-building {
   background-color: #7fa953;
 }
 
-/* line 1668, ../sass/screen.scss */
+/* line 1699, ../sass/screen.scss */
 .tool-menu ul li.capacity-building.active-trail {
   box-shadow: inset 0px 2px 16px 8px #516d33;
   -webkit-box-shadow: inset 0px 2px 16px 8px #516d33;
@@ -2549,12 +2583,12 @@ legend span {
 }
 
 /*step 3*/
-/* line 1676, ../sass/screen.scss */
+/* line 1707, ../sass/screen.scss */
 .tool-menu ul li.strategic-planning {
   background-color: #7b5b7e;
 }
 
-/* line 1680, ../sass/screen.scss */
+/* line 1711, ../sass/screen.scss */
 .tool-menu ul li.strategic-planning.active-trail {
   box-shadow: inset 0px 2px 16px 8px #473246;
   -webkit-box-shadow: inset 0px 2px 16px 8px #473246;
@@ -2563,12 +2597,12 @@ legend span {
 }
 
 /*step 4*/
-/* line 1688, ../sass/screen.scss */
+/* line 1719, ../sass/screen.scss */
 .tool-menu ul li.implementation {
   background-color: #5a83a6;
 }
 
-/* line 1692, ../sass/screen.scss */
+/* line 1723, ../sass/screen.scss */
 .tool-menu ul li.implementation.active-trail {
   box-shadow: inset 0px 2px 16px 8px #2e4d68;
   -webkit-box-shadow: inset 0px 2px 16px 8px #2e4d68;
@@ -2577,12 +2611,12 @@ legend span {
 }
 
 /*step 5*/
-/* line 1700, ../sass/screen.scss */
+/* line 1731, ../sass/screen.scss */
 .tool-menu ul li.evaluation {
   background-color: #dfa032;
 }
 
-/* line 1704, ../sass/screen.scss */
+/* line 1735, ../sass/screen.scss */
 .tool-menu ul li.evaluation.active-trail {
   box-shadow: inset 0px 2px 16px 8px #ac720d;
   -webkit-box-shadow: inset 0px 2px 16px 8px #ac720d;
@@ -2590,44 +2624,44 @@ legend span {
   -o-box-shadow: inset 0px 2px 16px 8px #ac720d;
 }
 
-/* line 1711, ../sass/screen.scss */
+/* line 1742, ../sass/screen.scss */
 .node-type-prevention-planning-tool .field-name-field-step-reference {
   float: left;
 }
 
-/* line 1715, ../sass/screen.scss */
+/* line 1746, ../sass/screen.scss */
 .node-type-prevention-planning-tool .field-name-field-step-reference a {
   color: #2784EB;
   text-decoration: none;
 }
 
-/* line 1720, ../sass/screen.scss */
+/* line 1751, ../sass/screen.scss */
 .node-type-prevention-planning-tool .field-name-field-step-reference, .node-type-prevention-planning-tool .field-name-field-task-reference {
   padding: .75em .5em .5em 0;
   border-bottom: 1px solid #DADADA;
   margin-bottom: 1em;
 }
 
-/* line 1726, ../sass/screen.scss */
+/* line 1757, ../sass/screen.scss */
 .node-type-prevention-planning-tool .field-name-field-task-reference .field-item:before {
   content: " / ";
 }
 
 /* Overview */
-/* line 1732, ../sass/screen.scss */
+/* line 1763, ../sass/screen.scss */
 .view-moapc-planning-tool .field-content a,
 .view-guidance-for-prevention-planning .field-content a {
   color: #ffffff;
 }
 
-/* line 1737, ../sass/screen.scss */
+/* line 1768, ../sass/screen.scss */
 .view-moapc-planning-tool .field-content a:hover,
 .view-guidance-for-prevention-planning .field-content a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
 
-/* line 1743, ../sass/screen.scss */
+/* line 1774, ../sass/screen.scss */
 .prevention-planning h1.page-title,
 .moapc-planning-tool h1.page-title {
   background-color: #dae0e5;
@@ -2635,7 +2669,7 @@ legend span {
   padding: 1em 0 .25em 1.5em;
 }
 
-/* line 1750, ../sass/screen.scss */
+/* line 1781, ../sass/screen.scss */
 .view-moapc-planning-tool .box-0,
 .view-moapc-planning-tool .box-1,
 .view-moapc-planning-tool .box-2,
@@ -2650,38 +2684,38 @@ legend span {
   margin-bottom: .5em;
 }
 
-/* line 1764, ../sass/screen.scss */
+/* line 1795, ../sass/screen.scss */
 .view-moapc-planning-tool .box-0,
 .view-guidance-for-prevention-planning .box-0 {
   background: url("../images/overview-arrows-red.png") no-repeat center bottom;
 }
 
-/* line 1768, ../sass/screen.scss */
+/* line 1799, ../sass/screen.scss */
 .view-moapc-planning-tool .box-1,
 .view-guidance-for-prevention-planning .box-1 {
   background: url("../images/overview-arrows-green.png") no-repeat center bottom;
 }
 
-/* line 1773, ../sass/screen.scss */
+/* line 1804, ../sass/screen.scss */
 .view-moapc-planning-tool .box-2,
 .view-guidance-for-prevention-planning .box-2 {
   background: url("../images/overview-arrows-purple.png") no-repeat center bottom;
 }
 
-/* line 1778, ../sass/screen.scss */
+/* line 1809, ../sass/screen.scss */
 .view-moapc-planning-tool .box-3,
 .view-guidance-for-prevention-planning .box-3 {
   background: url("../images/overview-arrows-blue.png") no-repeat center bottom;
 }
 
-/* line 1783, ../sass/screen.scss */
+/* line 1814, ../sass/screen.scss */
 .view-moapc-planning-tool .box-4,
 .view-guidance-for-prevention-planning .box-4 {
   background: url("../images/overview-arrows-yellow.png") no-repeat center bottom;
 }
 
 /*Step 1*/
-/* line 1789, ../sass/screen.scss */
+/* line 1820, ../sass/screen.scss */
 .view-moapc-planning-tool .box-0 .step,
 .view-moapc-planning-tool .box-0 .step table,
 .view-guidance-for-prevention-planning .box-0 .step,
@@ -2693,7 +2727,7 @@ legend span {
 }
 
 /* image replacement except for screenreaders */
-/* line 1800, ../sass/screen.scss */
+/* line 1831, ../sass/screen.scss */
 .view-moapc-planning-tool .number,
 .view-guidance-for-prevention-planning .number {
   background: url("../images/overview-steps-1.png") no-repeat scroll left top;
@@ -2711,7 +2745,7 @@ legend span {
 }
 
 /*Step 2*/
-/* line 1816, ../sass/screen.scss */
+/* line 1847, ../sass/screen.scss */
 .view-moapc-planning-tool .box-1 .step,
 .view-moapc-planning-tool .box-1 .step table,
 .view-guidance-for-prevention-planning .box-1 .step,
@@ -2723,14 +2757,14 @@ legend span {
 }
 
 /* image replacement except for screenreaders */
-/* line 1827, ../sass/screen.scss */
+/* line 1858, ../sass/screen.scss */
 .view-moapc-planning-tool .box-1 .number,
 .view-guidance-for-prevention-planning .box-1 .number {
   background: transparent url("../images/overview-steps-2.png") no-repeat scroll left top;
 }
 
 /* Step 3 */
-/* line 1833, ../sass/screen.scss */
+/* line 1864, ../sass/screen.scss */
 .view-moapc-planning-tool .box-2.step,
 .view-moapc-planning-tool .box-2 .step table,
 .view-guidance-for-prevention-planning .box-2 .step,
@@ -2742,14 +2776,14 @@ legend span {
 }
 
 /* image replacement except for screenreaders */
-/* line 1844, ../sass/screen.scss */
+/* line 1875, ../sass/screen.scss */
 .view-moapc-planning-tool .box-2 .number,
 .view-guidance-for-prevention-planning .box-2 .number {
   background: transparent url("../images/overview-steps-3.png") no-repeat scroll left top;
 }
 
 /* Step 4 */
-/* line 1850, ../sass/screen.scss */
+/* line 1881, ../sass/screen.scss */
 .view-moapc-planning-tool .box-3.step,
 .view-moapc-planning-tool .box-3 .step table,
 .view-guidance-for-prevention-planning .box-3 .step,
@@ -2761,14 +2795,14 @@ legend span {
 }
 
 /* image replacement except for screenreaders */
-/* line 1861, ../sass/screen.scss */
+/* line 1892, ../sass/screen.scss */
 .view-moapc-planning-tool .box-3 .number,
 .view-guidance-for-prevention-planning .box-3 .number {
   background: transparent url("../images/overview-steps-4.png") no-repeat scroll left top;
 }
 
 /* Step 5*/
-/* line 1867, ../sass/screen.scss */
+/* line 1898, ../sass/screen.scss */
 .view-moapc-planning-tool .box-4.step,
 .view-moapc-planning-tool .box-4 .step table,
 .view-guidance-for-prevention-planning .box-4 .step,
@@ -2780,40 +2814,40 @@ legend span {
 }
 
 /* image replacement except for screenreaders */
-/* line 1878, ../sass/screen.scss */
+/* line 1909, ../sass/screen.scss */
 .view-moapc-planning-tool .box-4 .number,
 .view-guidance-for-prevention-planning .box-4 .number {
   background: transparent url("../images/overview-steps-5.png") no-repeat scroll left top;
 }
 
-/* line 1883, ../sass/screen.scss */
+/* line 1914, ../sass/screen.scss */
 .view-moapc-planning-tool .step table,
 .view-guidance-for-prevention-planning .step table {
   width: 100%;
 }
 
-/* line 1888, ../sass/screen.scss */
+/* line 1919, ../sass/screen.scss */
 .view-moapc-planning-tool .step h3,
 .view-guidance-for-prevention-planning .step h3 {
   border-bottom: 3px solid #ffffff;
   padding-bottom: 5px;
 }
 
-/* line 1894, ../sass/screen.scss */
+/* line 1925, ../sass/screen.scss */
 .view-moapc-planning-tool .step h3 a,
 .view-guidance-for-prevention-planning .step h3 a {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* line 1900, ../sass/screen.scss */
+/* line 1931, ../sass/screen.scss */
 .view-moapc-planning-tool .field-content,
 .view-guidance-for-prevention-planning .field-content {
   color: #ffffff;
   font-weight: normal;
 }
 
-/* line 1906, ../sass/screen.scss */
+/* line 1937, ../sass/screen.scss */
 .view-moapc-planning-tool table,
 .view-moapc-planning-tool tr,
 .view-moapc-planning-tool tr:nth-child(2n),
@@ -2827,7 +2861,7 @@ legend span {
 }
 
 /*Accordions*/
-/* line 1919, ../sass/screen.scss */
+/* line 1950, ../sass/screen.scss */
 .view-tasks-accordions .field-content {
   font-weight: normal;
   color: #333333;
@@ -2836,19 +2870,19 @@ legend span {
   line-height: 18px;
 }
 
-/* line 1927, ../sass/screen.scss */
+/* line 1958, ../sass/screen.scss */
 .node-type-prevention-planning-step h2 {
   text-transform: uppercase;
   letter-spacing: normal;
 }
 
-/* line 1932, ../sass/screen.scss */
+/* line 1963, ../sass/screen.scss */
 .view-tasks-accordions .ui-icon {
   height: 30px;
   width: 30px;
 }
 
-/* line 1937, ../sass/screen.scss */
+/* line 1968, ../sass/screen.scss */
 .view-tasks-accordions .ui-accordion .ui-accordion-header .ui-icon {
   left: 0.5em;
   margin-top: -15px;
@@ -2856,18 +2890,18 @@ legend span {
   top: 50%;
 }
 
-/* line 1944, ../sass/screen.scss */
+/* line 1975, ../sass/screen.scss */
 .view-tasks-accordions .ui-accordion .ui-accordion-header a {
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-/* line 1949, ../sass/screen.scss */
+/* line 1980, ../sass/screen.scss */
 .view-tasks-accordions .ui-accordion-icons .ui-accordion-header a {
   padding-left: 3.5em;
 }
 
-/* line 1953, ../sass/screen.scss */
+/* line 1984, ../sass/screen.scss */
 .moapc-planning-tool .ui-state-default a .field-content,
 .moapc-planning-tool .ui-widget-content .ui-state-default .field-content a .field-content,
 .moapc-planning-tool .ui-widget-header .ui-state-default .field-content a .field-content,
@@ -2880,18 +2914,18 @@ legend span {
   font-weight: normal;
 }
 
-/* line 1965, ../sass/screen.scss */
+/* line 1996, ../sass/screen.scss */
 .view-tasks-accordions .ui-accordion-content {
   border: none;
 }
 
 /*Step 1 Assessment */
-/* line 1972, ../sass/screen.scss */
+/* line 2003, ../sass/screen.scss */
 .step-1-assessment .pagecontent h2 {
   color: #bf392f;
 }
 
-/* line 1975, ../sass/screen.scss */
+/* line 2006, ../sass/screen.scss */
 .step-1-assessment .ui-state-default,
 .step-1-assessment .ui-widget-content .ui-state-default,
 .step-1-assessment .ui-widget-header .ui-state-default,
@@ -2900,37 +2934,37 @@ legend span {
   background-color: #bf392f;
 }
 
-/* line 1982, ../sass/screen.scss */
+/* line 2013, ../sass/screen.scss */
 .step-1-assessment .ui-state-default .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -120px;
 }
 
-/* line 1986, ../sass/screen.scss */
+/* line 2017, ../sass/screen.scss */
 .step-1-assessment .ui-state-default:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -80px;
 }
 
-/* line 1990, ../sass/screen.scss */
+/* line 2021, ../sass/screen.scss */
 .step-1-assessment .ui-state-active .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -80px;
 }
 
-/* line 1994, ../sass/screen.scss */
+/* line 2025, ../sass/screen.scss */
 .step-1-assessment .ui-state-active:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -120px;
 }
 
 /* Step 2 Capacity Building*/
-/* line 2000, ../sass/screen.scss */
+/* line 2031, ../sass/screen.scss */
 .step-2-capacity-building .pagecontent h2 {
   color: #7fa953;
 }
 
-/* line 2003, ../sass/screen.scss */
+/* line 2034, ../sass/screen.scss */
 .step-2-capacity-building .ui-state-default,
 .step-2-capacity-building .ui-widget-content .ui-state-default,
 .step-2-capacity-building .ui-widget-header .ui-state-default,
@@ -2939,37 +2973,37 @@ legend span {
   background-color: #7fa953;
 }
 
-/* line 2010, ../sass/screen.scss */
+/* line 2041, ../sass/screen.scss */
 .step-2-capacity-building .ui-state-default .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -200px;
 }
 
-/* line 2014, ../sass/screen.scss */
+/* line 2045, ../sass/screen.scss */
 .step-2-capacity-building .ui-state-default:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -160px;
 }
 
-/* line 2018, ../sass/screen.scss */
+/* line 2049, ../sass/screen.scss */
 .step-2-capacity-building .ui-state-active .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -160px;
 }
 
-/* line 2022, ../sass/screen.scss */
+/* line 2053, ../sass/screen.scss */
 .step-2-capacity-building .ui-state-active:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -200px;
 }
 
 /* Step 3 Strategic Planning*/
-/* line 2028, ../sass/screen.scss */
+/* line 2059, ../sass/screen.scss */
 .step-3-strategic-planning .pagecontent h2 {
   color: #7b5b7e;
 }
 
-/* line 2031, ../sass/screen.scss */
+/* line 2062, ../sass/screen.scss */
 .step-3-strategic-planning .ui-state-default,
 .step-3-strategic-planning .ui-widget-content .ui-state-default,
 .step-3-strategic-planning .ui-widget-header .ui-state-default,
@@ -2978,37 +3012,37 @@ legend span {
   background-color: #7b5b7e;
 }
 
-/* line 2038, ../sass/screen.scss */
+/* line 2069, ../sass/screen.scss */
 .step-3-strategic-planning .ui-state-default .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -280px;
 }
 
-/* line 2042, ../sass/screen.scss */
+/* line 2073, ../sass/screen.scss */
 .step-3-strategic-planning .ui-state-default:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -240px;
 }
 
-/* line 2046, ../sass/screen.scss */
+/* line 2077, ../sass/screen.scss */
 .step-3-strategic-planning .ui-state-active .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -240px;
 }
 
-/* line 2050, ../sass/screen.scss */
+/* line 2081, ../sass/screen.scss */
 .step-3-strategic-planning .ui-state-active:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -280px;
 }
 
 /* Step 4 Implementation */
-/* line 2056, ../sass/screen.scss */
+/* line 2087, ../sass/screen.scss */
 .step-4-implementation .pagecontent h2 {
   color: #5a83a6;
 }
 
-/* line 2059, ../sass/screen.scss */
+/* line 2090, ../sass/screen.scss */
 .step-4-implementation .ui-state-default,
 .step-4-implementation .ui-widget-content .ui-state-default,
 .step-4-implementation .ui-widget-header .ui-state-default,
@@ -3017,37 +3051,37 @@ legend span {
   background-color: #5a83a6;
 }
 
-/* line 2066, ../sass/screen.scss */
+/* line 2097, ../sass/screen.scss */
 .step-4-implementation .ui-state-default .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -40px;
 }
 
-/* line 2070, ../sass/screen.scss */
+/* line 2101, ../sass/screen.scss */
 .step-4-implementation .ui-state-default:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px 0px;
 }
 
-/* line 2074, ../sass/screen.scss */
+/* line 2105, ../sass/screen.scss */
 .step-4-implementation .ui-state-active .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px 0px;
 }
 
-/* line 2078, ../sass/screen.scss */
+/* line 2109, ../sass/screen.scss */
 .step-4-implementation .ui-state-active:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -40px;
 }
 
 /* Step 5 Evaluation */
-/* line 2084, ../sass/screen.scss */
+/* line 2115, ../sass/screen.scss */
 .step-5-evaluation .pagecontent h2 {
   color: #dfa032;
 }
 
-/* line 2087, ../sass/screen.scss */
+/* line 2118, ../sass/screen.scss */
 .step-5-evaluation .ui-state-default,
 .step-5-evaluation .ui-widget-content .ui-state-default,
 .step-5-evaluation .ui-widget-header .ui-state-default,
@@ -3056,59 +3090,59 @@ legend span {
   background-color: #dfa032;
 }
 
-/* line 2094, ../sass/screen.scss */
+/* line 2125, ../sass/screen.scss */
 .step-5-evaluation .ui-state-default .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -360px;
 }
 
-/* line 2098, ../sass/screen.scss */
+/* line 2129, ../sass/screen.scss */
 .step-5-evaluation .ui-state-default:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -320px;
 }
 
-/* line 2102, ../sass/screen.scss */
+/* line 2133, ../sass/screen.scss */
 .step-5-evaluation .ui-state-active .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -320px;
 }
 
-/* line 2106, ../sass/screen.scss */
+/* line 2137, ../sass/screen.scss */
 .step-5-evaluation .ui-state-active:hover .ui-icon {
   background-image: url("../images/plus-minus-sprites.png");
   background-position: 0px -360px;
 }
 
-/* line 2111, ../sass/screen.scss */
+/* line 2142, ../sass/screen.scss */
 .view-prevention-planning-tools .item-list ul li {
   border-bottom: 1px solid #dcdcdc;
 }
 
 /*** Views Slideshow ***/
-/* line 2116, ../sass/screen.scss */
+/* line 2147, ../sass/screen.scss */
 .view-front-page-slideshow .views-row {
   clear: both;
   overflow: hidden;
 }
 
-/* line 2121, ../sass/screen.scss */
+/* line 2152, ../sass/screen.scss */
 .views-slideshow-cycle-main-frame {
   height: 290px !important;
 }
 
-/* line 2125, ../sass/screen.scss */
+/* line 2156, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-cycle-main-frame-row-item .views-field-field-body {
   line-height: 24px;
   margin-left: 20px;
 }
 
-/* line 2130, ../sass/screen.scss */
+/* line 2161, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-cycle-main-frame-row-item .views-field-title {
   margin: 1em 0 1em 20px;
 }
 
-/* line 2134, ../sass/screen.scss */
+/* line 2165, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-cycle-main-frame-row-item .views-field-title a {
   color: #ffffff;
   font-size: 28px;
@@ -3116,14 +3150,14 @@ legend span {
   line-height: 32px;
 }
 
-/* line 2141, ../sass/screen.scss */
+/* line 2172, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-cycle-main-frame-row-item .views-field-field-body .field-content {
   color: #ffffff;
   font-size: 16px;
   font-weight: normal;
 }
 
-/* line 2147, ../sass/screen.scss */
+/* line 2178, ../sass/screen.scss */
 .view-front-page-slideshow .view-content {
   background: #105eb4;
   /* for non-css3 browsers */
@@ -3137,7 +3171,7 @@ legend span {
   /* don't overlay nav bar shadow */
 }
 
-/* line 2155, ../sass/screen.scss */
+/* line 2186, ../sass/screen.scss */
 .view-front-page-slideshow .views-field-field-image {
   float: right;
   margin-bottom: -5px;
@@ -3148,7 +3182,7 @@ legend span {
   z-index: 0 !important;
 }
 
-/* line 2163, ../sass/screen.scss */
+/* line 2194, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-controls-bottom {
   background: #09af4d;
   /* for non-css3 browsers */
@@ -3164,7 +3198,7 @@ legend span {
   line-height: 16px;
 }
 
-/* line 2175, ../sass/screen.scss */
+/* line 2206, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-pager-field-item {
   background: #09af4d;
   /* for non-css3 browsers */
@@ -3181,13 +3215,13 @@ legend span {
   position: relative;
 }
 
-/* line 2187, ../sass/screen.scss */
+/* line 2218, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-controls-bottom a {
   height: 2em;
   padding: 6px 0 12px 0;
 }
 
-/* line 2192, ../sass/screen.scss */
+/* line 2223, ../sass/screen.scss */
 #view-front-page-slideshow .views-slideshow-controls-bottom .active a {
   background: #02c763 !important;
   /* for non-css3 browsers */
@@ -3199,7 +3233,7 @@ legend span {
   /* for firefox 3.6+ */
 }
 
-/* line 2199, ../sass/screen.scss */
+/* line 2230, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-controls-bottom .active a {
   background-image: url("/sites/masstapp.edc.org/files/cell-arrow.png");
   background-repeat: no-repeat;
@@ -3211,12 +3245,12 @@ legend span {
   z-index: 999 !important;
 }
 
-/* line 2210, ../sass/screen.scss */
+/* line 2241, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-controls-bottom .views-slideshow-pager-fields {
   margin: 0 3em;
 }
 
-/* line 2214, ../sass/screen.scss */
+/* line 2245, ../sass/screen.scss */
 .view-front-page-slideshow .views-slideshow-controls-bottom .views-slideshow-pager-field-item a {
   color: #ffffff;
   display: inline;
@@ -3226,7 +3260,7 @@ legend span {
   width: 159px;
 }
 
-/* line 2223, ../sass/screen.scss */
+/* line 2254, ../sass/screen.scss */
 a.learn-more,
 .learn-more a {
   color: #ffffff !important;
@@ -3236,7 +3270,7 @@ a.learn-more,
   text-transform: uppercase;
 }
 
-/* line 2232, ../sass/screen.scss */
+/* line 2263, ../sass/screen.scss */
 .block.request-services a {
   color: #09af4d;
   font-size: 14px;
@@ -3247,28 +3281,28 @@ a.learn-more,
 }
 
 /*** Video Resources ***/
-/* line 2245, ../sass/screen.scss */
+/* line 2276, ../sass/screen.scss */
 .view-video-resources table {
   width: 100%;
 }
 
-/* line 2249, ../sass/screen.scss */
+/* line 2280, ../sass/screen.scss */
 .view-video-resources td {
   vertical-align: top;
   width: 50%;
 }
 
-/* line 2254, ../sass/screen.scss */
+/* line 2285, ../sass/screen.scss */
 .view-video-resources td.col-1 {
   padding-right: 6px;
 }
 
-/* line 2258, ../sass/screen.scss */
+/* line 2289, ../sass/screen.scss */
 .view-video-resources td.col-2 {
   padding-left: 6px;
 }
 
-/* line 2262, ../sass/screen.scss */
+/* line 2293, ../sass/screen.scss */
 h2.field-content,
 .view-video-resources .views-field-title {
   font-size: 125% !important;
@@ -3276,7 +3310,7 @@ h2.field-content,
   min-height: 2em;
 }
 
-/* line 2272, ../sass/screen.scss */
+/* line 2303, ../sass/screen.scss */
 .node-video .field-name-field-video {
   float: left;
   margin-bottom: .5em;
@@ -3284,23 +3318,23 @@ h2.field-content,
   width: 50%;
 }
 
-/* line 2279, ../sass/screen.scss */
+/* line 2310, ../sass/screen.scss */
 .node-video .field-name-body {
   font-size: 115%;
 }
 
 /*** Front Page Upcoming Events ***/
-/* line 2284, ../sass/screen.scss */
+/* line 2315, ../sass/screen.scss */
 .view-display-id-front_page_events {
   text-align: left;
 }
 
-/* line 2288, ../sass/screen.scss */
+/* line 2319, ../sass/screen.scss */
 .item-list h3 a {
   text-decoration: none;
 }
 
-/* line 2291, ../sass/screen.scss */
+/* line 2322, ../sass/screen.scss */
 body[class*='events'] h1.page-title,
 body[class*='webinars'] h1.page-title {
   color: #2986ed;
@@ -3309,12 +3343,12 @@ body[class*='webinars'] h1.page-title {
   width: 560px;
 }
 
-/* line 2299, ../sass/screen.scss */
+/* line 2330, ../sass/screen.scss */
 .content ul.event-instances {
   width: 560px;
 }
 
-/* line 2303, ../sass/screen.scss */
+/* line 2334, ../sass/screen.scss */
 .content ul.event-instances li {
   border-color: #CCC;
   border-style: solid;
@@ -3323,37 +3357,37 @@ body[class*='webinars'] h1.page-title {
   display: block;
 }
 
-/* line 2310, ../sass/screen.scss */
+/* line 2341, ../sass/screen.scss */
 .content ul.event-instances li:first-child {
   border-top: 0px;
 }
 
-/* line 2313, ../sass/screen.scss */
+/* line 2344, ../sass/screen.scss */
 .content ul.event-instances li a {
   width: 520px;
 }
 
-/* line 2316, ../sass/screen.scss */
+/* line 2347, ../sass/screen.scss */
 .event-links {
   float: left;
 }
 
-/* line 2319, ../sass/screen.scss */
+/* line 2350, ../sass/screen.scss */
 .registered-events div.date-display-range {
   float: left;
 }
 
-/* line 2322, ../sass/screen.scss */
+/* line 2353, ../sass/screen.scss */
 .content ul.event-instances li:last-child {
   border-bottom-width: 1px;
 }
 
-/* line 2325, ../sass/screen.scss */
+/* line 2356, ../sass/screen.scss */
 .clear-both {
   clear: both;
 }
 
-/* line 2328, ../sass/screen.scss */
+/* line 2359, ../sass/screen.scss */
 .date-container {
   float: left;
   margin-top: 2px;
@@ -3362,12 +3396,12 @@ body[class*='webinars'] h1.page-title {
   margin-right: 16px;
 }
 
-/* line 2336, ../sass/screen.scss */
+/* line 2367, ../sass/screen.scss */
 span.event-title {
   cursor: pointer;
 }
 
-/* line 2339, ../sass/screen.scss */
+/* line 2370, ../sass/screen.scss */
 .event-instances li div span.event-title a:after {
   background: url("../images/arrowhead-right.png") 11px 6px no-repeat;
   content: '';
@@ -3386,29 +3420,29 @@ span.event-title {
   top: -3px;
 }
 
-/* line 2357, ../sass/screen.scss */
+/* line 2388, ../sass/screen.scss */
 .event-instances li div span.event-title a.long-title:after {
   top: -10px;
 }
 
-/* line 2360, ../sass/screen.scss */
+/* line 2391, ../sass/screen.scss */
 ul.event-instances li {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-/* line 2364, ../sass/screen.scss */
+/* line 2395, ../sass/screen.scss */
 ul.event-instances.visible li {
   opacity: 1;
 }
 
-/* line 2367, ../sass/screen.scss */
+/* line 2398, ../sass/screen.scss */
 .event-instances li div span.event-title a:hover:after {
   background-color: #999;
   transition: 0.2s ease;
 }
 
-/* line 2372, ../sass/screen.scss */
+/* line 2403, ../sass/screen.scss */
 .date-container .date-display-single,
 li.year-label {
   font-size: 24px;
@@ -3416,13 +3450,13 @@ li.year-label {
   font-weight: bold;
 }
 
-/* line 2378, ../sass/screen.scss */
+/* line 2409, ../sass/screen.scss */
 li.year-label {
   text-align: center;
   border-bottom-width: 0px;
 }
 
-/* line 2382, ../sass/screen.scss */
+/* line 2413, ../sass/screen.scss */
 span.bar {
   margin-left: 10px;
   margin-right: 10px;
@@ -3430,18 +3464,18 @@ span.bar {
   float: left;
 }
 
-/* line 2388, ../sass/screen.scss */
+/* line 2419, ../sass/screen.scss */
 .date-container .month {
   display: block;
   font-size: 14px;
 }
 
-/* line 2392, ../sass/screen.scss */
+/* line 2423, ../sass/screen.scss */
 .event-time span {
   font-size: 14px;
 }
 
-/* line 2395, ../sass/screen.scss */
+/* line 2426, ../sass/screen.scss */
 .event-title a {
   font-size: 18px;
   /*line-height: 17px;*/
@@ -3450,97 +3484,97 @@ span.bar {
   display: block;
 }
 
-/* line 2403, ../sass/screen.scss */
+/* line 2434, ../sass/screen.scss */
 .time-calendar .date-display-single a {
   float: left;
   border: 1px solid blue;
 }
 
-/* line 2407, ../sass/screen.scss */
+/* line 2438, ../sass/screen.scss */
 a.add-calendar {
   float: left;
 }
 
-/* line 2411, ../sass/screen.scss */
+/* line 2442, ../sass/screen.scss */
 .time-calendar span.flag-registration {
   float: left;
   margin-right: 5px;
 }
 
-/* line 2416, ../sass/screen.scss */
+/* line 2447, ../sass/screen.scss */
 .time-calendar a {
   font-size: 14px;
 }
 
-/* line 2420, ../sass/screen.scss */
+/* line 2451, ../sass/screen.scss */
 #block-views-events-pages-front-page-events .pageblock {
   position: relative;
 }
 
-/* line 2424, ../sass/screen.scss */
+/* line 2455, ../sass/screen.scss */
 span.welcome-message {
   float: right;
   margin: 0px 50px -40px 0px;
 }
 
-/* line 2429, ../sass/screen.scss */
+/* line 2460, ../sass/screen.scss */
 .view-display-id-front_page_events li {
   border-bottom: 1px solid #cccccc;
   padding: 12px 0 11px 15px !important;
 }
 
-/* line 2434, ../sass/screen.scss */
+/* line 2465, ../sass/screen.scss */
 .view-display-id-front_page_events .field-content a {
   color: #000000;
 }
 
-/* line 2438, ../sass/screen.scss */
+/* line 2469, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date {
   float: left;
   margin: 3px 2em 0 0;
   text-align: center;
 }
 
-/* line 2444, ../sass/screen.scss */
+/* line 2475, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date .day {
   display: block;
   font-size: 24px;
   font-weight: bold;
 }
 
-/* line 2450, ../sass/screen.scss */
+/* line 2481, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .event-date .month {
   display: block;
   font-size: 14px;
   font-weight: normal;
 }
 
-/* line 2456, ../sass/screen.scss */
+/* line 2487, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .views-field-title .field-content {
   font-size: 16px;
   font-weight: bold;
   line-height: 20px;
 }
 
-/* line 2462, ../sass/screen.scss */
+/* line 2493, ../sass/screen.scss */
 .view-display-id-front_page_events .views-row .views-field-field-eventlocation .field-content {
   font-size: 13px;
   font-weight: normal;
   line-height: 20px;
 }
 
-/* line 2468, ../sass/screen.scss */
+/* line 2499, ../sass/screen.scss */
 .view-display-id-front_page_events .more-link,
 .view-display-id-front_page_events .more-link a {
   text-align: left;
 }
 
-/* line 2473, ../sass/screen.scss */
+/* line 2504, ../sass/screen.scss */
 .views-slideshow-pager-field-item a {
   text-decoration: none;
 }
 
-/* line 2477, ../sass/screen.scss */
+/* line 2508, ../sass/screen.scss */
 .view-display-id-front_page_events .more-link a {
   color: #09af4d;
   font-size: 14px;
@@ -3549,7 +3583,7 @@ span.welcome-message {
   text-transform: uppercase;
 }
 
-/* line 2485, ../sass/screen.scss */
+/* line 2516, ../sass/screen.scss */
 div.arrow {
   display: inline;
   float: right;
@@ -3557,7 +3591,7 @@ div.arrow {
   width: 26px;
 }
 
-/* line 2492, ../sass/screen.scss */
+/* line 2523, ../sass/screen.scss */
 .arrow a {
   background-image: url("/sites/masstapp.edc.org/files/btn-arrow-sprite.png");
   background-repeat: no-repeat;
@@ -3571,13 +3605,13 @@ div.arrow {
   width: 26px;
 }
 
-/* line 2506, ../sass/screen.scss */
+/* line 2537, ../sass/screen.scss */
 .arrow a:hover {
   background-position: 0 -26px;
 }
 
 /*** Front page SPF Flower ***/
-/* line 2512, ../sass/screen.scss */
+/* line 2543, ../sass/screen.scss */
 #block-views-events-pages-front-page-events h2,
 .spf-flower h2 {
   border-bottom: 1px solid #cccccc;
@@ -3588,75 +3622,75 @@ div.arrow {
   text-align: left;
 }
 
-/* line 2522, ../sass/screen.scss */
+/* line 2553, ../sass/screen.scss */
 .spf-flower {
   border-bottom: 1px solid #cccccc;
 }
 
-/* line 2526, ../sass/screen.scss */
+/* line 2557, ../sass/screen.scss */
 .spf-flower .content {
   text-align: center;
 }
 
-/* line 2529, ../sass/screen.scss */
+/* line 2560, ../sass/screen.scss */
 .facebook {
   float: right;
   border: none;
 }
 
 /* Calendar styles */
-/* line 2534, ../sass/screen.scss */
+/* line 2565, ../sass/screen.scss */
 div.view-events-calendar {
   margin-top: 10px;
 }
-/* line 2536, ../sass/screen.scss */
+/* line 2567, ../sass/screen.scss */
 div.view-events-calendar p {
   text-align: center;
 }
-/* line 2539, ../sass/screen.scss */
+/* line 2570, ../sass/screen.scss */
 div.view-events-calendar h3 a {
   text-decoration: none;
   font-size: 16px;
 }
-/* line 2543, ../sass/screen.scss */
+/* line 2574, ../sass/screen.scss */
 div.view-events-calendar div.date-nav ul.pager li {
   margin-top: 7px;
 }
-/* line 2546, ../sass/screen.scss */
+/* line 2577, ../sass/screen.scss */
 div.view-events-calendar div.ajax-progress-throbber {
   display: none;
 }
-/* line 2549, ../sass/screen.scss */
+/* line 2580, ../sass/screen.scss */
 div.view-events-calendar ul.pager li a {
   padding: 4px 10px;
 }
-/* line 2552, ../sass/screen.scss */
+/* line 2583, ../sass/screen.scss */
 div.view-events-calendar div.date-nav-wrapper {
   height: 30px;
 }
-/* line 2555, ../sass/screen.scss */
+/* line 2586, ../sass/screen.scss */
 div.view-events-calendar div.date-nav div.date-heading {
   background-color: #dfdfdf;
 }
-/* line 2559, ../sass/screen.scss */
+/* line 2590, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td {
   text-align: center;
   font-weight: bold;
   border-right: 1px solid #ccc;
 }
-/* line 2566, ../sass/screen.scss */
+/* line 2597, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td:not(.has-events) {
   padding-top: 4px;
 }
-/* line 2570, ../sass/screen.scss */
+/* line 2601, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view table {
   margin-bottom: 4px;
 }
-/* line 2573, ../sass/screen.scss */
+/* line 2604, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view table tbody {
   border: 1px solid #ccc;
 }
-/* line 2576, ../sass/screen.scss */
+/* line 2607, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td a {
   font-weight: bold;
   text-decoration: none;
@@ -3665,73 +3699,73 @@ div.view-events-calendar div.calendar-calendar .month-view td a {
   margin: 0px;
   padding: 2px 0px;
 }
-/* line 2584, ../sass/screen.scss */
+/* line 2615, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view th {
   padding: 2px 0px;
 }
-/* line 2587, ../sass/screen.scss */
+/* line 2618, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-no-events {
   background-color: #eee;
 }
-/* line 2590, ../sass/screen.scss */
+/* line 2621, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events a {
   color: white;
 }
-/* line 2593, ../sass/screen.scss */
+/* line 2624, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today {
   color: white;
 }
-/* line 2596, ../sass/screen.scss */
+/* line 2627, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events,
 div.view-events-calendar div.calendar-calendar .month-view td.today a {
   transition: 0.2s ease;
 }
-/* line 2599, ../sass/screen.scss */
+/* line 2630, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:hover,
 div.view-events-calendar div.calendar-calendar .month-view td.today a:hover {
   transition: 0.2s ease;
 }
-/* line 2603, ../sass/screen.scss */
+/* line 2634, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:not(.today) {
   background-color: #09af4d;
 }
-/* line 2605, ../sass/screen.scss */
+/* line 2636, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.has-events:not(.today):hover {
   background-color: #0be062;
 }
-/* line 2609, ../sass/screen.scss */
+/* line 2640, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today {
   background-color: #1053b4;
 }
-/* line 2611, ../sass/screen.scss */
+/* line 2642, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.today:hover a {
   background-color: #1469e3;
 }
-/* line 2615, ../sass/screen.scss */
+/* line 2646, ../sass/screen.scss */
 div.view-events-calendar div.calendar-calendar .month-view td.empty {
   background-color: white;
 }
 
-/* line 2625, ../sass/screen.scss */
+/* line 2656, ../sass/screen.scss */
 #block-block-20 h2 {
   width: 300px;
 }
 
-/* line 2630, ../sass/screen.scss */
+/* line 2661, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar ul.pager li {
   background-color: #2986ed;
 }
 
-/* line 2634, ../sass/screen.scss */
+/* line 2665, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar div.date-nav div.date-heading {
   background-color: #2986ed;
 }
-/* line 2637, ../sass/screen.scss */
+/* line 2668, ../sass/screen.scss */
 div.ctn-left div.view-events-calendar div.date-nav div.date-heading h3 {
   color: white;
 }
 
-/* line 2644, ../sass/screen.scss */
+/* line 2675, ../sass/screen.scss */
 .calendar-calendar .day-view .full div.single-day div.calendar.dayview {
   margin: 0px 3px;
   border: 1px solid #2986ed;
@@ -3741,49 +3775,49 @@ div.ctn-left div.view-events-calendar div.date-nav div.date-heading h3 {
   background: -webkit-linear-gradient(legacy-direction(180deg), #87bbf5, #3c91ef);
   background: linear-gradient(180deg, #87bbf5, #3c91ef);
 }
-/* line 2650, ../sass/screen.scss */
+/* line 2681, ../sass/screen.scss */
 .calendar-calendar .day-view .full div.single-day div.calendar.dayview a {
   color: white;
 }
 
-/* line 2657, ../sass/screen.scss */
+/* line 2688, ../sass/screen.scss */
 .calendar-calendar .date-display-range {
   float: left;
 }
 
-/* line 2661, ../sass/screen.scss */
+/* line 2692, ../sass/screen.scss */
 div.view-events-calendar ul.pager {
   margin-top: -1px;
 }
 
-/* line 2664, ../sass/screen.scss */
+/* line 2695, ../sass/screen.scss */
 div.view-events-calendar ul.pager li a {
   padding: 2px 10px;
   background-color: #e5f0fd;
 }
 
 /* pager */
-/* line 2669, ../sass/screen.scss */
+/* line 2700, ../sass/screen.scss */
 div.content ul.pager {
   padding-top: 20px;
   display: block;
 }
-/* line 2672, ../sass/screen.scss */
+/* line 2703, ../sass/screen.scss */
 div.content ul.pager li a {
   text-decoration: none;
 }
 
-/* line 2676, ../sass/screen.scss */
+/* line 2707, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview {
   background: #87bbf5;
   background: -webkit-linear-gradient(legacy-direction(180deg), #87bbf5, #3c91ef);
   background: linear-gradient(180deg, #87bbf5, #3c91ef);
 }
-/* line 2678, ../sass/screen.scss */
+/* line 2709, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview a {
   color: white;
 }
-/* line 2682, ../sass/screen.scss */
+/* line 2713, ../sass/screen.scss */
 .calendar-calendar .full td.single-day div.calendar.monthview .date-display-single {
   color: #CCC;
 }
