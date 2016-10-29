@@ -151,7 +151,7 @@
                                                       <tbody>
                                                         <tr>
                                                           <td class="Disclaimer" valign="top" align="center">
-                                                            <div class="DisclaimerText" align="center">You are receiving this email because your contact information was reported to SAMHSA through a prevention grant application or other relevant source. We try our best to deliver emails only to those who have requested information about upcoming CAPT offerings, as well as to those who would benefit most from such offerings. If you received this email inadvertently, or wish to no longer receive further such communications, please <a href="mailto:captconnect@edc.org">contact us</a> and we will unsubscribe you.</div>
+                                                            <div class="DisclaimerText" align="center">You are receiving this email because your contact information was reported to SAMHSA through a prevention grant application or other relevant source. We try our best to deliver emails only to those who have requested information about upcoming MassTAPP offerings, as well as to those who would benefit most from such offerings. If you received this email inadvertently, or wish to no longer receive further such communications, please <a href="mailto:captconnect@edc.org">contact us</a> and we will unsubscribe you.</div>
                                                           </td>
                                                         </tr>
                                                       </tbody>

@@ -151,7 +151,7 @@
                                                       <tbody>
                                                         <tr>
                                                           <td class="Disclaimer" valign="top" align="center">
-                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at CAPT Connect. If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
+                                                            <div class="DisclaimerText" align="center">You are receiving this message because you have a user account at MassTAPP Connect. If you no longer wish to receive such automatic notifications, you must <a href="<?php print $base_url; ?>/user">log in</a> and cancel your account to unsubscribe.</div>
                                                           </td>
                                                         </tr>
                                                       </tbody>
