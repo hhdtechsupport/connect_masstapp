@@ -25,8 +25,8 @@ small, strong, sub, sup, var,
 b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
+table, MassTAPPion, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figMassTAPPion, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
   margin:0;
@@ -48,7 +48,7 @@ li{list-style:none;}
    list-style: disc;
    margin-left: 15px;
 }
-article,aside,details,figcaption,figure,
+article,aside,details,figMassTAPPion,figure,
 footer,header,hgroup,menu,nav,section {
   display:block;
 }
@@ -2349,6 +2349,7 @@ body[class*='webinars'] h1.page-title {
 }
 .registered-events div.date-display-range {
   float: left;
+  margin-top: 5px;
 }
 .content ul.event-instances li:last-child {
   border-bottom-width: 1px;
@@ -2384,6 +2385,9 @@ span.event-title {
   left: 40px;
   top: -3px;
 
+}
+body.my-registered-events .event-instances li div span.event-title a:after {
+  top: 23px;
 }
 .event-instances li div span.event-title a.long-title:after {
   top: -10px;
