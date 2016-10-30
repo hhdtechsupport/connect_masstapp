@@ -69,7 +69,7 @@
                                                 <tr>
                                                   <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                     <div align="center">
-                                                      <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
+                                                      <a shape="rect" href="http://dev.connect.masstapp.edc.org" alt="http://dev.connect.masstapp.edc.org" target="_blank">
                                                         <img class="LogoImg" vspace="0" border="0" hspace="0" height="58" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
                                                       </a>
                                                     </div>
@@ -81,7 +81,7 @@
                                         </tr>
                                       </tbody>
                                     </table>
-                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                                       <tbody>
                                         <tr>
                                           <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
@@ -99,7 +99,7 @@
                                           </td>
                                         </tr>
                                       </tbody>
-                                    </table>
+                                    </table>-->
                                   </td>
                                 </tr>
                               </tbody>
@@ -121,7 +121,7 @@
                                                         <tr>
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                             <div align="center">
-                                                              <a shape="rect" href="https://captconnect.edc.org" alt="https://captconnect.edc.org" target="_blank">
+                                                              <a shape="rect" href="http://dev.connect.masstapp.edc.org" alt="http://dev.connect.masstapp.edc.org" target="_blank">
                                                                 <img class="BannerImage" vspace="0" border="0" hspace="0" width="600" height="150" alt="CAPT Connect: Your Access Point for All CAPT Virtual Events" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/9714f8df-8d17-471e-b7de-206d52de96c1.png">
                                                               </a>
                                                             </div>
@@ -159,7 +159,7 @@
                                                 </tr>
                                               </tbody>
                                             </table>
-                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                                               <tbody>
                                                 <tr>
                                                   <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
@@ -177,7 +177,7 @@
                                                   </td>
                                                 </tr>
                                               </tbody>
-                                            </table>
+                                            </table>-->
                                           </td>
                                         </tr>
                                       </tbody>
@@ -195,7 +195,7 @@
                                         <tr>
                                           <td class="MailingText" valign="top" rowspan="1" colspan="1" align="center">
                                             <div>
-                                              <span style="font-size: 9pt !important;">Mailing Address: Education Development Center<br>43 Foundry Avenue, Waltham, MA 02453<br><a shape="rect" href="https://captconnect.edc.org/terms" linktype="1" alt="https://captconnect.edc.org/terms" target="_blank">Terms of Use</a> | <a shape="rect" href="http://www.samhsa.gov/privacy" linktype="1" alt="http://www.samhsa.gov/privacy" target="_blank">Privacy Policy</a></span>
+                                              <span style="font-size: 9pt !important;">Mailing Address: Education Development Center<br>43 Foundry Avenue, Waltham, MA 02453<br><a shape="rect" href="http://dev.connect.masstapp.edc.org/terms" linktype="1" alt="http://dev.connect.masstapp.edc.org/terms" target="_blank">Terms of Use</a> | <a shape="rect" href="http://www.samhsa.gov/privacy" linktype="1" alt="http://www.samhsa.gov/privacy" target="_blank">Privacy Policy</a></span>
                                             </div>
                                           </td>
                                         </tr>
