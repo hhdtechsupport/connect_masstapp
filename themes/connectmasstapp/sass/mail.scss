@@ -1,3 +1,5 @@
+@import 'headers/variables';
+
 body {
   width: 100% !important;
   min-width: 100%;
@@ -12,8 +14,9 @@ body {
 }
 
 .OuterBGColor {
-  background-image: url(https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png);
-  background-repeat: repeat;
+ /* background-image: url(https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png);
+  background-repeat: repeat;*/
+  background-color: $masstapp-grey;
 }
 
 table.OuterBGColor {
