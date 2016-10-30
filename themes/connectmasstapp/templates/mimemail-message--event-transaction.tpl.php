@@ -56,11 +56,11 @@
                       <tbody>
                         <tr>
                           <td class="BodyPadding" valign="top" rowspan="1" colspan="1" align="center">
-                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                               <tbody>
                                 <tr>
                                   <td class="TopMargin" valign="top" width="100%" rowspan="1" colspan="1" align="center">
-                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                  <table border="0" width="100%" cellspacing="0" cellpadding="0">
                                       <tbody>
                                         <tr>
                                           <td class="OuterText Logo" valign="top" rowspan="1" colspan="1" align="center">
@@ -80,7 +80,7 @@
                                           </td>
                                         </tr>
                                       </tbody>
-                                    </table>
+                                    </table>-->
                                     <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                                       <tbody>
                                         <tr>
