@@ -116,7 +116,7 @@
                                               <tbody>
                                                 <tr>
                                                   <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
-                                                    <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                                    <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="16" align="none">
                                                       <tbody>
                                                         <tr>
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
