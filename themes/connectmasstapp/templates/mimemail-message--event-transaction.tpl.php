@@ -42,9 +42,8 @@
           <v:fill type="tile" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"  color="#E2E1DE" />
         </v:background>
       <![endif]-->
-        <div class="OuterBGColor" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
-        align="center">
-          <table class="OuterBGColor" border="0" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
+        <div class="OuterBGColor" align="center">
+          <table class="OuterBGColor" border="0" 
             width="100%" cellspacing="0" cellpadding="0">
             <tbody>
               <tr>
