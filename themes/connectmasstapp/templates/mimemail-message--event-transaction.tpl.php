@@ -122,7 +122,7 @@
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                             <div align="center">
                                                               <a shape="rect" href="http://dev.connect.masstapp.edc.org" alt="http://dev.connect.masstapp.edc.org" target="_blank">
-                                                                <img class="BannerImage" vspace="0" border="0" hspace="0" width="230" height="72" alt="MssTAPP" src="http://courses.edtechleaders.org/masstapp-temp/logo.png">
+                                                                <img class="BannerImage" vspace="0" border="0" hspace="0" width="230" height="72" alt="MssTAPP" src="http://courses.edtechleaders.org/masstapp-temp/masstapp-logo.png">
                                                               </a>
                                                             </div>
                                                           </td>
