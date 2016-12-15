@@ -1287,6 +1287,7 @@
                           'my-registered-events',
                           'past-events',
                           'my-archived-events',
+                          'upcoming-webinars',
                           'past-webinars'];
         // check for all classes in the array
         if ($('body').is(classNames.map(function(className)  { 

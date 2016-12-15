@@ -666,7 +666,8 @@ function connect_custom_view_notifications($node) {
   if ($node->type == 'event') {
     $notification = field_get_items('node', $node, 'field_related_notifications');
     if ($notification) {
-      $notification = array_pop(array_pop($notification));
+      $arr_pop = array_pop($notification);
+      $notification = array_pop($arr_pop);
       module_load_include('inc', 'node', 'node.pages');
       return node_page_edit(node_load($notification));
     }
