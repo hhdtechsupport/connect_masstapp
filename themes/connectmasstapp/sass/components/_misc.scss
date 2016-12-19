@@ -77,3 +77,24 @@
   margin-left: 30px;
   margin-right: 25px;
 }
+
+// #136190099: Style up the "print certificate" button
+.my-archived-events {
+  .views-row {
+    .button {
+      a {
+        display: inline-block;
+        width: 94px; 
+        color: #ffffff;
+        letter-spacing: 0.8px;
+        background-color: #09af4d;
+        padding: 5px 8px;
+        border-radius: 5px;
+        margin-top: 5px;
+        &:hover {
+          background-color: #105eb4;
+        }
+      }
+    }
+  }
+}
