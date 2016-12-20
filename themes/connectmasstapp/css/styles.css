@@ -204,16 +204,30 @@
 /* line 111, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel > div, .page-flag-confirm-flag-registration .confirmation .panel-rule > div, .page-flag-confirm-flag-registration .confirmation .panel-rule-single > div {
   margin-bottom: 10px;
+  position: relative;
 }
-/* line 114, ../sass/components/_misc.scss */
-.page-flag-confirm-flag-registration .confirmation .panel .label, .page-flag-confirm-flag-registration .confirmation .panel-rule .label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .label {
+/* line 116, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .form-item > input, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item > input, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item > input {
+  margin-left: 60px;
+}
+/* line 119, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .form-item > select, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item > select, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item > select, .page-flag-confirm-flag-registration .confirmation .panel .form-item .form-select, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item .form-select, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item .form-select, .page-flag-confirm-flag-registration .confirmation .panel .form-item .description, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item .description, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item .description {
+  margin-left: 60px;
+}
+/* line 122, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .form-item > label, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item > label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item > label {
   font-weight: bold;
+  margin-left: 60px;
+  padding-top: 4px;
 }
-/* line 117, ../sass/components/_misc.scss */
+/* line 128, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver, .page-flag-confirm-flag-registration .confirmation .panel .editor, .page-flag-confirm-flag-registration .confirmation .panel-rule .editor, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .editor {
-  display: inline-block !important;
+  position: absolute;
+  display: inline-block;
+  min-width: 30px;
   color: #ffffff;
   letter-spacing: 0.5px;
+  text-align: center;
   text-shadow: 1px 1px 1px #300033 !important;
   font-size: 11px;
   font-weight: bold;
@@ -225,9 +239,28 @@
   margin-right: 4px;
   margin-bottom: 5px;
 }
-/* line 131, ../sass/components/_misc.scss */
+/* line 147, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel .editor:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule .editor:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .editor:hover {
   background: none repeat scroll 0 0 #CF5240;
+}
+/* line 151, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver {
+  background: none repeat scroll 0 0 #2986ed;
+}
+/* line 155, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .label, .page-flag-confirm-flag-registration .confirmation .panel .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .value {
+  display: block;
+}
+/* line 158, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .label {
+  padding-left: 60px;
+  font-weight: bold;
+  padding-top: 4px;
+}
+/* line 163, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .value {
+  font-style: italic;
+  padding-left: 70px;
 }
 
 /* main pages */

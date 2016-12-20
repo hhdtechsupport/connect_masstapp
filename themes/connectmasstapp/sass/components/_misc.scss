@@ -110,14 +110,30 @@
       border: none;
       > div {
         margin-bottom: 10px;
+        position: relative;
       }
-      .label {
-        font-weight: bold;
+      .form-item {
+        > input {
+          margin-left: 60px;
+        }
+        > select, .form-select, .description {
+          margin-left: 60px;
+        }
+        > label {
+          font-weight: bold;
+          margin-left: 60px;
+          padding-top: 4px;
+        }
       }
       .saver, .editor {
-        display: inline-block !important;
+        position: absolute;
+
+        //display: inline-block !important;
+        display: inline-block;
+        min-width: 30px;
         color: #ffffff;
         letter-spacing: 0.5px;
+        text-align: center;
         text-shadow: 1px 1px 1px #300033 !important;
         font-size: 11px;
         font-weight: bold;
@@ -130,6 +146,23 @@
         margin-bottom: 5px;
         &:hover {
           background: none repeat scroll 0 0 #CF5240;
+        }
+      }
+      .saver {
+        background: none repeat scroll 0 0 #2986ed;
+      }
+      .content {
+        .label, .value {
+          display: block;
+        }
+        .label {
+          padding-left: 60px;
+          font-weight: bold;
+          padding-top: 4px;
+        }
+        .value {
+          font-style: italic;
+          padding-left: 70px;
         }
       }
     }
