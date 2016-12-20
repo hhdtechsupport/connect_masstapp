@@ -86,13 +86,50 @@
         display: inline-block;
         width: 94px; 
         color: #ffffff;
-        letter-spacing: 0.8px;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 1px #300033;
+        font-weight: bold;
+        cursor: pointer;
         background-color: #09af4d;
-        padding: 5px 8px;
+        padding: 4px 6px;
         border-radius: 5px;
         margin-top: 5px;
         &:hover {
           background-color: #105eb4;
+        }
+      }
+    }
+  }
+}
+
+// #136385803: Style the "confirm registration details" page
+.page-flag-confirm-flag-registration {
+  .confirmation {
+    .panel {
+      background-color: transparent;
+      border: none;
+      > div {
+        margin-bottom: 10px;
+      }
+      .label {
+        font-weight: bold;
+      }
+      .saver, .editor {
+        display: inline-block !important;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 1px #300033 !important;
+        font-size: 11px;
+        font-weight: bold;
+        cursor: pointer;
+        background: none repeat scroll 0 0 #09af4d;
+        padding: 2px 6px 1px;
+        border-radius: 5px;
+        margin-top: 5px;
+        margin-right: 4px;
+        margin-bottom: 5px;
+        &:hover {
+          background: none repeat scroll 0 0 #CF5240;
         }
       }
     }

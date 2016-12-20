@@ -72,7 +72,8 @@ body.node-type-event-materials-group {
   }
   .field-name-field-materials-groups,
    .field-name-event-date-s-,
-  .field-name-materials { 
+  .field-name-materials,
+  .field-name-join-this-event { 
     margin: 10px 0px 0px 0px;
     border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
   }
@@ -100,7 +101,8 @@ body.node-type-event-materials-group {
     display: none
   }
   .field-name-event-date-s-,
-  .field-name-materials {
+  .field-name-materials,
+  .field-name-join-this-event {
       padding: 0px 15px 15px 15px;
      h2 {
       margin-top: 0;
@@ -143,7 +145,8 @@ body.node-type-event-materials-group {
   .presenter-location {
     font-weight: normal;
   }
-  .field-name-event-date-s- {
+  .field-name-event-date-s-,
+  .field-name-join-this-event {
 
 
    
@@ -180,6 +183,27 @@ body.node-type-event-materials-group {
   }
   .field-name-event-date-s- {
     .flag-registration {
+      a {
+        -moz-transition: all 0.2s ease-in-out 0s;
+        border-radius: 5px;
+        cursor: pointer;
+        background: none repeat scroll 0 0 #09AF4D;
+        border: 0px solid #9D4D2C;
+        color: #fff;
+        padding: 4px 6px;
+        text-shadow: 1px 1px 1px #300033;
+        margin-right: 4px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+  .field-name-join-this-event {
+    .view-instances {
+      margin-bottom: 5px;
+    }
+    .flag-participate {
       a {
         -moz-transition: all 0.2s ease-in-out 0s;
         border-radius: 5px;
