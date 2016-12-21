@@ -220,7 +220,11 @@
   margin-left: 60px;
   padding-top: 4px;
 }
-/* line 128, ../sass/components/_misc.scss */
+/* line 127, ../sass/components/_misc.scss */
+.page-flag-confirm-flag-registration .confirmation .panel .form-item > label.option, .page-flag-confirm-flag-registration .confirmation .panel-rule .form-item > label.option, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .form-item > label.option {
+  margin-left: 0;
+}
+/* line 131, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver, .page-flag-confirm-flag-registration .confirmation .panel .editor, .page-flag-confirm-flag-registration .confirmation .panel-rule .editor, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .editor {
   position: absolute;
   display: inline-block;
@@ -239,34 +243,34 @@
   margin-right: 4px;
   margin-bottom: 5px;
 }
-/* line 147, ../sass/components/_misc.scss */
+/* line 150, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver:hover, .page-flag-confirm-flag-registration .confirmation .panel .editor:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule .editor:hover, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .editor:hover {
   background: none repeat scroll 0 0 #CF5240;
 }
-/* line 151, ../sass/components/_misc.scss */
+/* line 154, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule .saver, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .saver {
   background: none repeat scroll 0 0 #2986ed;
 }
-/* line 155, ../sass/components/_misc.scss */
+/* line 158, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .label, .page-flag-confirm-flag-registration .confirmation .panel .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .value {
   display: block;
 }
-/* line 158, ../sass/components/_misc.scss */
+/* line 161, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .label, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .label {
   padding-left: 60px;
   font-weight: bold;
   padding-top: 4px;
 }
-/* line 163, ../sass/components/_misc.scss */
+/* line 166, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .panel .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule .content .value, .page-flag-confirm-flag-registration .confirmation .panel-rule-single .content .value {
   font-style: italic;
   padding-left: 70px;
 }
-/* line 169, ../sass/components/_misc.scss */
+/* line 172, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .field-name-og-user-node {
   display: none;
 }
-/* line 173, ../sass/components/_misc.scss */
+/* line 176, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .form-actions #edit-cancel {
   display: inline-block;
   min-width: 30px;
@@ -284,7 +288,7 @@
   border: 0px solid #9D4D2C;
   margin: 0 14px 5px;
 }
-/* line 189, ../sass/components/_misc.scss */
+/* line 192, ../sass/components/_misc.scss */
 .page-flag-confirm-flag-registration .confirmation .form-actions #edit-cancel:hover {
   background: none repeat scroll 0 0 #CF5240;
 }
@@ -394,7 +398,12 @@ body.node-type-event .field-name-materials,
 body.node-type-event-materials-group .field-name-materials {
   margin-left: 5px;
 }
-/* line 84, ../sass/main_pages/_event.scss */
+/* line 82, ../sass/main_pages/_event.scss */
+body.node-type-event .field-name-materials .views-field-field-resource,
+body.node-type-event-materials-group .field-name-materials .views-field-field-resource {
+  margin-bottom: 5px;
+}
+/* line 87, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-learning-objectives-stem .field-label,
 body.node-type-event-materials-group .field-name-field-learning-objectives-stem .field-label {
   margin-bottom: 10px;
@@ -405,23 +414,23 @@ body.node-type-event-materials-group .field-name-field-learning-objectives-stem 
   white-space: nowrap;
   text-transform: uppercase;
 }
-/* line 92, ../sass/main_pages/_event.scss */
+/* line 95, ../sass/main_pages/_event.scss */
 body.node-type-event ul.learning-objectives li,
 body.node-type-event-materials-group ul.learning-objectives li {
   list-style-type: disc;
   margin-left: 14px;
 }
-/* line 96, ../sass/main_pages/_event.scss */
+/* line 99, ../sass/main_pages/_event.scss */
 body.node-type-event ul.learning-objectives li,
 body.node-type-event-materials-group ul.learning-objectives li {
   padding-left: 5px;
 }
-/* line 100, ../sass/main_pages/_event.scss */
+/* line 103, ../sass/main_pages/_event.scss */
 body.node-type-event div.region-content div.group-header,
 body.node-type-event-materials-group div.region-content div.group-header {
   display: none;
 }
-/* line 103, ../sass/main_pages/_event.scss */
+/* line 106, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s-,
 body.node-type-event .field-name-materials,
 body.node-type-event .field-name-join-this-event,
@@ -430,7 +439,7 @@ body.node-type-event-materials-group .field-name-materials,
 body.node-type-event-materials-group .field-name-join-this-event {
   padding: 0px 15px 15px 15px;
 }
-/* line 107, ../sass/main_pages/_event.scss */
+/* line 110, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- h2,
 body.node-type-event .field-name-materials h2,
 body.node-type-event .field-name-join-this-event h2,
@@ -444,7 +453,7 @@ body.node-type-event-materials-group .field-name-join-this-event h2 {
   margin: 0px -15px 5px -15px;
   color: white;
 }
-/* line 119, ../sass/main_pages/_event.scss */
+/* line 122, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-event-details a,
 body.node-type-event .field-name-field-materials-groups > .field-items a,
 body.node-type-event-materials-group .field-name-field-event-details a,
@@ -452,19 +461,19 @@ body.node-type-event-materials-group .field-name-field-materials-groups > .field
   color: #07b24d;
   text-decoration: none;
 }
-/* line 122, ../sass/main_pages/_event.scss */
+/* line 125, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-event-details a:hover,
 body.node-type-event .field-name-field-materials-groups > .field-items a:hover,
 body.node-type-event-materials-group .field-name-field-event-details a:hover,
 body.node-type-event-materials-group .field-name-field-materials-groups > .field-items a:hover {
   text-decoration: underline;
 }
-/* line 127, ../sass/main_pages/_event.scss */
+/* line 130, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-materials-groups > .field-items,
 body.node-type-event-materials-group .field-name-field-materials-groups > .field-items {
   padding: 0 15px 0px 15px;
 }
-/* line 132, ../sass/main_pages/_event.scss */
+/* line 135, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-field-materials-groups .field-label,
 body.node-type-event-materials-group .field-name-field-materials-groups .field-label {
   background-color: #2986ed;
@@ -473,63 +482,63 @@ body.node-type-event-materials-group .field-name-field-materials-groups .field-l
   padding: 5px 0px;
   margin: 0px auto;
 }
-/* line 139, ../sass/main_pages/_event.scss */
+/* line 142, ../sass/main_pages/_event.scss */
 body.node-type-event article.node-material,
 body.node-type-event-materials-group article.node-material {
   margin-bottom: 0px;
 }
-/* line 142, ../sass/main_pages/_event.scss */
+/* line 145, ../sass/main_pages/_event.scss */
 body.node-type-event #pagecontent img.file-icon,
 body.node-type-event-materials-group #pagecontent img.file-icon {
   margin-right: 5px;
 }
-/* line 145, ../sass/main_pages/_event.scss */
+/* line 148, ../sass/main_pages/_event.scss */
 body.node-type-event .presenter-location,
 body.node-type-event-materials-group .presenter-location {
   font-weight: normal;
 }
-/* line 156, ../sass/main_pages/_event.scss */
+/* line 159, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances ul,
 body.node-type-event .field-name-join-this-event .view-instances .view-instances ul,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances ul,
 body.node-type-event-materials-group .field-name-join-this-event .view-instances .view-instances ul {
   margin: 0;
 }
-/* line 158, ../sass/main_pages/_event.scss */
+/* line 161, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances ul li.views-row,
 body.node-type-event .field-name-join-this-event .view-instances .view-instances ul li.views-row,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances ul li.views-row,
 body.node-type-event-materials-group .field-name-join-this-event .view-instances .view-instances ul li.views-row {
   padding-top: 5px;
 }
-/* line 162, ../sass/main_pages/_event.scss */
+/* line 165, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .view-instances .view-instances .views-row,
 body.node-type-event .field-name-join-this-event .view-instances .view-instances .views-row,
 body.node-type-event-materials-group .field-name-event-date-s- .view-instances .view-instances .views-row,
 body.node-type-event-materials-group .field-name-join-this-event .view-instances .view-instances .views-row {
   padding: 0 0 5px 0;
 }
-/* line 169, ../sass/main_pages/_event.scss */
+/* line 172, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials h2,
 body.node-type-event-materials-group .field-name-materials h2 {
   margin-top: 0;
 }
-/* line 173, ../sass/main_pages/_event.scss */
+/* line 176, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials ul,
 body.node-type-event-materials-group .field-name-materials .view-materials ul {
   margin: 0;
 }
-/* line 175, ../sass/main_pages/_event.scss */
+/* line 178, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials ul li.views-row,
 body.node-type-event-materials-group .field-name-materials .view-materials ul li.views-row {
   padding-top: 5px;
 }
-/* line 179, ../sass/main_pages/_event.scss */
+/* line 182, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-materials .view-materials .views-row,
 body.node-type-event-materials-group .field-name-materials .view-materials .views-row {
   padding: 0 0 5px 0;
 }
-/* line 186, ../sass/main_pages/_event.scss */
+/* line 189, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-event-date-s- .flag-registration a,
 body.node-type-event-materials-group .field-name-event-date-s- .flag-registration a {
   -moz-transition: all 0.2s ease-in-out 0s;
@@ -545,12 +554,12 @@ body.node-type-event-materials-group .field-name-event-date-s- .flag-registratio
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-/* line 203, ../sass/main_pages/_event.scss */
+/* line 206, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-join-this-event .view-instances,
 body.node-type-event-materials-group .field-name-join-this-event .view-instances {
   margin-bottom: 5px;
 }
-/* line 207, ../sass/main_pages/_event.scss */
+/* line 210, ../sass/main_pages/_event.scss */
 body.node-type-event .field-name-join-this-event .flag-participate a,
 body.node-type-event-materials-group .field-name-join-this-event .flag-participate a {
   -moz-transition: all 0.2s ease-in-out 0s;
@@ -566,7 +575,7 @@ body.node-type-event-materials-group .field-name-join-this-event .flag-participa
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-/* line 223, ../sass/main_pages/_event.scss */
+/* line 226, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups,
 body.node-type-event-materials-group div.field-name-field-materials-groups {
    /* .presenter-name,
@@ -606,22 +615,22 @@ body.node-type-event-materials-group div.field-name-field-materials-groups {
       clear: both;
     }*/
 }
-/* line 225, ../sass/main_pages/_event.scss */
+/* line 228, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups div.field-label,
 body.node-type-event-materials-group div.field-name-field-materials-groups div.field-label {
   font-size: 16px;
 }
-/* line 228, ../sass/main_pages/_event.scss */
+/* line 231, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups h2.title a,
 body.node-type-event-materials-group div.field-name-field-materials-groups h2.title a {
   text-decoration: none;
 }
-/* line 231, ../sass/main_pages/_event.scss */
+/* line 234, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups h2.title,
 body.node-type-event-materials-group div.field-name-field-materials-groups h2.title {
   font-size: 13px;
 }
-/* line 234, ../sass/main_pages/_event.scss */
+/* line 237, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .node-resource-author header,
 body.node-type-event div.field-name-field-materials-groups .field-name-field-author,
 body.node-type-event div.field-name-field-materials-groups .node-material header h2 a,
@@ -632,17 +641,17 @@ body.node-type-event-materials-group div.field-name-field-materials-groups .node
 body.node-type-event-materials-group div.field-name-field-materials-groups div.field-name-field-source {
   display: none;
 }
-/* line 240, ../sass/main_pages/_event.scss */
+/* line 243, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .field-name-field-resource-note,
 body.node-type-event-materials-group div.field-name-field-materials-groups .field-name-field-resource-note {
   font-style: italic;
 }
-/* line 243, ../sass/main_pages/_event.scss */
+/* line 246, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .node-material a,
 body.node-type-event-materials-group div.field-name-field-materials-groups .node-material a {
   display: block;
 }
-/* line 254, ../sass/main_pages/_event.scss */
+/* line 257, ../sass/main_pages/_event.scss */
 body.node-type-event div.field-name-field-materials-groups .presenter-position,
 body.node-type-event div.field-name-field-materials-groups .presenter-location,
 body.node-type-event-materials-group div.field-name-field-materials-groups .presenter-position,
@@ -650,16 +659,16 @@ body.node-type-event-materials-group div.field-name-field-materials-groups .pres
   font-weight: normal;
 }
 
-/* line 289, ../sass/main_pages/_event.scss */
+/* line 292, ../sass/main_pages/_event.scss */
 .my-archived-events .view-display-id-block_2 {
   margin-top: 20px;
 }
 
-/* line 294, ../sass/main_pages/_event.scss */
+/* line 297, ../sass/main_pages/_event.scss */
 body.events .region-content {
   padding: 0 30px;
 }
-/* line 297, ../sass/main_pages/_event.scss */
+/* line 300, ../sass/main_pages/_event.scss */
 body.events #sidebar {
   padding: 15px 15px 15px 15px;
 }
