@@ -73,9 +73,27 @@ body.node-type-event-materials-group {
   .field-name-field-materials-groups,
    .field-name-event-date-s-,
   .field-name-materials,
-  .field-name-join-this-event { 
+  .field-name-join-this-event,
+  .field-name-join-this-event-2 { 
     margin: 10px 0px 0px 0px;
     border: 1px solid #2986ed; //#1ca64c; //#d7d7d7;
+  
+    div.views-field.views-field-field-access-information {
+      margin-top: 10px;
+
+    }
+   /* div.date-display-single {
+      margin-bottom: 5px;
+      display: block;
+    }*/
+    // to keep EST on teh same line
+    div.date-display-range {
+      display: inline-block;
+    }
+
+    ul li {
+      padding-left: 0px;
+    }
   }
   .field-name-materials {
     margin-left: 5px;
@@ -102,7 +120,8 @@ body.node-type-event-materials-group {
   }
   .field-name-event-date-s-,
   .field-name-materials,
-  .field-name-join-this-event {
+  .field-name-join-this-event,
+  .field-name-join-this-event-2 {
       padding: 0px 15px 15px 15px;
      h2 {
       margin-top: 0;
@@ -146,11 +165,8 @@ body.node-type-event-materials-group {
     font-weight: normal;
   }
   .field-name-event-date-s-,
-  .field-name-join-this-event {
-
-
-   
-   
+  .field-name-join-this-event,
+  .field-name-join-this-event-2 {
     .view-instances {
       .view-instances {
         ul {
@@ -199,11 +215,13 @@ body.node-type-event-materials-group {
       }
     }
   }
-  .field-name-join-this-event {
+  .field-name-join-this-event,
+  .field-name-join-this-event-2 {
     .view-instances {
       margin-bottom: 5px;
     }
-    .flag-participate {
+    .flag-participate, 
+    .button.participate {
       a {
         -moz-transition: all 0.2s ease-in-out 0s;
         border-radius: 5px;
