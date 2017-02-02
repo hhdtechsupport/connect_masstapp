@@ -1284,6 +1284,7 @@
        var classNames = ['events',
                           'upcoming-events',
                           'upcoming-external-events',
+                          'upcoming-internal-events',
                           'my-registered-events',
                           'past-events',
                           'my-archived-events',
