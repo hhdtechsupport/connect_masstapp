@@ -296,7 +296,9 @@
 
       // ScrollToLocation function
       function scrollToLocation(id){
-        $('html, body').animate({ scrollTop: $("#"+id).offset().top },'slow');
+
+        if ($("#"+).offset() != undefined)
+           $('html, body').animate({ scrollTop: $("#"+id).offset().top },'slow');
       }
 
       // Submenu hover fix
