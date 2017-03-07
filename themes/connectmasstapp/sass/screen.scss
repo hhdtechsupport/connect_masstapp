@@ -2393,8 +2393,8 @@ body.my-registered-events .event-instances li div span.event-title a:after {
   top: -10px;
 }
 ul.event-instances li {
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    //opacity: 0;
+    //transition: opacity 0.2s ease;
 }
 ul.event-instances.visible li {
   opacity: 1
@@ -2420,9 +2420,11 @@ span.bar {
   display: block;
   float: left;
 }
-.date-container .month {
+.date-container .month,
+.date-container .month .date-display-single {
   display: block;
   font-size: 14px;
+  font-weight: normal;
 }
 .event-time span {
   font-size: 14px;
