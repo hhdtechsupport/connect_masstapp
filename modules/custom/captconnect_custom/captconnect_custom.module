@@ -3,3 +3,14 @@
  * @file
  * Custom Code for CAPTConnect.
  */
+/*
+ * Implements preprocess function.
+ */
+
+function captconnect_custom_preprocess_html(&$variables) {
+  global $theme;
+  if($theme == 'seven') {
+    // reference to custom stylesheet
+    drupal_add_css(drupal_get_path('module', 'captconnect_custom') . '/css/admin_theme.css', array('group' => CSS_THEME));
+  }
+}
