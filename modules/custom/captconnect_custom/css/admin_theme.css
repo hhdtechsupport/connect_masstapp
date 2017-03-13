@@ -1,3 +1,43 @@
 .page-admin-people-create .form-actions {
   margin-top: 0.2em;
 }
+body.page-user-register ul#multipage-panes-list, body.page-anon-register ul#multipage-panes-list, body.page-admin-people-create ul#multipage-panes-list {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+body.page-user-register ul#multipage-panes-list li, body.page-anon-register ul#multipage-panes-list li, body.page-admin-people-create ul#multipage-panes-list li {
+  font-size: 14px;
+  color: #d7d7d7;
+  font-weight: bold;
+  padding: 2px 0;
+}
+body.page-user-register ul#multipage-panes-list li.active, body.page-anon-register ul#multipage-panes-list li.active, body.page-admin-people-create ul#multipage-panes-list li.active {
+  color: #00a73a;
+}
+body.page-user-register ul#multipage-panes-list li .pane-link .step, body.page-anon-register ul#multipage-panes-list li .pane-link .step, body.page-admin-people-create ul#multipage-panes-list li .pane-link .step {
+  font-size: 20px;
+  font-weight: normal;
+  vertical-align: middle;
+}
+body.page-user-register ul#multipage-panes-list li .pane-link .title, body.page-anon-register ul#multipage-panes-list li .pane-link .title, body.page-admin-people-create ul#multipage-panes-list li .pane-link .title {
+  vertical-align: middle;
+}
+body.page-user-register h2.multipage-pane-title, body.page-anon-register h2.multipage-pane-title, body.page-admin-people-create h2.multipage-pane-title {
+  display: none;
+}
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper {
+  border: #d7d7d7 solid 4px;
+  padding: 1.5em;
+  margin-bottom: 1em;
+}
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper #edit-timezone .fieldset-legend {
+  position: absolute;
+  top: 5px;
+}
+body.page-user-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper, body.page-anon-register .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper, body.page-admin-people-create .fieldset-wrapper.multipage-pane-wrapper #edit-timezone > .fieldset-wrapper {
+  margin-top: 40px;
+}
+body.page-user-register .chosen-container-single .chosen-single, body.page-anon-register .chosen-container-single .chosen-single, body.page-admin-people-create .chosen-container-single .chosen-single {
+  background: none;
+  border: none;
+}
