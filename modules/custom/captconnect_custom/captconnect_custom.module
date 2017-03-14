@@ -9,8 +9,10 @@
 
 function captconnect_custom_preprocess_html(&$variables) {
   global $theme;
-  if($theme == 'seven') {
-    // reference to custom stylesheet
+  if($theme == 'seven' || 'connectmasstapp') {
+    // We need to put this custom js and css code here in one place
+    // because "add people" form is being rendered by the administration theme
+    // and "user register" form by the connectmasstapp front-end theme.
     drupal_add_css(drupal_get_path('module', 'captconnect_custom') . '/css/admin_theme.css', array('group' => CSS_THEME));
     drupal_add_js(drupal_get_path('module', 'captconnect_custom') . '/js/admin_theme.js', array('group' => JS_THEME));
   }
