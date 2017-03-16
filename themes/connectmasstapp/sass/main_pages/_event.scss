@@ -214,6 +214,26 @@ body.node-type-event-materials-group {
         letter-spacing: 0.5px;
       }
     }
+    .event-is-external {
+      display: none;
+    }
+    .views-field-field-external-event-link {
+      a {
+        border-radius: 5px;
+        cursor: pointer;
+        background: none repeat scroll 0 0 #09AF4D;
+        border: 0px solid #9D4D2C;
+        color: #fff;
+        padding: 4px 6px;
+        text-shadow: 1px 1px 1px #300033;
+        margin-right: 4px;
+        margin-bottom: 5px;
+        font-weight: bold;
+        &:hover {
+          background: none repeat scroll 0 0 #CF5240;
+        }
+      }
+    }
   }
   .field-name-join-this-event,
   .field-name-join-this-event-2 {
