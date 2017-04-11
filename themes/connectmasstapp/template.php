@@ -79,6 +79,13 @@ function connectmasstapp_preprocess_html(&$vars) {
   foreach($aliases as $alias) {
     $vars['classes_array'][] = drupal_clean_css_identifier($alias);
   }
+  $headers = drupal_get_http_header();
+  if (isset($headers['status']) && $headers['status'] == '403 Forbidden') {
+    $vars['classes_array'][] = 'page-403';
+  }
+  if (isset($headers['status']) && $headers['status'] == '404 Not Found') {
+    $vars['classes_array'][] = 'page-404';
+  }
 }
 
 function connectmasstapp_process_html(&$vars) {
