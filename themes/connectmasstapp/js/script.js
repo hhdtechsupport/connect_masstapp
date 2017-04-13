@@ -297,7 +297,7 @@
       // ScrollToLocation function
       function scrollToLocation(id){
 
-        if ($("#"+).offset() != undefined)
+        if ($("#"+id).offset() != undefined)
            $('html, body').animate({ scrollTop: $("#"+id).offset().top },'slow');
       }
 
@@ -795,21 +795,21 @@
       $('.page-taxonomy-term-edit h1#page-title').text('Admin');
 
       // If Event Materials block is empty, then remove the entire block from DOM
-      $('#block-views-materials-block > .view-materials').each(function(){
+      $('#block-views-materials-block > .content > .pageblock > .view-materials').each(function(){
         if ($(this).text().trim() == '') {
           $(this).closest('.field-name-materials').remove();
         }
       });
 
       // If Event Materials .view-content is empty, then remove that part from DOM
-      $('#block-views-materials-block > .view-materials .view-content').each(function(){
+      $('#block-views-materials-block > .content > .pageblock > .view-materials .view-content').each(function(){
         if ($(this).text().trim() == '') {
           $(this).remove();
         }
       });
 
       // If Event Materials .view-content is empty, then remove that part from DOM
-      $('#block-views-materials-block > .view-materials .view-footer').each(function(){
+      $('#block-views-materials-block > .content > .pageblock > .view-materials .view-footer').each(function(){
         if ($(this).text().trim() == '') {
           $(this).remove();
         }
