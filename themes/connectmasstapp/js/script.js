@@ -1162,7 +1162,7 @@
            // give it a class name for CSS.
            month.className = 'month';
            // append the span element with the month
-           self.appendChild(month);
+           //self.appendChild(month);
            // == done adding the month == 
 
         });
