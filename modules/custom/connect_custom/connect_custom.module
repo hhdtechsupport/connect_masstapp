@@ -943,10 +943,10 @@ function _connect_custom_preset_groups(&$form, $default = NULL) {
     foreach ($groups as $grp) {
       $x[$grp] = $group_nodes[$grp]->title;
     }
-    $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] = $x;
+    /*$form['og_group_ref'][LANGUAGE_NONE][0]['default']['#options'] = $x;
     if ($default) {
       $form['og_group_ref'][LANGUAGE_NONE][0]['default']['#default_value'] = array($default => $default);
-    }
+    }*/
   }
   else {
     // They only have one group, so let's set it as the default
