@@ -442,9 +442,12 @@ function connect_custom_node_access($node, $op, $account) {
     case 'view':
       // Node 931 is the core group, which we want to see the title of.
       // @TODO: do we need this in Connect?
-      if (is_object($node) && $node->nid == 931) {
+
+// Commenting out chunk of code. Related to: #144490395: Determine whether "Core" is needed and either hide it or remove it 
+/*      if (is_object($node) && $node->nid == 931) {
         return NODE_ACCESS_ALLOW;
       }
+*/      
       if (is_object($node) && $node->type == 'portal') {
         return NODE_ACCESS_ALLOW;
       }
@@ -568,7 +571,13 @@ function connect_custom_node_view($node, $view_mode, $langcode) {
     }
     // @TODO: Check Portal status.
 //    dpm($base->{$field_name}[LANGUAGE_NONE][0]['value'], $field_name);
-    if (!isset($base->{$field_name}[LANGUAGE_NONE][0]['value'])
+
+//   Comment out the following block to solve this issue: #144489805: Notice of "unpublished" state with no
+//   "publish button". Note: there is no longer a green button for publishing the event — this is a result
+//   of removing the "workflow" element from the site in order to get OG's permission system working. 
+//   Therefore the message is no longer needed and can be removed for now.
+
+/*    if (!isset($base->{$field_name}[LANGUAGE_NONE][0]['value'])
     || !in_array($base->{$field_name}[LANGUAGE_NONE][0]['value'], $states)) {
       $types = node_type_get_names();
       $msg = variable_get('connect_custom_unpublished_content_msg',
@@ -576,6 +585,7 @@ function connect_custom_node_view($node, $view_mode, $langcode) {
       drupal_set_message(t($msg, array('@type' => $types[$node->type])),
         'warning', FALSE);
     }
+*/
   }
 }
 
