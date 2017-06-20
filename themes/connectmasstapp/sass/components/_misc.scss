@@ -168,3 +168,18 @@
     }
   }
 }
+// #147519047: Event Registration form: "City State/Province Country" repeated
+.flag.confirm.registration {
+  .field-name-field-registrant-address {
+    > .content, > .saver, > .editor {
+      display: none;
+    }
+    fieldset.location {
+      border: none;
+      padding: 0;
+      legend {
+        display: none;
+      }
+    }
+  }
+} 
