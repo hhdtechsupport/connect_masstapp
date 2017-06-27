@@ -1123,10 +1123,9 @@
       var prevYear = '';
      // var numYears = 1;
      
-      $('.event-instances li').each(function () {
+      $('.event-instances li.views-row').each(function () {
 
            var date_string = $(this).find('.date-display-single').attr('content');
-
            var sectionYear = date_string.substring(0,4);
 
           if (sectionYear != prevYear)  {
