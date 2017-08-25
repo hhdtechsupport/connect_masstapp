@@ -21,30 +21,39 @@ Drupal.behaviors.my_custom_module_behavior = {
             c = t.prop("checked"),
             val = t.attr('value'),
             p = $(this).closest('fieldset').attr('id');
-        console.log(t,c,val);
+        //console.log(t,c,val);
         if(p == 'edit-og-group-ref-und') {
           $('[id*="edit-field-date-instance"]').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
         } else {
           $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
         }
       });
+      // #150460582: Add mirroring to "group visibility dropdowns"
       // Define selectors
-      var visibilitySelectBoxes = jQuery('select[name="group_content_access[und]"], select[name*="[group_content_access][und]');
+      var visibilitySelectBoxes = jQuery('select[name*="[group_content_access][und]');
+      var visibilitySelectBoxMain = jQuery('select[name="group_content_access[und]"]');
 
       // Destroy select box wrapper
-      visibilitySelectBoxes.chosen("destroy");
+      // visibilitySelectBoxes.chosen("destroy");
+      // visibilitySelectBoxMain.chosen("destroy");
 
       // Bind change events
-      jQuery('[name="field_external_or_internal[und]"]').change(function(){
+      jQuery(document).on('change','[name="field_external_or_internal[und]"]',function(){
         if(this.value == 'internal') {
           visibilitySelectBoxes.find('option:selected').prop('selected', false);
           visibilitySelectBoxes.find('option[value="2').prop('selected', 'selected');
-          visibilitySelectBoxes
+          visibilitySelectBoxMain.find('option:selected').prop('selected', false);
+          visibilitySelectBoxMain.find('option[value="2').prop('selected', 'selected');
         }
         else {
           visibilitySelectBoxes.find('option:selected').prop('selected', false);
           visibilitySelectBoxes.find('option[value="1').prop('selected', 'selected');
+          visibilitySelectBoxMain.find('option:selected').prop('selected', false);
+          visibilitySelectBoxMain.find('option[value="1').prop('selected', 'selected');
         }
+        visibilitySelectBoxes.trigger("chosen:updated");
+        visibilitySelectBoxMain.trigger("chosen:updated");
+        //console.log(visibilitySelectBoxes.find('option:selected').text());
       });
     }
 
