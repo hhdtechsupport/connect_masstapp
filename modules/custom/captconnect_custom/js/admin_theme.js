@@ -28,6 +28,24 @@ Drupal.behaviors.my_custom_module_behavior = {
           $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
         }
       });
+      // Define selectors
+      var visibilitySelectBoxes = jQuery('select[name="group_content_access[und]"], select[name*="[group_content_access][und]');
+
+      // Destroy select box wrapper
+      visibilitySelectBoxes.chosen("destroy");
+
+      // Bind change events
+      jQuery('[name="field_external_or_internal[und]"]').change(function(){
+        if(this.value == 'internal') {
+          visibilitySelectBoxes.find('option:selected').prop('selected', false);
+          visibilitySelectBoxes.find('option[value="2').prop('selected', 'selected');
+          visibilitySelectBoxes
+        }
+        else {
+          visibilitySelectBoxes.find('option:selected').prop('selected', false);
+          visibilitySelectBoxes.find('option[value="1').prop('selected', 'selected');
+        }
+      });
     }
 
     if($('.page-user-register').length > 0 || $('.page-admin-people-create').length > 0) {
