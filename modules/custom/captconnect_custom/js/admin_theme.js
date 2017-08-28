@@ -15,27 +15,74 @@
 Drupal.behaviors.my_custom_module_behavior = {
   attach: function(context, settings) {
     // #150454682: Implement checkbox group mirroring for all instances of "MassTAPP teams" on event creation form
+    // #150460582: Add mirroring to "group visibility dropdowns"
     if(($('body.page-node-add-event').length > 0) || ($('body.node-type-event.page-node-edit').length > 0)) {
+
+      // add loader
+      if(jQuery('.js-ajax-loader').length==0 && jQuery('.ief-entity-operations').length!=0) {
+        jQuery('<div class="js-ajax-loader"></div>').prependTo('.node-event-form');
+        jQuery('.js-ajax-loader').css({
+          'background': 'rgba(255, 255, 255, 0.85) url(../../misc/throbber-active.gif) no-repeat center 80px',
+           'position': 'absolute',
+           'top': 0,
+           'left': 0,
+            'width': '100%',
+            'height': '100%',
+            'z-index': 100
+        });
+      }
+
       $('[id*="edit-field-date-instance"], #edit-og-group-ref-und').find(':checkbox').change(function(){
         var t = $(this),
             c = t.prop("checked"),
             val = t.attr('value'),
             p = $(this).closest('fieldset').attr('id');
-        //console.log(t,c,val);
+        // console.log(t,c,val);
         if(p == 'edit-og-group-ref-und') {
           $('[id*="edit-field-date-instance"]').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
         } else {
           $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
         }
       });
-      // #150460582: Add mirroring to "group visibility dropdowns"
+
+      
       // Define selectors
       var visibilitySelectBoxes = jQuery('select[name*="[group_content_access][und]');
       var visibilitySelectBoxMain = jQuery('select[name="group_content_access[und]"]');
+      var iefEditSubmitButotns = jQuery('.ief-entity-operations').find('[id*="actions-ief-entity-edit"]');
 
-      // Destroy select box wrapper
-      // visibilitySelectBoxes.chosen("destroy");
-      // visibilitySelectBoxMain.chosen("destroy");
+
+      // Trigger edit IEF edit forms
+      iefEditSubmitButotns.mousedown();
+
+      // Debugging - remove later;
+      // if(typeof window.refreshIntervalId === 'undefined') {
+      //   console.log('undefined', typeof window.refreshIntervalId);
+      // }
+      // else {
+      //   console.log('defined', typeof window.refreshIntervalId);
+      // }
+      // end of Debugging - remove later;
+
+      if(jQuery('.ief-entity-operations').length!=0 && typeof refreshIntervalId === 'undefined') {
+        // console.log('run');
+        window.refreshIntervalId = setInterval(function() {
+
+          if(jQuery('.ief-entity-operations').length==0) {
+            clearInterval(window.refreshIntervalId);
+            window.refreshIntervalId = false;
+            // console.log('clear',jQuery('.ief-entity-operations').length);
+            jQuery('.js-ajax-loader').remove();
+          }
+          // else {
+          //   console.log('not clear',jQuery('.ief-entity-operations').length);
+          // }
+          
+          // console.log(new Date(jQuery.now()));
+
+        }, 2000);
+      }
+
 
       // Bind change events
       jQuery(document).on('change','[name="field_external_or_internal[und]"]',function(){
@@ -53,7 +100,7 @@ Drupal.behaviors.my_custom_module_behavior = {
         }
         visibilitySelectBoxes.trigger("chosen:updated");
         visibilitySelectBoxMain.trigger("chosen:updated");
-        //console.log(visibilitySelectBoxes.find('option:selected').text());
+        // console.log(visibilitySelectBoxes.find('option:selected').text());
       });
     }
 
