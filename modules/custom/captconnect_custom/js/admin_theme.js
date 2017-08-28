@@ -15,7 +15,6 @@
 Drupal.behaviors.my_custom_module_behavior = {
   attach: function(context, settings) {
     // #150454682: Implement checkbox group mirroring for all instances of "MassTAPP teams" on event creation form
-    // #150460582: Add mirroring to "group visibility dropdowns"
     if(($('body.page-node-add-event').length > 0) || ($('body.node-type-event.page-node-edit').length > 0)) {
 
       // add loader
@@ -31,18 +30,19 @@ Drupal.behaviors.my_custom_module_behavior = {
             'z-index': 100
         });
       }
-
-      $('[id*="edit-field-date-instance"], #edit-og-group-ref-und').find(':checkbox').change(function(){
+      // var checkboxesWrap = jQuery('[id*="edit-field-date-instance"] :checkbox, #edit-og-group-ref-und :checkbox');
+      $(document).on('change', '[class$="form-og-group-ref-und-0-default"] :checkbox, #edit-og-group-ref-und :checkbox', function(){
         var t = $(this),
             c = t.prop("checked"),
             val = t.attr('value'),
             p = $(this).closest('fieldset').attr('id');
+          // console.log(p);
         // console.log(t,c,val);
-        if(p == 'edit-og-group-ref-und') {
-          $('[id*="edit-field-date-instance"]').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
-        } else {
-          $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
-        }
+        // if(p == 'edit-og-group-ref-und') {
+        // } else {
+        // }
+        $('[class$="form-og-group-ref-und-0-default"]').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
+        $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
       });
 
       
@@ -84,6 +84,24 @@ Drupal.behaviors.my_custom_module_behavior = {
       }
 
 
+      // Bind init visibility
+      function checkGroupVisibility(groupVisiblity) {
+        if(!arguments.length) {
+          var groupVisiblity = jQuery('[name="field_external_or_internal[und]"]:checked').val();
+        }
+        if(groupVisiblity == 'internal') {
+          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').find(':checkbox').prop('checked', false);
+          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').show();
+        }
+        else {
+          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').find(':checkbox').prop('checked', true);
+          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').hide();          
+        }
+        // console.log(groupVisiblity);
+      }
+
+      checkGroupVisibility();
+
       // Bind change events
       jQuery(document).on('change','[name="field_external_or_internal[und]"]',function(){
         if(this.value == 'internal') {
@@ -91,12 +109,16 @@ Drupal.behaviors.my_custom_module_behavior = {
           visibilitySelectBoxes.find('option[value="2').prop('selected', 'selected');
           visibilitySelectBoxMain.find('option:selected').prop('selected', false);
           visibilitySelectBoxMain.find('option[value="2').prop('selected', 'selected');
+
+          checkGroupVisibility('internal');
         }
         else {
           visibilitySelectBoxes.find('option:selected').prop('selected', false);
           visibilitySelectBoxes.find('option[value="1').prop('selected', 'selected');
           visibilitySelectBoxMain.find('option:selected').prop('selected', false);
           visibilitySelectBoxMain.find('option[value="1').prop('selected', 'selected');
+
+          checkGroupVisibility('external');
         }
         visibilitySelectBoxes.trigger("chosen:updated");
         visibilitySelectBoxMain.trigger("chosen:updated");
