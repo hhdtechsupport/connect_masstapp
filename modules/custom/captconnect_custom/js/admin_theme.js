@@ -31,7 +31,8 @@ Drupal.behaviors.my_custom_module_behavior = {
         });
       }
       // var checkboxesWrap = jQuery('[id*="edit-field-date-instance"] :checkbox, #edit-og-group-ref-und :checkbox');
-      $(document).on('change', '[class$="form-og-group-ref-und-0-default"] :checkbox, #edit-og-group-ref-und :checkbox', function(){
+      // $(document).on('change', '[class$="form-og-group-ref-und-0-default"] :checkbox, #edit-og-group-ref-und :checkbox', function(){
+      $(document).on('change', '.field-name-og-group-ref :checkbox', function(){
         var t = $(this),
             c = t.prop("checked"),
             val = t.attr('value'),
@@ -41,8 +42,8 @@ Drupal.behaviors.my_custom_module_behavior = {
         // if(p == 'edit-og-group-ref-und') {
         // } else {
         // }
-        $('[class$="form-og-group-ref-und-0-default"]').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
-        $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
+        $('.field-name-og-group-ref').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
+        // $('#edit-og-group-ref-und').find($('input[type="checkbox"][value="'+val+'"]')).prop("checked", c );
       });
 
       
@@ -88,14 +89,24 @@ Drupal.behaviors.my_custom_module_behavior = {
       function checkGroupVisibility(groupVisiblity) {
         if(!arguments.length) {
           var groupVisiblity = jQuery('[name="field_external_or_internal[und]"]:checked').val();
-        }
-        if(groupVisiblity == 'internal') {
-          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').find(':checkbox').prop('checked', false);
-          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').show();
+          var groupVisiblityInit = true;
         }
         else {
-          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').find(':checkbox').prop('checked', true);
-          $('[class$="form-og-group-ref-und-0-default"], #edit-og-group-ref-und').hide();          
+          var groupVisiblityInit = false;
+        }
+        if(groupVisiblity == 'internal') {
+          if(!groupVisiblityInit) {
+            $('.field-name-og-group-ref').find(':checkbox').prop('checked', false);
+          }
+          $('.field-name-og-group-ref').show();
+          $('.field-name-og-group-ref').siblings('h3').show();
+        }
+        else {
+          if(!groupVisiblityInit) {
+            $('.field-name-og-group-ref').find(':checkbox').prop('checked', true);
+          }
+          $('.field-name-og-group-ref').hide();
+          $('.field-name-og-group-ref').siblings('h3').hide();
         }
         // console.log(groupVisiblity);
       }
