@@ -236,19 +236,19 @@
       echo l(t('Home'), '', array('attributes' => array('class' => array('about-link'))));
        ?>/
       <?php
-      echo l(t('About Us'), 'about-us', array('attributes' => array('class' => array('about-link'))));
+      echo l(t('About Us'), 'http://masstapp.edc.org/about-us', array('attributes' => array('class' => array('about-link'))));
        ?> /
        <?php
-      echo l(t('Prevention in MA '), 'prevention-ma', array('attributes' => array('class' => array('about-link'))));
+      echo l(t('Prevention in MA '), 'http://masstapp.edc.org/prevention-massachusetts', array('attributes' => array('class' => array('about-link'))));
        ?> /
        <?php
-      echo l(t('Prevention Tools '), 'prevention-tools', array('attributes' => array('class' => array('about-link'))));
+      echo l(t('Prevention Tools '), 'http://masstapp.edc.org/prevention-tools', array('attributes' => array('class' => array('about-link'))));
        ?>/
         <?php
-      echo l(t('Resource Library '), 'resource-library', array('attributes' => array('class' => array('about-link'))));
+      echo l(t('Resource Library '), 'http://masstapp.edc.org/resource-library', array('attributes' => array('class' => array('about-link'))));
        ?>/
         <?php
-      echo l(t('Funding Opportunities'), 'funding-opportunities', array('attributes' => array('class' => array('about-link'))));
+      echo l(t('Funding Opportunities'), 'http://masstapp.edc.org/funding-opportunities', array('attributes' => array('class' => array('about-link'))));
        ?>/
         <?php
       echo l(t('Events '), 'events', array('attributes' => array('class' => array('about-link'))));
