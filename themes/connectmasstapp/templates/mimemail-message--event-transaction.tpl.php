@@ -69,7 +69,7 @@
                                                 <tr>
                                                   <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                     <div align="center">
-                                                      <a shape="rect" href="http://dev.connect.masstapp.edc.org" alt="http://dev.connect.masstapp.edc.org" target="_blank">
+                                                      <a shape="rect" href="<?php //print $base_url; ?>" alt="<?php //print $base_url; ?>" target="_blank">
                                                         <img class="LogoImg" vspace="0" border="0" hspace="0" height="58" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
                                                       </a>
                                                     </div>
@@ -121,7 +121,7 @@
                                                         <tr>
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                             <div align="center">
-                                                              <a shape="rect" href="http://dev.connect.masstapp.edc.org" alt="http://dev.connect.masstapp.edc.org" target="_blank">
+                                                              <a shape="rect" href="<?php print $base_url; ?>" alt="<?php print $base_url; ?>" target="_blank">
                                                                 <img class="BannerImage" vspace="0" border="0" hspace="0" width="230" height="92" alt="MassTAPP" src="http://courses.edtechleaders.org/masstapp-temp/masstapp-logo.png">
                                                               </a>
                                                             </div>
@@ -195,7 +195,7 @@
                                         <tr>
                                           <td class="MailingText" valign="top" rowspan="1" colspan="1" align="center">
                                             <div>
-                                              <span style="font-size: 9pt !important;">Mailing Address: Education Development Center<br>43 Foundry Avenue, Waltham, MA 02453<br><a shape="rect" href="http://dev.connect.masstapp.edc.org/terms" linktype="1" alt="http://dev.connect.masstapp.edc.org/terms" target="_blank">Terms of Use</a> | <a shape="rect" href="http://www.samhsa.gov/privacy" linktype="1" alt="http://www.samhsa.gov/privacy" target="_blank">Privacy Policy</a></span>
+                                              <span style="font-size: 9pt !important;">Mailing Address: Education Development Center<br>43 Foundry Avenue, Waltham, MA 02453<br><a shape="rect" href="<?php print $base_url; ?>/terms" linktype="1" alt="<?php print $base_url; ?>/terms" target="_blank">Terms of Use</a> | <a shape="rect" href="http://www.samhsa.gov/privacy" linktype="1" alt="http://www.samhsa.gov/privacy" target="_blank">Privacy Policy</a></span>
                                             </div>
                                           </td>
                                         </tr>
