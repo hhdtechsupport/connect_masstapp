@@ -28,13 +28,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <?php if ($css): ?>
     <style type="text/css">
-      <!--
+
       <?php print $css ?>
-      -->
+
     </style>
     <?php endif; ?>
   </head>
-  <body id="mimemail-body" <?php if ($module && $key): print 'class="'. $module .'-'. $key .'"'; endif; ?>>
+  <body id="mimemail-body" <?php if ($module && $key): print 'class="'. $module .'-'. $key .'"'; endif; ?>
     <div id="rootDiv" class="[ics-class:value]">
       <div id="subRootDiv">
       <!--[if gte mso 9]>
@@ -42,10 +42,8 @@
           <v:fill type="tile" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"  color="#E2E1DE" />
         </v:background>
       <![endif]-->
-        <div class="OuterBGColor" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
-        align="center">
-          <table class="OuterBGColor" border="0" background="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png"
-            width="100%" cellspacing="0" cellpadding="0">
+        <div class="OuterBGColor" align="center">
+          <table class="OuterBGColor" border="0" width="100%" cellspacing="0" cellpadding="0">
             <tbody>
               <tr>
                 <td class="HideInMobile" rowspan="1" colspan="1">
@@ -57,7 +55,7 @@
                       <tbody>
                         <tr>
                           <td class="BodyPadding" valign="top" rowspan="1" colspan="1" align="center">
-                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                            <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                               <tbody>
                                 <tr>
                                   <td class="TopMargin" valign="top" width="100%" rowspan="1" colspan="1" align="center">
@@ -70,7 +68,7 @@
                                                 <tr>
                                                   <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                     <div align="center">
-                                                      <a shape="rect" href="<?php print $base_url; ?>" alt="<?php print $base_url; ?>" target="_blank">
+                                                      <a shape="rect" href="<?php //print $base_url; ?>" alt="<?php //print $base_url; ?>" target="_blank">
                                                         <img class="LogoImg" vspace="0" border="0" hspace="0" height="58" width="600" alt="U.S. Substance Abuse and Mental Health Services Administration's (SAMHSA's) Center for the Application of Prevention Technologies (CAPT)" src="https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/b590dce0-7a2e-46ad-b0b0-6935da492bbc.png">
                                                       </a>
                                                     </div>
@@ -81,8 +79,8 @@
                                           </td>
                                         </tr>
                                       </tbody>
-                                    </table>
-                                    <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                    </table>-->
+                                    <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                                       <tbody>
                                         <tr>
                                           <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
@@ -100,7 +98,7 @@
                                           </td>
                                         </tr>
                                       </tbody>
-                                    </table>
+                                    </table>-->
                                   </td>
                                 </tr>
                               </tbody>
@@ -113,11 +111,11 @@
                                       <tbody>
                                         <tr>
                                           <td class="EmailContainer" valign="top" width="100%" rowspan="1" colspan="1" align="center">
-                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <table border="0" width="100%" cellspacing="0" cellpadding="16">
                                               <tbody>
                                                 <tr>
                                                   <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
-                                                    <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="0" align="none">
+                                                    <table width="600" data-padding-converted="true" cellspacing="0" cellpadding="16" align="none">
                                                       <tbody>
                                                         <tr>
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
@@ -160,7 +158,7 @@
                                                 </tr>
                                               </tbody>
                                             </table>
-                                            <table border="0" width="100%" cellspacing="0" cellpadding="0">
+                                            <!--<table border="0" width="100%" cellspacing="0" cellpadding="0">
                                               <tbody>
                                                 <tr>
                                                   <td class="Image MainText" valign="top" rowspan="1" colspan="1" align="center">
@@ -178,7 +176,7 @@
                                                   </td>
                                                 </tr>
                                               </tbody>
-                                            </table>
+                                            </table>-->
                                           </td>
                                         </tr>
                                       </tbody>
