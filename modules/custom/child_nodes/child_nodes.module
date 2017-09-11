@@ -286,7 +286,7 @@ function child_nodes_form_alter(&$form, $form_state, $form_id) {
               // Container, but not multiple values.
               else {
                 if (!isset($form[$field][$lang]['#default_value'])) {
-                  dpm($form[$field], "$field huh?");
+                  // dpm($form[$field], "$field huh?");
                   break;
                 }
                 // If the value is set, then disable the field.

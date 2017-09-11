@@ -985,8 +985,8 @@ function _connect_custom_delete_redirect(&$form, &$form_state) {
 }
 
 function _connect_custom_instance_submit(&$form, &$form_state) {
-  dpm($form, __FUNCTION__.' form');
-  dpm($form_state, __FUNCTION__.' form_state');
+  // dpm($form, __FUNCTION__.' form');
+  // dpm($form_state, __FUNCTION__.' form_state');
 }
 
 /**
@@ -1979,10 +1979,10 @@ function connect_custom_nancy() {
   return $output;
 
   $output .= '</pre>'. print_r(og_get_entity_groups('user', $user, array(OG_STATE_ACTIVE)), TRUE) .'</pre>';
-  dpm(og_context_determine_context('node'), 'og_context_determine_context');
-  dpm(node_load(932), 'node 932');
+  // dpm(og_context_determine_context('node'), 'og_context_determine_context');
+  // dpm(node_load(932), 'node 932');
     $flag = flag_get_flag('registration');
-  dpm($flag, 'registration');
+  // dpm($flag, 'registration');
   return $output;
 
     $instance_nid = 2219;
@@ -2070,12 +2070,12 @@ function connect_custom_nancy() {
 
   return $output;
 
-  dpm($_GET, 'GET');
-  dpm($_SERVER, 'SERVER');
+  // dpm($_GET, 'GET');
+  // dpm($_SERVER, 'SERVER');
   $x = drupal_parse_url($_SERVER['REQUEST_URI']);
-  dpm($x, 'drupal_parse_url');
-  dpm(explode('/', $x['path']), 'path parts');
-  dpm(drupal_get_messages(NULL, FALSE), 'drupal_get_messages');
+  // dpm($x, 'drupal_parse_url');
+  // dpm(explode('/', $x['path']), 'path parts');
+  // dpm(drupal_get_messages(NULL, FALSE), 'drupal_get_messages');
 /*
   // Flush the schema cache.
   $schema = drupal_get_schema('connect_custom_anon_register', TRUE);

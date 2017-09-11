@@ -508,7 +508,7 @@ function connect_custom_anon_pending() {
       if (!isset($instance->field_date[LANGUAGE_NONE])) {
         drupal_set_message(t("Instance $row->nid did not load properly; perhaps
           it has already been deleted."));
-        dpm($instance, 'instance');
+        // dpm($instance, 'instance');
         continue;
       }
       $instance_date = strtotime($instance->field_date[LANGUAGE_NONE][0]['value']);

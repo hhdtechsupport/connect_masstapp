@@ -254,7 +254,7 @@ function flag_confirm_plus_form_flag_confirm_alter(&$form, &$form_state, $form_i
             break;
 
           default:
-            dpm($question->field_question_type[LANGUAGE_NONE][0]['value'], 'bad question type');
+            // dpm($question->field_question_type[LANGUAGE_NONE][0]['value'], 'bad question type');
         }
       }
     }

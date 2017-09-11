@@ -174,7 +174,7 @@ function entity_counts_entity_type_count() {
 
           default:
             drupal_set_message("Unhandled entity type: $entity_type.");
-            dpm($info, $entity_type.' info');
+            //dpm($info, $entity_type.' info');
             $bundle_counts = array(
               key($bundles) =>
               db_query("SELECT COUNT(*) FROM {" . $db_table . "}")->fetchField());
