@@ -137,7 +137,7 @@ function flag_notify_send_email($flag, $entity_id, $account, $flagging, $action)
   // Let's go ahead and do the tokens, because sometimes they screw up.
   $body = token_replace($data['body'], $args);
   $subject = token_replace($data['subject'], $args);
-  dpm($body, 'processed email body');
+  // dpm($body, 'processed email body');
 
   $rids = array_filter(variable_get('flag_notify_flag_roles_' . $flag->name, array()));
 
