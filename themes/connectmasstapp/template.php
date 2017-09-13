@@ -172,6 +172,10 @@ function connectmasstapp_preprocess_page(&$vars) {
       $vars['theme_hook_suggestion'] = 'page__prevention_planning';
     }
   }
+  $headers = drupal_get_http_header();
+  if (isset($headers['status']) && $headers['status'] == '403 Forbidden') {
+    $vars['theme_hook_suggestions'][] = 'page__403';
+  }
 }
 
 /**
