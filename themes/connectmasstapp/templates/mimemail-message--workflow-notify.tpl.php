@@ -121,7 +121,7 @@
                                                           <td class="tdWrapper" width="1%" rowspan="1" colspan="1">
                                                             <div align="center">
                                                               <a shape="rect" href="<?php print $base_url; ?>" alt="<?php print $base_url; ?>" target="_blank">
-                                                                <img class="BannerImage" vspace="0" border="0" hspace="0" width="230" height="92" alt="MassTAPP" src="http://courses.edtechleaders.org/masstapp-temp/masstapp-logo.png">
+                                                                <img class="BannerImage" vspace="10px" border="0" hspace="0" width="326" alt="MassTAPP" src="http://courses.edtechleaders.org/masstapp-temp/masstapp-logo.png">
                                                               </a>
                                                             </div>
                                                           </td>
