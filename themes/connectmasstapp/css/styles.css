@@ -263,21 +263,26 @@
   padding-left: 70px;
 }
 
-/* line 174, ../sass/components/_misc.scss */
-.flag.confirm.registration .field-name-field-registrant-address > .content, .flag.confirm.registration .field-name-field-registrant-address > .saver, .flag.confirm.registration .field-name-field-registrant-address > .editor {
+/* line 175, ../sass/components/_misc.scss */
+.flag.confirm.registration .field-name-field-registrant-address > .content, .flag.confirm.registration .field-name-field-registrant-address > .saver, .flag.confirm.registration .field-name-field-registrant-address > .editor,
+.flag.confirm.registration .field-name-field-mailing-address > .content,
+.flag.confirm.registration .field-name-field-mailing-address > .saver,
+.flag.confirm.registration .field-name-field-mailing-address > .editor {
   display: none;
 }
-/* line 177, ../sass/components/_misc.scss */
-.flag.confirm.registration .field-name-field-registrant-address fieldset.location {
+/* line 178, ../sass/components/_misc.scss */
+.flag.confirm.registration .field-name-field-registrant-address fieldset.location,
+.flag.confirm.registration .field-name-field-mailing-address fieldset.location {
   border: none;
   padding: 0;
 }
-/* line 180, ../sass/components/_misc.scss */
-.flag.confirm.registration .field-name-field-registrant-address fieldset.location legend {
+/* line 181, ../sass/components/_misc.scss */
+.flag.confirm.registration .field-name-field-registrant-address fieldset.location legend,
+.flag.confirm.registration .field-name-field-mailing-address fieldset.location legend {
   display: none;
 }
 
-/* line 187, ../sass/components/_misc.scss */
+/* line 188, ../sass/components/_misc.scss */
 .page-403 .content_403 {
   padding: 0 30px;
 }

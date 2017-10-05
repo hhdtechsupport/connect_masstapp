@@ -170,7 +170,8 @@
 }
 // #147519047: Event Registration form: "City State/Province Country" repeated
 .flag.confirm.registration {
-  .field-name-field-registrant-address {
+  .field-name-field-registrant-address,
+  .field-name-field-mailing-address {
     > .content, > .saver, > .editor {
       display: none;
     }
