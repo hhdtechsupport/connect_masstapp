@@ -31,6 +31,12 @@ function location_cck_theme() {
         'instance' => NULL,
       ),
     ),
+    'location_cck_field_single' => array(
+      'variables' => array(
+        'locations' => NULL,
+        'settings' => NULL,
+      ),
+    ),
   );
 }
 
@@ -349,6 +355,11 @@ function location_cck_field_formatter_info() {
       'label' => t('Multiple field values on a single map'),
       'field types' => array('location'),
     );
+    $info['location_individual_field'] = array(
+      'label' => t('Individual field'),
+      'field types' => array('location'),
+      'settings' => array('field_to_display' => 'latitude'),
+    );
   }
 
   return $info;
@@ -404,10 +415,57 @@ function location_cck_field_formatter_view($entity_type, $entity, $field, $insta
       $element[0]['#field'] = $field;
       $element[0]['#instance'] = $instance;
       break;
+
+      case 'location_individual_field':
+      foreach ($items as $delta => $item) {
+        if (!empty($item['lid']) || !empty($entity->in_preview)) {
+          $element[$delta]['#theme'] = 'location_cck_field_single';
+          $element[$delta]['#locations'] = array($item);
+          $element[$delta]['#settings'] = $display['settings'];
+        }
+      }
+      break;
   }
 
   return $element;
 }
+
+
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function location_cck_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  
+  $element = array();
+  
+  if ($display['type'] == 'location_individual_field') {
+    $individual_options = array(
+        'name'       => t('Name'),
+        'street'     => t('Street'),
+        'additional' => t('Additional'),
+        'city'       => t('City'),
+        'province'   => t('Province'),
+        'postal_code'=> t('Postal code'),
+        'country'    => t('Country'),
+        'longitude'  => t('Longitude'),
+        'latitude'   => t('Latitude'),
+    );
+    $element['field_to_display'] = array(
+      '#type'           => 'select',
+      '#title'          => t('Field to display'),
+      '#description'    => t('Select which part of the location field to display'),
+      '#default_value'  => $settings['field_to_display'],              // Get the value if it's already been set
+      '#options'        => $individual_options,
+    );
+  }
+  
+  return $element;
+}
+
+
 
 /**
  * Implements hook_field_widget_info().
@@ -506,6 +564,17 @@ function theme_location_cck_field_all($variables) {
     )
   );
 
+  return $content;
+}
+
+/**
+ * Return a single part of a location field.
+ */
+function theme_location_cck_field_single($variables) {
+  $content = "";
+  foreach ($variables['locations'] as $location) {
+    $content = $location[$variables['settings']['field_to_display']];
+  }
   return $content;
 }
 
