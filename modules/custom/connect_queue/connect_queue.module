@@ -1,0 +1,646 @@
+<?php
+/**
+ * @file
+ * Email queueing code for Connect sites.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function connect_queue_menu() {
+  $items = array();
+
+  $items['scheduled-emails'] = array(
+    'title' => 'Scheduled Emails',
+    'page callback' => 'connect_queue_view_scheduled_emails',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'main-menu',
+    );
+
+  $items['user/%user/scheduled_emails'] = array(
+    'title' => 'Scheduled Emails',
+    'page callback' => 'connect_queue_view_my_scheduled_emails',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+    'type' => MENU_LOCAL_TASK,
+    'menu_name' => 'main-menu',
+    );
+
+  $items['scheduled-email/delete'] = array(
+    'title' => 'Scheduled Emails',
+    'page callback' => 'connect_queue_delete_scheduled_emails',
+    'page arguments' => array(2),
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+    );
+
+  return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function connect_queue_block_info() {
+  return array(
+    'send_event_notification' => array('info' => t('Connect: Send Notification'), 'cache' => DRUPAL_NO_CACHE),
+    );
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function connect_queue_block_view($delta) {
+  global $user;
+  $block = array('subject' => '');
+  $output = '';
+
+  switch ($delta) {
+    case 'send_event_notification':
+      $block['content'] = connect_queue_send_notification_view();
+      break;
+  }
+
+  return $block;
+}
+
+/**
+ * block_view(send_event_notification).
+ */
+function connect_queue_send_notification_view() {
+  global $user;
+  $output = '';
+
+  $form = drupal_get_form('connect_queue_event_notification_form');
+  $output .= drupal_render($form);
+
+  return $output;
+}
+
+/**
+ * Event Reminder Form.
+ */
+function connect_queue_event_notification_form($form, &$form_state) {
+  global $user;
+  // Make sure we have all the fields.
+  $user = user_load($user->uid);
+
+  $form['connect_queue_event_notification_type'] = array(
+    '#type' => 'radios',
+    '#options' => array(
+      'announcement' => t('Announcement'),
+      'reminder' => t('Reminder'),
+      'followup' => t('Follow-up'),
+      ),
+    '#title' => t('Notification Type'),
+    '#required' => TRUE,
+    '#attributes' => array('class' => array('container-inline')),
+    );
+
+  $event = menu_get_object();
+  $dates = array();
+  foreach ($event->field_date_instance[LANGUAGE_NONE] as $target) {
+    $dates[] = $target['target_id'];
+  }
+  $instances = entity_load('node', $dates);
+  $form['#date_instances'] = $instances;
+  $date_options = array();
+  $info = field_info_field('field_meeting_type');
+
+  // If only one instance, set as default.
+  $default_nid = NULL;
+  if (count($instances) == 1) {
+    $default_nid = key($instances);
+  }
+  $form['#reg_counts'] = array();
+
+  foreach ($instances as $nid => $instance) {
+    $type = $info['settings']['allowed_values'][$instance->field_meeting_type[LANGUAGE_NONE][0]['value']];
+    $registrations = db_query("SELECT COUNT(*) FROM {flagging} WHERE fid = 2 AND entity_id = :nid",
+      array(':nid' => $nid))->fetchField(0);
+    $date_options[$nid] = t('(@type)', array('@type' => $type))
+      . ' ' . $instance->title
+      . ' (' . $registrations . ')';
+    // See if the default instance needs to be changed.
+    $start = strtotime($instance->field_date[LANGUAGE_NONE][0]['value'] . ' UTC');
+    $form['#reg_counts'][$nid] = $registrations;
+  }
+
+  $form['connect_queue_event_notification_date'] = array(
+    '#type' => 'radios',
+    '#options' => $date_options,
+    '#title' => t('Date instance'),
+    '#default_value' => $default_nid,
+    '#required' => TRUE,
+    '#description' => '(' . t('# registered') . ')',
+    );
+
+  $form['connect_queue_event_notification_registrants'] = array(
+    '#type' => 'radios',
+    '#options' => array(t('No'), t('Yes')),
+    '#title' => t('Include registrants'),
+    '#default_value' => 1,
+    '#description' => t('This will only include the registrants for the selected date.'),
+    '#attributes' => array('class' => array('container-inline')),
+    );
+
+  $form['lists'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Mailing list'),
+    '#collapsible' => TRUE,
+    '#collapsed' => TRUE,
+    '#description' => '(' . t('# subscribers') . ')',
+    );
+
+  $ml_voc = taxonomy_vocabulary_machine_name_load('lists');
+  $query = db_select('taxonomy_term_data', 'td')
+    ->condition('td.vid', $ml_voc->vid);
+  $query->innerJoin('field_data_field_mailing_list_subscribers', 'su', 'su.entity_id = td.tid');
+  // Check the "Include in Event Notifications" flag.
+  $query->innerJoin('field_data_field_include_in_event_notificat', 'inc', 'inc.entity_id = td.tid');
+  $query->condition('inc.field_include_in_event_notificat_value', '1');
+
+  // Check if this user is in a group that can use the list.
+  $query->leftJoin('field_data_field_groups_that_can_use_the_li', 'lg', "lg.entity_id = td.tid AND lg.bundle = 'lists'");
+  $query->condition('lg.field_groups_that_can_use_the_li_target_id', array_column($user->og_user_node[LANGUAGE_NONE], 'target_id'), 'IN');
+
+  $query->addField('td', 'tid');
+  $query->addExpression("CONCAT(td.name, ' (', COUNT(*), ')')", 'name');
+  $query->groupBy('td.tid');
+  $query->orderBy('td.name');
+  $lists = $query->execute()->fetchAllKeyed();
+
+  $form['lists']['connect_queue_event_notification_list'] = array(
+    '#type' => 'checkboxes',
+    '#options' => $lists,
+    );
+
+  $form['connect_queue_event_notification_user'] = array(
+    '#type' => 'textfield',
+    '#maxlength' => 1024,
+    '#title' => t('Other recipients, separated by commas or semicolons'),
+    '#description' => t('The resulting list of recipients will not contain duplicate email addresses.'),
+    );
+
+  $form['connect_queue_event_notification_immediate'] = array(
+    '#type' => 'radios',
+    '#options' => array(1 => t('Yes'), 0 => t('No')),
+    '#title' => t('Send immediately'),
+    '#default_value' => 1,
+    '#attributes' => array('class' => array('container-inline')),
+    );
+
+  $format = 'Y-M-d h:i a';
+  // Types 'date_popup', 'date_text', 'date_timezone' are also supported.
+  $form['connect_queue_event_notification_queue_until'] = array(
+    '#type' => 'date_popup',
+    '#title' => t('Queue send until'),
+    '#default_value' => REQUEST_TIME,
+    '#date_format' => $format,
+    '#date_label_position' => 'none',
+    '#date_increment' => 15,
+    '#date_year_range' => '0:+1',
+    '#datepicker_options' => array(),
+    '#chosen' => FALSE,
+    '#states' => array(
+      'visible' => array(
+        ':input[name="connect_queue_event_notification_immediate"]' => array('value' => 0),
+        ),
+      )
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Send notification'),
+    );
+
+  $form['#validate'] = array('connect_queue_event_notification_form_validation');
+  $form['#submit'] = array('connect_queue_event_notification_form_submit');
+
+  return $form;
+}
+
+/**
+ * Event Reminder Form validation handler.
+ */
+function connect_queue_event_notification_form_validation($form, &$form_state) {
+//  dpm($form_state['values'], __FUNCTION__);
+  // Do they want to send it to the registrants and
+  // does that instance have any registrants?
+  if ($form_state['values']['connect_queue_event_notification_registrants'] == 1
+  && $form['#reg_counts'][$form_state['values']['connect_queue_event_notification_date']] > 0) {
+    // Okay.
+    return;
+  }
+
+  // Not going to registrants or there are none.
+  $lists = array_filter($form_state['values']['connect_queue_event_notification_list']);
+  if (empty($form_state['values']['connect_queue_event_notification_user'])
+  && empty($lists)) {
+    form_set_error('connect_queue_event_notification_user',
+      t('You have not selected any recipients'));
+  }
+}
+
+/**
+ * Event Reminder Form submission handler.
+ */
+function connect_queue_event_notification_form_submit($form, &$form_state) {
+  global $user;
+//  dpm($form_state['values'], __FUNCTION__);
+  // Save current timezone.
+  $timezone = date_default_timezone_get();
+  // Switch timezone to UTC for date calcs.
+//  date_default_timezone_set('UTC');
+
+  $instances = $form['#date_instances'];
+  $addresses = array();
+  $instance = $instances[$form_state['values']['connect_queue_event_notification_date']];
+
+  $type = $form_state['values']['connect_queue_event_notification_type'];
+
+  if ($form_state['values']['connect_queue_event_notification_queue_until']) {
+    $queue = strtotime($form_state['values']['connect_queue_event_notification_queue_until'] . ' UTC');
+  }
+  else {
+    $queue = FALSE;
+  }
+
+  if ($form_state['values']['connect_queue_event_notification_registrants'] == 1) {
+    $flag = flag_get_flag('registration');
+    $query = "SELECT u.mail FROM {flagging} f INNER JOIN {users} u ON u.uid = f.uid "
+      . "WHERE f.fid = :fid AND f.entity_id = :nid AND f.entity_type = 'node' ";
+    $registrants = db_query($query,
+      array(
+        ':nid' => $instance->nid,
+        ':fid' => $flag->fid,
+        ))
+      ->fetchCol();
+    $addresses += $registrants;
+  }
+
+  if (!empty($form_state['values']['connect_queue_event_notification_user'])) {
+    if (strpos($form_state['values']['connect_queue_event_notification_user'], ',') === FALSE) {
+      $extra = explode(';', $form_state['values']['connect_queue_event_notification_user']);
+    }
+    else {
+      $extra = explode(',', $form_state['values']['connect_queue_event_notification_user']);
+    }
+    $addresses = array_merge($addresses, $extra);
+  }
+
+  if (!empty($form_state['values']['connect_queue_event_notification_list'])) {
+    $lists = array_filter($form_state['values']['connect_queue_event_notification_list']);
+    foreach ($lists as $list) {
+      $term = taxonomy_term_load($list);
+      // Are there any subscribers?
+      if (isset($term->field_mailing_list_subscribers[LANGUAGE_NONE][0])) {
+        $subs = array();
+        foreach($term->field_mailing_list_subscribers[LANGUAGE_NONE] as $target) {
+          $subs[] = $target['target_id'];
+        }
+        $mails = db_query("SELECT name FROM {taxonomy_term_data} WHERE tid IN (:tids) ", array(':tids' => $subs))
+          ->fetchCol();
+        $addresses = array_merge($addresses, $mails);
+      }
+    }
+  }
+
+  $addresses = array_unique($addresses);
+
+  $event = menu_get_object();
+  $notifications = node_load($event->field_related_notifications[LANGUAGE_NONE][0]['target_id']);
+
+  // Set up the basic data record.
+  // Reminders and followups belong to the Date instance.
+  // Still have to add field value.
+  $data = array(
+    'entity_type' => 'node',
+    'bundle' => $instance->type,
+    'deleted' => 0,
+    'entity_id' => $instance->nid,
+    'revision_id' => $instance->vid,
+    'language' => LANGUAGE_NONE,
+    'delta' => 0,
+    );
+
+  // Do stuff based on which type of notification.
+  switch ($type) {
+    case 'followup':
+      $key = 'mimemail_event-transaction';
+      $message = node_load($notifications->field_event_followup[LANGUAGE_NONE][0]['target_id']);
+      $field = 'field_date_followup_sent';
+      break;
+
+    case 'reminder':
+      $key = 'mimemail_transaction-extra';
+      $message = node_load($notifications->field_event_reminder[LANGUAGE_NONE][0]['target_id']);
+      $field = 'field_date_reminder_sent';
+      break;
+
+    case 'announcement':
+      $key = 'mimemail_transaction';
+      $message = node_load($notifications->field_event_announcement[LANGUAGE_NONE][0]['target_id']);
+      $field = 'field_date_announcement_sent';
+      break;
+  }
+
+  $email_body = $message->field_email_body[LANGUAGE_NONE][0]['safe_value'];
+  $email_subject = $message->field_email_subject[LANGUAGE_NONE][0]['safe_value'];
+
+  // For some reason, the template may have the related events field misspelled.
+  // And there is apparently duplicate naming of the instance node.
+  // Note: For queueing, we save the "fixed" body, not the original.
+  $token_fixes = array(
+    '[node:field-related-event:' => '[node:field-related-events:',
+    '[instance:' => '[node:',
+    '[flagged-node:' => '[node:',
+    );
+  $email_body = strtr($email_body, $token_fixes);
+  $email_subject = strtr($email_subject, $token_fixes);
+
+  // We can do everything now if we are not queueing.
+  // Otherwise, we have to write the info to the DB.
+  if ($queue) {
+    // We want to save stuff for later.
+    $queue_record = array(
+      'uid' => $user->uid,
+      'nid' => $data['entity_id'],
+      'notification' => $type,
+      'email_key' => $key,
+      'send_time' => date('Y-m-d H:i:s', $queue),
+      'email_body' => $email_body,
+      'email_subject' => $email_subject,
+      'recipients' => $addresses,
+      );
+    drupal_write_record('connect_email_queue', $queue_record);
+  }
+  else {
+    $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+    $token_args = array(
+      'user' => $user,
+      'node' => $instance,
+      'instance' => $instance,
+      'flagged-node' => $instance,
+      'event' => $event,
+      );
+    $token_opts = array('sanitize' => TRUE, 'clear' => TRUE);
+
+    $body = token_replace($email_body, $token_args, $token_opts);
+    // Run token_replace again for views embedding, in case needed.
+    $body = token_replace($body, $token_args, $token_opts);
+
+    $subject = token_replace($email_subject, $token_args, $token_opts);
+
+    $params = array(
+      'body' => $body,
+      'subject' => $subject,
+      );
+
+    drupal_mail('connect_queue',
+      $key,
+      implode(';', $addresses),
+      language_default(),
+      $params);
+
+    // Delete the email sent date, if there is one.
+    $table = 'field_data_' . $field;
+    db_delete($table)
+      ->condition('entity_id', $data['entity_id'])
+      ->execute();
+
+    $data[$field . '_value'] = REQUEST_TIME;
+
+    drupal_write_record($table, $data);
+
+    // Clear the node cache so the updated data shows up.
+    entity_get_controller('node')->resetCache(array($data['entity_id']));
+
+    watchdog ('connect_queue', '@name sent a @type notification for "@instance."<br />@who',
+      array(
+        '@name' => format_username($user),
+        '@type' => $type,
+        '@instance' => $instance->title,
+        '@who' => implode(', ', $addresses),
+        ),
+      WATCHDOG_INFO, l(t('view event'), '/node/' . $event->nid));
+  }
+
+  // Restore original time zone.
+  date_default_timezone_set($timezone);
+}
+
+/**
+ * Implements hook_mail();
+ * Build email messages.
+ */
+function connect_queue_mail($key, &$message, $params) {
+  $message['send'] = TRUE;
+  $message['body'][] = '<div class="'. drupal_html_class($key) .'">';
+
+  // This ID triggers Mimemail to format nicely.
+  $message['id'] = $key;
+  $message['subject'] = $params['subject'];
+  $message['body'][] = $params['body'];
+
+  $message['body'][] = '</div>';
+}
+
+/**
+ * Implements hook_cron().
+ */
+function connect_queue_cron() {
+  // See if there are any scheduled emails and send them if time to do so.
+  connect_queue_send_scheduled_emails();
+
+  return;
+}
+
+/**
+ * See if any scheduled emails are ready to go.
+ */
+function connect_queue_send_scheduled_emails() {
+  $results = db_query("SELECT * FROM {connect_email_queue} WHERE send_time <= NOW() ");
+  foreach ($results as $row) {
+    // Load whichever node is appropriate for the tokens.
+    $instance = node_load($row->nid);
+    $account = user_load($row->uid);
+    $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+    $token_args = array(
+      'user' => $account,
+      'node' => $instance,
+      'instance' => $instance,
+      'flagged-node' => $instance,
+      'event' => $event,
+      );
+    $token_opts = array('sanitize' => TRUE, 'clear' => TRUE);
+
+    $body = token_replace($row->email_body, $token_args, $token_opts);
+    // Run token_replace again for views embedding, in case needed.
+    $body = token_replace($body, $token_args, $token_opts);
+
+    $subject = token_replace($row->email_subject, $token_args, $token_opts);
+
+    $addresses = unserialize($row->recipients);
+
+    $params = array(
+      'body' => $body,
+      'subject' => $subject,
+      );
+
+    drupal_mail('connect_queue',
+      $row->email_key,
+      implode(';', $addresses),
+      language_default(),
+      $params);
+
+    // Update date_sent field.
+    switch ($row->notification) {
+      case 'followup':
+        $field = 'field_date_followup_sent';
+        break;
+
+      case 'reminder':
+        $field = 'field_date_reminder_sent';
+        break;
+
+      case 'announcement':
+        $field = 'field_date_announcement_sent';
+        break;
+    }
+
+    // Set up the basic data record.
+    // Still have to add field value.
+    $data = array(
+      'entity_type' => 'node',
+      'bundle' => $instance->type,
+      'deleted' => 0,
+      'entity_id' => $instance->nid,
+      'revision_id' => $instance->vid,
+      'language' => LANGUAGE_NONE,
+      'delta' => 0,
+      );
+
+    // Delete the email sent date, if there is one.
+    $table = 'field_data_' . $field;
+    db_delete($table)
+      ->condition('entity_id', $data['entity_id'])
+      ->execute();
+
+    $data[$field . '_value'] = REQUEST_TIME;
+
+    drupal_write_record($table, $data);
+
+    // Clear the node cache so the updated data shows up.
+    entity_get_controller('node')->resetCache(array($data['entity_id']));
+
+    watchdog ('connect_queue', '@name sent a delayed @type notification for "@instance."<br />@who',
+      array(
+        '@name' => format_username($account),
+        '@type' => $row->notification,
+        '@instance' => $instance->title,
+        '@who' => implode(', ', $addresses),
+        ),
+      WATCHDOG_INFO, l(t('view event'), '/node/' . $event->nid));
+
+    // Remove item from table.
+    $num_deleted = db_delete('connect_email_queue')
+      ->condition('id', $row->id)
+      ->execute();
+  }
+  return;
+}
+
+/**
+ * Display my scheduled emails.
+ */
+function connect_queue_view_my_scheduled_emails($account) {
+  drupal_set_title(user_page_title($account));
+  return connect_queue_view_scheduled_emails($account);
+}
+
+/**
+ * Display all scheduled emails.
+ */
+function connect_queue_view_scheduled_emails($account = NULL) {
+  $table = array(
+    'rows' => array(),
+    'empty' => t(''),
+    'header' => array(
+      array('data' => t('Scheduled Time'), 'field' => 'send_time', 'sort' => 'asc'),
+      array('data' => t('User'), 'field' => 'realname'),
+      array('data' => t('Type'), 'field' => 'notification'),
+      t('Event'),
+      t('Recipients'),
+      t('Operations'),
+      ),
+    'empty' => t("I'm sorry, but I couldn't find any."),
+    );
+
+  $date_format = 'long_time';
+
+  $query = db_select('connect_email_queue', 'mq')
+    ->extend('TableSort')
+    ->orderByHeader($table['header'])
+    ->fields('mq', array('id', 'uid', 'nid', 'notification', 'email_key', 'send_time', 'email_body', 'email_subject', 'recipients'))
+    ;
+  $query->innerJoin('realname', 'rn', 'rn.uid = mq.uid');
+  $query->addField('rn', 'realname');
+
+  // Allow "My scheduled emails".
+  if ($account) {
+    $query->condition('mq.uid', $account->uid);
+  }
+
+//  dpq($query);
+  $results = $query->execute();
+  foreach ($results as $row) {
+    $time = strtotime($row->send_time);
+
+    switch ($row->notification) {
+      case 'announcement':
+      case 'reminder':
+      case 'followup':
+        $instance = node_load($row->nid);
+        $event = node_load($instance->field_related_events[LANGUAGE_NONE][0]['target_id']);
+        break;
+
+      default:
+        drupal_set_message(t('Oops, I do not understand "@what".', array('@what' => $row->notification)));
+    }
+
+    $link_query = drupal_get_destination()
+      + array('token' => drupal_get_token('scheduled email ' . $row->id));
+    $table['rows'][] = array(
+      format_date($time, $date_format),      // Put a class for past/future?
+      l($row->realname, '/user/' . $row->uid),
+      check_plain(ucwords($row->notification)),
+      l($event->title, '/node/' . $event->nid),
+      count(unserialize($row->recipients)),
+      l(t('Delete'), '/scheduled-email/delete/' . $row->id,
+        array('query' => $link_query)),
+      );
+  }
+
+  $output = theme('table', $table);
+
+  return $output;
+}
+
+/**
+ * Delete scheduled email.
+ */
+function connect_queue_delete_scheduled_emails($id) {
+  // To make sure it's valid, we look for a token value.
+  if (isset($_GET['token'])
+  && (drupal_valid_token($_GET['token'], "scheduled email $id"))) {
+    db_delete('connect_email_queue')
+      ->condition('id', $id)
+      ->execute();
+    drupal_set_message(t('Email removed from schedule.'));
+  }
+  else {
+    drupal_set_message(t('Invalid token specified.'), 'error');
+  }
+  drupal_goto();
+}

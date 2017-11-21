@@ -1,0 +1,143 @@
+<?php
+/**
+ * @file
+ * Update functions for Connect sites.
+ */
+
+function connect_queue_schema() {
+  $schema['connect_email_queue'] = connect_queue_queue_table();
+
+  return $schema;
+}
+
+function connect_queue_queue_table() {
+  return array(
+    'description' => 'Connect Queue for Delayed Email',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The row identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        ),
+      'uid' => array(
+        'description' => 'The user identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      'nid' => array(
+        'description' => 'The token-supplying node identifier.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        ),
+      'notification' => array(
+        'description' => 'Notification type.',
+        'type' => 'varchar',
+        'length' => 16,
+        'not null' => TRUE,
+        ),
+      'email_key' => array(
+        'description' => 'Email key.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        ),
+      'send_time' => array(
+        'description' => 'Time to send the email.',
+        'type' => 'datetime',
+        'mysql_type' => 'datetime',
+        'not null' => TRUE,
+        ),
+      'email_subject' => array(
+        'description' => 'Subject text for email.',
+        'type' => 'varchar',
+        'length' => 1024,
+        'not null' => TRUE,
+        ),
+      'email_body' => array(
+        'description' => 'Body text for email.',
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => TRUE,
+        ),
+      'recipients' => array(
+        'description' => 'The recipients for the email.',
+        'type' => 'text',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'serialized default' => 'a:0:{}',
+        ),
+      ),
+    'primary key' => array('id'),
+    'indexes' => array(
+      'uid' => array('uid'),
+      'nid' => array('nid'),
+      'queue' => array('uid', 'nid', 'notification'),
+      ),
+    );
+}
+
+/**
+ * Rename CAPTconnect_blocks variables.
+ */
+function connect_queue_update_7000() {
+  $x = variable_get('captconnect_queue_date_instances_participate', 1);
+  variable_set('connect_queue_date_instances_participate', $x);
+  $x = variable_get('captconnect_queue_date_instances_show_ended', 1);
+  variable_set('connect_queue_date_instances_show_ended', $x);
+}
+
+/**
+ * Add Connect_email_queue table.
+ */
+function connect_queue_update_7001() {
+  if (!db_table_exists('connect_email_queue')) {
+    db_create_table('connect_email_queue', connect_queue_queue_table());
+  }
+}
+
+/**
+ * Rename columns to avoid reserved words.
+ */
+function connect_queue_update_7002() {
+  if (db_field_exists('connect_email_queue', 'type')) {
+    db_drop_index('connect_email_queue', 'queue');
+
+    db_change_field('connect_email_queue', 'type', 'notification', array(
+      'description' => 'Notification type.',
+      'type' => 'varchar',
+      'length' => 16,
+      'not null' => TRUE,
+      ));
+
+    db_add_index('connect_email_queue', 'queue', array('uid', 'nid', 'notification'));
+  }
+
+  if (db_field_exists('connect_email_queue', 'key')) {
+    db_change_field('connect_email_queue', 'key', 'email_key', array(
+      'description' => 'Email key.',
+      'type' => 'varchar',
+      'length' => 64,
+      'not null' => TRUE,
+      ));
+  }
+}
+
+/**
+ * Add recipient column.
+ */
+function connect_queue_update_7003() {
+  if (!db_field_exists('connect_email_queue', 'recipients')) {
+    db_add_field('connect_email_queue', 'recipients', array(
+      'description' => 'The recipients for the email.',
+      'type' => 'text',
+      'not null' => TRUE,
+      'serialize' => TRUE,
+      'serialized default' => 'a:0:{}',
+      ));
+  }
+}
