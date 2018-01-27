@@ -15,7 +15,14 @@ body {
   /*background-image: url(https://mlsvc01-prod.s3.amazonaws.com/4746e1d9401/37df6fba-b775-41f3-b9c4-9241d5818eb3.png);
   background-repeat: repeat;*/
 }
-
+// add extra top padding to logo for PCs
+.tdWrapper a {
+  border-top: 40px solid white;
+}
+// prevent content from being aligned on the right on PCs
+table.OuterBGColor  td.HideInMobile {
+     display: none;
+ }
 table.OuterBGColor {
   margin-left: auto;
   margin-right: auto;
